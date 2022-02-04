@@ -334,6 +334,51 @@ To mitigate this, the odata.type parameter is now set only in instances where we
 2. When one of its base types is referenced as the type for a property in another type (except if the base is entity).
 3. When one of its base types is referenced as the type in an odata action in another type (except if the base is entity).
 
+### Query options are now encoded by default.
+
+In version 3 of the SDK, query parameters were not encoded by default which caused unwarranted errors with the API endpoint (see https://github.com/microsoftgraph/msgraph-sdk-dotnet-core/issues/248 ,#700 , #914). In version 4 of the SDK query parameters are now encoded by default thus making the following workaround unnecessary.
+
+```cs
+client.Users[adUserIdOrEmail].MailFolders.Inbox .Messages.Request().Filter('contains(subject, '%23')')
+```
+
+Thus one can simply make a call as so.
+```cs
+client.Users[adUserIdOrEmail].MailFolders.Inbox .Messages.Request().Filter('contains(subject, '#')')
+```
+
+Since the url encoding is done individually in each query option for proper url building, combining query options may lead to errors.
+For example, a query like below will need to be refactored into its distinct query options.
+
+```cs
+var groups = await _graphServiceClient
+                .Me
+                .TransitiveMemberOf
+                .Request()
+                .Header("ConsistencyLevel", "eventual")
+                .Filter($"id eq '{groupId}'&$count=true") // This combines the $filter and $count
+                .Select("id")
+                .GetAsync();
+```
+
+To be as follows
+
+```cs
+var options = new List<QueryOption>
+{
+        new QueryOption("$count", "true")
+};
+
+var groups = await _graphServiceClient
+                    .Me
+                    .TransitiveMemberOf                                
+                    .Request(options)
+                    .Header("ConsistencyLevel", "eventual")
+                    .Filter($"id eq '{_permissionsOptions.SuperAdminsGroupId}'")// only filter clause.
+                    .Select("id")
+                    .GetAsync();
+```
+
 ## Remarks about this guide
 
 This guide is written to be as exhaustive as possible, it is possible that we forgot to mention some breaking changes. If you experience breaking changes in your upgrade process that are not already listed in this guide, please open an issue or a pull request to add any information that might be missing.
