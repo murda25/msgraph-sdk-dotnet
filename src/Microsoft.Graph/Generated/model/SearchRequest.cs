@@ -78,6 +78,20 @@ namespace Microsoft.Graph
         public SearchQuery Query { get; set; }
     
         /// <summary>
+        /// Gets or sets queryAlterationOptions.
+        /// Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.
+        /// </summary>
+        [JsonPropertyName("queryAlterationOptions")]
+        public SearchAlterationOptions QueryAlterationOptions { get; set; }
+    
+        /// <summary>
+        /// Gets or sets resultTemplateOptions.
+        /// Provides the search result templates options for rendering connectors search results.
+        /// </summary>
+        [JsonPropertyName("resultTemplateOptions")]
+        public ResultTemplateOption ResultTemplateOptions { get; set; }
+    
+        /// <summary>
         /// Gets or sets size.
         /// The size of the page to be retrieved. Optional.
         /// </summary>
