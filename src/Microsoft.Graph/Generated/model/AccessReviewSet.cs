@@ -34,6 +34,20 @@ namespace Microsoft.Graph
         [JsonConverter(typeof(NextLinkConverter))]
         public string DefinitionsNextLink { get; set; }
     
+        /// <summary>
+        /// Gets or sets history definitions.
+        /// Represents a collection of access review history data and the scopes used to collect that data.
+        /// </summary>
+        [JsonPropertyName("historyDefinitions")]
+        public IAccessReviewSetHistoryDefinitionsCollectionPage HistoryDefinitions { get; set; }
+
+        /// <summary>
+        /// Gets or sets historyDefinitionsNextLink.
+        /// </summary>
+        [JsonPropertyName("historyDefinitions@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string HistoryDefinitionsNextLink { get; set; }
+    
     }
 }
 

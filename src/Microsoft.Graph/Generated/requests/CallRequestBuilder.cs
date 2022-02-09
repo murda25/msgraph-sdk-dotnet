@@ -111,7 +111,8 @@ namespace Microsoft.Graph
             string callbackUri,
             MediaConfig mediaConfig,
             IEnumerable<Modality> acceptedModalities = null,
-            Int32? participantCapacity = null)
+            Int32? participantCapacity = null,
+            IncomingCallOptions callOptions = null)
         {
             return new CallAnswerRequestBuilder(
                 this.AppendSegmentToRequestUrl("microsoft.graph.answer"),
@@ -119,7 +120,8 @@ namespace Microsoft.Graph
                 callbackUri,
                 mediaConfig,
                 acceptedModalities,
-                participantCapacity);
+                participantCapacity,
+                callOptions);
         }
 
         /// <summary>
