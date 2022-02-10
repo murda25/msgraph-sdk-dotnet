@@ -29,6 +29,20 @@ namespace Microsoft.Graph
         public IEnumerable<SearchHitsContainer> HitsContainers { get; set; }
     
         /// <summary>
+        /// Gets or sets queryAlterationResponse.
+        /// Provides details of query alteration response for spelling correction.
+        /// </summary>
+        [JsonPropertyName("queryAlterationResponse")]
+        public AlterationResponse QueryAlterationResponse { get; set; }
+    
+        /// <summary>
+        /// Gets or sets resultTemplates.
+        /// A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
+        /// </summary>
+        [JsonPropertyName("resultTemplates")]
+        public ResultTemplateDictionary ResultTemplates { get; set; }
+    
+        /// <summary>
         /// Gets or sets searchTerms.
         /// Contains the search terms sent in the initial search query.
         /// </summary>
