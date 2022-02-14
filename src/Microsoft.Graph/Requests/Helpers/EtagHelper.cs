@@ -6,6 +6,7 @@ namespace Microsoft.Graph
 {
     using System;
     using System.Text.Json;
+    using Microsoft.Graph.Models.Microsoft.Graph;
 
     /// <summary>
     /// Helper class to extract @odata.etag property and to specify If-Match headers for requests.
