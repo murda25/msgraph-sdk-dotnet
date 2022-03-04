@@ -51,7 +51,7 @@ namespace MicrosoftGraphSdk.Chats.Item.Tabs {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get tabs from chats
+        /// A collection of all the tabs in the chat. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace MicrosoftGraphSdk.Chats.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tabs for chats
+        /// A collection of all the tabs in the chat. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace MicrosoftGraphSdk.Chats.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// Get tabs from chats
+        /// A collection of all the tabs in the chat. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace MicrosoftGraphSdk.Chats.Item.Tabs {
         /// </summary>
         public async Task<TabsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TabsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<TabsResponse>(requestInfo, TabsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to tabs for chats
+        /// A collection of all the tabs in the chat. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace MicrosoftGraphSdk.Chats.Item.Tabs {
         public async Task<TeamsTab> PostAsync(TeamsTab body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, TeamsTab.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
-        /// <summary>Get tabs from chats</summary>
+        /// <summary>A collection of all the tabs in the chat. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

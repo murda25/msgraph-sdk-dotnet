@@ -71,7 +71,7 @@ namespace MicrosoftGraphSdk.Me.ReminderViewWithStartDateTimeWithEndDateTime {
         /// </summary>
         public async Task<IEnumerable<Reminder>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<Reminder>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<Reminder>(requestInfo, Reminder.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
     }
 }

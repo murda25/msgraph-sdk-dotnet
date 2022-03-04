@@ -26,7 +26,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// <summary>Free-form notes that the user has taken about this person.</summary>
         public string PersonNotes { get; set; }
         /// <summary>The type of person.</summary>
-        public PersonType PersonType { get; set; }
+        public MicrosoftGraphSdk.Models.Microsoft.Graph.PersonType PersonType { get; set; }
         /// <summary>The person's phone numbers.</summary>
         public List<Phone> Phones { get; set; }
         /// <summary>The person's addresses.</summary>
@@ -44,6 +44,14 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// <summary>The phonetic Japanese name of the person's company.</summary>
         public string YomiCompany { get; set; }
         /// <summary>
+        /// Creates a new instance of the appropriate class based on discriminator value
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+        /// </summary>
+        public static new Person CreateFromDiscriminatorValue(IParseNode parseNode) {
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            return new Person();
+        }
+        /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
@@ -58,14 +66,14 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
                 {"jobTitle", (o,n) => { (o as Person).JobTitle = n.GetStringValue(); } },
                 {"officeLocation", (o,n) => { (o as Person).OfficeLocation = n.GetStringValue(); } },
                 {"personNotes", (o,n) => { (o as Person).PersonNotes = n.GetStringValue(); } },
-                {"personType", (o,n) => { (o as Person).PersonType = n.GetObjectValue<PersonType>(); } },
-                {"phones", (o,n) => { (o as Person).Phones = n.GetCollectionOfObjectValues<Phone>().ToList(); } },
-                {"postalAddresses", (o,n) => { (o as Person).PostalAddresses = n.GetCollectionOfObjectValues<Location>().ToList(); } },
+                {"personType", (o,n) => { (o as Person).PersonType = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.PersonType>(MicrosoftGraphSdk.Models.Microsoft.Graph.PersonType.CreateFromDiscriminatorValue); } },
+                {"phones", (o,n) => { (o as Person).Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue).ToList(); } },
+                {"postalAddresses", (o,n) => { (o as Person).PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue).ToList(); } },
                 {"profession", (o,n) => { (o as Person).Profession = n.GetStringValue(); } },
-                {"scoredEmailAddresses", (o,n) => { (o as Person).ScoredEmailAddresses = n.GetCollectionOfObjectValues<ScoredEmailAddress>().ToList(); } },
+                {"scoredEmailAddresses", (o,n) => { (o as Person).ScoredEmailAddresses = n.GetCollectionOfObjectValues<ScoredEmailAddress>(ScoredEmailAddress.CreateFromDiscriminatorValue).ToList(); } },
                 {"surname", (o,n) => { (o as Person).Surname = n.GetStringValue(); } },
                 {"userPrincipalName", (o,n) => { (o as Person).UserPrincipalName = n.GetStringValue(); } },
-                {"websites", (o,n) => { (o as Person).Websites = n.GetCollectionOfObjectValues<Website>().ToList(); } },
+                {"websites", (o,n) => { (o as Person).Websites = n.GetCollectionOfObjectValues<Website>(Website.CreateFromDiscriminatorValue).ToList(); } },
                 {"yomiCompany", (o,n) => { (o as Person).YomiCompany = n.GetStringValue(); } },
             };
         }
@@ -86,7 +94,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("officeLocation", OfficeLocation);
             writer.WriteStringValue("personNotes", PersonNotes);
-            writer.WriteObjectValue<PersonType>("personType", PersonType);
+            writer.WriteObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.PersonType>("personType", PersonType);
             writer.WriteCollectionOfObjectValues<Phone>("phones", Phones);
             writer.WriteCollectionOfObjectValues<Location>("postalAddresses", PostalAddresses);
             writer.WriteStringValue("profession", Profession);

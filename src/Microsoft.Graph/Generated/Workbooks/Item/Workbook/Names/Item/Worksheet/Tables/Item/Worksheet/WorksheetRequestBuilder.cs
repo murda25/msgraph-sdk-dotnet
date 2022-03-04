@@ -133,7 +133,7 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.
         /// </summary>
         public async Task<WorkbookWorksheet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, WorkbookWorksheet.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.

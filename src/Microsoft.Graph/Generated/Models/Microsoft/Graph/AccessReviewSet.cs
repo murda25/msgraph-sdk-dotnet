@@ -10,12 +10,20 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// <summary>Represents a collection of access review history data and the scopes used to collect that data.</summary>
         public List<AccessReviewHistoryDefinition> HistoryDefinitions { get; set; }
         /// <summary>
+        /// Creates a new instance of the appropriate class based on discriminator value
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+        /// </summary>
+        public static new AccessReviewSet CreateFromDiscriminatorValue(IParseNode parseNode) {
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            return new AccessReviewSet();
+        }
+        /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"definitions", (o,n) => { (o as AccessReviewSet).Definitions = n.GetCollectionOfObjectValues<AccessReviewScheduleDefinition>().ToList(); } },
-                {"historyDefinitions", (o,n) => { (o as AccessReviewSet).HistoryDefinitions = n.GetCollectionOfObjectValues<AccessReviewHistoryDefinition>().ToList(); } },
+                {"definitions", (o,n) => { (o as AccessReviewSet).Definitions = n.GetCollectionOfObjectValues<AccessReviewScheduleDefinition>(AccessReviewScheduleDefinition.CreateFromDiscriminatorValue).ToList(); } },
+                {"historyDefinitions", (o,n) => { (o as AccessReviewSet).HistoryDefinitions = n.GetCollectionOfObjectValues<AccessReviewHistoryDefinition>(AccessReviewHistoryDefinition.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

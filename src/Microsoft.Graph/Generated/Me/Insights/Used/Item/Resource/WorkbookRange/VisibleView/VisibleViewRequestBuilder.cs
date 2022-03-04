@@ -67,7 +67,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRange.Visible
         /// </summary>
         public async Task<VisibleViewResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<VisibleViewResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<VisibleViewResponse>(requestInfo, VisibleViewResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRangeView</summary>
         public class VisibleViewResponse : IParsable {
@@ -81,12 +81,16 @@ namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRange.Visible
             public VisibleViewResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static VisibleViewResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new VisibleViewResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRangeView", (o,n) => { (o as VisibleViewResponse).WorkbookRangeView = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRangeView>(); } },
+                    {"workbookRangeView", (o,n) => { (o as VisibleViewResponse).WorkbookRangeView = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRangeView>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRangeView.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

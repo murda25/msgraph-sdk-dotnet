@@ -23,13 +23,13 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.Item.
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// <param name="width">Usage: width={width}</param>
         /// </summary>
-        public ImageWithWidthWithHeightWithFittingModeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, int? width = default, int? height = default, string fittingMode = default) {
+        public ImageWithWidthWithHeightWithFittingModeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, int? height = default, int? width = default, string fittingMode = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/charts/{workbookChart_id}/microsoft.graph.image(width={width},height={height},fittingMode='{fittingMode}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("width", width);
             urlTplParams.Add("height", height);
+            urlTplParams.Add("width", width);
             urlTplParams.Add("fittingMode", fittingMode);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;

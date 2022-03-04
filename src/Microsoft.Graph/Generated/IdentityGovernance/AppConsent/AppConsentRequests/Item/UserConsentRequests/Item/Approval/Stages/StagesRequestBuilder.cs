@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Ite
         /// </summary>
         public async Task<StagesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<StagesResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<StagesResponse>(requestInfo, StagesResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of stages in the approval decision.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Ite
         public async Task<ApprovalStage> PostAsync(ApprovalStage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ApprovalStage>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<ApprovalStage>(requestInfo, ApprovalStage.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>A collection of stages in the approval decision.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.Users.Item.JoinedTeams {
         /// </summary>
         public async Task<JoinedTeamsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<JoinedTeamsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<JoinedTeamsResponse>(requestInfo, JoinedTeamsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.Users.Item.JoinedTeams {
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Team> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Team>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Team.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>The Microsoft Teams teams that the user is a member of. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

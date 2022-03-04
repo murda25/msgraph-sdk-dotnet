@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.GroupSettings {
         /// </summary>
         public async Task<GroupSettingsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSettingsResponse>(requestInfo, GroupSettingsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to groupSettings
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.GroupSettings {
         public async Task<GroupSetting> PostAsync(GroupSetting body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from groupSettings</summary>
         public class GetQueryParameters : QueryParametersBase {

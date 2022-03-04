@@ -126,7 +126,7 @@ namespace MicrosoftGraphSdk.Sites.Item.TermStores.Item {
         /// </summary>
         public async Task<Store> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Store>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<Store>(requestInfo, Store.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of termStores under this site.

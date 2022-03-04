@@ -67,7 +67,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item.LastSharedMethod.WorkbookRan
         /// </summary>
         public async Task<LastCellResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<LastCellResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<LastCellResponse>(requestInfo, LastCellResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class LastCellResponse : IParsable {
@@ -81,12 +81,16 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item.LastSharedMethod.WorkbookRan
             public LastCellResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static LastCellResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new LastCellResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as LastCellResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as LastCellResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

@@ -67,7 +67,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRan
         /// </summary>
         public async Task<RowsAboveResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RowsAboveResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<RowsAboveResponse>(requestInfo, RowsAboveResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class RowsAboveResponse : IParsable {
@@ -81,12 +81,16 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRan
             public RowsAboveResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static RowsAboveResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new RowsAboveResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as RowsAboveResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as RowsAboveResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

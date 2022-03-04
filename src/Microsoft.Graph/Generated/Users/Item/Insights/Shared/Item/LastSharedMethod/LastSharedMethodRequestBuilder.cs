@@ -130,7 +130,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod {
         /// </summary>
         public async Task<Entity> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Entity>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<Entity>(requestInfo, Entity.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Get lastSharedMethod from users</summary>
         public class GetQueryParameters : QueryParametersBase {

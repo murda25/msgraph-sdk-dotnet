@@ -6,7 +6,7 @@ using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageAssignmentRequest : Entity, IParsable {
         /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.</summary>
-        public AccessPackage AccessPackage { get; set; }
+        public MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage AccessPackage { get; set; }
         /// <summary>For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.</summary>
         public AccessPackageAssignment Assignment { get; set; }
         /// <summary>The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
@@ -24,17 +24,25 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// <summary>More information on the request processing status. Read-only.</summary>
         public string Status { get; set; }
         /// <summary>
+        /// Creates a new instance of the appropriate class based on discriminator value
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+        /// </summary>
+        public static new AccessPackageAssignmentRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            return new AccessPackageAssignmentRequest();
+        }
+        /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"accessPackage", (o,n) => { (o as AccessPackageAssignmentRequest).AccessPackage = n.GetObjectValue<AccessPackage>(); } },
-                {"assignment", (o,n) => { (o as AccessPackageAssignmentRequest).Assignment = n.GetObjectValue<AccessPackageAssignment>(); } },
+                {"accessPackage", (o,n) => { (o as AccessPackageAssignmentRequest).AccessPackage = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage>(MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"assignment", (o,n) => { (o as AccessPackageAssignmentRequest).Assignment = n.GetObjectValue<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue); } },
                 {"completedDateTime", (o,n) => { (o as AccessPackageAssignmentRequest).CompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdDateTime", (o,n) => { (o as AccessPackageAssignmentRequest).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestor", (o,n) => { (o as AccessPackageAssignmentRequest).Requestor = n.GetObjectValue<AccessPackageSubject>(); } },
+                {"requestor", (o,n) => { (o as AccessPackageAssignmentRequest).Requestor = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
                 {"requestType", (o,n) => { (o as AccessPackageAssignmentRequest).RequestType = n.GetEnumValue<AccessPackageRequestType>(); } },
-                {"schedule", (o,n) => { (o as AccessPackageAssignmentRequest).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(); } },
+                {"schedule", (o,n) => { (o as AccessPackageAssignmentRequest).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
                 {"state", (o,n) => { (o as AccessPackageAssignmentRequest).State = n.GetEnumValue<AccessPackageRequestState>(); } },
                 {"status", (o,n) => { (o as AccessPackageAssignmentRequest).Status = n.GetStringValue(); } },
             };
@@ -46,7 +54,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AccessPackage>("accessPackage", AccessPackage);
+            writer.WriteObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage>("accessPackage", AccessPackage);
             writer.WriteObjectValue<AccessPackageAssignment>("assignment", Assignment);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);

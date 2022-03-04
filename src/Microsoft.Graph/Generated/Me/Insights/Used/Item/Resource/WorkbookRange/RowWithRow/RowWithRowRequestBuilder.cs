@@ -69,7 +69,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRange.RowWith
         /// </summary>
         public async Task<RowWithRowResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RowWithRowResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<RowWithRowResponse>(requestInfo, RowWithRowResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class RowWithRowResponse : IParsable {
@@ -83,12 +83,16 @@ namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRange.RowWith
             public RowWithRowResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static RowWithRowResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new RowWithRowResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as RowWithRowResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as RowWithRowResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

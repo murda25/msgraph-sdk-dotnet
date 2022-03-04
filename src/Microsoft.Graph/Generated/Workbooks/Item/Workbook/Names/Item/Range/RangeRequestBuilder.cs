@@ -67,7 +67,7 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Names.Item.Range {
         /// </summary>
         public async Task<RangeResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RangeResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<RangeResponse>(requestInfo, RangeResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class RangeResponse : IParsable {
@@ -81,12 +81,16 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Names.Item.Range {
             public RangeResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static RangeResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new RangeResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as RangeResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as RangeResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

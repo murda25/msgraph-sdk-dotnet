@@ -23,13 +23,13 @@ namespace MicrosoftGraphSdk.Reports.GetUserArchivedPrintJobsWithUserIdWithStartD
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
         /// <param name="userId">Usage: userId={userId}</param>
         /// </summary>
-        public GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string userId = default, DateTimeOffset? startDateTime = default, DateTimeOffset? endDateTime = default) {
+        public GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, DateTimeOffset? startDateTime = default, string userId = default, DateTimeOffset? endDateTime = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/reports/microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime={startDateTime},endDateTime={endDateTime})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("userId", userId);
             urlTplParams.Add("startDateTime", startDateTime);
+            urlTplParams.Add("userId", userId);
             urlTplParams.Add("endDateTime", endDateTime);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -72,7 +72,7 @@ namespace MicrosoftGraphSdk.Reports.GetUserArchivedPrintJobsWithUserIdWithStartD
         /// </summary>
         public async Task<IEnumerable<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime>(requestInfo, GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
     }
 }

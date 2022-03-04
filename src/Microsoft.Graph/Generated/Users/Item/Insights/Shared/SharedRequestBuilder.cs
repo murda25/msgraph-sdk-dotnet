@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared {
         /// </summary>
         public async Task<SharedResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SharedResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<SharedResponse>(requestInfo, SharedResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared {
         public async Task<SharedInsight> PostAsync(SharedInsight body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<SharedInsight>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<SharedInsight>(requestInfo, SharedInsight.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -106,7 +106,7 @@ namespace MicrosoftGraphSdk.Teams.Item.Channels {
         /// </summary>
         public async Task<ChannelsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ChannelsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<ChannelsResponse>(requestInfo, ChannelsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of channels and messages associated with the team.
@@ -119,7 +119,7 @@ namespace MicrosoftGraphSdk.Teams.Item.Channels {
         public async Task<Channel> PostAsync(Channel body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Channel>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<Channel>(requestInfo, Channel.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of channels and messages associated with the team.</summary>
         public class GetQueryParameters : QueryParametersBase {

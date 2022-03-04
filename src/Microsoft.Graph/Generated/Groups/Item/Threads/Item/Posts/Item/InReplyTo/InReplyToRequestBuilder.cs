@@ -126,7 +126,7 @@ namespace MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
         /// </summary>
         public async Task<Post> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Post>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<Post>(requestInfo, Post.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Supports $expand.

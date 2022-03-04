@@ -72,7 +72,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.Resource.PrintJob.Re
         public async Task<RedirectResponse> PostAsync(RedirectRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<RedirectResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<RedirectResponse>(requestInfo, RedirectResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes printJob</summary>
         public class RedirectResponse : IParsable {
@@ -86,12 +86,16 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.Resource.PrintJob.Re
             public RedirectResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static RedirectResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new RedirectResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"printJob", (o,n) => { (o as RedirectResponse).PrintJob = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.PrintJob>(); } },
+                    {"printJob", (o,n) => { (o as RedirectResponse).PrintJob = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.PrintJob>(MicrosoftGraphSdk.Models.Microsoft.Graph.PrintJob.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

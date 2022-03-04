@@ -71,7 +71,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Trending.Item.Resource.WorkbookRange.Res
         /// </summary>
         public async Task<ResizedRangeWithDeltaRowsWithDeltaColumnsResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ResizedRangeWithDeltaRowsWithDeltaColumnsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<ResizedRangeWithDeltaRowsWithDeltaColumnsResponse>(requestInfo, ResizedRangeWithDeltaRowsWithDeltaColumnsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class ResizedRangeWithDeltaRowsWithDeltaColumnsResponse : IParsable {
@@ -85,12 +85,16 @@ namespace MicrosoftGraphSdk.Me.Insights.Trending.Item.Resource.WorkbookRange.Res
             public ResizedRangeWithDeltaRowsWithDeltaColumnsResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static ResizedRangeWithDeltaRowsWithDeltaColumnsResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new ResizedRangeWithDeltaRowsWithDeltaColumnsResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as ResizedRangeWithDeltaRowsWithDeltaColumnsResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as ResizedRangeWithDeltaRowsWithDeltaColumnsResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>
