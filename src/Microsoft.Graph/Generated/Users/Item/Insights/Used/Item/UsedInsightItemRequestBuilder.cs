@@ -122,7 +122,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Used.Item {
         /// </summary>
         public async Task<UsedInsight> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UsedInsight>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<UsedInsight>(requestInfo, UsedInsight.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.

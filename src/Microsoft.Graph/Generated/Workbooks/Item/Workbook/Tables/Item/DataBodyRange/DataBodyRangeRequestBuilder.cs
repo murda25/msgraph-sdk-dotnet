@@ -67,7 +67,7 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Tables.Item.DataBodyRange {
         /// </summary>
         public async Task<DataBodyRangeResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<DataBodyRangeResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<DataBodyRangeResponse>(requestInfo, DataBodyRangeResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class DataBodyRangeResponse : IParsable {
@@ -81,12 +81,16 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Workbook.Tables.Item.DataBodyRange {
             public DataBodyRangeResponse() {
                 AdditionalData = new Dictionary<string, object>();
             }
+            public static DataBodyRangeResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                return new DataBodyRangeResponse();
+            }
             /// <summary>
             /// The deserialization information for the current model
             /// </summary>
             public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
                 return new Dictionary<string, Action<T, IParseNode>> {
-                    {"workbookRange", (o,n) => { (o as DataBodyRangeResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(); } },
+                    {"workbookRange", (o,n) => { (o as DataBodyRangeResponse).WorkbookRange = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange>(MicrosoftGraphSdk.Models.Microsoft.Graph.WorkbookRange.CreateFromDiscriminatorValue); } },
                 };
             }
             /// <summary>

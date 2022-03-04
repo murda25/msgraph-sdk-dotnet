@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
         /// </summary>
         public async Task<CatalogsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CatalogsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<CatalogsResponse>(requestInfo, CatalogsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a group of access packages.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
         public async Task<AccessPackageCatalog> PostAsync(AccessPackageCatalog body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, AccessPackageCatalog.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents a group of access packages.</summary>
         public class GetQueryParameters : QueryParametersBase {

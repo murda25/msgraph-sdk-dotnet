@@ -66,7 +66,7 @@ namespace MicrosoftGraphSdk.Shares.Item.ListItem.GetActivitiesByInterval {
         /// </summary>
         public async Task<IEnumerable<GetActivitiesByInterval>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GetActivitiesByInterval>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GetActivitiesByInterval>(requestInfo, GetActivitiesByInterval.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
     }
 }

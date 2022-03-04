@@ -23,14 +23,14 @@ namespace MicrosoftGraphSdk.Sites.Item.Lists.Item.Items.Item.GetActivitiesByInte
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
         /// </summary>
-        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string startDateTime = default, string endDateTime = default, string interval = default) {
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string startDateTime = default, string interval = default, string endDateTime = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/sites/{site_id}/lists/{list_id}/items/{listItem_id}/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("startDateTime", startDateTime);
-            urlTplParams.Add("endDateTime", endDateTime);
             urlTplParams.Add("interval", interval);
+            urlTplParams.Add("endDateTime", endDateTime);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -72,7 +72,7 @@ namespace MicrosoftGraphSdk.Sites.Item.Lists.Item.Items.Item.GetActivitiesByInte
         /// </summary>
         public async Task<IEnumerable<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>(requestInfo, GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
     }
 }

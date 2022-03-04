@@ -78,7 +78,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentR
         /// </summary>
         public async Task<AccessPackageSubject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, AccessPackageSubject.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

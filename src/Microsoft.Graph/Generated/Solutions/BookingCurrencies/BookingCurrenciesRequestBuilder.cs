@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.Solutions.BookingCurrencies {
         /// </summary>
         public async Task<BookingCurrenciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<BookingCurrenciesResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<BookingCurrenciesResponse>(requestInfo, BookingCurrenciesResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to bookingCurrencies for solutions
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.Solutions.BookingCurrencies {
         public async Task<BookingCurrency> PostAsync(BookingCurrency body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<BookingCurrency>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<BookingCurrency>(requestInfo, BookingCurrency.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Get bookingCurrencies from solutions</summary>
         public class GetQueryParameters : QueryParametersBase {

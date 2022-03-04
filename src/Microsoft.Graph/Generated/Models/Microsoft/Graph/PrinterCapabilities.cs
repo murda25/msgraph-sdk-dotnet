@@ -64,6 +64,14 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
+        /// Creates a new instance of the appropriate class based on discriminator value
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+        /// </summary>
+        public static PrinterCapabilities CreateFromDiscriminatorValue(IParseNode parseNode) {
+            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            return new PrinterCapabilities();
+        }
+        /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
@@ -72,7 +80,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
                 {"collation", (o,n) => { (o as PrinterCapabilities).Collation = n.GetBoolValue(); } },
                 {"colorModes", (o,n) => { (o as PrinterCapabilities).ColorModes = n.GetCollectionOfEnumValues<PrintColorMode>().ToList(); } },
                 {"contentTypes", (o,n) => { (o as PrinterCapabilities).ContentTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"copiesPerJob", (o,n) => { (o as PrinterCapabilities).CopiesPerJob = n.GetObjectValue<IntegerRange>(); } },
+                {"copiesPerJob", (o,n) => { (o as PrinterCapabilities).CopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
                 {"dpis", (o,n) => { (o as PrinterCapabilities).Dpis = n.GetCollectionOfPrimitiveValues<int?>().ToList(); } },
                 {"duplexModes", (o,n) => { (o as PrinterCapabilities).DuplexModes = n.GetCollectionOfEnumValues<PrintDuplexMode>().ToList(); } },
                 {"feedOrientations", (o,n) => { (o as PrinterCapabilities).FeedOrientations = n.GetCollectionOfEnumValues<PrinterFeedOrientation>().ToList(); } },

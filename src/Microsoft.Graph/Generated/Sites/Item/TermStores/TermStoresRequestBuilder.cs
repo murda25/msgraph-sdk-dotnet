@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.Sites.Item.TermStores {
         /// </summary>
         public async Task<TermStoresResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TermStoresResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<TermStoresResponse>(requestInfo, TermStoresResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of termStores under this site.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.Sites.Item.TermStores {
         public async Task<Store> PostAsync(Store body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Store>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<Store>(requestInfo, Store.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of termStores under this site.</summary>
         public class GetQueryParameters : QueryParametersBase {

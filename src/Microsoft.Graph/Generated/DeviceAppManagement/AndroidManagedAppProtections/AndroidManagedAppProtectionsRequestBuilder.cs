@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.DeviceAppManagement.AndroidManagedAppProtections {
         /// </summary>
         public async Task<AndroidManagedAppProtectionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AndroidManagedAppProtectionsResponse>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<AndroidManagedAppProtectionsResponse>(requestInfo, AndroidManagedAppProtectionsResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Android managed app policies.
@@ -112,7 +112,7 @@ namespace MicrosoftGraphSdk.DeviceAppManagement.AndroidManagedAppProtections {
         public async Task<AndroidManagedAppProtection> PostAsync(AndroidManagedAppProtection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AndroidManagedAppProtection>(requestInfo, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<AndroidManagedAppProtection>(requestInfo, AndroidManagedAppProtection.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
         /// <summary>Android managed app policies.</summary>
         public class GetQueryParameters : QueryParametersBase {
