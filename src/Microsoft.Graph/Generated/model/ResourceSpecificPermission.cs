@@ -15,46 +15,46 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type SecureScoreControlStateUpdate.
+    /// The type ResourceSpecificPermission.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<SecureScoreControlStateUpdate>))]
-    public partial class SecureScoreControlStateUpdate
+    [JsonConverter(typeof(DerivedTypeConverter<ResourceSpecificPermission>))]
+    public partial class ResourceSpecificPermission
     {
 
         /// <summary>
-        /// Gets or sets assignedTo.
-        /// Assigns the control to the user who will take the action.
+        /// Gets or sets description.
+        /// Describes the level of access that the resource-specific permission represents.
         /// </summary>
-        [JsonPropertyName("assignedTo")]
-        public string AssignedTo { get; set; }
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
     
         /// <summary>
-        /// Gets or sets comment.
-        /// Provides optional comment about the control.
+        /// Gets or sets displayName.
+        /// The display name for the resource-specific permission.
         /// </summary>
-        [JsonPropertyName("comment")]
-        public string Comment { get; set; }
+        [JsonPropertyName("displayName")]
+        public string DisplayName { get; set; }
     
         /// <summary>
-        /// Gets or sets state.
-        /// State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+        /// Gets or sets id.
+        /// The unique identifier for the resource-specific application permission.
         /// </summary>
-        [JsonPropertyName("state")]
-        public string State { get; set; }
+        [JsonPropertyName("id")]
+        public Guid? Id { get; set; }
     
         /// <summary>
-        /// Gets or sets updatedBy.
-        /// ID of the user who updated tenant state.
+        /// Gets or sets isEnabled.
+        /// Indicates whether the permission is enabled.
         /// </summary>
-        [JsonPropertyName("updatedBy")]
-        public string UpdatedBy { get; set; }
+        [JsonPropertyName("isEnabled")]
+        public bool? IsEnabled { get; set; }
     
         /// <summary>
-        /// Gets or sets updatedDateTime.
-        /// Time at which the control state was updated.
+        /// Gets or sets value.
+        /// The value of the permission.
         /// </summary>
-        [JsonPropertyName("updatedDateTime")]
-        public DateTimeOffset? UpdatedDateTime { get; set; }
+        [JsonPropertyName("value")]
+        public string Value { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.
