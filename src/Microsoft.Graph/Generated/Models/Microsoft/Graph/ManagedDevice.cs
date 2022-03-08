@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class ManagedDevice : Entity, IParsable {
         /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
         public string ActivationLockBypassCode { get; set; }

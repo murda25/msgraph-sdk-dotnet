@@ -1,6 +1,12 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.Extensions;
+using MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.MemberOf;
+using MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners;
+using MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredUsers;
+using MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.TransitiveMemberOf;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,12 +14,27 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device {
-    /// <summary>Builds and executes requests for operations under \me\authentication\microsoftAuthenticatorMethods\{microsoftAuthenticatorAuthenticationMethod-id}\device</summary>
+    /// <summary>Provides operations to manage the device property of the microsoft.graph.microsoftAuthenticatorAuthenticationMethod entity.</summary>
     public class DeviceRequestBuilder {
+        public ExtensionsRequestBuilder Extensions { get =>
+            new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public MemberOfRequestBuilder MemberOf { get =>
+            new MemberOfRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public RegisteredOwnersRequestBuilder RegisteredOwners { get =>
+            new RegisteredOwnersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public RegisteredUsersRequestBuilder RegisteredUsers { get =>
+            new RegisteredUsersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
+            new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -44,7 +65,7 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+        /// Delete navigation property device for me
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -80,7 +101,7 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
             return requestInfo;
         }
         /// <summary>
-        /// The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+        /// Update the navigation property device in me
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +119,7 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
             return requestInfo;
         }
         /// <summary>
-        /// The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+        /// Delete navigation property device for me
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +127,11 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
@@ -118,10 +143,14 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
         /// </summary>
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Device> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Device>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Device.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Device>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+        /// Update the navigation property device in me
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -131,7 +160,11 @@ namespace MicrosoftGraphSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item
         public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.</summary>
         public class GetQueryParameters : QueryParametersBase {

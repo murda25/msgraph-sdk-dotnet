@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetYammerActivityUserDetailWithPeriod {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityUserDetail(period='{period}')</summary>
+    /// <summary>Provides operations to call the getYammerActivityUserDetail method.</summary>
     public class GetYammerActivityUserDetailWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -19,7 +19,7 @@ namespace MicrosoftGraphSdk.Reports.GetYammerActivityUserDetailWithPeriod {
         /// <summary>
         /// Instantiates a new GetYammerActivityUserDetailWithPeriodRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
-        /// <param name="period">Usage: period={period}</param>
+        /// <param name="period">Usage: period='{period}'</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
         public GetYammerActivityUserDetailWithPeriodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = default) {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to call the instantiate method.</summary>
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled { get; set; }
@@ -77,6 +78,8 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string PreferredTokenSigningKeyThumbprint { get; set; }
         /// <summary>The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.</summary>
         public List<string> ReplyUrls { get; set; }
+        /// <summary>The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.</summary>
+        public List<ResourceSpecificPermission> ResourceSpecificApplicationPermissions { get; set; }
         /// <summary>The collection for settings related to saml single sign-on.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.SamlSingleSignOnSettings SamlSingleSignOnSettings { get; set; }
         /// <summary>Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).</summary>
@@ -143,6 +146,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
                 {"preferredSingleSignOnMode", (o,n) => { (o as ServicePrincipal).PreferredSingleSignOnMode = n.GetStringValue(); } },
                 {"preferredTokenSigningKeyThumbprint", (o,n) => { (o as ServicePrincipal).PreferredTokenSigningKeyThumbprint = n.GetStringValue(); } },
                 {"replyUrls", (o,n) => { (o as ServicePrincipal).ReplyUrls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"resourceSpecificApplicationPermissions", (o,n) => { (o as ServicePrincipal).ResourceSpecificApplicationPermissions = n.GetCollectionOfObjectValues<ResourceSpecificPermission>(ResourceSpecificPermission.CreateFromDiscriminatorValue).ToList(); } },
                 {"samlSingleSignOnSettings", (o,n) => { (o as ServicePrincipal).SamlSingleSignOnSettings = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.SamlSingleSignOnSettings>(MicrosoftGraphSdk.Models.Microsoft.Graph.SamlSingleSignOnSettings.CreateFromDiscriminatorValue); } },
                 {"servicePrincipalNames", (o,n) => { (o as ServicePrincipal).ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"servicePrincipalType", (o,n) => { (o as ServicePrincipal).ServicePrincipalType = n.GetStringValue(); } },
@@ -197,6 +201,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             writer.WriteStringValue("preferredSingleSignOnMode", PreferredSingleSignOnMode);
             writer.WriteStringValue("preferredTokenSigningKeyThumbprint", PreferredTokenSigningKeyThumbprint);
             writer.WriteCollectionOfPrimitiveValues<string>("replyUrls", ReplyUrls);
+            writer.WriteCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", ResourceSpecificApplicationPermissions);
             writer.WriteObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.SamlSingleSignOnSettings>("samlSingleSignOnSettings", SamlSingleSignOnSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalNames", ServicePrincipalNames);
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);

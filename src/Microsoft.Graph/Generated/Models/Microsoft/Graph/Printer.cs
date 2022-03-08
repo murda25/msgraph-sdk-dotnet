@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the print singleton.</summary>
     public class Printer : PrinterBase, IParsable {
         /// <summary>The connectors that are associated with the printer.</summary>
         public List<PrintConnector> Connectors { get; set; }

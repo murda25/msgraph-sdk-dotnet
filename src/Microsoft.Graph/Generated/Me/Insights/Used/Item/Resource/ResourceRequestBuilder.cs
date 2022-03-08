@@ -1,20 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.CalendarSharingMessage;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.ManagedAppProtection;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.MobileAppContentFile;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.PrintDocument;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.PrintJob;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.Ref;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.ScheduleChangeRequest;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.TargetedManagedAppProtection;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WindowsInformationProtection;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRange;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRangeFill;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRangeFormat;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRangeSort;
-using MicrosoftGraphSdk.Me.Insights.Used.Item.Resource.WorkbookRangeView;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,56 +9,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource {
-    /// <summary>Builds and executes requests for operations under \me\insights\used\{usedInsight-id}\resource</summary>
+    /// <summary>Provides operations to manage the resource property of the microsoft.graph.usedInsight entity.</summary>
     public class ResourceRequestBuilder {
-        public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
-            new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
-            new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public MobileAppContentFileRequestBuilder MobileAppContentFile { get =>
-            new MobileAppContentFileRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        public PrintDocumentRequestBuilder PrintDocument { get =>
-            new PrintDocumentRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public PrintJobRequestBuilder PrintJob { get =>
-            new PrintJobRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public RefRequestBuilder Ref { get =>
-            new RefRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        public ScheduleChangeRequestRequestBuilder ScheduleChangeRequest { get =>
-            new ScheduleChangeRequestRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public TargetedManagedAppProtectionRequestBuilder TargetedManagedAppProtection { get =>
-            new TargetedManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        public WindowsInformationProtectionRequestBuilder WindowsInformationProtection { get =>
-            new WindowsInformationProtectionRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public WorkbookRangeRequestBuilder WorkbookRange { get =>
-            new WorkbookRangeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public WorkbookRangeFillRequestBuilder WorkbookRangeFill { get =>
-            new WorkbookRangeFillRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public WorkbookRangeFormatRequestBuilder WorkbookRangeFormat { get =>
-            new WorkbookRangeFormatRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public WorkbookRangeSortRequestBuilder WorkbookRangeSort { get =>
-            new WorkbookRangeSortRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public WorkbookRangeViewRequestBuilder WorkbookRangeView { get =>
-            new WorkbookRangeViewRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new ResourceRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -130,7 +75,11 @@ namespace MicrosoftGraphSdk.Me.Insights.Used.Item.Resource {
         /// </summary>
         public async Task<Entity> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Entity>(requestInfo, Entity.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<Entity>(requestInfo, Entity.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.</summary>
         public class GetQueryParameters : QueryParametersBase {

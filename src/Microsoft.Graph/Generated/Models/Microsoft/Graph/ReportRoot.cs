@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the reportRoot singleton.</summary>
     public class ReportRoot : Entity, IParsable {
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
         public List<PrintUsageByUser> DailyPrintUsageByUser { get; set; }

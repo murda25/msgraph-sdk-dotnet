@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the policyRoot singleton.</summary>
     public class PolicyRoot : Entity, IParsable {
         /// <summary>The policy that controls the idle time out for web sessions for applications.</summary>
         public List<ActivityBasedTimeoutPolicy> ActivityBasedTimeoutPolicies { get; set; }

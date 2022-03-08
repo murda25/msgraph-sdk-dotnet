@@ -4,6 +4,7 @@ using MicrosoftGraphSdk.Directory.AdministrativeUnits.Item.Extensions;
 using MicrosoftGraphSdk.Directory.AdministrativeUnits.Item.Members;
 using MicrosoftGraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +12,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
-    /// <summary>Builds and executes requests for operations under \directory\administrativeUnits\{administrativeUnit-id}</summary>
+    /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
     public class AdministrativeUnitItemRequestBuilder {
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
@@ -56,7 +57,7 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Conceptual container for user and group directory objects.
+        /// Delete navigation property administrativeUnits for directory
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -92,7 +93,7 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Conceptual container for user and group directory objects.
+        /// Update the navigation property administrativeUnits in directory
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,7 +111,7 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Conceptual container for user and group directory objects.
+        /// Delete navigation property administrativeUnits for directory
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -118,7 +119,11 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Conceptual container for user and group directory objects.
@@ -130,10 +135,14 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
         /// </summary>
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Conceptual container for user and group directory objects.
+        /// Update the navigation property administrativeUnits in directory
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -143,7 +152,11 @@ namespace MicrosoftGraphSdk.Directory.AdministrativeUnits.Item {
         public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.AdministrativeUnit body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Conceptual container for user and group directory objects.</summary>
         public class GetQueryParameters : QueryParametersBase {

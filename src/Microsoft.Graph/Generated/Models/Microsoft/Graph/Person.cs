@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class Person : Entity, IParsable {
         /// <summary>The person's birthday.</summary>
         public string Birthday { get; set; }

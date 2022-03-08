@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the print singleton.</summary>
     public class PrintJob : Entity, IParsable {
         public PrintJobConfiguration Configuration { get; set; }
         /// <summary>Read-only. Nullable.</summary>

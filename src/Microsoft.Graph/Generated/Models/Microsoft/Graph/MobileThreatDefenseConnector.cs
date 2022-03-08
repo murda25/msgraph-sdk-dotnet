@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class MobileThreatDefenseConnector : Entity, IParsable {
         /// <summary>For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant</summary>
         public bool? AndroidDeviceBlockedOnMissingPartnerData { get; set; }
