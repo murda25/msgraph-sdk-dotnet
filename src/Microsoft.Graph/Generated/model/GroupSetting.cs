@@ -29,14 +29,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets template id.
-        /// Unique identifier for the template used to create this group of settings. Read-only.
+        /// Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only.
         /// </summary>
         [JsonPropertyName("templateId")]
         public string TemplateId { get; set; }
     
         /// <summary>
         /// Gets or sets values.
-        /// Collection of name value pairs. Must contain and set all the settings defined in the template.
+        /// Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.
         /// </summary>
         [JsonPropertyName("values")]
         public IEnumerable<SettingValue> Values { get; set; }

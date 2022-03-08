@@ -204,6 +204,13 @@ namespace Microsoft.Graph
         public IEnumerable<string> ReplyUrls { get; set; }
     
         /// <summary>
+        /// Gets or sets resource specific application permissions.
+        /// The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.
+        /// </summary>
+        [JsonPropertyName("resourceSpecificApplicationPermissions")]
+        public IEnumerable<ResourceSpecificPermission> ResourceSpecificApplicationPermissions { get; set; }
+    
+        /// <summary>
         /// Gets or sets saml single sign on settings.
         /// The collection for settings related to saml single sign-on.
         /// </summary>
