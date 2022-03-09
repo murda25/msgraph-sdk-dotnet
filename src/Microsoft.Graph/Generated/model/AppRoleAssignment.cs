@@ -37,7 +37,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets created date time.
-        /// The time when the app role assignment was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+        /// The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
         /// </summary>
         [JsonPropertyName("createdDateTime")]
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -51,14 +51,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets principal id.
-        /// The unique identifier (id) for the user, group or service principal being granted the app role. Required on create.
+        /// The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
         /// </summary>
         [JsonPropertyName("principalId")]
         public Guid? PrincipalId { get; set; }
     
         /// <summary>
         /// Gets or sets principal type.
-        /// The type of the assigned principal. This can either be User, Group or ServicePrincipal. Read-only.
+        /// The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only.
         /// </summary>
         [JsonPropertyName("principalType")]
         public string PrincipalType { get; set; }
