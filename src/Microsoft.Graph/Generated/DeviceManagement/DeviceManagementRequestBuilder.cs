@@ -34,6 +34,7 @@ using MicrosoftGraphSdk.DeviceManagement.WindowsAutopilotDeviceIdentities;
 using MicrosoftGraphSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
 using MicrosoftGraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,7 +42,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.DeviceManagement {
-    /// <summary>Builds and executes requests for operations under \deviceManagement</summary>
+    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceManagementRequestBuilder {
         public ApplePushNotificationCertificateRequestBuilder ApplePushNotificationCertificate { get =>
             new ApplePushNotificationCertificateRequestBuilder(PathParameters, RequestAdapter);
@@ -218,11 +219,15 @@ namespace MicrosoftGraphSdk.DeviceManagement {
         /// </summary>
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.getEffectivePermissions(scope='{scope}')
-        /// <param name="scope">Usage: scope={scope}</param>
+        /// Provides operations to call the getEffectivePermissions method.
+        /// <param name="scope">Usage: scope='{scope}'</param>
         /// </summary>
         public GetEffectivePermissionsWithScopeRequestBuilder GetEffectivePermissionsWithScope(string scope) {
             if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
@@ -239,11 +244,15 @@ namespace MicrosoftGraphSdk.DeviceManagement {
         public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
-        /// <param name="domainName">Usage: domainName={domainName}</param>
+        /// Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+        /// <param name="domainName">Usage: domainName='{domainName}'</param>
         /// </summary>
         public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder VerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
             if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));

@@ -6,6 +6,7 @@ using MicrosoftGraphSdk.GroupSettingTemplates.Item.GetMemberGroups;
 using MicrosoftGraphSdk.GroupSettingTemplates.Item.GetMemberObjects;
 using MicrosoftGraphSdk.GroupSettingTemplates.Item.Restore;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.GroupSettingTemplates.Item {
-    /// <summary>Builds and executes requests for operations under \groupSettingTemplates\{groupSettingTemplate-id}</summary>
+    /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplateItemRequestBuilder {
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
             new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
@@ -126,7 +127,11 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Get entity from groupSettingTemplates by key
@@ -138,7 +143,11 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates.Item {
         /// </summary>
         public async Task<GroupSettingTemplate> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update entity in groupSettingTemplates
@@ -151,7 +160,11 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates.Item {
         public async Task PatchAsync(GroupSettingTemplate body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entity from groupSettingTemplates by key</summary>
         public class GetQueryParameters : QueryParametersBase {

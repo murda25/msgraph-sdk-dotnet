@@ -3,6 +3,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Me.Insights.Shared.Item.LastSharedMethod;
 using MicrosoftGraphSdk.Me.Insights.Shared.Item.Resource;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
-    /// <summary>Builds and executes requests for operations under \me\insights\shared\{sharedInsight-id}</summary>
+    /// <summary>Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class SharedInsightItemRequestBuilder {
         public LastSharedMethodRequestBuilder LastSharedMethod { get =>
             new LastSharedMethodRequestBuilder(PathParameters, RequestAdapter);
@@ -52,7 +53,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+        /// Delete navigation property shared for me
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -88,7 +89,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+        /// Update the navigation property shared in me
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +107,7 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+        /// Delete navigation property shared for me
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -114,7 +115,11 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
@@ -126,10 +131,14 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
         /// </summary>
         public async Task<SharedInsight> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SharedInsight>(requestInfo, SharedInsight.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<SharedInsight>(requestInfo, SharedInsight.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+        /// Update the navigation property shared in me
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -139,7 +148,11 @@ namespace MicrosoftGraphSdk.Me.Insights.Shared.Item {
         public async Task PatchAsync(SharedInsight body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.</summary>
         public class GetQueryParameters : QueryParametersBase {

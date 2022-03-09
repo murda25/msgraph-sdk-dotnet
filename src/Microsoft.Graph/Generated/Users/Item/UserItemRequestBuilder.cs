@@ -1,6 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using MicrosoftGraphSdk.Users.Item.Activities;
 using MicrosoftGraphSdk.Users.Item.AgreementAcceptances;
 using MicrosoftGraphSdk.Users.Item.AppRoleAssignments;
@@ -73,7 +74,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Users.Item {
-    /// <summary>Builds and executes requests for operations under \users\{user-id}</summary>
+    /// <summary>Provides operations to manage the collection of user entities.</summary>
     public class UserItemRequestBuilder {
         public ActivitiesRequestBuilder Activities { get =>
             new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
@@ -357,7 +358,11 @@ namespace MicrosoftGraphSdk.Users.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Get entity from users by key
@@ -369,16 +374,20 @@ namespace MicrosoftGraphSdk.Users.Item {
         /// </summary>
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.User>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.User.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.User>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppDiagnosticStatuses()
+        /// Provides operations to call the getManagedAppDiagnosticStatuses method.
         /// </summary>
         public GetManagedAppDiagnosticStatusesRequestBuilder GetManagedAppDiagnosticStatuses() {
             return new GetManagedAppDiagnosticStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppPolicies()
+        /// Provides operations to call the getManagedAppPolicies method.
         /// </summary>
         public GetManagedAppPoliciesRequestBuilder GetManagedAppPolicies() {
             return new GetManagedAppPoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -394,17 +403,21 @@ namespace MicrosoftGraphSdk.Users.Item {
         public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')
-        /// <param name="EndDateTime">Usage: EndDateTime={EndDateTime}</param>
-        /// <param name="StartDateTime">Usage: StartDateTime={StartDateTime}</param>
+        /// Provides operations to call the reminderView method.
+        /// <param name="EndDateTime">Usage: EndDateTime='{EndDateTime}'</param>
+        /// <param name="StartDateTime">Usage: StartDateTime='{StartDateTime}'</param>
         /// </summary>
-        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string startDateTime, string endDateTime) {
+        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string endDateTime, string startDateTime) {
             if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
-            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, startDateTime, endDateTime);
+            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime);
         }
         /// <summary>Get entity from users by key</summary>
         public class GetQueryParameters : QueryParametersBase {

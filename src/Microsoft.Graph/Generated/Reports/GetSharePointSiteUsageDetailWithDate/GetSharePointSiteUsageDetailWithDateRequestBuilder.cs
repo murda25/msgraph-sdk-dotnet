@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetSharePointSiteUsageDetailWithDate {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageDetail(date={date})</summary>
+    /// <summary>Provides operations to call the getSharePointSiteUsageDetail method.</summary>
     public class GetSharePointSiteUsageDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

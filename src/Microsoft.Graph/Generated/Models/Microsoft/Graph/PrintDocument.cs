@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the print singleton.</summary>
     public class PrintDocument : Entity, IParsable {
         /// <summary>The document's content (MIME) type. Read-only.</summary>
         public string ContentType { get; set; }

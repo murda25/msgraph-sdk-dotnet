@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the identityContainer singleton.</summary>
     public class IdentityContainer : Entity, IParsable {
         /// <summary>Represents entry point for API connectors.</summary>
         public List<IdentityApiConnector> ApiConnectors { get; set; }

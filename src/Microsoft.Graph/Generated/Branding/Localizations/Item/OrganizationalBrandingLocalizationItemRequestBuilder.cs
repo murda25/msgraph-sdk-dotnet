@@ -1,6 +1,10 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using MicrosoftGraphSdk.Branding.Localizations.Item.BackgroundImage;
+using MicrosoftGraphSdk.Branding.Localizations.Item.BannerLogo;
+using MicrosoftGraphSdk.Branding.Localizations.Item.SquareLogo;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,12 +12,21 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Branding.Localizations.Item {
-    /// <summary>Builds and executes requests for operations under \branding\localizations\{organizationalBrandingLocalization-id}</summary>
+    /// <summary>Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.</summary>
     public class OrganizationalBrandingLocalizationItemRequestBuilder {
+        public BackgroundImageRequestBuilder BackgroundImage { get =>
+            new BackgroundImageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public BannerLogoRequestBuilder BannerLogo { get =>
+            new BannerLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        public SquareLogoRequestBuilder SquareLogo { get =>
+            new SquareLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -44,7 +57,7 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Add different branding based on a locale.
+        /// Delete navigation property localizations for branding
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -80,7 +93,7 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Add different branding based on a locale.
+        /// Update the navigation property localizations in branding
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +111,7 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Add different branding based on a locale.
+        /// Delete navigation property localizations for branding
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +119,11 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Add different branding based on a locale.
@@ -118,10 +135,14 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
         /// </summary>
         public async Task<OrganizationalBrandingLocalization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OrganizationalBrandingLocalization>(requestInfo, OrganizationalBrandingLocalization.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<OrganizationalBrandingLocalization>(requestInfo, OrganizationalBrandingLocalization.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Add different branding based on a locale.
+        /// Update the navigation property localizations in branding
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -131,7 +152,11 @@ namespace MicrosoftGraphSdk.Branding.Localizations.Item {
         public async Task PatchAsync(OrganizationalBrandingLocalization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Add different branding based on a locale.</summary>
         public class GetQueryParameters : QueryParametersBase {

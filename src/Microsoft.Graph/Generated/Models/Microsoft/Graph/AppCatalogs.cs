@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public class AppCatalogs : Entity, IParsable {
         public List<TeamsApp> TeamsApps { get; set; }
         /// <summary>

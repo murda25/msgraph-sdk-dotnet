@@ -6,6 +6,7 @@ using MicrosoftGraphSdk.Drives.Item.List.Drive;
 using MicrosoftGraphSdk.Drives.Item.List.Items;
 using MicrosoftGraphSdk.Drives.Item.List.Subscriptions;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Drives.Item.List {
-    /// <summary>Builds and executes requests for operations under \drives\{drive-id}\list</summary>
+    /// <summary>Provides operations to manage the list property of the microsoft.graph.drive entity.</summary>
     public class ListRequestBuilder {
         public ColumnsRequestBuilder Columns { get =>
             new ColumnsRequestBuilder(PathParameters, RequestAdapter);
@@ -64,7 +65,7 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+        /// Delete navigation property list for drives
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -100,7 +101,7 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
             return requestInfo;
         }
         /// <summary>
-        /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+        /// Update the navigation property list in drives
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -118,7 +119,7 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
             return requestInfo;
         }
         /// <summary>
-        /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+        /// Delete navigation property list for drives
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -126,7 +127,11 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
@@ -138,10 +143,14 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
         /// </summary>
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.List> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.List>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.List.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.List>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.List.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+        /// Update the navigation property list in drives
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -151,7 +160,11 @@ namespace MicrosoftGraphSdk.Drives.Item.List {
         public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.List body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>For drives in SharePoint, the underlying document library list. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

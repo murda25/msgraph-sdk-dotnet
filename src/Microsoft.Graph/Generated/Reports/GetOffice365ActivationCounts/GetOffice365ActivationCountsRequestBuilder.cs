@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetOffice365ActivationCounts {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActivationCounts()</summary>
+    /// <summary>Provides operations to call the getOffice365ActivationCounts method.</summary>
     public class GetOffice365ActivationCountsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

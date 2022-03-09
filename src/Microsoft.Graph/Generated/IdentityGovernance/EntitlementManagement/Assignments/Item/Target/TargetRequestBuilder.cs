@@ -1,7 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Target.Ref;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,13 +9,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Target {
-    /// <summary>Builds and executes requests for operations under \identityGovernance\entitlementManagement\assignments\{accessPackageAssignment-id}\target</summary>
+    /// <summary>Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity.</summary>
     public class TargetRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        public RefRequestBuilder Ref { get =>
-            new RefRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
@@ -78,7 +75,11 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments
         /// </summary>
         public async Task<AccessPackageSubject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, AccessPackageSubject.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, AccessPackageSubject.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Shares.Item.List.Items.Item.GetActivitiesByInterval {
-    /// <summary>Builds and executes requests for operations under \shares\{sharedDriveItem-id}\list\items\{listItem-id}\microsoft.graph.getActivitiesByInterval()</summary>
+    /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
     public class GetActivitiesByIntervalRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -64,9 +64,9 @@ namespace MicrosoftGraphSdk.Shares.Item.List.Items.Item.GetActivitiesByInterval 
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<GetActivitiesByInterval>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<GetActivitiesByIntervalResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GetActivitiesByInterval>(requestInfo, GetActivitiesByInterval.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            return await RequestAdapter.SendAsync<GetActivitiesByIntervalResponse>(requestInfo, GetActivitiesByIntervalResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
         }
     }
 }

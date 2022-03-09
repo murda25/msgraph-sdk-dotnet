@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetOffice365GroupsActivityDetailWithDate {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityDetail(date={date})</summary>
+    /// <summary>Provides operations to call the getOffice365GroupsActivityDetail method.</summary>
     public class GetOffice365GroupsActivityDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

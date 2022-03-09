@@ -1,6 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using MicrosoftGraphSdk.Users.Item.Planner.Plans;
 using MicrosoftGraphSdk.Users.Item.Planner.Tasks;
 using System;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Users.Item.Planner {
-    /// <summary>Builds and executes requests for operations under \users\{user-id}\planner</summary>
+    /// <summary>Provides operations to manage the planner property of the microsoft.graph.user entity.</summary>
     public class PlannerRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -52,7 +53,7 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Delete navigation property planner for users
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -88,7 +89,7 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Update the navigation property planner in users
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +107,7 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Delete navigation property planner for users
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -114,7 +115,11 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Entry-point to the Planner resource that might exist for a user. Read-only.
@@ -126,10 +131,14 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
         /// </summary>
         public async Task<PlannerUser> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PlannerUser>(requestInfo, PlannerUser.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<PlannerUser>(requestInfo, PlannerUser.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Update the navigation property planner in users
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -139,7 +148,11 @@ namespace MicrosoftGraphSdk.Users.Item.Planner {
         public async Task PatchAsync(PlannerUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Entry-point to the Planner resource that might exist for a user. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

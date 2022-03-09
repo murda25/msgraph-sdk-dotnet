@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessParticipantActivityMinuteCounts(period='{period}')</summary>
+    /// <summary>Provides operations to call the getSkypeForBusinessParticipantActivityMinuteCounts method.</summary>
     public class GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -19,7 +19,7 @@ namespace MicrosoftGraphSdk.Reports.GetSkypeForBusinessParticipantActivityMinute
         /// <summary>
         /// Instantiates a new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
-        /// <param name="period">Usage: period={period}</param>
+        /// <param name="period">Usage: period='{period}'</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
         public GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = default) {

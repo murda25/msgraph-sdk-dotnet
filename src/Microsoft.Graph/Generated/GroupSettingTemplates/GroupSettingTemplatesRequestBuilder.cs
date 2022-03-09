@@ -1,10 +1,12 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using MicrosoftGraphSdk.GroupSettingTemplates.Count;
 using MicrosoftGraphSdk.GroupSettingTemplates.GetAvailableExtensionProperties;
 using MicrosoftGraphSdk.GroupSettingTemplates.GetByIds;
 using MicrosoftGraphSdk.GroupSettingTemplates.Item;
 using MicrosoftGraphSdk.GroupSettingTemplates.ValidateProperties;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,8 +14,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.GroupSettingTemplates {
-    /// <summary>Builds and executes requests for operations under \groupSettingTemplates</summary>
+    /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplatesRequestBuilder {
+        public CountRequestBuilder Count { get =>
+            new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
             new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -109,9 +114,13 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GroupSettingTemplatesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<GroupSettingTemplateCollectionResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingTemplatesResponse>(requestInfo, GroupSettingTemplatesResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<GroupSettingTemplateCollectionResponse>(requestInfo, GroupSettingTemplateCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Add new entity to groupSettingTemplates
@@ -124,7 +133,11 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates {
         public async Task<GroupSettingTemplate> PostAsync(GroupSettingTemplate body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from groupSettingTemplates</summary>
         public class GetQueryParameters : QueryParametersBase {

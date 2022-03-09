@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetOneDriveUsageAccountDetailWithDate {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageAccountDetail(date={date})</summary>
+    /// <summary>Provides operations to call the getOneDriveUsageAccountDetail method.</summary>
     public class GetOneDriveUsageAccountDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

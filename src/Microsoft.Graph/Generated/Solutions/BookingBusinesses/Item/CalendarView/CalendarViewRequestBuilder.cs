@@ -1,6 +1,8 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
+using MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView.Count;
 using MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView.Item;
 using System;
 using System.Collections.Generic;
@@ -9,8 +11,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView {
-    /// <summary>Builds and executes requests for operations under \solutions\bookingBusinesses\{bookingBusiness-id}\calendarView</summary>
+    /// <summary>Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.</summary>
     public class CalendarViewRequestBuilder {
+        public CountRequestBuilder Count { get =>
+            new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -72,7 +77,7 @@ namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView {
             return requestInfo;
         }
         /// <summary>
-        /// The set of appointments of this business in a specified date range. Read-only. Nullable.
+        /// Create new navigation property to calendarView for solutions
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -97,12 +102,16 @@ namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<CalendarViewResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<BookingAppointmentCollectionResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CalendarViewResponse>(requestInfo, CalendarViewResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<BookingAppointmentCollectionResponse>(requestInfo, BookingAppointmentCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The set of appointments of this business in a specified date range. Read-only. Nullable.
+        /// Create new navigation property to calendarView for solutions
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,7 +121,11 @@ namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView {
         public async Task<BookingAppointment> PostAsync(BookingAppointment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<BookingAppointment>(requestInfo, BookingAppointment.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<BookingAppointment>(requestInfo, BookingAppointment.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>The set of appointments of this business in a specified date range. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

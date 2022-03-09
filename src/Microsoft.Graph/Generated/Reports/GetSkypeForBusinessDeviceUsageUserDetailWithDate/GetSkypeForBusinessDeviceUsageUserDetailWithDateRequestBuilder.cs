@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(date={date})</summary>
+    /// <summary>Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.</summary>
     public class GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

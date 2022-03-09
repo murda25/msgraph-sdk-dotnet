@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
+    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class AccessPackageSubject : Entity, IParsable {
         /// <summary>The connected organization of the subject. Read-only. Nullable.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.ConnectedOrganization ConnectedOrganization { get; set; }

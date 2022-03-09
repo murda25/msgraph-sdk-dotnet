@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Reports.GetOneDriveActivityUserDetailWithPeriod {
-    /// <summary>Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityUserDetail(period='{period}')</summary>
+    /// <summary>Provides operations to call the getOneDriveActivityUserDetail method.</summary>
     public class GetOneDriveActivityUserDetailWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -19,7 +19,7 @@ namespace MicrosoftGraphSdk.Reports.GetOneDriveActivityUserDetailWithPeriod {
         /// <summary>
         /// Instantiates a new GetOneDriveActivityUserDetailWithPeriodRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
-        /// <param name="period">Usage: period={period}</param>
+        /// <param name="period">Usage: period='{period}'</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
         public GetOneDriveActivityUserDetailWithPeriodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = default) {

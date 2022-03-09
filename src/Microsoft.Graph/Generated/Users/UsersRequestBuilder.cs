@@ -1,6 +1,8 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
+using MicrosoftGraphSdk.Users.Count;
 using MicrosoftGraphSdk.Users.Delta;
 using MicrosoftGraphSdk.Users.GetAvailableExtensionProperties;
 using MicrosoftGraphSdk.Users.GetByIds;
@@ -13,8 +15,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Users {
-    /// <summary>Builds and executes requests for operations under \users</summary>
+    /// <summary>Provides operations to manage the collection of user entities.</summary>
     public class UsersRequestBuilder {
+        public CountRequestBuilder Count { get =>
+            new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
             new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -103,7 +108,7 @@ namespace MicrosoftGraphSdk.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Builds and executes requests for operations under \users\microsoft.graph.delta()
+        /// Provides operations to call the delta method.
         /// </summary>
         public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(PathParameters, RequestAdapter);
@@ -116,9 +121,13 @@ namespace MicrosoftGraphSdk.Users {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UsersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<UserCollectionResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UsersResponse>(requestInfo, UsersResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<UserCollectionResponse>(requestInfo, UserCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Add new entity to users
@@ -131,7 +140,11 @@ namespace MicrosoftGraphSdk.Users {
         public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.User> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.User>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.User.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.User>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from users</summary>
         public class GetQueryParameters : QueryParametersBase {

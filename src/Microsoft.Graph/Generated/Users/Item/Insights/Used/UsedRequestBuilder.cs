@@ -1,6 +1,8 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
+using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
+using MicrosoftGraphSdk.Users.Item.Insights.Used.Count;
 using MicrosoftGraphSdk.Users.Item.Insights.Used.Item;
 using System;
 using System.Collections.Generic;
@@ -9,8 +11,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
-    /// <summary>Builds and executes requests for operations under \users\{user-id}\insights\used</summary>
+    /// <summary>Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class UsedRequestBuilder {
+        public CountRequestBuilder Count { get =>
+            new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -72,7 +77,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Create new navigation property to used for users
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -97,12 +102,16 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UsedResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<UsedInsightCollectionResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UsedResponse>(requestInfo, UsedResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<UsedInsightCollectionResponse>(requestInfo, UsedInsightCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Create new navigation property to used for users
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,7 +121,11 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
         public async Task<UsedInsight> PostAsync(UsedInsight body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<UsedInsight>(requestInfo, UsedInsight.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            return await RequestAdapter.SendAsync<UsedInsight>(requestInfo, UsedInsight.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.</summary>
         public class GetQueryParameters : QueryParametersBase {
