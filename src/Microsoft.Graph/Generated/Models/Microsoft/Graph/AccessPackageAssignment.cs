@@ -8,6 +8,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageAssignment : Entity, IParsable {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage AccessPackage { get; set; }
+        public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ExpiredDateTime { get; set; }
         /// <summary>When the access assignment is to be in place. Read-only.</summary>
@@ -32,6 +33,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
                 {"accessPackage", (o,n) => { (o as AccessPackageAssignment).AccessPackage = n.GetObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage>(MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"assignmentPolicy", (o,n) => { (o as AccessPackageAssignment).AssignmentPolicy = n.GetObjectValue<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
                 {"expiredDateTime", (o,n) => { (o as AccessPackageAssignment).ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
                 {"schedule", (o,n) => { (o as AccessPackageAssignment).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
                 {"state", (o,n) => { (o as AccessPackageAssignment).State = n.GetEnumValue<AccessPackageAssignmentState>(); } },
@@ -47,6 +49,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage>("accessPackage", AccessPackage);
+            writer.WriteObjectValue<AccessPackageAssignmentPolicy>("assignmentPolicy", AssignmentPolicy);
             writer.WriteDateTimeOffsetValue("expiredDateTime", ExpiredDateTime);
             writer.WriteObjectValue<EntitlementManagementSchedule>("schedule", Schedule);
             writer.WriteEnumValue<AccessPackageAssignmentState>("state", State);

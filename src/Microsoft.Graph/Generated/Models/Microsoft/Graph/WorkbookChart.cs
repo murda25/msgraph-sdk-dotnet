@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class WorkbookChart : Entity, IParsable {
         /// <summary>Represents chart axes. Read-only.</summary>
         public WorkbookChartAxes Axes { get; set; }

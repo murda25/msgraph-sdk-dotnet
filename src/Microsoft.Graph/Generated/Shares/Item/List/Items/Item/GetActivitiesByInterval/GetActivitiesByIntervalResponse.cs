@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Shares.Item.List.Items.Item.GetActivitiesByInterval {
     /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
-    public class GetActivitiesByIntervalResponse : IParsable, IAdditionalDataHolder {
+    public class GetActivitiesByIntervalResponse : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public List<ItemActivityStat> Value { get; set; }

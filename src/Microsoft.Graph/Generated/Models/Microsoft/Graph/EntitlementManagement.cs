@@ -6,9 +6,11 @@ using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class EntitlementManagement : Entity, IParsable {
+        /// <summary>Approval stages for assignment requests.</summary>
         public List<Approval> AccessPackageAssignmentApprovals { get; set; }
         /// <summary>Represents access package objects.</summary>
         public List<AccessPackage> AccessPackages { get; set; }
+        public List<AccessPackageAssignmentPolicy> AssignmentPolicies { get; set; }
         /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
         public List<AccessPackageAssignmentRequest> AssignmentRequests { get; set; }
         /// <summary>Represents the grant of an access package to a subject (user or group).</summary>
@@ -34,6 +36,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
                 {"accessPackageAssignmentApprovals", (o,n) => { (o as EntitlementManagement).AccessPackageAssignmentApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue).ToList(); } },
                 {"accessPackages", (o,n) => { (o as EntitlementManagement).AccessPackages = n.GetCollectionOfObjectValues<AccessPackage>(AccessPackage.CreateFromDiscriminatorValue).ToList(); } },
+                {"assignmentPolicies", (o,n) => { (o as EntitlementManagement).AssignmentPolicies = n.GetCollectionOfObjectValues<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue).ToList(); } },
                 {"assignmentRequests", (o,n) => { (o as EntitlementManagement).AssignmentRequests = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest.CreateFromDiscriminatorValue).ToList(); } },
                 {"assignments", (o,n) => { (o as EntitlementManagement).Assignments = n.GetCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue).ToList(); } },
                 {"catalogs", (o,n) => { (o as EntitlementManagement).Catalogs = n.GetCollectionOfObjectValues<AccessPackageCatalog>(AccessPackageCatalog.CreateFromDiscriminatorValue).ToList(); } },
@@ -50,6 +53,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Approval>("accessPackageAssignmentApprovals", AccessPackageAssignmentApprovals);
             writer.WriteCollectionOfObjectValues<AccessPackage>("accessPackages", AccessPackages);
+            writer.WriteCollectionOfObjectValues<AccessPackageAssignmentPolicy>("assignmentPolicies", AssignmentPolicies);
             writer.WriteCollectionOfObjectValues<AccessPackageAssignmentRequest>("assignmentRequests", AssignmentRequests);
             writer.WriteCollectionOfObjectValues<AccessPackageAssignment>("assignments", Assignments);
             writer.WriteCollectionOfObjectValues<AccessPackageCatalog>("catalogs", Catalogs);

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class AgreementAcceptance : Entity, IParsable {
         /// <summary>The identifier of the agreement file accepted by the user.</summary>
         public string AgreementFileId { get; set; }
@@ -22,7 +22,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? RecordedDateTime { get; set; }
-        /// <summary>The state of the agreement acceptance. Possible values are: accepted, declined.</summary>
+        /// <summary>The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq).</summary>
         public AgreementAcceptanceState? State { get; set; }
         /// <summary>Display name of the user when the acceptance was recorded.</summary>
         public string UserDisplayName { get; set; }

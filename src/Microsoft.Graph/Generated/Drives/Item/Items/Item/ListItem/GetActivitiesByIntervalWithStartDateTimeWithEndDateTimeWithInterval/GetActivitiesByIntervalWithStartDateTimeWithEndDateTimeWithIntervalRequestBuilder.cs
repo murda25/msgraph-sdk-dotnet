@@ -23,14 +23,14 @@ namespace MicrosoftGraphSdk.Drives.Item.Items.Item.ListItem.GetActivitiesByInter
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// <param name="startDateTime">Usage: startDateTime='{startDateTime}'</param>
         /// </summary>
-        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string endDateTime = default, string startDateTime = default, string interval = default) {
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string endDateTime = default, string interval = default, string startDateTime = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/drives/{drive_id}/items/{driveItem_id}/listItem/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("endDateTime", endDateTime);
-            urlTplParams.Add("startDateTime", startDateTime);
             urlTplParams.Add("interval", interval);
+            urlTplParams.Add("startDateTime", startDateTime);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

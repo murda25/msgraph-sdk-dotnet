@@ -811,11 +811,11 @@ namespace MicrosoftGraphSdk.Reports {
         /// <param name="startDateTime">Usage: startDateTime='{startDateTime}'</param>
         /// <param name="userId">Usage: userId='{userId}'</param>
         /// </summary>
-        public GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(string userId, DateTimeOffset? endDateTime, DateTimeOffset? startDateTime) {
+        public GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, DateTimeOffset? startDateTime, string userId) {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
             if(string.IsNullOrEmpty(userId)) throw new ArgumentNullException(nameof(userId));
-            return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, userId, endDateTime, startDateTime);
+            return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime, userId);
         }
         /// <summary>
         /// Provides operations to call the getYammerActivityCounts method.
@@ -926,12 +926,12 @@ namespace MicrosoftGraphSdk.Reports {
         /// <param name="skipToken">Usage: skipToken='{skipToken}'</param>
         /// <param name="top">Usage: top={top}</param>
         /// </summary>
-        public ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken(string skipToken, int? top, string filter, int? skip) {
+        public ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken(string filter, int? skip, string skipToken, int? top) {
             if(string.IsNullOrEmpty(filter)) throw new ArgumentNullException(nameof(filter));
             _ = skip ?? throw new ArgumentNullException(nameof(skip));
             if(string.IsNullOrEmpty(skipToken)) throw new ArgumentNullException(nameof(skipToken));
             _ = top ?? throw new ArgumentNullException(nameof(top));
-            return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters, RequestAdapter, skipToken, top, filter, skip);
+            return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters, RequestAdapter, filter, skip, skipToken, top);
         }
         /// <summary>
         /// Provides operations to call the managedDeviceEnrollmentTopFailures method.

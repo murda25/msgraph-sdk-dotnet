@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the drive singleton.</summary>
-    public class SiteCollection : IParsable, IAdditionalDataHolder {
+    public class SiteCollection : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The geographic region code for where this site collection resides. Read-only.</summary>

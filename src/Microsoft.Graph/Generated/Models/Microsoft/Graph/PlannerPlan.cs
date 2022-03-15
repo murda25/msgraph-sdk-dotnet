@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class PlannerPlan : Entity, IParsable {
         /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public List<PlannerBucket> Buckets { get; set; }

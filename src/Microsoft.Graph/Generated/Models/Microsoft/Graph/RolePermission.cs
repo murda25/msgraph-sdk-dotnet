@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
-    public class RolePermission : IParsable, IAdditionalDataHolder {
+    public class RolePermission : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Resource Actions each containing a set of allowed and not allowed permissions.</summary>

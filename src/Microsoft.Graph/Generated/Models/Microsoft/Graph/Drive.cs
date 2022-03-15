@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class Drive : BaseItem, IParsable {
         /// <summary>Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.</summary>
         public List<DriveItem> Bundles { get; set; }

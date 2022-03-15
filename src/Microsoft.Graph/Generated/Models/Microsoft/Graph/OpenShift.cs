@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class OpenShift : ChangeTrackedEntity, IParsable {
         /// <summary>An unpublished open shift.</summary>
         public OpenShiftItem DraftOpenShift { get; set; }

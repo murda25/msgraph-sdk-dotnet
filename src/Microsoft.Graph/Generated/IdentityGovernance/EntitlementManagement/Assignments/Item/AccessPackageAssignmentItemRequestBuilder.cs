@@ -1,6 +1,7 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage;
+using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
@@ -15,6 +16,9 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments
     public class AccessPackageAssignmentItemRequestBuilder {
         public AccessPackageRequestBuilder AccessPackage { get =>
             new AccessPackageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public AssignmentPolicyRequestBuilder AssignmentPolicy { get =>
+            new AssignmentPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
-    public class DeviceManagementSettings : IParsable, IAdditionalDataHolder {
+    public class DeviceManagementSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of days a device is allowed to go without checking in to remain compliant.</summary>

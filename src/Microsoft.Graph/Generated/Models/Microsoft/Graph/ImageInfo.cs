@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the drive singleton.</summary>
-    public class ImageInfo : IParsable, IAdditionalDataHolder {
+    public class ImageInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image</summary>
         public bool? AddImageQuery { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

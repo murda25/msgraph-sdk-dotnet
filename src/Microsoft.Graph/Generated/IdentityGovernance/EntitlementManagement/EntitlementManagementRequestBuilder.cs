@@ -2,6 +2,7 @@ using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages;
+using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentPolicies;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs;
@@ -23,6 +24,9 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement {
         }
         public AccessPackagesRequestBuilder AccessPackages { get =>
             new AccessPackagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public AssignmentPoliciesRequestBuilder AssignmentPolicies { get =>
+            new AssignmentPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignmentRequestsRequestBuilder AssignmentRequests { get =>
             new AssignmentRequestsRequestBuilder(PathParameters, RequestAdapter);
