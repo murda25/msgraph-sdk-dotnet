@@ -68,7 +68,7 @@ namespace MicrosoftGraphSdk.RoleManagement.EntitlementManagement {
             return requestInfo;
         }
         /// <summary>
-        /// Container for all entitlement management resources in Azure AD identity governance.
+        /// Container for roles and assignments for entitlement management resources.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -122,7 +122,7 @@ namespace MicrosoftGraphSdk.RoleManagement.EntitlementManagement {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Container for all entitlement management resources in Azure AD identity governance.
+        /// Container for roles and assignments for entitlement management resources.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -154,7 +154,7 @@ namespace MicrosoftGraphSdk.RoleManagement.EntitlementManagement {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Container for all entitlement management resources in Azure AD identity governance.</summary>
+        /// <summary>Container for roles and assignments for entitlement management resources.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

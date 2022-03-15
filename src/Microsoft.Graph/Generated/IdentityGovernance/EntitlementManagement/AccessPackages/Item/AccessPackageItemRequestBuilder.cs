@@ -1,5 +1,6 @@
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AssignmentPolicies;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Catalog;
 using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.GetApplicablePolicyRequirements;
 using MicrosoftGraphSdk.Models.Microsoft.Graph;
@@ -13,6 +14,9 @@ using System.Threading.Tasks;
 namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
     /// <summary>Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AccessPackageItemRequestBuilder {
+        public AssignmentPoliciesRequestBuilder AssignmentPolicies { get =>
+            new AssignmentPoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
         public CatalogRequestBuilder Catalog { get =>
             new CatalogRequestBuilder(PathParameters, RequestAdapter);
         }

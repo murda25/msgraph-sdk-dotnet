@@ -11,7 +11,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// <summary>The document's name. Read-only.</summary>
         public string DisplayName { get; set; }
         /// <summary>The document's size in bytes. Read-only.</summary>
-        public long? Size { get; set; }
+        public int? Size { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
@@ -27,7 +27,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
                 {"contentType", (o,n) => { (o as PrintDocument).ContentType = n.GetStringValue(); } },
                 {"displayName", (o,n) => { (o as PrintDocument).DisplayName = n.GetStringValue(); } },
-                {"size", (o,n) => { (o as PrintDocument).Size = n.GetLongValue(); } },
+                {"size", (o,n) => { (o as PrintDocument).Size = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
             base.Serialize(writer);
             writer.WriteStringValue("contentType", ContentType);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteLongValue("size", Size);
+            writer.WriteIntValue("size", Size);
         }
     }
 }

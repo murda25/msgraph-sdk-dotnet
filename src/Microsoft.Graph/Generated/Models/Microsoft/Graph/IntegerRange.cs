@@ -5,13 +5,13 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the print singleton.</summary>
-    public class IntegerRange : IParsable, IAdditionalDataHolder {
+    public class IntegerRange : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The inclusive upper bound of the integer range.</summary>
-        public long? End { get; set; }
+        public int? End { get; set; }
         /// <summary>The inclusive lower bound of the integer range.</summary>
-        public long? Start { get; set; }
+        public int? Start { get; set; }
         /// <summary>
         /// Instantiates a new integerRange and sets the default values.
         /// </summary>
@@ -31,8 +31,8 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
-                {"end", (o,n) => { (o as IntegerRange).End = n.GetLongValue(); } },
-                {"start", (o,n) => { (o as IntegerRange).Start = n.GetLongValue(); } },
+                {"end", (o,n) => { (o as IntegerRange).End = n.GetIntValue(); } },
+                {"start", (o,n) => { (o as IntegerRange).Start = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -41,8 +41,8 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("end", End);
-            writer.WriteLongValue("start", Start);
+            writer.WriteIntValue("end", End);
+            writer.WriteIntValue("start", Start);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

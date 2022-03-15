@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class PlannerPlanDetails : Entity, IParsable {
         /// <summary>An object that specifies the descriptions of the six categories that can be associated with tasks in the plan</summary>
         public PlannerCategoryDescriptions CategoryDescriptions { get; set; }
