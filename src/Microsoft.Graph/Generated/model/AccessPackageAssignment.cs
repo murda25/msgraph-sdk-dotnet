@@ -57,6 +57,12 @@ namespace Microsoft.Graph
         public AccessPackage AccessPackage { get; set; }
     
         /// <summary>
+        /// Gets or sets assignment policy.
+        /// </summary>
+        [JsonPropertyName("assignmentPolicy")]
+        public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }
+    
+        /// <summary>
         /// Gets or sets target.
         /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// </summary>

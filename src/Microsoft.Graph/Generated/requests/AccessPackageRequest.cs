@@ -244,6 +244,18 @@ namespace Microsoft.Graph
         private void InitializeCollectionProperties(AccessPackage accessPackageToInitialize)
         {
 
+            if (accessPackageToInitialize != null)
+            {
+                if (accessPackageToInitialize.AssignmentPolicies != null && accessPackageToInitialize.AssignmentPolicies.CurrentPage != null)
+                {
+                    accessPackageToInitialize.AssignmentPolicies.InitializeNextPageRequest(this.Client, accessPackageToInitialize.AssignmentPoliciesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    accessPackageToInitialize.AssignmentPolicies.AdditionalData = accessPackageToInitialize.AdditionalData;
+                }
+
+            }
+
+
         }
     }
 }
