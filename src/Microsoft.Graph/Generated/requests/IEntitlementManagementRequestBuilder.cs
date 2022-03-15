@@ -44,6 +44,12 @@ namespace Microsoft.Graph
         IEntitlementManagementAccessPackagesCollectionRequestBuilder AccessPackages { get; }
 
         /// <summary>
+        /// Gets the request builder for AssignmentPolicies.
+        /// </summary>
+        /// <returns>The <see cref="IEntitlementManagementAssignmentPoliciesCollectionRequestBuilder"/>.</returns>
+        IEntitlementManagementAssignmentPoliciesCollectionRequestBuilder AssignmentPolicies { get; }
+
+        /// <summary>
         /// Gets the request builder for AssignmentRequests.
         /// </summary>
         /// <returns>The <see cref="IEntitlementManagementAssignmentRequestsCollectionRequestBuilder"/>.</returns>

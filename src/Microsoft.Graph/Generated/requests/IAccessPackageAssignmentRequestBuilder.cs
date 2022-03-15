@@ -38,6 +38,12 @@ namespace Microsoft.Graph
         IAccessPackageWithReferenceRequestBuilder AccessPackage { get; }
 
         /// <summary>
+        /// Gets the request builder for AssignmentPolicy.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPolicyWithReferenceRequestBuilder"/>.</returns>
+        IAccessPackageAssignmentPolicyWithReferenceRequestBuilder AssignmentPolicy { get; }
+
+        /// <summary>
         /// Gets the request builder for Target.
         /// </summary>
         /// <returns>The <see cref="IAccessPackageSubjectWithReferenceRequestBuilder"/>.</returns>

@@ -22,6 +22,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets access package assignment approvals.
+        /// Approval stages for assignment requests.
         /// </summary>
         [JsonPropertyName("accessPackageAssignmentApprovals")]
         public IEntitlementManagementAccessPackageAssignmentApprovalsCollectionPage AccessPackageAssignmentApprovals { get; set; }
@@ -46,6 +47,19 @@ namespace Microsoft.Graph
         [JsonPropertyName("accessPackages@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string AccessPackagesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets assignment policies.
+        /// </summary>
+        [JsonPropertyName("assignmentPolicies")]
+        public IEntitlementManagementAssignmentPoliciesCollectionPage AssignmentPolicies { get; set; }
+
+        /// <summary>
+        /// Gets or sets assignmentPoliciesNextLink.
+        /// </summary>
+        [JsonPropertyName("assignmentPolicies@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AssignmentPoliciesNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets assignment requests.

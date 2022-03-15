@@ -56,6 +56,19 @@ namespace Microsoft.Graph
         public DateTimeOffset? ModifiedDateTime { get; set; }
     
         /// <summary>
+        /// Gets or sets assignment policies.
+        /// </summary>
+        [JsonPropertyName("assignmentPolicies")]
+        public IAccessPackageAssignmentPoliciesCollectionPage AssignmentPolicies { get; set; }
+
+        /// <summary>
+        /// Gets or sets assignmentPoliciesNextLink.
+        /// </summary>
+        [JsonPropertyName("assignmentPolicies@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AssignmentPoliciesNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets catalog.
         /// Read-only. Nullable.
         /// </summary>

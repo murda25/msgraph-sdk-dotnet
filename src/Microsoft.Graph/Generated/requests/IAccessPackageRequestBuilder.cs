@@ -32,6 +32,12 @@ namespace Microsoft.Graph
         new IAccessPackageRequest Request(IEnumerable<Option> options);
     
         /// <summary>
+        /// Gets the request builder for AssignmentPolicies.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPoliciesCollectionRequestBuilder"/>.</returns>
+        IAccessPackageAssignmentPoliciesCollectionRequestBuilder AssignmentPolicies { get; }
+
+        /// <summary>
         /// Gets the request builder for Catalog.
         /// </summary>
         /// <returns>The <see cref="IAccessPackageCatalogWithReferenceRequestBuilder"/>.</returns>
