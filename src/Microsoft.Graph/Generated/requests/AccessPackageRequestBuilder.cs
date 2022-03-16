@@ -51,6 +51,18 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the request builder for AssignmentPolicies.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPoliciesCollectionRequestBuilder"/>.</returns>
+        public IAccessPackageAssignmentPoliciesCollectionRequestBuilder AssignmentPolicies
+        {
+            get
+            {
+                return new AccessPackageAssignmentPoliciesCollectionRequestBuilder(this.AppendSegmentToRequestUrl("assignmentPolicies"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for Catalog.
         /// </summary>
         /// <returns>The <see cref="IAccessPackageCatalogWithReferenceRequestBuilder"/>.</returns>

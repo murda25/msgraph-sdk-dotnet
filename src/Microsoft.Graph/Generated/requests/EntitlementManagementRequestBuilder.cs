@@ -75,6 +75,18 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for AssignmentPolicies.
+        /// </summary>
+        /// <returns>The <see cref="IEntitlementManagementAssignmentPoliciesCollectionRequestBuilder"/>.</returns>
+        public IEntitlementManagementAssignmentPoliciesCollectionRequestBuilder AssignmentPolicies
+        {
+            get
+            {
+                return new EntitlementManagementAssignmentPoliciesCollectionRequestBuilder(this.AppendSegmentToRequestUrl("assignmentPolicies"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for AssignmentRequests.
         /// </summary>
         /// <returns>The <see cref="IEntitlementManagementAssignmentRequestsCollectionRequestBuilder"/>.</returns>

@@ -63,6 +63,18 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for AssignmentPolicy.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPolicyWithReferenceRequestBuilder"/>.</returns>
+        public IAccessPackageAssignmentPolicyWithReferenceRequestBuilder AssignmentPolicy
+        {
+            get
+            {
+                return new AccessPackageAssignmentPolicyWithReferenceRequestBuilder(this.AppendSegmentToRequestUrl("assignmentPolicy"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for Target.
         /// </summary>
         /// <returns>The <see cref="IAccessPackageSubjectWithReferenceRequestBuilder"/>.</returns>
