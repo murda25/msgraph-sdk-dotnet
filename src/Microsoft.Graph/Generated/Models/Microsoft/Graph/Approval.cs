@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
         public List<ApprovalStage> Stages { get; set; }

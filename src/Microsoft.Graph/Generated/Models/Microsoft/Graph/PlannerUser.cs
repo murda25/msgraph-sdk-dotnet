@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class PlannerUser : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
         public List<PlannerPlan> Plans { get; set; }

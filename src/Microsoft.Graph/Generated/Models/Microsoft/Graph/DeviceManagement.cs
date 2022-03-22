@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>Singleton entity that acts as a container for all device management functionality.</summary>
     public class DeviceManagement : Entity, IParsable {
         /// <summary>Apple push notification certificate.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.ApplePushNotificationCertificate ApplePushNotificationCertificate { get; set; }

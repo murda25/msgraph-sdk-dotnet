@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the identityContainer singleton.</summary>
     public class ConditionalAccessConditionSet : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Applications and user actions included in and excluded from the policy. Required.</summary>
         public ConditionalAccessApplications Applications { get; set; }
+        /// <summary>Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.</summary>
+        public ConditionalAccessClientApplications ClientApplications { get; set; }
         /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.</summary>
         public List<ConditionalAccessClientApp?> ClientAppTypes { get; set; }
         /// <summary>Devices in the policy.</summary>
@@ -22,6 +23,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<RiskLevel?> SignInRiskLevels { get; set; }
         /// <summary>User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
         public List<RiskLevel?> UserRiskLevels { get; set; }
+        /// <summary>Users, groups, and roles included in and excluded from the policy. Required.</summary>
         public ConditionalAccessUsers Users { get; set; }
         /// <summary>
         /// Instantiates a new conditionalAccessConditionSet and sets the default values.
@@ -43,6 +45,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"applications", (o,n) => { (o as ConditionalAccessConditionSet).Applications = n.GetObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications.CreateFromDiscriminatorValue); } },
+                {"clientApplications", (o,n) => { (o as ConditionalAccessConditionSet).ClientApplications = n.GetObjectValue<ConditionalAccessClientApplications>(ConditionalAccessClientApplications.CreateFromDiscriminatorValue); } },
                 {"clientAppTypes", (o,n) => { (o as ConditionalAccessConditionSet).ClientAppTypes = n.GetCollectionOfEnumValues<ConditionalAccessClientApp>().ToList(); } },
                 {"devices", (o,n) => { (o as ConditionalAccessConditionSet).Devices = n.GetObjectValue<ConditionalAccessDevices>(ConditionalAccessDevices.CreateFromDiscriminatorValue); } },
                 {"locations", (o,n) => { (o as ConditionalAccessConditionSet).Locations = n.GetObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
@@ -59,6 +62,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ConditionalAccessApplications>("applications", Applications);
+            writer.WriteObjectValue<ConditionalAccessClientApplications>("clientApplications", ClientApplications);
             writer.WriteCollectionOfEnumValues<ConditionalAccessClientApp>("clientAppTypes", ClientAppTypes);
             writer.WriteObjectValue<ConditionalAccessDevices>("devices", Devices);
             writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);

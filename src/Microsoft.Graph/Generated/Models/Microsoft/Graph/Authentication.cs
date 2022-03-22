@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the drive singleton.</summary>
     public class Authentication : Entity, IParsable {
         public List<Fido2AuthenticationMethod> Fido2Methods { get; set; }
         public List<AuthenticationMethod> Methods { get; set; }
