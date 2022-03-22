@@ -7,7 +7,7 @@
 
 // Template Source: ComplexType.cs.tt
 
-namespace Microsoft.Graph.ExternalConnectors
+namespace Microsoft.Graph
 {
     using System;
     using System.Collections.Generic;
@@ -15,25 +15,25 @@ namespace Microsoft.Graph.ExternalConnectors
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type ExternalItemContent.
+    /// The type ConditionalAccessClientApplications.
     /// </summary>
-    [JsonConverter(typeof(Microsoft.Graph.DerivedTypeConverter<ExternalItemContent>))]
-    public partial class ExternalItemContent
+    [JsonConverter(typeof(DerivedTypeConverter<ConditionalAccessClientApplications>))]
+    public partial class ConditionalAccessClientApplications
     {
 
         /// <summary>
-        /// Gets or sets type.
-        /// The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
+        /// Gets or sets excludeServicePrincipals.
+        /// Service principal IDs excluded from the policy scope.
         /// </summary>
-        [JsonPropertyName("type")]
-        public ExternalItemContentType? Type { get; set; }
+        [JsonPropertyName("excludeServicePrincipals")]
+        public IEnumerable<string> ExcludeServicePrincipals { get; set; }
     
         /// <summary>
-        /// Gets or sets value.
-        /// The content for the externalItem. Required.
+        /// Gets or sets includeServicePrincipals.
+        /// Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
         /// </summary>
-        [JsonPropertyName("value")]
-        public string Value { get; set; }
+        [JsonPropertyName("includeServicePrincipals")]
+        public IEnumerable<string> IncludeServicePrincipals { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

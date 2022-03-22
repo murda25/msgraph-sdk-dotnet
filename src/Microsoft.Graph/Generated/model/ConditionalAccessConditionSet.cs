@@ -29,6 +29,13 @@ namespace Microsoft.Graph
         public ConditionalAccessApplications Applications { get; set; }
     
         /// <summary>
+        /// Gets or sets clientApplications.
+        /// Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
+        /// </summary>
+        [JsonPropertyName("clientApplications")]
+        public ConditionalAccessClientApplications ClientApplications { get; set; }
+    
+        /// <summary>
         /// Gets or sets clientAppTypes.
         /// Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
         /// </summary>
