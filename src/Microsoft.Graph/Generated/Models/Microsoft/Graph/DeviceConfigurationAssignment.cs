@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceConfigurationAssignment : Entity, IParsable {
         /// <summary>The assignment target for the device configuration.</summary>
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }
