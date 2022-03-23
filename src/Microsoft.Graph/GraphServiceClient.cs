@@ -9,6 +9,7 @@ namespace MicrosoftGraphSdk
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Graph;
+    using Microsoft.Graph.Core.Requests;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Authentication.Azure;
     using Microsoft.Kiota.Abstractions;
@@ -63,5 +64,16 @@ namespace MicrosoftGraphSdk
         /// Gets the <see cref="IRequestAdapter"/> for sending requests.
         /// </summary>
         public IRequestAdapter RequestAdapter { get; set; }
+
+        /// <summary>
+        /// Gets the <see cref="BatchRequestBuilder"/> for building batch Requests
+        /// </summary>
+        public BatchRequestBuilder Batch
+        {
+            get
+            {
+                return new BatchRequestBuilder(this.RequestAdapter);
+            }
+        }
     }
 }
