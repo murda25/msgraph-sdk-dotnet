@@ -10,18 +10,17 @@ To retrieve a collection, like the list of groups in the service, you call `GetA
 ```csharp
 await graphServiceClient
 	    .Groups
-	    .Request()
 	    .GetAsync();
 ```
 
-`GetAsync` returns an `ICollectionPage<T>` implementation on success and throws a `ServiceException` on error. For the groups collection, the type returned is `IGraphServiceGroupsCollectionPage`, which inherits `ICollectionPage<Item>`.
+`GetAsync` returns an `IParsable` implementation on success and throws a `ServiceException` on error.
 
-`IGraphServiceGroupsCollectionPage` contains three properties: 
+The `IParsable` instance returned will typically contain two properties: 
 
 |Name                |Description                                                                                                                                                  |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**CurrentPage**     |An `IList<Item>`.                                                                                                                                            |
-|**NextPageRequest** |An `IGraphServiceGroupsCollectionRequest` used to get to the next page of items, if another page exists. This value will be null if there is not a next page.|
+|**Value**     |An `List<Item>`.                                                                                                                                            |
+|**NextLink** |A `string` representing the url used to get to the next page of items, if another page exists. This value will be null if there is not a next page.|
 |**AdditionalData**    |An `IDictionary<string, object>` to any additional values returned by the service. In this case, none.                                                       |
 
 ## Adding to a collection
@@ -38,12 +37,11 @@ var groupToCreate = new Group
 	};
 	
 var newGroup = await graphServiceClient
-                         .Groups
-						 .Request()
-						 .AddAsync(groupToCreate);
+							.Groups
+							.PostAsync(groupToCreate);
 ```
 
-`AddAsync` returns the created group on success and throws a `ServiceException` on error.
+`AddAsync` returns the created group on success and throws a `ApiException` on error.
 
 ## Expanding a collection
 
@@ -55,7 +53,5 @@ var children = await graphServiceClient
                          .Drive
 						 .Items[itemId]
 						 .Children
-						 .Request()
-						 .Expand("thumbnails")
-						 .GetAsync();
+						 .GetAsync((q) => q.Expand = new string[] { "thumbnails" });
 ```
