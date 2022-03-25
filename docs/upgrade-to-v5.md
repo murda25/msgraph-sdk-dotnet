@@ -3,7 +3,7 @@
 The purpose of this document is to outline any breaking change and migration work SDK users might run into while upgrading to the v5 of the SDK.
 
 ## Overview
-V5 of the Microsoft Graph .NET SDK moves to the new code generator [Kiota](https://github.com/microsoft/kiota) to provide a better user experience for the SDK users as well as a number of new features made possible by this changes.
+V5 of the Microsoft Graph .NET SDK moves to the new code generator [Kiota](https://github.com/microsoft/kiota) to provide a better user experience for the SDK users as well as a number of new features made possible by these changes.
 
 ## Breaking changes
 
