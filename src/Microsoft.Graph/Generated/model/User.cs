@@ -1005,6 +1005,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets authentication.
+        /// The authentication methods that are supported for the user.
         /// </summary>
         [JsonPropertyName("authentication")]
         public Authentication Authentication { get; set; }
