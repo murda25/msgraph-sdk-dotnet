@@ -5,9 +5,13 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Authentication : Entity, IParsable {
+        /// <summary>Represents the FIDO2 security keys registered to a user for authentication.</summary>
         public List<Fido2AuthenticationMethod> Fido2Methods { get; set; }
+        /// <summary>Represents all authentication methods registered to a user.</summary>
         public List<AuthenticationMethod> Methods { get; set; }
+        /// <summary>The details of the Microsoft Authenticator app registered to a user for authentication.</summary>
         public List<MicrosoftAuthenticatorAuthenticationMethod> MicrosoftAuthenticatorMethods { get; set; }
+        /// <summary>Represents the Windows Hello for Business authentication method registered to a user for authentication.</summary>
         public List<WindowsHelloForBusinessAuthenticationMethod> WindowsHelloForBusinessMethods { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

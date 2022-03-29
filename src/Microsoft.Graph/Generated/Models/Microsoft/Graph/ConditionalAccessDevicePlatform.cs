@@ -8,5 +8,6 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         MacOS,
         All,
         UnknownFutureValue,
+        Linux,
     }
 }
