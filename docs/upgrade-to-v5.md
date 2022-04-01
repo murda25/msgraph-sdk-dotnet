@@ -55,7 +55,7 @@ To pass headers, the  `HeaderOption` class is no longer used. Headers are added 
 ```cs
 var user = await graphServiceClient
                     .Users["{user-id}"]
-                    .GetAsync(h: headers => headers.Add("ConsistencyLevel","eventual"));
+                    .GetAsync(headers: headers => headers.Add("ConsistencyLevel","eventual"));
 ```
 
 ### Query Options
@@ -64,7 +64,7 @@ To pass query Options, the `QueryOption` class is no longer used. Query options 
 ```cs
 var user = await graphServiceClient
                     .Users["{user-id}"]
-                    .GetAsync(q: queryOptions => queryOptions.Select = new string[] { "id", "createdDateTime"});
+                    .GetAsync(queryParameters: p => p.Select = new string[] { "id", "createdDateTime"});
 ```
 
 ### Collections
@@ -74,7 +74,7 @@ Querying for collections are done as follows and resembles the response from API
 ```cs
 var usersResponse = await graphServiceClient
                         .Users
-                        .GetAsync(q: queryOptions => queryOptions.Select = new string[] { "id", "createdDateTime"});
+                        .GetAsync(queryParameters: p => p.Select = new string[] { "id", "createdDateTime"});
 List<User> userList = usersResponse.Value;
 ```
 
@@ -84,7 +84,7 @@ To iterate through page collections, use the pageIterator as follows
 ```cs
 var usersResponse = await graphServiceClient
                 .Users
-                .GetAsync(q: queryOptions => { queryOptions.Select = new string[] { "id", "createdDateTime" }; queryOptions.Top = 1; });
+                .GetAsync(queryParameters: p => { p.Select = new string[] { "id", "createdDateTime" }; p.Top = 1; });
 
 var userList = new List<User>();
 var pageIterator = PageIterator<User,UserCollectionResponse>.CreatePageIterator(graphServiceClient,usersResponse, (user) => { userList.Add(user); return true; });
