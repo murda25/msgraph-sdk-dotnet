@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Application : DirectoryObject, IParsable {
-        /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
+        /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
         public List<AddIn> AddIns { get; set; }
         /// <summary>Specifies settings for an application that implements a web API.</summary>
         public ApiApplication Api { get; set; }
@@ -29,10 +29,11 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<ExtensionProperty> ExtensionProperties { get; set; }
         /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).</summary>
         public string GroupMembershipClaims { get; set; }
+        /// <summary>The homeRealmDiscoveryPolicies property</summary>
         public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
-        /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
+        /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you&apos;ll reference in your API&apos;s code, and it must be globally unique. You can use the default value provided, which is in the form api://&lt;application-client-id&gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public List<string> IdentifierUris { get; set; }
-        /// <summary>Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
+        /// <summary>Basic profile information of the application such as  app&apos;s marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
         public InformationalUrl Info { get; set; }
         /// <summary>Specifies whether this application supports device authentication without a user. The default is false.</summary>
         public bool? IsDeviceOnlyAuthSupported { get; set; }
@@ -44,6 +45,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public byte[] Logo { get; set; }
         /// <summary>Notes relevant for the management of the application.</summary>
         public string Notes { get; set; }
+        /// <summary>The oauth2RequirePostResponse property</summary>
         public bool? Oauth2RequirePostResponse { get; set; }
         /// <summary>Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.OptionalClaims OptionalClaims { get; set; }
@@ -55,7 +57,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<PasswordCredential> PasswordCredentials { get; set; }
         /// <summary>Specifies settings for installed clients such as desktop or mobile devices.</summary>
         public PublicClientApplication PublicClient { get; set; }
-        /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
+        /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application&apos;s publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public string PublisherDomain { get; set; }
         /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<MicrosoftGraphSdk.Models.Microsoft.Graph.RequiredResourceAccess> RequiredResourceAccess { get; set; }
@@ -67,6 +69,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<string> Tags { get; set; }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
         public string TokenEncryptionKeyId { get; set; }
+        /// <summary>The tokenIssuancePolicies property</summary>
         public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
         /// <summary>The tokenLifetimePolicies assigned to this application. Supports $expand.</summary>
         public List<TokenLifetimePolicy> TokenLifetimePolicies { get; set; }

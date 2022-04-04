@@ -5,15 +5,15 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class PrintConnector : Entity, IParsable {
-        /// <summary>The connector's version.</summary>
+        /// <summary>The connector&apos;s version.</summary>
         public string AppVersion { get; set; }
         /// <summary>The name of the connector.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The connector machine's hostname.</summary>
+        /// <summary>The connector machine&apos;s hostname.</summary>
         public string FullyQualifiedDomainName { get; set; }
         /// <summary>The physical and/or organizational location of the connector.</summary>
         public PrinterLocation Location { get; set; }
-        /// <summary>The connector machine's operating system version.</summary>
+        /// <summary>The connector machine&apos;s operating system version.</summary>
         public string OperatingSystem { get; set; }
         /// <summary>The DateTimeOffset when the connector was registered.</summary>
         public DateTimeOffset? RegisteredDateTime { get; set; }

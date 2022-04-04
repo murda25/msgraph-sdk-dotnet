@@ -6,6 +6,7 @@ using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public class AppCatalogs : Entity, IParsable {
+        /// <summary>The teamsApps property</summary>
         public List<TeamsApp> TeamsApps { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

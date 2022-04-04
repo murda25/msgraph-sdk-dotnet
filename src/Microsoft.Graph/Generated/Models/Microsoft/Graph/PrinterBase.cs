@@ -21,6 +21,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string Manufacturer { get; set; }
         /// <summary>The model name of the printer/printerShare.</summary>
         public string Model { get; set; }
+        /// <summary>The status property</summary>
         public PrinterStatus Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -8,6 +8,7 @@ namespace MicrosoftGraphSdk.DirectoryRoles.GetAvailableExtensionProperties {
     public class GetAvailableExtensionPropertiesRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The isSyncedFromOnPremises property</summary>
         public bool? IsSyncedFromOnPremises { get; set; }
         /// <summary>
         /// Instantiates a new getAvailableExtensionPropertiesRequestBody and sets the default values.

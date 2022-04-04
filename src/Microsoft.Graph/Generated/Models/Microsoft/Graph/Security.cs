@@ -8,7 +8,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Security : Entity, IParsable {
         /// <summary>Read-only. Nullable.</summary>
         public List<Alert> Alerts { get; set; }
+        /// <summary>The secureScoreControlProfiles property</summary>
         public List<SecureScoreControlProfile> SecureScoreControlProfiles { get; set; }
+        /// <summary>The secureScores property</summary>
         public List<SecureScore> SecureScores { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

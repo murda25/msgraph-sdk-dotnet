@@ -13,6 +13,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string CustomerTimeZone { get; set; }
         /// <summary>The length of the appointment, denoted in ISO8601 format.</summary>
         public TimeSpan? Duration { get; set; }
+        /// <summary>The endDateTime property</summary>
         public DateTimeTimeZone EndDateTime { get; set; }
         /// <summary>The current number of customers in the appointment</summary>
         public int? FilledAttendeesCount { get; set; }
@@ -48,6 +49,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public bool? SmsNotificationsEnabled { get; set; }
         /// <summary>The ID of each bookingStaffMember who is scheduled in this appointment.</summary>
         public List<string> StaffMemberIds { get; set; }
+        /// <summary>The startDateTime property</summary>
         public DateTimeTimeZone StartDateTime { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

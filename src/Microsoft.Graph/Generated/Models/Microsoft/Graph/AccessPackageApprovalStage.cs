@@ -7,13 +7,21 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageApprovalStage : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The durationBeforeAutomaticDenial property</summary>
         public TimeSpan? DurationBeforeAutomaticDenial { get; set; }
+        /// <summary>The durationBeforeEscalation property</summary>
         public TimeSpan? DurationBeforeEscalation { get; set; }
+        /// <summary>The escalationApprovers property</summary>
         public List<SubjectSet> EscalationApprovers { get; set; }
+        /// <summary>The fallbackEscalationApprovers property</summary>
         public List<SubjectSet> FallbackEscalationApprovers { get; set; }
+        /// <summary>The fallbackPrimaryApprovers property</summary>
         public List<SubjectSet> FallbackPrimaryApprovers { get; set; }
+        /// <summary>The isApproverJustificationRequired property</summary>
         public bool? IsApproverJustificationRequired { get; set; }
+        /// <summary>The isEscalationEnabled property</summary>
         public bool? IsEscalationEnabled { get; set; }
+        /// <summary>The primaryApprovers property</summary>
         public List<SubjectSet> PrimaryApprovers { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageApprovalStage and sets the default values.

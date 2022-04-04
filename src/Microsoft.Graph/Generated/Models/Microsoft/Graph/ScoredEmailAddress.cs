@@ -9,9 +9,11 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The email address.</summary>
         public string Address { get; set; }
+        /// <summary>The itemId property</summary>
         public string ItemId { get; set; }
         /// <summary>The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.</summary>
         public double? RelevanceScore { get; set; }
+        /// <summary>The selectionLikelihood property</summary>
         public SelectionLikelihoodInfo? SelectionLikelihood { get; set; }
         /// <summary>
         /// Instantiates a new scoredEmailAddress and sets the default values.

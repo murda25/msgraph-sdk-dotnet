@@ -7,7 +7,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class GroupSetting : Entity, IParsable {
         /// <summary>Display name of this group of settings, which comes from the associated template.</summary>
         public string DisplayName { get; set; }
-        /// <summary>Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only.</summary>
+        /// <summary>Unique identifier for the tenant-level groupSettingTemplates object that&apos;s been customized for this group-level settings object. Read-only.</summary>
         public string TemplateId { get; set; }
         /// <summary>Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.</summary>
         public List<SettingValue> Values { get; set; }

@@ -15,7 +15,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string Scope { get; set; }
         /// <summary>The type of the link created.</summary>
         public string Type { get; set; }
-        /// <summary>For embed links, this property contains the HTML code for an <iframe> element that will embed the item in a webpage.</summary>
+        /// <summary>For embed links, this property contains the HTML code for an &lt;iframe&gt; element that will embed the item in a webpage.</summary>
         public string WebHtml { get; set; }
         /// <summary>A URL that opens the item in the browser on the OneDrive website.</summary>
         public string WebUrl { get; set; }

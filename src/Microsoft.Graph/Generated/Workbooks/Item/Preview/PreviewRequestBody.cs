@@ -8,7 +8,9 @@ namespace MicrosoftGraphSdk.Workbooks.Item.Preview {
     public class PreviewRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The page property</summary>
         public string Page { get; set; }
+        /// <summary>The zoom property</summary>
         public double? Zoom { get; set; }
         /// <summary>
         /// Instantiates a new previewRequestBody and sets the default values.

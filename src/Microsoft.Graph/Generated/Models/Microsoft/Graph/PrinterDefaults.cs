@@ -33,7 +33,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public PrintMultipageLayout? MultipageLayout { get; set; }
         /// <summary>The default orientation to use when printing the document. Valid values are described in the following table.</summary>
         public PrintOrientation? Orientation { get; set; }
-        /// <summary>The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.</summary>
+        /// <summary>The default output bin to place completed prints into. See the printer&apos;s capabilities for a list of supported output bins.</summary>
         public string OutputBin { get; set; }
         /// <summary>The default number of document pages to print on each sheet.</summary>
         public int? PagesPerSheet { get; set; }

@@ -11,7 +11,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public BroadcastMeetingAudience? AllowedAudience { get; set; }
         /// <summary>Indicates whether attendee report is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsAttendeeReportEnabled { get; set; }
-        /// <summary>Indicates whether Q&A is enabled for this Teams live event. Default value is false.</summary>
+        /// <summary>Indicates whether Q&amp;A is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsQuestionAndAnswerEnabled { get; set; }
         /// <summary>Indicates whether recording is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsRecordingEnabled { get; set; }

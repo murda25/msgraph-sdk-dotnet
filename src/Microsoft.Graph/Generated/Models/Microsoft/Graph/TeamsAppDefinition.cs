@@ -7,11 +7,13 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class TeamsAppDefinition : Entity, IParsable {
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
         public TeamworkBot Bot { get; set; }
+        /// <summary>The createdBy property</summary>
         public IdentitySet CreatedBy { get; set; }
         /// <summary>Verbose description of the application.</summary>
         public string Description { get; set; }
         /// <summary>The name of the app provided by the app developer.</summary>
         public string DisplayName { get; set; }
+        /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.</summary>
         public TeamsAppPublishingState? PublishingState { get; set; }

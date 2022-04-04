@@ -9,6 +9,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<Approval> AccessPackageAssignmentApprovals { get; set; }
         /// <summary>Represents access package objects.</summary>
         public List<AccessPackage> AccessPackages { get; set; }
+        /// <summary>The assignmentPolicies property</summary>
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies { get; set; }
         /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
         public List<AccessPackageAssignmentRequest> AssignmentRequests { get; set; }

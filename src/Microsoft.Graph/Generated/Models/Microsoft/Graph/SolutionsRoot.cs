@@ -7,7 +7,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class SolutionsRoot : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The bookingBusinesses property</summary>
         public List<BookingBusiness> BookingBusinesses { get; set; }
+        /// <summary>The bookingCurrencies property</summary>
         public List<BookingCurrency> BookingCurrencies { get; set; }
         /// <summary>
         /// Instantiates a new SolutionsRoot and sets the default values.

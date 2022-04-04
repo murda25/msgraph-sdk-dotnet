@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessReviewHistoryDefinition : Entity, IParsable {
+        /// <summary>The createdBy property</summary>
         public UserIdentity CreatedBy { get; set; }
         /// <summary>Timestamp when the access review definition was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

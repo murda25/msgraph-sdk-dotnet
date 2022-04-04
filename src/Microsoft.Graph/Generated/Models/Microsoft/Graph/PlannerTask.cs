@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public int? ChecklistItemCount { get; set; }
         /// <summary>Identity of the user that completed the task.</summary>
         public IdentitySet CompletedBy { get; set; }
-        /// <summary>Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Read-only. Date and time at which the &apos;percentComplete&apos; of the task is set to &apos;100&apos;. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.</summary>
         public string ConversationThreadId { get; set; }

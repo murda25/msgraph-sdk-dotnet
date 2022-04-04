@@ -13,9 +13,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public ManagedAppClipboardSharingLevel? AllowedOutboundClipboardSharingLevel { get; set; }
         /// <summary>Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.</summary>
         public ManagedAppDataTransferLevel? AllowedOutboundDataTransferDestinations { get; set; }
-        /// <summary>Indicates whether contacts can be synced to the user's device.</summary>
+        /// <summary>Indicates whether contacts can be synced to the user&apos;s device.</summary>
         public bool? ContactSyncBlocked { get; set; }
-        /// <summary>Indicates whether the backup of a managed app's data is blocked.</summary>
+        /// <summary>Indicates whether the backup of a managed app&apos;s data is blocked.</summary>
         public bool? DataBackupBlocked { get; set; }
         /// <summary>Indicates whether device compliance is required.</summary>
         public bool? DeviceComplianceRequired { get; set; }
@@ -55,7 +55,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public bool? PinRequired { get; set; }
         /// <summary>Indicates whether printing is allowed from managed apps.</summary>
         public bool? PrintBlocked { get; set; }
-        /// <summary>Indicates whether users may use the 'Save As' menu item to save a copy of protected files.</summary>
+        /// <summary>Indicates whether users may use the &apos;Save As&apos; menu item to save a copy of protected files.</summary>
         public bool? SaveAsBlocked { get; set; }
         /// <summary>Indicates whether simplePin is blocked.</summary>
         public bool? SimplePinBlocked { get; set; }

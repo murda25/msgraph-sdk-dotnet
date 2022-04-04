@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackage : Entity, IParsable {
+        /// <summary>The assignmentPolicies property</summary>
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public AccessPackageCatalog Catalog { get; set; }

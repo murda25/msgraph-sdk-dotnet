@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public byte[] SquareLogo { get; set; }
         /// <summary>A relative url for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.</summary>
         public string SquareLogoRelativeUrl { get; set; }
-        /// <summary>String that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can't exceed 64 characters.</summary>
+        /// <summary>String that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can&apos;t exceed 64 characters.</summary>
         public string UsernameHintText { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

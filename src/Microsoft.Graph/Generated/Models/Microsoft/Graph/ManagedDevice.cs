@@ -51,13 +51,13 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string EthernetMacAddress { get; set; }
         /// <summary>The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.</summary>
         public DeviceManagementExchangeAccessState? ExchangeAccessState { get; set; }
-        /// <summary>The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.</summary>
+        /// <summary>The reason for the device&apos;s access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.</summary>
         public DeviceManagementExchangeAccessStateReason? ExchangeAccessStateReason { get; set; }
         /// <summary>Last time the device contacted Exchange. This property is read-only.</summary>
         public DateTimeOffset? ExchangeLastSuccessfulSyncDateTime { get; set; }
         /// <summary>Free Storage in Bytes. This property is read-only.</summary>
         public long? FreeStorageSpaceInBytes { get; set; }
-        /// <summary>Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.</summary>
+        /// <summary>Integrated Circuit Card Identifier, it is A SIM card&apos;s unique identification number. This property is read-only.</summary>
         public string Iccid { get; set; }
         /// <summary>IMEI. This property is read-only.</summary>
         public string Imei { get; set; }
@@ -71,7 +71,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? LastSyncDateTime { get; set; }
         /// <summary>Automatically generated name to identify a device. Can be overwritten to a user friendly name.</summary>
         public string ManagedDeviceName { get; set; }
-        /// <summary>Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.</summary>
+        /// <summary>Ownership of the device. Can be &apos;company&apos; or &apos;personal&apos;. Possible values are: unknown, company, personal.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.ManagedDeviceOwnerType? ManagedDeviceOwnerType { get; set; }
         /// <summary>Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.</summary>
         public ManagementAgentType? ManagementAgent { get; set; }
