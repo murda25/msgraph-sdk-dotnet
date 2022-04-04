@@ -13,6 +13,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string HitId { get; set; }
         /// <summary>The rank or the order of the result.</summary>
         public int? Rank { get; set; }
+        /// <summary>The resource property</summary>
         public Entity Resource { get; set; }
         /// <summary>ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.</summary>
         public string ResultTemplateId { get; set; }

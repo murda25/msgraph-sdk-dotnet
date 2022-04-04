@@ -7,7 +7,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class PlannerPlanDetails : Entity, IParsable {
         /// <summary>An object that specifies the descriptions of the six categories that can be associated with tasks in the plan</summary>
         public PlannerCategoryDescriptions CategoryDescriptions { get; set; }
-        /// <summary>Set of user ids that this plan is shared with. If you are leveraging Microsoft 365 groups, use the Groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection though it is not required for them to access the plan owned by the group.</summary>
+        /// <summary>Set of user ids that this plan is shared with. If you are leveraging Microsoft 365 groups, use the Groups API to manage group membership to share the group&apos;s plan. You can also add existing members of the group to this collection though it is not required for them to access the plan owned by the group.</summary>
         public PlannerUserIds SharedWith { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

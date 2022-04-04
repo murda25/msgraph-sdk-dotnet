@@ -43,7 +43,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public List<PrintMultipageLayout?> MultipageLayouts { get; set; }
         /// <summary>The print orientations supported by the printer. Valid values are described in the following table.</summary>
         public List<PrintOrientation?> Orientations { get; set; }
-        /// <summary>The printer's supported output bins (trays).</summary>
+        /// <summary>The printer&apos;s supported output bins (trays).</summary>
         public List<string> OutputBins { get; set; }
         /// <summary>Supported number of Input Pages to impose upon a single Impression.</summary>
         public List<int?> PagesPerSheet { get; set; }

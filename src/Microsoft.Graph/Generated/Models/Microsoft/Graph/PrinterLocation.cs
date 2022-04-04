@@ -39,6 +39,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string StreetAddress { get; set; }
         /// <summary>The subdivision that the printer is located in. The elements should be in hierarchical order.</summary>
         public List<string> Subdivision { get; set; }
+        /// <summary>The subunit property</summary>
         public List<string> Subunit { get; set; }
         /// <summary>
         /// Instantiates a new printerLocation and sets the default values.

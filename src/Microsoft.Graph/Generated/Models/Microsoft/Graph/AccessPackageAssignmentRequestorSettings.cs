@@ -7,13 +7,21 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageAssignmentRequestorSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The allowCustomAssignmentSchedule property</summary>
         public bool? AllowCustomAssignmentSchedule { get; set; }
+        /// <summary>The enableOnBehalfRequestorsToAddAccess property</summary>
         public bool? EnableOnBehalfRequestorsToAddAccess { get; set; }
+        /// <summary>The enableOnBehalfRequestorsToRemoveAccess property</summary>
         public bool? EnableOnBehalfRequestorsToRemoveAccess { get; set; }
+        /// <summary>The enableOnBehalfRequestorsToUpdateAccess property</summary>
         public bool? EnableOnBehalfRequestorsToUpdateAccess { get; set; }
+        /// <summary>The enableTargetsToSelfAddAccess property</summary>
         public bool? EnableTargetsToSelfAddAccess { get; set; }
+        /// <summary>The enableTargetsToSelfRemoveAccess property</summary>
         public bool? EnableTargetsToSelfRemoveAccess { get; set; }
+        /// <summary>The enableTargetsToSelfUpdateAccess property</summary>
         public bool? EnableTargetsToSelfUpdateAccess { get; set; }
+        /// <summary>The onBehalfRequestors property</summary>
         public List<SubjectSet> OnBehalfRequestors { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentRequestorSettings and sets the default values.

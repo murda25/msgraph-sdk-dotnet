@@ -7,9 +7,13 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class EducationRoot : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The classes property</summary>
         public List<EducationClass> Classes { get; set; }
+        /// <summary>The me property</summary>
         public EducationUser Me { get; set; }
+        /// <summary>The schools property</summary>
         public List<EducationSchool> Schools { get; set; }
+        /// <summary>The users property</summary>
         public List<EducationUser> Users { get; set; }
         /// <summary>
         /// Instantiates a new EducationRoot and sets the default values.

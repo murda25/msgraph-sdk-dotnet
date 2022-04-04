@@ -7,9 +7,11 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Phone : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The language property</summary>
         public string Language { get; set; }
         /// <summary>The phone number.</summary>
         public string Number { get; set; }
+        /// <summary>The region property</summary>
         public string Region { get; set; }
         /// <summary>The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.</summary>
         public PhoneType? Type { get; set; }

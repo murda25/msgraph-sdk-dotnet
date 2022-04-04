@@ -7,13 +7,21 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageAssignmentReviewSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The expirationBehavior property</summary>
         public AccessReviewExpirationBehavior? ExpirationBehavior { get; set; }
+        /// <summary>The fallbackReviewers property</summary>
         public List<SubjectSet> FallbackReviewers { get; set; }
+        /// <summary>The isEnabled property</summary>
         public bool? IsEnabled { get; set; }
+        /// <summary>The isRecommendationEnabled property</summary>
         public bool? IsRecommendationEnabled { get; set; }
+        /// <summary>The isReviewerJustificationRequired property</summary>
         public bool? IsReviewerJustificationRequired { get; set; }
+        /// <summary>The isSelfReview property</summary>
         public bool? IsSelfReview { get; set; }
+        /// <summary>The primaryReviewers property</summary>
         public List<SubjectSet> PrimaryReviewers { get; set; }
+        /// <summary>The schedule property</summary>
         public EntitlementManagementSchedule Schedule { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentReviewSettings and sets the default values.

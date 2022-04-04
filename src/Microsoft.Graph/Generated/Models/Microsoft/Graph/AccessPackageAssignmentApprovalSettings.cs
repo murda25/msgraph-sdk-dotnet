@@ -7,8 +7,11 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AccessPackageAssignmentApprovalSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The isApprovalRequiredForAdd property</summary>
         public bool? IsApprovalRequiredForAdd { get; set; }
+        /// <summary>The isApprovalRequiredForUpdate property</summary>
         public bool? IsApprovalRequiredForUpdate { get; set; }
+        /// <summary>The stages property</summary>
         public List<AccessPackageApprovalStage> Stages { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentApprovalSettings and sets the default values.

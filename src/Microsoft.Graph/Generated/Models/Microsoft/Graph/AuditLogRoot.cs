@@ -8,7 +8,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class AuditLogRoot : Entity, IParsable {
         /// <summary>Read-only. Nullable.</summary>
         public List<DirectoryAudit> DirectoryAudits { get; set; }
+        /// <summary>The provisioning property</summary>
         public List<ProvisioningObjectSummary> Provisioning { get; set; }
+        /// <summary>The restrictedSignIns property</summary>
         public List<RestrictedSignIn> RestrictedSignIns { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public List<SignIn> SignIns { get; set; }

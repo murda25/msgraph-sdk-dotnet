@@ -6,9 +6,13 @@ using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>The resource that represents an instance of Enrollment Failure Reports.</summary>
     public class ReportRoot : Entity, IParsable {
+        /// <summary>The dailyPrintUsageByPrinter property</summary>
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
+        /// <summary>The dailyPrintUsageByUser property</summary>
         public List<PrintUsageByUser> DailyPrintUsageByUser { get; set; }
+        /// <summary>The monthlyPrintUsageByPrinter property</summary>
         public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter { get; set; }
+        /// <summary>The monthlyPrintUsageByUser property</summary>
         public List<PrintUsageByUser> MonthlyPrintUsageByUser { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

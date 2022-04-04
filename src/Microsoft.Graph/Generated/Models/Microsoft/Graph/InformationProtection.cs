@@ -6,7 +6,9 @@ using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     /// <summary>Provides operations to manage the informationProtection singleton.</summary>
     public class InformationProtection : Entity, IParsable {
+        /// <summary>The bitlocker property</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.Bitlocker Bitlocker { get; set; }
+        /// <summary>The threatAssessmentRequests property</summary>
         public List<ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

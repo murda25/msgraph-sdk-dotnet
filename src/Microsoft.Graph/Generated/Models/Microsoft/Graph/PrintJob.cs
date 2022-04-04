@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class PrintJob : Entity, IParsable {
+        /// <summary>The configuration property</summary>
         public PrintJobConfiguration Configuration { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public UserIdentity CreatedBy { get; set; }
@@ -18,6 +19,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string RedirectedFrom { get; set; }
         /// <summary>Contains the destination job URL, if the job has been redirected to another printer.</summary>
         public string RedirectedTo { get; set; }
+        /// <summary>The status property</summary>
         public PrintJobStatus Status { get; set; }
         /// <summary>A list of printTasks that were triggered by this print job.</summary>
         public List<PrintTask> Tasks { get; set; }

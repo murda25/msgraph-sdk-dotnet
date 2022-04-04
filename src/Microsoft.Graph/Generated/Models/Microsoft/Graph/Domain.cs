@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Domain : Entity, IParsable {
-        /// <summary>Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.</summary>
+        /// <summary>Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant&apos;s on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.</summary>
         public string AuthenticationType { get; set; }
         /// <summary>This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.</summary>
         public string AvailabilityStatus { get; set; }
@@ -21,7 +21,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public bool? IsRoot { get; set; }
         /// <summary>true if the domain has completed domain ownership verification. Not nullable</summary>
         public bool? IsVerified { get; set; }
+        /// <summary>The manufacturer property</summary>
         public string Manufacturer { get; set; }
+        /// <summary>The model property</summary>
         public string Model { get; set; }
         /// <summary>Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.</summary>
         public int? PasswordNotificationWindowInDays { get; set; }

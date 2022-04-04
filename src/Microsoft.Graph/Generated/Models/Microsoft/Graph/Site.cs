@@ -18,10 +18,11 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public MicrosoftGraphSdk.Models.Microsoft.Graph.Drive Drive { get; set; }
         /// <summary>The collection of drives (document libraries) under this site.</summary>
         public List<MicrosoftGraphSdk.Models.Microsoft.Graph.Drive> Drives { get; set; }
+        /// <summary>The error property</summary>
         public PublicError Error { get; set; }
         /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
         public List<ColumnDefinition> ExternalColumns { get; set; }
-        /// <summary>Used to address any item contained in this site. This collection can't be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
         public List<BaseItem> Items { get; set; }
         /// <summary>The collection of lists under this site.</summary>
         public List<List> Lists { get; set; }
@@ -33,7 +34,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public MicrosoftGraphSdk.Models.Microsoft.Graph.Root Root { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.SharepointIds SharepointIds { get; set; }
-        /// <summary>Provides details about the site's site collection. Available only on the root site. Read-only.</summary>
+        /// <summary>Provides details about the site&apos;s site collection. Available only on the root site. Read-only.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.SiteCollection SiteCollection { get; set; }
         /// <summary>The collection of the sub-sites under this site.</summary>
         public List<Site> Sites { get; set; }

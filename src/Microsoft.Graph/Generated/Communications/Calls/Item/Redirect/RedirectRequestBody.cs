@@ -9,8 +9,11 @@ namespace MicrosoftGraphSdk.Communications.Calls.Item.Redirect {
     public class RedirectRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The callbackUri property</summary>
         public string CallbackUri { get; set; }
+        /// <summary>The targets property</summary>
         public List<InvitationParticipantInfo> Targets { get; set; }
+        /// <summary>The timeout property</summary>
         public int? Timeout { get; set; }
         /// <summary>
         /// Instantiates a new redirectRequestBody and sets the default values.

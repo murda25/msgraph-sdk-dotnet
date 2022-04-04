@@ -7,9 +7,13 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class InvitationParticipantInfo : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The hidden property</summary>
         public bool? Hidden { get; set; }
+        /// <summary>The identity property</summary>
         public IdentitySet Identity { get; set; }
+        /// <summary>The participantId property</summary>
         public string ParticipantId { get; set; }
+        /// <summary>The removeFromDefaultAudioRoutingGroup property</summary>
         public bool? RemoveFromDefaultAudioRoutingGroup { get; set; }
         /// <summary>Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.</summary>
         public string ReplacesCallId { get; set; }

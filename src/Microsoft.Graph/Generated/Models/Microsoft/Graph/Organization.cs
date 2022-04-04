@@ -7,6 +7,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Organization : DirectoryObject, IParsable {
         /// <summary>The collection of service plans associated with the tenant. Not nullable.</summary>
         public List<AssignedPlan> AssignedPlans { get; set; }
+        /// <summary>The branding property</summary>
         public OrganizationalBranding Branding { get; set; }
         /// <summary>Telephone number for the organization. Although this is a string collection, only one number can be set for this property.</summary>
         public List<string> BusinessPhones { get; set; }
@@ -40,7 +41,9 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public MicrosoftGraphSdk.Models.Microsoft.Graph.PrivacyProfile PrivacyProfile { get; set; }
         /// <summary>Not nullable.</summary>
         public List<ProvisionedPlan> ProvisionedPlans { get; set; }
+        /// <summary>The securityComplianceNotificationMails property</summary>
         public List<string> SecurityComplianceNotificationMails { get; set; }
+        /// <summary>The securityComplianceNotificationPhones property</summary>
         public List<string> SecurityComplianceNotificationPhones { get; set; }
         /// <summary>State name of the address for the organization.</summary>
         public string State { get; set; }
@@ -48,6 +51,7 @@ namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
         public string Street { get; set; }
         /// <summary>Not nullable.</summary>
         public List<string> TechnicalNotificationMails { get; set; }
+        /// <summary>The tenantType property</summary>
         public string TenantType { get; set; }
         /// <summary>The collection of domains associated with this tenant. Not nullable.</summary>
         public List<VerifiedDomain> VerifiedDomains { get; set; }

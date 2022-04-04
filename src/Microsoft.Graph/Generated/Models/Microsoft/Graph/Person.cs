@@ -5,43 +5,43 @@ using System.IO;
 using System.Linq;
 namespace MicrosoftGraphSdk.Models.Microsoft.Graph {
     public class Person : Entity, IParsable {
-        /// <summary>The person's birthday.</summary>
+        /// <summary>The person&apos;s birthday.</summary>
         public string Birthday { get; set; }
-        /// <summary>The name of the person's company.</summary>
+        /// <summary>The name of the person&apos;s company.</summary>
         public string CompanyName { get; set; }
-        /// <summary>The person's department.</summary>
+        /// <summary>The person&apos;s department.</summary>
         public string Department { get; set; }
-        /// <summary>The person's display name.</summary>
+        /// <summary>The person&apos;s display name.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The person's given name.</summary>
+        /// <summary>The person&apos;s given name.</summary>
         public string GivenName { get; set; }
         /// <summary>The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.</summary>
         public string ImAddress { get; set; }
         /// <summary>true if the user has flagged this person as a favorite.</summary>
         public bool? IsFavorite { get; set; }
-        /// <summary>The person's job title.</summary>
+        /// <summary>The person&apos;s job title.</summary>
         public string JobTitle { get; set; }
-        /// <summary>The location of the person's office.</summary>
+        /// <summary>The location of the person&apos;s office.</summary>
         public string OfficeLocation { get; set; }
         /// <summary>Free-form notes that the user has taken about this person.</summary>
         public string PersonNotes { get; set; }
         /// <summary>The type of person.</summary>
         public MicrosoftGraphSdk.Models.Microsoft.Graph.PersonType PersonType { get; set; }
-        /// <summary>The person's phone numbers.</summary>
+        /// <summary>The person&apos;s phone numbers.</summary>
         public List<Phone> Phones { get; set; }
-        /// <summary>The person's addresses.</summary>
+        /// <summary>The person&apos;s addresses.</summary>
         public List<Location> PostalAddresses { get; set; }
-        /// <summary>The person's profession.</summary>
+        /// <summary>The person&apos;s profession.</summary>
         public string Profession { get; set; }
-        /// <summary>The person's email addresses.</summary>
+        /// <summary>The person&apos;s email addresses.</summary>
         public List<ScoredEmailAddress> ScoredEmailAddresses { get; set; }
-        /// <summary>The person's surname.</summary>
+        /// <summary>The person&apos;s surname.</summary>
         public string Surname { get; set; }
-        /// <summary>The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.</summary>
+        /// <summary>The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person&apos;s email name. The general format is alias@domain.</summary>
         public string UserPrincipalName { get; set; }
-        /// <summary>The person's websites.</summary>
+        /// <summary>The person&apos;s websites.</summary>
         public List<Website> Websites { get; set; }
-        /// <summary>The phonetic Japanese name of the person's company.</summary>
+        /// <summary>The phonetic Japanese name of the person&apos;s company.</summary>
         public string YomiCompany { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
