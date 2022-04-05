@@ -1,21 +1,21 @@
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Attachments;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Extensions;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Forward;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Reply;
+using Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Attachments;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Extensions;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Forward;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.InReplyTo;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Reply;
-using MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item {
+namespace Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts.Item {
     /// <summary>Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.</summary>
     public class PostItemRequestBuilder {
         /// <summary>The attachments property</summary>

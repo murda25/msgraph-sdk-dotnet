@@ -1,16 +1,16 @@
+using Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Count;
+using Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.RemoteAssistancePartners.Count;
-using MicrosoftGraphSdk.DeviceManagement.RemoteAssistancePartners.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement.RemoteAssistancePartners {
+namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners {
     /// <summary>Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.</summary>
     public class RemoteAssistancePartnersRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.DeviceManagement.RemoteAssistancePartners {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.deviceManagement.remoteAssistancePartners.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.deviceManagement.remoteAssistancePartners.item collection</summary>
         public RemoteAssistancePartnerItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("remoteAssistancePartner_id", position);

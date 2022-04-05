@@ -1,17 +1,17 @@
+using Microsoft.Graph.Me.Activities.Count;
+using Microsoft.Graph.Me.Activities.Item;
+using Microsoft.Graph.Me.Activities.Recent;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Activities.Count;
-using MicrosoftGraphSdk.Me.Activities.Item;
-using MicrosoftGraphSdk.Me.Activities.Recent;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Activities {
+namespace Microsoft.Graph.Me.Activities {
     /// <summary>Provides operations to manage the activities property of the microsoft.graph.user entity.</summary>
     public class ActivitiesRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.Me.Activities {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.me.activities.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.me.activities.item collection</summary>
         public UserActivityItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("userActivity_id", position);

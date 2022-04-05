@@ -1,16 +1,16 @@
+using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources.Count;
+using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources.Count;
-using MicrosoftGraphSdk.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources {
+namespace Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources {
     /// <summary>Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.</summary>
     public class SubmittedResourcesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Education.Me.Assignments.Item.Submissions.Item.Submi
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.education.me.assignments.item.submissions.item.submittedResources.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.education.me.assignments.item.submissions.item.submittedResources.item collection</summary>
         public EducationSubmissionResourceItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("educationSubmissionResource_id", position);

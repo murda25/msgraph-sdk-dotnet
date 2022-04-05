@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Teams.Item.Archive {
+namespace Microsoft.Graph.Teams.Item.Archive {
     /// <summary>Provides operations to call the archive method.</summary>
     public class ArchiveRequestBuilder {
         /// <summary>Path parameters for the request</summary>

@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups.Count;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups.Count;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups {
+namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups {
     /// <summary>Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.</summary>
     public class SchedulingGroupsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroup
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.joinedTeams.item.schedule.schedulingGroups.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.joinedTeams.item.schedule.schedulingGroups.item collection</summary>
         public SchedulingGroupItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("schedulingGroup_id", position);

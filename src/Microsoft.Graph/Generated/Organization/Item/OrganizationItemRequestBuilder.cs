@@ -1,23 +1,23 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Organization.Item.Branding;
+using Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration;
+using Microsoft.Graph.Organization.Item.CheckMemberGroups;
+using Microsoft.Graph.Organization.Item.CheckMemberObjects;
+using Microsoft.Graph.Organization.Item.Extensions;
+using Microsoft.Graph.Organization.Item.GetMemberGroups;
+using Microsoft.Graph.Organization.Item.GetMemberObjects;
+using Microsoft.Graph.Organization.Item.Restore;
+using Microsoft.Graph.Organization.Item.SetMobileDeviceManagementAuthority;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Organization.Item.Branding;
-using MicrosoftGraphSdk.Organization.Item.CertificateBasedAuthConfiguration;
-using MicrosoftGraphSdk.Organization.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.Organization.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.Organization.Item.Extensions;
-using MicrosoftGraphSdk.Organization.Item.GetMemberGroups;
-using MicrosoftGraphSdk.Organization.Item.GetMemberObjects;
-using MicrosoftGraphSdk.Organization.Item.Restore;
-using MicrosoftGraphSdk.Organization.Item.SetMobileDeviceManagementAuthority;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Organization.Item {
+namespace Microsoft.Graph.Organization.Item {
     /// <summary>Provides operations to manage the collection of organization entities.</summary>
     public class OrganizationItemRequestBuilder {
         /// <summary>The branding property</summary>
@@ -131,7 +131,7 @@ namespace MicrosoftGraphSdk.Organization.Item {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.Organization body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -166,13 +166,13 @@ namespace MicrosoftGraphSdk.Organization.Item {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Organization> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Organization> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Organization>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Organization.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Organization>(requestInfo, Microsoft.Graph.Models.Organization.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update entity in organization
@@ -182,7 +182,7 @@ namespace MicrosoftGraphSdk.Organization.Item {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.Organization body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

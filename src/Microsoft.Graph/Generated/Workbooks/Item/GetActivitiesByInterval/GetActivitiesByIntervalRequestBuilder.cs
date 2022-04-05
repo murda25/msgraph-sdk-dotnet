@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Workbooks.Item.GetActivitiesByInterval {
+namespace Microsoft.Graph.Workbooks.Item.GetActivitiesByInterval {
     /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
     public class GetActivitiesByIntervalRequestBuilder {
         /// <summary>Path parameters for the request</summary>

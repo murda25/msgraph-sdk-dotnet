@@ -1,18 +1,18 @@
+using Microsoft.Graph.Education.Classes;
+using Microsoft.Graph.Education.Me;
+using Microsoft.Graph.Education.Schools;
+using Microsoft.Graph.Education.Users;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Education.Classes;
-using MicrosoftGraphSdk.Education.Me;
-using MicrosoftGraphSdk.Education.Schools;
-using MicrosoftGraphSdk.Education.Users;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Education {
+namespace Microsoft.Graph.Education {
     /// <summary>Provides operations to manage the educationRoot singleton.</summary>
     public class EducationRequestBuilder {
         /// <summary>The classes property</summary>

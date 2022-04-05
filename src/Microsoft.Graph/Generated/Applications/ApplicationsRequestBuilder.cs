@@ -1,20 +1,20 @@
+using Microsoft.Graph.Applications.Count;
+using Microsoft.Graph.Applications.Delta;
+using Microsoft.Graph.Applications.GetAvailableExtensionProperties;
+using Microsoft.Graph.Applications.GetByIds;
+using Microsoft.Graph.Applications.Item;
+using Microsoft.Graph.Applications.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Applications.Count;
-using MicrosoftGraphSdk.Applications.Delta;
-using MicrosoftGraphSdk.Applications.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.Applications.GetByIds;
-using MicrosoftGraphSdk.Applications.Item;
-using MicrosoftGraphSdk.Applications.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Applications {
+namespace Microsoft.Graph.Applications {
     /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class ApplicationsRequestBuilder {
         /// <summary>The count property</summary>
@@ -39,7 +39,7 @@ namespace MicrosoftGraphSdk.Applications {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.applications.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.applications.item collection</summary>
         public ApplicationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("application_id", position);

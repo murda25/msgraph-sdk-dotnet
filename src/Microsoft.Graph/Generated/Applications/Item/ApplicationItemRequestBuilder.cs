@@ -1,32 +1,32 @@
+using Microsoft.Graph.Applications.Item.AddKey;
+using Microsoft.Graph.Applications.Item.AddPassword;
+using Microsoft.Graph.Applications.Item.CheckMemberGroups;
+using Microsoft.Graph.Applications.Item.CheckMemberObjects;
+using Microsoft.Graph.Applications.Item.CreatedOnBehalfOf;
+using Microsoft.Graph.Applications.Item.ExtensionProperties;
+using Microsoft.Graph.Applications.Item.GetMemberGroups;
+using Microsoft.Graph.Applications.Item.GetMemberObjects;
+using Microsoft.Graph.Applications.Item.HomeRealmDiscoveryPolicies;
+using Microsoft.Graph.Applications.Item.Logo;
+using Microsoft.Graph.Applications.Item.Owners;
+using Microsoft.Graph.Applications.Item.RemoveKey;
+using Microsoft.Graph.Applications.Item.RemovePassword;
+using Microsoft.Graph.Applications.Item.Restore;
+using Microsoft.Graph.Applications.Item.SetVerifiedPublisher;
+using Microsoft.Graph.Applications.Item.TokenIssuancePolicies;
+using Microsoft.Graph.Applications.Item.TokenLifetimePolicies;
+using Microsoft.Graph.Applications.Item.UnsetVerifiedPublisher;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Applications.Item.AddKey;
-using MicrosoftGraphSdk.Applications.Item.AddPassword;
-using MicrosoftGraphSdk.Applications.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.Applications.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.Applications.Item.CreatedOnBehalfOf;
-using MicrosoftGraphSdk.Applications.Item.ExtensionProperties;
-using MicrosoftGraphSdk.Applications.Item.GetMemberGroups;
-using MicrosoftGraphSdk.Applications.Item.GetMemberObjects;
-using MicrosoftGraphSdk.Applications.Item.HomeRealmDiscoveryPolicies;
-using MicrosoftGraphSdk.Applications.Item.Logo;
-using MicrosoftGraphSdk.Applications.Item.Owners;
-using MicrosoftGraphSdk.Applications.Item.RemoveKey;
-using MicrosoftGraphSdk.Applications.Item.RemovePassword;
-using MicrosoftGraphSdk.Applications.Item.Restore;
-using MicrosoftGraphSdk.Applications.Item.SetVerifiedPublisher;
-using MicrosoftGraphSdk.Applications.Item.TokenIssuancePolicies;
-using MicrosoftGraphSdk.Applications.Item.TokenLifetimePolicies;
-using MicrosoftGraphSdk.Applications.Item.UnsetVerifiedPublisher;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Applications.Item {
+namespace Microsoft.Graph.Applications.Item {
     /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class ApplicationItemRequestBuilder {
         /// <summary>The addKey property</summary>

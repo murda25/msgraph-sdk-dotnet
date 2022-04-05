@@ -1,29 +1,29 @@
+using Microsoft.Graph.Me.Messages.Item.Attachments;
+using Microsoft.Graph.Me.Messages.Item.CalendarSharingMessage;
+using Microsoft.Graph.Me.Messages.Item.Copy;
+using Microsoft.Graph.Me.Messages.Item.CreateForward;
+using Microsoft.Graph.Me.Messages.Item.CreateReply;
+using Microsoft.Graph.Me.Messages.Item.CreateReplyAll;
+using Microsoft.Graph.Me.Messages.Item.Extensions;
+using Microsoft.Graph.Me.Messages.Item.Forward;
+using Microsoft.Graph.Me.Messages.Item.Move;
+using Microsoft.Graph.Me.Messages.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Me.Messages.Item.Reply;
+using Microsoft.Graph.Me.Messages.Item.ReplyAll;
+using Microsoft.Graph.Me.Messages.Item.Send;
+using Microsoft.Graph.Me.Messages.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Me.Messages.Item.Value;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Messages.Item.Attachments;
-using MicrosoftGraphSdk.Me.Messages.Item.CalendarSharingMessage;
-using MicrosoftGraphSdk.Me.Messages.Item.Copy;
-using MicrosoftGraphSdk.Me.Messages.Item.CreateForward;
-using MicrosoftGraphSdk.Me.Messages.Item.CreateReply;
-using MicrosoftGraphSdk.Me.Messages.Item.CreateReplyAll;
-using MicrosoftGraphSdk.Me.Messages.Item.Extensions;
-using MicrosoftGraphSdk.Me.Messages.Item.Forward;
-using MicrosoftGraphSdk.Me.Messages.Item.Move;
-using MicrosoftGraphSdk.Me.Messages.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Me.Messages.Item.Reply;
-using MicrosoftGraphSdk.Me.Messages.Item.ReplyAll;
-using MicrosoftGraphSdk.Me.Messages.Item.Send;
-using MicrosoftGraphSdk.Me.Messages.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Me.Messages.Item.Value;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Messages.Item {
+namespace Microsoft.Graph.Me.Messages.Item {
     /// <summary>Provides operations to manage the messages property of the microsoft.graph.user entity.</summary>
     public class MessageItemRequestBuilder {
         /// <summary>The attachments property</summary>

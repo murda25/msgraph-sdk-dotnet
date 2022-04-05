@@ -1,19 +1,19 @@
+using Microsoft.Graph.DirectoryRoleTemplates.Count;
+using Microsoft.Graph.DirectoryRoleTemplates.GetAvailableExtensionProperties;
+using Microsoft.Graph.DirectoryRoleTemplates.GetByIds;
+using Microsoft.Graph.DirectoryRoleTemplates.Item;
+using Microsoft.Graph.DirectoryRoleTemplates.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Count;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.GetByIds;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DirectoryRoleTemplates {
+namespace Microsoft.Graph.DirectoryRoleTemplates {
     /// <summary>Provides operations to manage the collection of directoryRoleTemplate entities.</summary>
     public class DirectoryRoleTemplatesRequestBuilder {
         /// <summary>The count property</summary>
@@ -38,7 +38,7 @@ namespace MicrosoftGraphSdk.DirectoryRoleTemplates {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.directoryRoleTemplates.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.directoryRoleTemplates.item collection</summary>
         public DirectoryRoleTemplateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("directoryRoleTemplate_id", position);

@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod {
+namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod {
     /// <summary>Provides operations to call the getOffice365GroupsActivityGroupCounts method.</summary>
     public class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>

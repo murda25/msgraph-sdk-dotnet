@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.OnlineMeetings.Item.AttendanceReports;
+using Microsoft.Graph.Users.Item.OnlineMeetings.Item.AttendeeReport;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports;
-using MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendeeReport;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item {
+namespace Microsoft.Graph.Users.Item.OnlineMeetings.Item {
     /// <summary>Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.</summary>
     public class OnlineMeetingItemRequestBuilder {
         /// <summary>The attendanceReports property</summary>

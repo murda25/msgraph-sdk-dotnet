@@ -1,16 +1,16 @@
+using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendanceReports;
+using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendeeReport;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Communications.OnlineMeetings.Item.AttendanceReports;
-using MicrosoftGraphSdk.Communications.OnlineMeetings.Item.AttendeeReport;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Communications.OnlineMeetings.Item {
+namespace Microsoft.Graph.Communications.OnlineMeetings.Item {
     /// <summary>Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.</summary>
     public class OnlineMeetingItemRequestBuilder {
         /// <summary>The attendanceReports property</summary>

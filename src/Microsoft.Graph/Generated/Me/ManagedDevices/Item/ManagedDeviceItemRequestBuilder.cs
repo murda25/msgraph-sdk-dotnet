@@ -1,35 +1,35 @@
+using Microsoft.Graph.Me.ManagedDevices.Item.BypassActivationLock;
+using Microsoft.Graph.Me.ManagedDevices.Item.CleanWindowsDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory;
+using Microsoft.Graph.Me.ManagedDevices.Item.DeviceCompliancePolicyStates;
+using Microsoft.Graph.Me.ManagedDevices.Item.DeviceConfigurationStates;
+using Microsoft.Graph.Me.ManagedDevices.Item.DisableLostMode;
+using Microsoft.Graph.Me.ManagedDevices.Item.LocateDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
+using Microsoft.Graph.Me.ManagedDevices.Item.RebootNow;
+using Microsoft.Graph.Me.ManagedDevices.Item.RecoverPasscode;
+using Microsoft.Graph.Me.ManagedDevices.Item.RemoteLock;
+using Microsoft.Graph.Me.ManagedDevices.Item.RequestRemoteAssistance;
+using Microsoft.Graph.Me.ManagedDevices.Item.ResetPasscode;
+using Microsoft.Graph.Me.ManagedDevices.Item.Retire;
+using Microsoft.Graph.Me.ManagedDevices.Item.ShutDown;
+using Microsoft.Graph.Me.ManagedDevices.Item.SyncDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.UpdateWindowsDeviceAccount;
+using Microsoft.Graph.Me.ManagedDevices.Item.WindowsDefenderScan;
+using Microsoft.Graph.Me.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
+using Microsoft.Graph.Me.ManagedDevices.Item.Wipe;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.BypassActivationLock;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.CleanWindowsDevice;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.DeviceCategory;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.DeviceCompliancePolicyStates;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.DeviceConfigurationStates;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.DisableLostMode;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.LocateDevice;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.RebootNow;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.RecoverPasscode;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.RemoteLock;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.RequestRemoteAssistance;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.ResetPasscode;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.Retire;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.ShutDown;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.SyncDevice;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.UpdateWindowsDeviceAccount;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.WindowsDefenderScan;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item.Wipe;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.ManagedDevices.Item {
+namespace Microsoft.Graph.Me.ManagedDevices.Item {
     /// <summary>Provides operations to manage the managedDevices property of the microsoft.graph.user entity.</summary>
     public class ManagedDeviceItemRequestBuilder {
         /// <summary>The bypassActivationLock property</summary>

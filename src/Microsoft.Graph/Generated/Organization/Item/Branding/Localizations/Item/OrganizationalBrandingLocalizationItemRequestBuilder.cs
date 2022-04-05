@@ -1,17 +1,17 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Organization.Item.Branding.Localizations.Item.BackgroundImage;
+using Microsoft.Graph.Organization.Item.Branding.Localizations.Item.BannerLogo;
+using Microsoft.Graph.Organization.Item.Branding.Localizations.Item.SquareLogo;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Organization.Item.Branding.Localizations.Item.BackgroundImage;
-using MicrosoftGraphSdk.Organization.Item.Branding.Localizations.Item.BannerLogo;
-using MicrosoftGraphSdk.Organization.Item.Branding.Localizations.Item.SquareLogo;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Organization.Item.Branding.Localizations.Item {
+namespace Microsoft.Graph.Organization.Item.Branding.Localizations.Item {
     /// <summary>Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.</summary>
     public class OrganizationalBrandingLocalizationItemRequestBuilder {
         /// <summary>The backgroundImage property</summary>

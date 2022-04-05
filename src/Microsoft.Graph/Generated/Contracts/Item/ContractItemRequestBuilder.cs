@@ -1,19 +1,19 @@
+using Microsoft.Graph.Contracts.Item.CheckMemberGroups;
+using Microsoft.Graph.Contracts.Item.CheckMemberObjects;
+using Microsoft.Graph.Contracts.Item.GetMemberGroups;
+using Microsoft.Graph.Contracts.Item.GetMemberObjects;
+using Microsoft.Graph.Contracts.Item.Restore;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Contracts.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.Contracts.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.Contracts.Item.GetMemberGroups;
-using MicrosoftGraphSdk.Contracts.Item.GetMemberObjects;
-using MicrosoftGraphSdk.Contracts.Item.Restore;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Contracts.Item {
+namespace Microsoft.Graph.Contracts.Item {
     /// <summary>Provides operations to manage the collection of contract entities.</summary>
     public class ContractItemRequestBuilder {
         /// <summary>The checkMemberGroups property</summary>

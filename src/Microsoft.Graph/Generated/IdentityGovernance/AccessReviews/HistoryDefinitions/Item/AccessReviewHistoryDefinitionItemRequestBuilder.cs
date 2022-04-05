@@ -1,15 +1,15 @@
+using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
+namespace Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item {
     /// <summary>Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.</summary>
     public class AccessReviewHistoryDefinitionItemRequestBuilder {
         /// <summary>The instances property</summary>

@@ -1,15 +1,15 @@
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item.DeviceStates;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item.DeviceStates;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item {
+namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item {
     /// <summary>Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.</summary>
     public class UserInstallStateSummaryItemRequestBuilder {
         /// <summary>The deviceStates property</summary>

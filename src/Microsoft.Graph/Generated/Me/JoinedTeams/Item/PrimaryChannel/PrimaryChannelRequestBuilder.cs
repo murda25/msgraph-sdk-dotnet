@@ -1,21 +1,21 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.CompleteMigration;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.FilesFolder;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Members;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.ProvisionEmail;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.CompleteMigration;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.FilesFolder;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.Members;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.Messages;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.ProvisionEmail;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.Tabs;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel {
     /// <summary>Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.</summary>
     public class PrimaryChannelRequestBuilder {
         /// <summary>The completeMigration property</summary>

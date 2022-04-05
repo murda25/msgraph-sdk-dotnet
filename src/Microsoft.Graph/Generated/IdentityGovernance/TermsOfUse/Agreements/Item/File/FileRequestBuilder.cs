@@ -1,15 +1,15 @@
+using Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.File.Localizations;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item.File.Localizations;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item.File {
+namespace Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.File {
     /// <summary>Provides operations to manage the file property of the microsoft.graph.agreement entity.</summary>
     public class FileRequestBuilder {
         /// <summary>The localizations property</summary>

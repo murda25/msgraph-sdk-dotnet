@@ -1,15 +1,15 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Settings.ShiftPreferences;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Settings.ShiftPreferences;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Settings {
+namespace Microsoft.Graph.Users.Item.Settings {
     /// <summary>Provides operations to manage the settings property of the microsoft.graph.user entity.</summary>
     public class SettingsRequestBuilder {
         /// <summary>Path parameters for the request</summary>

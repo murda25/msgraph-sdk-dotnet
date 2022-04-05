@@ -1,22 +1,22 @@
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.AcceptRecommendations;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ApplyDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.BatchRecordDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ContactedReviewers;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ResetDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.SendReminder;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stop;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.AcceptRecommendations;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ApplyDecisions;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.BatchRecordDecisions;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ContactedReviewers;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ResetDecisions;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.SendReminder;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stop;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item {
+namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item {
     /// <summary>Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.</summary>
     public class AccessReviewInstanceItemRequestBuilder {
         /// <summary>The acceptRecommendations property</summary>

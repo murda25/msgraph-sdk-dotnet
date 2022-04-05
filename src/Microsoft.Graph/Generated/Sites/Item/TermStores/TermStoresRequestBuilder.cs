@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models.TermStore;
+using Microsoft.Graph.Sites.Item.TermStores.Count;
+using Microsoft.Graph.Sites.Item.TermStores.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.TermStore;
-using MicrosoftGraphSdk.Sites.Item.TermStores.Count;
-using MicrosoftGraphSdk.Sites.Item.TermStores.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Sites.Item.TermStores {
+namespace Microsoft.Graph.Sites.Item.TermStores {
     /// <summary>Provides operations to manage the termStores property of the microsoft.graph.site entity.</summary>
     public class TermStoresRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Sites.Item.TermStores {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.sites.item.termStores.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.sites.item.termStores.item collection</summary>
         public StoreItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("store_id", position);

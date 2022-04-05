@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.Planner.Plans;
+using Microsoft.Graph.Me.Planner.Tasks;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Planner.Plans;
-using MicrosoftGraphSdk.Me.Planner.Tasks;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Planner {
+namespace Microsoft.Graph.Me.Planner {
     /// <summary>Provides operations to manage the planner property of the microsoft.graph.user entity.</summary>
     public class PlannerRequestBuilder {
         /// <summary>Path parameters for the request</summary>

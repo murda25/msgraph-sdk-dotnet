@@ -1,19 +1,19 @@
+using Microsoft.Graph.Identity.ApiConnectors;
+using Microsoft.Graph.Identity.B2xUserFlows;
+using Microsoft.Graph.Identity.ConditionalAccess;
+using Microsoft.Graph.Identity.IdentityProviders;
+using Microsoft.Graph.Identity.UserFlowAttributes;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Identity.ApiConnectors;
-using MicrosoftGraphSdk.Identity.B2xUserFlows;
-using MicrosoftGraphSdk.Identity.ConditionalAccess;
-using MicrosoftGraphSdk.Identity.IdentityProviders;
-using MicrosoftGraphSdk.Identity.UserFlowAttributes;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Identity {
+namespace Microsoft.Graph.Identity {
     /// <summary>Provides operations to manage the identityContainer singleton.</summary>
     public class IdentityRequestBuilder {
         /// <summary>The apiConnectors property</summary>

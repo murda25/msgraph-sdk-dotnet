@@ -1,21 +1,21 @@
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.CompleteMigration;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.FilesFolder;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.Members;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.Messages;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.ProvisionEmail;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.RemoveEmail;
+using Microsoft.Graph.Groups.Item.Team.Channels.Item.Tabs;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.CompleteMigration;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.FilesFolder;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.Members;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.Messages;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.ProvisionEmail;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.RemoveEmail;
-using MicrosoftGraphSdk.Groups.Item.Team.Channels.Item.Tabs;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Team.Channels.Item {
+namespace Microsoft.Graph.Groups.Item.Team.Channels.Item {
     /// <summary>Provides operations to manage the channels property of the microsoft.graph.team entity.</summary>
     public class ChannelItemRequestBuilder {
         /// <summary>The completeMigration property</summary>

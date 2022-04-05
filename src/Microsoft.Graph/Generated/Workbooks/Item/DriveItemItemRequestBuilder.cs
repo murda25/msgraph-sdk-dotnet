@@ -1,38 +1,38 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Workbooks.Item.Analytics;
+using Microsoft.Graph.Workbooks.Item.Checkin;
+using Microsoft.Graph.Workbooks.Item.Checkout;
+using Microsoft.Graph.Workbooks.Item.Children;
+using Microsoft.Graph.Workbooks.Item.Content;
+using Microsoft.Graph.Workbooks.Item.Copy;
+using Microsoft.Graph.Workbooks.Item.CreateLink;
+using Microsoft.Graph.Workbooks.Item.CreateUploadSession;
+using Microsoft.Graph.Workbooks.Item.Delta;
+using Microsoft.Graph.Workbooks.Item.DeltaWithToken;
+using Microsoft.Graph.Workbooks.Item.Follow;
+using Microsoft.Graph.Workbooks.Item.GetActivitiesByInterval;
+using Microsoft.Graph.Workbooks.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using Microsoft.Graph.Workbooks.Item.Invite;
+using Microsoft.Graph.Workbooks.Item.ListItem;
+using Microsoft.Graph.Workbooks.Item.Permissions;
+using Microsoft.Graph.Workbooks.Item.Preview;
+using Microsoft.Graph.Workbooks.Item.Restore;
+using Microsoft.Graph.Workbooks.Item.SearchWithQ;
+using Microsoft.Graph.Workbooks.Item.Subscriptions;
+using Microsoft.Graph.Workbooks.Item.Thumbnails;
+using Microsoft.Graph.Workbooks.Item.Unfollow;
+using Microsoft.Graph.Workbooks.Item.ValidatePermission;
+using Microsoft.Graph.Workbooks.Item.Versions;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Workbooks.Item.Analytics;
-using MicrosoftGraphSdk.Workbooks.Item.Checkin;
-using MicrosoftGraphSdk.Workbooks.Item.Checkout;
-using MicrosoftGraphSdk.Workbooks.Item.Children;
-using MicrosoftGraphSdk.Workbooks.Item.Content;
-using MicrosoftGraphSdk.Workbooks.Item.Copy;
-using MicrosoftGraphSdk.Workbooks.Item.CreateLink;
-using MicrosoftGraphSdk.Workbooks.Item.CreateUploadSession;
-using MicrosoftGraphSdk.Workbooks.Item.Delta;
-using MicrosoftGraphSdk.Workbooks.Item.DeltaWithToken;
-using MicrosoftGraphSdk.Workbooks.Item.Follow;
-using MicrosoftGraphSdk.Workbooks.Item.GetActivitiesByInterval;
-using MicrosoftGraphSdk.Workbooks.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
-using MicrosoftGraphSdk.Workbooks.Item.Invite;
-using MicrosoftGraphSdk.Workbooks.Item.ListItem;
-using MicrosoftGraphSdk.Workbooks.Item.Permissions;
-using MicrosoftGraphSdk.Workbooks.Item.Preview;
-using MicrosoftGraphSdk.Workbooks.Item.Restore;
-using MicrosoftGraphSdk.Workbooks.Item.SearchWithQ;
-using MicrosoftGraphSdk.Workbooks.Item.Subscriptions;
-using MicrosoftGraphSdk.Workbooks.Item.Thumbnails;
-using MicrosoftGraphSdk.Workbooks.Item.Unfollow;
-using MicrosoftGraphSdk.Workbooks.Item.ValidatePermission;
-using MicrosoftGraphSdk.Workbooks.Item.Versions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Workbooks.Item {
+namespace Microsoft.Graph.Workbooks.Item {
     /// <summary>Provides operations to manage the collection of driveItem entities.</summary>
     public class DriveItemItemRequestBuilder {
         /// <summary>The analytics property</summary>
@@ -186,7 +186,7 @@ namespace MicrosoftGraphSdk.Workbooks.Item {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.DriveItem body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -253,13 +253,13 @@ namespace MicrosoftGraphSdk.Workbooks.Item {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.DriveItem> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.DriveItem> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.DriveItem.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DriveItem>(requestInfo, Microsoft.Graph.Models.DriveItem.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update entity in workbooks
@@ -269,7 +269,7 @@ namespace MicrosoftGraphSdk.Workbooks.Item {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.DriveItem body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

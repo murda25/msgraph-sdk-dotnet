@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetOffice365GroupsActivityStorageWithPeriod {
+namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityStorageWithPeriod {
     /// <summary>Provides operations to call the getOffice365GroupsActivityStorage method.</summary>
     public class GetOffice365GroupsActivityStorageWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>

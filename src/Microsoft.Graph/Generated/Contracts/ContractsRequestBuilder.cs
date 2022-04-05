@@ -1,19 +1,19 @@
+using Microsoft.Graph.Contracts.Count;
+using Microsoft.Graph.Contracts.GetAvailableExtensionProperties;
+using Microsoft.Graph.Contracts.GetByIds;
+using Microsoft.Graph.Contracts.Item;
+using Microsoft.Graph.Contracts.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Contracts.Count;
-using MicrosoftGraphSdk.Contracts.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.Contracts.GetByIds;
-using MicrosoftGraphSdk.Contracts.Item;
-using MicrosoftGraphSdk.Contracts.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Contracts {
+namespace Microsoft.Graph.Contracts {
     /// <summary>Provides operations to manage the collection of contract entities.</summary>
     public class ContractsRequestBuilder {
         /// <summary>The count property</summary>
@@ -38,7 +38,7 @@ namespace MicrosoftGraphSdk.Contracts {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.contracts.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.contracts.item collection</summary>
         public ContractItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("contract_id", position);

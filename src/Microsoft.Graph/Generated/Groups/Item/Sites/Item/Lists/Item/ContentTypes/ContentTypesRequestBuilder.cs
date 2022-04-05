@@ -1,17 +1,17 @@
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes.AddCopy;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Count;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.AddCopy;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Count;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes {
+namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes {
     /// <summary>Provides operations to manage the contentTypes property of the microsoft.graph.list entity.</summary>
     public class ContentTypesRequestBuilder {
         /// <summary>The addCopy property</summary>
@@ -28,7 +28,7 @@ namespace MicrosoftGraphSdk.Groups.Item.Sites.Item.Lists.Item.ContentTypes {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.groups.item.sites.item.lists.item.contentTypes.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.groups.item.sites.item.lists.item.contentTypes.item collection</summary>
         public ContentTypeItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("contentType_id", position);

@@ -1,22 +1,22 @@
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assign;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assignments;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSettingStateSummaries;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatusOverview;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.GetOmaSettingPlainTextValueWithSecretReferenceValueId;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatusOverview;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.Assign;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.Assignments;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.DeviceSettingStateSummaries;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.DeviceStatusOverview;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.GetOmaSettingPlainTextValueWithSecretReferenceValueId;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item.UserStatusOverview;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations.Item {
+namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
     /// <summary>Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.</summary>
     public class DeviceConfigurationItemRequestBuilder {
         /// <summary>The assign property</summary>

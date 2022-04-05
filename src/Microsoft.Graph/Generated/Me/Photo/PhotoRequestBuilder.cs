@@ -1,15 +1,15 @@
+using Microsoft.Graph.Me.Photo.Value;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Photo.Value;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Photo {
+namespace Microsoft.Graph.Me.Photo {
     /// <summary>Provides operations to manage the photo property of the microsoft.graph.user entity.</summary>
     public class PhotoRequestBuilder {
         /// <summary>The Content property</summary>

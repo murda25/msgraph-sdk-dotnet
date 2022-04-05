@@ -1,17 +1,17 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests.FilterByCurrentUserWithOn;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Count;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.FilterByCurrentUserWithOn;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests {
     /// <summary>Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AssignmentRequestsRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentR
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.identityGovernance.entitlementManagement.assignmentRequests.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.identityGovernance.entitlementManagement.assignmentRequests.item collection</summary>
         public AccessPackageAssignmentRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackageAssignmentRequest_id", position);

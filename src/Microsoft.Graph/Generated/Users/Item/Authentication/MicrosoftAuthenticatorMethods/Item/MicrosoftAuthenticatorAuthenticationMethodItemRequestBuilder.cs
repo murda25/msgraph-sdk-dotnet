@@ -1,15 +1,15 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item {
+namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item {
     /// <summary>Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.</summary>
     public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         /// <summary>The device property</summary>

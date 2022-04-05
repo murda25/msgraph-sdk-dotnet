@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MicrosoftGraphSdk.Organization.GetAvailableExtensionProperties {
+namespace Microsoft.Graph.Organization.GetAvailableExtensionProperties {
     /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
     public class GetAvailableExtensionPropertiesRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

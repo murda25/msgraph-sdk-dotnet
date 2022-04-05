@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.ManagedDevices.Count;
+using Microsoft.Graph.Me.ManagedDevices.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.ManagedDevices.Count;
-using MicrosoftGraphSdk.Me.ManagedDevices.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.ManagedDevices {
+namespace Microsoft.Graph.Me.ManagedDevices {
     /// <summary>Provides operations to manage the managedDevices property of the microsoft.graph.user entity.</summary>
     public class ManagedDevicesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Me.ManagedDevices {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.me.managedDevices.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.me.managedDevices.item collection</summary>
         public ManagedDeviceItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("managedDevice_id", position);

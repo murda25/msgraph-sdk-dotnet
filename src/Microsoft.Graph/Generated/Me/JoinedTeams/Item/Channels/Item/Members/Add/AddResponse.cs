@@ -1,10 +1,10 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Channels.Item.Members.Add {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Members.Add {
     /// <summary>Provides operations to call the add method.</summary>
     public class AddResponse : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

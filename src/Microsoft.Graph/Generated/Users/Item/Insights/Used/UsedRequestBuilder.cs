@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Insights.Used.Count;
+using Microsoft.Graph.Users.Item.Insights.Used.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Insights.Used.Count;
-using MicrosoftGraphSdk.Users.Item.Insights.Used.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
+namespace Microsoft.Graph.Users.Item.Insights.Used {
     /// <summary>Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class UsedRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Used {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.insights.used.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.insights.used.item collection</summary>
         public UsedInsightItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("usedInsight_id", position);

@@ -1,20 +1,20 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.ServicePrincipals.Count;
+using Microsoft.Graph.ServicePrincipals.Delta;
+using Microsoft.Graph.ServicePrincipals.GetAvailableExtensionProperties;
+using Microsoft.Graph.ServicePrincipals.GetByIds;
+using Microsoft.Graph.ServicePrincipals.Item;
+using Microsoft.Graph.ServicePrincipals.ValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.ServicePrincipals.Count;
-using MicrosoftGraphSdk.ServicePrincipals.Delta;
-using MicrosoftGraphSdk.ServicePrincipals.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.ServicePrincipals.GetByIds;
-using MicrosoftGraphSdk.ServicePrincipals.Item;
-using MicrosoftGraphSdk.ServicePrincipals.ValidateProperties;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.ServicePrincipals {
+namespace Microsoft.Graph.ServicePrincipals {
     /// <summary>Provides operations to manage the collection of servicePrincipal entities.</summary>
     public class ServicePrincipalsRequestBuilder {
         /// <summary>The count property</summary>
@@ -39,7 +39,7 @@ namespace MicrosoftGraphSdk.ServicePrincipals {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.servicePrincipals.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.servicePrincipals.item collection</summary>
         public ServicePrincipalItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("servicePrincipal_id", position);

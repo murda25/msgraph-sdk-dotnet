@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.AppRoleAssignments.Count;
+using Microsoft.Graph.Users.Item.AppRoleAssignments.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.AppRoleAssignments.Count;
-using MicrosoftGraphSdk.Users.Item.AppRoleAssignments.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.AppRoleAssignments {
+namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
     /// <summary>Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.</summary>
     public class AppRoleAssignmentsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.AppRoleAssignments {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.appRoleAssignments.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.appRoleAssignments.item collection</summary>
         public AppRoleAssignmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("appRoleAssignment_id", position);

@@ -1,38 +1,38 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.ServicePrincipals.Item.AddKey;
+using Microsoft.Graph.ServicePrincipals.Item.AddPassword;
+using Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate;
+using Microsoft.Graph.ServicePrincipals.Item.AppRoleAssignedTo;
+using Microsoft.Graph.ServicePrincipals.Item.AppRoleAssignments;
+using Microsoft.Graph.ServicePrincipals.Item.CheckMemberGroups;
+using Microsoft.Graph.ServicePrincipals.Item.CheckMemberObjects;
+using Microsoft.Graph.ServicePrincipals.Item.ClaimsMappingPolicies;
+using Microsoft.Graph.ServicePrincipals.Item.CreatedObjects;
+using Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassifications;
+using Microsoft.Graph.ServicePrincipals.Item.Endpoints;
+using Microsoft.Graph.ServicePrincipals.Item.GetMemberGroups;
+using Microsoft.Graph.ServicePrincipals.Item.GetMemberObjects;
+using Microsoft.Graph.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
+using Microsoft.Graph.ServicePrincipals.Item.MemberOf;
+using Microsoft.Graph.ServicePrincipals.Item.Oauth2PermissionGrants;
+using Microsoft.Graph.ServicePrincipals.Item.OwnedObjects;
+using Microsoft.Graph.ServicePrincipals.Item.Owners;
+using Microsoft.Graph.ServicePrincipals.Item.RemoveKey;
+using Microsoft.Graph.ServicePrincipals.Item.RemovePassword;
+using Microsoft.Graph.ServicePrincipals.Item.Restore;
+using Microsoft.Graph.ServicePrincipals.Item.TokenIssuancePolicies;
+using Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies;
+using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.ServicePrincipals.Item.AddKey;
-using MicrosoftGraphSdk.ServicePrincipals.Item.AddPassword;
-using MicrosoftGraphSdk.ServicePrincipals.Item.AddTokenSigningCertificate;
-using MicrosoftGraphSdk.ServicePrincipals.Item.AppRoleAssignedTo;
-using MicrosoftGraphSdk.ServicePrincipals.Item.AppRoleAssignments;
-using MicrosoftGraphSdk.ServicePrincipals.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.ServicePrincipals.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.ServicePrincipals.Item.ClaimsMappingPolicies;
-using MicrosoftGraphSdk.ServicePrincipals.Item.CreatedObjects;
-using MicrosoftGraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications;
-using MicrosoftGraphSdk.ServicePrincipals.Item.Endpoints;
-using MicrosoftGraphSdk.ServicePrincipals.Item.GetMemberGroups;
-using MicrosoftGraphSdk.ServicePrincipals.Item.GetMemberObjects;
-using MicrosoftGraphSdk.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
-using MicrosoftGraphSdk.ServicePrincipals.Item.MemberOf;
-using MicrosoftGraphSdk.ServicePrincipals.Item.Oauth2PermissionGrants;
-using MicrosoftGraphSdk.ServicePrincipals.Item.OwnedObjects;
-using MicrosoftGraphSdk.ServicePrincipals.Item.Owners;
-using MicrosoftGraphSdk.ServicePrincipals.Item.RemoveKey;
-using MicrosoftGraphSdk.ServicePrincipals.Item.RemovePassword;
-using MicrosoftGraphSdk.ServicePrincipals.Item.Restore;
-using MicrosoftGraphSdk.ServicePrincipals.Item.TokenIssuancePolicies;
-using MicrosoftGraphSdk.ServicePrincipals.Item.TokenLifetimePolicies;
-using MicrosoftGraphSdk.ServicePrincipals.Item.TransitiveMemberOf;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.ServicePrincipals.Item {
+namespace Microsoft.Graph.ServicePrincipals.Item {
     /// <summary>Provides operations to manage the collection of servicePrincipal entities.</summary>
     public class ServicePrincipalItemRequestBuilder {
         /// <summary>The addKey property</summary>

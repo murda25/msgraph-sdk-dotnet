@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Drives.Item.Root.ListItem.GetActivitiesByInterval {
+namespace Microsoft.Graph.Me.Drives.Item.Root.ListItem.GetActivitiesByInterval {
     /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
     public class GetActivitiesByIntervalRequestBuilder {
         /// <summary>Path parameters for the request</summary>

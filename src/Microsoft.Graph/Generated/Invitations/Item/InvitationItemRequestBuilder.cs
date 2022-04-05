@@ -1,15 +1,15 @@
+using Microsoft.Graph.Invitations.Item.InvitedUser;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Invitations.Item.InvitedUser;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Invitations.Item {
+namespace Microsoft.Graph.Invitations.Item {
     /// <summary>Provides operations to manage the collection of invitation entities.</summary>
     public class InvitationItemRequestBuilder {
         /// <summary>The invitedUser property</summary>

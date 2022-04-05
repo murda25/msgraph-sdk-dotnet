@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Privacy.SubjectRightsRequests.Count;
+using Microsoft.Graph.Privacy.SubjectRightsRequests.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Privacy.SubjectRightsRequests.Count;
-using MicrosoftGraphSdk.Privacy.SubjectRightsRequests.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Privacy.SubjectRightsRequests {
+namespace Microsoft.Graph.Privacy.SubjectRightsRequests {
     /// <summary>Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.</summary>
     public class SubjectRightsRequestsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Privacy.SubjectRightsRequests {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.privacy.subjectRightsRequests.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.privacy.subjectRightsRequests.item collection</summary>
         public SubjectRightsRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("subjectRightsRequest_id", position);

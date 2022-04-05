@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Communications.Calls.Item.Mute {
+namespace Microsoft.Graph.Communications.Calls.Item.Mute {
     /// <summary>Provides operations to call the mute method.</summary>
     public class MuteRequestBuilder {
         /// <summary>Path parameters for the request</summary>

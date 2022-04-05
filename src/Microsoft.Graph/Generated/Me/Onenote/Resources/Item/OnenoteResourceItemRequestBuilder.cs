@@ -1,15 +1,15 @@
+using Microsoft.Graph.Me.Onenote.Resources.Item.Content;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Onenote.Resources.Item.Content;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Onenote.Resources.Item {
+namespace Microsoft.Graph.Me.Onenote.Resources.Item {
     /// <summary>Provides operations to manage the resources property of the microsoft.graph.onenote entity.</summary>
     public class OnenoteResourceItemRequestBuilder {
         /// <summary>The content property</summary>

@@ -1,17 +1,17 @@
+using Microsoft.Graph.Agreements.Item.Acceptances;
+using Microsoft.Graph.Agreements.Item.File;
+using Microsoft.Graph.Agreements.Item.Files;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Agreements.Item.Acceptances;
-using MicrosoftGraphSdk.Agreements.Item.File;
-using MicrosoftGraphSdk.Agreements.Item.Files;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Agreements.Item {
+namespace Microsoft.Graph.Agreements.Item {
     /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class AgreementItemRequestBuilder {
         /// <summary>The acceptances property</summary>

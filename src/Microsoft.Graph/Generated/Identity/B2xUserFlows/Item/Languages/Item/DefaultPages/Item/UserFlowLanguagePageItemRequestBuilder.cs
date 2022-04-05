@@ -1,15 +1,15 @@
+using Microsoft.Graph.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages.Item.Value;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages.Item.Value;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages.Item {
+namespace Microsoft.Graph.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages.Item {
     /// <summary>Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.</summary>
     public class UserFlowLanguagePageItemRequestBuilder {
         /// <summary>The Content property</summary>

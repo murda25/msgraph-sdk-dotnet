@@ -1,20 +1,20 @@
+using Microsoft.Graph.Education.Users.Item.Assignments;
+using Microsoft.Graph.Education.Users.Item.Classes;
+using Microsoft.Graph.Education.Users.Item.Rubrics;
+using Microsoft.Graph.Education.Users.Item.Schools;
+using Microsoft.Graph.Education.Users.Item.TaughtClasses;
+using Microsoft.Graph.Education.Users.Item.User;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Education.Users.Item.Assignments;
-using MicrosoftGraphSdk.Education.Users.Item.Classes;
-using MicrosoftGraphSdk.Education.Users.Item.Rubrics;
-using MicrosoftGraphSdk.Education.Users.Item.Schools;
-using MicrosoftGraphSdk.Education.Users.Item.TaughtClasses;
-using MicrosoftGraphSdk.Education.Users.Item.User;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Education.Users.Item {
+namespace Microsoft.Graph.Education.Users.Item {
     /// <summary>Provides operations to manage the users property of the microsoft.graph.educationRoot entity.</summary>
     public class EducationUserItemRequestBuilder {
         /// <summary>The assignments property</summary>

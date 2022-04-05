@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignments;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleDefinitions;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.RoleManagement.EntitlementManagement.RoleAssignments;
-using MicrosoftGraphSdk.RoleManagement.EntitlementManagement.RoleDefinitions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.RoleManagement.EntitlementManagement {
+namespace Microsoft.Graph.RoleManagement.EntitlementManagement {
     /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.</summary>
     public class EntitlementManagementRequestBuilder {
         /// <summary>Path parameters for the request</summary>

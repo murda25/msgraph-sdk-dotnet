@@ -1,16 +1,16 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages.Count;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Item.Stages {
     /// <summary>Provides operations to manage the stages property of the microsoft.graph.approval entity.</summary>
     public class StagesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPacka
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item.stages.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item.stages.item collection</summary>
         public ApprovalStageItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("approvalStage_id", position);

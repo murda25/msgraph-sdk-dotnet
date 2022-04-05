@@ -1,16 +1,16 @@
+using Microsoft.Graph.Drive.Special.Count;
+using Microsoft.Graph.Drive.Special.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Drive.Special.Count;
-using MicrosoftGraphSdk.Drive.Special.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Drive.Special {
+namespace Microsoft.Graph.Drive.Special {
     /// <summary>Provides operations to manage the special property of the microsoft.graph.drive entity.</summary>
     public class SpecialRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Drive.Special {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.drive.special.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.drive.special.item collection</summary>
         public DriveItemItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("driveItem_id", position);

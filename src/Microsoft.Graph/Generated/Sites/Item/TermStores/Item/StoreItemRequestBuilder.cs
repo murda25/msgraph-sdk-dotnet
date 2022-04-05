@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models.TermStore;
+using Microsoft.Graph.Sites.Item.TermStores.Item.Groups;
+using Microsoft.Graph.Sites.Item.TermStores.Item.Sets;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.TermStore;
-using MicrosoftGraphSdk.Sites.Item.TermStores.Item.Groups;
-using MicrosoftGraphSdk.Sites.Item.TermStores.Item.Sets;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Sites.Item.TermStores.Item {
+namespace Microsoft.Graph.Sites.Item.TermStores.Item {
     /// <summary>Provides operations to manage the termStores property of the microsoft.graph.site entity.</summary>
     public class StoreItemRequestBuilder {
         /// <summary>The groups property</summary>

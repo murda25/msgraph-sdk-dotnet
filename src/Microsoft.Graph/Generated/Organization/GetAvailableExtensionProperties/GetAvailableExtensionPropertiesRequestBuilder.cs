@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Organization.GetAvailableExtensionProperties {
+namespace Microsoft.Graph.Organization.GetAvailableExtensionProperties {
     /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
     public class GetAvailableExtensionPropertiesRequestBuilder {
         /// <summary>Path parameters for the request</summary>

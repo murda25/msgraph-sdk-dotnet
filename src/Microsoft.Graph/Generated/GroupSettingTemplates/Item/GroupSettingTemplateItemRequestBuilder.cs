@@ -1,19 +1,19 @@
+using Microsoft.Graph.GroupSettingTemplates.Item.CheckMemberGroups;
+using Microsoft.Graph.GroupSettingTemplates.Item.CheckMemberObjects;
+using Microsoft.Graph.GroupSettingTemplates.Item.GetMemberGroups;
+using Microsoft.Graph.GroupSettingTemplates.Item.GetMemberObjects;
+using Microsoft.Graph.GroupSettingTemplates.Item.Restore;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item.GetMemberGroups;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item.GetMemberObjects;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item.Restore;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.GroupSettingTemplates.Item {
+namespace Microsoft.Graph.GroupSettingTemplates.Item {
     /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplateItemRequestBuilder {
         /// <summary>The checkMemberGroups property</summary>

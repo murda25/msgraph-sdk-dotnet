@@ -1,16 +1,16 @@
+using Microsoft.Graph.DeviceAppManagement.DefaultManagedAppProtections.Item.Apps;
+using Microsoft.Graph.DeviceAppManagement.DefaultManagedAppProtections.Item.DeploymentSummary;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.DefaultManagedAppProtections.Item.Apps;
-using MicrosoftGraphSdk.DeviceAppManagement.DefaultManagedAppProtections.Item.DeploymentSummary;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.DefaultManagedAppProtections.Item {
+namespace Microsoft.Graph.DeviceAppManagement.DefaultManagedAppProtections.Item {
     /// <summary>Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.</summary>
     public class DefaultManagedAppProtectionItemRequestBuilder {
         /// <summary>The apps property</summary>

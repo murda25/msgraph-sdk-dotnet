@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Solutions.BookingBusinesses;
+using Microsoft.Graph.Solutions.BookingCurrencies;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Solutions.BookingBusinesses;
-using MicrosoftGraphSdk.Solutions.BookingCurrencies;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Solutions {
+namespace Microsoft.Graph.Solutions {
     /// <summary>Provides operations to manage the solutionsRoot singleton.</summary>
     public class SolutionsRequestBuilder {
         /// <summary>The bookingBusinesses property</summary>

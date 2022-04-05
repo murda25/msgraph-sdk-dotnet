@@ -1,16 +1,16 @@
+using Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item.Apps;
+using Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item.DeploymentSummary;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.AndroidManagedAppProtections.Item.Apps;
-using MicrosoftGraphSdk.DeviceAppManagement.AndroidManagedAppProtections.Item.DeploymentSummary;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.AndroidManagedAppProtections.Item {
+namespace Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item {
     /// <summary>Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.</summary>
     public class AndroidManagedAppProtectionItemRequestBuilder {
         /// <summary>The apps property</summary>

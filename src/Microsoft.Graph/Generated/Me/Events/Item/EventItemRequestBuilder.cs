@@ -1,27 +1,27 @@
+using Microsoft.Graph.Me.Events.Item.Accept;
+using Microsoft.Graph.Me.Events.Item.Attachments;
+using Microsoft.Graph.Me.Events.Item.Calendar;
+using Microsoft.Graph.Me.Events.Item.Cancel;
+using Microsoft.Graph.Me.Events.Item.Decline;
+using Microsoft.Graph.Me.Events.Item.DismissReminder;
+using Microsoft.Graph.Me.Events.Item.Extensions;
+using Microsoft.Graph.Me.Events.Item.Forward;
+using Microsoft.Graph.Me.Events.Item.Instances;
+using Microsoft.Graph.Me.Events.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Me.Events.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Me.Events.Item.SnoozeReminder;
+using Microsoft.Graph.Me.Events.Item.TentativelyAccept;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Events.Item.Accept;
-using MicrosoftGraphSdk.Me.Events.Item.Attachments;
-using MicrosoftGraphSdk.Me.Events.Item.Calendar;
-using MicrosoftGraphSdk.Me.Events.Item.Cancel;
-using MicrosoftGraphSdk.Me.Events.Item.Decline;
-using MicrosoftGraphSdk.Me.Events.Item.DismissReminder;
-using MicrosoftGraphSdk.Me.Events.Item.Extensions;
-using MicrosoftGraphSdk.Me.Events.Item.Forward;
-using MicrosoftGraphSdk.Me.Events.Item.Instances;
-using MicrosoftGraphSdk.Me.Events.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Me.Events.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Me.Events.Item.SnoozeReminder;
-using MicrosoftGraphSdk.Me.Events.Item.TentativelyAccept;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Events.Item {
+namespace Microsoft.Graph.Me.Events.Item {
     /// <summary>Provides operations to manage the events property of the microsoft.graph.user entity.</summary>
     public class EventItemRequestBuilder {
         /// <summary>The accept property</summary>

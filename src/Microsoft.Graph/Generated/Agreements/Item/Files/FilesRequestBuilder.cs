@@ -1,16 +1,16 @@
+using Microsoft.Graph.Agreements.Item.Files.Count;
+using Microsoft.Graph.Agreements.Item.Files.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Agreements.Item.Files.Count;
-using MicrosoftGraphSdk.Agreements.Item.Files.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Agreements.Item.Files {
+namespace Microsoft.Graph.Agreements.Item.Files {
     /// <summary>Provides operations to manage the files property of the microsoft.graph.agreement entity.</summary>
     public class FilesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Agreements.Item.Files {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.agreements.item.files.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.agreements.item.files.item collection</summary>
         public AgreementFileLocalizationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("agreementFileLocalization_id", position);

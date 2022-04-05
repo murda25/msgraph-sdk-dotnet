@@ -1,21 +1,21 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.CompleteMigration;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.FilesFolder;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Members;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.ProvisionEmail;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.RemoveEmail;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Tabs;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.CompleteMigration;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.FilesFolder;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Members;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Messages;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.ProvisionEmail;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.RemoveEmail;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Tabs;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Teams.Item.PrimaryChannel {
+namespace Microsoft.Graph.Teams.Item.PrimaryChannel {
     /// <summary>Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.</summary>
     public class PrimaryChannelRequestBuilder {
         /// <summary>The completeMigration property</summary>

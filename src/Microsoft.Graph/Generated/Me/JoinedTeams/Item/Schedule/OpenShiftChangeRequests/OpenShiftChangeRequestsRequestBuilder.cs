@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests.Count;
+using Microsoft.Graph.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests.Count;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests {
     /// <summary>Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.</summary>
     public class OpenShiftChangeRequestsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Schedule.OpenShiftChangeRequests
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.me.joinedTeams.item.schedule.openShiftChangeRequests.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.me.joinedTeams.item.schedule.openShiftChangeRequests.item collection</summary>
         public OpenShiftChangeRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("openShiftChangeRequest_id", position);

@@ -1,16 +1,16 @@
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Count;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Count;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies {
+namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
     /// <summary>Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.</summary>
     public class DeviceCompliancePoliciesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.deviceManagement.deviceCompliancePolicies.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.deviceManagement.deviceCompliancePolicies.item collection</summary>
         public DeviceCompliancePolicyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("deviceCompliancePolicy_id", position);

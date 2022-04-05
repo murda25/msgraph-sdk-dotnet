@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Insights.Shared.Item.LastSharedMethod;
+using Microsoft.Graph.Users.Item.Insights.Shared.Item.Resource;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod;
-using MicrosoftGraphSdk.Users.Item.Insights.Shared.Item.Resource;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Insights.Shared.Item {
+namespace Microsoft.Graph.Users.Item.Insights.Shared.Item {
     /// <summary>Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class SharedInsightItemRequestBuilder {
         /// <summary>The lastSharedMethod property</summary>

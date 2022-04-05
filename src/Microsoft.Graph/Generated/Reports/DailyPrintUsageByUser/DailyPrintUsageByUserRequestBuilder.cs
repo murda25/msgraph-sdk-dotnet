@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Reports.DailyPrintUsageByUser.Count;
+using Microsoft.Graph.Reports.DailyPrintUsageByUser.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Reports.DailyPrintUsageByUser.Count;
-using MicrosoftGraphSdk.Reports.DailyPrintUsageByUser.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.DailyPrintUsageByUser {
+namespace Microsoft.Graph.Reports.DailyPrintUsageByUser {
     /// <summary>Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.</summary>
     public class DailyPrintUsageByUserRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Reports.DailyPrintUsageByUser {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.reports.dailyPrintUsageByUser.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.reports.dailyPrintUsageByUser.item collection</summary>
         public PrintUsageByUserItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("printUsageByUser_id", position);

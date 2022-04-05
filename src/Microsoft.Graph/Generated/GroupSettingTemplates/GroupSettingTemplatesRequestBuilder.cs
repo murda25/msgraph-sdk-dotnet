@@ -1,19 +1,19 @@
+using Microsoft.Graph.GroupSettingTemplates.Count;
+using Microsoft.Graph.GroupSettingTemplates.GetAvailableExtensionProperties;
+using Microsoft.Graph.GroupSettingTemplates.GetByIds;
+using Microsoft.Graph.GroupSettingTemplates.Item;
+using Microsoft.Graph.GroupSettingTemplates.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.GroupSettingTemplates.Count;
-using MicrosoftGraphSdk.GroupSettingTemplates.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.GroupSettingTemplates.GetByIds;
-using MicrosoftGraphSdk.GroupSettingTemplates.Item;
-using MicrosoftGraphSdk.GroupSettingTemplates.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.GroupSettingTemplates {
+namespace Microsoft.Graph.GroupSettingTemplates {
     /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplatesRequestBuilder {
         /// <summary>The count property</summary>
@@ -38,7 +38,7 @@ namespace MicrosoftGraphSdk.GroupSettingTemplates {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.groupSettingTemplates.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.groupSettingTemplates.item collection</summary>
         public GroupSettingTemplateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("groupSettingTemplate_id", position);
