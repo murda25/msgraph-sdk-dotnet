@@ -37,7 +37,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets emailAddress.
-        /// Primary email address of the contact.
+        /// Primary email address of the contact. Required.
         /// </summary>
         [JsonPropertyName("emailAddress")]
         public string EmailAddress { get; set; }
@@ -51,7 +51,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets relationship.
-        /// Relationship to the user. Possible values are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+        /// Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
         /// </summary>
         [JsonPropertyName("relationship")]
         public ContactRelationship? Relationship { get; set; }

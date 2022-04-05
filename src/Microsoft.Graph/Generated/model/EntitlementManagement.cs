@@ -50,6 +50,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets assignment policies.
+        /// Access package assignment policies.
         /// </summary>
         [JsonPropertyName("assignmentPolicies")]
         public IEntitlementManagementAssignmentPoliciesCollectionPage AssignmentPolicies { get; set; }
@@ -91,7 +92,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets catalogs.
-        /// Represents a group of access packages.
+        /// Represents a collection of access packages.
         /// </summary>
         [JsonPropertyName("catalogs")]
         public IEntitlementManagementCatalogsCollectionPage Catalogs { get; set; }

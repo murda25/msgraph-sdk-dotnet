@@ -58,6 +58,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets assignment policy.
+        /// Read-only. Supports $filter (eq) on the id property and $expand query parameters.
         /// </summary>
         [JsonPropertyName("assignmentPolicy")]
         public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }

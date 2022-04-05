@@ -23,18 +23,21 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets isApprovalRequiredForAdd.
+        /// If false, then approval is not required for new requests in this policy.
         /// </summary>
         [JsonPropertyName("isApprovalRequiredForAdd")]
         public bool? IsApprovalRequiredForAdd { get; set; }
     
         /// <summary>
         /// Gets or sets isApprovalRequiredForUpdate.
+        /// If false, then approval is not required for updates to requests in this policy.
         /// </summary>
         [JsonPropertyName("isApprovalRequiredForUpdate")]
         public bool? IsApprovalRequiredForUpdate { get; set; }
     
         /// <summary>
         /// Gets or sets stages.
+        /// If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
         /// </summary>
         [JsonPropertyName("stages")]
         public IEnumerable<AccessPackageApprovalStage> Stages { get; set; }

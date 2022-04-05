@@ -57,6 +57,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets assignment policies.
+        /// Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("assignmentPolicies")]
         public IAccessPackageAssignmentPoliciesCollectionPage AssignmentPolicies { get; set; }
