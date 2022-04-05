@@ -23,48 +23,56 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets expirationBehavior.
+        /// The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
         /// </summary>
         [JsonPropertyName("expirationBehavior")]
         public AccessReviewExpirationBehavior? ExpirationBehavior { get; set; }
     
         /// <summary>
         /// Gets or sets fallbackReviewers.
+        /// This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond.
         /// </summary>
         [JsonPropertyName("fallbackReviewers")]
         public IEnumerable<SubjectSet> FallbackReviewers { get; set; }
     
         /// <summary>
         /// Gets or sets isEnabled.
+        /// If true, access reviews are required for assignments through this policy.
         /// </summary>
         [JsonPropertyName("isEnabled")]
         public bool? IsEnabled { get; set; }
     
         /// <summary>
         /// Gets or sets isRecommendationEnabled.
+        /// Specifies whether to display recommendations to the reviewer. The default value is true.
         /// </summary>
         [JsonPropertyName("isRecommendationEnabled")]
         public bool? IsRecommendationEnabled { get; set; }
     
         /// <summary>
         /// Gets or sets isReviewerJustificationRequired.
+        /// Specifies whether the reviewer must provide justification for the approval. The default value is true.
         /// </summary>
         [JsonPropertyName("isReviewerJustificationRequired")]
         public bool? IsReviewerJustificationRequired { get; set; }
     
         /// <summary>
         /// Gets or sets isSelfReview.
+        /// Specifies whether the principals can review their own assignments.
         /// </summary>
         [JsonPropertyName("isSelfReview")]
         public bool? IsSelfReview { get; set; }
     
         /// <summary>
         /// Gets or sets primaryReviewers.
+        /// This collection specifies the users or group of users who will review the access package assignments.
         /// </summary>
         [JsonPropertyName("primaryReviewers")]
         public IEnumerable<SubjectSet> PrimaryReviewers { get; set; }
     
         /// <summary>
         /// Gets or sets schedule.
+        /// When the first review should start and how often it should recur.
         /// </summary>
         [JsonPropertyName("schedule")]
         public EntitlementManagementSchedule Schedule { get; set; }
