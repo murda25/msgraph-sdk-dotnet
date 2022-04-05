@@ -49,7 +49,11 @@ namespace Microsoft.Graph
         /// <returns>The <see cref="IAccessPackageSubjectWithReferenceRequestBuilder"/>.</returns>
         IAccessPackageSubjectWithReferenceRequestBuilder Target { get; }
     
-        
+        /// <summary>
+        /// Gets the request builder for AccessPackageAssignmentReprocess.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentReprocessRequestBuilder"/>.</returns>
+        IAccessPackageAssignmentReprocessRequestBuilder Reprocess();
     
     }
 }

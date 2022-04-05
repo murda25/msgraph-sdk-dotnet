@@ -23,48 +23,56 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets allowCustomAssignmentSchedule.
+        /// If false, the requestor is not permitted to include a schedule in their request.
         /// </summary>
         [JsonPropertyName("allowCustomAssignmentSchedule")]
         public bool? AllowCustomAssignmentSchedule { get; set; }
     
         /// <summary>
         /// Gets or sets enableOnBehalfRequestorsToAddAccess.
+        /// If true, allows on-behalf-of requestors to create a request to add access for another principal.
         /// </summary>
         [JsonPropertyName("enableOnBehalfRequestorsToAddAccess")]
         public bool? EnableOnBehalfRequestorsToAddAccess { get; set; }
     
         /// <summary>
         /// Gets or sets enableOnBehalfRequestorsToRemoveAccess.
+        /// If true, allows on-behalf-of requestors to create a request to remove access for another principal.
         /// </summary>
         [JsonPropertyName("enableOnBehalfRequestorsToRemoveAccess")]
         public bool? EnableOnBehalfRequestorsToRemoveAccess { get; set; }
     
         /// <summary>
         /// Gets or sets enableOnBehalfRequestorsToUpdateAccess.
+        /// If true, allows on-behalf-of requestors to create a request to update access for another principal.
         /// </summary>
         [JsonPropertyName("enableOnBehalfRequestorsToUpdateAccess")]
         public bool? EnableOnBehalfRequestorsToUpdateAccess { get; set; }
     
         /// <summary>
         /// Gets or sets enableTargetsToSelfAddAccess.
+        /// If true, allows requestors to create a request to add access for themselves.
         /// </summary>
         [JsonPropertyName("enableTargetsToSelfAddAccess")]
         public bool? EnableTargetsToSelfAddAccess { get; set; }
     
         /// <summary>
         /// Gets or sets enableTargetsToSelfRemoveAccess.
+        /// If true, allows requestors to create a request to remove their access.
         /// </summary>
         [JsonPropertyName("enableTargetsToSelfRemoveAccess")]
         public bool? EnableTargetsToSelfRemoveAccess { get; set; }
     
         /// <summary>
         /// Gets or sets enableTargetsToSelfUpdateAccess.
+        /// If true, allows requestors to create a request to update their access.
         /// </summary>
         [JsonPropertyName("enableTargetsToSelfUpdateAccess")]
         public bool? EnableTargetsToSelfUpdateAccess { get; set; }
     
         /// <summary>
         /// Gets or sets onBehalfRequestors.
+        /// The principals who can request on-behalf-of others.
         /// </summary>
         [JsonPropertyName("onBehalfRequestors")]
         public IEnumerable<SubjectSet> OnBehalfRequestors { get; set; }
