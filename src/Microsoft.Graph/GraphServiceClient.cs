@@ -1,14 +1,14 @@
-// ------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
-namespace MicrosoftGraphSdk
+namespace Microsoft.Graph
 {
     using System;
     using System.Net.Http;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.Graph;
+    using System.Reflection;
     using Microsoft.Graph.Core.Requests;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Authentication.Azure;
@@ -18,8 +18,15 @@ namespace MicrosoftGraphSdk
     /// <summary>
     /// A default client implementation.
     /// </summary>
-    public class GraphServiceClient: BaseGraphServiceClient, IBaseClient 
+    public class GraphServiceClient : BaseGraphServiceClient, IBaseClient
     {
+        private static readonly Version assemblyVersion = typeof(GraphServiceClient).GetTypeInfo().Assembly.GetName().Version;
+        private static readonly GraphClientOptions graphClientOptions = new GraphClientOptions
+        {
+            GraphServiceLibraryClientVersion = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Major}",
+            GraphServiceTargetVersion = "v1.0",
+        };
+
         /// <summary>
         /// Constructs a new <see cref="GraphServiceClient"/>.
         /// </summary>
@@ -47,7 +54,7 @@ namespace MicrosoftGraphSdk
         /// <param name="authenticationProvider">The <see cref="IAuthenticationProvider"/> for authenticating request messages.</param>
         public GraphServiceClient(
             IAuthenticationProvider authenticationProvider
-            ): this(new BaseGraphRequestAdapter(authenticationProvider))
+            ): this(new BaseGraphRequestAdapter(authenticationProvider,graphClientOptions))
         {
         }
 
@@ -56,7 +63,7 @@ namespace MicrosoftGraphSdk
         /// </summary>
         /// <param name="httpClient">The customized <see cref="HttpClient"/> to be used for making requests</param>
         public GraphServiceClient(
-            HttpClient httpClient):this(new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: httpClient))
+            HttpClient httpClient):this(new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), graphClientOptions, httpClient: httpClient))
         {
         }
 
