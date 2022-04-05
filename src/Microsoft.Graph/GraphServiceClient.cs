@@ -23,7 +23,7 @@ namespace Microsoft.Graph
         private static readonly Version assemblyVersion = typeof(GraphServiceClient).GetTypeInfo().Assembly.GetName().Version;
         private static readonly GraphClientOptions graphClientOptions = new GraphClientOptions
         {
-            GraphServiceLibraryClientVersion = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Major}",
+            GraphServiceLibraryClientVersion = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Build}",
             GraphServiceTargetVersion = "v1.0",
         };
 
