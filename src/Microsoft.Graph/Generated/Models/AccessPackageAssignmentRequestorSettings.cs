@@ -7,21 +7,21 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentRequestorSettings : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allowCustomAssignmentSchedule property</summary>
+        /// <summary>If false, the requestor is not permitted to include a schedule in their request.</summary>
         public bool? AllowCustomAssignmentSchedule { get; set; }
-        /// <summary>The enableOnBehalfRequestorsToAddAccess property</summary>
+        /// <summary>If true, allows on-behalf-of requestors to create a request to add access for another principal.</summary>
         public bool? EnableOnBehalfRequestorsToAddAccess { get; set; }
-        /// <summary>The enableOnBehalfRequestorsToRemoveAccess property</summary>
+        /// <summary>If true, allows on-behalf-of requestors to create a request to remove access for another principal.</summary>
         public bool? EnableOnBehalfRequestorsToRemoveAccess { get; set; }
-        /// <summary>The enableOnBehalfRequestorsToUpdateAccess property</summary>
+        /// <summary>If true, allows on-behalf-of requestors to create a request to update access for another principal.</summary>
         public bool? EnableOnBehalfRequestorsToUpdateAccess { get; set; }
-        /// <summary>The enableTargetsToSelfAddAccess property</summary>
+        /// <summary>If true, allows requestors to create a request to add access for themselves.</summary>
         public bool? EnableTargetsToSelfAddAccess { get; set; }
-        /// <summary>The enableTargetsToSelfRemoveAccess property</summary>
+        /// <summary>If true, allows requestors to create a request to remove their access.</summary>
         public bool? EnableTargetsToSelfRemoveAccess { get; set; }
-        /// <summary>The enableTargetsToSelfUpdateAccess property</summary>
+        /// <summary>If true, allows requestors to create a request to update their access.</summary>
         public bool? EnableTargetsToSelfUpdateAccess { get; set; }
-        /// <summary>The onBehalfRequestors property</summary>
+        /// <summary>The principals who can request on-behalf-of others.</summary>
         public List<SubjectSet> OnBehalfRequestors { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentRequestorSettings and sets the default values.

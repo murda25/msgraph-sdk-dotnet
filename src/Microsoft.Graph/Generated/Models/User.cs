@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Models {
         public List<OnPremisesProvisioningError> OnPremisesProvisioningErrors { get; set; }
         /// <summary>Contains the on-premises samAccountName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith).</summary>
         public string OnPremisesSamAccountName { get; set; }
-        /// <summary>Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only. Returned only on $select. Supports $filter (eq) on null values only.</summary>
+        /// <summary>Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only. Returned only on $select.  Supports $filter (eq including on null values).</summary>
         public string OnPremisesSecurityIdentifier { get; set; }
         /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
@@ -191,6 +191,8 @@ namespace Microsoft.Graph.Models {
         public PlannerUser Planner { get; set; }
         /// <summary>The postal code for the user&apos;s postal address. The postal code is specific to the user&apos;s country/region. In the United States of America, this attribute contains the ZIP code. Maximum length is 40 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string PostalCode { get; set; }
+        /// <summary>The preferred data location for the user. For more information, see OneDrive Online Multi-Geo.</summary>
+        public string PreferredDataLocation { get; set; }
         /// <summary>The preferred language for the user. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)</summary>
         public string PreferredLanguage { get; set; }
         /// <summary>The preferred name for the user. Returned only on $select.</summary>
@@ -341,6 +343,7 @@ namespace Microsoft.Graph.Models {
                 {"photos", (o,n) => { (o as User).Photos = n.GetCollectionOfObjectValues<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue).ToList(); } },
                 {"planner", (o,n) => { (o as User).Planner = n.GetObjectValue<PlannerUser>(PlannerUser.CreateFromDiscriminatorValue); } },
                 {"postalCode", (o,n) => { (o as User).PostalCode = n.GetStringValue(); } },
+                {"preferredDataLocation", (o,n) => { (o as User).PreferredDataLocation = n.GetStringValue(); } },
                 {"preferredLanguage", (o,n) => { (o as User).PreferredLanguage = n.GetStringValue(); } },
                 {"preferredName", (o,n) => { (o as User).PreferredName = n.GetStringValue(); } },
                 {"presence", (o,n) => { (o as User).Presence = n.GetObjectValue<Microsoft.Graph.Models.Presence>(Microsoft.Graph.Models.Presence.CreateFromDiscriminatorValue); } },
@@ -465,6 +468,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<ProfilePhoto>("photos", Photos);
             writer.WriteObjectValue<PlannerUser>("planner", Planner);
             writer.WriteStringValue("postalCode", PostalCode);
+            writer.WriteStringValue("preferredDataLocation", PreferredDataLocation);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteStringValue("preferredName", PreferredName);
             writer.WriteObjectValue<Microsoft.Graph.Models.Presence>("presence", Presence);

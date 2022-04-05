@@ -1,5 +1,3 @@
-using Microsoft.Graph.Models;
-using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace Microsoft.Graph.Education.Me.User {
-    /// <summary>Provides operations to manage the user property of the microsoft.graph.educationUser entity.</summary>
-    public class UserRequestBuilder {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Reprocess {
+    /// <summary>Provides operations to call the reprocess method.</summary>
+    public class ReprocessRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -18,75 +16,57 @@ namespace Microsoft.Graph.Education.Me.User {
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
-        /// Instantiates a new UserRequestBuilder and sets the default values.
+        /// Instantiates a new ReprocessRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public UserRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+        public ReprocessRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/me/user{?select,expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest_id}/microsoft.graph.reprocess";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Instantiates a new UserRequestBuilder and sets the default values.
+        /// Instantiates a new ReprocessRequestBuilder and sets the default values.
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public UserRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+        public ReprocessRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/me/user{?select,expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest_id}/microsoft.graph.reprocess";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The directory user that corresponds to this user.
+        /// Invoke action reprocess
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            if (queryParameters != null) {
-                var qParams = new GetQueryParameters();
-                queryParameters.Invoke(qParams);
-                qParams.AddQueryParameters(requestInfo.QueryParameters);
-            }
             headers?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(options?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// The directory user that corresponds to this user.
+        /// Invoke action reprocess
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.User> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.User>(requestInfo, Microsoft.Graph.Models.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
-        }
-        /// <summary>The directory user that corresponds to this user.</summary>
-        public class GetQueryParameters : QueryParametersBase {
-            /// <summary>Expand related entities</summary>
-            public string[] Expand { get; set; }
-            /// <summary>Select properties to be returned</summary>
-            public string[] Select { get; set; }
+        public async Task PostAsync(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreatePostRequestInformation(headers, options);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

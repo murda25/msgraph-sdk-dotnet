@@ -7,7 +7,7 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageAssignment : Entity, IParsable {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
         public Microsoft.Graph.Models.AccessPackage AccessPackage { get; set; }
-        /// <summary>The assignmentPolicy property</summary>
+        /// <summary>Read-only. Supports $filter (eq) on the id property and $expand query parameters.</summary>
         public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ExpiredDateTime { get; set; }

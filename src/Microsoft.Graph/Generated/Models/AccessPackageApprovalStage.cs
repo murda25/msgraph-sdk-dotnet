@@ -7,21 +7,21 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageApprovalStage : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The durationBeforeAutomaticDenial property</summary>
+        /// <summary>The number of days that a request can be pending a response before it is automatically denied.</summary>
         public TimeSpan? DurationBeforeAutomaticDenial { get; set; }
-        /// <summary>The durationBeforeEscalation property</summary>
+        /// <summary>If escalation is required, the time a request can be pending a response from a primary approver.</summary>
         public TimeSpan? DurationBeforeEscalation { get; set; }
-        /// <summary>The escalationApprovers property</summary>
+        /// <summary>If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.</summary>
         public List<SubjectSet> EscalationApprovers { get; set; }
-        /// <summary>The fallbackEscalationApprovers property</summary>
+        /// <summary>The subjects, typically users, who are the fallback escalation approvers.</summary>
         public List<SubjectSet> FallbackEscalationApprovers { get; set; }
-        /// <summary>The fallbackPrimaryApprovers property</summary>
+        /// <summary>The subjects, typically users, who are the fallback primary approvers.</summary>
         public List<SubjectSet> FallbackPrimaryApprovers { get; set; }
-        /// <summary>The isApproverJustificationRequired property</summary>
+        /// <summary>Indicates whether the approver is required to provide a justification for approving a request.</summary>
         public bool? IsApproverJustificationRequired { get; set; }
-        /// <summary>The isEscalationEnabled property</summary>
+        /// <summary>If true, then one or more escalationApprovers are configured in this approval stage.</summary>
         public bool? IsEscalationEnabled { get; set; }
-        /// <summary>The primaryApprovers property</summary>
+        /// <summary>The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.</summary>
         public List<SubjectSet> PrimaryApprovers { get; set; }
         /// <summary>
         /// Instantiates a new accessPackageApprovalStage and sets the default values.

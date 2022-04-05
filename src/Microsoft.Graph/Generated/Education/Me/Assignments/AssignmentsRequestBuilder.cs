@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Education.Me.Assignments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Assignments belonging to the user.
+        /// Assignments that belongs to the user.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Education.Me.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// Assignments belonging to the user.
+        /// Assignments that belongs to the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Education.Me.Assignments {
             };
             return await RequestAdapter.SendAsync<EducationAssignment>(requestInfo, EducationAssignment.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Assignments belonging to the user.</summary>
+        /// <summary>Assignments that belongs to the user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }
