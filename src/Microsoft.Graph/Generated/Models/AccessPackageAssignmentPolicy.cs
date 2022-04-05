@@ -5,29 +5,29 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentPolicy : Entity, IParsable {
-        /// <summary>The access package with this policy. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Access package containing this policy. Read-only.</summary>
         public Microsoft.Graph.Models.AccessPackage AccessPackage { get; set; }
-        /// <summary>The allowedTargetScope property</summary>
+        /// <summary>Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.AllowedTargetScope? AllowedTargetScope { get; set; }
-        /// <summary>The catalog property</summary>
+        /// <summary>Catalog of the access package containing this policy. Read-only.</summary>
         public AccessPackageCatalog Catalog { get; set; }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the policy.</summary>
         public string Description { get; set; }
-        /// <summary>The display name of the policy. Supports $filter (eq).</summary>
+        /// <summary>The display name of the policy.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The expiration property</summary>
+        /// <summary>The expiration date for assignments created in this policy.</summary>
         public ExpirationPattern Expiration { get; set; }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ModifiedDateTime { get; set; }
-        /// <summary>Who must approve requests for access package in this policy.</summary>
+        /// <summary>Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.</summary>
         public AccessPackageAssignmentApprovalSettings RequestApprovalSettings { get; set; }
-        /// <summary>Who can request this access package from this policy.</summary>
+        /// <summary>Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.</summary>
         public AccessPackageAssignmentRequestorSettings RequestorSettings { get; set; }
-        /// <summary>The reviewSettings property</summary>
+        /// <summary>Settings for access reviews of assignments through this policy.</summary>
         public AccessPackageAssignmentReviewSettings ReviewSettings { get; set; }
-        /// <summary>The specificAllowedTargets property</summary>
+        /// <summary>The principals that can be assigned access from an access package through this policy.</summary>
         public List<SubjectSet> SpecificAllowedTargets { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

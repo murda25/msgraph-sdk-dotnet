@@ -1,5 +1,6 @@
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Reprocess;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -24,6 +25,10 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The reprocess property</summary>
+        public ReprocessRequestBuilder Reprocess { get =>
+            new ReprocessRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>The target property</summary>
