@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetOffice365ActivationsUserDetail {
+namespace Microsoft.Graph.Reports.GetOffice365ActivationsUserDetail {
     /// <summary>Provides operations to call the getOffice365ActivationsUserDetail method.</summary>
     public class GetOffice365ActivationsUserDetailRequestBuilder {
         /// <summary>Path parameters for the request</summary>

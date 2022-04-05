@@ -1,16 +1,16 @@
+using Microsoft.Graph.Education.Classes.Item.Assignments.Count;
+using Microsoft.Graph.Education.Classes.Item.Assignments.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Education.Classes.Item.Assignments.Count;
-using MicrosoftGraphSdk.Education.Classes.Item.Assignments.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Education.Classes.Item.Assignments {
+namespace Microsoft.Graph.Education.Classes.Item.Assignments {
     /// <summary>Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.</summary>
     public class AssignmentsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Education.Classes.Item.Assignments {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.education.classes.item.assignments.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.education.classes.item.assignments.item collection</summary>
         public EducationAssignmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("educationAssignment_id", position);

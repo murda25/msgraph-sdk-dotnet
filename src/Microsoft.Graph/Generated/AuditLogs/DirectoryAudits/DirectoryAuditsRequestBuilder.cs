@@ -1,16 +1,16 @@
+using Microsoft.Graph.AuditLogs.DirectoryAudits.Count;
+using Microsoft.Graph.AuditLogs.DirectoryAudits.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.AuditLogs.DirectoryAudits.Count;
-using MicrosoftGraphSdk.AuditLogs.DirectoryAudits.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.AuditLogs.DirectoryAudits {
+namespace Microsoft.Graph.AuditLogs.DirectoryAudits {
     /// <summary>Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.</summary>
     public class DirectoryAuditsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.AuditLogs.DirectoryAudits {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.auditLogs.directoryAudits.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.auditLogs.directoryAudits.item collection</summary>
         public DirectoryAuditItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("directoryAudit_id", position);

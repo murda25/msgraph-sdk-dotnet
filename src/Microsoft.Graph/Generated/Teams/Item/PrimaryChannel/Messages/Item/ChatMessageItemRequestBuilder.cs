@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item.HostedContents;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item.Replies;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Messages.Item.HostedContents;
-using MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Messages.Item.Replies;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Teams.Item.PrimaryChannel.Messages.Item {
+namespace Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item {
     /// <summary>Provides operations to manage the messages property of the microsoft.graph.channel entity.</summary>
     public class ChatMessageItemRequestBuilder {
         /// <summary>The hostedContents property</summary>

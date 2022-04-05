@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetOffice365GroupsActivityDetailWithDate {
+namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityDetailWithDate {
     /// <summary>Provides operations to call the getOffice365GroupsActivityDetail method.</summary>
     public class GetOffice365GroupsActivityDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>

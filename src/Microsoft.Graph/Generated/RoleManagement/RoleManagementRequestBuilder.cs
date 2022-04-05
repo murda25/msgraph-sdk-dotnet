@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.RoleManagement.Directory;
+using Microsoft.Graph.RoleManagement.EntitlementManagement;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.RoleManagement.Directory;
-using MicrosoftGraphSdk.RoleManagement.EntitlementManagement;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.RoleManagement {
+namespace Microsoft.Graph.RoleManagement {
     /// <summary>Provides operations to manage the roleManagement singleton.</summary>
     public class RoleManagementRequestBuilder {
         /// <summary>The directory property</summary>
@@ -81,7 +81,7 @@ namespace MicrosoftGraphSdk.RoleManagement {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.RoleManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.RoleManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -101,13 +101,13 @@ namespace MicrosoftGraphSdk.RoleManagement {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.RoleManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.RoleManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.RoleManagement>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.RoleManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.RoleManagement>(requestInfo, Microsoft.Graph.Models.RoleManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update roleManagement
@@ -117,7 +117,7 @@ namespace MicrosoftGraphSdk.RoleManagement {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.RoleManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.RoleManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

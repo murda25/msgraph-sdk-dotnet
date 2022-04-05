@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentPolicies.Item.Catalog {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPolicies.Item.Catalog {
     /// <summary>Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.</summary>
     public class CatalogRequestBuilder {
         /// <summary>Path parameters for the request</summary>

@@ -1,19 +1,19 @@
+using Microsoft.Graph.DirectoryRoleTemplates.Item.CheckMemberGroups;
+using Microsoft.Graph.DirectoryRoleTemplates.Item.CheckMemberObjects;
+using Microsoft.Graph.DirectoryRoleTemplates.Item.GetMemberGroups;
+using Microsoft.Graph.DirectoryRoleTemplates.Item.GetMemberObjects;
+using Microsoft.Graph.DirectoryRoleTemplates.Item.Restore;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item.GetMemberGroups;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item.GetMemberObjects;
-using MicrosoftGraphSdk.DirectoryRoleTemplates.Item.Restore;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DirectoryRoleTemplates.Item {
+namespace Microsoft.Graph.DirectoryRoleTemplates.Item {
     /// <summary>Provides operations to manage the collection of directoryRoleTemplate entities.</summary>
     public class DirectoryRoleTemplateItemRequestBuilder {
         /// <summary>The checkMemberGroups property</summary>

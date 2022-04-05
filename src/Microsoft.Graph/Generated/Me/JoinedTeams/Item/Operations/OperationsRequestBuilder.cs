@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.Operations.Count;
+using Microsoft.Graph.Me.JoinedTeams.Item.Operations.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Operations.Count;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Operations.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Operations {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.Operations {
     /// <summary>Provides operations to manage the operations property of the microsoft.graph.team entity.</summary>
     public class OperationsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Operations {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.me.joinedTeams.item.operations.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.me.joinedTeams.item.operations.item collection</summary>
         public TeamsAsyncOperationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("teamsAsyncOperation_id", position);

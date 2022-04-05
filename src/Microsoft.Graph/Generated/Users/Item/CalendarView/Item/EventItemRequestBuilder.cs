@@ -1,27 +1,27 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Accept;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Attachments;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Calendar;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Cancel;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Decline;
+using Microsoft.Graph.Users.Item.CalendarView.Item.DismissReminder;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Extensions;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Forward;
+using Microsoft.Graph.Users.Item.CalendarView.Item.Instances;
+using Microsoft.Graph.Users.Item.CalendarView.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Users.Item.CalendarView.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Users.Item.CalendarView.Item.SnoozeReminder;
+using Microsoft.Graph.Users.Item.CalendarView.Item.TentativelyAccept;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Accept;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Attachments;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Calendar;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Cancel;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Decline;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.DismissReminder;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Extensions;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Forward;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.Instances;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.SnoozeReminder;
-using MicrosoftGraphSdk.Users.Item.CalendarView.Item.TentativelyAccept;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.CalendarView.Item {
+namespace Microsoft.Graph.Users.Item.CalendarView.Item {
     /// <summary>Provides operations to manage the calendarView property of the microsoft.graph.user entity.</summary>
     public class EventItemRequestBuilder {
         /// <summary>The accept property</summary>

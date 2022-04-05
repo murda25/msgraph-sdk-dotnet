@@ -1,15 +1,15 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView.Item.Cancel;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView.Item.Cancel;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.CalendarView.Item {
+namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView.Item {
     /// <summary>Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.</summary>
     public class BookingAppointmentItemRequestBuilder {
         /// <summary>The cancel property</summary>

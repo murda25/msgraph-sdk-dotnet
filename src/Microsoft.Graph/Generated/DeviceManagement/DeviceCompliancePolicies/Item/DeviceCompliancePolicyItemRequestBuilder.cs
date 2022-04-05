@@ -1,23 +1,23 @@
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assign;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignments;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingStateSummaries;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatusOverview;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsForRules;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.UserStatuses;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.UserStatusOverview;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assign;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assignments;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingStateSummaries;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatusOverview;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsForRules;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatuses;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatusOverview;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies.Item {
+namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
     /// <summary>Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.</summary>
     public class DeviceCompliancePolicyItemRequestBuilder {
         /// <summary>The assign property</summary>

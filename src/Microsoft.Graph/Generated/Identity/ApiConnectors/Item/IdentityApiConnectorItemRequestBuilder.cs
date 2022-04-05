@@ -1,15 +1,15 @@
+using Microsoft.Graph.Identity.ApiConnectors.Item.UploadClientCertificate;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Identity.ApiConnectors.Item.UploadClientCertificate;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Identity.ApiConnectors.Item {
+namespace Microsoft.Graph.Identity.ApiConnectors.Item {
     /// <summary>Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.</summary>
     public class IdentityApiConnectorItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

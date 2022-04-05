@@ -1,15 +1,15 @@
+using Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods.Item.Device;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item.Device;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item {
+namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods.Item {
     /// <summary>Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.</summary>
     public class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         /// <summary>The device property</summary>

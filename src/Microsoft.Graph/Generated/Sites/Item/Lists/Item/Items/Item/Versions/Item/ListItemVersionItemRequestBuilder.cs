@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Versions.Item.Fields;
+using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Versions.Item.RestoreVersion;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Sites.Item.Lists.Item.Items.Item.Versions.Item.Fields;
-using MicrosoftGraphSdk.Sites.Item.Lists.Item.Items.Item.Versions.Item.RestoreVersion;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Sites.Item.Lists.Item.Items.Item.Versions.Item {
+namespace Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Versions.Item {
     /// <summary>Provides operations to manage the versions property of the microsoft.graph.listItem entity.</summary>
     public class ListItemVersionItemRequestBuilder {
         /// <summary>The fields property</summary>

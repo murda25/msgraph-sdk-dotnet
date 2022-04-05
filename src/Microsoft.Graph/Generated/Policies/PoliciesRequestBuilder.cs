@@ -1,27 +1,27 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Policies.ActivityBasedTimeoutPolicies;
+using Microsoft.Graph.Policies.AdminConsentRequestPolicy;
+using Microsoft.Graph.Policies.AuthenticationFlowsPolicy;
+using Microsoft.Graph.Policies.AuthenticationMethodsPolicy;
+using Microsoft.Graph.Policies.AuthorizationPolicy;
+using Microsoft.Graph.Policies.ClaimsMappingPolicies;
+using Microsoft.Graph.Policies.ConditionalAccessPolicies;
+using Microsoft.Graph.Policies.FeatureRolloutPolicies;
+using Microsoft.Graph.Policies.HomeRealmDiscoveryPolicies;
+using Microsoft.Graph.Policies.IdentitySecurityDefaultsEnforcementPolicy;
+using Microsoft.Graph.Policies.PermissionGrantPolicies;
+using Microsoft.Graph.Policies.TokenIssuancePolicies;
+using Microsoft.Graph.Policies.TokenLifetimePolicies;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Policies.ActivityBasedTimeoutPolicies;
-using MicrosoftGraphSdk.Policies.AdminConsentRequestPolicy;
-using MicrosoftGraphSdk.Policies.AuthenticationFlowsPolicy;
-using MicrosoftGraphSdk.Policies.AuthenticationMethodsPolicy;
-using MicrosoftGraphSdk.Policies.AuthorizationPolicy;
-using MicrosoftGraphSdk.Policies.ClaimsMappingPolicies;
-using MicrosoftGraphSdk.Policies.ConditionalAccessPolicies;
-using MicrosoftGraphSdk.Policies.FeatureRolloutPolicies;
-using MicrosoftGraphSdk.Policies.HomeRealmDiscoveryPolicies;
-using MicrosoftGraphSdk.Policies.IdentitySecurityDefaultsEnforcementPolicy;
-using MicrosoftGraphSdk.Policies.PermissionGrantPolicies;
-using MicrosoftGraphSdk.Policies.TokenIssuancePolicies;
-using MicrosoftGraphSdk.Policies.TokenLifetimePolicies;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Policies {
+namespace Microsoft.Graph.Policies {
     /// <summary>Provides operations to manage the policyRoot singleton.</summary>
     public class PoliciesRequestBuilder {
         /// <summary>The activityBasedTimeoutPolicies property</summary>

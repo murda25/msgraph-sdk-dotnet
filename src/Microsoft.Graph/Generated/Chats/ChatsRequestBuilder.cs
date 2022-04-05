@@ -1,17 +1,17 @@
+using Microsoft.Graph.Chats.Count;
+using Microsoft.Graph.Chats.GetAllMessages;
+using Microsoft.Graph.Chats.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Chats.Count;
-using MicrosoftGraphSdk.Chats.GetAllMessages;
-using MicrosoftGraphSdk.Chats.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Chats {
+namespace Microsoft.Graph.Chats {
     /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class ChatsRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.Chats {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.chats.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.chats.item collection</summary>
         public ChatItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("chat_id", position);
@@ -84,7 +84,7 @@ namespace MicrosoftGraphSdk.Chats {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.Chat body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(Microsoft.Graph.Models.Chat body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.POST,
@@ -126,14 +126,14 @@ namespace MicrosoftGraphSdk.Chats {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Chat> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Chat body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Chat> PostAsync(Microsoft.Graph.Models.Chat body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Chat>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from chats</summary>
         public class GetQueryParameters : QueryParametersBase {

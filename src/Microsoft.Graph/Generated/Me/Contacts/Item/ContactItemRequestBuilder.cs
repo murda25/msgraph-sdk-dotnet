@@ -1,18 +1,18 @@
+using Microsoft.Graph.Me.Contacts.Item.Extensions;
+using Microsoft.Graph.Me.Contacts.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Me.Contacts.Item.Photo;
+using Microsoft.Graph.Me.Contacts.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Contacts.Item.Extensions;
-using MicrosoftGraphSdk.Me.Contacts.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Me.Contacts.Item.Photo;
-using MicrosoftGraphSdk.Me.Contacts.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Contacts.Item {
+namespace Microsoft.Graph.Me.Contacts.Item {
     /// <summary>Provides operations to manage the contacts property of the microsoft.graph.user entity.</summary>
     public class ContactItemRequestBuilder {
         /// <summary>The extensions property</summary>

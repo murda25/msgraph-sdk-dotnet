@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetSharePointSiteUsageDetailWithPeriod {
+namespace Microsoft.Graph.Reports.GetSharePointSiteUsageDetailWithPeriod {
     /// <summary>Provides operations to call the getSharePointSiteUsageDetail method.</summary>
     public class GetSharePointSiteUsageDetailWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>

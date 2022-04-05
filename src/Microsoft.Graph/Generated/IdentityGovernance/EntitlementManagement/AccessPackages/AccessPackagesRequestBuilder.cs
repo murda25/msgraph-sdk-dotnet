@@ -1,17 +1,17 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.FilterByCurrentUserWithOn;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Count;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.FilterByCurrentUserWithOn;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages {
     /// <summary>Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AccessPackagesRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPacka
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.identityGovernance.entitlementManagement.accessPackages.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.identityGovernance.entitlementManagement.accessPackages.item collection</summary>
         public AccessPackageItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackage_id", position);
@@ -84,7 +84,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPacka
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(Microsoft.Graph.Models.AccessPackage body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.POST,
@@ -128,14 +128,14 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPacka
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.AccessPackage> PostAsync(Microsoft.Graph.Models.AccessPackage body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.AccessPackage.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AccessPackage>(requestInfo, Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Represents access package objects.</summary>
         public class GetQueryParameters : QueryParametersBase {

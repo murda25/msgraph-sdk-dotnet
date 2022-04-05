@@ -1,23 +1,23 @@
+using Microsoft.Graph.Contacts.Item.CheckMemberGroups;
+using Microsoft.Graph.Contacts.Item.CheckMemberObjects;
+using Microsoft.Graph.Contacts.Item.DirectReports;
+using Microsoft.Graph.Contacts.Item.GetMemberGroups;
+using Microsoft.Graph.Contacts.Item.GetMemberObjects;
+using Microsoft.Graph.Contacts.Item.Manager;
+using Microsoft.Graph.Contacts.Item.MemberOf;
+using Microsoft.Graph.Contacts.Item.Restore;
+using Microsoft.Graph.Contacts.Item.TransitiveMemberOf;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Contacts.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.Contacts.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.Contacts.Item.DirectReports;
-using MicrosoftGraphSdk.Contacts.Item.GetMemberGroups;
-using MicrosoftGraphSdk.Contacts.Item.GetMemberObjects;
-using MicrosoftGraphSdk.Contacts.Item.Manager;
-using MicrosoftGraphSdk.Contacts.Item.MemberOf;
-using MicrosoftGraphSdk.Contacts.Item.Restore;
-using MicrosoftGraphSdk.Contacts.Item.TransitiveMemberOf;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Contacts.Item {
+namespace Microsoft.Graph.Contacts.Item {
     /// <summary>Provides operations to manage the collection of orgContact entities.</summary>
     public class OrgContactItemRequestBuilder {
         /// <summary>The checkMemberGroups property</summary>

@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Schedule.Shifts.Item {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
     /// <summary>Provides operations to manage the shifts property of the microsoft.graph.schedule entity.</summary>
     public class ShiftItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

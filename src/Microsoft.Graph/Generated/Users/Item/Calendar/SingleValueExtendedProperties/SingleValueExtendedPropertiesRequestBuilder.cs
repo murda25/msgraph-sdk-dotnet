@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Calendar.SingleValueExtendedProperties.Count;
+using Microsoft.Graph.Users.Item.Calendar.SingleValueExtendedProperties.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Calendar.SingleValueExtendedProperties.Count;
-using MicrosoftGraphSdk.Users.Item.Calendar.SingleValueExtendedProperties.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Calendar.SingleValueExtendedProperties {
+namespace Microsoft.Graph.Users.Item.Calendar.SingleValueExtendedProperties {
     /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.</summary>
     public class SingleValueExtendedPropertiesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.Calendar.SingleValueExtendedProperties {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.calendar.singleValueExtendedProperties.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.calendar.singleValueExtendedProperties.item collection</summary>
         public SingleValueLegacyExtendedPropertyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("singleValueLegacyExtendedProperty_id", position);

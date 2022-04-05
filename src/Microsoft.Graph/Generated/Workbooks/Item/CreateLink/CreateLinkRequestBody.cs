@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MicrosoftGraphSdk.Workbooks.Item.CreateLink {
+namespace Microsoft.Graph.Workbooks.Item.CreateLink {
     /// <summary>Provides operations to call the createLink method.</summary>
     public class CreateLinkRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

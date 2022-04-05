@@ -1,10 +1,10 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MicrosoftGraphSdk.Drives.Item.Items.Item.ListItem.GetActivitiesByInterval {
+namespace Microsoft.Graph.Drives.Item.Items.Item.ListItem.GetActivitiesByInterval {
     /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
     public class GetActivitiesByIntervalResponse : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

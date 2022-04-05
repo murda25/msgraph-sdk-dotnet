@@ -1,15 +1,15 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item.AccessPackages;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.AccessPackages;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item {
     /// <summary>Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AccessPackageCatalogItemRequestBuilder {
         /// <summary>The accessPackages property</summary>

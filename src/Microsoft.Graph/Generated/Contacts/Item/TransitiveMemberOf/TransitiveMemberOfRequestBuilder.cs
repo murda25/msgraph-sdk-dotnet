@@ -1,16 +1,16 @@
+using Microsoft.Graph.Contacts.Item.TransitiveMemberOf.Count;
+using Microsoft.Graph.Contacts.Item.TransitiveMemberOf.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Contacts.Item.TransitiveMemberOf.Count;
-using MicrosoftGraphSdk.Contacts.Item.TransitiveMemberOf.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Contacts.Item.TransitiveMemberOf {
+namespace Microsoft.Graph.Contacts.Item.TransitiveMemberOf {
     /// <summary>Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.</summary>
     public class TransitiveMemberOfRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Contacts.Item.TransitiveMemberOf {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.contacts.item.transitiveMemberOf.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.contacts.item.transitiveMemberOf.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("directoryObject_id", position);

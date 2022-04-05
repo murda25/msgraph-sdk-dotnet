@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Count;
+using Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.Appointments.Count;
-using MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.Appointments.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.Appointments {
+namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments {
     /// <summary>Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.</summary>
     public class AppointmentsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Solutions.BookingBusinesses.Item.Appointments {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.solutions.bookingBusinesses.item.appointments.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.solutions.bookingBusinesses.item.appointments.item collection</summary>
         public BookingAppointmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("bookingAppointment_id", position);

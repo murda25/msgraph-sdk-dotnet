@@ -1,22 +1,22 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPolicies;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Settings;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentPolicies;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Catalogs;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Settings;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
     /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.</summary>
     public class EntitlementManagementRequestBuilder {
         /// <summary>The accessPackageAssignmentApprovals property</summary>
@@ -126,7 +126,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.EntitlementManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.EntitlementManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -161,13 +161,13 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.EntitlementManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.EntitlementManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.EntitlementManagement>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.EntitlementManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.EntitlementManagement>(requestInfo, Microsoft.Graph.Models.EntitlementManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property entitlementManagement in identityGovernance
@@ -177,7 +177,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.EntitlementManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.EntitlementManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

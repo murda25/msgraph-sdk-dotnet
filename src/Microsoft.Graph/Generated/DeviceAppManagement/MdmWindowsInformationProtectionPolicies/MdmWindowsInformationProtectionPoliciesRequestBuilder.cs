@@ -1,16 +1,16 @@
+using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Count;
+using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Count;
-using MicrosoftGraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
+namespace Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
     /// <summary>Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.</summary>
     public class MdmWindowsInformationProtectionPoliciesRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionP
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.deviceAppManagement.mdmWindowsInformationProtectionPolicies.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.deviceAppManagement.mdmWindowsInformationProtectionPolicies.item collection</summary>
         public MdmWindowsInformationProtectionPolicyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("mdmWindowsInformationProtectionPolicy_id", position);

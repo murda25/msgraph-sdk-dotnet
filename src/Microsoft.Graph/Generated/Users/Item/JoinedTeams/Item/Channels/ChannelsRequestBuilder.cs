@@ -1,17 +1,17 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Count;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.GetAllMessages;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels.Count;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels.GetAllMessages;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels {
+namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels {
     /// <summary>Provides operations to manage the channels property of the microsoft.graph.team entity.</summary>
     public class ChannelsRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.joinedTeams.item.channels.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.joinedTeams.item.channels.item collection</summary>
         public ChannelItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("channel_id", position);

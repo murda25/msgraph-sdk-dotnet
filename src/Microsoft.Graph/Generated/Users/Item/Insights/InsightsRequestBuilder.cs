@@ -1,17 +1,17 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Insights.Shared;
+using Microsoft.Graph.Users.Item.Insights.Trending;
+using Microsoft.Graph.Users.Item.Insights.Used;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Insights.Shared;
-using MicrosoftGraphSdk.Users.Item.Insights.Trending;
-using MicrosoftGraphSdk.Users.Item.Insights.Used;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Insights {
+namespace Microsoft.Graph.Users.Item.Insights {
     /// <summary>Provides operations to manage the insights property of the microsoft.graph.user entity.</summary>
     public class InsightsRequestBuilder {
         /// <summary>Path parameters for the request</summary>

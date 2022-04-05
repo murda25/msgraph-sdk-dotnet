@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.HostedContents;
+using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Channels.Item.Messages.Item.HostedContents;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.Channels.Item.Messages.Item {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item {
     /// <summary>Provides operations to manage the messages property of the microsoft.graph.channel entity.</summary>
     public class ChatMessageItemRequestBuilder {
         /// <summary>The hostedContents property</summary>

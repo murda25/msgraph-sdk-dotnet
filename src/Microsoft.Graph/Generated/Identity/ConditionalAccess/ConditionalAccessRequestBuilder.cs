@@ -1,16 +1,16 @@
+using Microsoft.Graph.Identity.ConditionalAccess.NamedLocations;
+using Microsoft.Graph.Identity.ConditionalAccess.Policies;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Identity.ConditionalAccess.NamedLocations;
-using MicrosoftGraphSdk.Identity.ConditionalAccess.Policies;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Identity.ConditionalAccess {
+namespace Microsoft.Graph.Identity.ConditionalAccess {
     /// <summary>Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.</summary>
     public class ConditionalAccessRequestBuilder {
         /// <summary>The namedLocations property</summary>

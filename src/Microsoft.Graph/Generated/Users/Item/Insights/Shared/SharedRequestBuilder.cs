@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Insights.Shared.Count;
+using Microsoft.Graph.Users.Item.Insights.Shared.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Insights.Shared.Count;
-using MicrosoftGraphSdk.Users.Item.Insights.Shared.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Insights.Shared {
+namespace Microsoft.Graph.Users.Item.Insights.Shared {
     /// <summary>Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class SharedRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.Insights.Shared {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.insights.shared.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.insights.shared.item collection</summary>
         public SharedInsightItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("sharedInsight_id", position);

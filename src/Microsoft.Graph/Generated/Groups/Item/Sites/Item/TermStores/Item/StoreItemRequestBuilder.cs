@@ -1,21 +1,21 @@
+using Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups;
+using Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Sets;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models.TermStore;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Sets;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.TermStore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item {
+namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item {
     /// <summary>Provides operations to manage the termStores property of the microsoft.graph.site entity.</summary>
     public class StoreItemRequestBuilder {
         /// <summary>The groups property</summary>
-        public MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.GroupsRequestBuilder Groups { get =>
-            new MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.GroupsRequestBuilder(PathParameters, RequestAdapter);
+        public Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups.GroupsRequestBuilder Groups { get =>
+            new Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups.GroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

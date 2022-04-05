@@ -1,16 +1,16 @@
+using Microsoft.Graph.Identity.B2xUserFlows.Item.IdentityProviders.Count;
+using Microsoft.Graph.Identity.B2xUserFlows.Item.IdentityProviders.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Identity.B2xUserFlows.Item.IdentityProviders.Count;
-using MicrosoftGraphSdk.Identity.B2xUserFlows.Item.IdentityProviders.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Identity.B2xUserFlows.Item.IdentityProviders {
+namespace Microsoft.Graph.Identity.B2xUserFlows.Item.IdentityProviders {
     /// <summary>Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.</summary>
     public class IdentityProvidersRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Identity.B2xUserFlows.Item.IdentityProviders {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.identity.b2xUserFlows.item.identityProviders.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.identity.b2xUserFlows.item.identityProviders.item collection</summary>
         public IdentityProviderItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("identityProvider_id", position);

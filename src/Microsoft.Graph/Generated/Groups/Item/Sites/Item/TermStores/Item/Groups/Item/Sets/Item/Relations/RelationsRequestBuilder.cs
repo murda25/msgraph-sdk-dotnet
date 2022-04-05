@@ -1,16 +1,16 @@
+using Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Count;
+using Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models.TermStore;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Count;
-using MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.TermStore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations {
+namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations {
     /// <summary>Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.</summary>
     public class RelationsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Groups.Item.Sites.Item.TermStores.Item.Groups.Item.S
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.groups.item.sites.item.termStores.item.groups.item.sets.item.relations.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.groups.item.sites.item.termStores.item.groups.item.sets.item.relations.item collection</summary>
         public RelationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("relation_id", position);

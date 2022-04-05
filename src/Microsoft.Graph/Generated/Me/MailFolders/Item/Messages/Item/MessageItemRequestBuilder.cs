@@ -1,29 +1,29 @@
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Attachments;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CalendarSharingMessage;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Copy;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateForward;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateReply;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateReplyAll;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Extensions;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Forward;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Move;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Reply;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.ReplyAll;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Send;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.SingleValueExtendedProperties;
+using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Value;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Attachments;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.CalendarSharingMessage;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Copy;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.CreateForward;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.CreateReply;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.CreateReplyAll;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Extensions;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Forward;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Move;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Reply;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.ReplyAll;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Send;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item.Value;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.MailFolders.Item.Messages.Item {
+namespace Microsoft.Graph.Me.MailFolders.Item.Messages.Item {
     /// <summary>Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.</summary>
     public class MessageItemRequestBuilder {
         /// <summary>The attachments property</summary>

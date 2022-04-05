@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.OnlineMeetings.Item.AttendanceReports.Count;
+using Microsoft.Graph.Users.Item.OnlineMeetings.Item.AttendanceReports.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports.Count;
-using MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports {
+namespace Microsoft.Graph.Users.Item.OnlineMeetings.Item.AttendanceReports {
     /// <summary>Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.</summary>
     public class AttendanceReportsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.onlineMeetings.item.attendanceReports.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.onlineMeetings.item.attendanceReports.item collection</summary>
         public MeetingAttendanceReportItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("meetingAttendanceReport_id", position);

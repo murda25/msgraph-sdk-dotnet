@@ -1,31 +1,31 @@
+using Microsoft.Graph.DeviceManagement.Reports.ExportJobs;
+using Microsoft.Graph.DeviceManagement.Reports.GetCachedReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetCompliancePolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetCompliancePolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetComplianceSettingNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationSettingNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingContributingProfiles;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetHistoricalReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceMetadata;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetReportFilters;
+using Microsoft.Graph.DeviceManagement.Reports.GetSettingNonComplianceReport;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.Reports.ExportJobs;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetCachedReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetCompliancePolicyNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetCompliancePolicyNonComplianceSummaryReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetComplianceSettingNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceSummaryReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetConfigurationSettingNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingContributingProfiles;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetDeviceNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetHistoricalReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetPolicyNonComplianceMetadata;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetPolicyNonComplianceReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetPolicyNonComplianceSummaryReport;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetReportFilters;
-using MicrosoftGraphSdk.DeviceManagement.Reports.GetSettingNonComplianceReport;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement.Reports {
+namespace Microsoft.Graph.DeviceManagement.Reports {
     /// <summary>Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.</summary>
     public class ReportsRequestBuilder {
         /// <summary>The exportJobs property</summary>

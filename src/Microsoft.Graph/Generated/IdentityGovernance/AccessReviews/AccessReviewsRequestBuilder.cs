@@ -1,16 +1,16 @@
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.Definitions;
-using MicrosoftGraphSdk.IdentityGovernance.AccessReviews.HistoryDefinitions;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.AccessReviews {
+namespace Microsoft.Graph.IdentityGovernance.AccessReviews {
     /// <summary>Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.</summary>
     public class AccessReviewsRequestBuilder {
         /// <summary>The definitions property</summary>

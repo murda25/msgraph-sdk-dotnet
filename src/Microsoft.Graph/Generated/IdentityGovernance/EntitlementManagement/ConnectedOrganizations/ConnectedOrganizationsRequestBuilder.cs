@@ -1,16 +1,16 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Count;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations {
     /// <summary>Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.</summary>
     public class ConnectedOrganizationsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOr
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.identityGovernance.entitlementManagement.connectedOrganizations.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.identityGovernance.entitlementManagement.connectedOrganizations.item collection</summary>
         public ConnectedOrganizationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("connectedOrganization_id", position);

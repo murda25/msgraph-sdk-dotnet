@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.RoleManagement.Directory.RoleAssignments;
+using Microsoft.Graph.RoleManagement.Directory.RoleDefinitions;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.RoleManagement.Directory.RoleAssignments;
-using MicrosoftGraphSdk.RoleManagement.Directory.RoleDefinitions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.RoleManagement.Directory {
+namespace Microsoft.Graph.RoleManagement.Directory {
     /// <summary>Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.</summary>
     public class DirectoryRequestBuilder {
         /// <summary>Path parameters for the request</summary>

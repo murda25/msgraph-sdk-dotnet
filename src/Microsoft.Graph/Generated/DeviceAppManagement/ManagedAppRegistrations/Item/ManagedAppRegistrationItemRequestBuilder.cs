@@ -1,17 +1,17 @@
+using Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item.AppliedPolicies;
+using Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPolicies;
+using Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item.Operations;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.AppliedPolicies;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPolicies;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.Operations;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item {
+namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item {
     /// <summary>Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.</summary>
     public class ManagedAppRegistrationItemRequestBuilder {
         /// <summary>The appliedPolicies property</summary>

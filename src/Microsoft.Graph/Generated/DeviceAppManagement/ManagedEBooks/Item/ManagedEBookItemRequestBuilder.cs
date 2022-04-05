@@ -1,19 +1,19 @@
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.Assign;
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.Assignments;
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.DeviceStates;
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.InstallSummary;
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.Assign;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.Assignments;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.DeviceStates;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.InstallSummary;
-using MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceAppManagement.ManagedEBooks.Item {
+namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
     /// <summary>Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.</summary>
     public class ManagedEBookItemRequestBuilder {
         /// <summary>The assign property</summary>

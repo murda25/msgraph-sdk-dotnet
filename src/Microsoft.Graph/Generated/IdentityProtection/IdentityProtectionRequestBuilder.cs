@@ -1,16 +1,16 @@
+using Microsoft.Graph.IdentityProtection.RiskDetections;
+using Microsoft.Graph.IdentityProtection.RiskyUsers;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityProtection.RiskDetections;
-using MicrosoftGraphSdk.IdentityProtection.RiskyUsers;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityProtection {
+namespace Microsoft.Graph.IdentityProtection {
     /// <summary>Provides operations to manage the identityProtectionRoot singleton.</summary>
     public class IdentityProtectionRequestBuilder {
         /// <summary>Path parameters for the request</summary>

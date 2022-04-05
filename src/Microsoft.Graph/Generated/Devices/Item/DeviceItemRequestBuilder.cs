@@ -1,24 +1,24 @@
+using Microsoft.Graph.Devices.Item.CheckMemberGroups;
+using Microsoft.Graph.Devices.Item.CheckMemberObjects;
+using Microsoft.Graph.Devices.Item.Extensions;
+using Microsoft.Graph.Devices.Item.GetMemberGroups;
+using Microsoft.Graph.Devices.Item.GetMemberObjects;
+using Microsoft.Graph.Devices.Item.MemberOf;
+using Microsoft.Graph.Devices.Item.RegisteredOwners;
+using Microsoft.Graph.Devices.Item.RegisteredUsers;
+using Microsoft.Graph.Devices.Item.Restore;
+using Microsoft.Graph.Devices.Item.TransitiveMemberOf;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Devices.Item.CheckMemberGroups;
-using MicrosoftGraphSdk.Devices.Item.CheckMemberObjects;
-using MicrosoftGraphSdk.Devices.Item.Extensions;
-using MicrosoftGraphSdk.Devices.Item.GetMemberGroups;
-using MicrosoftGraphSdk.Devices.Item.GetMemberObjects;
-using MicrosoftGraphSdk.Devices.Item.MemberOf;
-using MicrosoftGraphSdk.Devices.Item.RegisteredOwners;
-using MicrosoftGraphSdk.Devices.Item.RegisteredUsers;
-using MicrosoftGraphSdk.Devices.Item.Restore;
-using MicrosoftGraphSdk.Devices.Item.TransitiveMemberOf;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Devices.Item {
+namespace Microsoft.Graph.Devices.Item {
     /// <summary>Provides operations to manage the collection of device entities.</summary>
     public class DeviceItemRequestBuilder {
         /// <summary>The checkMemberGroups property</summary>
@@ -136,7 +136,7 @@ namespace MicrosoftGraphSdk.Devices.Item {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -171,13 +171,13 @@ namespace MicrosoftGraphSdk.Devices.Item {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Device> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Device> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Device>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Device>(requestInfo, Microsoft.Graph.Models.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update entity in devices
@@ -187,7 +187,7 @@ namespace MicrosoftGraphSdk.Devices.Item {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

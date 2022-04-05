@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail {
     /// <summary>Provides operations to call the removeEmail method.</summary>
     public class RemoveEmailRequestBuilder {
         /// <summary>Path parameters for the request</summary>

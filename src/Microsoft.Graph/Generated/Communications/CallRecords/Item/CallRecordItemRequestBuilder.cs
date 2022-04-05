@@ -1,15 +1,15 @@
+using Microsoft.Graph.Communications.CallRecords.Item.Sessions;
+using Microsoft.Graph.Models.CallRecords;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Communications.CallRecords.Item.Sessions;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.CallRecords;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Communications.CallRecords.Item {
+namespace Microsoft.Graph.Communications.CallRecords.Item {
     /// <summary>Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.</summary>
     public class CallRecordItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod {
+namespace Microsoft.Graph.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod {
     /// <summary>Provides operations to call the getYammerDeviceUsageDistributionUserCounts method.</summary>
     public class GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>

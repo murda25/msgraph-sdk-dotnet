@@ -1,47 +1,47 @@
+using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate;
+using Microsoft.Graph.DeviceManagement.ComplianceManagementPartners;
+using Microsoft.Graph.DeviceManagement.ConditionalAccessSettings;
+using Microsoft.Graph.DeviceManagement.DetectedApps;
+using Microsoft.Graph.DeviceManagement.DeviceCategories;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
+using Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations;
+using Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations;
+using Microsoft.Graph.DeviceManagement.DeviceManagementPartners;
+using Microsoft.Graph.DeviceManagement.ExchangeConnectors;
+using Microsoft.Graph.DeviceManagement.GetEffectivePermissionsWithScope;
+using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
+using Microsoft.Graph.DeviceManagement.IosUpdateStatuses;
+using Microsoft.Graph.DeviceManagement.ManagedDeviceOverview;
+using Microsoft.Graph.DeviceManagement.ManagedDevices;
+using Microsoft.Graph.DeviceManagement.MobileThreatDefenseConnectors;
+using Microsoft.Graph.DeviceManagement.NotificationMessageTemplates;
+using Microsoft.Graph.DeviceManagement.RemoteAssistancePartners;
+using Microsoft.Graph.DeviceManagement.Reports;
+using Microsoft.Graph.DeviceManagement.ResourceOperations;
+using Microsoft.Graph.DeviceManagement.RoleAssignments;
+using Microsoft.Graph.DeviceManagement.RoleDefinitions;
+using Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary;
+using Microsoft.Graph.DeviceManagement.TelecomExpenseManagementPartners;
+using Microsoft.Graph.DeviceManagement.TermsAndConditions;
+using Microsoft.Graph.DeviceManagement.TroubleshootingEvents;
+using Microsoft.Graph.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
+using Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities;
+using Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
+using Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DeviceManagement.ApplePushNotificationCertificate;
-using MicrosoftGraphSdk.DeviceManagement.ComplianceManagementPartners;
-using MicrosoftGraphSdk.DeviceManagement.ConditionalAccessSettings;
-using MicrosoftGraphSdk.DeviceManagement.DetectedApps;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCategories;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicies;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
-using MicrosoftGraphSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
-using MicrosoftGraphSdk.DeviceManagement.DeviceConfigurations;
-using MicrosoftGraphSdk.DeviceManagement.DeviceEnrollmentConfigurations;
-using MicrosoftGraphSdk.DeviceManagement.DeviceManagementPartners;
-using MicrosoftGraphSdk.DeviceManagement.ExchangeConnectors;
-using MicrosoftGraphSdk.DeviceManagement.GetEffectivePermissionsWithScope;
-using MicrosoftGraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
-using MicrosoftGraphSdk.DeviceManagement.IosUpdateStatuses;
-using MicrosoftGraphSdk.DeviceManagement.ManagedDeviceOverview;
-using MicrosoftGraphSdk.DeviceManagement.ManagedDevices;
-using MicrosoftGraphSdk.DeviceManagement.MobileThreatDefenseConnectors;
-using MicrosoftGraphSdk.DeviceManagement.NotificationMessageTemplates;
-using MicrosoftGraphSdk.DeviceManagement.RemoteAssistancePartners;
-using MicrosoftGraphSdk.DeviceManagement.Reports;
-using MicrosoftGraphSdk.DeviceManagement.ResourceOperations;
-using MicrosoftGraphSdk.DeviceManagement.RoleAssignments;
-using MicrosoftGraphSdk.DeviceManagement.RoleDefinitions;
-using MicrosoftGraphSdk.DeviceManagement.SoftwareUpdateStatusSummary;
-using MicrosoftGraphSdk.DeviceManagement.TelecomExpenseManagementPartners;
-using MicrosoftGraphSdk.DeviceManagement.TermsAndConditions;
-using MicrosoftGraphSdk.DeviceManagement.TroubleshootingEvents;
-using MicrosoftGraphSdk.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
-using MicrosoftGraphSdk.DeviceManagement.WindowsAutopilotDeviceIdentities;
-using MicrosoftGraphSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
-using MicrosoftGraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DeviceManagement {
+namespace Microsoft.Graph.DeviceManagement {
     /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceManagementRequestBuilder {
         /// <summary>The applePushNotificationCertificate property</summary>
@@ -228,7 +228,7 @@ namespace MicrosoftGraphSdk.DeviceManagement {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.DeviceManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -248,13 +248,13 @@ namespace MicrosoftGraphSdk.DeviceManagement {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.DeviceManagement> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DeviceManagement>(requestInfo, Microsoft.Graph.Models.DeviceManagement.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Provides operations to call the getEffectivePermissions method.
@@ -272,7 +272,7 @@ namespace MicrosoftGraphSdk.DeviceManagement {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.DeviceManagement body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

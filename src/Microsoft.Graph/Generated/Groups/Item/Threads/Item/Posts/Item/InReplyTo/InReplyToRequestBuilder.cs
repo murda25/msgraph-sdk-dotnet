@@ -1,20 +1,20 @@
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Attachments;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Extensions;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Forward;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.MultiValueExtendedProperties;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Reply;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.SingleValueExtendedProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Attachments;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Extensions;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Forward;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Reply;
-using MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo.SingleValueExtendedProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
+namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
     /// <summary>Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.</summary>
     public class InReplyToRequestBuilder {
         /// <summary>The attachments property</summary>

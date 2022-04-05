@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetOneDriveUsageAccountDetailWithDate {
+namespace Microsoft.Graph.Reports.GetOneDriveUsageAccountDetailWithDate {
     /// <summary>Provides operations to call the getOneDriveUsageAccountDetail method.</summary>
     public class GetOneDriveUsageAccountDetailWithDateRequestBuilder {
         /// <summary>Path parameters for the request</summary>

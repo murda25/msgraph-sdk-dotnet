@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Insights.Used.Item.Resource {
+namespace Microsoft.Graph.Users.Item.Insights.Used.Item.Resource {
     /// <summary>Provides operations to manage the resource property of the microsoft.graph.usedInsight entity.</summary>
     public class ResourceRequestBuilder {
         /// <summary>Path parameters for the request</summary>

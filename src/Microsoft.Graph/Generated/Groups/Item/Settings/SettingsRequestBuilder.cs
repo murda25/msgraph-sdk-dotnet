@@ -1,16 +1,16 @@
+using Microsoft.Graph.Groups.Item.Settings.Count;
+using Microsoft.Graph.Groups.Item.Settings.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Item.Settings.Count;
-using MicrosoftGraphSdk.Groups.Item.Settings.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups.Item.Settings {
+namespace Microsoft.Graph.Groups.Item.Settings {
     /// <summary>Provides operations to manage the settings property of the microsoft.graph.group entity.</summary>
     public class SettingsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Groups.Item.Settings {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.groups.item.settings.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.groups.item.settings.item collection</summary>
         public GroupSettingItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("groupSetting_id", position);

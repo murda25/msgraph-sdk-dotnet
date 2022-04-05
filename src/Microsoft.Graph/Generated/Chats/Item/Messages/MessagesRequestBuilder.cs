@@ -1,17 +1,17 @@
+using Microsoft.Graph.Chats.Item.Messages.Count;
+using Microsoft.Graph.Chats.Item.Messages.Delta;
+using Microsoft.Graph.Chats.Item.Messages.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Chats.Item.Messages.Count;
-using MicrosoftGraphSdk.Chats.Item.Messages.Delta;
-using MicrosoftGraphSdk.Chats.Item.Messages.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Chats.Item.Messages {
+namespace Microsoft.Graph.Chats.Item.Messages {
     /// <summary>Provides operations to manage the messages property of the microsoft.graph.chat entity.</summary>
     public class MessagesRequestBuilder {
         /// <summary>The count property</summary>
@@ -24,7 +24,7 @@ namespace MicrosoftGraphSdk.Chats.Item.Messages {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.chats.item.messages.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.chats.item.messages.item collection</summary>
         public ChatMessageItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("chatMessage_id", position);

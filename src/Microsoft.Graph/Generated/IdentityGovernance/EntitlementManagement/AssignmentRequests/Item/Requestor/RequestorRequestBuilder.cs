@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Requestor {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentRequests.Item.Requestor {
     /// <summary>Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity.</summary>
     public class RequestorRequestBuilder {
         /// <summary>Path parameters for the request</summary>

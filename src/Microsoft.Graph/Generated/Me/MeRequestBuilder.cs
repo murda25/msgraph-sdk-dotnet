@@ -1,79 +1,79 @@
+using Microsoft.Graph.Me.Activities;
+using Microsoft.Graph.Me.AgreementAcceptances;
+using Microsoft.Graph.Me.AppRoleAssignments;
+using Microsoft.Graph.Me.AssignLicense;
+using Microsoft.Graph.Me.Authentication;
+using Microsoft.Graph.Me.Calendar;
+using Microsoft.Graph.Me.CalendarGroups;
+using Microsoft.Graph.Me.Calendars;
+using Microsoft.Graph.Me.CalendarView;
+using Microsoft.Graph.Me.ChangePassword;
+using Microsoft.Graph.Me.Chats;
+using Microsoft.Graph.Me.CheckMemberGroups;
+using Microsoft.Graph.Me.CheckMemberObjects;
+using Microsoft.Graph.Me.ContactFolders;
+using Microsoft.Graph.Me.Contacts;
+using Microsoft.Graph.Me.CreatedObjects;
+using Microsoft.Graph.Me.DeviceManagementTroubleshootingEvents;
+using Microsoft.Graph.Me.DirectReports;
+using Microsoft.Graph.Me.Drive;
+using Microsoft.Graph.Me.Drives;
+using Microsoft.Graph.Me.Events;
+using Microsoft.Graph.Me.ExportPersonalData;
+using Microsoft.Graph.Me.Extensions;
+using Microsoft.Graph.Me.FindMeetingTimes;
+using Microsoft.Graph.Me.FollowedSites;
+using Microsoft.Graph.Me.GetMailTips;
+using Microsoft.Graph.Me.GetManagedAppDiagnosticStatuses;
+using Microsoft.Graph.Me.GetManagedAppPolicies;
+using Microsoft.Graph.Me.GetMemberGroups;
+using Microsoft.Graph.Me.GetMemberObjects;
+using Microsoft.Graph.Me.InferenceClassification;
+using Microsoft.Graph.Me.Insights;
+using Microsoft.Graph.Me.JoinedTeams;
+using Microsoft.Graph.Me.LicenseDetails;
+using Microsoft.Graph.Me.MailFolders;
+using Microsoft.Graph.Me.ManagedAppRegistrations;
+using Microsoft.Graph.Me.ManagedDevices;
+using Microsoft.Graph.Me.Manager;
+using Microsoft.Graph.Me.MemberOf;
+using Microsoft.Graph.Me.Messages;
+using Microsoft.Graph.Me.Oauth2PermissionGrants;
+using Microsoft.Graph.Me.Onenote;
+using Microsoft.Graph.Me.OnlineMeetings;
+using Microsoft.Graph.Me.Outlook;
+using Microsoft.Graph.Me.OwnedDevices;
+using Microsoft.Graph.Me.OwnedObjects;
+using Microsoft.Graph.Me.People;
+using Microsoft.Graph.Me.Photo;
+using Microsoft.Graph.Me.Photos;
+using Microsoft.Graph.Me.Planner;
+using Microsoft.Graph.Me.Presence;
+using Microsoft.Graph.Me.RegisteredDevices;
+using Microsoft.Graph.Me.ReminderViewWithStartDateTimeWithEndDateTime;
+using Microsoft.Graph.Me.RemoveAllDevicesFromManagement;
+using Microsoft.Graph.Me.ReprocessLicenseAssignment;
+using Microsoft.Graph.Me.Restore;
+using Microsoft.Graph.Me.RevokeSignInSessions;
+using Microsoft.Graph.Me.ScopedRoleMemberOf;
+using Microsoft.Graph.Me.SendMail;
+using Microsoft.Graph.Me.Settings;
+using Microsoft.Graph.Me.Teamwork;
+using Microsoft.Graph.Me.Todo;
+using Microsoft.Graph.Me.TransitiveMemberOf;
+using Microsoft.Graph.Me.TranslateExchangeIds;
+using Microsoft.Graph.Me.WipeManagedAppRegistrationsByDeviceTag;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Activities;
-using MicrosoftGraphSdk.Me.AgreementAcceptances;
-using MicrosoftGraphSdk.Me.AppRoleAssignments;
-using MicrosoftGraphSdk.Me.AssignLicense;
-using MicrosoftGraphSdk.Me.Authentication;
-using MicrosoftGraphSdk.Me.Calendar;
-using MicrosoftGraphSdk.Me.CalendarGroups;
-using MicrosoftGraphSdk.Me.Calendars;
-using MicrosoftGraphSdk.Me.CalendarView;
-using MicrosoftGraphSdk.Me.ChangePassword;
-using MicrosoftGraphSdk.Me.Chats;
-using MicrosoftGraphSdk.Me.CheckMemberGroups;
-using MicrosoftGraphSdk.Me.CheckMemberObjects;
-using MicrosoftGraphSdk.Me.ContactFolders;
-using MicrosoftGraphSdk.Me.Contacts;
-using MicrosoftGraphSdk.Me.CreatedObjects;
-using MicrosoftGraphSdk.Me.DeviceManagementTroubleshootingEvents;
-using MicrosoftGraphSdk.Me.DirectReports;
-using MicrosoftGraphSdk.Me.Drive;
-using MicrosoftGraphSdk.Me.Drives;
-using MicrosoftGraphSdk.Me.Events;
-using MicrosoftGraphSdk.Me.ExportPersonalData;
-using MicrosoftGraphSdk.Me.Extensions;
-using MicrosoftGraphSdk.Me.FindMeetingTimes;
-using MicrosoftGraphSdk.Me.FollowedSites;
-using MicrosoftGraphSdk.Me.GetMailTips;
-using MicrosoftGraphSdk.Me.GetManagedAppDiagnosticStatuses;
-using MicrosoftGraphSdk.Me.GetManagedAppPolicies;
-using MicrosoftGraphSdk.Me.GetMemberGroups;
-using MicrosoftGraphSdk.Me.GetMemberObjects;
-using MicrosoftGraphSdk.Me.InferenceClassification;
-using MicrosoftGraphSdk.Me.Insights;
-using MicrosoftGraphSdk.Me.JoinedTeams;
-using MicrosoftGraphSdk.Me.LicenseDetails;
-using MicrosoftGraphSdk.Me.MailFolders;
-using MicrosoftGraphSdk.Me.ManagedAppRegistrations;
-using MicrosoftGraphSdk.Me.ManagedDevices;
-using MicrosoftGraphSdk.Me.Manager;
-using MicrosoftGraphSdk.Me.MemberOf;
-using MicrosoftGraphSdk.Me.Messages;
-using MicrosoftGraphSdk.Me.Oauth2PermissionGrants;
-using MicrosoftGraphSdk.Me.Onenote;
-using MicrosoftGraphSdk.Me.OnlineMeetings;
-using MicrosoftGraphSdk.Me.Outlook;
-using MicrosoftGraphSdk.Me.OwnedDevices;
-using MicrosoftGraphSdk.Me.OwnedObjects;
-using MicrosoftGraphSdk.Me.People;
-using MicrosoftGraphSdk.Me.Photo;
-using MicrosoftGraphSdk.Me.Photos;
-using MicrosoftGraphSdk.Me.Planner;
-using MicrosoftGraphSdk.Me.Presence;
-using MicrosoftGraphSdk.Me.RegisteredDevices;
-using MicrosoftGraphSdk.Me.ReminderViewWithStartDateTimeWithEndDateTime;
-using MicrosoftGraphSdk.Me.RemoveAllDevicesFromManagement;
-using MicrosoftGraphSdk.Me.ReprocessLicenseAssignment;
-using MicrosoftGraphSdk.Me.Restore;
-using MicrosoftGraphSdk.Me.RevokeSignInSessions;
-using MicrosoftGraphSdk.Me.ScopedRoleMemberOf;
-using MicrosoftGraphSdk.Me.SendMail;
-using MicrosoftGraphSdk.Me.Settings;
-using MicrosoftGraphSdk.Me.Teamwork;
-using MicrosoftGraphSdk.Me.Todo;
-using MicrosoftGraphSdk.Me.TransitiveMemberOf;
-using MicrosoftGraphSdk.Me.TranslateExchangeIds;
-using MicrosoftGraphSdk.Me.WipeManagedAppRegistrationsByDeviceTag;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me {
+namespace Microsoft.Graph.Me {
     /// <summary>Provides operations to manage the user singleton.</summary>
     public class MeRequestBuilder {
         /// <summary>The activities property</summary>
@@ -384,7 +384,7 @@ namespace MicrosoftGraphSdk.Me {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.User body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -404,13 +404,13 @@ namespace MicrosoftGraphSdk.Me {
         /// <param name="queryParameters">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.User> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.User>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.User>(requestInfo, Microsoft.Graph.Models.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Provides operations to call the getManagedAppDiagnosticStatuses method.
@@ -432,7 +432,7 @@ namespace MicrosoftGraphSdk.Me {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(Microsoft.Graph.Models.User body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

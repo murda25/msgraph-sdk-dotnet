@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.TeamsTemplates.Item {
+namespace Microsoft.Graph.TeamsTemplates.Item {
     /// <summary>Provides operations to manage the collection of teamsTemplate entities.</summary>
     public class TeamsTemplateItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

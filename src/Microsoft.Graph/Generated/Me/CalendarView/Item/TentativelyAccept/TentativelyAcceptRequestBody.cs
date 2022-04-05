@@ -1,10 +1,10 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MicrosoftGraphSdk.Me.CalendarView.Item.TentativelyAccept {
+namespace Microsoft.Graph.Me.CalendarView.Item.TentativelyAccept {
     /// <summary>Provides operations to call the tentativelyAccept method.</summary>
     public class TentativelyAcceptRequestBody : IAdditionalDataHolder, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

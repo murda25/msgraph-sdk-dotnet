@@ -1,19 +1,19 @@
+using Microsoft.Graph.DirectoryObjects.Count;
+using Microsoft.Graph.DirectoryObjects.GetAvailableExtensionProperties;
+using Microsoft.Graph.DirectoryObjects.GetByIds;
+using Microsoft.Graph.DirectoryObjects.Item;
+using Microsoft.Graph.DirectoryObjects.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.DirectoryObjects.Count;
-using MicrosoftGraphSdk.DirectoryObjects.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.DirectoryObjects.GetByIds;
-using MicrosoftGraphSdk.DirectoryObjects.Item;
-using MicrosoftGraphSdk.DirectoryObjects.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.DirectoryObjects {
+namespace Microsoft.Graph.DirectoryObjects {
     /// <summary>Provides operations to manage the collection of directoryObject entities.</summary>
     public class DirectoryObjectsRequestBuilder {
         /// <summary>The count property</summary>
@@ -38,7 +38,7 @@ namespace MicrosoftGraphSdk.DirectoryObjects {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.directoryObjects.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.directoryObjects.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("directoryObject_id", position);

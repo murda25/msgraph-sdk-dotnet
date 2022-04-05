@@ -1,30 +1,30 @@
+using Microsoft.Graph.Communications.Calls.Item.Answer;
+using Microsoft.Graph.Communications.Calls.Item.AudioRoutingGroups;
+using Microsoft.Graph.Communications.Calls.Item.CancelMediaProcessing;
+using Microsoft.Graph.Communications.Calls.Item.ChangeScreenSharingRole;
+using Microsoft.Graph.Communications.Calls.Item.KeepAlive;
+using Microsoft.Graph.Communications.Calls.Item.Mute;
+using Microsoft.Graph.Communications.Calls.Item.Operations;
+using Microsoft.Graph.Communications.Calls.Item.Participants;
+using Microsoft.Graph.Communications.Calls.Item.PlayPrompt;
+using Microsoft.Graph.Communications.Calls.Item.RecordResponse;
+using Microsoft.Graph.Communications.Calls.Item.Redirect;
+using Microsoft.Graph.Communications.Calls.Item.Reject;
+using Microsoft.Graph.Communications.Calls.Item.SubscribeToTone;
+using Microsoft.Graph.Communications.Calls.Item.Transfer;
+using Microsoft.Graph.Communications.Calls.Item.Unmute;
+using Microsoft.Graph.Communications.Calls.Item.UpdateRecordingStatus;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Communications.Calls.Item.Answer;
-using MicrosoftGraphSdk.Communications.Calls.Item.AudioRoutingGroups;
-using MicrosoftGraphSdk.Communications.Calls.Item.CancelMediaProcessing;
-using MicrosoftGraphSdk.Communications.Calls.Item.ChangeScreenSharingRole;
-using MicrosoftGraphSdk.Communications.Calls.Item.KeepAlive;
-using MicrosoftGraphSdk.Communications.Calls.Item.Mute;
-using MicrosoftGraphSdk.Communications.Calls.Item.Operations;
-using MicrosoftGraphSdk.Communications.Calls.Item.Participants;
-using MicrosoftGraphSdk.Communications.Calls.Item.PlayPrompt;
-using MicrosoftGraphSdk.Communications.Calls.Item.RecordResponse;
-using MicrosoftGraphSdk.Communications.Calls.Item.Redirect;
-using MicrosoftGraphSdk.Communications.Calls.Item.Reject;
-using MicrosoftGraphSdk.Communications.Calls.Item.SubscribeToTone;
-using MicrosoftGraphSdk.Communications.Calls.Item.Transfer;
-using MicrosoftGraphSdk.Communications.Calls.Item.Unmute;
-using MicrosoftGraphSdk.Communications.Calls.Item.UpdateRecordingStatus;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Communications.Calls.Item {
+namespace Microsoft.Graph.Communications.Calls.Item {
     /// <summary>Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.</summary>
     public class CallItemRequestBuilder {
         /// <summary>The answer property</summary>

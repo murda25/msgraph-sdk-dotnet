@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models.ExternalConnectors;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ExternalConnectors;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.External.Connections.Item.Operations.Item {
+namespace Microsoft.Graph.External.Connections.Item.Operations.Item {
     /// <summary>Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.</summary>
     public class ConnectionOperationItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

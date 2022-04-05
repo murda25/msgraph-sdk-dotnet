@@ -1,18 +1,18 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.ContactFolders.Item.ChildFolders;
+using Microsoft.Graph.Users.Item.ContactFolders.Item.Contacts;
+using Microsoft.Graph.Users.Item.ContactFolders.Item.MultiValueExtendedProperties;
+using Microsoft.Graph.Users.Item.ContactFolders.Item.SingleValueExtendedProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.ContactFolders.Item.ChildFolders;
-using MicrosoftGraphSdk.Users.Item.ContactFolders.Item.Contacts;
-using MicrosoftGraphSdk.Users.Item.ContactFolders.Item.MultiValueExtendedProperties;
-using MicrosoftGraphSdk.Users.Item.ContactFolders.Item.SingleValueExtendedProperties;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.ContactFolders.Item {
+namespace Microsoft.Graph.Users.Item.ContactFolders.Item {
     /// <summary>Provides operations to manage the contactFolders property of the microsoft.graph.user entity.</summary>
     public class ContactFolderItemRequestBuilder {
         /// <summary>The childFolders property</summary>

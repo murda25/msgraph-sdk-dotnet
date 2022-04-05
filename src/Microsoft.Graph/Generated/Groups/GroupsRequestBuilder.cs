@@ -1,20 +1,20 @@
+using Microsoft.Graph.Groups.Count;
+using Microsoft.Graph.Groups.Delta;
+using Microsoft.Graph.Groups.GetAvailableExtensionProperties;
+using Microsoft.Graph.Groups.GetByIds;
+using Microsoft.Graph.Groups.Item;
+using Microsoft.Graph.Groups.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Groups.Count;
-using MicrosoftGraphSdk.Groups.Delta;
-using MicrosoftGraphSdk.Groups.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.Groups.GetByIds;
-using MicrosoftGraphSdk.Groups.Item;
-using MicrosoftGraphSdk.Groups.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Groups {
+namespace Microsoft.Graph.Groups {
     /// <summary>Provides operations to manage the collection of group entities.</summary>
     public class GroupsRequestBuilder {
         /// <summary>The count property</summary>
@@ -39,7 +39,7 @@ namespace MicrosoftGraphSdk.Groups {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.groups.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.groups.item collection</summary>
         public GroupItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("group_id", position);
@@ -99,7 +99,7 @@ namespace MicrosoftGraphSdk.Groups {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(Microsoft.Graph.Models.Group body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.POST,
@@ -141,14 +141,14 @@ namespace MicrosoftGraphSdk.Groups {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Group> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Group> PostAsync(Microsoft.Graph.Models.Group body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Group>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Group.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Group>(requestInfo, Microsoft.Graph.Models.Group.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from groups</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,16 +1,16 @@
+using Microsoft.Graph.Me.Teamwork.InstalledApps.Count;
+using Microsoft.Graph.Me.Teamwork.InstalledApps.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Teamwork.InstalledApps.Count;
-using MicrosoftGraphSdk.Me.Teamwork.InstalledApps.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Teamwork.InstalledApps {
+namespace Microsoft.Graph.Me.Teamwork.InstalledApps {
     /// <summary>Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.</summary>
     public class InstalledAppsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Me.Teamwork.InstalledApps {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.me.teamwork.installedApps.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.me.teamwork.installedApps.item collection</summary>
         public UserScopeTeamsAppInstallationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("userScopeTeamsAppInstallation_id", position);

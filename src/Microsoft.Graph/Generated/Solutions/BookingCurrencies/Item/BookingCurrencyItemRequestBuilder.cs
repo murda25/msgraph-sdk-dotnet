@@ -1,14 +1,14 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Solutions.BookingCurrencies.Item {
+namespace Microsoft.Graph.Solutions.BookingCurrencies.Item {
     /// <summary>Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.</summary>
     public class BookingCurrencyItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.RevokeSignInSessions {
+namespace Microsoft.Graph.Me.RevokeSignInSessions {
     /// <summary>Provides operations to call the revokeSignInSessions method.</summary>
     public class RevokeSignInSessionsRequestBuilder {
         /// <summary>Path parameters for the request</summary>

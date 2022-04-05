@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Planner.Plans;
+using Microsoft.Graph.Users.Item.Planner.Tasks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.Planner.Plans;
-using MicrosoftGraphSdk.Users.Item.Planner.Tasks;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.Planner {
+namespace Microsoft.Graph.Users.Item.Planner {
     /// <summary>Provides operations to manage the planner property of the microsoft.graph.user entity.</summary>
     public class PlannerRequestBuilder {
         /// <summary>Path parameters for the request</summary>

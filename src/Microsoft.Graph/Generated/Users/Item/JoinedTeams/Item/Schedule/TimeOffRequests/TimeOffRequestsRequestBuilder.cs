@@ -1,16 +1,16 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests.Count;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests.Count;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests.Item;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests {
+namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests {
     /// <summary>Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.</summary>
     public class TimeOffRequestsRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.users.item.joinedTeams.item.schedule.timeOffRequests.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.users.item.joinedTeams.item.schedule.timeOffRequests.item collection</summary>
         public TimeOffRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("timeOffRequest_id", position);

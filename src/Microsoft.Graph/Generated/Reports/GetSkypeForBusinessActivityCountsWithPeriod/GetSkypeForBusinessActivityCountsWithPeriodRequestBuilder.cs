@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Reports.GetSkypeForBusinessActivityCountsWithPeriod {
+namespace Microsoft.Graph.Reports.GetSkypeForBusinessActivityCountsWithPeriod {
     /// <summary>Provides operations to call the getSkypeForBusinessActivityCounts method.</summary>
     public class GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>

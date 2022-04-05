@@ -1,15 +1,15 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item.TeamsApp;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item.TeamsApp;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item {
+namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item {
     /// <summary>Provides operations to manage the tabs property of the microsoft.graph.channel entity.</summary>
     public class TeamsTabItemRequestBuilder {
         /// <summary>Path parameters for the request</summary>

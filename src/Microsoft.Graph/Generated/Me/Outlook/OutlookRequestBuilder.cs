@@ -1,18 +1,18 @@
+using Microsoft.Graph.Me.Outlook.MasterCategories;
+using Microsoft.Graph.Me.Outlook.SupportedLanguages;
+using Microsoft.Graph.Me.Outlook.SupportedTimeZones;
+using Microsoft.Graph.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Me.Outlook.MasterCategories;
-using MicrosoftGraphSdk.Me.Outlook.SupportedLanguages;
-using MicrosoftGraphSdk.Me.Outlook.SupportedTimeZones;
-using MicrosoftGraphSdk.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Me.Outlook {
+namespace Microsoft.Graph.Me.Outlook {
     /// <summary>Provides operations to manage the outlook property of the microsoft.graph.user entity.</summary>
     public class OutlookRequestBuilder {
         /// <summary>The masterCategories property</summary>

@@ -1,22 +1,22 @@
+using Microsoft.Graph.Education.Classes.Item.AssignmentCategories;
+using Microsoft.Graph.Education.Classes.Item.AssignmentDefaults;
+using Microsoft.Graph.Education.Classes.Item.Assignments;
+using Microsoft.Graph.Education.Classes.Item.AssignmentSettings;
+using Microsoft.Graph.Education.Classes.Item.Group;
+using Microsoft.Graph.Education.Classes.Item.Members;
+using Microsoft.Graph.Education.Classes.Item.Schools;
+using Microsoft.Graph.Education.Classes.Item.Teachers;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Education.Classes.Item.AssignmentCategories;
-using MicrosoftGraphSdk.Education.Classes.Item.AssignmentDefaults;
-using MicrosoftGraphSdk.Education.Classes.Item.Assignments;
-using MicrosoftGraphSdk.Education.Classes.Item.AssignmentSettings;
-using MicrosoftGraphSdk.Education.Classes.Item.Group;
-using MicrosoftGraphSdk.Education.Classes.Item.Members;
-using MicrosoftGraphSdk.Education.Classes.Item.Schools;
-using MicrosoftGraphSdk.Education.Classes.Item.Teachers;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Education.Classes.Item {
+namespace Microsoft.Graph.Education.Classes.Item {
     /// <summary>Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.</summary>
     public class EducationClassItemRequestBuilder {
         /// <summary>The assignmentCategories property</summary>

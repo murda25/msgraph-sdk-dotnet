@@ -1,15 +1,15 @@
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item.HostedContents;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
-using MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item.HostedContents;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item {
+namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item {
     /// <summary>Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.</summary>
     public class ChatMessageItemRequestBuilder {
         /// <summary>The hostedContents property</summary>

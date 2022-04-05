@@ -1,17 +1,17 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
-using MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
+namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item {
     /// <summary>Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AccessPackageAssignmentItemRequestBuilder {
         /// <summary>The accessPackage property</summary>

@@ -1,13 +1,13 @@
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Localizations.Item.BackgroundImage {
+namespace Microsoft.Graph.Localizations.Item.BackgroundImage {
     /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
     public class BackgroundImageRequestBuilder {
         /// <summary>Path parameters for the request</summary>

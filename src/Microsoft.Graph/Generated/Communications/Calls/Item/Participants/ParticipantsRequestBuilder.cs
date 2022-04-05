@@ -1,17 +1,17 @@
+using Microsoft.Graph.Communications.Calls.Item.Participants.Count;
+using Microsoft.Graph.Communications.Calls.Item.Participants.Invite;
+using Microsoft.Graph.Communications.Calls.Item.Participants.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Communications.Calls.Item.Participants.Count;
-using MicrosoftGraphSdk.Communications.Calls.Item.Participants.Invite;
-using MicrosoftGraphSdk.Communications.Calls.Item.Participants.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Communications.Calls.Item.Participants {
+namespace Microsoft.Graph.Communications.Calls.Item.Participants {
     /// <summary>Provides operations to manage the participants property of the microsoft.graph.call entity.</summary>
     public class ParticipantsRequestBuilder {
         /// <summary>The count property</summary>
@@ -28,7 +28,7 @@ namespace MicrosoftGraphSdk.Communications.Calls.Item.Participants {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.communications.calls.item.participants.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.communications.calls.item.participants.item collection</summary>
         public ParticipantItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("participant_id", position);

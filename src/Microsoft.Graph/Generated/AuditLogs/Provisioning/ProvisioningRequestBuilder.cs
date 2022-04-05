@@ -1,16 +1,16 @@
+using Microsoft.Graph.AuditLogs.Provisioning.Count;
+using Microsoft.Graph.AuditLogs.Provisioning.Item;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.AuditLogs.Provisioning.Count;
-using MicrosoftGraphSdk.AuditLogs.Provisioning.Item;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.AuditLogs.Provisioning {
+namespace Microsoft.Graph.AuditLogs.Provisioning {
     /// <summary>Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.</summary>
     public class ProvisioningRequestBuilder {
         /// <summary>The count property</summary>
@@ -23,7 +23,7 @@ namespace MicrosoftGraphSdk.AuditLogs.Provisioning {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.auditLogs.provisioning.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.auditLogs.provisioning.item collection</summary>
         public ProvisioningObjectSummaryItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("provisioningObjectSummary_id", position);

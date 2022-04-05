@@ -1,19 +1,19 @@
+using Microsoft.Graph.Devices.Count;
+using Microsoft.Graph.Devices.GetAvailableExtensionProperties;
+using Microsoft.Graph.Devices.GetByIds;
+using Microsoft.Graph.Devices.Item;
+using Microsoft.Graph.Devices.ValidateProperties;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using MicrosoftGraphSdk.Devices.Count;
-using MicrosoftGraphSdk.Devices.GetAvailableExtensionProperties;
-using MicrosoftGraphSdk.Devices.GetByIds;
-using MicrosoftGraphSdk.Devices.Item;
-using MicrosoftGraphSdk.Devices.ValidateProperties;
-using MicrosoftGraphSdk.Models.Microsoft.Graph;
-using MicrosoftGraphSdk.Models.Microsoft.Graph.ODataErrors;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-namespace MicrosoftGraphSdk.Devices {
+namespace Microsoft.Graph.Devices {
     /// <summary>Provides operations to manage the collection of device entities.</summary>
     public class DevicesRequestBuilder {
         /// <summary>The count property</summary>
@@ -38,7 +38,7 @@ namespace MicrosoftGraphSdk.Devices {
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the MicrosoftGraphSdk.devices.item collection</summary>
+        /// <summary>Gets an item from the Microsoft.Graph.devices.item collection</summary>
         public DeviceItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("device_id", position);
@@ -98,7 +98,7 @@ namespace MicrosoftGraphSdk.Devices {
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(MicrosoftGraphSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(Microsoft.Graph.Models.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.POST,
@@ -134,14 +134,14 @@ namespace MicrosoftGraphSdk.Devices {
         /// <param name="options">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MicrosoftGraphSdk.Models.Microsoft.Graph.Device> PostAsync(MicrosoftGraphSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Device> PostAsync(Microsoft.Graph.Models.Device body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, headers, options);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MicrosoftGraphSdk.Models.Microsoft.Graph.Device>(requestInfo, MicrosoftGraphSdk.Models.Microsoft.Graph.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Device>(requestInfo, Microsoft.Graph.Models.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from devices</summary>
         public class GetQueryParameters : QueryParametersBase {
