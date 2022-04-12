@@ -25,7 +25,7 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.3</VersionSuffix>
+    <VersionSuffix>preview.2</VersionSuffix>
     <PackageReleaseNotes>
 - Added support for vendor specific content types
 - Added support for 204 no content responses
@@ -51,7 +51,7 @@
     <EmbeddedResource Include="Properties\Graph.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.2" />
+    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
