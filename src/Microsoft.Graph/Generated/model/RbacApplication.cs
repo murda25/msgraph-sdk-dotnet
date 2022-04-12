@@ -48,6 +48,84 @@ namespace Microsoft.Graph
         [JsonConverter(typeof(NextLinkConverter))]
         public string RoleDefinitionsNextLink { get; set; }
     
+        /// <summary>
+        /// Gets or sets role assignment schedule instances.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentScheduleInstances")]
+        public IRbacApplicationRoleAssignmentScheduleInstancesCollectionPage RoleAssignmentScheduleInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleAssignmentScheduleInstancesNextLink.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentScheduleInstances@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleAssignmentScheduleInstancesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role assignment schedule requests.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentScheduleRequests")]
+        public IRbacApplicationRoleAssignmentScheduleRequestsCollectionPage RoleAssignmentScheduleRequests { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleAssignmentScheduleRequestsNextLink.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentScheduleRequests@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleAssignmentScheduleRequestsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role assignment schedules.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentSchedules")]
+        public IRbacApplicationRoleAssignmentSchedulesCollectionPage RoleAssignmentSchedules { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleAssignmentSchedulesNextLink.
+        /// </summary>
+        [JsonPropertyName("roleAssignmentSchedules@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleAssignmentSchedulesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role eligibility schedule instances.
+        /// </summary>
+        [JsonPropertyName("roleEligibilityScheduleInstances")]
+        public IRbacApplicationRoleEligibilityScheduleInstancesCollectionPage RoleEligibilityScheduleInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleEligibilityScheduleInstancesNextLink.
+        /// </summary>
+        [JsonPropertyName("roleEligibilityScheduleInstances@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleEligibilityScheduleInstancesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role eligibility schedule requests.
+        /// </summary>
+        [JsonPropertyName("roleEligibilityScheduleRequests")]
+        public IRbacApplicationRoleEligibilityScheduleRequestsCollectionPage RoleEligibilityScheduleRequests { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleEligibilityScheduleRequestsNextLink.
+        /// </summary>
+        [JsonPropertyName("roleEligibilityScheduleRequests@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleEligibilityScheduleRequestsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role eligibility schedules.
+        /// </summary>
+        [JsonPropertyName("roleEligibilitySchedules")]
+        public IRbacApplicationRoleEligibilitySchedulesCollectionPage RoleEligibilitySchedules { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleEligibilitySchedulesNextLink.
+        /// </summary>
+        [JsonPropertyName("roleEligibilitySchedules@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleEligibilitySchedulesNextLink { get; set; }
+    
     }
 }
 
