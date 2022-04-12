@@ -38,19 +38,19 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"complianceGracePeriodExpirationDateTime", (o,n) => { (o as DeviceComplianceSettingState).ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceId", (o,n) => { (o as DeviceComplianceSettingState).DeviceId = n.GetStringValue(); } },
-                {"deviceModel", (o,n) => { (o as DeviceComplianceSettingState).DeviceModel = n.GetStringValue(); } },
-                {"deviceName", (o,n) => { (o as DeviceComplianceSettingState).DeviceName = n.GetStringValue(); } },
-                {"setting", (o,n) => { (o as DeviceComplianceSettingState).Setting = n.GetStringValue(); } },
-                {"settingName", (o,n) => { (o as DeviceComplianceSettingState).SettingName = n.GetStringValue(); } },
-                {"state", (o,n) => { (o as DeviceComplianceSettingState).State = n.GetEnumValue<ComplianceStatus>(); } },
-                {"userEmail", (o,n) => { (o as DeviceComplianceSettingState).UserEmail = n.GetStringValue(); } },
-                {"userId", (o,n) => { (o as DeviceComplianceSettingState).UserId = n.GetStringValue(); } },
-                {"userName", (o,n) => { (o as DeviceComplianceSettingState).UserName = n.GetStringValue(); } },
-                {"userPrincipalName", (o,n) => { (o as DeviceComplianceSettingState).UserPrincipalName = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"complianceGracePeriodExpirationDateTime", n => { ComplianceGracePeriodExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
+                {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
+                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
+                {"setting", n => { Setting = n.GetStringValue(); } },
+                {"settingName", n => { SettingName = n.GetStringValue(); } },
+                {"state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
+                {"userEmail", n => { UserEmail = n.GetStringValue(); } },
+                {"userId", n => { UserId = n.GetStringValue(); } },
+                {"userName", n => { UserName = n.GetStringValue(); } },
+                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -38,15 +38,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"allowCustomAssignmentSchedule", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).AllowCustomAssignmentSchedule = n.GetBoolValue(); } },
-                {"isApprovalRequiredForAdd", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).IsApprovalRequiredForAdd = n.GetBoolValue(); } },
-                {"isApprovalRequiredForUpdate", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).IsApprovalRequiredForUpdate = n.GetBoolValue(); } },
-                {"policyDescription", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).PolicyDescription = n.GetStringValue(); } },
-                {"policyDisplayName", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).PolicyDisplayName = n.GetStringValue(); } },
-                {"policyId", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).PolicyId = n.GetStringValue(); } },
-                {"schedule", (o,n) => { (o as AccessPackageAssignmentRequestRequirements).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"allowCustomAssignmentSchedule", n => { AllowCustomAssignmentSchedule = n.GetBoolValue(); } },
+                {"isApprovalRequiredForAdd", n => { IsApprovalRequiredForAdd = n.GetBoolValue(); } },
+                {"isApprovalRequiredForUpdate", n => { IsApprovalRequiredForUpdate = n.GetBoolValue(); } },
+                {"policyDescription", n => { PolicyDescription = n.GetStringValue(); } },
+                {"policyDisplayName", n => { PolicyDisplayName = n.GetStringValue(); } },
+                {"policyId", n => { PolicyId = n.GetStringValue(); } },
+                {"schedule", n => { Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

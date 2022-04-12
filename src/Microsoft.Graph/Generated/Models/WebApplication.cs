@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"homePageUrl", (o,n) => { (o as WebApplication).HomePageUrl = n.GetStringValue(); } },
-                {"implicitGrantSettings", (o,n) => { (o as WebApplication).ImplicitGrantSettings = n.GetObjectValue<Microsoft.Graph.Models.ImplicitGrantSettings>(Microsoft.Graph.Models.ImplicitGrantSettings.CreateFromDiscriminatorValue); } },
-                {"logoutUrl", (o,n) => { (o as WebApplication).LogoutUrl = n.GetStringValue(); } },
-                {"redirectUris", (o,n) => { (o as WebApplication).RedirectUris = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"homePageUrl", n => { HomePageUrl = n.GetStringValue(); } },
+                {"implicitGrantSettings", n => { ImplicitGrantSettings = n.GetObjectValue<Microsoft.Graph.Models.ImplicitGrantSettings>(Microsoft.Graph.Models.ImplicitGrantSettings.CreateFromDiscriminatorValue); } },
+                {"logoutUrl", n => { LogoutUrl = n.GetStringValue(); } },
+                {"redirectUris", n => { RedirectUris = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
             };
         }
         /// <summary>

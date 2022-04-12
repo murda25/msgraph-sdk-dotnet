@@ -54,27 +54,27 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"birthday", (o,n) => { (o as Person).Birthday = n.GetStringValue(); } },
-                {"companyName", (o,n) => { (o as Person).CompanyName = n.GetStringValue(); } },
-                {"department", (o,n) => { (o as Person).Department = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as Person).DisplayName = n.GetStringValue(); } },
-                {"givenName", (o,n) => { (o as Person).GivenName = n.GetStringValue(); } },
-                {"imAddress", (o,n) => { (o as Person).ImAddress = n.GetStringValue(); } },
-                {"isFavorite", (o,n) => { (o as Person).IsFavorite = n.GetBoolValue(); } },
-                {"jobTitle", (o,n) => { (o as Person).JobTitle = n.GetStringValue(); } },
-                {"officeLocation", (o,n) => { (o as Person).OfficeLocation = n.GetStringValue(); } },
-                {"personNotes", (o,n) => { (o as Person).PersonNotes = n.GetStringValue(); } },
-                {"personType", (o,n) => { (o as Person).PersonType = n.GetObjectValue<Microsoft.Graph.Models.PersonType>(Microsoft.Graph.Models.PersonType.CreateFromDiscriminatorValue); } },
-                {"phones", (o,n) => { (o as Person).Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue).ToList(); } },
-                {"postalAddresses", (o,n) => { (o as Person).PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue).ToList(); } },
-                {"profession", (o,n) => { (o as Person).Profession = n.GetStringValue(); } },
-                {"scoredEmailAddresses", (o,n) => { (o as Person).ScoredEmailAddresses = n.GetCollectionOfObjectValues<ScoredEmailAddress>(ScoredEmailAddress.CreateFromDiscriminatorValue).ToList(); } },
-                {"surname", (o,n) => { (o as Person).Surname = n.GetStringValue(); } },
-                {"userPrincipalName", (o,n) => { (o as Person).UserPrincipalName = n.GetStringValue(); } },
-                {"websites", (o,n) => { (o as Person).Websites = n.GetCollectionOfObjectValues<Website>(Website.CreateFromDiscriminatorValue).ToList(); } },
-                {"yomiCompany", (o,n) => { (o as Person).YomiCompany = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"birthday", n => { Birthday = n.GetStringValue(); } },
+                {"companyName", n => { CompanyName = n.GetStringValue(); } },
+                {"department", n => { Department = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"givenName", n => { GivenName = n.GetStringValue(); } },
+                {"imAddress", n => { ImAddress = n.GetStringValue(); } },
+                {"isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
+                {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
+                {"officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
+                {"personNotes", n => { PersonNotes = n.GetStringValue(); } },
+                {"personType", n => { PersonType = n.GetObjectValue<Microsoft.Graph.Models.PersonType>(Microsoft.Graph.Models.PersonType.CreateFromDiscriminatorValue); } },
+                {"phones", n => { Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue).ToList(); } },
+                {"postalAddresses", n => { PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue).ToList(); } },
+                {"profession", n => { Profession = n.GetStringValue(); } },
+                {"scoredEmailAddresses", n => { ScoredEmailAddresses = n.GetCollectionOfObjectValues<ScoredEmailAddress>(ScoredEmailAddress.CreateFromDiscriminatorValue).ToList(); } },
+                {"surname", n => { Surname = n.GetStringValue(); } },
+                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                {"websites", n => { Websites = n.GetCollectionOfObjectValues<Website>(Website.CreateFromDiscriminatorValue).ToList(); } },
+                {"yomiCompany", n => { YomiCompany = n.GetStringValue(); } },
             };
         }
         /// <summary>

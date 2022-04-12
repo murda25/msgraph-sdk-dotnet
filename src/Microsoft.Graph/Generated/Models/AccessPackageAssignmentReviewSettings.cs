@@ -40,16 +40,16 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"expirationBehavior", (o,n) => { (o as AccessPackageAssignmentReviewSettings).ExpirationBehavior = n.GetEnumValue<AccessReviewExpirationBehavior>(); } },
-                {"fallbackReviewers", (o,n) => { (o as AccessPackageAssignmentReviewSettings).FallbackReviewers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
-                {"isEnabled", (o,n) => { (o as AccessPackageAssignmentReviewSettings).IsEnabled = n.GetBoolValue(); } },
-                {"isRecommendationEnabled", (o,n) => { (o as AccessPackageAssignmentReviewSettings).IsRecommendationEnabled = n.GetBoolValue(); } },
-                {"isReviewerJustificationRequired", (o,n) => { (o as AccessPackageAssignmentReviewSettings).IsReviewerJustificationRequired = n.GetBoolValue(); } },
-                {"isSelfReview", (o,n) => { (o as AccessPackageAssignmentReviewSettings).IsSelfReview = n.GetBoolValue(); } },
-                {"primaryReviewers", (o,n) => { (o as AccessPackageAssignmentReviewSettings).PrimaryReviewers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
-                {"schedule", (o,n) => { (o as AccessPackageAssignmentReviewSettings).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"expirationBehavior", n => { ExpirationBehavior = n.GetEnumValue<AccessReviewExpirationBehavior>(); } },
+                {"fallbackReviewers", n => { FallbackReviewers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+                {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                {"isRecommendationEnabled", n => { IsRecommendationEnabled = n.GetBoolValue(); } },
+                {"isReviewerJustificationRequired", n => { IsReviewerJustificationRequired = n.GetBoolValue(); } },
+                {"isSelfReview", n => { IsSelfReview = n.GetBoolValue(); } },
+                {"primaryReviewers", n => { PrimaryReviewers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+                {"schedule", n => { Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

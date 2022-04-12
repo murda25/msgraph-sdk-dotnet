@@ -34,17 +34,17 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"bot", (o,n) => { (o as TeamsAppDefinition).Bot = n.GetObjectValue<TeamworkBot>(TeamworkBot.CreateFromDiscriminatorValue); } },
-                {"createdBy", (o,n) => { (o as TeamsAppDefinition).CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"description", (o,n) => { (o as TeamsAppDefinition).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as TeamsAppDefinition).DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", (o,n) => { (o as TeamsAppDefinition).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"publishingState", (o,n) => { (o as TeamsAppDefinition).PublishingState = n.GetEnumValue<TeamsAppPublishingState>(); } },
-                {"shortDescription", (o,n) => { (o as TeamsAppDefinition).ShortDescription = n.GetStringValue(); } },
-                {"teamsAppId", (o,n) => { (o as TeamsAppDefinition).TeamsAppId = n.GetStringValue(); } },
-                {"version", (o,n) => { (o as TeamsAppDefinition).Version = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"bot", n => { Bot = n.GetObjectValue<TeamworkBot>(TeamworkBot.CreateFromDiscriminatorValue); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"publishingState", n => { PublishingState = n.GetEnumValue<TeamsAppPublishingState>(); } },
+                {"shortDescription", n => { ShortDescription = n.GetStringValue(); } },
+                {"teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
+                {"version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

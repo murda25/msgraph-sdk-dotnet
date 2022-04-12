@@ -36,14 +36,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"countryCode", (o,n) => { (o as ParticipantInfo).CountryCode = n.GetStringValue(); } },
-                {"endpointType", (o,n) => { (o as ParticipantInfo).EndpointType = n.GetEnumValue<EndpointType>(); } },
-                {"identity", (o,n) => { (o as ParticipantInfo).Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"languageId", (o,n) => { (o as ParticipantInfo).LanguageId = n.GetStringValue(); } },
-                {"participantId", (o,n) => { (o as ParticipantInfo).ParticipantId = n.GetStringValue(); } },
-                {"region", (o,n) => { (o as ParticipantInfo).Region = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"countryCode", n => { CountryCode = n.GetStringValue(); } },
+                {"endpointType", n => { EndpointType = n.GetEnumValue<EndpointType>(); } },
+                {"identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"languageId", n => { LanguageId = n.GetStringValue(); } },
+                {"participantId", n => { ParticipantId = n.GetStringValue(); } },
+                {"region", n => { Region = n.GetStringValue(); } },
             };
         }
         /// <summary>

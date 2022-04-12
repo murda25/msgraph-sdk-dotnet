@@ -30,10 +30,10 @@ namespace Microsoft.Graph.Communications.Calls.Item.PlayPrompt {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"clientContext", (o,n) => { (o as PlayPromptRequestBody).ClientContext = n.GetStringValue(); } },
-                {"prompts", (o,n) => { (o as PlayPromptRequestBody).Prompts = n.GetCollectionOfObjectValues<Prompt>(Prompt.CreateFromDiscriminatorValue).ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"clientContext", n => { ClientContext = n.GetStringValue(); } },
+                {"prompts", n => { Prompts = n.GetCollectionOfObjectValues<Prompt>(Prompt.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

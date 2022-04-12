@@ -33,12 +33,12 @@ namespace Microsoft.Graph.DeviceManagement.ManagedDevices.Item.Wipe {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"keepEnrollmentData", (o,n) => { (o as WipeRequestBody).KeepEnrollmentData = n.GetBoolValue(); } },
-                {"keepUserData", (o,n) => { (o as WipeRequestBody).KeepUserData = n.GetBoolValue(); } },
-                {"macOsUnlockCode", (o,n) => { (o as WipeRequestBody).MacOsUnlockCode = n.GetStringValue(); } },
-                {"persistEsimDataPlan", (o,n) => { (o as WipeRequestBody).PersistEsimDataPlan = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
+                {"keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
+                {"macOsUnlockCode", n => { MacOsUnlockCode = n.GetStringValue(); } },
+                {"persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -40,16 +40,16 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"allowCustomAssignmentSchedule", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).AllowCustomAssignmentSchedule = n.GetBoolValue(); } },
-                {"enableOnBehalfRequestorsToAddAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableOnBehalfRequestorsToAddAccess = n.GetBoolValue(); } },
-                {"enableOnBehalfRequestorsToRemoveAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableOnBehalfRequestorsToRemoveAccess = n.GetBoolValue(); } },
-                {"enableOnBehalfRequestorsToUpdateAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableOnBehalfRequestorsToUpdateAccess = n.GetBoolValue(); } },
-                {"enableTargetsToSelfAddAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableTargetsToSelfAddAccess = n.GetBoolValue(); } },
-                {"enableTargetsToSelfRemoveAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableTargetsToSelfRemoveAccess = n.GetBoolValue(); } },
-                {"enableTargetsToSelfUpdateAccess", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).EnableTargetsToSelfUpdateAccess = n.GetBoolValue(); } },
-                {"onBehalfRequestors", (o,n) => { (o as AccessPackageAssignmentRequestorSettings).OnBehalfRequestors = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"allowCustomAssignmentSchedule", n => { AllowCustomAssignmentSchedule = n.GetBoolValue(); } },
+                {"enableOnBehalfRequestorsToAddAccess", n => { EnableOnBehalfRequestorsToAddAccess = n.GetBoolValue(); } },
+                {"enableOnBehalfRequestorsToRemoveAccess", n => { EnableOnBehalfRequestorsToRemoveAccess = n.GetBoolValue(); } },
+                {"enableOnBehalfRequestorsToUpdateAccess", n => { EnableOnBehalfRequestorsToUpdateAccess = n.GetBoolValue(); } },
+                {"enableTargetsToSelfAddAccess", n => { EnableTargetsToSelfAddAccess = n.GetBoolValue(); } },
+                {"enableTargetsToSelfRemoveAccess", n => { EnableTargetsToSelfRemoveAccess = n.GetBoolValue(); } },
+                {"enableTargetsToSelfUpdateAccess", n => { EnableTargetsToSelfUpdateAccess = n.GetBoolValue(); } },
+                {"onBehalfRequestors", n => { OnBehalfRequestors = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

@@ -34,13 +34,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"hidden", (o,n) => { (o as InvitationParticipantInfo).Hidden = n.GetBoolValue(); } },
-                {"identity", (o,n) => { (o as InvitationParticipantInfo).Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"participantId", (o,n) => { (o as InvitationParticipantInfo).ParticipantId = n.GetStringValue(); } },
-                {"removeFromDefaultAudioRoutingGroup", (o,n) => { (o as InvitationParticipantInfo).RemoveFromDefaultAudioRoutingGroup = n.GetBoolValue(); } },
-                {"replacesCallId", (o,n) => { (o as InvitationParticipantInfo).ReplacesCallId = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"hidden", n => { Hidden = n.GetBoolValue(); } },
+                {"identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"participantId", n => { ParticipantId = n.GetStringValue(); } },
+                {"removeFromDefaultAudioRoutingGroup", n => { RemoveFromDefaultAudioRoutingGroup = n.GetBoolValue(); } },
+                {"replacesCallId", n => { ReplacesCallId = n.GetStringValue(); } },
             };
         }
         /// <summary>

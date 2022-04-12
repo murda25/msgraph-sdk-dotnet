@@ -24,12 +24,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"createdDateTime", (o,n) => { (o as WindowsHelloForBusinessAuthenticationMethod).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"device", (o,n) => { (o as WindowsHelloForBusinessAuthenticationMethod).Device = n.GetObjectValue<Microsoft.Graph.Models.Device>(Microsoft.Graph.Models.Device.CreateFromDiscriminatorValue); } },
-                {"displayName", (o,n) => { (o as WindowsHelloForBusinessAuthenticationMethod).DisplayName = n.GetStringValue(); } },
-                {"keyStrength", (o,n) => { (o as WindowsHelloForBusinessAuthenticationMethod).KeyStrength = n.GetEnumValue<AuthenticationMethodKeyStrength>(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"device", n => { Device = n.GetObjectValue<Microsoft.Graph.Models.Device>(Microsoft.Graph.Models.Device.CreateFromDiscriminatorValue); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"keyStrength", n => { KeyStrength = n.GetEnumValue<AuthenticationMethodKeyStrength>(); } },
             };
         }
         /// <summary>

@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"connectedOrganization", (o,n) => { (o as AccessPackageSubject).ConnectedOrganization = n.GetObjectValue<Microsoft.Graph.Models.ConnectedOrganization>(Microsoft.Graph.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
-                {"displayName", (o,n) => { (o as AccessPackageSubject).DisplayName = n.GetStringValue(); } },
-                {"email", (o,n) => { (o as AccessPackageSubject).Email = n.GetStringValue(); } },
-                {"objectId", (o,n) => { (o as AccessPackageSubject).ObjectId = n.GetStringValue(); } },
-                {"onPremisesSecurityIdentifier", (o,n) => { (o as AccessPackageSubject).OnPremisesSecurityIdentifier = n.GetStringValue(); } },
-                {"principalName", (o,n) => { (o as AccessPackageSubject).PrincipalName = n.GetStringValue(); } },
-                {"subjectType", (o,n) => { (o as AccessPackageSubject).SubjectType = n.GetEnumValue<AccessPackageSubjectType>(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"connectedOrganization", n => { ConnectedOrganization = n.GetObjectValue<Microsoft.Graph.Models.ConnectedOrganization>(Microsoft.Graph.Models.ConnectedOrganization.CreateFromDiscriminatorValue); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"email", n => { Email = n.GetStringValue(); } },
+                {"objectId", n => { ObjectId = n.GetStringValue(); } },
+                {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
+                {"principalName", n => { PrincipalName = n.GetStringValue(); } },
+                {"subjectType", n => { SubjectType = n.GetEnumValue<AccessPackageSubjectType>(); } },
             };
         }
         /// <summary>

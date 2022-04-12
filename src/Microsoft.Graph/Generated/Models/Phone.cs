@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"language", (o,n) => { (o as Phone).Language = n.GetStringValue(); } },
-                {"number", (o,n) => { (o as Phone).Number = n.GetStringValue(); } },
-                {"region", (o,n) => { (o as Phone).Region = n.GetStringValue(); } },
-                {"type", (o,n) => { (o as Phone).Type = n.GetEnumValue<PhoneType>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"language", n => { Language = n.GetStringValue(); } },
+                {"number", n => { Number = n.GetStringValue(); } },
+                {"region", n => { Region = n.GetStringValue(); } },
+                {"type", n => { Type = n.GetEnumValue<PhoneType>(); } },
             };
         }
         /// <summary>

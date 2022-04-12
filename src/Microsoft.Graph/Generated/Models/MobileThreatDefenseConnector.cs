@@ -32,16 +32,16 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"androidDeviceBlockedOnMissingPartnerData", (o,n) => { (o as MobileThreatDefenseConnector).AndroidDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
-                {"androidEnabled", (o,n) => { (o as MobileThreatDefenseConnector).AndroidEnabled = n.GetBoolValue(); } },
-                {"iosDeviceBlockedOnMissingPartnerData", (o,n) => { (o as MobileThreatDefenseConnector).IosDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
-                {"iosEnabled", (o,n) => { (o as MobileThreatDefenseConnector).IosEnabled = n.GetBoolValue(); } },
-                {"lastHeartbeatDateTime", (o,n) => { (o as MobileThreatDefenseConnector).LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
-                {"partnerState", (o,n) => { (o as MobileThreatDefenseConnector).PartnerState = n.GetEnumValue<MobileThreatPartnerTenantState>(); } },
-                {"partnerUnresponsivenessThresholdInDays", (o,n) => { (o as MobileThreatDefenseConnector).PartnerUnresponsivenessThresholdInDays = n.GetIntValue(); } },
-                {"partnerUnsupportedOsVersionBlocked", (o,n) => { (o as MobileThreatDefenseConnector).PartnerUnsupportedOsVersionBlocked = n.GetBoolValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"androidDeviceBlockedOnMissingPartnerData", n => { AndroidDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
+                {"androidEnabled", n => { AndroidEnabled = n.GetBoolValue(); } },
+                {"iosDeviceBlockedOnMissingPartnerData", n => { IosDeviceBlockedOnMissingPartnerData = n.GetBoolValue(); } },
+                {"iosEnabled", n => { IosEnabled = n.GetBoolValue(); } },
+                {"lastHeartbeatDateTime", n => { LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
+                {"partnerState", n => { PartnerState = n.GetEnumValue<MobileThreatPartnerTenantState>(); } },
+                {"partnerUnresponsivenessThresholdInDays", n => { PartnerUnresponsivenessThresholdInDays = n.GetIntValue(); } },
+                {"partnerUnsupportedOsVersionBlocked", n => { PartnerUnsupportedOsVersionBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -32,11 +32,11 @@ namespace Microsoft.Graph.ServicePrincipals.Item.AddKey {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"keyCredential", (o,n) => { (o as KeyCredentialRequestBody).KeyCredential = n.GetObjectValue<Microsoft.Graph.Models.KeyCredential>(Microsoft.Graph.Models.KeyCredential.CreateFromDiscriminatorValue); } },
-                {"passwordCredential", (o,n) => { (o as KeyCredentialRequestBody).PasswordCredential = n.GetObjectValue<Microsoft.Graph.Models.PasswordCredential>(Microsoft.Graph.Models.PasswordCredential.CreateFromDiscriminatorValue); } },
-                {"proof", (o,n) => { (o as KeyCredentialRequestBody).Proof = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"keyCredential", n => { KeyCredential = n.GetObjectValue<Microsoft.Graph.Models.KeyCredential>(Microsoft.Graph.Models.KeyCredential.CreateFromDiscriminatorValue); } },
+                {"passwordCredential", n => { PasswordCredential = n.GetObjectValue<Microsoft.Graph.Models.PasswordCredential>(Microsoft.Graph.Models.PasswordCredential.CreateFromDiscriminatorValue); } },
+                {"proof", n => { Proof = n.GetStringValue(); } },
             };
         }
         /// <summary>

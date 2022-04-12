@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"appRoleId", (o,n) => { (o as AppRoleAssignment).AppRoleId = n.GetStringValue(); } },
-                {"createdDateTime", (o,n) => { (o as AppRoleAssignment).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"principalDisplayName", (o,n) => { (o as AppRoleAssignment).PrincipalDisplayName = n.GetStringValue(); } },
-                {"principalId", (o,n) => { (o as AppRoleAssignment).PrincipalId = n.GetStringValue(); } },
-                {"principalType", (o,n) => { (o as AppRoleAssignment).PrincipalType = n.GetStringValue(); } },
-                {"resourceDisplayName", (o,n) => { (o as AppRoleAssignment).ResourceDisplayName = n.GetStringValue(); } },
-                {"resourceId", (o,n) => { (o as AppRoleAssignment).ResourceId = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"appRoleId", n => { AppRoleId = n.GetStringValue(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"principalDisplayName", n => { PrincipalDisplayName = n.GetStringValue(); } },
+                {"principalId", n => { PrincipalId = n.GetStringValue(); } },
+                {"principalType", n => { PrincipalType = n.GetStringValue(); } },
+                {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
+                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -54,27 +54,27 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"assignedTo", (o,n) => { (o as SubjectRightsRequest).AssignedTo = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"closedDateTime", (o,n) => { (o as SubjectRightsRequest).ClosedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"createdBy", (o,n) => { (o as SubjectRightsRequest).CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", (o,n) => { (o as SubjectRightsRequest).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"dataSubject", (o,n) => { (o as SubjectRightsRequest).DataSubject = n.GetObjectValue<Microsoft.Graph.Models.DataSubject>(Microsoft.Graph.Models.DataSubject.CreateFromDiscriminatorValue); } },
-                {"dataSubjectType", (o,n) => { (o as SubjectRightsRequest).DataSubjectType = n.GetEnumValue<DataSubjectType>(); } },
-                {"description", (o,n) => { (o as SubjectRightsRequest).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as SubjectRightsRequest).DisplayName = n.GetStringValue(); } },
-                {"history", (o,n) => { (o as SubjectRightsRequest).History = n.GetCollectionOfObjectValues<SubjectRightsRequestHistory>(SubjectRightsRequestHistory.CreateFromDiscriminatorValue).ToList(); } },
-                {"insight", (o,n) => { (o as SubjectRightsRequest).Insight = n.GetObjectValue<SubjectRightsRequestDetail>(SubjectRightsRequestDetail.CreateFromDiscriminatorValue); } },
-                {"internalDueDateTime", (o,n) => { (o as SubjectRightsRequest).InternalDueDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedBy", (o,n) => { (o as SubjectRightsRequest).LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", (o,n) => { (o as SubjectRightsRequest).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"notes", (o,n) => { (o as SubjectRightsRequest).Notes = n.GetCollectionOfObjectValues<AuthoredNote>(AuthoredNote.CreateFromDiscriminatorValue).ToList(); } },
-                {"regulations", (o,n) => { (o as SubjectRightsRequest).Regulations = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"stages", (o,n) => { (o as SubjectRightsRequest).Stages = n.GetCollectionOfObjectValues<SubjectRightsRequestStageDetail>(SubjectRightsRequestStageDetail.CreateFromDiscriminatorValue).ToList(); } },
-                {"status", (o,n) => { (o as SubjectRightsRequest).Status = n.GetEnumValue<SubjectRightsRequestStatus>(); } },
-                {"team", (o,n) => { (o as SubjectRightsRequest).Team = n.GetObjectValue<Microsoft.Graph.Models.Team>(Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue); } },
-                {"type", (o,n) => { (o as SubjectRightsRequest).Type = n.GetEnumValue<SubjectRightsRequestType>(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"assignedTo", n => { AssignedTo = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                {"closedDateTime", n => { ClosedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"dataSubject", n => { DataSubject = n.GetObjectValue<Microsoft.Graph.Models.DataSubject>(Microsoft.Graph.Models.DataSubject.CreateFromDiscriminatorValue); } },
+                {"dataSubjectType", n => { DataSubjectType = n.GetEnumValue<DataSubjectType>(); } },
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"history", n => { History = n.GetCollectionOfObjectValues<SubjectRightsRequestHistory>(SubjectRightsRequestHistory.CreateFromDiscriminatorValue).ToList(); } },
+                {"insight", n => { Insight = n.GetObjectValue<SubjectRightsRequestDetail>(SubjectRightsRequestDetail.CreateFromDiscriminatorValue); } },
+                {"internalDueDateTime", n => { InternalDueDateTime = n.GetDateTimeOffsetValue(); } },
+                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"notes", n => { Notes = n.GetCollectionOfObjectValues<AuthoredNote>(AuthoredNote.CreateFromDiscriminatorValue).ToList(); } },
+                {"regulations", n => { Regulations = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"stages", n => { Stages = n.GetCollectionOfObjectValues<SubjectRightsRequestStageDetail>(SubjectRightsRequestStageDetail.CreateFromDiscriminatorValue).ToList(); } },
+                {"status", n => { Status = n.GetEnumValue<SubjectRightsRequestStatus>(); } },
+                {"team", n => { Team = n.GetObjectValue<Microsoft.Graph.Models.Team>(Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue); } },
+                {"type", n => { Type = n.GetEnumValue<SubjectRightsRequestType>(); } },
             };
         }
         /// <summary>

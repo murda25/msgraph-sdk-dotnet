@@ -30,11 +30,11 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"query", (o,n) => { (o as AccessReviewReviewerScope).Query = n.GetStringValue(); } },
-                {"queryRoot", (o,n) => { (o as AccessReviewReviewerScope).QueryRoot = n.GetStringValue(); } },
-                {"queryType", (o,n) => { (o as AccessReviewReviewerScope).QueryType = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"query", n => { Query = n.GetStringValue(); } },
+                {"queryRoot", n => { QueryRoot = n.GetStringValue(); } },
+                {"queryType", n => { QueryType = n.GetStringValue(); } },
             };
         }
         /// <summary>

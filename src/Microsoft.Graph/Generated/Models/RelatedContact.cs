@@ -34,13 +34,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"accessConsent", (o,n) => { (o as RelatedContact).AccessConsent = n.GetBoolValue(); } },
-                {"displayName", (o,n) => { (o as RelatedContact).DisplayName = n.GetStringValue(); } },
-                {"emailAddress", (o,n) => { (o as RelatedContact).EmailAddress = n.GetStringValue(); } },
-                {"mobilePhone", (o,n) => { (o as RelatedContact).MobilePhone = n.GetStringValue(); } },
-                {"relationship", (o,n) => { (o as RelatedContact).Relationship = n.GetEnumValue<ContactRelationship>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"accessConsent", n => { AccessConsent = n.GetBoolValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                {"mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
+                {"relationship", n => { Relationship = n.GetEnumValue<ContactRelationship>(); } },
             };
         }
         /// <summary>

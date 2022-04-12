@@ -37,14 +37,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"androidCount", (o,n) => { (o as DeviceOperatingSystemSummary).AndroidCount = n.GetIntValue(); } },
-                {"iosCount", (o,n) => { (o as DeviceOperatingSystemSummary).IosCount = n.GetIntValue(); } },
-                {"macOSCount", (o,n) => { (o as DeviceOperatingSystemSummary).MacOSCount = n.GetIntValue(); } },
-                {"unknownCount", (o,n) => { (o as DeviceOperatingSystemSummary).UnknownCount = n.GetIntValue(); } },
-                {"windowsCount", (o,n) => { (o as DeviceOperatingSystemSummary).WindowsCount = n.GetIntValue(); } },
-                {"windowsMobileCount", (o,n) => { (o as DeviceOperatingSystemSummary).WindowsMobileCount = n.GetIntValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"androidCount", n => { AndroidCount = n.GetIntValue(); } },
+                {"iosCount", n => { IosCount = n.GetIntValue(); } },
+                {"macOSCount", n => { MacOSCount = n.GetIntValue(); } },
+                {"unknownCount", n => { UnknownCount = n.GetIntValue(); } },
+                {"windowsCount", n => { WindowsCount = n.GetIntValue(); } },
+                {"windowsMobileCount", n => { WindowsMobileCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

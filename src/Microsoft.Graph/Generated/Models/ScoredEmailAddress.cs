@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"address", (o,n) => { (o as ScoredEmailAddress).Address = n.GetStringValue(); } },
-                {"itemId", (o,n) => { (o as ScoredEmailAddress).ItemId = n.GetStringValue(); } },
-                {"relevanceScore", (o,n) => { (o as ScoredEmailAddress).RelevanceScore = n.GetDoubleValue(); } },
-                {"selectionLikelihood", (o,n) => { (o as ScoredEmailAddress).SelectionLikelihood = n.GetEnumValue<SelectionLikelihoodInfo>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"address", n => { Address = n.GetStringValue(); } },
+                {"itemId", n => { ItemId = n.GetStringValue(); } },
+                {"relevanceScore", n => { RelevanceScore = n.GetDoubleValue(); } },
+                {"selectionLikelihood", n => { SelectionLikelihood = n.GetEnumValue<SelectionLikelihoodInfo>(); } },
             };
         }
         /// <summary>

@@ -27,9 +27,9 @@ namespace Microsoft.Graph.Users.GetAvailableExtensionProperties {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"isSyncedFromOnPremises", (o,n) => { (o as GetAvailableExtensionPropertiesRequestBody).IsSyncedFromOnPremises = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"isSyncedFromOnPremises", n => { IsSyncedFromOnPremises = n.GetBoolValue(); } },
             };
         }
         /// <summary>

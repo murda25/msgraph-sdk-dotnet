@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"description", (o,n) => { (o as PrintJobStatus).Description = n.GetStringValue(); } },
-                {"details", (o,n) => { (o as PrintJobStatus).Details = n.GetCollectionOfEnumValues<PrintJobStateDetail>().ToList(); } },
-                {"isAcquiredByPrinter", (o,n) => { (o as PrintJobStatus).IsAcquiredByPrinter = n.GetBoolValue(); } },
-                {"state", (o,n) => { (o as PrintJobStatus).State = n.GetEnumValue<PrintJobProcessingState>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"details", n => { Details = n.GetCollectionOfEnumValues<PrintJobStateDetail>().ToList(); } },
+                {"isAcquiredByPrinter", n => { IsAcquiredByPrinter = n.GetBoolValue(); } },
+                {"state", n => { State = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
         }
         /// <summary>

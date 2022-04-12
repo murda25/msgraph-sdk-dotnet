@@ -48,24 +48,24 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"addressableUserName", (o,n) => { (o as WindowsAutopilotDeviceIdentity).AddressableUserName = n.GetStringValue(); } },
-                {"azureActiveDirectoryDeviceId", (o,n) => { (o as WindowsAutopilotDeviceIdentity).AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as WindowsAutopilotDeviceIdentity).DisplayName = n.GetStringValue(); } },
-                {"enrollmentState", (o,n) => { (o as WindowsAutopilotDeviceIdentity).EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
-                {"groupTag", (o,n) => { (o as WindowsAutopilotDeviceIdentity).GroupTag = n.GetStringValue(); } },
-                {"lastContactedDateTime", (o,n) => { (o as WindowsAutopilotDeviceIdentity).LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDeviceId", (o,n) => { (o as WindowsAutopilotDeviceIdentity).ManagedDeviceId = n.GetStringValue(); } },
-                {"manufacturer", (o,n) => { (o as WindowsAutopilotDeviceIdentity).Manufacturer = n.GetStringValue(); } },
-                {"model", (o,n) => { (o as WindowsAutopilotDeviceIdentity).Model = n.GetStringValue(); } },
-                {"productKey", (o,n) => { (o as WindowsAutopilotDeviceIdentity).ProductKey = n.GetStringValue(); } },
-                {"purchaseOrderIdentifier", (o,n) => { (o as WindowsAutopilotDeviceIdentity).PurchaseOrderIdentifier = n.GetStringValue(); } },
-                {"resourceName", (o,n) => { (o as WindowsAutopilotDeviceIdentity).ResourceName = n.GetStringValue(); } },
-                {"serialNumber", (o,n) => { (o as WindowsAutopilotDeviceIdentity).SerialNumber = n.GetStringValue(); } },
-                {"skuNumber", (o,n) => { (o as WindowsAutopilotDeviceIdentity).SkuNumber = n.GetStringValue(); } },
-                {"systemFamily", (o,n) => { (o as WindowsAutopilotDeviceIdentity).SystemFamily = n.GetStringValue(); } },
-                {"userPrincipalName", (o,n) => { (o as WindowsAutopilotDeviceIdentity).UserPrincipalName = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
+                {"azureActiveDirectoryDeviceId", n => { AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                {"groupTag", n => { GroupTag = n.GetStringValue(); } },
+                {"lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                {"model", n => { Model = n.GetStringValue(); } },
+                {"productKey", n => { ProductKey = n.GetStringValue(); } },
+                {"purchaseOrderIdentifier", n => { PurchaseOrderIdentifier = n.GetStringValue(); } },
+                {"resourceName", n => { ResourceName = n.GetStringValue(); } },
+                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                {"skuNumber", n => { SkuNumber = n.GetStringValue(); } },
+                {"systemFamily", n => { SystemFamily = n.GetStringValue(); } },
+                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

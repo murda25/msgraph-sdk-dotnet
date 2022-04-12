@@ -26,13 +26,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"deviceExchangeAccessStateSummary", (o,n) => { (o as ManagedDeviceOverview).DeviceExchangeAccessStateSummary = n.GetObjectValue<Microsoft.Graph.Models.DeviceExchangeAccessStateSummary>(Microsoft.Graph.Models.DeviceExchangeAccessStateSummary.CreateFromDiscriminatorValue); } },
-                {"deviceOperatingSystemSummary", (o,n) => { (o as ManagedDeviceOverview).DeviceOperatingSystemSummary = n.GetObjectValue<Microsoft.Graph.Models.DeviceOperatingSystemSummary>(Microsoft.Graph.Models.DeviceOperatingSystemSummary.CreateFromDiscriminatorValue); } },
-                {"dualEnrolledDeviceCount", (o,n) => { (o as ManagedDeviceOverview).DualEnrolledDeviceCount = n.GetIntValue(); } },
-                {"enrolledDeviceCount", (o,n) => { (o as ManagedDeviceOverview).EnrolledDeviceCount = n.GetIntValue(); } },
-                {"mdmEnrolledCount", (o,n) => { (o as ManagedDeviceOverview).MdmEnrolledCount = n.GetIntValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"deviceExchangeAccessStateSummary", n => { DeviceExchangeAccessStateSummary = n.GetObjectValue<Microsoft.Graph.Models.DeviceExchangeAccessStateSummary>(Microsoft.Graph.Models.DeviceExchangeAccessStateSummary.CreateFromDiscriminatorValue); } },
+                {"deviceOperatingSystemSummary", n => { DeviceOperatingSystemSummary = n.GetObjectValue<Microsoft.Graph.Models.DeviceOperatingSystemSummary>(Microsoft.Graph.Models.DeviceOperatingSystemSummary.CreateFromDiscriminatorValue); } },
+                {"dualEnrolledDeviceCount", n => { DualEnrolledDeviceCount = n.GetIntValue(); } },
+                {"enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
+                {"mdmEnrolledCount", n => { MdmEnrolledCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

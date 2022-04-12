@@ -30,11 +30,11 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"deviceComplianceCheckinThresholdDays", (o,n) => { (o as DeviceManagementSettings).DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
-                {"isScheduledActionEnabled", (o,n) => { (o as DeviceManagementSettings).IsScheduledActionEnabled = n.GetBoolValue(); } },
-                {"secureByDefault", (o,n) => { (o as DeviceManagementSettings).SecureByDefault = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"deviceComplianceCheckinThresholdDays", n => { DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
+                {"isScheduledActionEnabled", n => { IsScheduledActionEnabled = n.GetBoolValue(); } },
+                {"secureByDefault", n => { SecureByDefault = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -29,10 +29,10 @@ namespace Microsoft.Graph.Workbooks.Item.Preview {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"page", (o,n) => { (o as PreviewRequestBody).Page = n.GetStringValue(); } },
-                {"zoom", (o,n) => { (o as PreviewRequestBody).Zoom = n.GetDoubleValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"page", n => { Page = n.GetStringValue(); } },
+                {"zoom", n => { Zoom = n.GetDoubleValue(); } },
             };
         }
         /// <summary>

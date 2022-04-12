@@ -24,12 +24,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"description", (o,n) => { (o as RoleAssignment).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as RoleAssignment).DisplayName = n.GetStringValue(); } },
-                {"resourceScopes", (o,n) => { (o as RoleAssignment).ResourceScopes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"roleDefinition", (o,n) => { (o as RoleAssignment).RoleDefinition = n.GetObjectValue<Microsoft.Graph.Models.RoleDefinition>(Microsoft.Graph.Models.RoleDefinition.CreateFromDiscriminatorValue); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<Microsoft.Graph.Models.RoleDefinition>(Microsoft.Graph.Models.RoleDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

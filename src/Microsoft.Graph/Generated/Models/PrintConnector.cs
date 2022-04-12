@@ -28,14 +28,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"appVersion", (o,n) => { (o as PrintConnector).AppVersion = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as PrintConnector).DisplayName = n.GetStringValue(); } },
-                {"fullyQualifiedDomainName", (o,n) => { (o as PrintConnector).FullyQualifiedDomainName = n.GetStringValue(); } },
-                {"location", (o,n) => { (o as PrintConnector).Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
-                {"operatingSystem", (o,n) => { (o as PrintConnector).OperatingSystem = n.GetStringValue(); } },
-                {"registeredDateTime", (o,n) => { (o as PrintConnector).RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"appVersion", n => { AppVersion = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"fullyQualifiedDomainName", n => { FullyQualifiedDomainName = n.GetStringValue(); } },
+                {"location", n => { Location = n.GetObjectValue<PrinterLocation>(PrinterLocation.CreateFromDiscriminatorValue); } },
+                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                {"registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
