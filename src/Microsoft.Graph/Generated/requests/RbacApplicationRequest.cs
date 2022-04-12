@@ -258,6 +258,42 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     rbacApplicationToInitialize.RoleDefinitions.AdditionalData = rbacApplicationToInitialize.AdditionalData;
                 }
+                if (rbacApplicationToInitialize.RoleAssignmentScheduleInstances != null && rbacApplicationToInitialize.RoleAssignmentScheduleInstances.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleAssignmentScheduleInstances.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleAssignmentScheduleInstancesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleAssignmentScheduleInstances.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
+                if (rbacApplicationToInitialize.RoleAssignmentScheduleRequests != null && rbacApplicationToInitialize.RoleAssignmentScheduleRequests.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleAssignmentScheduleRequests.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleAssignmentScheduleRequestsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleAssignmentScheduleRequests.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
+                if (rbacApplicationToInitialize.RoleAssignmentSchedules != null && rbacApplicationToInitialize.RoleAssignmentSchedules.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleAssignmentSchedules.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleAssignmentSchedulesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleAssignmentSchedules.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
+                if (rbacApplicationToInitialize.RoleEligibilityScheduleInstances != null && rbacApplicationToInitialize.RoleEligibilityScheduleInstances.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleEligibilityScheduleInstances.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleEligibilityScheduleInstancesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleEligibilityScheduleInstances.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
+                if (rbacApplicationToInitialize.RoleEligibilityScheduleRequests != null && rbacApplicationToInitialize.RoleEligibilityScheduleRequests.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleEligibilityScheduleRequests.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleEligibilityScheduleRequestsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleEligibilityScheduleRequests.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
+                if (rbacApplicationToInitialize.RoleEligibilitySchedules != null && rbacApplicationToInitialize.RoleEligibilitySchedules.CurrentPage != null)
+                {
+                    rbacApplicationToInitialize.RoleEligibilitySchedules.InitializeNextPageRequest(this.Client, rbacApplicationToInitialize.RoleEligibilitySchedulesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    rbacApplicationToInitialize.RoleEligibilitySchedules.AdditionalData = rbacApplicationToInitialize.AdditionalData;
+                }
 
             }
 

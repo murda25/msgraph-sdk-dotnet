@@ -294,6 +294,18 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     policyRootToInitialize.ConditionalAccessPolicies.AdditionalData = policyRootToInitialize.AdditionalData;
                 }
+                if (policyRootToInitialize.RoleManagementPolicies != null && policyRootToInitialize.RoleManagementPolicies.CurrentPage != null)
+                {
+                    policyRootToInitialize.RoleManagementPolicies.InitializeNextPageRequest(this.Client, policyRootToInitialize.RoleManagementPoliciesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    policyRootToInitialize.RoleManagementPolicies.AdditionalData = policyRootToInitialize.AdditionalData;
+                }
+                if (policyRootToInitialize.RoleManagementPolicyAssignments != null && policyRootToInitialize.RoleManagementPolicyAssignments.CurrentPage != null)
+                {
+                    policyRootToInitialize.RoleManagementPolicyAssignments.InitializeNextPageRequest(this.Client, policyRootToInitialize.RoleManagementPolicyAssignmentsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    policyRootToInitialize.RoleManagementPolicyAssignments.AdditionalData = policyRootToInitialize.AdditionalData;
+                }
 
             }
 

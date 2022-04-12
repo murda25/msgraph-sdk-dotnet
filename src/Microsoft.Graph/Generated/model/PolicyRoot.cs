@@ -167,6 +167,34 @@ namespace Microsoft.Graph
         [JsonPropertyName("identitySecurityDefaultsEnforcementPolicy")]
         public IdentitySecurityDefaultsEnforcementPolicy IdentitySecurityDefaultsEnforcementPolicy { get; set; }
     
+        /// <summary>
+        /// Gets or sets role management policies.
+        /// Represents the role management policies.
+        /// </summary>
+        [JsonPropertyName("roleManagementPolicies")]
+        public IPolicyRootRoleManagementPoliciesCollectionPage RoleManagementPolicies { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleManagementPoliciesNextLink.
+        /// </summary>
+        [JsonPropertyName("roleManagementPolicies@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleManagementPoliciesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets role management policy assignments.
+        /// Represents the role management policy assignments.
+        /// </summary>
+        [JsonPropertyName("roleManagementPolicyAssignments")]
+        public IPolicyRootRoleManagementPolicyAssignmentsCollectionPage RoleManagementPolicyAssignments { get; set; }
+
+        /// <summary>
+        /// Gets or sets roleManagementPolicyAssignmentsNextLink.
+        /// </summary>
+        [JsonPropertyName("roleManagementPolicyAssignments@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string RoleManagementPolicyAssignmentsNextLink { get; set; }
+    
     }
 }
 
