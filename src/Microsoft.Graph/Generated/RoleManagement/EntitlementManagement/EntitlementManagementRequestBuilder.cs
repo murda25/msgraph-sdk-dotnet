@@ -1,7 +1,13 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignments;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleInstances;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleDefinitions;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleInstances;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,9 +27,33 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement {
         public RoleAssignmentsRequestBuilder RoleAssignments { get =>
             new RoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The roleAssignmentScheduleInstances property</summary>
+        public RoleAssignmentScheduleInstancesRequestBuilder RoleAssignmentScheduleInstances { get =>
+            new RoleAssignmentScheduleInstancesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleAssignmentScheduleRequests property</summary>
+        public RoleAssignmentScheduleRequestsRequestBuilder RoleAssignmentScheduleRequests { get =>
+            new RoleAssignmentScheduleRequestsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleAssignmentSchedules property</summary>
+        public RoleAssignmentSchedulesRequestBuilder RoleAssignmentSchedules { get =>
+            new RoleAssignmentSchedulesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The roleDefinitions property</summary>
         public RoleDefinitionsRequestBuilder RoleDefinitions { get =>
             new RoleDefinitionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleEligibilityScheduleInstances property</summary>
+        public RoleEligibilityScheduleInstancesRequestBuilder RoleEligibilityScheduleInstances { get =>
+            new RoleEligibilityScheduleInstancesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleEligibilityScheduleRequests property</summary>
+        public RoleEligibilityScheduleRequestsRequestBuilder RoleEligibilityScheduleRequests { get =>
+            new RoleEligibilityScheduleRequestsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleEligibilitySchedules property</summary>
+        public RoleEligibilitySchedulesRequestBuilder RoleEligibilitySchedules { get =>
+            new RoleEligibilitySchedulesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }

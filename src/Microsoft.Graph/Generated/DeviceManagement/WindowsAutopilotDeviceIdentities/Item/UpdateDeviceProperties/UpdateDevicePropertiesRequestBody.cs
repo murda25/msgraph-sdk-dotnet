@@ -33,12 +33,12 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"addressableUserName", (o,n) => { (o as UpdateDevicePropertiesRequestBody).AddressableUserName = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as UpdateDevicePropertiesRequestBody).DisplayName = n.GetStringValue(); } },
-                {"groupTag", (o,n) => { (o as UpdateDevicePropertiesRequestBody).GroupTag = n.GetStringValue(); } },
-                {"userPrincipalName", (o,n) => { (o as UpdateDevicePropertiesRequestBody).UserPrincipalName = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"groupTag", n => { GroupTag = n.GetStringValue(); } },
+                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

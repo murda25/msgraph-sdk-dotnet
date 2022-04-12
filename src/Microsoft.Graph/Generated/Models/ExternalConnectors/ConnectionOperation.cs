@@ -20,10 +20,10 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"error", (o,n) => { (o as ConnectionOperation).Error = n.GetObjectValue<Microsoft.Graph.Models.PublicError>(Microsoft.Graph.Models.PublicError.CreateFromDiscriminatorValue); } },
-                {"status", (o,n) => { (o as ConnectionOperation).Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"error", n => { Error = n.GetObjectValue<Microsoft.Graph.Models.PublicError>(Microsoft.Graph.Models.PublicError.CreateFromDiscriminatorValue); } },
+                {"status", n => { Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
             };
         }
         /// <summary>

@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"accessPackage", (o,n) => { (o as AccessPackageAssignment).AccessPackage = n.GetObjectValue<Microsoft.Graph.Models.AccessPackage>(Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
-                {"assignmentPolicy", (o,n) => { (o as AccessPackageAssignment).AssignmentPolicy = n.GetObjectValue<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
-                {"expiredDateTime", (o,n) => { (o as AccessPackageAssignment).ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"schedule", (o,n) => { (o as AccessPackageAssignment).Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
-                {"state", (o,n) => { (o as AccessPackageAssignment).State = n.GetEnumValue<AccessPackageAssignmentState>(); } },
-                {"status", (o,n) => { (o as AccessPackageAssignment).Status = n.GetStringValue(); } },
-                {"target", (o,n) => { (o as AccessPackageAssignment).Target = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"accessPackage", n => { AccessPackage = n.GetObjectValue<Microsoft.Graph.Models.AccessPackage>(Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue); } },
+                {"assignmentPolicy", n => { AssignmentPolicy = n.GetObjectValue<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue); } },
+                {"expiredDateTime", n => { ExpiredDateTime = n.GetDateTimeOffsetValue(); } },
+                {"schedule", n => { Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
+                {"state", n => { State = n.GetEnumValue<AccessPackageAssignmentState>(); } },
+                {"status", n => { Status = n.GetStringValue(); } },
+                {"target", n => { Target = n.GetObjectValue<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

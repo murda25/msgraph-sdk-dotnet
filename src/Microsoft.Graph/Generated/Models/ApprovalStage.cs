@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"assignedToMe", (o,n) => { (o as ApprovalStage).AssignedToMe = n.GetBoolValue(); } },
-                {"displayName", (o,n) => { (o as ApprovalStage).DisplayName = n.GetStringValue(); } },
-                {"justification", (o,n) => { (o as ApprovalStage).Justification = n.GetStringValue(); } },
-                {"reviewedBy", (o,n) => { (o as ApprovalStage).ReviewedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"reviewedDateTime", (o,n) => { (o as ApprovalStage).ReviewedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewResult", (o,n) => { (o as ApprovalStage).ReviewResult = n.GetStringValue(); } },
-                {"status", (o,n) => { (o as ApprovalStage).Status = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"assignedToMe", n => { AssignedToMe = n.GetBoolValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"justification", n => { Justification = n.GetStringValue(); } },
+                {"reviewedBy", n => { ReviewedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                {"reviewedDateTime", n => { ReviewedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"reviewResult", n => { ReviewResult = n.GetStringValue(); } },
+                {"status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>

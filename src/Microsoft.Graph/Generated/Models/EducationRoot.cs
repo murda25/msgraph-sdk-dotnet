@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"classes", (o,n) => { (o as EducationRoot).Classes = n.GetCollectionOfObjectValues<EducationClass>(EducationClass.CreateFromDiscriminatorValue).ToList(); } },
-                {"me", (o,n) => { (o as EducationRoot).Me = n.GetObjectValue<EducationUser>(EducationUser.CreateFromDiscriminatorValue); } },
-                {"schools", (o,n) => { (o as EducationRoot).Schools = n.GetCollectionOfObjectValues<EducationSchool>(EducationSchool.CreateFromDiscriminatorValue).ToList(); } },
-                {"users", (o,n) => { (o as EducationRoot).Users = n.GetCollectionOfObjectValues<EducationUser>(EducationUser.CreateFromDiscriminatorValue).ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"classes", n => { Classes = n.GetCollectionOfObjectValues<EducationClass>(EducationClass.CreateFromDiscriminatorValue).ToList(); } },
+                {"me", n => { Me = n.GetObjectValue<EducationUser>(EducationUser.CreateFromDiscriminatorValue); } },
+                {"schools", n => { Schools = n.GetCollectionOfObjectValues<EducationSchool>(EducationSchool.CreateFromDiscriminatorValue).ToList(); } },
+                {"users", n => { Users = n.GetCollectionOfObjectValues<EducationUser>(EducationUser.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

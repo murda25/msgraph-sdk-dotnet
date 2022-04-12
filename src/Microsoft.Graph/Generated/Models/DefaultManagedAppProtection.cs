@@ -40,20 +40,20 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"appDataEncryptionType", (o,n) => { (o as DefaultManagedAppProtection).AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
-                {"apps", (o,n) => { (o as DefaultManagedAppProtection).Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
-                {"customSettings", (o,n) => { (o as DefaultManagedAppProtection).CustomSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue).ToList(); } },
-                {"deployedAppCount", (o,n) => { (o as DefaultManagedAppProtection).DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", (o,n) => { (o as DefaultManagedAppProtection).DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", (o,n) => { (o as DefaultManagedAppProtection).DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
-                {"encryptAppData", (o,n) => { (o as DefaultManagedAppProtection).EncryptAppData = n.GetBoolValue(); } },
-                {"faceIdBlocked", (o,n) => { (o as DefaultManagedAppProtection).FaceIdBlocked = n.GetBoolValue(); } },
-                {"minimumRequiredPatchVersion", (o,n) => { (o as DefaultManagedAppProtection).MinimumRequiredPatchVersion = n.GetStringValue(); } },
-                {"minimumRequiredSdkVersion", (o,n) => { (o as DefaultManagedAppProtection).MinimumRequiredSdkVersion = n.GetStringValue(); } },
-                {"minimumWarningPatchVersion", (o,n) => { (o as DefaultManagedAppProtection).MinimumWarningPatchVersion = n.GetStringValue(); } },
-                {"screenCaptureBlocked", (o,n) => { (o as DefaultManagedAppProtection).ScreenCaptureBlocked = n.GetBoolValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
+                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
+                {"customSettings", n => { CustomSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue).ToList(); } },
+                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
+                {"encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
+                {"faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
+                {"minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
+                {"minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
+                {"minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
+                {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

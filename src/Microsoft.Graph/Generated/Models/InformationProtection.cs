@@ -21,10 +21,10 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"bitlocker", (o,n) => { (o as InformationProtection).Bitlocker = n.GetObjectValue<Microsoft.Graph.Models.Bitlocker>(Microsoft.Graph.Models.Bitlocker.CreateFromDiscriminatorValue); } },
-                {"threatAssessmentRequests", (o,n) => { (o as InformationProtection).ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest.CreateFromDiscriminatorValue).ToList(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"bitlocker", n => { Bitlocker = n.GetObjectValue<Microsoft.Graph.Models.Bitlocker>(Microsoft.Graph.Models.Bitlocker.CreateFromDiscriminatorValue); } },
+                {"threatAssessmentRequests", n => { ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

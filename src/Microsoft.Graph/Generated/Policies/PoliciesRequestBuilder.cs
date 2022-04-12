@@ -11,6 +11,8 @@ using Microsoft.Graph.Policies.FeatureRolloutPolicies;
 using Microsoft.Graph.Policies.HomeRealmDiscoveryPolicies;
 using Microsoft.Graph.Policies.IdentitySecurityDefaultsEnforcementPolicy;
 using Microsoft.Graph.Policies.PermissionGrantPolicies;
+using Microsoft.Graph.Policies.RoleManagementPolicies;
+using Microsoft.Graph.Policies.RoleManagementPolicyAssignments;
 using Microsoft.Graph.Policies.TokenIssuancePolicies;
 using Microsoft.Graph.Policies.TokenLifetimePolicies;
 using Microsoft.Kiota.Abstractions;
@@ -72,6 +74,14 @@ namespace Microsoft.Graph.Policies {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The roleManagementPolicies property</summary>
+        public RoleManagementPoliciesRequestBuilder RoleManagementPolicies { get =>
+            new RoleManagementPoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roleManagementPolicyAssignments property</summary>
+        public RoleManagementPolicyAssignmentsRequestBuilder RoleManagementPolicyAssignments { get =>
+            new RoleManagementPolicyAssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tokenIssuancePolicies property</summary>
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
             new TokenIssuancePoliciesRequestBuilder(PathParameters, RequestAdapter);

@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Education.Users.Item.Rubrics {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get rubrics from education
+        /// When set, the grading rubric attached to the assignment.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Education.Users.Item.Rubrics {
             return requestInfo;
         }
         /// <summary>
-        /// Get rubrics from education
+        /// When set, the grading rubric attached to the assignment.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Education.Users.Item.Rubrics {
             };
             return await RequestAdapter.SendAsync<EducationRubric>(requestInfo, EducationRubric.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get rubrics from education</summary>
+        /// <summary>When set, the grading rubric attached to the assignment.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -37,14 +37,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"compliancePolicy", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).CompliancePolicy = n.GetBoolValue(); } },
-                {"deviceConfiguration", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).DeviceConfiguration = n.GetBoolValue(); } },
-                {"inventory", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).Inventory = n.GetBoolValue(); } },
-                {"modernApps", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).ModernApps = n.GetBoolValue(); } },
-                {"resourceAccess", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).ResourceAccess = n.GetBoolValue(); } },
-                {"windowsUpdateForBusiness", (o,n) => { (o as ConfigurationManagerClientEnabledFeatures).WindowsUpdateForBusiness = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"compliancePolicy", n => { CompliancePolicy = n.GetBoolValue(); } },
+                {"deviceConfiguration", n => { DeviceConfiguration = n.GetBoolValue(); } },
+                {"inventory", n => { Inventory = n.GetBoolValue(); } },
+                {"modernApps", n => { ModernApps = n.GetBoolValue(); } },
+                {"resourceAccess", n => { ResourceAccess = n.GetBoolValue(); } },
+                {"windowsUpdateForBusiness", n => { WindowsUpdateForBusiness = n.GetBoolValue(); } },
             };
         }
         /// <summary>

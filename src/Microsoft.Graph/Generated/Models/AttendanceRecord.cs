@@ -26,13 +26,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"attendanceIntervals", (o,n) => { (o as AttendanceRecord).AttendanceIntervals = n.GetCollectionOfObjectValues<AttendanceInterval>(AttendanceInterval.CreateFromDiscriminatorValue).ToList(); } },
-                {"emailAddress", (o,n) => { (o as AttendanceRecord).EmailAddress = n.GetStringValue(); } },
-                {"identity", (o,n) => { (o as AttendanceRecord).Identity = n.GetObjectValue<Microsoft.Graph.Models.Identity>(Microsoft.Graph.Models.Identity.CreateFromDiscriminatorValue); } },
-                {"role", (o,n) => { (o as AttendanceRecord).Role = n.GetStringValue(); } },
-                {"totalAttendanceInSeconds", (o,n) => { (o as AttendanceRecord).TotalAttendanceInSeconds = n.GetIntValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"attendanceIntervals", n => { AttendanceIntervals = n.GetCollectionOfObjectValues<AttendanceInterval>(AttendanceInterval.CreateFromDiscriminatorValue).ToList(); } },
+                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                {"identity", n => { Identity = n.GetObjectValue<Microsoft.Graph.Models.Identity>(Microsoft.Graph.Models.Identity.CreateFromDiscriminatorValue); } },
+                {"role", n => { Role = n.GetStringValue(); } },
+                {"totalAttendanceInSeconds", n => { TotalAttendanceInSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>

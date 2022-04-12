@@ -28,10 +28,10 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"album", (o,n) => { (o as Bundle).Album = n.GetObjectValue<Microsoft.Graph.Models.Album>(Microsoft.Graph.Models.Album.CreateFromDiscriminatorValue); } },
-                {"childCount", (o,n) => { (o as Bundle).ChildCount = n.GetIntValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"album", n => { Album = n.GetObjectValue<Microsoft.Graph.Models.Album>(Microsoft.Graph.Models.Album.CreateFromDiscriminatorValue); } },
+                {"childCount", n => { ChildCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

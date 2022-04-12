@@ -23,11 +23,11 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"alerts", (o,n) => { (o as Security).Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue).ToList(); } },
-                {"secureScoreControlProfiles", (o,n) => { (o as Security).SecureScoreControlProfiles = n.GetCollectionOfObjectValues<SecureScoreControlProfile>(SecureScoreControlProfile.CreateFromDiscriminatorValue).ToList(); } },
-                {"secureScores", (o,n) => { (o as Security).SecureScores = n.GetCollectionOfObjectValues<SecureScore>(SecureScore.CreateFromDiscriminatorValue).ToList(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"alerts", n => { Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue).ToList(); } },
+                {"secureScoreControlProfiles", n => { SecureScoreControlProfiles = n.GetCollectionOfObjectValues<SecureScoreControlProfile>(SecureScoreControlProfile.CreateFromDiscriminatorValue).ToList(); } },
+                {"secureScores", n => { SecureScores = n.GetCollectionOfObjectValues<SecureScore>(SecureScore.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

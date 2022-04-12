@@ -26,13 +26,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"description", (o,n) => { (o as RoleDefinition).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as RoleDefinition).DisplayName = n.GetStringValue(); } },
-                {"isBuiltIn", (o,n) => { (o as RoleDefinition).IsBuiltIn = n.GetBoolValue(); } },
-                {"roleAssignments", (o,n) => { (o as RoleDefinition).RoleAssignments = n.GetCollectionOfObjectValues<RoleAssignment>(RoleAssignment.CreateFromDiscriminatorValue).ToList(); } },
-                {"rolePermissions", (o,n) => { (o as RoleDefinition).RolePermissions = n.GetCollectionOfObjectValues<RolePermission>(RolePermission.CreateFromDiscriminatorValue).ToList(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
+                {"roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<RoleAssignment>(RoleAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<RolePermission>(RolePermission.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

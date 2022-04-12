@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"assignments", (o,n) => { (o as DeviceEnrollmentConfiguration).Assignments = n.GetCollectionOfObjectValues<EnrollmentConfigurationAssignment>(EnrollmentConfigurationAssignment.CreateFromDiscriminatorValue).ToList(); } },
-                {"createdDateTime", (o,n) => { (o as DeviceEnrollmentConfiguration).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", (o,n) => { (o as DeviceEnrollmentConfiguration).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as DeviceEnrollmentConfiguration).DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", (o,n) => { (o as DeviceEnrollmentConfiguration).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"priority", (o,n) => { (o as DeviceEnrollmentConfiguration).Priority = n.GetIntValue(); } },
-                {"version", (o,n) => { (o as DeviceEnrollmentConfiguration).Version = n.GetIntValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<EnrollmentConfigurationAssignment>(EnrollmentConfigurationAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"priority", n => { Priority = n.GetIntValue(); } },
+                {"version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>

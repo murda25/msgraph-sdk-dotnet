@@ -53,22 +53,22 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"contactITEmailAddress", (o,n) => { (o as IntuneBrand).ContactITEmailAddress = n.GetStringValue(); } },
-                {"contactITName", (o,n) => { (o as IntuneBrand).ContactITName = n.GetStringValue(); } },
-                {"contactITNotes", (o,n) => { (o as IntuneBrand).ContactITNotes = n.GetStringValue(); } },
-                {"contactITPhoneNumber", (o,n) => { (o as IntuneBrand).ContactITPhoneNumber = n.GetStringValue(); } },
-                {"darkBackgroundLogo", (o,n) => { (o as IntuneBrand).DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"displayName", (o,n) => { (o as IntuneBrand).DisplayName = n.GetStringValue(); } },
-                {"lightBackgroundLogo", (o,n) => { (o as IntuneBrand).LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"onlineSupportSiteName", (o,n) => { (o as IntuneBrand).OnlineSupportSiteName = n.GetStringValue(); } },
-                {"onlineSupportSiteUrl", (o,n) => { (o as IntuneBrand).OnlineSupportSiteUrl = n.GetStringValue(); } },
-                {"privacyUrl", (o,n) => { (o as IntuneBrand).PrivacyUrl = n.GetStringValue(); } },
-                {"showDisplayNameNextToLogo", (o,n) => { (o as IntuneBrand).ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
-                {"showLogo", (o,n) => { (o as IntuneBrand).ShowLogo = n.GetBoolValue(); } },
-                {"showNameNextToLogo", (o,n) => { (o as IntuneBrand).ShowNameNextToLogo = n.GetBoolValue(); } },
-                {"themeColor", (o,n) => { (o as IntuneBrand).ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
+                {"contactITName", n => { ContactITName = n.GetStringValue(); } },
+                {"contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
+                {"contactITPhoneNumber", n => { ContactITPhoneNumber = n.GetStringValue(); } },
+                {"darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                {"onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
+                {"onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
+                {"privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
+                {"showDisplayNameNextToLogo", n => { ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
+                {"showLogo", n => { ShowLogo = n.GetBoolValue(); } },
+                {"showNameNextToLogo", n => { ShowNameNextToLogo = n.GetBoolValue(); } },
+                {"themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

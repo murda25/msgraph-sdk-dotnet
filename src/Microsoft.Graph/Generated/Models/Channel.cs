@@ -38,19 +38,19 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"createdDateTime", (o,n) => { (o as Channel).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", (o,n) => { (o as Channel).Description = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as Channel).DisplayName = n.GetStringValue(); } },
-                {"email", (o,n) => { (o as Channel).Email = n.GetStringValue(); } },
-                {"filesFolder", (o,n) => { (o as Channel).FilesFolder = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
-                {"isFavoriteByDefault", (o,n) => { (o as Channel).IsFavoriteByDefault = n.GetBoolValue(); } },
-                {"members", (o,n) => { (o as Channel).Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue).ToList(); } },
-                {"membershipType", (o,n) => { (o as Channel).MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
-                {"messages", (o,n) => { (o as Channel).Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue).ToList(); } },
-                {"tabs", (o,n) => { (o as Channel).Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue).ToList(); } },
-                {"webUrl", (o,n) => { (o as Channel).WebUrl = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"email", n => { Email = n.GetStringValue(); } },
+                {"filesFolder", n => { FilesFolder = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
+                {"isFavoriteByDefault", n => { IsFavoriteByDefault = n.GetBoolValue(); } },
+                {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue).ToList(); } },
+                {"membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
+                {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue).ToList(); } },
+                {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue).ToList(); } },
+                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

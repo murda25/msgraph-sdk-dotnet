@@ -36,14 +36,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"category1", (o,n) => { (o as PlannerCategoryDescriptions).Category1 = n.GetStringValue(); } },
-                {"category2", (o,n) => { (o as PlannerCategoryDescriptions).Category2 = n.GetStringValue(); } },
-                {"category3", (o,n) => { (o as PlannerCategoryDescriptions).Category3 = n.GetStringValue(); } },
-                {"category4", (o,n) => { (o as PlannerCategoryDescriptions).Category4 = n.GetStringValue(); } },
-                {"category5", (o,n) => { (o as PlannerCategoryDescriptions).Category5 = n.GetStringValue(); } },
-                {"category6", (o,n) => { (o as PlannerCategoryDescriptions).Category6 = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"category1", n => { Category1 = n.GetStringValue(); } },
+                {"category2", n => { Category2 = n.GetStringValue(); } },
+                {"category3", n => { Category3 = n.GetStringValue(); } },
+                {"category4", n => { Category4 = n.GetStringValue(); } },
+                {"category5", n => { Category5 = n.GetStringValue(); } },
+                {"category6", n => { Category6 = n.GetStringValue(); } },
             };
         }
         /// <summary>

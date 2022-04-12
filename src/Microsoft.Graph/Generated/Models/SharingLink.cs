@@ -36,14 +36,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"application", (o,n) => { (o as SharingLink).Application = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"preventsDownload", (o,n) => { (o as SharingLink).PreventsDownload = n.GetBoolValue(); } },
-                {"scope", (o,n) => { (o as SharingLink).Scope = n.GetStringValue(); } },
-                {"type", (o,n) => { (o as SharingLink).Type = n.GetStringValue(); } },
-                {"webHtml", (o,n) => { (o as SharingLink).WebHtml = n.GetStringValue(); } },
-                {"webUrl", (o,n) => { (o as SharingLink).WebUrl = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"application", n => { Application = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                {"preventsDownload", n => { PreventsDownload = n.GetBoolValue(); } },
+                {"scope", n => { Scope = n.GetStringValue(); } },
+                {"type", n => { Type = n.GetStringValue(); } },
+                {"webHtml", n => { WebHtml = n.GetStringValue(); } },
+                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"allowedToCreateApps", (o,n) => { (o as DefaultUserRolePermissions).AllowedToCreateApps = n.GetBoolValue(); } },
-                {"allowedToCreateSecurityGroups", (o,n) => { (o as DefaultUserRolePermissions).AllowedToCreateSecurityGroups = n.GetBoolValue(); } },
-                {"allowedToReadOtherUsers", (o,n) => { (o as DefaultUserRolePermissions).AllowedToReadOtherUsers = n.GetBoolValue(); } },
-                {"permissionGrantPoliciesAssigned", (o,n) => { (o as DefaultUserRolePermissions).PermissionGrantPoliciesAssigned = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"allowedToCreateApps", n => { AllowedToCreateApps = n.GetBoolValue(); } },
+                {"allowedToCreateSecurityGroups", n => { AllowedToCreateSecurityGroups = n.GetBoolValue(); } },
+                {"allowedToReadOtherUsers", n => { AllowedToReadOtherUsers = n.GetBoolValue(); } },
+                {"permissionGrantPoliciesAssigned", n => { PermissionGrantPoliciesAssigned = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
             };
         }
         /// <summary>

@@ -36,14 +36,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"content", (o,n) => { (o as ChatMessageAttachment).Content = n.GetStringValue(); } },
-                {"contentType", (o,n) => { (o as ChatMessageAttachment).ContentType = n.GetStringValue(); } },
-                {"contentUrl", (o,n) => { (o as ChatMessageAttachment).ContentUrl = n.GetStringValue(); } },
-                {"id", (o,n) => { (o as ChatMessageAttachment).Id = n.GetStringValue(); } },
-                {"name", (o,n) => { (o as ChatMessageAttachment).Name = n.GetStringValue(); } },
-                {"thumbnailUrl", (o,n) => { (o as ChatMessageAttachment).ThumbnailUrl = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"content", n => { Content = n.GetStringValue(); } },
+                {"contentType", n => { ContentType = n.GetStringValue(); } },
+                {"contentUrl", n => { ContentUrl = n.GetStringValue(); } },
+                {"id", n => { Id = n.GetStringValue(); } },
+                {"name", n => { Name = n.GetStringValue(); } },
+                {"thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

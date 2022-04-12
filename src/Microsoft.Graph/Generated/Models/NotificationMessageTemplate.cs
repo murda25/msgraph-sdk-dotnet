@@ -26,13 +26,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"brandingOptions", (o,n) => { (o as NotificationMessageTemplate).BrandingOptions = n.GetEnumValue<NotificationTemplateBrandingOptions>(); } },
-                {"defaultLocale", (o,n) => { (o as NotificationMessageTemplate).DefaultLocale = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as NotificationMessageTemplate).DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", (o,n) => { (o as NotificationMessageTemplate).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"localizedNotificationMessages", (o,n) => { (o as NotificationMessageTemplate).LocalizedNotificationMessages = n.GetCollectionOfObjectValues<LocalizedNotificationMessage>(LocalizedNotificationMessage.CreateFromDiscriminatorValue).ToList(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"brandingOptions", n => { BrandingOptions = n.GetEnumValue<NotificationTemplateBrandingOptions>(); } },
+                {"defaultLocale", n => { DefaultLocale = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"localizedNotificationMessages", n => { LocalizedNotificationMessages = n.GetCollectionOfObjectValues<LocalizedNotificationMessage>(LocalizedNotificationMessage.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

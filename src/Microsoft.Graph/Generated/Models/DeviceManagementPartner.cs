@@ -32,16 +32,16 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"displayName", (o,n) => { (o as DeviceManagementPartner).DisplayName = n.GetStringValue(); } },
-                {"isConfigured", (o,n) => { (o as DeviceManagementPartner).IsConfigured = n.GetBoolValue(); } },
-                {"lastHeartbeatDateTime", (o,n) => { (o as DeviceManagementPartner).LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
-                {"partnerAppType", (o,n) => { (o as DeviceManagementPartner).PartnerAppType = n.GetEnumValue<DeviceManagementPartnerAppType>(); } },
-                {"partnerState", (o,n) => { (o as DeviceManagementPartner).PartnerState = n.GetEnumValue<DeviceManagementPartnerTenantState>(); } },
-                {"singleTenantAppId", (o,n) => { (o as DeviceManagementPartner).SingleTenantAppId = n.GetStringValue(); } },
-                {"whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", (o,n) => { (o as DeviceManagementPartner).WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = n.GetDateTimeOffsetValue(); } },
-                {"whenPartnerDevicesWillBeRemovedDateTime", (o,n) => { (o as DeviceManagementPartner).WhenPartnerDevicesWillBeRemovedDateTime = n.GetDateTimeOffsetValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"isConfigured", n => { IsConfigured = n.GetBoolValue(); } },
+                {"lastHeartbeatDateTime", n => { LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
+                {"partnerAppType", n => { PartnerAppType = n.GetEnumValue<DeviceManagementPartnerAppType>(); } },
+                {"partnerState", n => { PartnerState = n.GetEnumValue<DeviceManagementPartnerTenantState>(); } },
+                {"singleTenantAppId", n => { SingleTenantAppId = n.GetStringValue(); } },
+                {"whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", n => { WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = n.GetDateTimeOffsetValue(); } },
+                {"whenPartnerDevicesWillBeRemovedDateTime", n => { WhenPartnerDevicesWillBeRemovedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

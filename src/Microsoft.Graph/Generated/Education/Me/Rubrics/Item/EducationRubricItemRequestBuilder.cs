@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Education.Me.Rubrics.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get rubrics from education
+        /// When set, the grading rubric attached to the assignment.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Education.Me.Rubrics.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get rubrics from education
+        /// When set, the grading rubric attached to the assignment.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -146,7 +146,7 @@ namespace Microsoft.Graph.Education.Me.Rubrics.Item {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get rubrics from education</summary>
+        /// <summary>When set, the grading rubric attached to the assignment.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

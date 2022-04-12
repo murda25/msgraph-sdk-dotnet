@@ -67,14 +67,12 @@ using Microsoft.Graph.Teamwork;
 using Microsoft.Graph.Users;
 using Microsoft.Graph.Workbooks;
 using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Text;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
@@ -373,20 +371,6 @@ namespace Microsoft.Graph {
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) {
                 RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
             }
-        }
-        public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
-            return requestInfo;
-        }
-        public async Task<Stream> GetAsync(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateGetRequestInformation(headers, options);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

@@ -30,11 +30,11 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"isApprovalRequiredForAdd", (o,n) => { (o as AccessPackageAssignmentApprovalSettings).IsApprovalRequiredForAdd = n.GetBoolValue(); } },
-                {"isApprovalRequiredForUpdate", (o,n) => { (o as AccessPackageAssignmentApprovalSettings).IsApprovalRequiredForUpdate = n.GetBoolValue(); } },
-                {"stages", (o,n) => { (o as AccessPackageAssignmentApprovalSettings).Stages = n.GetCollectionOfObjectValues<AccessPackageApprovalStage>(AccessPackageApprovalStage.CreateFromDiscriminatorValue).ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"isApprovalRequiredForAdd", n => { IsApprovalRequiredForAdd = n.GetBoolValue(); } },
+                {"isApprovalRequiredForUpdate", n => { IsApprovalRequiredForUpdate = n.GetBoolValue(); } },
+                {"stages", n => { Stages = n.GetCollectionOfObjectValues<AccessPackageApprovalStage>(AccessPackageApprovalStage.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

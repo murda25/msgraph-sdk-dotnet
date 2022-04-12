@@ -24,12 +24,12 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"draftShift", (o,n) => { (o as Shift).DraftShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
-                {"schedulingGroupId", (o,n) => { (o as Shift).SchedulingGroupId = n.GetStringValue(); } },
-                {"sharedShift", (o,n) => { (o as Shift).SharedShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
-                {"userId", (o,n) => { (o as Shift).UserId = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"draftShift", n => { DraftShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
+                {"schedulingGroupId", n => { SchedulingGroupId = n.GetStringValue(); } },
+                {"sharedShift", n => { SharedShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
+                {"userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

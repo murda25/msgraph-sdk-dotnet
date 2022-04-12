@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentDefaults {
             return requestInfo;
         }
         /// <summary>
-        /// Get assignmentDefaults from education
+        /// Specifies class-level defaults respected by new assignments created in the class.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentDefaults {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get assignmentDefaults from education
+        /// Specifies class-level defaults respected by new assignments created in the class.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -146,7 +146,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentDefaults {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get assignmentDefaults from education</summary>
+        /// <summary>Specifies class-level defaults respected by new assignments created in the class.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

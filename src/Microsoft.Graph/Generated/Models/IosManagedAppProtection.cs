@@ -30,15 +30,15 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"appDataEncryptionType", (o,n) => { (o as IosManagedAppProtection).AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
-                {"apps", (o,n) => { (o as IosManagedAppProtection).Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
-                {"customBrowserProtocol", (o,n) => { (o as IosManagedAppProtection).CustomBrowserProtocol = n.GetStringValue(); } },
-                {"deployedAppCount", (o,n) => { (o as IosManagedAppProtection).DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", (o,n) => { (o as IosManagedAppProtection).DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"faceIdBlocked", (o,n) => { (o as IosManagedAppProtection).FaceIdBlocked = n.GetBoolValue(); } },
-                {"minimumRequiredSdkVersion", (o,n) => { (o as IosManagedAppProtection).MinimumRequiredSdkVersion = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
+                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
+                {"customBrowserProtocol", n => { CustomBrowserProtocol = n.GetStringValue(); } },
+                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                {"faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
+                {"minimumRequiredSdkVersion", n => { MinimumRequiredSdkVersion = n.GetStringValue(); } },
             };
         }
         /// <summary>

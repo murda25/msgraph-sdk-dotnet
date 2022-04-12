@@ -34,13 +34,13 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"displayName", (o,n) => { (o as AppliedConditionalAccessPolicy).DisplayName = n.GetStringValue(); } },
-                {"enforcedGrantControls", (o,n) => { (o as AppliedConditionalAccessPolicy).EnforcedGrantControls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"enforcedSessionControls", (o,n) => { (o as AppliedConditionalAccessPolicy).EnforcedSessionControls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"id", (o,n) => { (o as AppliedConditionalAccessPolicy).Id = n.GetStringValue(); } },
-                {"result", (o,n) => { (o as AppliedConditionalAccessPolicy).Result = n.GetEnumValue<AppliedConditionalAccessPolicyResult>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"enforcedGrantControls", n => { EnforcedGrantControls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"enforcedSessionControls", n => { EnforcedSessionControls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"id", n => { Id = n.GetStringValue(); } },
+                {"result", n => { Result = n.GetEnumValue<AppliedConditionalAccessPolicyResult>(); } },
             };
         }
         /// <summary>

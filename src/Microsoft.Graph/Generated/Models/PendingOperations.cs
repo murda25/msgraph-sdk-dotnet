@@ -26,9 +26,9 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"pendingContentUpdate", (o,n) => { (o as PendingOperations).PendingContentUpdate = n.GetObjectValue<Microsoft.Graph.Models.PendingContentUpdate>(Microsoft.Graph.Models.PendingContentUpdate.CreateFromDiscriminatorValue); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"pendingContentUpdate", n => { PendingContentUpdate = n.GetObjectValue<Microsoft.Graph.Models.PendingContentUpdate>(Microsoft.Graph.Models.PendingContentUpdate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

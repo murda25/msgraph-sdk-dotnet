@@ -36,18 +36,18 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"apps", (o,n) => { (o as AndroidManagedAppProtection).Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
-                {"customBrowserDisplayName", (o,n) => { (o as AndroidManagedAppProtection).CustomBrowserDisplayName = n.GetStringValue(); } },
-                {"customBrowserPackageId", (o,n) => { (o as AndroidManagedAppProtection).CustomBrowserPackageId = n.GetStringValue(); } },
-                {"deployedAppCount", (o,n) => { (o as AndroidManagedAppProtection).DeployedAppCount = n.GetIntValue(); } },
-                {"deploymentSummary", (o,n) => { (o as AndroidManagedAppProtection).DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
-                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", (o,n) => { (o as AndroidManagedAppProtection).DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
-                {"encryptAppData", (o,n) => { (o as AndroidManagedAppProtection).EncryptAppData = n.GetBoolValue(); } },
-                {"minimumRequiredPatchVersion", (o,n) => { (o as AndroidManagedAppProtection).MinimumRequiredPatchVersion = n.GetStringValue(); } },
-                {"minimumWarningPatchVersion", (o,n) => { (o as AndroidManagedAppProtection).MinimumWarningPatchVersion = n.GetStringValue(); } },
-                {"screenCaptureBlocked", (o,n) => { (o as AndroidManagedAppProtection).ScreenCaptureBlocked = n.GetBoolValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
+                {"customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
+                {"customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
+                {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
+                {"deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                {"disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
+                {"encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
+                {"minimumRequiredPatchVersion", n => { MinimumRequiredPatchVersion = n.GetStringValue(); } },
+                {"minimumWarningPatchVersion", n => { MinimumWarningPatchVersion = n.GetStringValue(); } },
+                {"screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
             };
         }
         /// <summary>

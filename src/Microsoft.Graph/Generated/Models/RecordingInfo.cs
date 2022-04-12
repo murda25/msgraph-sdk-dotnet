@@ -28,10 +28,10 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"initiator", (o,n) => { (o as RecordingInfo).Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"recordingStatus", (o,n) => { (o as RecordingInfo).RecordingStatus = n.GetEnumValue<RecordingStatus>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"recordingStatus", n => { RecordingStatus = n.GetEnumValue<RecordingStatus>(); } },
             };
         }
         /// <summary>

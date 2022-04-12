@@ -29,10 +29,10 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"endTime", (o,n) => { (o as BookingWorkTimeSlot).EndTime = n.GetTimeValue(); } },
-                {"startTime", (o,n) => { (o as BookingWorkTimeSlot).StartTime = n.GetTimeValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"endTime", n => { EndTime = n.GetTimeValue(); } },
+                {"startTime", n => { StartTime = n.GetTimeValue(); } },
             };
         }
         /// <summary>

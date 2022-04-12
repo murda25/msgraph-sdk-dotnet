@@ -22,11 +22,11 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"draftTimeOff", (o,n) => { (o as TimeOff).DraftTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
-                {"sharedTimeOff", (o,n) => { (o as TimeOff).SharedTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
-                {"userId", (o,n) => { (o as TimeOff).UserId = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"draftTimeOff", n => { DraftTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
+                {"sharedTimeOff", n => { SharedTimeOff = n.GetObjectValue<TimeOffItem>(TimeOffItem.CreateFromDiscriminatorValue); } },
+                {"userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -62,31 +62,31 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"appDisplayName", (o,n) => { (o as SignIn).AppDisplayName = n.GetStringValue(); } },
-                {"appId", (o,n) => { (o as SignIn).AppId = n.GetStringValue(); } },
-                {"appliedConditionalAccessPolicies", (o,n) => { (o as SignIn).AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue).ToList(); } },
-                {"clientAppUsed", (o,n) => { (o as SignIn).ClientAppUsed = n.GetStringValue(); } },
-                {"conditionalAccessStatus", (o,n) => { (o as SignIn).ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
-                {"correlationId", (o,n) => { (o as SignIn).CorrelationId = n.GetStringValue(); } },
-                {"createdDateTime", (o,n) => { (o as SignIn).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceDetail", (o,n) => { (o as SignIn).DeviceDetail = n.GetObjectValue<Microsoft.Graph.Models.DeviceDetail>(Microsoft.Graph.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
-                {"ipAddress", (o,n) => { (o as SignIn).IpAddress = n.GetStringValue(); } },
-                {"isInteractive", (o,n) => { (o as SignIn).IsInteractive = n.GetBoolValue(); } },
-                {"location", (o,n) => { (o as SignIn).Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
-                {"resourceDisplayName", (o,n) => { (o as SignIn).ResourceDisplayName = n.GetStringValue(); } },
-                {"resourceId", (o,n) => { (o as SignIn).ResourceId = n.GetStringValue(); } },
-                {"riskDetail", (o,n) => { (o as SignIn).RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventTypes", (o,n) => { (o as SignIn).RiskEventTypes = n.GetCollectionOfEnumValues<RiskEventType>().ToList(); } },
-                {"riskEventTypes_v2", (o,n) => { (o as SignIn).RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"riskLevelAggregated", (o,n) => { (o as SignIn).RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
-                {"riskLevelDuringSignIn", (o,n) => { (o as SignIn).RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
-                {"riskState", (o,n) => { (o as SignIn).RiskState = n.GetEnumValue<RiskState>(); } },
-                {"status", (o,n) => { (o as SignIn).Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
-                {"userDisplayName", (o,n) => { (o as SignIn).UserDisplayName = n.GetStringValue(); } },
-                {"userId", (o,n) => { (o as SignIn).UserId = n.GetStringValue(); } },
-                {"userPrincipalName", (o,n) => { (o as SignIn).UserPrincipalName = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                {"appId", n => { AppId = n.GetStringValue(); } },
+                {"appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue).ToList(); } },
+                {"clientAppUsed", n => { ClientAppUsed = n.GetStringValue(); } },
+                {"conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
+                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"deviceDetail", n => { DeviceDetail = n.GetObjectValue<Microsoft.Graph.Models.DeviceDetail>(Microsoft.Graph.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
+                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                {"isInteractive", n => { IsInteractive = n.GetBoolValue(); } },
+                {"location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
+                {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
+                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
+                {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
+                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfEnumValues<RiskEventType>().ToList(); } },
+                {"riskEventTypes_v2", n => { RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
+                {"riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
+                {"riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
+                {"status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
+                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                {"userId", n => { UserId = n.GetStringValue(); } },
+                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

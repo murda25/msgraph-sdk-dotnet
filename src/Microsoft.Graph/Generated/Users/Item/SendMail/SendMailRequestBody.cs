@@ -30,10 +30,10 @@ namespace Microsoft.Graph.Users.Item.SendMail {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"message", (o,n) => { (o as SendMailRequestBody).Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
-                {"saveToSentItems", (o,n) => { (o as SendMailRequestBody).SaveToSentItems = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
+                {"saveToSentItems", n => { SaveToSentItems = n.GetBoolValue(); } },
             };
         }
         /// <summary>

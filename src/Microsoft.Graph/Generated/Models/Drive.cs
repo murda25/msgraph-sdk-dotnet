@@ -38,19 +38,19 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"bundles", (o,n) => { (o as Drive).Bundles = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
-                {"driveType", (o,n) => { (o as Drive).DriveType = n.GetStringValue(); } },
-                {"following", (o,n) => { (o as Drive).Following = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
-                {"items", (o,n) => { (o as Drive).Items = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
-                {"list", (o,n) => { (o as Drive).List = n.GetObjectValue<Microsoft.Graph.Models.List>(Microsoft.Graph.Models.List.CreateFromDiscriminatorValue); } },
-                {"owner", (o,n) => { (o as Drive).Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"quota", (o,n) => { (o as Drive).Quota = n.GetObjectValue<Microsoft.Graph.Models.Quota>(Microsoft.Graph.Models.Quota.CreateFromDiscriminatorValue); } },
-                {"root", (o,n) => { (o as Drive).Root = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
-                {"sharePointIds", (o,n) => { (o as Drive).SharePointIds = n.GetObjectValue<Microsoft.Graph.Models.SharepointIds>(Microsoft.Graph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
-                {"special", (o,n) => { (o as Drive).Special = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
-                {"system", (o,n) => { (o as Drive).System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"bundles", n => { Bundles = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"driveType", n => { DriveType = n.GetStringValue(); } },
+                {"following", n => { Following = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"items", n => { Items = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"list", n => { List = n.GetObjectValue<Microsoft.Graph.Models.List>(Microsoft.Graph.Models.List.CreateFromDiscriminatorValue); } },
+                {"owner", n => { Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"quota", n => { Quota = n.GetObjectValue<Microsoft.Graph.Models.Quota>(Microsoft.Graph.Models.Quota.CreateFromDiscriminatorValue); } },
+                {"root", n => { Root = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
+                {"sharePointIds", n => { SharePointIds = n.GetObjectValue<Microsoft.Graph.Models.SharepointIds>(Microsoft.Graph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
+                {"special", n => { Special = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"system", n => { System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

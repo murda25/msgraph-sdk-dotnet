@@ -32,11 +32,11 @@ namespace Microsoft.Graph.Communications.Calls.Item.Redirect {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"callbackUri", (o,n) => { (o as RedirectRequestBody).CallbackUri = n.GetStringValue(); } },
-                {"targets", (o,n) => { (o as RedirectRequestBody).Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue).ToList(); } },
-                {"timeout", (o,n) => { (o as RedirectRequestBody).Timeout = n.GetIntValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"callbackUri", n => { CallbackUri = n.GetStringValue(); } },
+                {"targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue).ToList(); } },
+                {"timeout", n => { Timeout = n.GetIntValue(); } },
             };
         }
         /// <summary>

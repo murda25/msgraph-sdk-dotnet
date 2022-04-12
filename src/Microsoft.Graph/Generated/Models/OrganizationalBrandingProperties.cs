@@ -37,18 +37,18 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"backgroundColor", (o,n) => { (o as OrganizationalBrandingProperties).BackgroundColor = n.GetStringValue(); } },
-                {"backgroundImage", (o,n) => { (o as OrganizationalBrandingProperties).BackgroundImage = n.GetByteArrayValue(); } },
-                {"backgroundImageRelativeUrl", (o,n) => { (o as OrganizationalBrandingProperties).BackgroundImageRelativeUrl = n.GetStringValue(); } },
-                {"bannerLogo", (o,n) => { (o as OrganizationalBrandingProperties).BannerLogo = n.GetByteArrayValue(); } },
-                {"bannerLogoRelativeUrl", (o,n) => { (o as OrganizationalBrandingProperties).BannerLogoRelativeUrl = n.GetStringValue(); } },
-                {"cdnList", (o,n) => { (o as OrganizationalBrandingProperties).CdnList = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"signInPageText", (o,n) => { (o as OrganizationalBrandingProperties).SignInPageText = n.GetStringValue(); } },
-                {"squareLogo", (o,n) => { (o as OrganizationalBrandingProperties).SquareLogo = n.GetByteArrayValue(); } },
-                {"squareLogoRelativeUrl", (o,n) => { (o as OrganizationalBrandingProperties).SquareLogoRelativeUrl = n.GetStringValue(); } },
-                {"usernameHintText", (o,n) => { (o as OrganizationalBrandingProperties).UsernameHintText = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"backgroundColor", n => { BackgroundColor = n.GetStringValue(); } },
+                {"backgroundImage", n => { BackgroundImage = n.GetByteArrayValue(); } },
+                {"backgroundImageRelativeUrl", n => { BackgroundImageRelativeUrl = n.GetStringValue(); } },
+                {"bannerLogo", n => { BannerLogo = n.GetByteArrayValue(); } },
+                {"bannerLogoRelativeUrl", n => { BannerLogoRelativeUrl = n.GetStringValue(); } },
+                {"cdnList", n => { CdnList = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"signInPageText", n => { SignInPageText = n.GetStringValue(); } },
+                {"squareLogo", n => { SquareLogo = n.GetByteArrayValue(); } },
+                {"squareLogoRelativeUrl", n => { SquareLogoRelativeUrl = n.GetStringValue(); } },
+                {"usernameHintText", n => { UsernameHintText = n.GetStringValue(); } },
             };
         }
         /// <summary>

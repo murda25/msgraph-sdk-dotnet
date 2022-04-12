@@ -44,18 +44,18 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"applyActions", (o,n) => { (o as AccessReviewScheduleSettings).ApplyActions = n.GetCollectionOfObjectValues<AccessReviewApplyAction>(AccessReviewApplyAction.CreateFromDiscriminatorValue).ToList(); } },
-                {"autoApplyDecisionsEnabled", (o,n) => { (o as AccessReviewScheduleSettings).AutoApplyDecisionsEnabled = n.GetBoolValue(); } },
-                {"defaultDecision", (o,n) => { (o as AccessReviewScheduleSettings).DefaultDecision = n.GetStringValue(); } },
-                {"defaultDecisionEnabled", (o,n) => { (o as AccessReviewScheduleSettings).DefaultDecisionEnabled = n.GetBoolValue(); } },
-                {"instanceDurationInDays", (o,n) => { (o as AccessReviewScheduleSettings).InstanceDurationInDays = n.GetIntValue(); } },
-                {"justificationRequiredOnApproval", (o,n) => { (o as AccessReviewScheduleSettings).JustificationRequiredOnApproval = n.GetBoolValue(); } },
-                {"mailNotificationsEnabled", (o,n) => { (o as AccessReviewScheduleSettings).MailNotificationsEnabled = n.GetBoolValue(); } },
-                {"recommendationsEnabled", (o,n) => { (o as AccessReviewScheduleSettings).RecommendationsEnabled = n.GetBoolValue(); } },
-                {"recurrence", (o,n) => { (o as AccessReviewScheduleSettings).Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
-                {"reminderNotificationsEnabled", (o,n) => { (o as AccessReviewScheduleSettings).ReminderNotificationsEnabled = n.GetBoolValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"applyActions", n => { ApplyActions = n.GetCollectionOfObjectValues<AccessReviewApplyAction>(AccessReviewApplyAction.CreateFromDiscriminatorValue).ToList(); } },
+                {"autoApplyDecisionsEnabled", n => { AutoApplyDecisionsEnabled = n.GetBoolValue(); } },
+                {"defaultDecision", n => { DefaultDecision = n.GetStringValue(); } },
+                {"defaultDecisionEnabled", n => { DefaultDecisionEnabled = n.GetBoolValue(); } },
+                {"instanceDurationInDays", n => { InstanceDurationInDays = n.GetIntValue(); } },
+                {"justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
+                {"mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
+                {"recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
+                {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
+                {"reminderNotificationsEnabled", n => { ReminderNotificationsEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

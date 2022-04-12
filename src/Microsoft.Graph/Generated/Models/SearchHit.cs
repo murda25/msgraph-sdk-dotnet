@@ -36,14 +36,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"contentSource", (o,n) => { (o as SearchHit).ContentSource = n.GetStringValue(); } },
-                {"hitId", (o,n) => { (o as SearchHit).HitId = n.GetStringValue(); } },
-                {"rank", (o,n) => { (o as SearchHit).Rank = n.GetIntValue(); } },
-                {"resource", (o,n) => { (o as SearchHit).Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
-                {"resultTemplateId", (o,n) => { (o as SearchHit).ResultTemplateId = n.GetStringValue(); } },
-                {"summary", (o,n) => { (o as SearchHit).Summary = n.GetStringValue(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"contentSource", n => { ContentSource = n.GetStringValue(); } },
+                {"hitId", n => { HitId = n.GetStringValue(); } },
+                {"rank", n => { Rank = n.GetIntValue(); } },
+                {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
+                {"resultTemplateId", n => { ResultTemplateId = n.GetStringValue(); } },
+                {"summary", n => { Summary = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -42,17 +42,17 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"acquiredByPrinter", (o,n) => { (o as ArchivedPrintJob).AcquiredByPrinter = n.GetBoolValue(); } },
-                {"acquiredDateTime", (o,n) => { (o as ArchivedPrintJob).AcquiredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"completionDateTime", (o,n) => { (o as ArchivedPrintJob).CompletionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"copiesPrinted", (o,n) => { (o as ArchivedPrintJob).CopiesPrinted = n.GetIntValue(); } },
-                {"createdBy", (o,n) => { (o as ArchivedPrintJob).CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", (o,n) => { (o as ArchivedPrintJob).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"id", (o,n) => { (o as ArchivedPrintJob).Id = n.GetStringValue(); } },
-                {"printerId", (o,n) => { (o as ArchivedPrintJob).PrinterId = n.GetStringValue(); } },
-                {"processingState", (o,n) => { (o as ArchivedPrintJob).ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"acquiredByPrinter", n => { AcquiredByPrinter = n.GetBoolValue(); } },
+                {"acquiredDateTime", n => { AcquiredDateTime = n.GetDateTimeOffsetValue(); } },
+                {"completionDateTime", n => { CompletionDateTime = n.GetDateTimeOffsetValue(); } },
+                {"copiesPrinted", n => { CopiesPrinted = n.GetIntValue(); } },
+                {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"id", n => { Id = n.GetStringValue(); } },
+                {"printerId", n => { PrinterId = n.GetStringValue(); } },
+                {"processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
         }
         /// <summary>

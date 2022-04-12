@@ -46,23 +46,23 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"assignments", (o,n) => { (o as MobileApp).Assignments = n.GetCollectionOfObjectValues<MobileAppAssignment>(MobileAppAssignment.CreateFromDiscriminatorValue).ToList(); } },
-                {"categories", (o,n) => { (o as MobileApp).Categories = n.GetCollectionOfObjectValues<MobileAppCategory>(MobileAppCategory.CreateFromDiscriminatorValue).ToList(); } },
-                {"createdDateTime", (o,n) => { (o as MobileApp).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", (o,n) => { (o as MobileApp).Description = n.GetStringValue(); } },
-                {"developer", (o,n) => { (o as MobileApp).Developer = n.GetStringValue(); } },
-                {"displayName", (o,n) => { (o as MobileApp).DisplayName = n.GetStringValue(); } },
-                {"informationUrl", (o,n) => { (o as MobileApp).InformationUrl = n.GetStringValue(); } },
-                {"isFeatured", (o,n) => { (o as MobileApp).IsFeatured = n.GetBoolValue(); } },
-                {"largeIcon", (o,n) => { (o as MobileApp).LargeIcon = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", (o,n) => { (o as MobileApp).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"notes", (o,n) => { (o as MobileApp).Notes = n.GetStringValue(); } },
-                {"owner", (o,n) => { (o as MobileApp).Owner = n.GetStringValue(); } },
-                {"privacyInformationUrl", (o,n) => { (o as MobileApp).PrivacyInformationUrl = n.GetStringValue(); } },
-                {"publisher", (o,n) => { (o as MobileApp).Publisher = n.GetStringValue(); } },
-                {"publishingState", (o,n) => { (o as MobileApp).PublishingState = n.GetEnumValue<MobileAppPublishingState>(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"assignments", n => { Assignments = n.GetCollectionOfObjectValues<MobileAppAssignment>(MobileAppAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"categories", n => { Categories = n.GetCollectionOfObjectValues<MobileAppCategory>(MobileAppCategory.CreateFromDiscriminatorValue).ToList(); } },
+                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"description", n => { Description = n.GetStringValue(); } },
+                {"developer", n => { Developer = n.GetStringValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"informationUrl", n => { InformationUrl = n.GetStringValue(); } },
+                {"isFeatured", n => { IsFeatured = n.GetBoolValue(); } },
+                {"largeIcon", n => { LargeIcon = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"notes", n => { Notes = n.GetStringValue(); } },
+                {"owner", n => { Owner = n.GetStringValue(); } },
+                {"privacyInformationUrl", n => { PrivacyInformationUrl = n.GetStringValue(); } },
+                {"publisher", n => { Publisher = n.GetStringValue(); } },
+                {"publishingState", n => { PublishingState = n.GetEnumValue<MobileAppPublishingState>(); } },
             };
         }
         /// <summary>

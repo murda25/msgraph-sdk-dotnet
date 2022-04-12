@@ -64,32 +64,32 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"accountEnabled", (o,n) => { (o as Device).AccountEnabled = n.GetBoolValue(); } },
-                {"alternativeSecurityIds", (o,n) => { (o as Device).AlternativeSecurityIds = n.GetCollectionOfObjectValues<AlternativeSecurityId>(AlternativeSecurityId.CreateFromDiscriminatorValue).ToList(); } },
-                {"approximateLastSignInDateTime", (o,n) => { (o as Device).ApproximateLastSignInDateTime = n.GetDateTimeOffsetValue(); } },
-                {"complianceExpirationDateTime", (o,n) => { (o as Device).ComplianceExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceId", (o,n) => { (o as Device).DeviceId = n.GetStringValue(); } },
-                {"deviceMetadata", (o,n) => { (o as Device).DeviceMetadata = n.GetStringValue(); } },
-                {"deviceVersion", (o,n) => { (o as Device).DeviceVersion = n.GetIntValue(); } },
-                {"displayName", (o,n) => { (o as Device).DisplayName = n.GetStringValue(); } },
-                {"extensions", (o,n) => { (o as Device).Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue).ToList(); } },
-                {"isCompliant", (o,n) => { (o as Device).IsCompliant = n.GetBoolValue(); } },
-                {"isManaged", (o,n) => { (o as Device).IsManaged = n.GetBoolValue(); } },
-                {"mdmAppId", (o,n) => { (o as Device).MdmAppId = n.GetStringValue(); } },
-                {"memberOf", (o,n) => { (o as Device).MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
-                {"onPremisesLastSyncDateTime", (o,n) => { (o as Device).OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"onPremisesSyncEnabled", (o,n) => { (o as Device).OnPremisesSyncEnabled = n.GetBoolValue(); } },
-                {"operatingSystem", (o,n) => { (o as Device).OperatingSystem = n.GetStringValue(); } },
-                {"operatingSystemVersion", (o,n) => { (o as Device).OperatingSystemVersion = n.GetStringValue(); } },
-                {"physicalIds", (o,n) => { (o as Device).PhysicalIds = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"profileType", (o,n) => { (o as Device).ProfileType = n.GetStringValue(); } },
-                {"registeredOwners", (o,n) => { (o as Device).RegisteredOwners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
-                {"registeredUsers", (o,n) => { (o as Device).RegisteredUsers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
-                {"systemLabels", (o,n) => { (o as Device).SystemLabels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"transitiveMemberOf", (o,n) => { (o as Device).TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
-                {"trustType", (o,n) => { (o as Device).TrustType = n.GetStringValue(); } },
+        public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"accountEnabled", n => { AccountEnabled = n.GetBoolValue(); } },
+                {"alternativeSecurityIds", n => { AlternativeSecurityIds = n.GetCollectionOfObjectValues<AlternativeSecurityId>(AlternativeSecurityId.CreateFromDiscriminatorValue).ToList(); } },
+                {"approximateLastSignInDateTime", n => { ApproximateLastSignInDateTime = n.GetDateTimeOffsetValue(); } },
+                {"complianceExpirationDateTime", n => { ComplianceExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
+                {"deviceMetadata", n => { DeviceMetadata = n.GetStringValue(); } },
+                {"deviceVersion", n => { DeviceVersion = n.GetIntValue(); } },
+                {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue).ToList(); } },
+                {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
+                {"isManaged", n => { IsManaged = n.GetBoolValue(); } },
+                {"mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
+                {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
+                {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                {"operatingSystemVersion", n => { OperatingSystemVersion = n.GetStringValue(); } },
+                {"physicalIds", n => { PhysicalIds = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"profileType", n => { ProfileType = n.GetStringValue(); } },
+                {"registeredOwners", n => { RegisteredOwners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
+                {"registeredUsers", n => { RegisteredUsers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
+                {"systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
+                {"trustType", n => { TrustType = n.GetStringValue(); } },
             };
         }
         /// <summary>

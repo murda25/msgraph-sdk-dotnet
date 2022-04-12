@@ -40,16 +40,16 @@ namespace Microsoft.Graph.Models {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"durationBeforeAutomaticDenial", (o,n) => { (o as AccessPackageApprovalStage).DurationBeforeAutomaticDenial = n.GetTimeSpanValue(); } },
-                {"durationBeforeEscalation", (o,n) => { (o as AccessPackageApprovalStage).DurationBeforeEscalation = n.GetTimeSpanValue(); } },
-                {"escalationApprovers", (o,n) => { (o as AccessPackageApprovalStage).EscalationApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
-                {"fallbackEscalationApprovers", (o,n) => { (o as AccessPackageApprovalStage).FallbackEscalationApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
-                {"fallbackPrimaryApprovers", (o,n) => { (o as AccessPackageApprovalStage).FallbackPrimaryApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
-                {"isApproverJustificationRequired", (o,n) => { (o as AccessPackageApprovalStage).IsApproverJustificationRequired = n.GetBoolValue(); } },
-                {"isEscalationEnabled", (o,n) => { (o as AccessPackageApprovalStage).IsEscalationEnabled = n.GetBoolValue(); } },
-                {"primaryApprovers", (o,n) => { (o as AccessPackageApprovalStage).PrimaryApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"durationBeforeAutomaticDenial", n => { DurationBeforeAutomaticDenial = n.GetTimeSpanValue(); } },
+                {"durationBeforeEscalation", n => { DurationBeforeEscalation = n.GetTimeSpanValue(); } },
+                {"escalationApprovers", n => { EscalationApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+                {"fallbackEscalationApprovers", n => { FallbackEscalationApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+                {"fallbackPrimaryApprovers", n => { FallbackPrimaryApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
+                {"isApproverJustificationRequired", n => { IsApproverJustificationRequired = n.GetBoolValue(); } },
+                {"isEscalationEnabled", n => { IsEscalationEnabled = n.GetBoolValue(); } },
+                {"primaryApprovers", n => { PrimaryApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
         /// <summary>

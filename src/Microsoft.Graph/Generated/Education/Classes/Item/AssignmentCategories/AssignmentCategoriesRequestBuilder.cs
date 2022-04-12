@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get assignmentCategories from education
+        /// All categories associated with this class. Nullable.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories {
             return requestInfo;
         }
         /// <summary>
-        /// Get assignmentCategories from education
+        /// All categories associated with this class. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories {
             };
             return await RequestAdapter.SendAsync<EducationCategory>(requestInfo, EducationCategory.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get assignmentCategories from education</summary>
+        /// <summary>All categories associated with this class. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

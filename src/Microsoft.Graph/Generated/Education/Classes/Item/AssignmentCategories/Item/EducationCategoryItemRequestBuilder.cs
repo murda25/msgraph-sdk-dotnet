@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get assignmentCategories from education
+        /// All categories associated with this class. Nullable.
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
         /// <param name="queryParameters">Request query parameters</param>
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get assignmentCategories from education
+        /// All categories associated with this class. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
         /// <param name="options">Request options</param>
@@ -146,7 +146,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Item {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get assignmentCategories from education</summary>
+        /// <summary>All categories associated with this class. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

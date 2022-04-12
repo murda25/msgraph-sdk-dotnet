@@ -28,9 +28,9 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.UpdateWindowsDeviceAccount {
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
-        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
-            return new Dictionary<string, Action<T, IParseNode>> {
-                {"updateWindowsDeviceAccountActionParameter", (o,n) => { (o as UpdateWindowsDeviceAccountRequestBody).UpdateWindowsDeviceAccountActionParameter = n.GetObjectValue<Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter>(Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter.CreateFromDiscriminatorValue); } },
+        public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
+            return new Dictionary<string, Action<IParseNode>> {
+                {"updateWindowsDeviceAccountActionParameter", n => { UpdateWindowsDeviceAccountActionParameter = n.GetObjectValue<Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter>(Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
