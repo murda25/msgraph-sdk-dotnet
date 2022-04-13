@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Reports.GetSkypeForBusinessActivityUserDetailWithDate 
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("date", date);
+            urlTplParams.Add("", date);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
