@@ -9,5 +9,6 @@ namespace Microsoft.Graph.Models {
         SkypeUser,
         PhoneUser,
         UnknownFutureValue,
+        EmailUser,
     }
 }

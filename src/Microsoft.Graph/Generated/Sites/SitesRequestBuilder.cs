@@ -88,24 +88,6 @@ namespace Microsoft.Graph.Sites {
             return requestInfo;
         }
         /// <summary>
-        /// Add new entity to sites
-        /// <param name="body"></param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// </summary>
-        public RequestInformation CreatePostRequestInformation(Microsoft.Graph.Models.Site body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
         /// Get entities from sites
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="headers">Request headers</param>
@@ -120,23 +102,6 @@ namespace Microsoft.Graph.Sites {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<SiteCollectionResponse>(requestInfo, SiteCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Add new entity to sites
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task<Microsoft.Graph.Models.Site> PostAsync(Microsoft.Graph.Models.Site body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, headers, options);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Site>(requestInfo, Microsoft.Graph.Models.Site.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get entities from sites</summary>
         public class GetQueryParameters : QueryParametersBase {
