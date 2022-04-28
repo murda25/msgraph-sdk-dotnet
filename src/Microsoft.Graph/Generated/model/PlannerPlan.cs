@@ -21,6 +21,13 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets container.
+        /// Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+        /// </summary>
+        [JsonPropertyName("container")]
+        public PlannerPlanContainer Container { get; set; }
+    
+        /// <summary>
         /// Gets or sets created by.
         /// Read-only. The user who created the plan.
         /// </summary>
@@ -38,6 +45,7 @@ namespace Microsoft.Graph
         /// Gets or sets owner.
         /// ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.
         /// </summary>
+        [Obsolete("Owner property is deprecated and will be removed in April 2024. Please use the container property instead.")]
         [JsonPropertyName("owner")]
         public string Owner { get; set; }
     
@@ -50,7 +58,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets buckets.
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("buckets")]
         public IPlannerPlanBucketsCollectionPage Buckets { get; set; }
@@ -64,14 +72,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets details.
-        /// Read-only. Nullable. Additional details about the plan.
+        /// Additional details about the plan. Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("details")]
         public PlannerPlanDetails Details { get; set; }
     
         /// <summary>
         /// Gets or sets tasks.
-        /// Read-only. Nullable. Collection of tasks in the plan.
+        /// Collection of tasks in the plan. Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("tasks")]
         public IPlannerPlanTasksCollectionPage Tasks { get; set; }
