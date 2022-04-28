@@ -134,7 +134,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets items.
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// </summary>
         [JsonPropertyName("items")]
         public ISiteItemsCollectionPage Items { get; set; }
@@ -159,6 +159,20 @@ namespace Microsoft.Graph
         [JsonPropertyName("lists@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string ListsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets operations.
+        /// The collection of long running operations for the site.
+        /// </summary>
+        [JsonPropertyName("operations")]
+        public ISiteOperationsCollectionPage Operations { get; set; }
+
+        /// <summary>
+        /// Gets or sets operationsNextLink.
+        /// </summary>
+        [JsonPropertyName("operations@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string OperationsNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets permissions.
@@ -190,7 +204,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets term store.
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// </summary>
         [JsonPropertyName("termStore")]
         public Microsoft.Graph.TermStore.Store TermStore { get; set; }

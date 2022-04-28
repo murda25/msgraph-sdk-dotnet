@@ -106,7 +106,7 @@ namespace Microsoft.Graph
         IColumnDefinitionRequestBuilder ExternalColumns  { get; }
         /// <summary>
         /// Gets the request builder for Items.
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// </summary>
         /// <returns>The <see cref="IBaseItemRequestBuilder"/>.</returns>
         IBaseItemRequestBuilder Items  { get; }
@@ -123,6 +123,12 @@ namespace Microsoft.Graph
         /// <returns>The <see cref="IOnenoteRequestBuilder"/>.</returns>
         IOnenoteRequestBuilder Onenote  { get; }
         /// <summary>
+        /// Gets the request builder for Operations.
+        /// The collection of long running operations for the site.
+        /// </summary>
+        /// <returns>The <see cref="IRichLongRunningOperationRequestBuilder"/>.</returns>
+        IRichLongRunningOperationRequestBuilder Operations  { get; }
+        /// <summary>
         /// Gets the request builder for Permissions.
         /// The permissions associated with the site. Nullable.
         /// </summary>
@@ -136,7 +142,7 @@ namespace Microsoft.Graph
         ISiteRequestBuilder Sites  { get; }
         /// <summary>
         /// Gets the request builder for TermStore.
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// </summary>
         /// <returns>The <see cref="Microsoft.Graph.TermStore.IStoreRequestBuilder"/>.</returns>
         Microsoft.Graph.TermStore.IStoreRequestBuilder TermStore  { get; }
