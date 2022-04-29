@@ -80,6 +80,12 @@ namespace Microsoft.Graph
         ISiteListsCollectionRequestBuilder Lists { get; }
 
         /// <summary>
+        /// Gets the request builder for Operations.
+        /// </summary>
+        /// <returns>The <see cref="ISiteOperationsCollectionRequestBuilder"/>.</returns>
+        ISiteOperationsCollectionRequestBuilder Operations { get; }
+
+        /// <summary>
         /// Gets the request builder for Permissions.
         /// </summary>
         /// <returns>The <see cref="ISitePermissionsCollectionRequestBuilder"/>.</returns>
