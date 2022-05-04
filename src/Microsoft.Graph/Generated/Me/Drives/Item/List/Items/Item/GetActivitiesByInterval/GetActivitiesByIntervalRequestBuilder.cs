@@ -44,29 +44,45 @@ namespace Microsoft.Graph.Me.Drives.Item.List.Items.Item.GetActivitiesByInterval
         }
         /// <summary>
         /// Invoke function getActivitiesByInterval
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreateGetRequestInformation(Action<GetActivitiesByIntervalRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
+            if (requestConfiguration != null) {
+                var requestConfig = new GetActivitiesByIntervalRequestBuilderGetRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
             return requestInfo;
         }
         /// <summary>
         /// Invoke function getActivitiesByInterval
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GetActivitiesByIntervalResponse> GetAsync(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateGetRequestInformation(headers, options);
+        public async Task<GetActivitiesByIntervalResponse> GetAsync(Action<GetActivitiesByIntervalRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreateGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<GetActivitiesByIntervalResponse>(requestInfo, GetActivitiesByIntervalResponse.CreateFromDiscriminatorValue, responseHandler, default, cancellationToken);
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class GetActivitiesByIntervalRequestBuilderGetRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new getActivitiesByIntervalRequestBuilderGetRequestConfiguration and sets the default values.
+            /// </summary>
+            public GetActivitiesByIntervalRequestBuilderGetRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
         }
     }
 }

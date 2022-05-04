@@ -57,33 +57,30 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
+        /// Access this property from the derived type itemInsights.
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreateGetRequestInformation(Action<SharedRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            if (queryParameters != null) {
-                var qParams = new GetQueryParameters();
-                queryParameters.Invoke(qParams);
-                qParams.AddQueryParameters(requestInfo.QueryParameters);
+            if (requestConfiguration != null) {
+                var requestConfig = new SharedRequestBuilderGetRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
             }
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Create new navigation property to shared for users
         /// <param name="body"></param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(SharedInsight body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePostRequestInformation(SharedInsight body, Action<SharedRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.POST,
@@ -91,20 +88,22 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared {
                 PathParameters = PathParameters,
             };
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
+            if (requestConfiguration != null) {
+                var requestConfig = new SharedRequestBuilderPostRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
+        /// Access this property from the derived type itemInsights.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SharedInsightCollectionResponse> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
+        public async Task<SharedInsightCollectionResponse> GetAsync(Action<SharedRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -115,21 +114,20 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared {
         /// Create new navigation property to shared for users
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SharedInsight> PostAsync(SharedInsight body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<SharedInsight> PostAsync(SharedInsight body, Action<SharedRequestBuilderPostRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, headers, options);
+            var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<SharedInsight>(requestInfo, SharedInsight.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Calculated relationship identifying documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.</summary>
-        public class GetQueryParameters : QueryParametersBase {
+        /// <summary>Access this property from the derived type itemInsights.</summary>
+        public class SharedRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
             public bool? Count { get; set; }
@@ -154,6 +152,36 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared {
             /// <summary>Show only the first n items</summary>
             [QueryParameter("%24top")]
             public int? Top { get; set; }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class SharedRequestBuilderGetRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>Request query parameters</summary>
+            public SharedRequestBuilderGetQueryParameters QueryParameters { get; set; } = new SharedRequestBuilderGetQueryParameters();
+            /// <summary>
+            /// Instantiates a new sharedRequestBuilderGetRequestConfiguration and sets the default values.
+            /// </summary>
+            public SharedRequestBuilderGetRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class SharedRequestBuilderPostRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new sharedRequestBuilderPostRequestConfiguration and sets the default values.
+            /// </summary>
+            public SharedRequestBuilderPostRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Microsoft.Graph.Models {
         public List<ListItem> Items { get; set; }
         /// <summary>Provides additional details about the list.</summary>
         public ListInfo List_prop { get; set; }
+        /// <summary>The collection of long running operations for the list.</summary>
+        public List<RichLongRunningOperation> Operations { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
         public Microsoft.Graph.Models.SharepointIds SharepointIds { get; set; }
         /// <summary>The set of subscriptions on the list.</summary>
@@ -42,6 +44,7 @@ namespace Microsoft.Graph.Models {
                 {"drive", n => { Drive = n.GetObjectValue<Microsoft.Graph.Models.Drive>(Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue); } },
                 {"items", n => { Items = n.GetCollectionOfObjectValues<ListItem>(ListItem.CreateFromDiscriminatorValue).ToList(); } },
                 {"list", n => { List_prop = n.GetObjectValue<ListInfo>(ListInfo.CreateFromDiscriminatorValue); } },
+                {"operations", n => { Operations = n.GetCollectionOfObjectValues<RichLongRunningOperation>(RichLongRunningOperation.CreateFromDiscriminatorValue).ToList(); } },
                 {"sharepointIds", n => { SharepointIds = n.GetObjectValue<Microsoft.Graph.Models.SharepointIds>(Microsoft.Graph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 {"subscriptions", n => { Subscriptions = n.GetCollectionOfObjectValues<Subscription>(Subscription.CreateFromDiscriminatorValue).ToList(); } },
                 {"system", n => { System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
@@ -60,6 +63,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.Drive>("drive", Drive);
             writer.WriteCollectionOfObjectValues<ListItem>("items", Items);
             writer.WriteObjectValue<ListInfo>("list", List_prop);
+            writer.WriteCollectionOfObjectValues<RichLongRunningOperation>("operations", Operations);
             writer.WriteObjectValue<Microsoft.Graph.Models.SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteCollectionOfObjectValues<Subscription>("subscriptions", Subscriptions);
             writer.WriteObjectValue<SystemFacet>("system", System);

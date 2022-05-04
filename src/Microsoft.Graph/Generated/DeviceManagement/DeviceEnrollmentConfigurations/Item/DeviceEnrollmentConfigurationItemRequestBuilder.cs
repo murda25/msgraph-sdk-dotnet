@@ -61,47 +61,47 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
         }
         /// <summary>
         /// Delete navigation property deviceEnrollmentConfigurations for deviceManagement
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreateDeleteRequestInformation(Action<DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
+            if (requestConfiguration != null) {
+                var requestConfig = new DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
             return requestInfo;
         }
         /// <summary>
         /// The list of device enrollment configurations
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreateGetRequestInformation(Action<DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            if (queryParameters != null) {
-                var qParams = new GetQueryParameters();
-                queryParameters.Invoke(qParams);
-                qParams.AddQueryParameters(requestInfo.QueryParameters);
+            if (requestConfiguration != null) {
+                var requestConfig = new DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
             }
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Update the navigation property deviceEnrollmentConfigurations in deviceManagement
         /// <param name="body"></param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(DeviceEnrollmentConfiguration body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default) {
+        public RequestInformation CreatePatchRequestInformation(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -109,19 +109,22 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
                 PathParameters = PathParameters,
             };
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            headers?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(options?.ToArray());
+            if (requestConfiguration != null) {
+                var requestConfig = new DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
             return requestInfo;
         }
         /// <summary>
         /// Delete navigation property deviceEnrollmentConfigurations for deviceManagement
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateDeleteRequestInformation(headers, options);
+        public async Task DeleteAsync(Action<DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -131,13 +134,11 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
         /// <summary>
         /// The list of device enrollment configurations
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
-        /// <param name="queryParameters">Request query parameters</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceEnrollmentConfiguration> GetAsync(Action<GetQueryParameters> queryParameters = default, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateGetRequestInformation(queryParameters, headers, options);
+        public async Task<DeviceEnrollmentConfiguration> GetAsync(Action<DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+            var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -148,27 +149,70 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
         /// Update the navigation property deviceEnrollmentConfigurations in deviceManagement
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="headers">Request headers</param>
-        /// <param name="options">Request options</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(DeviceEnrollmentConfiguration body, Action<IDictionary<string, string>> headers = default, IEnumerable<IRequestOption> options = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePatchRequestInformation(body, headers, options);
+            var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new deviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// </summary>
+            public DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
+        }
         /// <summary>The list of device enrollment configurations</summary>
-        public class GetQueryParameters : QueryParametersBase {
+        public class DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
             public string[] Expand { get; set; }
             /// <summary>Select properties to be returned</summary>
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>Request query parameters</summary>
+            public DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters();
+            /// <summary>
+            /// Instantiates a new deviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// </summary>
+            public DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
+        }
+        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        public class DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public IDictionary<string, string> Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new deviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// </summary>
+            public DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new Dictionary<string, string>();
+            }
         }
     }
 }
