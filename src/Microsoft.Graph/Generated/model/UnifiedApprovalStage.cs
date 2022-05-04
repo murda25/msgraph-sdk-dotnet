@@ -23,36 +23,42 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets approvalStageTimeOutInDays.
+        /// The number of days that a request can be pending a response before it is automatically denied.
         /// </summary>
         [JsonPropertyName("approvalStageTimeOutInDays")]
         public Int32? ApprovalStageTimeOutInDays { get; set; }
     
         /// <summary>
         /// Gets or sets escalationApprovers.
+        /// The escalation approvers for this stage when the primary approvers don't respond.
         /// </summary>
         [JsonPropertyName("escalationApprovers")]
         public IEnumerable<SubjectSet> EscalationApprovers { get; set; }
     
         /// <summary>
         /// Gets or sets escalationTimeInMinutes.
+        /// The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers.
         /// </summary>
         [JsonPropertyName("escalationTimeInMinutes")]
         public Int32? EscalationTimeInMinutes { get; set; }
     
         /// <summary>
         /// Gets or sets isApproverJustificationRequired.
+        /// Indicates whether the approver must provide justification for their reponse.
         /// </summary>
         [JsonPropertyName("isApproverJustificationRequired")]
         public bool? IsApproverJustificationRequired { get; set; }
     
         /// <summary>
         /// Gets or sets isEscalationEnabled.
+        /// Indicates whether escalation if enabled.
         /// </summary>
         [JsonPropertyName("isEscalationEnabled")]
         public bool? IsEscalationEnabled { get; set; }
     
         /// <summary>
         /// Gets or sets primaryApprovers.
+        /// The primary approvers of this stage.
         /// </summary>
         [JsonPropertyName("primaryApprovers")]
         public IEnumerable<SubjectSet> PrimaryApprovers { get; set; }
