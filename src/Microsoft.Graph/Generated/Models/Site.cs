@@ -22,12 +22,14 @@ namespace Microsoft.Graph.Models {
         public PublicError Error { get; set; }
         /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
         public List<ColumnDefinition> ExternalColumns { get; set; }
-        /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
         public List<BaseItem> Items { get; set; }
         /// <summary>The collection of lists under this site.</summary>
         public List<List> Lists { get; set; }
         /// <summary>Calls the OneNote service for notebook related operations.</summary>
         public Microsoft.Graph.Models.Onenote Onenote { get; set; }
+        /// <summary>The collection of long running operations for the site.</summary>
+        public List<RichLongRunningOperation> Operations { get; set; }
         /// <summary>The permissions associated with the site. Nullable.</summary>
         public List<Permission> Permissions { get; set; }
         /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
@@ -38,7 +40,7 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.SiteCollection SiteCollection { get; set; }
         /// <summary>The collection of the sub-sites under this site.</summary>
         public List<Site> Sites { get; set; }
-        /// <summary>The default termStore under this site.</summary>
+        /// <summary>The termStore under this site.</summary>
         public Store TermStore { get; set; }
         /// <summary>The collection of termStores under this site.</summary>
         public List<Store> TermStores { get; set; }
@@ -66,6 +68,7 @@ namespace Microsoft.Graph.Models {
                 {"items", n => { Items = n.GetCollectionOfObjectValues<BaseItem>(BaseItem.CreateFromDiscriminatorValue).ToList(); } },
                 {"lists", n => { Lists = n.GetCollectionOfObjectValues<List>(List.CreateFromDiscriminatorValue).ToList(); } },
                 {"onenote", n => { Onenote = n.GetObjectValue<Microsoft.Graph.Models.Onenote>(Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue); } },
+                {"operations", n => { Operations = n.GetCollectionOfObjectValues<RichLongRunningOperation>(RichLongRunningOperation.CreateFromDiscriminatorValue).ToList(); } },
                 {"permissions", n => { Permissions = n.GetCollectionOfObjectValues<Permission>(Permission.CreateFromDiscriminatorValue).ToList(); } },
                 {"root", n => { Root = n.GetObjectValue<Microsoft.Graph.Models.Root>(Microsoft.Graph.Models.Root.CreateFromDiscriminatorValue); } },
                 {"sharepointIds", n => { SharepointIds = n.GetObjectValue<Microsoft.Graph.Models.SharepointIds>(Microsoft.Graph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
@@ -93,6 +96,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<BaseItem>("items", Items);
             writer.WriteCollectionOfObjectValues<List>("lists", Lists);
             writer.WriteObjectValue<Microsoft.Graph.Models.Onenote>("onenote", Onenote);
+            writer.WriteCollectionOfObjectValues<RichLongRunningOperation>("operations", Operations);
             writer.WriteCollectionOfObjectValues<Permission>("permissions", Permissions);
             writer.WriteObjectValue<Microsoft.Graph.Models.Root>("root", Root);
             writer.WriteObjectValue<Microsoft.Graph.Models.SharepointIds>("sharepointIds", SharepointIds);
