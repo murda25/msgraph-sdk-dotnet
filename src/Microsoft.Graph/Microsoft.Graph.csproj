@@ -25,9 +25,9 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.3</VersionSuffix>
+    <VersionSuffix>preview.4</VersionSuffix>
     <PackageReleaseNotes>
-- [Breaking] Changes target runtime to netstandard2.0
+- [Breaking] Request configuration revamp to support [Kiota #1494](https://github.com/microsoft/kiota/issues/1494)
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
