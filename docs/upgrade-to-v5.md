@@ -50,21 +50,21 @@ V5 of the SDK simplifies the request methods to simply reflect the HTTP methods 
 - `AddAsync()` methods are now `PostAsync()`
 
 ### Headers
-To pass headers, the  `HeaderOption` class is no longer used. Headers are added as follows
+To pass headers, the `HeaderOption` class is no longer used. Headers are added using the `requestConfiguration` modifier as follows
 
 ```cs
 var user = await graphServiceClient
-                    .Users["{user-id}"]
-                    .GetAsync(headers: headers => headers.Add("ConsistencyLevel","eventual"));
+    .Users["{user-id}"]
+    .GetAsync(requestConfiguration => requestConfiguration.Headers.Add("ConsistencyLevel","eventual"));
 ```
 
 ### Query Options
-To pass query Options, the `QueryOption` class is no longer used. Query options are added as follows
+To pass query Options, the `QueryOption` class is no longer used. Query options are set using the `requestConfiguration` modifier as follows
 
 ```cs
 var user = await graphServiceClient
-                    .Users["{user-id}"]
-                    .GetAsync(queryParameters: p => p.Select = new string[] { "id", "createdDateTime"});
+    .Users["{user-id}"]
+    .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime"});
 ```
 
 ### Collections
@@ -73,8 +73,9 @@ Querying for collections are done as follows and resembles the response from API
 
 ```cs
 var usersResponse = await graphServiceClient
-                        .Users
-                        .GetAsync(queryParameters: p => p.Select = new string[] { "id", "createdDateTime"});
+    .Users
+    .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime"});
+
 List<User> userList = usersResponse.Value;
 ```
 
@@ -83,8 +84,8 @@ To iterate through page collections, use the pageIterator as follows
 
 ```cs
 var usersResponse = await graphServiceClient
-                .Users
-                .GetAsync(queryParameters: p => { p.Select = new string[] { "id", "createdDateTime" }; p.Top = 1; });
+    .Users
+    .GetAsync(requestConfiguration => { requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime" }; requestConfiguration.QueryParameters.Top = 1; });
 
 var userList = new List<User>();
 var pageIterator = PageIterator<User,UserCollectionResponse>.CreatePageIterator(graphServiceClient,usersResponse, (user) => { userList.Add(user); return true; });
@@ -152,7 +153,17 @@ List<User> userList = usersResponse.Value;
 The request builders are now enriched with `Count` sections where applicable to enable the use of the $count segment
 
 ```cs
-var count = await graphServiceClient.Users.Count.GetAsync();
+var count = await graphServiceClient.Users.Count.GetAsync(requestConfiguration => requestConfiguration.Headers.Add("ConsistencyLevel","eventual"));
+```
+
+This addresses the workarounds that SDK users had to make in order to call $count which looked as follows in previous SDK versions(ref [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/875))
+
+```cs
+string requestUrl = graphClient.Users.AppendSegmentToRequestUrl("$count");
+Option [] options = new Option[] { new HeaderOption("ConsistencyLevel", "eventual") };
+HttpResponseMessage responseMessage = await new UserRequest(requestUrl, graphClient, options)
+                                        .SendRequestAsync(null,CancellationToken.None);
+string userCount = await responseMessage.Content.ReadAsStringAsync();
 ```
 
 

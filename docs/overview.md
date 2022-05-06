@@ -38,9 +38,7 @@ The resource model classes are generated based on the $metadata description of t
 
 ## Requests
 
-To make requests against the service, you'll need to build a request using the request builders of the client. The request builders are responsible for building the request URL while the `Request()` method of a request builder will build the request object. The request builder patterns are intended to mirror the REST API pattern.
-
-**Note:** Request and request builder classes are generated based on the $metadata description of the service. Interfaces are provided for each of these classes to enable easy unit testing around the logic contained in the classes. Since these interfaces are also generated, their signatures are subject to change without being considered a breaking change in the library. Anybody consuming these interfaces should be prepared for the class names or interface definitions to change between library versions.
+To make requests against the service, you'll need to build a request using the request builders of the client. The request builder patterns are intended to mirror the REST API pattern.
 
 ### 1. Request builders
 
@@ -50,7 +48,7 @@ You get the first request builder from the `GraphServiceClient` object. For exam
 |:----------|:----------------------:|:-------------------------------|
 |Get me     | graphServiceClient.Me  | GET graph.microsoft.com/v1.0/me|
  
-The call will return an `IUserRequestBuilder` object. From Me you can continue to chain the request builders.
+The call will return a `UserRequestBuilder` object. From Me you can continue to chain the request builders.
 
 The [Microsoft Graph service documentation](https://graph.microsoft.io/en-us/docs) has more details about the full functionality of the API.
 
@@ -75,8 +73,7 @@ If you only want to retrieve certain properties of a resource you can select the
 ``` csharp
 var user = await graphServiceClient
     .Me
-    .Request()
-    .GetAsync(q: q => q.Select = new string[] { "id"});
+    .GetAsync( requestConfiguration => requestConfiguration.QueryParameters.Select = new string[] { "id"});
 ```
 
 All properties other than `Id` will be null on the returned user object.

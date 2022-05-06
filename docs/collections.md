@@ -29,12 +29,11 @@ Some collections, like the groups collection, can be changed. To create a group 
 
 ```csharp
 var groupToCreate = new Group
-    {
-		GroupTypes = new List<string> { "Unified" },
-		DisplayName = "Unified group",
-		Description = "Best group ever",
-		...
-	};
+{
+    GroupTypes = new List<string> { "Unified" },
+    DisplayName = "Unified group",
+    Description = "Best group ever"
+};
 	
 var newGroup = await graphServiceClient
 							.Groups
@@ -49,9 +48,8 @@ To expand a collection, you call `Expand` on the collection request object with 
 
 ```csharp
 var children = await graphServiceClient
-                         .Me
-                         .Drive
-						 .Items[itemId]
-						 .Children
-						 .GetAsync((q) => q.Expand = new string[] { "thumbnails" });
+    .Drive
+    .Items["itemId"]
+    .Children
+    .GetAsync((requestConfiguration) => requestConfiguration.QueryParameters.Expand = new[] { "thumbnails" });
 ```
