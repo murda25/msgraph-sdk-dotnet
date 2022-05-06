@@ -4,13 +4,16 @@ The .NET Client Library allows you to add your own custom request headers and in
 
 ## Adding request headers
 
-Custom headers can be added by creating a new option collection and adding it to the request object:
+Custom headers can be added by using the requestConfiguration object and adding it to the headers collection:
 
 ```csharp
-
-var newObject = graphServiceClient
-	.Object
-	.Request(options)
-	.PatchAsync(h: h => { h.Add("Etag", "etag"); h.Add("If-Match", "ifmatch"); );
+var message = await graphServiceClient
+    .Me
+    .Messages["message-id"]
+    .GetAsync((requestConfiguration) =>
+    {
+        requestConfiguration.Headers.Add("Etag", "etag");
+        requestConfiguration.Headers.Add("If-Match", "ifmatch");
+    });
 ```
 
