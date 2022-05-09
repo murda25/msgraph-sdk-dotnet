@@ -36,6 +36,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets participantId.
+        /// Optional. The ID of the target participant.
         /// </summary>
         [JsonPropertyName("participantId")]
         public string ParticipantId { get; set; }
@@ -48,7 +49,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets replacesCallId.
-        /// Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.
+        /// Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
         /// </summary>
         [JsonPropertyName("replacesCallId")]
         public string ReplacesCallId { get; set; }

@@ -104,14 +104,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets supported services.
-        /// The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+        /// The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
         /// </summary>
         [JsonPropertyName("supportedServices")]
         public IEnumerable<string> SupportedServices { get; set; }
     
         /// <summary>
         /// Gets or sets domain name references.
-        /// Read-only, Nullable
+        /// The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
         /// </summary>
         [JsonPropertyName("domainNameReferences")]
         public IDomainDomainNameReferencesCollectionWithReferencesPage DomainNameReferences { get; set; }
@@ -124,8 +124,22 @@ namespace Microsoft.Graph
         public string DomainNameReferencesNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets federation configuration.
+        /// Domain settings configured by customer when federated with Azure AD. Supports $expand.
+        /// </summary>
+        [JsonPropertyName("federationConfiguration")]
+        public IDomainFederationConfigurationCollectionPage FederationConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets or sets federationConfigurationNextLink.
+        /// </summary>
+        [JsonPropertyName("federationConfiguration@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string FederationConfigurationNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets service configuration records.
-        /// DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
+        /// DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
         /// </summary>
         [JsonPropertyName("serviceConfigurationRecords")]
         public IDomainServiceConfigurationRecordsCollectionPage ServiceConfigurationRecords { get; set; }
@@ -139,7 +153,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets verification dns records.
-        /// DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
+        /// DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
         /// </summary>
         [JsonPropertyName("verificationDnsRecords")]
         public IDomainVerificationDnsRecordsCollectionPage VerificationDnsRecords { get; set; }

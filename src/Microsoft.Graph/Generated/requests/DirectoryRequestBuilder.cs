@@ -73,6 +73,18 @@ namespace Microsoft.Graph
                 return new DirectoryDeletedItemsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("deletedItems"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for FederationConfigurations.
+        /// </summary>
+        /// <returns>The <see cref="IDirectoryFederationConfigurationsCollectionRequestBuilder"/>.</returns>
+        public IDirectoryFederationConfigurationsCollectionRequestBuilder FederationConfigurations
+        {
+            get
+            {
+                return new DirectoryFederationConfigurationsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("federationConfigurations"), this.Client);
+            }
+        }
     
     }
 }
