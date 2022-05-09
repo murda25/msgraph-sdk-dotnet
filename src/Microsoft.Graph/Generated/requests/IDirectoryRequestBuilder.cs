@@ -42,6 +42,12 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IDirectoryDeletedItemsCollectionRequestBuilder"/>.</returns>
         IDirectoryDeletedItemsCollectionRequestBuilder DeletedItems { get; }
+
+        /// <summary>
+        /// Gets the request builder for FederationConfigurations.
+        /// </summary>
+        /// <returns>The <see cref="IDirectoryFederationConfigurationsCollectionRequestBuilder"/>.</returns>
+        IDirectoryFederationConfigurationsCollectionRequestBuilder FederationConfigurations { get; }
     
     }
 }

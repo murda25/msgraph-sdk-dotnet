@@ -18,8 +18,16 @@ namespace Microsoft.Graph
     /// The type SubjectSet.
     /// </summary>
     [JsonConverter(typeof(DerivedTypeConverter<SubjectSet>))]
-    public abstract partial class SubjectSet
+    public partial class SubjectSet
     {
+
+        ///<summary>
+        /// The internal SubjectSet constructor
+        ///</summary>
+        protected internal SubjectSet()
+        {
+            // Don't allow initialization of abstract complex types
+        }
 
         /// <summary>
         /// Gets or sets additional data.
