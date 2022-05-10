@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Drives.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get entity from drives by key
+        /// Helpers (examples that aren&apos;t included in the docs)
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DriveItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -150,7 +150,7 @@ namespace Microsoft.Graph.Drives.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get entity from drives by key
+        /// Helpers (examples that aren&apos;t included in the docs)
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -213,7 +213,7 @@ namespace Microsoft.Graph.Drives.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get entity from drives by key</summary>
+        /// <summary>Helpers (examples that aren&apos;t included in the docs)</summary>
         public class DriveItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

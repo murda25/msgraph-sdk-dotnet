@@ -1,4 +1,5 @@
 using Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Count;
+using Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Delta;
 using Microsoft.Graph.Education.Classes.Item.AssignmentCategories.Item;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -95,6 +96,12 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentCategories {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the delta method.
+        /// </summary>
+        public DeltaRequestBuilder Delta() {
+            return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// All categories associated with this class. Nullable.
