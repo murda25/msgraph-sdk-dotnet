@@ -258,6 +258,12 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     directoryToInitialize.DeletedItems.AdditionalData = directoryToInitialize.AdditionalData;
                 }
+                if (directoryToInitialize.FederationConfigurations != null && directoryToInitialize.FederationConfigurations.CurrentPage != null)
+                {
+                    directoryToInitialize.FederationConfigurations.InitializeNextPageRequest(this.Client, directoryToInitialize.FederationConfigurationsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    directoryToInitialize.FederationConfigurations.AdditionalData = directoryToInitialize.AdditionalData;
+                }
 
             }
 
