@@ -28,6 +28,7 @@
     <VersionSuffix></VersionSuffix>
     <PackageReleaseNotes>
 - Latest metadata updates from 10th May 2022 snapshot
+- Allow initialization of abstract complex types [#1328](https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1328)
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
