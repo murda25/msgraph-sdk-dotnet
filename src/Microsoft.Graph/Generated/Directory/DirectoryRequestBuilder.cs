@@ -1,5 +1,6 @@
 using Microsoft.Graph.Directory.AdministrativeUnits;
 using Microsoft.Graph.Directory.DeletedItems;
+using Microsoft.Graph.Directory.FederationConfigurations;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -20,6 +21,10 @@ namespace Microsoft.Graph.Directory {
         /// <summary>The deletedItems property</summary>
         public DeletedItemsRequestBuilder DeletedItems { get =>
             new DeletedItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The federationConfigurations property</summary>
+        public FederationConfigurationsRequestBuilder FederationConfigurations { get =>
+            new FederationConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

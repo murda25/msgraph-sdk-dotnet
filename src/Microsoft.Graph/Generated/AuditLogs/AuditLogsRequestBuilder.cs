@@ -65,7 +65,7 @@ namespace Microsoft.Graph.AuditLogs {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get auditLogs
+        /// auditLogRoot resource type
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<AuditLogsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -105,7 +105,7 @@ namespace Microsoft.Graph.AuditLogs {
             return requestInfo;
         }
         /// <summary>
-        /// Get auditLogs
+        /// auditLogRoot resource type
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.AuditLogs {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get auditLogs</summary>
+        /// <summary>auditLogRoot resource type</summary>
         public class AuditLogsRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

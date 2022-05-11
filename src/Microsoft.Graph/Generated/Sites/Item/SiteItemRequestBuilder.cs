@@ -119,7 +119,7 @@ namespace Microsoft.Graph.Sites.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get entity from sites by key
+        /// Get a site resource
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SiteItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -185,7 +185,7 @@ namespace Microsoft.Graph.Sites.Item {
             return new GetApplicableContentTypesForListWithListIdRequestBuilder(PathParameters, RequestAdapter, listId);
         }
         /// <summary>
-        /// Get entity from sites by key
+        /// Get a site resource
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -222,7 +222,7 @@ namespace Microsoft.Graph.Sites.Item {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get entity from sites by key</summary>
+        /// <summary>Get a site resource</summary>
         public class SiteItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

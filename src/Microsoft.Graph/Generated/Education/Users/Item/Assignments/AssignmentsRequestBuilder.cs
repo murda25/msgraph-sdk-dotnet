@@ -1,4 +1,5 @@
 using Microsoft.Graph.Education.Users.Item.Assignments.Count;
+using Microsoft.Graph.Education.Users.Item.Assignments.Delta;
 using Microsoft.Graph.Education.Users.Item.Assignments.Item;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -95,6 +96,12 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the delta method.
+        /// </summary>
+        public DeltaRequestBuilder Delta() {
+            return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// List of assignments for the user. Nullable.

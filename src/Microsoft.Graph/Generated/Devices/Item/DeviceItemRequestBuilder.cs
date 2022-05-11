@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Devices.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete entity from devices
+        /// Delete device
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<DeviceItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -113,7 +113,7 @@ namespace Microsoft.Graph.Devices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get entity from devices by key
+        /// Get device
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DeviceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -132,7 +132,7 @@ namespace Microsoft.Graph.Devices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update entity in devices
+        /// Update device
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -153,7 +153,7 @@ namespace Microsoft.Graph.Devices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete entity from devices
+        /// Delete device
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -167,7 +167,7 @@ namespace Microsoft.Graph.Devices.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get entity from devices by key
+        /// Get device
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Devices.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Device>(requestInfo, Microsoft.Graph.Models.Device.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update entity in devices
+        /// Update device
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +210,7 @@ namespace Microsoft.Graph.Devices.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get entity from devices by key</summary>
+        /// <summary>Get device</summary>
         public class DeviceItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
