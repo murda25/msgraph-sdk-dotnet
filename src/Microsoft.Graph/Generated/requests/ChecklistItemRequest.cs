@@ -17,17 +17,17 @@ namespace Microsoft.Graph
     using System.Linq.Expressions;
 
     /// <summary>
-    /// The type TodoTaskRequest.
+    /// The type ChecklistItemRequest.
     /// </summary>
-    public partial class TodoTaskRequest : BaseRequest, ITodoTaskRequest
+    public partial class ChecklistItemRequest : BaseRequest, IChecklistItemRequest
     {
         /// <summary>
-        /// Constructs a new TodoTaskRequest.
+        /// Constructs a new ChecklistItemRequest.
         /// </summary>
         /// <param name="requestUrl">The URL for the built request.</param>
         /// <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
         /// <param name="options">Query and header option name value pairs for the request.</param>
-        public TodoTaskRequest(
+        public ChecklistItemRequest(
             string requestUrl,
             IBaseClient client,
             IEnumerable<Option> options)
@@ -36,46 +36,46 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Creates the specified TodoTask using POST.
+        /// Creates the specified ChecklistItem using POST.
         /// </summary>
-        /// <param name="todoTaskToCreate">The TodoTask to create.</param>
+        /// <param name="checklistItemToCreate">The ChecklistItem to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The created TodoTask.</returns>
-        public async System.Threading.Tasks.Task<TodoTask> CreateAsync(TodoTask todoTaskToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The created ChecklistItem.</returns>
+        public async System.Threading.Tasks.Task<ChecklistItem> CreateAsync(ChecklistItem checklistItemToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            var newEntity = await this.SendAsync<TodoTask>(todoTaskToCreate, cancellationToken).ConfigureAwait(false);
+            var newEntity = await this.SendAsync<ChecklistItem>(checklistItemToCreate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(newEntity);
             return newEntity;
         }
 
         /// <summary>
-        /// Creates the specified TodoTask using POST and returns a <see cref="GraphResponse{TodoTask}"/> object.
+        /// Creates the specified ChecklistItem using POST and returns a <see cref="GraphResponse{ChecklistItem}"/> object.
         /// </summary>
-        /// <param name="todoTaskToCreate">The TodoTask to create.</param>
+        /// <param name="checklistItemToCreate">The ChecklistItem to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{TodoTask}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<TodoTask>> CreateResponseAsync(TodoTask todoTaskToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ChecklistItem}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ChecklistItem>> CreateResponseAsync(ChecklistItem checklistItemToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            return this.SendAsyncWithGraphResponse<TodoTask>(todoTaskToCreate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ChecklistItem>(checklistItemToCreate, cancellationToken);
         }
 
         /// <summary>
-        /// Deletes the specified TodoTask.
+        /// Deletes the specified ChecklistItem.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
         public async System.Threading.Tasks.Task DeleteAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.DELETE;
-            await this.SendAsync<TodoTask>(null, cancellationToken).ConfigureAwait(false);
+            await this.SendAsync<ChecklistItem>(null, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Deletes the specified TodoTask and returns a <see cref="GraphResponse"/> object.
+        /// Deletes the specified ChecklistItem and returns a <see cref="GraphResponse"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task of <see cref="GraphResponse"/> to await.</returns>
@@ -86,85 +86,85 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Gets the specified TodoTask.
+        /// Gets the specified ChecklistItem.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The TodoTask.</returns>
-        public async System.Threading.Tasks.Task<TodoTask> GetAsync(CancellationToken cancellationToken = default)
+        /// <returns>The ChecklistItem.</returns>
+        public async System.Threading.Tasks.Task<ChecklistItem> GetAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            var retrievedEntity = await this.SendAsync<TodoTask>(null, cancellationToken).ConfigureAwait(false);
+            var retrievedEntity = await this.SendAsync<ChecklistItem>(null, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(retrievedEntity);
             return retrievedEntity;
         }
 
         /// <summary>
-        /// Gets the specified TodoTask and returns a <see cref="GraphResponse{TodoTask}"/> object.
+        /// Gets the specified ChecklistItem and returns a <see cref="GraphResponse{ChecklistItem}"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{TodoTask}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<TodoTask>> GetResponseAsync(CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ChecklistItem}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ChecklistItem>> GetResponseAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            return this.SendAsyncWithGraphResponse<TodoTask>(null, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ChecklistItem>(null, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified TodoTask using PATCH.
+        /// Updates the specified ChecklistItem using PATCH.
         /// </summary>
-        /// <param name="todoTaskToUpdate">The TodoTask to update.</param>
+        /// <param name="checklistItemToUpdate">The ChecklistItem to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The updated TodoTask.</returns>
-        public async System.Threading.Tasks.Task<TodoTask> UpdateAsync(TodoTask todoTaskToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The updated ChecklistItem.</returns>
+        public async System.Threading.Tasks.Task<ChecklistItem> UpdateAsync(ChecklistItem checklistItemToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            var updatedEntity = await this.SendAsync<TodoTask>(todoTaskToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<ChecklistItem>(checklistItemToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified TodoTask using PATCH and returns a <see cref="GraphResponse{TodoTask}"/> object.
+        /// Updates the specified ChecklistItem using PATCH and returns a <see cref="GraphResponse{ChecklistItem}"/> object.
         /// </summary>
-        /// <param name="todoTaskToUpdate">The TodoTask to update.</param>
+        /// <param name="checklistItemToUpdate">The ChecklistItem to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The <see cref="GraphResponse{TodoTask}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<TodoTask>> UpdateResponseAsync(TodoTask todoTaskToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ChecklistItem}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ChecklistItem>> UpdateResponseAsync(ChecklistItem checklistItemToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            return this.SendAsyncWithGraphResponse<TodoTask>(todoTaskToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ChecklistItem>(checklistItemToUpdate, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified TodoTask using PUT.
+        /// Updates the specified ChecklistItem using PUT.
         /// </summary>
-        /// <param name="todoTaskToUpdate">The TodoTask object to update.</param>
+        /// <param name="checklistItemToUpdate">The ChecklistItem object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
-        public async System.Threading.Tasks.Task<TodoTask> PutAsync(TodoTask todoTaskToUpdate, CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ChecklistItem> PutAsync(ChecklistItem checklistItemToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            var updatedEntity = await this.SendAsync<TodoTask>(todoTaskToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<ChecklistItem>(checklistItemToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified TodoTask using PUT and returns a <see cref="GraphResponse{TodoTask}"/> object.
+        /// Updates the specified ChecklistItem using PUT and returns a <see cref="GraphResponse{ChecklistItem}"/> object.
         /// </summary>
-        /// <param name="todoTaskToUpdate">The TodoTask object to update.</param>
+        /// <param name="checklistItemToUpdate">The ChecklistItem object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The task to await of <see cref="GraphResponse{TodoTask}"/>.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<TodoTask>> PutResponseAsync(TodoTask todoTaskToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The task to await of <see cref="GraphResponse{ChecklistItem}"/>.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ChecklistItem>> PutResponseAsync(ChecklistItem checklistItemToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            return this.SendAsyncWithGraphResponse<TodoTask>(todoTaskToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ChecklistItem>(checklistItemToUpdate, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The expand value.</param>
         /// <returns>The request object to send.</returns>
-        public ITodoTaskRequest Expand(string value)
+        public IChecklistItemRequest Expand(string value)
         {
             this.QueryOptions.Add(new QueryOption("$expand", value));
             return this;
@@ -183,7 +183,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="expandExpression">The expression from which to calculate the expand value.</param>
         /// <returns>The request object to send.</returns>
-        public ITodoTaskRequest Expand(Expression<Func<TodoTask, object>> expandExpression)
+        public IChecklistItemRequest Expand(Expression<Func<ChecklistItem, object>> expandExpression)
         {
 		    if (expandExpression == null)
             {
@@ -207,7 +207,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The select value.</param>
         /// <returns>The request object to send.</returns>
-        public ITodoTaskRequest Select(string value)
+        public IChecklistItemRequest Select(string value)
         {
             this.QueryOptions.Add(new QueryOption("$select", value));
             return this;
@@ -218,7 +218,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="selectExpression">The expression from which to calculate the select value.</param>
         /// <returns>The request object to send.</returns>
-        public ITodoTaskRequest Select(Expression<Func<TodoTask, object>> selectExpression)
+        public IChecklistItemRequest Select(Expression<Func<ChecklistItem, object>> selectExpression)
         {
             if (selectExpression == null)
             {
@@ -240,33 +240,9 @@ namespace Microsoft.Graph
         /// <summary>
         /// Initializes any collection properties after deserialization, like next requests for paging.
         /// </summary>
-        /// <param name="todoTaskToInitialize">The <see cref="TodoTask"/> with the collection properties to initialize.</param>
-        private void InitializeCollectionProperties(TodoTask todoTaskToInitialize)
+        /// <param name="checklistItemToInitialize">The <see cref="ChecklistItem"/> with the collection properties to initialize.</param>
+        private void InitializeCollectionProperties(ChecklistItem checklistItemToInitialize)
         {
-
-            if (todoTaskToInitialize != null)
-            {
-                if (todoTaskToInitialize.ChecklistItems != null && todoTaskToInitialize.ChecklistItems.CurrentPage != null)
-                {
-                    todoTaskToInitialize.ChecklistItems.InitializeNextPageRequest(this.Client, todoTaskToInitialize.ChecklistItemsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    todoTaskToInitialize.ChecklistItems.AdditionalData = todoTaskToInitialize.AdditionalData;
-                }
-                if (todoTaskToInitialize.Extensions != null && todoTaskToInitialize.Extensions.CurrentPage != null)
-                {
-                    todoTaskToInitialize.Extensions.InitializeNextPageRequest(this.Client, todoTaskToInitialize.ExtensionsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    todoTaskToInitialize.Extensions.AdditionalData = todoTaskToInitialize.AdditionalData;
-                }
-                if (todoTaskToInitialize.LinkedResources != null && todoTaskToInitialize.LinkedResources.CurrentPage != null)
-                {
-                    todoTaskToInitialize.LinkedResources.InitializeNextPageRequest(this.Client, todoTaskToInitialize.LinkedResourcesNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    todoTaskToInitialize.LinkedResources.AdditionalData = todoTaskToInitialize.AdditionalData;
-                }
-
-            }
-
 
         }
     }
