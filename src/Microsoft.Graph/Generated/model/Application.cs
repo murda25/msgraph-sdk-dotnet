@@ -253,7 +253,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets extension properties.
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
         /// </summary>
         [JsonPropertyName("extensionProperties")]
         public IApplicationExtensionPropertiesCollectionPage ExtensionProperties { get; set; }
