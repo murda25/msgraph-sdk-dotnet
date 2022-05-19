@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public enum DeviceManagementExchangeAccessStateReason {
         /// <summary>No access state reason discovered from Exchange</summary>
         None,

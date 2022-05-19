@@ -4,18 +4,30 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Event representing an general failure.</summary>
     public class DeviceManagementTroubleshootingEvent : Entity, IParsable {
         /// <summary>Id used for tracing the failure in the service.</summary>
-        public string CorrelationId { get; set; }
+        public string CorrelationId {
+            get { return BackingStore?.Get<string>(nameof(CorrelationId)); }
+            set { BackingStore?.Set(nameof(CorrelationId), value); }
+        }
         /// <summary>Time when the event occurred .</summary>
-        public DateTimeOffset? EventDateTime { get; set; }
+        public DateTimeOffset? EventDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(EventDateTime)); }
+            set { BackingStore?.Set(nameof(EventDateTime), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
         public static new DeviceManagementTroubleshootingEvent CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementTroubleshootingEvent();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.deviceManagementTroubleshootingEvent" => new DeviceManagementTroubleshootingEvent(),
+                _ => new DeviceManagementTroubleshootingEvent(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

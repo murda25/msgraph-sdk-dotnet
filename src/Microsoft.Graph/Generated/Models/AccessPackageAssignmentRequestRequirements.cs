@@ -1,30 +1,58 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class AccessPackageAssignmentRequestRequirements : IAdditionalDataHolder, IParsable {
+    public class AccessPackageAssignmentRequestRequirements : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
         /// <summary>Indicates whether the requestor is allowed to set a custom schedule.</summary>
-        public bool? AllowCustomAssignmentSchedule { get; set; }
+        public bool? AllowCustomAssignmentSchedule {
+            get { return BackingStore?.Get<bool?>(nameof(AllowCustomAssignmentSchedule)); }
+            set { BackingStore?.Set(nameof(AllowCustomAssignmentSchedule), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>Indicates whether a request to add must be approved by an approver.</summary>
-        public bool? IsApprovalRequiredForAdd { get; set; }
+        public bool? IsApprovalRequiredForAdd {
+            get { return BackingStore?.Get<bool?>(nameof(IsApprovalRequiredForAdd)); }
+            set { BackingStore?.Set(nameof(IsApprovalRequiredForAdd), value); }
+        }
         /// <summary>Indicates whether a request to update must be approved by an approver.</summary>
-        public bool? IsApprovalRequiredForUpdate { get; set; }
+        public bool? IsApprovalRequiredForUpdate {
+            get { return BackingStore?.Get<bool?>(nameof(IsApprovalRequiredForUpdate)); }
+            set { BackingStore?.Set(nameof(IsApprovalRequiredForUpdate), value); }
+        }
         /// <summary>The description of the policy that the user is trying to request access using.</summary>
-        public string PolicyDescription { get; set; }
+        public string PolicyDescription {
+            get { return BackingStore?.Get<string>(nameof(PolicyDescription)); }
+            set { BackingStore?.Set(nameof(PolicyDescription), value); }
+        }
         /// <summary>The display name of the policy that the user is trying to request access using.</summary>
-        public string PolicyDisplayName { get; set; }
+        public string PolicyDisplayName {
+            get { return BackingStore?.Get<string>(nameof(PolicyDisplayName)); }
+            set { BackingStore?.Set(nameof(PolicyDisplayName), value); }
+        }
         /// <summary>The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.</summary>
-        public string PolicyId { get; set; }
+        public string PolicyId {
+            get { return BackingStore?.Get<string>(nameof(PolicyId)); }
+            set { BackingStore?.Set(nameof(PolicyId), value); }
+        }
         /// <summary>Schedule restrictions enforced, if any.</summary>
-        public EntitlementManagementSchedule Schedule { get; set; }
+        public EntitlementManagementSchedule Schedule {
+            get { return BackingStore?.Get<EntitlementManagementSchedule>(nameof(Schedule)); }
+            set { BackingStore?.Set(nameof(Schedule), value); }
+        }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentRequestRequirements and sets the default values.
         /// </summary>
         public AccessPackageAssignmentRequestRequirements() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

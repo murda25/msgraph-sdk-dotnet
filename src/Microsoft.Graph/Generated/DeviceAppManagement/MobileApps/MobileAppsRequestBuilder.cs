@@ -1,5 +1,7 @@
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Count;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.ManagedMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.MobileLobApp;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -16,6 +18,14 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The managedMobileLobApp property</summary>
+        public ManagedMobileLobAppRequestBuilder ManagedMobileLobApp { get =>
+            new ManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mobileLobApp property</summary>
+        public MobileLobAppRequestBuilder MobileLobApp { get =>
+            new MobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

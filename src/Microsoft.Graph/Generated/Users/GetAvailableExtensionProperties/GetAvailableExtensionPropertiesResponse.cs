@@ -1,20 +1,30 @@
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Users.GetAvailableExtensionProperties {
     /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-    public class GetAvailableExtensionPropertiesResponse : IAdditionalDataHolder, IParsable {
+    public class GetAvailableExtensionPropertiesResponse : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>The value property</summary>
-        public List<ExtensionProperty> Value { get; set; }
+        public List<ExtensionProperty> Value {
+            get { return BackingStore?.Get<List<ExtensionProperty>>(nameof(Value)); }
+            set { BackingStore?.Set(nameof(Value), value); }
+        }
         /// <summary>
         /// Instantiates a new getAvailableExtensionPropertiesResponse and sets the default values.
         /// </summary>
         public GetAvailableExtensionPropertiesResponse() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

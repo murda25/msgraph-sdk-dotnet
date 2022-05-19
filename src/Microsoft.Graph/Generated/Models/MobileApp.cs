@@ -4,44 +4,95 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>An abstract class containing the base properties for Intune mobile apps.</summary>
     public class MobileApp : Entity, IParsable {
         /// <summary>The list of group assignments for this mobile app.</summary>
-        public List<MobileAppAssignment> Assignments { get; set; }
+        public List<MobileAppAssignment> Assignments {
+            get { return BackingStore?.Get<List<MobileAppAssignment>>(nameof(Assignments)); }
+            set { BackingStore?.Set(nameof(Assignments), value); }
+        }
         /// <summary>The list of categories for this app.</summary>
-        public List<MobileAppCategory> Categories { get; set; }
+        public List<MobileAppCategory> Categories {
+            get { return BackingStore?.Get<List<MobileAppCategory>>(nameof(Categories)); }
+            set { BackingStore?.Set(nameof(Categories), value); }
+        }
         /// <summary>The date and time the app was created.</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
+        public DateTimeOffset? CreatedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
+            set { BackingStore?.Set(nameof(CreatedDateTime), value); }
+        }
         /// <summary>The description of the app.</summary>
-        public string Description { get; set; }
+        public string Description {
+            get { return BackingStore?.Get<string>(nameof(Description)); }
+            set { BackingStore?.Set(nameof(Description), value); }
+        }
         /// <summary>The developer of the app.</summary>
-        public string Developer { get; set; }
+        public string Developer {
+            get { return BackingStore?.Get<string>(nameof(Developer)); }
+            set { BackingStore?.Set(nameof(Developer), value); }
+        }
         /// <summary>The admin provided or imported title of the app.</summary>
-        public string DisplayName { get; set; }
+        public string DisplayName {
+            get { return BackingStore?.Get<string>(nameof(DisplayName)); }
+            set { BackingStore?.Set(nameof(DisplayName), value); }
+        }
         /// <summary>The more information Url.</summary>
-        public string InformationUrl { get; set; }
+        public string InformationUrl {
+            get { return BackingStore?.Get<string>(nameof(InformationUrl)); }
+            set { BackingStore?.Set(nameof(InformationUrl), value); }
+        }
         /// <summary>The value indicating whether the app is marked as featured by the admin.</summary>
-        public bool? IsFeatured { get; set; }
+        public bool? IsFeatured {
+            get { return BackingStore?.Get<bool?>(nameof(IsFeatured)); }
+            set { BackingStore?.Set(nameof(IsFeatured), value); }
+        }
         /// <summary>The large icon, to be displayed in the app details and used for upload of the icon.</summary>
-        public MimeContent LargeIcon { get; set; }
+        public MimeContent LargeIcon {
+            get { return BackingStore?.Get<MimeContent>(nameof(LargeIcon)); }
+            set { BackingStore?.Set(nameof(LargeIcon), value); }
+        }
         /// <summary>The date and time the app was last modified.</summary>
-        public DateTimeOffset? LastModifiedDateTime { get; set; }
+        public DateTimeOffset? LastModifiedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(LastModifiedDateTime)); }
+            set { BackingStore?.Set(nameof(LastModifiedDateTime), value); }
+        }
         /// <summary>Notes for the app.</summary>
-        public string Notes { get; set; }
+        public string Notes {
+            get { return BackingStore?.Get<string>(nameof(Notes)); }
+            set { BackingStore?.Set(nameof(Notes), value); }
+        }
         /// <summary>The owner of the app.</summary>
-        public string Owner { get; set; }
+        public string Owner {
+            get { return BackingStore?.Get<string>(nameof(Owner)); }
+            set { BackingStore?.Set(nameof(Owner), value); }
+        }
         /// <summary>The privacy statement Url.</summary>
-        public string PrivacyInformationUrl { get; set; }
+        public string PrivacyInformationUrl {
+            get { return BackingStore?.Get<string>(nameof(PrivacyInformationUrl)); }
+            set { BackingStore?.Set(nameof(PrivacyInformationUrl), value); }
+        }
         /// <summary>The publisher of the app.</summary>
-        public string Publisher { get; set; }
+        public string Publisher {
+            get { return BackingStore?.Get<string>(nameof(Publisher)); }
+            set { BackingStore?.Set(nameof(Publisher), value); }
+        }
         /// <summary>The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.</summary>
-        public MobileAppPublishingState? PublishingState { get; set; }
+        public MobileAppPublishingState? PublishingState {
+            get { return BackingStore?.Get<MobileAppPublishingState?>(nameof(PublishingState)); }
+            set { BackingStore?.Set(nameof(PublishingState), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
         public static new MobileApp CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileApp();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.mobileApp" => new MobileApp(),
+                _ => new MobileApp(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

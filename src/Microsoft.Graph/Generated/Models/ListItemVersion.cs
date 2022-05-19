@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class ListItemVersion : BaseItemVersion, IParsable {
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
-        public FieldValueSet Fields { get; set; }
+        public FieldValueSet Fields {
+            get { return BackingStore?.Get<FieldValueSet>(nameof(Fields)); }
+            set { BackingStore?.Set(nameof(Fields), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

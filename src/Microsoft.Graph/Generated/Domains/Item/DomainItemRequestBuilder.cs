@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Domains.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete domain
+        /// Deletes a domain from a tenant.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<DomainItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -93,7 +93,7 @@ namespace Microsoft.Graph.Domains.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get domain
+        /// Retrieve the properties and relationships of domain object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DomainItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -112,7 +112,7 @@ namespace Microsoft.Graph.Domains.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update domain
+        /// Update the properties of domain object.
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Domains.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete domain
+        /// Deletes a domain from a tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -147,7 +147,7 @@ namespace Microsoft.Graph.Domains.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get domain
+        /// Retrieve the properties and relationships of domain object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Domains.Item {
             return await RequestAdapter.SendAsync<Domain>(requestInfo, Domain.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update domain
+        /// Update the properties of domain object.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -190,7 +190,7 @@ namespace Microsoft.Graph.Domains.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get domain</summary>
+        /// <summary>Retrieve the properties and relationships of domain object.</summary>
         public class DomainItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

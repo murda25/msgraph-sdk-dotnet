@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class Approval : Entity, IParsable {
         /// <summary>Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.</summary>
-        public List<ApprovalStage> Stages { get; set; }
+        public List<ApprovalStage> Stages {
+            get { return BackingStore?.Get<List<ApprovalStage>>(nameof(Stages)); }
+            set { BackingStore?.Set(nameof(Stages), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

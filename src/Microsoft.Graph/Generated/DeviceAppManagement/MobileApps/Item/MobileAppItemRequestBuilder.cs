@@ -1,6 +1,8 @@
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assign;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Categories;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.ManagedMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.MobileLobApp;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -25,6 +27,14 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
         /// <summary>The categories property</summary>
         public CategoriesRequestBuilder Categories { get =>
             new CategoriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The managedMobileLobApp property</summary>
+        public ManagedMobileLobAppRequestBuilder ManagedMobileLobApp { get =>
+            new ManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mobileLobApp property</summary>
+        public MobileLobAppRequestBuilder MobileLobApp { get =>
+            new MobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

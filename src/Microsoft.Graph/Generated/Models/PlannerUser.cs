@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class PlannerUser : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
-        public List<PlannerPlan> Plans { get; set; }
+        public List<PlannerPlan> Plans {
+            get { return BackingStore?.Get<List<PlannerPlan>>(nameof(Plans)); }
+            set { BackingStore?.Set(nameof(Plans), value); }
+        }
         /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
-        public List<PlannerTask> Tasks { get; set; }
+        public List<PlannerTask> Tasks {
+            get { return BackingStore?.Get<List<PlannerTask>>(nameof(Tasks)); }
+            set { BackingStore?.Set(nameof(Tasks), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

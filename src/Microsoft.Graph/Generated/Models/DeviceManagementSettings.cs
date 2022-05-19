@@ -1,22 +1,38 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class DeviceManagementSettings : IAdditionalDataHolder, IParsable {
+    public class DeviceManagementSettings : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>The number of days a device is allowed to go without checking in to remain compliant.</summary>
-        public int? DeviceComplianceCheckinThresholdDays { get; set; }
+        public int? DeviceComplianceCheckinThresholdDays {
+            get { return BackingStore?.Get<int?>(nameof(DeviceComplianceCheckinThresholdDays)); }
+            set { BackingStore?.Set(nameof(DeviceComplianceCheckinThresholdDays), value); }
+        }
         /// <summary>Is feature enabled or not for scheduled action for rule.</summary>
-        public bool? IsScheduledActionEnabled { get; set; }
+        public bool? IsScheduledActionEnabled {
+            get { return BackingStore?.Get<bool?>(nameof(IsScheduledActionEnabled)); }
+            set { BackingStore?.Set(nameof(IsScheduledActionEnabled), value); }
+        }
         /// <summary>Device should be noncompliant when there is no compliance policy targeted when this is true</summary>
-        public bool? SecureByDefault { get; set; }
+        public bool? SecureByDefault {
+            get { return BackingStore?.Get<bool?>(nameof(SecureByDefault)); }
+            set { BackingStore?.Set(nameof(SecureByDefault), value); }
+        }
         /// <summary>
         /// Instantiates a new deviceManagementSettings and sets the default values.
         /// </summary>
         public DeviceManagementSettings() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

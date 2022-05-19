@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public enum ActionState {
         /// <summary>Not a valid action state</summary>
         None,

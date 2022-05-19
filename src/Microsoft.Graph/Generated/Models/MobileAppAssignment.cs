@@ -4,13 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>A class containing the properties used for Group Assignment of a Mobile App.</summary>
     public class MobileAppAssignment : Entity, IParsable {
         /// <summary>The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.</summary>
-        public InstallIntent? Intent { get; set; }
+        public InstallIntent? Intent {
+            get { return BackingStore?.Get<InstallIntent?>(nameof(Intent)); }
+            set { BackingStore?.Set(nameof(Intent), value); }
+        }
         /// <summary>The settings for target assignment defined by the admin.</summary>
-        public MobileAppAssignmentSettings Settings { get; set; }
+        public MobileAppAssignmentSettings Settings {
+            get { return BackingStore?.Get<MobileAppAssignmentSettings>(nameof(Settings)); }
+            set { BackingStore?.Set(nameof(Settings), value); }
+        }
         /// <summary>The target group assignment defined by the admin.</summary>
-        public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+        public DeviceAndAppManagementAssignmentTarget Target {
+            get { return BackingStore?.Get<DeviceAndAppManagementAssignmentTarget>(nameof(Target)); }
+            set { BackingStore?.Set(nameof(Target), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

@@ -1,29 +1,54 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Device operating system summary.</summary>
-    public class DeviceOperatingSystemSummary : IAdditionalDataHolder, IParsable {
+    public class DeviceOperatingSystemSummary : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
         /// <summary>Number of android device count.</summary>
-        public int? AndroidCount { get; set; }
+        public int? AndroidCount {
+            get { return BackingStore?.Get<int?>(nameof(AndroidCount)); }
+            set { BackingStore?.Set(nameof(AndroidCount), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>Number of iOS device count.</summary>
-        public int? IosCount { get; set; }
+        public int? IosCount {
+            get { return BackingStore?.Get<int?>(nameof(IosCount)); }
+            set { BackingStore?.Set(nameof(IosCount), value); }
+        }
         /// <summary>Number of Mac OS X device count.</summary>
-        public int? MacOSCount { get; set; }
+        public int? MacOSCount {
+            get { return BackingStore?.Get<int?>(nameof(MacOSCount)); }
+            set { BackingStore?.Set(nameof(MacOSCount), value); }
+        }
         /// <summary>Number of unknown device count.</summary>
-        public int? UnknownCount { get; set; }
+        public int? UnknownCount {
+            get { return BackingStore?.Get<int?>(nameof(UnknownCount)); }
+            set { BackingStore?.Set(nameof(UnknownCount), value); }
+        }
         /// <summary>Number of Windows device count.</summary>
-        public int? WindowsCount { get; set; }
+        public int? WindowsCount {
+            get { return BackingStore?.Get<int?>(nameof(WindowsCount)); }
+            set { BackingStore?.Set(nameof(WindowsCount), value); }
+        }
         /// <summary>Number of Windows mobile device count.</summary>
-        public int? WindowsMobileCount { get; set; }
+        public int? WindowsMobileCount {
+            get { return BackingStore?.Get<int?>(nameof(WindowsMobileCount)); }
+            set { BackingStore?.Set(nameof(WindowsMobileCount), value); }
+        }
         /// <summary>
         /// Instantiates a new deviceOperatingSystemSummary and sets the default values.
         /// </summary>
         public DeviceOperatingSystemSummary() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

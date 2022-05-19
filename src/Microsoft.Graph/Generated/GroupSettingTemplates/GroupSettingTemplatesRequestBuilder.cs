@@ -72,7 +72,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// List groupSettingTemplates
+        /// Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<GroupSettingTemplatesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -112,7 +112,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             return requestInfo;
         }
         /// <summary>
-        /// List groupSettingTemplates
+        /// Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             };
             return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>List groupSettingTemplates</summary>
+        /// <summary>Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.</summary>
         public class GroupSettingTemplatesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

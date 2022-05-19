@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class PlannerBucketTaskBoardTaskFormat : Entity, IParsable {
         /// <summary>Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.</summary>
-        public string OrderHint { get; set; }
+        public string OrderHint {
+            get { return BackingStore?.Get<string>(nameof(OrderHint)); }
+            set { BackingStore?.Set(nameof(OrderHint), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

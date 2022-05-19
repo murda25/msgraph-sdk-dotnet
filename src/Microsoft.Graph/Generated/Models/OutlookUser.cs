@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class OutlookUser : Entity, IParsable {
         /// <summary>A list of categories defined for the user.</summary>
-        public List<OutlookCategory> MasterCategories { get; set; }
+        public List<OutlookCategory> MasterCategories {
+            get { return BackingStore?.Get<List<OutlookCategory>>(nameof(MasterCategories)); }
+            set { BackingStore?.Set(nameof(MasterCategories), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

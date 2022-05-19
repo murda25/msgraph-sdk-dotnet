@@ -1,18 +1,28 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class ConditionalAccessDevices : IAdditionalDataHolder, IParsable {
+    public class ConditionalAccessDevices : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.</summary>
-        public ConditionalAccessFilter DeviceFilter { get; set; }
+        public ConditionalAccessFilter DeviceFilter {
+            get { return BackingStore?.Get<ConditionalAccessFilter>(nameof(DeviceFilter)); }
+            set { BackingStore?.Set(nameof(DeviceFilter), value); }
+        }
         /// <summary>
         /// Instantiates a new conditionalAccessDevices and sets the default values.
         /// </summary>
         public ConditionalAccessDevices() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

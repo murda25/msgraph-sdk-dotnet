@@ -1,32 +1,63 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class AccessPackageApprovalStage : IAdditionalDataHolder, IParsable {
+    public class AccessPackageApprovalStage : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>The number of days that a request can be pending a response before it is automatically denied.</summary>
-        public TimeSpan? DurationBeforeAutomaticDenial { get; set; }
+        public TimeSpan? DurationBeforeAutomaticDenial {
+            get { return BackingStore?.Get<TimeSpan?>(nameof(DurationBeforeAutomaticDenial)); }
+            set { BackingStore?.Set(nameof(DurationBeforeAutomaticDenial), value); }
+        }
         /// <summary>If escalation is required, the time a request can be pending a response from a primary approver.</summary>
-        public TimeSpan? DurationBeforeEscalation { get; set; }
+        public TimeSpan? DurationBeforeEscalation {
+            get { return BackingStore?.Get<TimeSpan?>(nameof(DurationBeforeEscalation)); }
+            set { BackingStore?.Set(nameof(DurationBeforeEscalation), value); }
+        }
         /// <summary>If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.</summary>
-        public List<SubjectSet> EscalationApprovers { get; set; }
+        public List<SubjectSet> EscalationApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>>(nameof(EscalationApprovers)); }
+            set { BackingStore?.Set(nameof(EscalationApprovers), value); }
+        }
         /// <summary>The subjects, typically users, who are the fallback escalation approvers.</summary>
-        public List<SubjectSet> FallbackEscalationApprovers { get; set; }
+        public List<SubjectSet> FallbackEscalationApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>>(nameof(FallbackEscalationApprovers)); }
+            set { BackingStore?.Set(nameof(FallbackEscalationApprovers), value); }
+        }
         /// <summary>The subjects, typically users, who are the fallback primary approvers.</summary>
-        public List<SubjectSet> FallbackPrimaryApprovers { get; set; }
+        public List<SubjectSet> FallbackPrimaryApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>>(nameof(FallbackPrimaryApprovers)); }
+            set { BackingStore?.Set(nameof(FallbackPrimaryApprovers), value); }
+        }
         /// <summary>Indicates whether the approver is required to provide a justification for approving a request.</summary>
-        public bool? IsApproverJustificationRequired { get; set; }
+        public bool? IsApproverJustificationRequired {
+            get { return BackingStore?.Get<bool?>(nameof(IsApproverJustificationRequired)); }
+            set { BackingStore?.Set(nameof(IsApproverJustificationRequired), value); }
+        }
         /// <summary>If true, then one or more escalationApprovers are configured in this approval stage.</summary>
-        public bool? IsEscalationEnabled { get; set; }
+        public bool? IsEscalationEnabled {
+            get { return BackingStore?.Get<bool?>(nameof(IsEscalationEnabled)); }
+            set { BackingStore?.Set(nameof(IsEscalationEnabled), value); }
+        }
         /// <summary>The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.</summary>
-        public List<SubjectSet> PrimaryApprovers { get; set; }
+        public List<SubjectSet> PrimaryApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>>(nameof(PrimaryApprovers)); }
+            set { BackingStore?.Set(nameof(PrimaryApprovers), value); }
+        }
         /// <summary>
         /// Instantiates a new accessPackageApprovalStage and sets the default values.
         /// </summary>
         public AccessPackageApprovalStage() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

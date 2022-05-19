@@ -4,21 +4,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class AccessPackageAssignment : Entity, IParsable {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
-        public Microsoft.Graph.Models.AccessPackage AccessPackage { get; set; }
+        public Microsoft.Graph.Models.AccessPackage AccessPackage {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>(nameof(AccessPackage)); }
+            set { BackingStore?.Set(nameof(AccessPackage), value); }
+        }
         /// <summary>Read-only. Supports $filter (eq) on the id property and $expand query parameters.</summary>
-        public AccessPackageAssignmentPolicy AssignmentPolicy { get; set; }
+        public AccessPackageAssignmentPolicy AssignmentPolicy {
+            get { return BackingStore?.Get<AccessPackageAssignmentPolicy>(nameof(AssignmentPolicy)); }
+            set { BackingStore?.Set(nameof(AssignmentPolicy), value); }
+        }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
-        public DateTimeOffset? ExpiredDateTime { get; set; }
+        public DateTimeOffset? ExpiredDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(ExpiredDateTime)); }
+            set { BackingStore?.Set(nameof(ExpiredDateTime), value); }
+        }
         /// <summary>When the access assignment is to be in place. Read-only.</summary>
-        public EntitlementManagementSchedule Schedule { get; set; }
+        public EntitlementManagementSchedule Schedule {
+            get { return BackingStore?.Get<EntitlementManagementSchedule>(nameof(Schedule)); }
+            set { BackingStore?.Set(nameof(Schedule), value); }
+        }
         /// <summary>The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq).</summary>
-        public AccessPackageAssignmentState? State { get; set; }
+        public AccessPackageAssignmentState? State {
+            get { return BackingStore?.Get<AccessPackageAssignmentState?>(nameof(State)); }
+            set { BackingStore?.Set(nameof(State), value); }
+        }
         /// <summary>More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.</summary>
-        public string Status { get; set; }
+        public string Status {
+            get { return BackingStore?.Get<string>(nameof(Status)); }
+            set { BackingStore?.Set(nameof(Status), value); }
+        }
         /// <summary>The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.</summary>
-        public AccessPackageSubject Target { get; set; }
+        public AccessPackageSubject Target {
+            get { return BackingStore?.Get<AccessPackageSubject>(nameof(Target)); }
+            set { BackingStore?.Set(nameof(Target), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

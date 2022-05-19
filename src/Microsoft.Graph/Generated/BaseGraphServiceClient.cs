@@ -67,6 +67,7 @@ using Microsoft.Graph.Teamwork;
 using Microsoft.Graph.Users;
 using Microsoft.Graph.Workbooks;
 using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Store;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Text;
 using System;
@@ -162,7 +163,7 @@ namespace Microsoft.Graph {
             new DevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The directory property</summary>
-        public DirectoryRequestBuilder Directory { get =>
+        public DirectoryRequestBuilder DirectoryObject { get =>
             new DirectoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The directoryObjects property</summary>
@@ -357,9 +358,10 @@ namespace Microsoft.Graph {
         }
         /// <summary>
         /// Instantiates a new BaseGraphServiceClient and sets the default values.
+        /// <param name="backingStore">The backing store to use for the models.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public BaseGraphServiceClient(IRequestAdapter requestAdapter) {
+        public BaseGraphServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathParameters = new Dictionary<string, object>();
             UrlTemplate = "{+baseurl}";
@@ -371,6 +373,7 @@ namespace Microsoft.Graph {
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) {
                 RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
             }
+            RequestAdapter.EnableBackingStore(backingStore);
         }
     }
 }

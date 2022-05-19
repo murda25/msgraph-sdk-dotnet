@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Sites {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Search for sites
+        /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SitesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Sites {
             return requestInfo;
         }
         /// <summary>
-        /// Search for sites
+        /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Sites {
             };
             return await RequestAdapter.SendAsync<SiteCollectionResponse>(requestInfo, SiteCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Search for sites</summary>
+        /// <summary>Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.</summary>
         public class SitesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

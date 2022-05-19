@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class UserScopeTeamsAppInstallation : TeamsAppInstallation, IParsable {
         /// <summary>The chat between the user and Teams app.</summary>
-        public Microsoft.Graph.Models.Chat Chat { get; set; }
+        public Microsoft.Graph.Models.Chat Chat {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Chat>(nameof(Chat)); }
+            set { BackingStore?.Set(nameof(Chat), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

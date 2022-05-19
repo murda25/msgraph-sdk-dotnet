@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models.TermStore {
-    /// <summary>Provides operations to manage the drive singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public enum TermGroupScope {
         Global,
         System,

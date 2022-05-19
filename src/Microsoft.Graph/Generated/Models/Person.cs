@@ -4,45 +4,103 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class Person : Entity, IParsable {
         /// <summary>The person&apos;s birthday.</summary>
-        public string Birthday { get; set; }
+        public string Birthday {
+            get { return BackingStore?.Get<string>(nameof(Birthday)); }
+            set { BackingStore?.Set(nameof(Birthday), value); }
+        }
         /// <summary>The name of the person&apos;s company.</summary>
-        public string CompanyName { get; set; }
+        public string CompanyName {
+            get { return BackingStore?.Get<string>(nameof(CompanyName)); }
+            set { BackingStore?.Set(nameof(CompanyName), value); }
+        }
         /// <summary>The person&apos;s department.</summary>
-        public string Department { get; set; }
+        public string Department {
+            get { return BackingStore?.Get<string>(nameof(Department)); }
+            set { BackingStore?.Set(nameof(Department), value); }
+        }
         /// <summary>The person&apos;s display name.</summary>
-        public string DisplayName { get; set; }
+        public string DisplayName {
+            get { return BackingStore?.Get<string>(nameof(DisplayName)); }
+            set { BackingStore?.Set(nameof(DisplayName), value); }
+        }
         /// <summary>The person&apos;s given name.</summary>
-        public string GivenName { get; set; }
+        public string GivenName {
+            get { return BackingStore?.Get<string>(nameof(GivenName)); }
+            set { BackingStore?.Set(nameof(GivenName), value); }
+        }
         /// <summary>The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.</summary>
-        public string ImAddress { get; set; }
+        public string ImAddress {
+            get { return BackingStore?.Get<string>(nameof(ImAddress)); }
+            set { BackingStore?.Set(nameof(ImAddress), value); }
+        }
         /// <summary>true if the user has flagged this person as a favorite.</summary>
-        public bool? IsFavorite { get; set; }
+        public bool? IsFavorite {
+            get { return BackingStore?.Get<bool?>(nameof(IsFavorite)); }
+            set { BackingStore?.Set(nameof(IsFavorite), value); }
+        }
         /// <summary>The person&apos;s job title.</summary>
-        public string JobTitle { get; set; }
+        public string JobTitle {
+            get { return BackingStore?.Get<string>(nameof(JobTitle)); }
+            set { BackingStore?.Set(nameof(JobTitle), value); }
+        }
         /// <summary>The location of the person&apos;s office.</summary>
-        public string OfficeLocation { get; set; }
+        public string OfficeLocation {
+            get { return BackingStore?.Get<string>(nameof(OfficeLocation)); }
+            set { BackingStore?.Set(nameof(OfficeLocation), value); }
+        }
         /// <summary>Free-form notes that the user has taken about this person.</summary>
-        public string PersonNotes { get; set; }
+        public string PersonNotes {
+            get { return BackingStore?.Get<string>(nameof(PersonNotes)); }
+            set { BackingStore?.Set(nameof(PersonNotes), value); }
+        }
         /// <summary>The type of person, for example distribution list.</summary>
-        public Microsoft.Graph.Models.PersonType PersonType { get; set; }
+        public Microsoft.Graph.Models.PersonType PersonType {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.PersonType>(nameof(PersonType)); }
+            set { BackingStore?.Set(nameof(PersonType), value); }
+        }
         /// <summary>The person&apos;s phone numbers.</summary>
-        public List<Phone> Phones { get; set; }
+        public List<Phone> Phones {
+            get { return BackingStore?.Get<List<Phone>>(nameof(Phones)); }
+            set { BackingStore?.Set(nameof(Phones), value); }
+        }
         /// <summary>The person&apos;s addresses.</summary>
-        public List<Location> PostalAddresses { get; set; }
+        public List<Location> PostalAddresses {
+            get { return BackingStore?.Get<List<Location>>(nameof(PostalAddresses)); }
+            set { BackingStore?.Set(nameof(PostalAddresses), value); }
+        }
         /// <summary>The person&apos;s profession.</summary>
-        public string Profession { get; set; }
+        public string Profession {
+            get { return BackingStore?.Get<string>(nameof(Profession)); }
+            set { BackingStore?.Set(nameof(Profession), value); }
+        }
         /// <summary>The person&apos;s email addresses.</summary>
-        public List<ScoredEmailAddress> ScoredEmailAddresses { get; set; }
+        public List<ScoredEmailAddress> ScoredEmailAddresses {
+            get { return BackingStore?.Get<List<ScoredEmailAddress>>(nameof(ScoredEmailAddresses)); }
+            set { BackingStore?.Set(nameof(ScoredEmailAddresses), value); }
+        }
         /// <summary>The person&apos;s surname.</summary>
-        public string Surname { get; set; }
+        public string Surname {
+            get { return BackingStore?.Get<string>(nameof(Surname)); }
+            set { BackingStore?.Set(nameof(Surname), value); }
+        }
         /// <summary>The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person&apos;s email name. The general format is alias@domain.</summary>
-        public string UserPrincipalName { get; set; }
+        public string UserPrincipalName {
+            get { return BackingStore?.Get<string>(nameof(UserPrincipalName)); }
+            set { BackingStore?.Set(nameof(UserPrincipalName), value); }
+        }
         /// <summary>The person&apos;s websites.</summary>
-        public List<Website> Websites { get; set; }
+        public List<Website> Websites {
+            get { return BackingStore?.Get<List<Website>>(nameof(Websites)); }
+            set { BackingStore?.Set(nameof(Websites), value); }
+        }
         /// <summary>The phonetic Japanese name of the person&apos;s company.</summary>
-        public string YomiCompany { get; set; }
+        public string YomiCompany {
+            get { return BackingStore?.Get<string>(nameof(YomiCompany)); }
+            set { BackingStore?.Set(nameof(YomiCompany), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

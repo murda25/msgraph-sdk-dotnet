@@ -1,6 +1,9 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.RegisteredDevices.AppRoleAssignment;
 using Microsoft.Graph.Users.Item.RegisteredDevices.Count;
+using Microsoft.Graph.Users.Item.RegisteredDevices.Device;
+using Microsoft.Graph.Users.Item.RegisteredDevices.Endpoint;
 using Microsoft.Graph.Users.Item.RegisteredDevices.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,9 +16,21 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.RegisteredDevices {
     /// <summary>Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.</summary>
     public class RegisteredDevicesRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The device property</summary>
+        public DeviceRequestBuilder Device { get =>
+            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

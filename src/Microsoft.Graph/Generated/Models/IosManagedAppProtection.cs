@@ -4,21 +4,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device</summary>
     public class IosManagedAppProtection : TargetedManagedAppProtection, IParsable {
         /// <summary>Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.</summary>
-        public ManagedAppDataEncryptionType? AppDataEncryptionType { get; set; }
+        public ManagedAppDataEncryptionType? AppDataEncryptionType {
+            get { return BackingStore?.Get<ManagedAppDataEncryptionType?>(nameof(AppDataEncryptionType)); }
+            set { BackingStore?.Set(nameof(AppDataEncryptionType), value); }
+        }
         /// <summary>List of apps to which the policy is deployed.</summary>
-        public List<ManagedMobileApp> Apps { get; set; }
+        public List<ManagedMobileApp> Apps {
+            get { return BackingStore?.Get<List<ManagedMobileApp>>(nameof(Apps)); }
+            set { BackingStore?.Set(nameof(Apps), value); }
+        }
         /// <summary>A custom browser protocol to open weblink on iOS.</summary>
-        public string CustomBrowserProtocol { get; set; }
+        public string CustomBrowserProtocol {
+            get { return BackingStore?.Get<string>(nameof(CustomBrowserProtocol)); }
+            set { BackingStore?.Set(nameof(CustomBrowserProtocol), value); }
+        }
         /// <summary>Count of apps to which the current policy is deployed.</summary>
-        public int? DeployedAppCount { get; set; }
+        public int? DeployedAppCount {
+            get { return BackingStore?.Get<int?>(nameof(DeployedAppCount)); }
+            set { BackingStore?.Set(nameof(DeployedAppCount), value); }
+        }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
-        public ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
+        public ManagedAppPolicyDeploymentSummary DeploymentSummary {
+            get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary>(nameof(DeploymentSummary)); }
+            set { BackingStore?.Set(nameof(DeploymentSummary), value); }
+        }
         /// <summary>Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.</summary>
-        public bool? FaceIdBlocked { get; set; }
+        public bool? FaceIdBlocked {
+            get { return BackingStore?.Get<bool?>(nameof(FaceIdBlocked)); }
+            set { BackingStore?.Set(nameof(FaceIdBlocked), value); }
+        }
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
-        public string MinimumRequiredSdkVersion { get; set; }
+        public string MinimumRequiredSdkVersion {
+            get { return BackingStore?.Get<string>(nameof(MinimumRequiredSdkVersion)); }
+            set { BackingStore?.Set(nameof(MinimumRequiredSdkVersion), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

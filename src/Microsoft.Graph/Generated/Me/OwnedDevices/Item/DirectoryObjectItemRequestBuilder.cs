@@ -1,3 +1,6 @@
+using Microsoft.Graph.Me.OwnedDevices.Item.AppRoleAssignment;
+using Microsoft.Graph.Me.OwnedDevices.Item.Device;
+using Microsoft.Graph.Me.OwnedDevices.Item.Endpoint;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -11,6 +14,18 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.OwnedDevices.Item {
     /// <summary>Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.</summary>
     public class DirectoryObjectItemRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The device property</summary>
+        public DeviceRequestBuilder Device { get =>
+            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>

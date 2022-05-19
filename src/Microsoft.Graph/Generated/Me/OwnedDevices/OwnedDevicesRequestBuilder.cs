@@ -1,4 +1,7 @@
+using Microsoft.Graph.Me.OwnedDevices.AppRoleAssignment;
 using Microsoft.Graph.Me.OwnedDevices.Count;
+using Microsoft.Graph.Me.OwnedDevices.Device;
+using Microsoft.Graph.Me.OwnedDevices.Endpoint;
 using Microsoft.Graph.Me.OwnedDevices.Item;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -13,9 +16,21 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.OwnedDevices {
     /// <summary>Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.</summary>
     public class OwnedDevicesRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The device property</summary>
+        public DeviceRequestBuilder Device { get =>
+            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

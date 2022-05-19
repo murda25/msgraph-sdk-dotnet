@@ -4,15 +4,28 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
-        public string AppDisplayName { get; set; }
+        public string AppDisplayName {
+            get { return BackingStore?.Get<string>(nameof(AppDisplayName)); }
+            set { BackingStore?.Set(nameof(AppDisplayName), value); }
+        }
         /// <summary>The identifier of the application. Required. Supports $filter (eq only) and $orderby.</summary>
-        public string AppId { get; set; }
+        public string AppId {
+            get { return BackingStore?.Get<string>(nameof(AppId)); }
+            set { BackingStore?.Set(nameof(AppId), value); }
+        }
         /// <summary>A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.</summary>
-        public List<AppConsentRequestScope> PendingScopes { get; set; }
+        public List<AppConsentRequestScope> PendingScopes {
+            get { return BackingStore?.Get<List<AppConsentRequestScope>>(nameof(PendingScopes)); }
+            set { BackingStore?.Set(nameof(PendingScopes), value); }
+        }
         /// <summary>A list of pending user consent requests.</summary>
-        public List<UserConsentRequest> UserConsentRequests { get; set; }
+        public List<UserConsentRequest> UserConsentRequests {
+            get { return BackingStore?.Get<List<UserConsentRequest>>(nameof(UserConsentRequests)); }
+            set { BackingStore?.Set(nameof(UserConsentRequests), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

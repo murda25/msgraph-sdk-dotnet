@@ -7,7 +7,10 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the teamwork singleton.</summary>
     public class Teamwork : Entity, IParsable {
         /// <summary>A workforce integration with shifts.</summary>
-        public List<WorkforceIntegration> WorkforceIntegrations { get; set; }
+        public List<WorkforceIntegration> WorkforceIntegrations {
+            get { return BackingStore?.Get<List<WorkforceIntegration>>(nameof(WorkforceIntegrations)); }
+            set { BackingStore?.Set(nameof(WorkforceIntegrations), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
