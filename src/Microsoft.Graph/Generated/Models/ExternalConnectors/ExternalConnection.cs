@@ -4,23 +4,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
+    /// <summary>Provides operations to manage the collection of externalConnection entities.</summary>
     public class ExternalConnection : Entity, IParsable {
         /// <summary>Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.</summary>
-        public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration { get; set; }
+        public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Configuration>(nameof(Configuration)); }
+            set { BackingStore?.Set(nameof(Configuration), value); }
+        }
         /// <summary>Description of the connection displayed in the Microsoft 365 admin center. Optional.</summary>
-        public string Description { get; set; }
+        public string Description {
+            get { return BackingStore?.Get<string>(nameof(Description)); }
+            set { BackingStore?.Set(nameof(Description), value); }
+        }
         /// <summary>Read-only. Nullable.</summary>
-        public List<ExternalGroup> Groups { get; set; }
+        public List<ExternalGroup> Groups {
+            get { return BackingStore?.Get<List<ExternalGroup>>(nameof(Groups)); }
+            set { BackingStore?.Set(nameof(Groups), value); }
+        }
         /// <summary>Read-only. Nullable.</summary>
-        public List<ExternalItem> Items { get; set; }
+        public List<ExternalItem> Items {
+            get { return BackingStore?.Get<List<ExternalItem>>(nameof(Items)); }
+            set { BackingStore?.Set(nameof(Items), value); }
+        }
         /// <summary>The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.</summary>
-        public string Name { get; set; }
+        public string Name {
+            get { return BackingStore?.Get<string>(nameof(Name)); }
+            set { BackingStore?.Set(nameof(Name), value); }
+        }
         /// <summary>Read-only. Nullable.</summary>
-        public List<ConnectionOperation> Operations { get; set; }
+        public List<ConnectionOperation> Operations {
+            get { return BackingStore?.Get<List<ConnectionOperation>>(nameof(Operations)); }
+            set { BackingStore?.Set(nameof(Operations), value); }
+        }
         /// <summary>Read-only. Nullable.</summary>
-        public Microsoft.Graph.Models.ExternalConnectors.Schema Schema { get; set; }
+        public Microsoft.Graph.Models.ExternalConnectors.Schema Schema {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema>(nameof(Schema)); }
+            set { BackingStore?.Set(nameof(Schema), value); }
+        }
         /// <summary>Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.</summary>
-        public ConnectionState? State { get; set; }
+        public ConnectionState? State {
+            get { return BackingStore?.Get<ConnectionState?>(nameof(State)); }
+            set { BackingStore?.Set(nameof(State), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

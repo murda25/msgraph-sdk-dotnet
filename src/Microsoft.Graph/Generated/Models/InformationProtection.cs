@@ -7,9 +7,15 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the informationProtection singleton.</summary>
     public class InformationProtection : Entity, IParsable {
         /// <summary>The bitlocker property</summary>
-        public Microsoft.Graph.Models.Bitlocker Bitlocker { get; set; }
+        public Microsoft.Graph.Models.Bitlocker Bitlocker {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Bitlocker>(nameof(Bitlocker)); }
+            set { BackingStore?.Set(nameof(Bitlocker), value); }
+        }
         /// <summary>The threatAssessmentRequests property</summary>
-        public List<ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
+        public List<ThreatAssessmentRequest> ThreatAssessmentRequests {
+            get { return BackingStore?.Get<List<ThreatAssessmentRequest>>(nameof(ThreatAssessmentRequests)); }
+            set { BackingStore?.Set(nameof(ThreatAssessmentRequests), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

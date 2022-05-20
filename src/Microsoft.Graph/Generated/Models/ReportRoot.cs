@@ -7,13 +7,25 @@ namespace Microsoft.Graph.Models {
     /// <summary>The resource that represents an instance of Enrollment Failure Reports.</summary>
     public class ReportRoot : Entity, IParsable {
         /// <summary>The dailyPrintUsageByPrinter property</summary>
-        public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
+        public List<PrintUsageByPrinter> DailyPrintUsageByPrinter {
+            get { return BackingStore?.Get<List<PrintUsageByPrinter>>(nameof(DailyPrintUsageByPrinter)); }
+            set { BackingStore?.Set(nameof(DailyPrintUsageByPrinter), value); }
+        }
         /// <summary>The dailyPrintUsageByUser property</summary>
-        public List<PrintUsageByUser> DailyPrintUsageByUser { get; set; }
+        public List<PrintUsageByUser> DailyPrintUsageByUser {
+            get { return BackingStore?.Get<List<PrintUsageByUser>>(nameof(DailyPrintUsageByUser)); }
+            set { BackingStore?.Set(nameof(DailyPrintUsageByUser), value); }
+        }
         /// <summary>The monthlyPrintUsageByPrinter property</summary>
-        public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter { get; set; }
+        public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter {
+            get { return BackingStore?.Get<List<PrintUsageByPrinter>>(nameof(MonthlyPrintUsageByPrinter)); }
+            set { BackingStore?.Set(nameof(MonthlyPrintUsageByPrinter), value); }
+        }
         /// <summary>The monthlyPrintUsageByUser property</summary>
-        public List<PrintUsageByUser> MonthlyPrintUsageByUser { get; set; }
+        public List<PrintUsageByUser> MonthlyPrintUsageByUser {
+            get { return BackingStore?.Get<List<PrintUsageByUser>>(nameof(MonthlyPrintUsageByUser)); }
+            set { BackingStore?.Set(nameof(MonthlyPrintUsageByUser), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

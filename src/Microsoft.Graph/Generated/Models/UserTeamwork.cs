@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class UserTeamwork : Entity, IParsable {
         /// <summary>The apps installed in the personal scope of this user.</summary>
-        public List<UserScopeTeamsAppInstallation> InstalledApps { get; set; }
+        public List<UserScopeTeamsAppInstallation> InstalledApps {
+            get { return BackingStore?.Get<List<UserScopeTeamsAppInstallation>>(nameof(InstalledApps)); }
+            set { BackingStore?.Set(nameof(InstalledApps), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

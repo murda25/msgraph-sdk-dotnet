@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceAppManagement singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public enum ComplianceStatus {
         Unknown,
         NotApplicable,

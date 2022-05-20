@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Singleton entity that acts as a container for all reports functionality.</summary>
     public class DeviceManagementReports : Entity, IParsable {
         /// <summary>Entity representing a job to export a report</summary>
-        public List<DeviceManagementExportJob> ExportJobs { get; set; }
+        public List<DeviceManagementExportJob> ExportJobs {
+            get { return BackingStore?.Get<List<DeviceManagementExportJob>>(nameof(ExportJobs)); }
+            set { BackingStore?.Set(nameof(ExportJobs), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

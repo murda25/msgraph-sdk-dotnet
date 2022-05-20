@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to call the recordResponse method.</summary>
     public class RecordOperation : CommsOperation, IParsable {
         /// <summary>The access token required to retrieve the recording.</summary>
-        public string RecordingAccessToken { get; set; }
+        public string RecordingAccessToken {
+            get { return BackingStore?.Get<string>(nameof(RecordingAccessToken)); }
+            set { BackingStore?.Set(nameof(RecordingAccessToken), value); }
+        }
         /// <summary>The location where the recording is located.</summary>
-        public string RecordingLocation { get; set; }
+        public string RecordingLocation {
+            get { return BackingStore?.Get<string>(nameof(RecordingLocation)); }
+            set { BackingStore?.Set(nameof(RecordingLocation), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

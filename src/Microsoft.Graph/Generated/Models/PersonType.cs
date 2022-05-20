@@ -1,20 +1,33 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class PersonType : IAdditionalDataHolder, IParsable {
+    public class PersonType : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>The type of data source, such as Person.</summary>
-        public string Class { get; set; }
+        public string Class {
+            get { return BackingStore?.Get<string>(nameof(Class)); }
+            set { BackingStore?.Set(nameof(Class), value); }
+        }
         /// <summary>The secondary type of data source, such as OrganizationUser.</summary>
-        public string Subclass { get; set; }
+        public string Subclass {
+            get { return BackingStore?.Get<string>(nameof(Subclass)); }
+            set { BackingStore?.Set(nameof(Subclass), value); }
+        }
         /// <summary>
         /// Instantiates a new personType and sets the default values.
         /// </summary>
         public PersonType() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

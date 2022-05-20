@@ -4,13 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class OfficeGraphInsights : Entity, IParsable {
         /// <summary>Access this property from the derived type itemInsights.</summary>
-        public List<SharedInsight> Shared { get; set; }
+        public List<SharedInsight> Shared {
+            get { return BackingStore?.Get<List<SharedInsight>>(nameof(Shared)); }
+            set { BackingStore?.Set(nameof(Shared), value); }
+        }
         /// <summary>Access this property from the derived type itemInsights.</summary>
-        public List<Microsoft.Graph.Models.Trending> Trending { get; set; }
+        public List<Microsoft.Graph.Models.Trending> Trending {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.Trending>>(nameof(Trending)); }
+            set { BackingStore?.Set(nameof(Trending), value); }
+        }
         /// <summary>Access this property from the derived type itemInsights.</summary>
-        public List<UsedInsight> Used { get; set; }
+        public List<UsedInsight> Used {
+            get { return BackingStore?.Get<List<UsedInsight>>(nameof(Used)); }
+            set { BackingStore?.Set(nameof(Used), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

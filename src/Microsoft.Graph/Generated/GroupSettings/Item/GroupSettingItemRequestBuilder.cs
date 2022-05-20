@@ -45,7 +45,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete a group setting
+        /// Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<GroupSettingItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -63,7 +63,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get groupSetting
+        /// Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<GroupSettingItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update groupSetting
+        /// Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -103,7 +103,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete a group setting
+        /// Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -117,7 +117,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get groupSetting
+        /// Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -131,7 +131,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update groupSetting
+        /// Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -160,7 +160,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get groupSetting</summary>
+        /// <summary>Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.</summary>
         public class GroupSettingItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

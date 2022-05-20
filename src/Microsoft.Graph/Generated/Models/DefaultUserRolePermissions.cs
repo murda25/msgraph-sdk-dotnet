@@ -1,24 +1,43 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class DefaultUserRolePermissions : IAdditionalDataHolder, IParsable {
+    public class DefaultUserRolePermissions : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
         /// <summary>Indicates whether the default user role can create applications.</summary>
-        public bool? AllowedToCreateApps { get; set; }
+        public bool? AllowedToCreateApps {
+            get { return BackingStore?.Get<bool?>(nameof(AllowedToCreateApps)); }
+            set { BackingStore?.Set(nameof(AllowedToCreateApps), value); }
+        }
         /// <summary>Indicates whether the default user role can create security groups.</summary>
-        public bool? AllowedToCreateSecurityGroups { get; set; }
+        public bool? AllowedToCreateSecurityGroups {
+            get { return BackingStore?.Get<bool?>(nameof(AllowedToCreateSecurityGroups)); }
+            set { BackingStore?.Set(nameof(AllowedToCreateSecurityGroups), value); }
+        }
         /// <summary>Indicates whether the default user role can read other users.</summary>
-        public bool? AllowedToReadOtherUsers { get; set; }
+        public bool? AllowedToReadOtherUsers {
+            get { return BackingStore?.Get<bool?>(nameof(AllowedToReadOtherUsers)); }
+            set { BackingStore?.Set(nameof(AllowedToReadOtherUsers), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.</summary>
-        public List<string> PermissionGrantPoliciesAssigned { get; set; }
+        public List<string> PermissionGrantPoliciesAssigned {
+            get { return BackingStore?.Get<List<string>>(nameof(PermissionGrantPoliciesAssigned)); }
+            set { BackingStore?.Set(nameof(PermissionGrantPoliciesAssigned), value); }
+        }
         /// <summary>
         /// Instantiates a new defaultUserRolePermissions and sets the default values.
         /// </summary>
         public DefaultUserRolePermissions() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

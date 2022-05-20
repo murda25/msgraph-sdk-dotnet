@@ -5,45 +5,103 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class Site : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place in this site.</summary>
-        public ItemAnalytics Analytics { get; set; }
+        public ItemAnalytics Analytics {
+            get { return BackingStore?.Get<ItemAnalytics>(nameof(Analytics)); }
+            set { BackingStore?.Set(nameof(Analytics), value); }
+        }
         /// <summary>The collection of column definitions reusable across lists under this site.</summary>
-        public List<ColumnDefinition> Columns { get; set; }
+        public List<ColumnDefinition> Columns {
+            get { return BackingStore?.Get<List<ColumnDefinition>>(nameof(Columns)); }
+            set { BackingStore?.Set(nameof(Columns), value); }
+        }
         /// <summary>The collection of content types defined for this site.</summary>
-        public List<ContentType> ContentTypes { get; set; }
+        public List<ContentType> ContentTypes {
+            get { return BackingStore?.Get<List<ContentType>>(nameof(ContentTypes)); }
+            set { BackingStore?.Set(nameof(ContentTypes), value); }
+        }
         /// <summary>The full title for the site. Read-only.</summary>
-        public string DisplayName { get; set; }
+        public string DisplayName {
+            get { return BackingStore?.Get<string>(nameof(DisplayName)); }
+            set { BackingStore?.Set(nameof(DisplayName), value); }
+        }
         /// <summary>The default drive (document library) for this site.</summary>
-        public Microsoft.Graph.Models.Drive Drive { get; set; }
+        public Microsoft.Graph.Models.Drive Drive {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Drive>(nameof(Drive)); }
+            set { BackingStore?.Set(nameof(Drive), value); }
+        }
         /// <summary>The collection of drives (document libraries) under this site.</summary>
-        public List<Microsoft.Graph.Models.Drive> Drives { get; set; }
+        public List<Microsoft.Graph.Models.Drive> Drives {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.Drive>>(nameof(Drives)); }
+            set { BackingStore?.Set(nameof(Drives), value); }
+        }
         /// <summary>The error property</summary>
-        public PublicError Error { get; set; }
+        public PublicError Error {
+            get { return BackingStore?.Get<PublicError>(nameof(Error)); }
+            set { BackingStore?.Set(nameof(Error), value); }
+        }
         /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
-        public List<ColumnDefinition> ExternalColumns { get; set; }
+        public List<ColumnDefinition> ExternalColumns {
+            get { return BackingStore?.Get<List<ColumnDefinition>>(nameof(ExternalColumns)); }
+            set { BackingStore?.Set(nameof(ExternalColumns), value); }
+        }
         /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
-        public List<BaseItem> Items { get; set; }
+        public List<BaseItem> Items {
+            get { return BackingStore?.Get<List<BaseItem>>(nameof(Items)); }
+            set { BackingStore?.Set(nameof(Items), value); }
+        }
         /// <summary>The collection of lists under this site.</summary>
-        public List<List> Lists { get; set; }
+        public List<List> Lists {
+            get { return BackingStore?.Get<List<List>>(nameof(Lists)); }
+            set { BackingStore?.Set(nameof(Lists), value); }
+        }
         /// <summary>Calls the OneNote service for notebook related operations.</summary>
-        public Microsoft.Graph.Models.Onenote Onenote { get; set; }
+        public Microsoft.Graph.Models.Onenote Onenote {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>(nameof(Onenote)); }
+            set { BackingStore?.Set(nameof(Onenote), value); }
+        }
         /// <summary>The collection of long running operations for the site.</summary>
-        public List<RichLongRunningOperation> Operations { get; set; }
+        public List<RichLongRunningOperation> Operations {
+            get { return BackingStore?.Get<List<RichLongRunningOperation>>(nameof(Operations)); }
+            set { BackingStore?.Set(nameof(Operations), value); }
+        }
         /// <summary>The permissions associated with the site. Nullable.</summary>
-        public List<Permission> Permissions { get; set; }
+        public List<Permission> Permissions {
+            get { return BackingStore?.Get<List<Permission>>(nameof(Permissions)); }
+            set { BackingStore?.Set(nameof(Permissions), value); }
+        }
         /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
-        public Microsoft.Graph.Models.Root Root { get; set; }
+        public Microsoft.Graph.Models.Root Root {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Root>(nameof(Root)); }
+            set { BackingStore?.Set(nameof(Root), value); }
+        }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
-        public Microsoft.Graph.Models.SharepointIds SharepointIds { get; set; }
+        public Microsoft.Graph.Models.SharepointIds SharepointIds {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds>(nameof(SharepointIds)); }
+            set { BackingStore?.Set(nameof(SharepointIds), value); }
+        }
         /// <summary>Provides details about the site&apos;s site collection. Available only on the root site. Read-only.</summary>
-        public Microsoft.Graph.Models.SiteCollection SiteCollection { get; set; }
+        public Microsoft.Graph.Models.SiteCollection SiteCollection {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SiteCollection>(nameof(SiteCollection)); }
+            set { BackingStore?.Set(nameof(SiteCollection), value); }
+        }
         /// <summary>The collection of the sub-sites under this site.</summary>
-        public List<Site> Sites { get; set; }
+        public List<Site> Sites {
+            get { return BackingStore?.Get<List<Site>>(nameof(Sites)); }
+            set { BackingStore?.Set(nameof(Sites), value); }
+        }
         /// <summary>The termStore under this site.</summary>
-        public Store TermStore { get; set; }
+        public Store TermStore {
+            get { return BackingStore?.Get<Store>(nameof(TermStore)); }
+            set { BackingStore?.Set(nameof(TermStore), value); }
+        }
         /// <summary>The collection of termStores under this site.</summary>
-        public List<Store> TermStores { get; set; }
+        public List<Store> TermStores {
+            get { return BackingStore?.Get<List<Store>>(nameof(TermStores)); }
+            set { BackingStore?.Set(nameof(TermStores), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

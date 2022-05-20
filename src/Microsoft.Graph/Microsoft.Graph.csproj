@@ -25,9 +25,11 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.4</VersionSuffix>
+    <VersionSuffix>preview.5</VersionSuffix>
     <PackageReleaseNotes>
-- [Breaking] Request configuration revamp to support [Kiota #1494](https://github.com/microsoft/kiota/issues/1494)
+- [Breaking] Adds support CAE in the authentication provider
+- [Breaking] Generated request parameter objects renamed to include http method name
+
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -52,7 +54,7 @@
     <EmbeddedResource Include="Properties\Graph.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.5" />
+    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.6" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>

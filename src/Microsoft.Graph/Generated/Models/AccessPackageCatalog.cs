@@ -4,23 +4,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class AccessPackageCatalog : Entity, IParsable {
         /// <summary>The access packages in this catalog. Read-only. Nullable. Supports $expand.</summary>
-        public List<AccessPackage> AccessPackages { get; set; }
+        public List<AccessPackage> AccessPackages {
+            get { return BackingStore?.Get<List<AccessPackage>>(nameof(AccessPackages)); }
+            set { BackingStore?.Set(nameof(AccessPackages), value); }
+        }
         /// <summary>One of UserManaged or ServiceDefault.</summary>
-        public AccessPackageCatalogType? CatalogType { get; set; }
+        public AccessPackageCatalogType? CatalogType {
+            get { return BackingStore?.Get<AccessPackageCatalogType?>(nameof(CatalogType)); }
+            set { BackingStore?.Set(nameof(CatalogType), value); }
+        }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
+        public DateTimeOffset? CreatedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
+            set { BackingStore?.Set(nameof(CreatedDateTime), value); }
+        }
         /// <summary>The description of the access package catalog.</summary>
-        public string Description { get; set; }
+        public string Description {
+            get { return BackingStore?.Get<string>(nameof(Description)); }
+            set { BackingStore?.Set(nameof(Description), value); }
+        }
         /// <summary>The display name of the access package catalog. Supports $filter (eq, contains).</summary>
-        public string DisplayName { get; set; }
+        public string DisplayName {
+            get { return BackingStore?.Get<string>(nameof(DisplayName)); }
+            set { BackingStore?.Set(nameof(DisplayName), value); }
+        }
         /// <summary>Whether the access packages in this catalog can be requested by users outside of the tenant.</summary>
-        public bool? IsExternallyVisible { get; set; }
+        public bool? IsExternallyVisible {
+            get { return BackingStore?.Get<bool?>(nameof(IsExternallyVisible)); }
+            set { BackingStore?.Set(nameof(IsExternallyVisible), value); }
+        }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
-        public DateTimeOffset? ModifiedDateTime { get; set; }
+        public DateTimeOffset? ModifiedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(ModifiedDateTime)); }
+            set { BackingStore?.Set(nameof(ModifiedDateTime), value); }
+        }
         /// <summary>Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.</summary>
-        public AccessPackageCatalogState? State { get; set; }
+        public AccessPackageCatalogState? State {
+            get { return BackingStore?.Get<AccessPackageCatalogState?>(nameof(State)); }
+            set { BackingStore?.Set(nameof(State), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

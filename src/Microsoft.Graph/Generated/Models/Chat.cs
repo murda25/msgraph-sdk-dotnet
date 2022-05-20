@@ -4,29 +4,63 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class Chat : Entity, IParsable {
         /// <summary>Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</summary>
-        public Microsoft.Graph.Models.ChatType? ChatType { get; set; }
+        public Microsoft.Graph.Models.ChatType? ChatType {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ChatType?>(nameof(ChatType)); }
+            set { BackingStore?.Set(nameof(ChatType), value); }
+        }
         /// <summary>Date and time at which the chat was created. Read-only.</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
+        public DateTimeOffset? CreatedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
+            set { BackingStore?.Set(nameof(CreatedDateTime), value); }
+        }
         /// <summary>A collection of all the apps in the chat. Nullable.</summary>
-        public List<TeamsAppInstallation> InstalledApps { get; set; }
+        public List<TeamsAppInstallation> InstalledApps {
+            get { return BackingStore?.Get<List<TeamsAppInstallation>>(nameof(InstalledApps)); }
+            set { BackingStore?.Set(nameof(InstalledApps), value); }
+        }
         /// <summary>Date and time at which the chat was renamed or list of members were last changed. Read-only.</summary>
-        public DateTimeOffset? LastUpdatedDateTime { get; set; }
+        public DateTimeOffset? LastUpdatedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(LastUpdatedDateTime)); }
+            set { BackingStore?.Set(nameof(LastUpdatedDateTime), value); }
+        }
         /// <summary>A collection of all the members in the chat. Nullable.</summary>
-        public List<ConversationMember> Members { get; set; }
+        public List<ConversationMember> Members {
+            get { return BackingStore?.Get<List<ConversationMember>>(nameof(Members)); }
+            set { BackingStore?.Set(nameof(Members), value); }
+        }
         /// <summary>A collection of all the messages in the chat. Nullable.</summary>
-        public List<ChatMessage> Messages { get; set; }
+        public List<ChatMessage> Messages {
+            get { return BackingStore?.Get<List<ChatMessage>>(nameof(Messages)); }
+            set { BackingStore?.Set(nameof(Messages), value); }
+        }
         /// <summary>Represents details about an online meeting. If the chat isn&apos;t associated with an online meeting, the property is empty. Read-only.</summary>
-        public TeamworkOnlineMeetingInfo OnlineMeetingInfo { get; set; }
+        public TeamworkOnlineMeetingInfo OnlineMeetingInfo {
+            get { return BackingStore?.Get<TeamworkOnlineMeetingInfo>(nameof(OnlineMeetingInfo)); }
+            set { BackingStore?.Set(nameof(OnlineMeetingInfo), value); }
+        }
         /// <summary>A collection of all the tabs in the chat. Nullable.</summary>
-        public List<TeamsTab> Tabs { get; set; }
+        public List<TeamsTab> Tabs {
+            get { return BackingStore?.Get<List<TeamsTab>>(nameof(Tabs)); }
+            set { BackingStore?.Set(nameof(Tabs), value); }
+        }
         /// <summary>The identifier of the tenant in which the chat was created. Read-only.</summary>
-        public string TenantId { get; set; }
+        public string TenantId {
+            get { return BackingStore?.Get<string>(nameof(TenantId)); }
+            set { BackingStore?.Set(nameof(TenantId), value); }
+        }
         /// <summary>(Optional) Subject or topic for the chat. Only available for group chats.</summary>
-        public string Topic { get; set; }
+        public string Topic {
+            get { return BackingStore?.Get<string>(nameof(Topic)); }
+            set { BackingStore?.Set(nameof(Topic), value); }
+        }
         /// <summary>The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
-        public string WebUrl { get; set; }
+        public string WebUrl {
+            get { return BackingStore?.Get<string>(nameof(WebUrl)); }
+            set { BackingStore?.Set(nameof(WebUrl), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

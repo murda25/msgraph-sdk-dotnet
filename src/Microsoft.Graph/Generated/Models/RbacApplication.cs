@@ -4,23 +4,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the roleManagement singleton.</summary>
     public class RbacApplication : Entity, IParsable {
         /// <summary>Resource to grant access to users or groups.</summary>
-        public List<UnifiedRoleAssignment> RoleAssignments { get; set; }
+        public List<UnifiedRoleAssignment> RoleAssignments {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignment>>(nameof(RoleAssignments)); }
+            set { BackingStore?.Set(nameof(RoleAssignments), value); }
+        }
         /// <summary>Instances for active role assignments.</summary>
-        public List<UnifiedRoleAssignmentScheduleInstance> RoleAssignmentScheduleInstances { get; set; }
+        public List<UnifiedRoleAssignmentScheduleInstance> RoleAssignmentScheduleInstances {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleInstance>>(nameof(RoleAssignmentScheduleInstances)); }
+            set { BackingStore?.Set(nameof(RoleAssignmentScheduleInstances), value); }
+        }
         /// <summary>Requests for active role assignments to principals through PIM.</summary>
-        public List<UnifiedRoleAssignmentScheduleRequest> RoleAssignmentScheduleRequests { get; set; }
+        public List<UnifiedRoleAssignmentScheduleRequest> RoleAssignmentScheduleRequests {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleRequest>>(nameof(RoleAssignmentScheduleRequests)); }
+            set { BackingStore?.Set(nameof(RoleAssignmentScheduleRequests), value); }
+        }
         /// <summary>Schedules for active role assignment operations.</summary>
-        public List<UnifiedRoleAssignmentSchedule> RoleAssignmentSchedules { get; set; }
+        public List<UnifiedRoleAssignmentSchedule> RoleAssignmentSchedules {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentSchedule>>(nameof(RoleAssignmentSchedules)); }
+            set { BackingStore?.Set(nameof(RoleAssignmentSchedules), value); }
+        }
         /// <summary>Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.</summary>
-        public List<UnifiedRoleDefinition> RoleDefinitions { get; set; }
+        public List<UnifiedRoleDefinition> RoleDefinitions {
+            get { return BackingStore?.Get<List<UnifiedRoleDefinition>>(nameof(RoleDefinitions)); }
+            set { BackingStore?.Set(nameof(RoleDefinitions), value); }
+        }
         /// <summary>Instances for role eligibility requests.</summary>
-        public List<UnifiedRoleEligibilityScheduleInstance> RoleEligibilityScheduleInstances { get; set; }
+        public List<UnifiedRoleEligibilityScheduleInstance> RoleEligibilityScheduleInstances {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleInstance>>(nameof(RoleEligibilityScheduleInstances)); }
+            set { BackingStore?.Set(nameof(RoleEligibilityScheduleInstances), value); }
+        }
         /// <summary>Requests for role eligibilities for principals through PIM.</summary>
-        public List<UnifiedRoleEligibilityScheduleRequest> RoleEligibilityScheduleRequests { get; set; }
+        public List<UnifiedRoleEligibilityScheduleRequest> RoleEligibilityScheduleRequests {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleRequest>>(nameof(RoleEligibilityScheduleRequests)); }
+            set { BackingStore?.Set(nameof(RoleEligibilityScheduleRequests), value); }
+        }
         /// <summary>Schedules for role eligibility operations.</summary>
-        public List<UnifiedRoleEligibilitySchedule> RoleEligibilitySchedules { get; set; }
+        public List<UnifiedRoleEligibilitySchedule> RoleEligibilitySchedules {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilitySchedule>>(nameof(RoleEligibilitySchedules)); }
+            set { BackingStore?.Set(nameof(RoleEligibilitySchedules), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

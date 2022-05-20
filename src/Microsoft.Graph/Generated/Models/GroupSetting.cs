@@ -4,13 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to user.</summary>
     public class GroupSetting : Entity, IParsable {
         /// <summary>Display name of this group of settings, which comes from the associated template.</summary>
-        public string DisplayName { get; set; }
+        public string DisplayName {
+            get { return BackingStore?.Get<string>(nameof(DisplayName)); }
+            set { BackingStore?.Set(nameof(DisplayName), value); }
+        }
         /// <summary>Unique identifier for the tenant-level groupSettingTemplates object that&apos;s been customized for this group-level settings object. Read-only.</summary>
-        public string TemplateId { get; set; }
+        public string TemplateId {
+            get { return BackingStore?.Get<string>(nameof(TemplateId)); }
+            set { BackingStore?.Set(nameof(TemplateId), value); }
+        }
         /// <summary>Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.</summary>
-        public List<SettingValue> Values { get; set; }
+        public List<SettingValue> Values {
+            get { return BackingStore?.Get<List<SettingValue>>(nameof(Values)); }
+            set { BackingStore?.Set(nameof(Values), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

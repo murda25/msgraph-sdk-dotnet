@@ -7,7 +7,10 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public class AppCatalogs : Entity, IParsable {
         /// <summary>The teamsApps property</summary>
-        public List<TeamsApp> TeamsApps { get; set; }
+        public List<TeamsApp> TeamsApps {
+            get { return BackingStore?.Get<List<TeamsApp>>(nameof(TeamsApps)); }
+            set { BackingStore?.Set(nameof(TeamsApps), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

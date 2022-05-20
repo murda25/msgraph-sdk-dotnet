@@ -7,11 +7,20 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the security singleton.</summary>
     public class Security : Entity, IParsable {
         /// <summary>Notifications for suspicious or potential security issues in a customer’s tenant.</summary>
-        public List<Alert> Alerts { get; set; }
+        public List<Alert> Alerts {
+            get { return BackingStore?.Get<List<Alert>>(nameof(Alerts)); }
+            set { BackingStore?.Set(nameof(Alerts), value); }
+        }
         /// <summary>The secureScoreControlProfiles property</summary>
-        public List<SecureScoreControlProfile> SecureScoreControlProfiles { get; set; }
+        public List<SecureScoreControlProfile> SecureScoreControlProfiles {
+            get { return BackingStore?.Get<List<SecureScoreControlProfile>>(nameof(SecureScoreControlProfiles)); }
+            set { BackingStore?.Set(nameof(SecureScoreControlProfiles), value); }
+        }
         /// <summary>The secureScores property</summary>
-        public List<SecureScore> SecureScores { get; set; }
+        public List<SecureScore> SecureScores {
+            get { return BackingStore?.Get<List<SecureScore>>(nameof(SecureScores)); }
+            set { BackingStore?.Set(nameof(SecureScores), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

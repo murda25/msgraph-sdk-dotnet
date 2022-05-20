@@ -4,60 +4,135 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the auditLogRoot singleton.</summary>
     public class SignIn : Entity, IParsable {
         /// <summary>The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
-        public string AppDisplayName { get; set; }
+        public string AppDisplayName {
+            get { return BackingStore?.Get<string>(nameof(AppDisplayName)); }
+            set { BackingStore?.Set(nameof(AppDisplayName), value); }
+        }
         /// <summary>The application identifier in Azure Active Directory. Supports $filter (eq operator only).</summary>
-        public string AppId { get; set; }
+        public string AppId {
+            get { return BackingStore?.Get<string>(nameof(AppId)); }
+            set { BackingStore?.Set(nameof(AppId), value); }
+        }
         /// <summary>A list of conditional access policies that are triggered by the corresponding sign-in activity.</summary>
-        public List<AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies { get; set; }
+        public List<AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies {
+            get { return BackingStore?.Get<List<AppliedConditionalAccessPolicy>>(nameof(AppliedConditionalAccessPolicies)); }
+            set { BackingStore?.Set(nameof(AppliedConditionalAccessPolicies), value); }
+        }
         /// <summary>The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP. Supports $filter (eq operator only).</summary>
-        public string ClientAppUsed { get; set; }
+        public string ClientAppUsed {
+            get { return BackingStore?.Get<string>(nameof(ClientAppUsed)); }
+            set { BackingStore?.Set(nameof(ClientAppUsed), value); }
+        }
         /// <summary>The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public Microsoft.Graph.Models.ConditionalAccessStatus? ConditionalAccessStatus { get; set; }
+        public Microsoft.Graph.Models.ConditionalAccessStatus? ConditionalAccessStatus {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ConditionalAccessStatus?>(nameof(ConditionalAccessStatus)); }
+            set { BackingStore?.Set(nameof(ConditionalAccessStatus), value); }
+        }
         /// <summary>The identifier that&apos;s sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only).</summary>
-        public string CorrelationId { get; set; }
+        public string CorrelationId {
+            get { return BackingStore?.Get<string>(nameof(CorrelationId)); }
+            set { BackingStore?.Set(nameof(CorrelationId), value); }
+        }
         /// <summary>The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).</summary>
-        public DateTimeOffset? CreatedDateTime { get; set; }
+        public DateTimeOffset? CreatedDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
+            set { BackingStore?.Set(nameof(CreatedDateTime), value); }
+        }
         /// <summary>The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.</summary>
-        public Microsoft.Graph.Models.DeviceDetail DeviceDetail { get; set; }
+        public Microsoft.Graph.Models.DeviceDetail DeviceDetail {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceDetail>(nameof(DeviceDetail)); }
+            set { BackingStore?.Set(nameof(DeviceDetail), value); }
+        }
         /// <summary>The IP address of the client from where the sign-in occurred. Supports $filter (eq and startsWith operators only).</summary>
-        public string IpAddress { get; set; }
+        public string IpAddress {
+            get { return BackingStore?.Get<string>(nameof(IpAddress)); }
+            set { BackingStore?.Set(nameof(IpAddress), value); }
+        }
         /// <summary>Indicates whether a user sign in is interactive. In interactive sign in, the user provides an authentication factor to Azure AD. These factors include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or an associated app. In non-interactive sign in, the user doesn&apos;t provide an authentication factor. Instead, the client app uses a token or code to authenticate or access a resource on behalf of a user. Non-interactive sign ins are commonly used for a client to sign in on a user&apos;s behalf in a process transparent to the user.</summary>
-        public bool? IsInteractive { get; set; }
+        public bool? IsInteractive {
+            get { return BackingStore?.Get<bool?>(nameof(IsInteractive)); }
+            set { BackingStore?.Set(nameof(IsInteractive), value); }
+        }
         /// <summary>The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.</summary>
-        public SignInLocation Location { get; set; }
+        public SignInLocation Location {
+            get { return BackingStore?.Get<SignInLocation>(nameof(Location)); }
+            set { BackingStore?.Set(nameof(Location), value); }
+        }
         /// <summary>The name of the resource that the user signed in to. Supports $filter (eq operator only).</summary>
-        public string ResourceDisplayName { get; set; }
+        public string ResourceDisplayName {
+            get { return BackingStore?.Get<string>(nameof(ResourceDisplayName)); }
+            set { BackingStore?.Set(nameof(ResourceDisplayName), value); }
+        }
         /// <summary>The identifier of the resource that the user signed in to. Supports $filter (eq operator only).</summary>
-        public string ResourceId { get; set; }
+        public string ResourceId {
+            get { return BackingStore?.Get<string>(nameof(ResourceId)); }
+            set { BackingStore?.Set(nameof(ResourceId), value); }
+        }
         /// <summary>The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.</summary>
-        public Microsoft.Graph.Models.RiskDetail? RiskDetail { get; set; }
+        public Microsoft.Graph.Models.RiskDetail? RiskDetail {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RiskDetail?>(nameof(RiskDetail)); }
+            set { BackingStore?.Set(nameof(RiskDetail), value); }
+        }
         /// <summary>Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public List<RiskEventType?> RiskEventTypes { get; set; }
+        public List<string> RiskEventTypes {
+            get { return BackingStore?.Get<List<string>>(nameof(RiskEventTypes)); }
+            set { BackingStore?.Set(nameof(RiskEventTypes), value); }
+        }
         /// <summary>The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).</summary>
-        public List<string> RiskEventTypes_v2 { get; set; }
+        public List<string> RiskEventTypes_v2 {
+            get { return BackingStore?.Get<List<string>>(nameof(RiskEventTypes_v2)); }
+            set { BackingStore?.Set(nameof(RiskEventTypes_v2), value); }
+        }
         /// <summary>The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.</summary>
-        public RiskLevel? RiskLevelAggregated { get; set; }
+        public RiskLevel? RiskLevelAggregated {
+            get { return BackingStore?.Get<RiskLevel?>(nameof(RiskLevelAggregated)); }
+            set { BackingStore?.Set(nameof(RiskLevelAggregated), value); }
+        }
         /// <summary>The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.</summary>
-        public RiskLevel? RiskLevelDuringSignIn { get; set; }
+        public RiskLevel? RiskLevelDuringSignIn {
+            get { return BackingStore?.Get<RiskLevel?>(nameof(RiskLevelDuringSignIn)); }
+            set { BackingStore?.Set(nameof(RiskLevelDuringSignIn), value); }
+        }
         /// <summary>The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public Microsoft.Graph.Models.RiskState? RiskState { get; set; }
+        public Microsoft.Graph.Models.RiskState? RiskState {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RiskState?>(nameof(RiskState)); }
+            set { BackingStore?.Set(nameof(RiskState), value); }
+        }
         /// <summary>The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.</summary>
-        public SignInStatus Status { get; set; }
+        public SignInStatus Status {
+            get { return BackingStore?.Get<SignInStatus>(nameof(Status)); }
+            set { BackingStore?.Set(nameof(Status), value); }
+        }
         /// <summary>The display name of the user. Supports $filter (eq and startsWith operators only).</summary>
-        public string UserDisplayName { get; set; }
+        public string UserDisplayName {
+            get { return BackingStore?.Get<string>(nameof(UserDisplayName)); }
+            set { BackingStore?.Set(nameof(UserDisplayName), value); }
+        }
         /// <summary>The identifier of the user. Supports $filter (eq operator only).</summary>
-        public string UserId { get; set; }
+        public string UserId {
+            get { return BackingStore?.Get<string>(nameof(UserId)); }
+            set { BackingStore?.Set(nameof(UserId), value); }
+        }
         /// <summary>The UPN of the user. Supports $filter (eq and startsWith operators only).</summary>
-        public string UserPrincipalName { get; set; }
+        public string UserPrincipalName {
+            get { return BackingStore?.Get<string>(nameof(UserPrincipalName)); }
+            set { BackingStore?.Set(nameof(UserPrincipalName), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
         public static new SignIn CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SignIn();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.signIn" => new SignIn(),
+                _ => new SignIn(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +153,7 @@ namespace Microsoft.Graph.Models {
                 {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
                 {"resourceId", n => { ResourceId = n.GetStringValue(); } },
                 {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfEnumValues<RiskEventType>().ToList(); } },
+                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"riskEventTypes_v2", n => { RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
                 {"riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
@@ -110,7 +185,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("resourceDisplayName", ResourceDisplayName);
             writer.WriteStringValue("resourceId", ResourceId);
             writer.WriteEnumValue<RiskDetail>("riskDetail", RiskDetail);
-            writer.WriteCollectionOfEnumValues<RiskEventType>("riskEventTypes", RiskEventTypes);
+            writer.WriteCollectionOfPrimitiveValues<string>("riskEventTypes", RiskEventTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("riskEventTypes_v2", RiskEventTypes_v2);
             writer.WriteEnumValue<RiskLevel>("riskLevelAggregated", RiskLevelAggregated);
             writer.WriteEnumValue<RiskLevel>("riskLevelDuringSignIn", RiskLevelDuringSignIn);

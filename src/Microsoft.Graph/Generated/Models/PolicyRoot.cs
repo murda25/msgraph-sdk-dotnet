@@ -7,35 +7,80 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the policyRoot singleton.</summary>
     public class PolicyRoot : Entity, IParsable {
         /// <summary>The policy that controls the idle time out for web sessions for applications.</summary>
-        public List<ActivityBasedTimeoutPolicy> ActivityBasedTimeoutPolicies { get; set; }
+        public List<ActivityBasedTimeoutPolicy> ActivityBasedTimeoutPolicies {
+            get { return BackingStore?.Get<List<ActivityBasedTimeoutPolicy>>(nameof(ActivityBasedTimeoutPolicies)); }
+            set { BackingStore?.Set(nameof(ActivityBasedTimeoutPolicies), value); }
+        }
         /// <summary>The policy by which consent requests are created and managed for the entire tenant.</summary>
-        public Microsoft.Graph.Models.AdminConsentRequestPolicy AdminConsentRequestPolicy { get; set; }
+        public Microsoft.Graph.Models.AdminConsentRequestPolicy AdminConsentRequestPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AdminConsentRequestPolicy>(nameof(AdminConsentRequestPolicy)); }
+            set { BackingStore?.Set(nameof(AdminConsentRequestPolicy), value); }
+        }
         /// <summary>The policy configuration of the self-service sign-up experience of external users.</summary>
-        public Microsoft.Graph.Models.AuthenticationFlowsPolicy AuthenticationFlowsPolicy { get; set; }
+        public Microsoft.Graph.Models.AuthenticationFlowsPolicy AuthenticationFlowsPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AuthenticationFlowsPolicy>(nameof(AuthenticationFlowsPolicy)); }
+            set { BackingStore?.Set(nameof(AuthenticationFlowsPolicy), value); }
+        }
         /// <summary>The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).</summary>
-        public Microsoft.Graph.Models.AuthenticationMethodsPolicy AuthenticationMethodsPolicy { get; set; }
+        public Microsoft.Graph.Models.AuthenticationMethodsPolicy AuthenticationMethodsPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(nameof(AuthenticationMethodsPolicy)); }
+            set { BackingStore?.Set(nameof(AuthenticationMethodsPolicy), value); }
+        }
         /// <summary>The policy that controls Azure AD authorization settings.</summary>
-        public Microsoft.Graph.Models.AuthorizationPolicy AuthorizationPolicy { get; set; }
+        public Microsoft.Graph.Models.AuthorizationPolicy AuthorizationPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AuthorizationPolicy>(nameof(AuthorizationPolicy)); }
+            set { BackingStore?.Set(nameof(AuthorizationPolicy), value); }
+        }
         /// <summary>The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.</summary>
-        public List<ClaimsMappingPolicy> ClaimsMappingPolicies { get; set; }
+        public List<ClaimsMappingPolicy> ClaimsMappingPolicies {
+            get { return BackingStore?.Get<List<ClaimsMappingPolicy>>(nameof(ClaimsMappingPolicies)); }
+            set { BackingStore?.Set(nameof(ClaimsMappingPolicies), value); }
+        }
         /// <summary>The custom rules that define an access scenario.</summary>
-        public List<ConditionalAccessPolicy> ConditionalAccessPolicies { get; set; }
+        public List<ConditionalAccessPolicy> ConditionalAccessPolicies {
+            get { return BackingStore?.Get<List<ConditionalAccessPolicy>>(nameof(ConditionalAccessPolicies)); }
+            set { BackingStore?.Set(nameof(ConditionalAccessPolicies), value); }
+        }
         /// <summary>The feature rollout policy associated with a directory object.</summary>
-        public List<FeatureRolloutPolicy> FeatureRolloutPolicies { get; set; }
+        public List<FeatureRolloutPolicy> FeatureRolloutPolicies {
+            get { return BackingStore?.Get<List<FeatureRolloutPolicy>>(nameof(FeatureRolloutPolicies)); }
+            set { BackingStore?.Set(nameof(FeatureRolloutPolicies), value); }
+        }
         /// <summary>The policy to control Azure AD authentication behavior for federated users.</summary>
-        public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
+        public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies {
+            get { return BackingStore?.Get<List<HomeRealmDiscoveryPolicy>>(nameof(HomeRealmDiscoveryPolicies)); }
+            set { BackingStore?.Set(nameof(HomeRealmDiscoveryPolicies), value); }
+        }
         /// <summary>The policy that represents the security defaults that protect against common attacks.</summary>
-        public Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy IdentitySecurityDefaultsEnforcementPolicy { get; set; }
+        public Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy IdentitySecurityDefaultsEnforcementPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy>(nameof(IdentitySecurityDefaultsEnforcementPolicy)); }
+            set { BackingStore?.Set(nameof(IdentitySecurityDefaultsEnforcementPolicy), value); }
+        }
         /// <summary>The policy that specifies the conditions under which consent can be granted.</summary>
-        public List<PermissionGrantPolicy> PermissionGrantPolicies { get; set; }
+        public List<PermissionGrantPolicy> PermissionGrantPolicies {
+            get { return BackingStore?.Get<List<PermissionGrantPolicy>>(nameof(PermissionGrantPolicies)); }
+            set { BackingStore?.Set(nameof(PermissionGrantPolicies), value); }
+        }
         /// <summary>Represents the role management policies.</summary>
-        public List<UnifiedRoleManagementPolicy> RoleManagementPolicies { get; set; }
+        public List<UnifiedRoleManagementPolicy> RoleManagementPolicies {
+            get { return BackingStore?.Get<List<UnifiedRoleManagementPolicy>>(nameof(RoleManagementPolicies)); }
+            set { BackingStore?.Set(nameof(RoleManagementPolicies), value); }
+        }
         /// <summary>Represents the role management policy assignments.</summary>
-        public List<UnifiedRoleManagementPolicyAssignment> RoleManagementPolicyAssignments { get; set; }
+        public List<UnifiedRoleManagementPolicyAssignment> RoleManagementPolicyAssignments {
+            get { return BackingStore?.Get<List<UnifiedRoleManagementPolicyAssignment>>(nameof(RoleManagementPolicyAssignments)); }
+            set { BackingStore?.Set(nameof(RoleManagementPolicyAssignments), value); }
+        }
         /// <summary>The policy that specifies the characteristics of SAML tokens issued by Azure AD.</summary>
-        public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
+        public List<TokenIssuancePolicy> TokenIssuancePolicies {
+            get { return BackingStore?.Get<List<TokenIssuancePolicy>>(nameof(TokenIssuancePolicies)); }
+            set { BackingStore?.Set(nameof(TokenIssuancePolicies), value); }
+        }
         /// <summary>The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.</summary>
-        public List<TokenLifetimePolicy> TokenLifetimePolicies { get; set; }
+        public List<TokenLifetimePolicy> TokenLifetimePolicies {
+            get { return BackingStore?.Get<List<TokenLifetimePolicy>>(nameof(TokenLifetimePolicies)); }
+            set { BackingStore?.Set(nameof(TokenLifetimePolicies), value); }
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

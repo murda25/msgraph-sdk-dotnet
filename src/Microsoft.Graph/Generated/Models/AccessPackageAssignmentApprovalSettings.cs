@@ -1,22 +1,38 @@
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions.Store;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    public class AccessPackageAssignmentApprovalSettings : IAdditionalDataHolder, IParsable {
+    public class AccessPackageAssignmentApprovalSettings : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        public IDictionary<string, object> AdditionalData {
+            get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
+            set { BackingStore?.Set(nameof(AdditionalData), value); }
+        }
+        /// <summary>Stores model information.</summary>
+        public IBackingStore BackingStore { get; private set; }
         /// <summary>If false, then approval is not required for new requests in this policy.</summary>
-        public bool? IsApprovalRequiredForAdd { get; set; }
+        public bool? IsApprovalRequiredForAdd {
+            get { return BackingStore?.Get<bool?>(nameof(IsApprovalRequiredForAdd)); }
+            set { BackingStore?.Set(nameof(IsApprovalRequiredForAdd), value); }
+        }
         /// <summary>If false, then approval is not required for updates to requests in this policy.</summary>
-        public bool? IsApprovalRequiredForUpdate { get; set; }
+        public bool? IsApprovalRequiredForUpdate {
+            get { return BackingStore?.Get<bool?>(nameof(IsApprovalRequiredForUpdate)); }
+            set { BackingStore?.Set(nameof(IsApprovalRequiredForUpdate), value); }
+        }
         /// <summary>If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.</summary>
-        public List<AccessPackageApprovalStage> Stages { get; set; }
+        public List<AccessPackageApprovalStage> Stages {
+            get { return BackingStore?.Get<List<AccessPackageApprovalStage>>(nameof(Stages)); }
+            set { BackingStore?.Set(nameof(Stages), value); }
+        }
         /// <summary>
         /// Instantiates a new accessPackageAssignmentApprovalSettings and sets the default values.
         /// </summary>
         public AccessPackageAssignmentApprovalSettings() {
+            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
