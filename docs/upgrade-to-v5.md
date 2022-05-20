@@ -94,7 +94,43 @@ await pageIterator.IterateAsync();
 
 ```
 
+### Error handling
+Errors and exceptions from the new generated version will be exception classed derived from the [ApiException](https://github.com/microsoft/kiota-abstractions-dotnet/blob/8a136e509c7a71ef889643f047938bdbc3c752be/src/ApiException.cs#L11) class from the Kiota abstrations library. 
+Typically, this will be an instance of [OdataError](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/6d1a78fe1ca7d883667b5f231395651e24581653/src/Microsoft.Graph/Generated/Models/ODataErrors/ODataError.cs#L9) and can be handled as below.
+
+```cs
+try
+{
+    await graphServiceClient.Me.PatchAsync(user);
+}
+catch (ODataError odataError)
+{
+    Console.WriteLine(odataError.Error.Code);
+    Console.WriteLine(odataError.Error.Message);
+    throw;
+}
+```
+
 ## New Features
+
+### Backing Store
+The backing store allows multiple things like dirty tracking of changes, making it possible to get an object from the API, update a property, send that object back with only the changed property and not the full objects.
+
+This has the added advantage in that SDK user can simply get an object from the API and set a property to null and send back the object without having to use known workarounds where setting properties to null would require to be placed in the additionalData bag.
+
+```cs
+// get the object
+var @event = await graphServiceClient
+    .Me.Events["event-id"]
+    .GetAsync();
+
+// the backing store will keep track that the property change and send the updated value.
+@event.Recurrence = null;// set to null 
+
+// update the object
+await graphServiceClient.Me.Events["event-id"]
+    .PatchAsync(@event);
+```
 
 ### Use of Parameter objects calling Odata functions/actions
 To add parameters to an odata action, the SDK uses parameter objects rather than using function overloads to reduce likelihood of the SDK shpping breaking changes.
@@ -116,7 +152,7 @@ This changes to
 //var message = ....
 //var saveToSentItems = ...
 
-var body = new SendMailRequestBody
+var body = new SendMailPostRequestBody
 {
     Message = message,
     SaveToSentItems = saveToSentItems
