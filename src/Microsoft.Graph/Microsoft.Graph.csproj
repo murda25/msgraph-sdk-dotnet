@@ -29,7 +29,7 @@
     <PackageReleaseNotes>
 - [Breaking] Adds support CAE in the authentication provider
 - [Breaking] Generated request parameter objects renamed to include http method name
-
+- Enables the backing store to enable dirty tracking of objects
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
