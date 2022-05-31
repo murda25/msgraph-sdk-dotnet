@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public enum OnlineMeetingPresenters {
         Everyone,
         Organization,

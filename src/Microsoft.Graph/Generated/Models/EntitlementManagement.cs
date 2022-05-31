@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class EntitlementManagement : Entity, IParsable {
-        /// <summary>Approval stages for assignment requests.</summary>
+        /// <summary>Approval stages for decisions associated with access package assignment requests.</summary>
         public List<Approval> AccessPackageAssignmentApprovals {
             get { return BackingStore?.Get<List<Approval>>(nameof(AccessPackageAssignmentApprovals)); }
             set { BackingStore?.Set(nameof(AccessPackageAssignmentApprovals), value); }
@@ -16,22 +16,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AccessPackage>>(nameof(AccessPackages)); }
             set { BackingStore?.Set(nameof(AccessPackages), value); }
         }
-        /// <summary>Access package assignment policies.</summary>
+        /// <summary>Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.</summary>
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies {
             get { return BackingStore?.Get<List<AccessPackageAssignmentPolicy>>(nameof(AssignmentPolicies)); }
             set { BackingStore?.Set(nameof(AssignmentPolicies), value); }
         }
-        /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
+        /// <summary>Access package assignment requests created by or on behalf of a subject.</summary>
         public List<AccessPackageAssignmentRequest> AssignmentRequests {
             get { return BackingStore?.Get<List<AccessPackageAssignmentRequest>>(nameof(AssignmentRequests)); }
             set { BackingStore?.Set(nameof(AssignmentRequests), value); }
         }
-        /// <summary>Represents the grant of an access package to a subject (user or group).</summary>
+        /// <summary>The assignment of an access package to a subject for a period of time.</summary>
         public List<AccessPackageAssignment> Assignments {
             get { return BackingStore?.Get<List<AccessPackageAssignment>>(nameof(Assignments)); }
             set { BackingStore?.Set(nameof(Assignments), value); }
         }
-        /// <summary>Represents a collection of access packages.</summary>
+        /// <summary>A container for access packages.</summary>
         public List<AccessPackageCatalog> Catalogs {
             get { return BackingStore?.Get<List<AccessPackageCatalog>>(nameof(Catalogs)); }
             set { BackingStore?.Set(nameof(Catalogs), value); }

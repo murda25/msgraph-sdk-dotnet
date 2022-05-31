@@ -1,8 +1,12 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.AppRoleAssignment;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Count;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.Endpoint;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Item;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Ref;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.ServicePrincipal;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.User;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,9 +18,17 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
     /// <summary>Provides operations to manage the owners property of the microsoft.graph.servicePrincipal entity.</summary>
     public class OwnersRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -26,8 +38,16 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The servicePrincipal property</summary>
+        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
+            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>The user property</summary>
+        public UserRequestBuilder User { get =>
+            new UserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Microsoft.Graph.servicePrincipals.item.owners.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

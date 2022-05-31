@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Reports.GetOneDriveActivityUserDetailWithDate {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/reports/microsoft.graph.getOneDriveActivityUserDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("", date);
+            urlTplParams.Add("date", date);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

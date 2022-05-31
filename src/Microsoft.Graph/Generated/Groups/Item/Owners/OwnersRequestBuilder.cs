@@ -1,6 +1,12 @@
+using Microsoft.Graph.Groups.Item.Owners.Application;
 using Microsoft.Graph.Groups.Item.Owners.Count;
+using Microsoft.Graph.Groups.Item.Owners.Device;
+using Microsoft.Graph.Groups.Item.Owners.Group;
 using Microsoft.Graph.Groups.Item.Owners.Item;
+using Microsoft.Graph.Groups.Item.Owners.OrgContact;
 using Microsoft.Graph.Groups.Item.Owners.Ref;
+using Microsoft.Graph.Groups.Item.Owners.ServicePrincipal;
+using Microsoft.Graph.Groups.Item.Owners.User;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -14,9 +20,25 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Groups.Item.Owners {
     /// <summary>Provides operations to manage the owners property of the microsoft.graph.group entity.</summary>
     public class OwnersRequestBuilder {
+        /// <summary>The application property</summary>
+        public ApplicationRequestBuilder Application { get =>
+            new ApplicationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The device property</summary>
+        public DeviceRequestBuilder Device { get =>
+            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The group property</summary>
+        public GroupRequestBuilder Group { get =>
+            new GroupRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The orgContact property</summary>
+        public OrgContactRequestBuilder OrgContact { get =>
+            new OrgContactRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -26,8 +48,16 @@ namespace Microsoft.Graph.Groups.Item.Owners {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The servicePrincipal property</summary>
+        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
+            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>The user property</summary>
+        public UserRequestBuilder User { get =>
+            new UserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Microsoft.Graph.groups.item.owners.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

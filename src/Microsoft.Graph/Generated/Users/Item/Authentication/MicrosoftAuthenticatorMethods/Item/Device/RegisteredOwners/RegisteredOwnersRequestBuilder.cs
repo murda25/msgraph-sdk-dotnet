@@ -1,8 +1,12 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.AppRoleAssignment;
 using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Count;
+using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Endpoint;
 using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item;
 using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Ref;
+using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.ServicePrincipal;
+using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.User;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,9 +18,17 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners {
     /// <summary>Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.</summary>
     public class RegisteredOwnersRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -26,8 +38,16 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The servicePrincipal property</summary>
+        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
+            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>The user property</summary>
+        public UserRequestBuilder User { get =>
+            new UserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Microsoft.Graph.users.item.authentication.microsoftAuthenticatorMethods.item.device.registeredOwners.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

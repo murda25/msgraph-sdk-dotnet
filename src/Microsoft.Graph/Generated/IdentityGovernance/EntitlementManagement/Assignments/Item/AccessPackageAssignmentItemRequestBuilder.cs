@@ -83,7 +83,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             return requestInfo;
         }
         /// <summary>
-        /// Represents the grant of an access package to a subject (user or group).
+        /// The assignment of an access package to a subject for a period of time.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -137,7 +137,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the grant of an access package to a subject (user or group).
+        /// The assignment of an access package to a subject for a period of time.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -180,7 +180,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Represents the grant of an access package to a subject (user or group).</summary>
+        /// <summary>The assignment of an access package to a subject for a period of time.</summary>
         public class AccessPackageAssignmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

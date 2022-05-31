@@ -45,7 +45,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
+        /// Delete a tenant-level or group-specific groupSetting object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<GroupSettingItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
+        /// Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -103,7 +103,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete a tenant-level or group-specific [groupSetting](../resources/groupsetting.md) object.
+        /// Delete a tenant-level or group-specific groupSetting object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -131,7 +131,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the properties of a [groupSetting](../resources/groupsetting.md) object for tenant-wide [group](../resources/group.md) settings or a specific group setting.
+        /// Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

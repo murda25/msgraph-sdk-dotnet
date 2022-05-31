@@ -26,7 +26,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.GetOmaSetti
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/microsoft.graph.getOmaSettingPlainTextValue(secretReferenceValueId='{secretReferenceValueId}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("", secretReferenceValueId);
+            urlTplParams.Add("secretReferenceValueId", secretReferenceValueId);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

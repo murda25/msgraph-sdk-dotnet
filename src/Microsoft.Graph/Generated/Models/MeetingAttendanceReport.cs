@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
+    /// <summary>Casts the previous resource to user.</summary>
     public class MeetingAttendanceReport : Entity, IParsable {
         /// <summary>List of attendance records of an attendance report. Read-only.</summary>
         public List<AttendanceRecord> AttendanceRecords {
