@@ -165,7 +165,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+        /// Delete a servicePrincipal object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<ServicePrincipalItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -183,7 +183,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+        /// Retrieve the properties and relationships of a servicePrincipal object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ServicePrincipalItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -202,7 +202,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&amp;preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&amp;preserve-view=true) request.
+        /// Update the properties of servicePrincipal object.
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -223,7 +223,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+        /// Delete a servicePrincipal object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -237,7 +237,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+        /// Retrieve the properties and relationships of a servicePrincipal object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -251,7 +251,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ServicePrincipal>(requestInfo, Microsoft.Graph.Models.ServicePrincipal.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&amp;preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&amp;preserve-view=true) request.
+        /// Update the properties of servicePrincipal object.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -280,7 +280,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.</summary>
+        /// <summary>Retrieve the properties and relationships of a servicePrincipal object.</summary>
         public class ServicePrincipalItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

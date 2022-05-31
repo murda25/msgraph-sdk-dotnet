@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Me.Calendars.Item.AllowedCalendarSharingRolesWithUser 
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/calendars/{calendar%2Did}/microsoft.graph.allowedCalendarSharingRoles(User='{User}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("", user);
+            urlTplParams.Add("User", user);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

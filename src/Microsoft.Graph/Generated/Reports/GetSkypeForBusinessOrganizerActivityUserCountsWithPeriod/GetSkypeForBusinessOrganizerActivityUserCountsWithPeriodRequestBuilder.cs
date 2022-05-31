@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Reports.GetSkypeForBusinessOrganizerActivityUserCounts
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityUserCounts(period='{period}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("", period);
+            urlTplParams.Add("period", period);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

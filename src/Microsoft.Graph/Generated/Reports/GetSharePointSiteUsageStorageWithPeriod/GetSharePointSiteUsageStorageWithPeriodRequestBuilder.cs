@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Reports.GetSharePointSiteUsageStorageWithPeriod {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/reports/microsoft.graph.getSharePointSiteUsageStorage(period='{period}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
-            urlTplParams.Add("", period);
+            urlTplParams.Add("period", period);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

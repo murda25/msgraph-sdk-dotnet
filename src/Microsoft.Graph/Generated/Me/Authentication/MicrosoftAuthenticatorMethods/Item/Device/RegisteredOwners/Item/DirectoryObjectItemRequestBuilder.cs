@@ -1,4 +1,8 @@
+using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.AppRoleAssignment;
+using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.Endpoint;
 using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.Ref;
+using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.ServicePrincipal;
+using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.User;
 using Microsoft.Kiota.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -8,6 +12,14 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item {
     /// <summary>Builds and executes requests for operations under \me\authentication\microsoftAuthenticatorMethods\{microsoftAuthenticatorAuthenticationMethod-id}\device\registeredOwners\{directoryObject-id}</summary>
     public class DirectoryObjectItemRequestBuilder {
+        /// <summary>The appRoleAssignment property</summary>
+        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
+            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The endpoint property</summary>
+        public EndpointRequestBuilder Endpoint { get =>
+            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The ref property</summary>
@@ -16,8 +28,16 @@ namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.D
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The servicePrincipal property</summary>
+        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
+            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>The user property</summary>
+        public UserRequestBuilder User { get =>
+            new UserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>

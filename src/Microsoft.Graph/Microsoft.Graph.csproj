@@ -25,11 +25,11 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.5</VersionSuffix>
+    <VersionSuffix>preview.6</VersionSuffix>
     <PackageReleaseNotes>
-- [Breaking] Adds support CAE in the authentication provider
-- [Breaking] Generated request parameter objects renamed to include http method name
-- Enables the backing store to enable dirty tracking of objects
+- Fixes exceptions on deserialization of payload that do not have @odata.type
+- Fixes instances with missing key values for path parameters
+- Adds missing odata cast paths to enable requests for specific kind of objects
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -54,7 +54,7 @@
     <EmbeddedResource Include="Properties\Graph.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.6" />
+    <PackageReference Include="Microsoft.Graph.Core" Version="3.0.0-preview.7" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
