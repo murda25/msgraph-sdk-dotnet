@@ -202,4 +202,18 @@ HttpResponseMessage responseMessage = await new UserRequest(requestUrl, graphCli
 string userCount = await responseMessage.Content.ReadAsStringAsync();
 ```
 
+### Support for OData Casts in request builders
 
+The request builders are now enriched with segments to enable requesting a specific type in the event an API endpoint supports the odata cast functionality.
+
+An example is fetching the members of a group who are of the type `User` which would be done as below.
+
+```cs
+var usersInGroup = await graphServiceClient.Groups["group-id"].Members.User.GetAsync();
+```
+
+Similarly, members of the group of type `Application` would be done as below.
+
+```cs
+var applicationsInGroup = await graphServiceClient.Groups["group-id"].Members.Application.GetAsync();
+```
