@@ -11,7 +11,7 @@ The following section lists out the breaking changes requiring code changes from
 
 ### Authentication
 
-The `GraphServiceClient` constructor accepts instances of `TokenCredential`  from Azure.Identity similar to previous library version as follows
+The `GraphServiceClient` constructor accepts instances of `TokenCredential` from Azure.Identity similar to previous library version as follows
 
 ```cs
 var interactiveBrowserCredential = new InteractiveBrowserCredential(interactiveBrowserCredentialOptions);
