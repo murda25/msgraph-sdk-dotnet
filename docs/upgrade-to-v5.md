@@ -9,6 +9,39 @@ V5 of the Microsoft Graph .NET SDK moves to the new code generator [Kiota](https
 
 The following section lists out the breaking changes requiring code changes from SDK users.
 
+### Authentication
+
+The `GraphServiceClient` constructor accepts instances of `TokenCredential`  from Azure.Identity similar to previous library version as follows
+
+```cs
+var interactiveBrowserCredential = new InteractiveBrowserCredential(interactiveBrowserCredentialOptions);
+var graphServiceClient = new GraphServiceClient(interactiveBrowserCredential);
+```
+
+In place of the DelegateAuthenticationProvider, custom authentication flows can be done creating an implementation of [IAccessTokenProvider](https://github.com/microsoft/kiota-abstractions-dotnet/blob/main/src/authentication/IAccessTokenProvider.cs), and using with the [BaseBearerTokenAuthenticationProvider](https://github.com/microsoft/kiota-abstractions-dotnet/blob/main/src/authentication/BaseBearerTokenAuthenticationProvider.cs) from the Kiota abstractions as follows
+
+```cs
+public class TokenProvider : IAccessTokenProvider
+{
+    public Task<string> GetAuthorizationTokenAsync(Uri uri, Dictionary<string, object> additionalAuthenticationContext = default,
+        CancellationToken cancellationToken = default)
+    {
+        var token = "token";
+        // get the token and return it in your own way
+        return Task.FromResult(token);
+    }
+
+    public AllowedHostsValidator AllowedHostsValidator { get; }
+}
+```
+
+Then create the `GraphServiceClient` as follows
+
+```cs
+var accessTokenProvider = new BaseBearerTokenAuthenticationProvider(new TokenProvider());
+var graphServiceClient = new GraphServiceClient(accessTokenProvider);
+```
+
 ### Use of `RequestInformation` from Kiota in place of `IBaseRequest`
 The `RequestInformation` class is now used to represent requests in the SDK and the `IBaseRequest` is dropped. Using the fluent API, you can always get an instance of the `RequestInformation` as follows.
 
