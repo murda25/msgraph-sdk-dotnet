@@ -42,6 +42,12 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IAccessReviewInstanceDecisionsCollectionRequestBuilder"/>.</returns>
         IAccessReviewInstanceDecisionsCollectionRequestBuilder Decisions { get; }
+
+        /// <summary>
+        /// Gets the request builder for Stages.
+        /// </summary>
+        /// <returns>The <see cref="IAccessReviewInstanceStagesCollectionRequestBuilder"/>.</returns>
+        IAccessReviewInstanceStagesCollectionRequestBuilder Stages { get; }
     
         /// <summary>
         /// Gets the request builder for AccessReviewInstanceAcceptRecommendations.

@@ -37,6 +37,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets categories.
+        /// The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
         /// </summary>
         [JsonPropertyName("categories")]
         public IEnumerable<string> Categories { get; set; }
@@ -113,6 +114,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets checklist items.
+        /// A collection of smaller subtasks linked to the more complex parent task.
         /// </summary>
         [JsonPropertyName("checklistItems")]
         public ITodoTaskChecklistItemsCollectionPage ChecklistItems { get; set; }

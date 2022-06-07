@@ -264,6 +264,12 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     authenticationToInitialize.MicrosoftAuthenticatorMethods.AdditionalData = authenticationToInitialize.AdditionalData;
                 }
+                if (authenticationToInitialize.TemporaryAccessPassMethods != null && authenticationToInitialize.TemporaryAccessPassMethods.CurrentPage != null)
+                {
+                    authenticationToInitialize.TemporaryAccessPassMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.TemporaryAccessPassMethodsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    authenticationToInitialize.TemporaryAccessPassMethods.AdditionalData = authenticationToInitialize.AdditionalData;
+                }
                 if (authenticationToInitialize.WindowsHelloForBusinessMethods != null && authenticationToInitialize.WindowsHelloForBusinessMethods.CurrentPage != null)
                 {
                     authenticationToInitialize.WindowsHelloForBusinessMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.WindowsHelloForBusinessMethodsNextLink);

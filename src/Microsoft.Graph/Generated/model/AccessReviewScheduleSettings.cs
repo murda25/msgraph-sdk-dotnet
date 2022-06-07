@@ -36,6 +36,13 @@ namespace Microsoft.Graph
         public bool? AutoApplyDecisionsEnabled { get; set; }
     
         /// <summary>
+        /// Gets or sets decisionHistoriesForReviewersEnabled.
+        /// Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+        /// </summary>
+        [JsonPropertyName("decisionHistoriesForReviewersEnabled")]
+        public bool? DecisionHistoriesForReviewersEnabled { get; set; }
+    
+        /// <summary>
         /// Gets or sets defaultDecision.
         /// Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
         /// </summary>
