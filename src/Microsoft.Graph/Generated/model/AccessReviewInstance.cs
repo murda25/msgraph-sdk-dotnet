@@ -90,6 +90,20 @@ namespace Microsoft.Graph
         [JsonConverter(typeof(NextLinkConverter))]
         public string DecisionsNextLink { get; set; }
     
+        /// <summary>
+        /// Gets or sets stages.
+        /// If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
+        /// </summary>
+        [JsonPropertyName("stages")]
+        public IAccessReviewInstanceStagesCollectionPage Stages { get; set; }
+
+        /// <summary>
+        /// Gets or sets stagesNextLink.
+        /// </summary>
+        [JsonPropertyName("stages@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string StagesNextLink { get; set; }
+    
     }
 }
 

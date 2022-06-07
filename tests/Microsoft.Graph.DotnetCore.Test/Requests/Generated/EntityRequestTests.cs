@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
@@ -81,6 +81,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
                         CancellationToken.None))
                     .Returns(System.Threading.Tasks.Task.FromResult(httpResponseMessage));
 
+                this.serializer.Setup(serializer => serializer.DeserializeObject<DriveItem>(It.IsAny<Stream>())).Returns(default(DriveItem));
+                
                 await this.graphServiceClient.Me.Drive.Items["id"].Request().DeleteAsync();
             }
         }
