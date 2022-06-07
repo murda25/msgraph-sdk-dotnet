@@ -27,8 +27,9 @@
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix>preview.7</VersionSuffix>
     <PackageReleaseNotes>
-- Latest metadata updates from 7th June snapshot
-- Adds missing odata cast paths for places API
+- Latest metadata updates from 7th June 2022 snapshot
+- Adds missing odata cast paths for the places API
+- Adds functionality to send the relevant accept header on request execution
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
