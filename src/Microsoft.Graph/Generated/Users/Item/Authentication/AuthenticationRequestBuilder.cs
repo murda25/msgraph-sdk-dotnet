@@ -3,6 +3,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Authentication.Fido2Methods;
 using Microsoft.Graph.Users.Item.Authentication.Methods;
 using Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods;
+using Microsoft.Graph.Users.Item.Authentication.TemporaryAccessPassMethods;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -31,6 +32,10 @@ namespace Microsoft.Graph.Users.Item.Authentication {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The temporaryAccessPassMethods property</summary>
+        public TemporaryAccessPassMethodsRequestBuilder TemporaryAccessPassMethods { get =>
+            new TemporaryAccessPassMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>The windowsHelloForBusinessMethods property</summary>
@@ -92,6 +97,7 @@ namespace Microsoft.Graph.Users.Item.Authentication {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AuthenticationRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -21,6 +21,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<MicrosoftAuthenticatorAuthenticationMethod>>(nameof(MicrosoftAuthenticatorMethods)); }
             set { BackingStore?.Set(nameof(MicrosoftAuthenticatorMethods), value); }
         }
+        /// <summary>Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.</summary>
+        public List<TemporaryAccessPassAuthenticationMethod> TemporaryAccessPassMethods {
+            get { return BackingStore?.Get<List<TemporaryAccessPassAuthenticationMethod>>(nameof(TemporaryAccessPassMethods)); }
+            set { BackingStore?.Set(nameof(TemporaryAccessPassMethods), value); }
+        }
         /// <summary>Represents the Windows Hello for Business authentication method registered to a user for authentication.</summary>
         public List<WindowsHelloForBusinessAuthenticationMethod> WindowsHelloForBusinessMethods {
             get { return BackingStore?.Get<List<WindowsHelloForBusinessAuthenticationMethod>>(nameof(WindowsHelloForBusinessMethods)); }
@@ -42,6 +47,7 @@ namespace Microsoft.Graph.Models {
                 {"fido2Methods", n => { Fido2Methods = n.GetCollectionOfObjectValues<Fido2AuthenticationMethod>(Fido2AuthenticationMethod.CreateFromDiscriminatorValue).ToList(); } },
                 {"methods", n => { Methods = n.GetCollectionOfObjectValues<AuthenticationMethod>(AuthenticationMethod.CreateFromDiscriminatorValue).ToList(); } },
                 {"microsoftAuthenticatorMethods", n => { MicrosoftAuthenticatorMethods = n.GetCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>(MicrosoftAuthenticatorAuthenticationMethod.CreateFromDiscriminatorValue).ToList(); } },
+                {"temporaryAccessPassMethods", n => { TemporaryAccessPassMethods = n.GetCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>(TemporaryAccessPassAuthenticationMethod.CreateFromDiscriminatorValue).ToList(); } },
                 {"windowsHelloForBusinessMethods", n => { WindowsHelloForBusinessMethods = n.GetCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>(WindowsHelloForBusinessAuthenticationMethod.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
@@ -55,6 +61,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Fido2AuthenticationMethod>("fido2Methods", Fido2Methods);
             writer.WriteCollectionOfObjectValues<AuthenticationMethod>("methods", Methods);
             writer.WriteCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("microsoftAuthenticatorMethods", MicrosoftAuthenticatorMethods);
+            writer.WriteCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", TemporaryAccessPassMethods);
             writer.WriteCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", WindowsHelloForBusinessMethods);
         }
     }

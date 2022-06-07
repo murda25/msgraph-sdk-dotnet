@@ -87,6 +87,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

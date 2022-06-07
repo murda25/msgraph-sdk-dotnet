@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Users.Item.Calendar.Events.Item.Instances.Item.Calenda
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new CalendarRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

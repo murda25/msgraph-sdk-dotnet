@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Groups.Item.Calendar.Events.Item.Instances.Item.MultiV
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

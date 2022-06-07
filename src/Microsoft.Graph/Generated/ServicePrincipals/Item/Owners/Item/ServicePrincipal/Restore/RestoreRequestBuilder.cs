@@ -53,6 +53,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners.Item.ServicePrincipal.Re
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new RestoreRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

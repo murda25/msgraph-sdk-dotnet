@@ -54,6 +54,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item.RoleAssignments.
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new RoleDefinitionRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

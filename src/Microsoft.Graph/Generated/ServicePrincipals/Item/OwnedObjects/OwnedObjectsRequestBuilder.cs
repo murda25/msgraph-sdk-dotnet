@@ -91,6 +91,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.OwnedObjects {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new OwnedObjectsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

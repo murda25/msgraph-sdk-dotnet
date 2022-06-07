@@ -112,6 +112,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new EntitlementManagementRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

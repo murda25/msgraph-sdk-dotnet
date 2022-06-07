@@ -107,6 +107,7 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new PrimaryChannelRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

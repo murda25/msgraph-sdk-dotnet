@@ -54,6 +54,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.OwnedObjects.Item.AppRoleAssign
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AppRoleAssignmentRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

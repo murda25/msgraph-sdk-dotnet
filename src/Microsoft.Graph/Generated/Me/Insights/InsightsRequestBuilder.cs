@@ -87,6 +87,7 @@ namespace Microsoft.Graph.Me.Insights {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new InsightsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

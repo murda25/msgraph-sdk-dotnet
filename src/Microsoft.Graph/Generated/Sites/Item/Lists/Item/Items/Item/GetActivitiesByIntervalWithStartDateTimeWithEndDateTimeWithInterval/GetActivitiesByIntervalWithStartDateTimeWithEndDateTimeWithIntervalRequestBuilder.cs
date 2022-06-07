@@ -58,6 +58,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.GetActivitiesByInterv
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -72,6 +72,7 @@ namespace Microsoft.Graph.DeviceManagement.ComplianceManagementPartners.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

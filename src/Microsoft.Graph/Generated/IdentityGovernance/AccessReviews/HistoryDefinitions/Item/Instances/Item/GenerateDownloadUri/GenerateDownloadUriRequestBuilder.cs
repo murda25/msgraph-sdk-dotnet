@@ -53,6 +53,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.It
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GenerateDownloadUriRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -56,6 +56,7 @@ namespace Microsoft.Graph.Users.Item.DirectReports.Item.User.ReminderViewWithSta
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

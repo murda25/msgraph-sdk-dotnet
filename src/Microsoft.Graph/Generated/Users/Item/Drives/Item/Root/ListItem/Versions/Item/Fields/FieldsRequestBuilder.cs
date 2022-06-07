@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Drives.Item.Root.ListItem.Versions.Item.Fie
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new FieldsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

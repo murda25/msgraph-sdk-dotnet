@@ -66,6 +66,7 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.SectionGroups {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new SectionGroupsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

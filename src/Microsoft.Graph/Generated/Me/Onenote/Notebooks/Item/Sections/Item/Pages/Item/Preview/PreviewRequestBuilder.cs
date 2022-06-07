@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Me.Onenote.Notebooks.Item.Sections.Item.Pages.Item.Pre
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new PreviewRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

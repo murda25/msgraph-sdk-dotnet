@@ -72,6 +72,7 @@ namespace Microsoft.Graph.IdentityGovernance.TermsOfUse.AgreementAcceptances.Ite
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AgreementAcceptanceItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

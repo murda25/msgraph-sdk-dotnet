@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.CalendarShar
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AcceptRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Me.Activities.Item.HistoryItems.Item.Activity {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ActivityRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

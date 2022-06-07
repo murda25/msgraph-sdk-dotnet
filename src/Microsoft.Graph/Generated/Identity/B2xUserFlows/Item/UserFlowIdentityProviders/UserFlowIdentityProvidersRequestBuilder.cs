@@ -71,6 +71,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.UserFlowIdentityProviders {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new UserFlowIdentityProvidersRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

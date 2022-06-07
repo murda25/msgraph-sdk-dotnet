@@ -55,6 +55,7 @@ namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityGroupCountsWithPerio
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

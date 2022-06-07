@@ -61,6 +61,7 @@ namespace Microsoft.Graph.Reports.ManagedDeviceEnrollmentFailureDetailsWithSkipW
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

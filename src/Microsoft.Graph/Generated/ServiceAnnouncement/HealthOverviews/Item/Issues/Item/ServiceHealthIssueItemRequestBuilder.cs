@@ -73,6 +73,7 @@ namespace Microsoft.Graph.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ServiceHealthIssueItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

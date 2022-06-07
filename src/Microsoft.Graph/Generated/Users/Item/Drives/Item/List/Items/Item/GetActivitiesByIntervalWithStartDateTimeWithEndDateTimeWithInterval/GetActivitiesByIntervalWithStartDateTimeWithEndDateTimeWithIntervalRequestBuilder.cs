@@ -58,6 +58,7 @@ namespace Microsoft.Graph.Users.Item.Drives.Item.List.Items.Item.GetActivitiesBy
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

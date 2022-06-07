@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Planner.Buckets.Item.Tasks.Item.AssignedToTaskBoardFor
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

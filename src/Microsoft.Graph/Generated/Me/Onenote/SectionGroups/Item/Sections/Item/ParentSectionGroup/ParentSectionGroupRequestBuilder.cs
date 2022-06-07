@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Me.Onenote.SectionGroups.Item.Sections.Item.ParentSect
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ParentSectionGroupRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

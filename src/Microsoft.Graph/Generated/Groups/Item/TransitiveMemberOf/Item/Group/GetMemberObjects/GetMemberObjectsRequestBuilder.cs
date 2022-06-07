@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMemberOf.Item.Group.GetMemberObj
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new GetMemberObjectsRequestBuilderPostRequestConfiguration();

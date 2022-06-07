@@ -92,6 +92,7 @@ namespace Microsoft.Graph.Users.Item.ContactFolders.Item.ChildFolders.Item.Conta
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ContactItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

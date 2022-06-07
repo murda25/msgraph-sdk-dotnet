@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Reports.GetOffice365ActivationsUserCounts {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetOffice365ActivationsUserCountsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

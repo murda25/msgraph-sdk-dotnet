@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Users.Item.Drives.Item.List.ContentTypes.Item.Columns.
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new SourceColumnRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

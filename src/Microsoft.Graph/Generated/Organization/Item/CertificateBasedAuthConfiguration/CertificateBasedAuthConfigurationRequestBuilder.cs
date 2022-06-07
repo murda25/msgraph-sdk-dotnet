@@ -66,6 +66,7 @@ namespace Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

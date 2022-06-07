@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item.Messages.Item.Replies.Item.Ho
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

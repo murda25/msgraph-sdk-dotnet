@@ -54,6 +54,7 @@ namespace Microsoft.Graph.RoleManagement.Directory.RoleAssignments.Item.Principa
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new PrincipalRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

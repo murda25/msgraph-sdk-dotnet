@@ -117,6 +117,7 @@ namespace Microsoft.Graph.Organization.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new OrganizationItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

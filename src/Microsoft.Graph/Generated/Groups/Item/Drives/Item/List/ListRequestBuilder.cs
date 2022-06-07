@@ -102,6 +102,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ListRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

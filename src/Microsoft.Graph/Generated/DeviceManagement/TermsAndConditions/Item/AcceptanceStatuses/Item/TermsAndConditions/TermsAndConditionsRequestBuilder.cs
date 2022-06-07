@@ -54,6 +54,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.AcceptanceSta
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new TermsAndConditionsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

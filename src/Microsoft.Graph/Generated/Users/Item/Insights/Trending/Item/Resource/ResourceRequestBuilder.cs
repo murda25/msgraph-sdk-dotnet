@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Trending.Item.Resource {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ResourceRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

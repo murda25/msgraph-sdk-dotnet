@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Me.Insights.Shared.Item.LastSharedMethod {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new LastSharedMethodRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

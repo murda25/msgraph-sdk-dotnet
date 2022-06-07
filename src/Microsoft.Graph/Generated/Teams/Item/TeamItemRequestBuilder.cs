@@ -137,6 +137,7 @@ namespace Microsoft.Graph.Teams.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new TeamItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

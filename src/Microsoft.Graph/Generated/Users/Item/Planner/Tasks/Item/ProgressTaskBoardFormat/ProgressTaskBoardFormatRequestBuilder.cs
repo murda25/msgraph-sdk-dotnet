@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Planner.Tasks.Item.ProgressTaskBoardFormat 
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

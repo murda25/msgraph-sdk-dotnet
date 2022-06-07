@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Repli
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

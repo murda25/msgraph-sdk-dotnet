@@ -52,6 +52,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts.Delt
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DeltaRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

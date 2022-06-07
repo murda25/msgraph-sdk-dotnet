@@ -72,6 +72,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

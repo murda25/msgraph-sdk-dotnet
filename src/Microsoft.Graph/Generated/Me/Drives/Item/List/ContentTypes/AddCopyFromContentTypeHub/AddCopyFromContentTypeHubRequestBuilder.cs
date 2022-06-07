@@ -55,6 +55,7 @@ namespace Microsoft.Graph.Me.Drives.Item.List.ContentTypes.AddCopyFromContentTyp
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration();

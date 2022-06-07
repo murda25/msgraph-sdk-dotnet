@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>(nameof(BodyLastModifiedDateTime)); }
             set { BackingStore?.Set(nameof(BodyLastModifiedDateTime), value); }
         }
-        /// <summary>The categories property</summary>
+        /// <summary>The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.</summary>
         public List<string> Categories {
             get { return BackingStore?.Get<List<string>>(nameof(Categories)); }
             set { BackingStore?.Set(nameof(Categories), value); }
         }
-        /// <summary>The checklistItems property</summary>
+        /// <summary>A collection of smaller subtasks linked to the more complex parent task.</summary>
         public List<ChecklistItem> ChecklistItems {
             get { return BackingStore?.Get<List<ChecklistItem>>(nameof(ChecklistItems)); }
             set { BackingStore?.Set(nameof(ChecklistItems), value); }

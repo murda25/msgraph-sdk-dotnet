@@ -101,6 +101,7 @@ namespace Microsoft.Graph.Directory.AdministrativeUnits.Item.Members {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new MembersRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

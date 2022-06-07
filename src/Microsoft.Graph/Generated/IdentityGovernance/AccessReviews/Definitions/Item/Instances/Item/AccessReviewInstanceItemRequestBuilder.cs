@@ -5,6 +5,7 @@ using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instance
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ResetDecisions;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.SendReminder;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stages;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stop;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -50,6 +51,10 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         /// <summary>The sendReminder property</summary>
         public SendReminderRequestBuilder SendReminder { get =>
             new SendReminderRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The stages property</summary>
+        public StagesRequestBuilder Stages { get =>
+            new StagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The stop property</summary>
         public StopRequestBuilder Stop { get =>
@@ -112,6 +117,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AccessReviewInstanceItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item.Messages.Item.HostedContents.Cou
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

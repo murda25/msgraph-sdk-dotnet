@@ -87,6 +87,7 @@ namespace Microsoft.Graph.Organization.Item.Branding.Localizations.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

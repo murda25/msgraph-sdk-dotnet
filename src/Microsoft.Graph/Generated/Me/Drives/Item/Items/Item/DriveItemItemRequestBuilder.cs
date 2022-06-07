@@ -112,6 +112,7 @@ namespace Microsoft.Graph.Me.Drives.Item.Items.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DriveItemItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -102,6 +102,7 @@ namespace Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new MailFolderItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

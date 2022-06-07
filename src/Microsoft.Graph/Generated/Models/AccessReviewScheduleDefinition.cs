@@ -71,6 +71,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AccessReviewScheduleSettings>(nameof(Settings)); }
             set { BackingStore?.Set(nameof(Settings), value); }
         }
+        /// <summary>Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.</summary>
+        public List<AccessReviewStageSettings> StageSettings {
+            get { return BackingStore?.Get<List<AccessReviewStageSettings>>(nameof(StageSettings)); }
+            set { BackingStore?.Set(nameof(StageSettings), value); }
+        }
         /// <summary>This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only.</summary>
         public string Status {
             get { return BackingStore?.Get<string>(nameof(Status)); }
@@ -102,6 +107,7 @@ namespace Microsoft.Graph.Models {
                 {"reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope.CreateFromDiscriminatorValue).ToList(); } },
                 {"scope", n => { Scope = n.GetObjectValue<AccessReviewScope>(AccessReviewScope.CreateFromDiscriminatorValue); } },
                 {"settings", n => { Settings = n.GetObjectValue<AccessReviewScheduleSettings>(AccessReviewScheduleSettings.CreateFromDiscriminatorValue); } },
+                {"stageSettings", n => { StageSettings = n.GetCollectionOfObjectValues<AccessReviewStageSettings>(AccessReviewStageSettings.CreateFromDiscriminatorValue).ToList(); } },
                 {"status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -125,6 +131,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", Reviewers);
             writer.WriteObjectValue<AccessReviewScope>("scope", Scope);
             writer.WriteObjectValue<AccessReviewScheduleSettings>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<AccessReviewStageSettings>("stageSettings", StageSettings);
             writer.WriteStringValue("status", Status);
         }
     }

@@ -82,6 +82,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.Items.Item.ListItem.Versions.I
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ListItemVersionItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
