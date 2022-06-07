@@ -77,6 +77,7 @@ namespace Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Item.Attachments.It
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

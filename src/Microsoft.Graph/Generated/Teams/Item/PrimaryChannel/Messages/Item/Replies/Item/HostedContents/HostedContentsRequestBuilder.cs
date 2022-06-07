@@ -66,6 +66,7 @@ namespace Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item.Replies.Item.H
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new HostedContentsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
@@ -87,6 +88,7 @@ namespace Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item.Replies.Item.H
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new HostedContentsRequestBuilderPostRequestConfiguration();

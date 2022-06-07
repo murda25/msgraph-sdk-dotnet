@@ -52,6 +52,7 @@ namespace Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.RevokeSignInSe
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new RevokeSignInSessionsRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

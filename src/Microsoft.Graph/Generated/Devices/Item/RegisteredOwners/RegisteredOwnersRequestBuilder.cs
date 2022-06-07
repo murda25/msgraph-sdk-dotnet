@@ -91,6 +91,7 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new RegisteredOwnersRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

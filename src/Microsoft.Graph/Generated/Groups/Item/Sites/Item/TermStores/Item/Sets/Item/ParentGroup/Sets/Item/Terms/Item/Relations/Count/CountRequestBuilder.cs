@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item.Sets.Item.Paren
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

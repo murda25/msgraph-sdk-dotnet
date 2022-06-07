@@ -79,6 +79,7 @@ namespace Microsoft.Graph.Identity {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new IdentityRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

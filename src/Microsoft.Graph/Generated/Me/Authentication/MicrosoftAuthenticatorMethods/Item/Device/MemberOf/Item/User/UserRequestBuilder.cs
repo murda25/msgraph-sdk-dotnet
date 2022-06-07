@@ -137,6 +137,7 @@ namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.D
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new UserRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

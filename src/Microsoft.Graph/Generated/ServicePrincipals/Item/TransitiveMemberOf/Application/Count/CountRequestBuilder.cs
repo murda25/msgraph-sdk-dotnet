@@ -53,6 +53,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Application.
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

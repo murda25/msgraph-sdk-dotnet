@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Calendar.CalendarView.Item.Instances.Item.E
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ExtensionItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

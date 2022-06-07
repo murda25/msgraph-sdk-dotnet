@@ -52,6 +52,7 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMembers.Item.Group.CheckGrantedP
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new CheckGrantedPermissionsForAppRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

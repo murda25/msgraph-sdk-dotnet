@@ -129,6 +129,7 @@ namespace Microsoft.Graph.Policies {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new PoliciesRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

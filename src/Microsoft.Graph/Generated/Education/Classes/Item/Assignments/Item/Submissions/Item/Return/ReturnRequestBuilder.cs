@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.It
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ReturnRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

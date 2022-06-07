@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Contacts.Item.DirectReports.Item.OrgContact.Restore {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new RestoreRequestBuilderPostRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

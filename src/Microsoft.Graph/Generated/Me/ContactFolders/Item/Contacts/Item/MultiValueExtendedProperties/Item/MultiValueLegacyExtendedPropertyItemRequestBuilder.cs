@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item.Contacts.Item.MultiValueExtende
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new MultiValueLegacyExtendedPropertyItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

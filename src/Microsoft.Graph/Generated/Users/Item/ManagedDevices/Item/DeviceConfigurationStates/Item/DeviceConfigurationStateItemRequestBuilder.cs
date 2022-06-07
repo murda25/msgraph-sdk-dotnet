@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceConfigurationStat
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

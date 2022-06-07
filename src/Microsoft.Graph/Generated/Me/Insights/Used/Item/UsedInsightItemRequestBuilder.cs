@@ -77,6 +77,7 @@ namespace Microsoft.Graph.Me.Insights.Used.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new UsedInsightItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

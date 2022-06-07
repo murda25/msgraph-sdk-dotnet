@@ -66,6 +66,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.ContentTypes.Item.ColumnPositio
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ColumnPositionsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item.Members.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ConversationMemberItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

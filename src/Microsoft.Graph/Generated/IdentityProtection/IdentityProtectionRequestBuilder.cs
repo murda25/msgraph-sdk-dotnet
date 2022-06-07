@@ -64,6 +64,7 @@ namespace Microsoft.Graph.IdentityProtection {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new IdentityProtectionRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

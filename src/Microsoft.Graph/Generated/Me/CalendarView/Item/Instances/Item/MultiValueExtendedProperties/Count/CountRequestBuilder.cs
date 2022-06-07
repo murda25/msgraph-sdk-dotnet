@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Me.CalendarView.Item.Instances.Item.MultiValueExtended
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

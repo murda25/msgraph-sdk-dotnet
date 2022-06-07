@@ -82,6 +82,7 @@ namespace Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item 
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

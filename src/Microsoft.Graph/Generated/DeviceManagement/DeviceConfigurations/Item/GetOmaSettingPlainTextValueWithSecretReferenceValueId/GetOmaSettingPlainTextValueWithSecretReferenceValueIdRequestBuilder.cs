@@ -54,6 +54,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.GetOmaSetti
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -52,6 +52,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.ListItem.GetActivitiesByInterva
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetActivitiesByIntervalRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

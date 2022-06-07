@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceCompliancePolicyS
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

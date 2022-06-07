@@ -87,6 +87,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new TodoTaskItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

@@ -52,6 +52,7 @@ namespace Microsoft.Graph.Users.Item.DirectReports.Item.User.GetManagedAppDiagno
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

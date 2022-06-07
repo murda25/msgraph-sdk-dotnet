@@ -72,6 +72,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new MobileAppAssignmentItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

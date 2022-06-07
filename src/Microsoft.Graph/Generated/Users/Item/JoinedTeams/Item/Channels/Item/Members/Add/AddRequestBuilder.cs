@@ -54,6 +54,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Members.Add 
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new AddRequestBuilderPostRequestConfiguration();

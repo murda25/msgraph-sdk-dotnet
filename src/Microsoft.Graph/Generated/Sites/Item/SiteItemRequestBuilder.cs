@@ -128,6 +128,7 @@ namespace Microsoft.Graph.Sites.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new SiteItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

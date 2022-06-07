@@ -72,6 +72,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ApprovalStageItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

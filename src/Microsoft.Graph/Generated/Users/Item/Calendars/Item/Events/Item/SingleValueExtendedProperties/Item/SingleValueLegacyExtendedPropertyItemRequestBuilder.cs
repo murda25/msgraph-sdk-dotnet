@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Calendars.Item.Events.Item.SingleValueExten
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new SingleValueLegacyExtendedPropertyItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

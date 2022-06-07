@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Chats.Item.Messages.Item.Replies.Item.HostedContents.I
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

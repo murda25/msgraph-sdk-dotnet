@@ -82,6 +82,7 @@ namespace Microsoft.Graph.Users.Item.Teamwork {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new TeamworkRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

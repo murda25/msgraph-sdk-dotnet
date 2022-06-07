@@ -55,6 +55,7 @@ namespace Microsoft.Graph.Reports.GetSkypeForBusinessOrganizerActivityMinuteCoun
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

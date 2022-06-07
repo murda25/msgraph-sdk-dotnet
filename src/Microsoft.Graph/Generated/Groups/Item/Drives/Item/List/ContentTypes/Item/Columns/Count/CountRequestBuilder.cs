@@ -53,6 +53,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.ContentTypes.Item.Columns
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "text/plain");
             if (requestConfiguration != null) {
                 var requestConfig = new CountRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

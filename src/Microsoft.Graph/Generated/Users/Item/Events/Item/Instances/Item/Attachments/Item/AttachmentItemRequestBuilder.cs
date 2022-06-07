@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Events.Item.Instances.Item.Attachments.Item
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AttachmentItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

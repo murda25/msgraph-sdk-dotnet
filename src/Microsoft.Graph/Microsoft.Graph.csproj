@@ -25,11 +25,11 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.6</VersionSuffix>
+    <VersionSuffix>preview.7</VersionSuffix>
     <PackageReleaseNotes>
-- Fixes exceptions on deserialization of payload that do not have @odata.type
-- Fixes instances with missing key values for path parameters
-- Adds missing odata cast paths to enable requests for specific kind of objects
+- Latest metadata updates from 7th June 2022 snapshot
+- Adds missing odata cast paths for the places API
+- Adds functionality to send the relevant accept header on request execution
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

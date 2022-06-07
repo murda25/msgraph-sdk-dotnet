@@ -54,6 +54,7 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps.Item.ManagedDevices.Item
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ManagedDeviceItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

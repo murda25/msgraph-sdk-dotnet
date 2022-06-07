@@ -87,6 +87,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.InstalledApps.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new TeamsAppInstallationItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

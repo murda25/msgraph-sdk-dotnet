@@ -59,6 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.ManagedMobileLobApp {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new ManagedMobileLobAppRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

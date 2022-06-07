@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).</summary>
+        public bool? DecisionHistoriesForReviewersEnabled {
+            get { return BackingStore?.Get<bool?>(nameof(DecisionHistoriesForReviewersEnabled)); }
+            set { BackingStore?.Set(nameof(DecisionHistoriesForReviewersEnabled), value); }
+        }
         /// <summary>Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.</summary>
         public string DefaultDecision {
             get { return BackingStore?.Get<string>(nameof(DefaultDecision)); }
@@ -85,6 +90,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"applyActions", n => { ApplyActions = n.GetCollectionOfObjectValues<AccessReviewApplyAction>(AccessReviewApplyAction.CreateFromDiscriminatorValue).ToList(); } },
                 {"autoApplyDecisionsEnabled", n => { AutoApplyDecisionsEnabled = n.GetBoolValue(); } },
+                {"decisionHistoriesForReviewersEnabled", n => { DecisionHistoriesForReviewersEnabled = n.GetBoolValue(); } },
                 {"defaultDecision", n => { DefaultDecision = n.GetStringValue(); } },
                 {"defaultDecisionEnabled", n => { DefaultDecisionEnabled = n.GetBoolValue(); } },
                 {"instanceDurationInDays", n => { InstanceDurationInDays = n.GetIntValue(); } },
@@ -103,6 +109,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", ApplyActions);
             writer.WriteBoolValue("autoApplyDecisionsEnabled", AutoApplyDecisionsEnabled);
+            writer.WriteBoolValue("decisionHistoriesForReviewersEnabled", DecisionHistoriesForReviewersEnabled);
             writer.WriteStringValue("defaultDecision", DefaultDecision);
             writer.WriteBoolValue("defaultDecisionEnabled", DefaultDecisionEnabled);
             writer.WriteIntValue("instanceDurationInDays", InstanceDurationInDays);

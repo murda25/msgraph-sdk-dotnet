@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<MdmWindowsInformationProtectionPolicy>>(nameof(MdmWindowsInformationProtectionPolicies)); }
             set { BackingStore?.Set(nameof(MdmWindowsInformationProtectionPolicies), value); }
         }
-        /// <summary>The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -&lt;country/regioncode2&gt;, where  is a lowercase two-letter code derived from ISO 639-1 and &lt;country/regioncode2&gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.</summary>
+        /// <summary>The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is &lt;languagecode2&gt;-&lt;country/regioncode2&gt;, where &lt;languagecode2&gt; is a lowercase two-letter code derived from ISO 639-1 and &lt;country/regioncode2&gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.</summary>
         public string MicrosoftStoreForBusinessLanguage {
             get { return BackingStore?.Get<string>(nameof(MicrosoftStoreForBusinessLanguage)); }
             set { BackingStore?.Set(nameof(MicrosoftStoreForBusinessLanguage), value); }

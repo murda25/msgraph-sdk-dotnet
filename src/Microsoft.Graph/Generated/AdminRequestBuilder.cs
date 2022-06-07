@@ -59,6 +59,7 @@ namespace Microsoft.Graph.Admin {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new AdminRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

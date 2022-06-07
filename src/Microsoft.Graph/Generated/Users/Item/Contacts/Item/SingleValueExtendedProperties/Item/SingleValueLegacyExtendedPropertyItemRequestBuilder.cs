@@ -72,6 +72,7 @@ namespace Microsoft.Graph.Users.Item.Contacts.Item.SingleValueExtendedProperties
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new SingleValueLegacyExtendedPropertyItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

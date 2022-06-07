@@ -55,6 +55,7 @@ namespace Microsoft.Graph.Reports.GetSkypeForBusinessActivityUserDetailWithPerio
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);

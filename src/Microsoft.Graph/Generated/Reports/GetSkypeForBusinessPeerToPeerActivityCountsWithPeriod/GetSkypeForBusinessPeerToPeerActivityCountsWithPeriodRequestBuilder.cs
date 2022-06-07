@@ -55,6 +55,7 @@ namespace Microsoft.Graph.Reports.GetSkypeForBusinessPeerToPeerActivityCountsWit
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
