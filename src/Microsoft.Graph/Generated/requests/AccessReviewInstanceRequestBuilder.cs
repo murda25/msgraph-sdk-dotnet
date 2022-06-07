@@ -73,6 +73,18 @@ namespace Microsoft.Graph
                 return new AccessReviewInstanceDecisionsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("decisions"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for Stages.
+        /// </summary>
+        /// <returns>The <see cref="IAccessReviewInstanceStagesCollectionRequestBuilder"/>.</returns>
+        public IAccessReviewInstanceStagesCollectionRequestBuilder Stages
+        {
+            get
+            {
+                return new AccessReviewInstanceStagesCollectionRequestBuilder(this.AppendSegmentToRequestUrl("stages"), this.Client);
+            }
+        }
     
         /// <summary>
         /// Gets the request builder for AccessReviewInstanceAcceptRecommendations.

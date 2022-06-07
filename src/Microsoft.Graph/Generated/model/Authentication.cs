@@ -63,6 +63,20 @@ namespace Microsoft.Graph
         public string MicrosoftAuthenticatorMethodsNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets temporary access pass methods.
+        /// Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+        /// </summary>
+        [JsonPropertyName("temporaryAccessPassMethods")]
+        public IAuthenticationTemporaryAccessPassMethodsCollectionPage TemporaryAccessPassMethods { get; set; }
+
+        /// <summary>
+        /// Gets or sets temporaryAccessPassMethodsNextLink.
+        /// </summary>
+        [JsonPropertyName("temporaryAccessPassMethods@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string TemporaryAccessPassMethodsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets windows hello for business methods.
         /// Represents the Windows Hello for Business authentication method registered to a user for authentication.
         /// </summary>

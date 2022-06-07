@@ -1,0 +1,32 @@
+name: Validate Pull Request
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ 'feature/*', 'dev' ,'master' ]
+  pull_request:
+    branches: [ 'feature/*', 'dev' ,'master' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      solutionName: Microsoft.Graph.sln
+    steps:
+      - uses: actions/checkout@v3.0.2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2.1.0
+        with:
+          dotnet-version: 6.0.x
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: csharp
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.solutionName }}
+      - name: Build
+        run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
+      - name: Test
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
