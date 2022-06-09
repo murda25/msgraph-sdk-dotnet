@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the auditLogRoot singleton.</summary>
     public class AuditLogRoot : Entity, IParsable {
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The directoryAudits property</summary>
         public List<DirectoryAudit> DirectoryAudits {
             get { return BackingStore?.Get<List<DirectoryAudit>>(nameof(DirectoryAudits)); }
             set { BackingStore?.Set(nameof(DirectoryAudits), value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<RestrictedSignIn>>(nameof(RestrictedSignIns)); }
             set { BackingStore?.Set(nameof(RestrictedSignIns), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The signIns property</summary>
         public List<SignIn> SignIns {
             get { return BackingStore?.Get<List<SignIn>>(nameof(SignIns)); }
             set { BackingStore?.Set(nameof(SignIns), value); }

@@ -1,8 +1,11 @@
 using Microsoft.Graph.Directory.DeletedItems.Application;
 using Microsoft.Graph.Directory.DeletedItems.Count;
+using Microsoft.Graph.Directory.DeletedItems.GetAvailableExtensionProperties;
+using Microsoft.Graph.Directory.DeletedItems.GetByIds;
 using Microsoft.Graph.Directory.DeletedItems.Group;
 using Microsoft.Graph.Directory.DeletedItems.Item;
 using Microsoft.Graph.Directory.DeletedItems.User;
+using Microsoft.Graph.Directory.DeletedItems.ValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -24,6 +27,14 @@ namespace Microsoft.Graph.Directory.DeletedItems {
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The getAvailableExtensionProperties property</summary>
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getByIds property</summary>
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The group property</summary>
         public GroupRequestBuilder Group { get =>
             new GroupRequestBuilder(PathParameters, RequestAdapter);
@@ -37,6 +48,10 @@ namespace Microsoft.Graph.Directory.DeletedItems {
         /// <summary>The user property</summary>
         public UserRequestBuilder User { get =>
             new UserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The validateProperties property</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Microsoft.Graph.directory.deletedItems.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {

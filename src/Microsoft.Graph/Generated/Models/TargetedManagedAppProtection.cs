@@ -25,7 +25,8 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.targetedManagedAppProtection" => new TargetedManagedAppProtection(),
+                "#microsoft.graph.androidManagedAppProtection" => new AndroidManagedAppProtection(),
+                "#microsoft.graph.iosManagedAppProtection" => new IosManagedAppProtection(),
                 _ => new TargetedManagedAppProtection(),
             };
         }

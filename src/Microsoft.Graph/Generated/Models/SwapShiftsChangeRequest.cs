@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class SwapShiftsChangeRequest : OfferShiftRequest, IParsable {
         /// <summary>Shift ID for the recipient user with whom the request is to swap.</summary>
         public string RecipientShiftId {

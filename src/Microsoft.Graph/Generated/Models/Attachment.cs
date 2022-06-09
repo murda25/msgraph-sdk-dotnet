@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class Attachment : Entity, IParsable {
         /// <summary>The MIME type.</summary>
         public string ContentType {
@@ -40,7 +40,9 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.attachment" => new Attachment(),
+                "#microsoft.graph.fileAttachment" => new FileAttachment(),
+                "#microsoft.graph.itemAttachment" => new ItemAttachment(),
+                "#microsoft.graph.referenceAttachment" => new ReferenceAttachment(),
                 _ => new Attachment(),
             };
         }

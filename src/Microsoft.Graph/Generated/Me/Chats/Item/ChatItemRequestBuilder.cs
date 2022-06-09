@@ -1,6 +1,7 @@
 using Microsoft.Graph.Me.Chats.Item.InstalledApps;
 using Microsoft.Graph.Me.Chats.Item.Members;
 using Microsoft.Graph.Me.Chats.Item.Messages;
+using Microsoft.Graph.Me.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Me.Chats.Item.Tabs;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -31,6 +32,10 @@ namespace Microsoft.Graph.Me.Chats.Item {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The sendActivityNotification property</summary>
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);

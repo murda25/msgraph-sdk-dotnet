@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class User : DirectoryObject, IParsable {
         /// <summary>A freeform text entry field for the user to describe themselves. Returned only on $select.</summary>
         public string AboutMe {
@@ -46,7 +45,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AssignedPlan>>(nameof(AssignedPlans)); }
             set { BackingStore?.Set(nameof(AssignedPlans), value); }
         }
-        /// <summary>TODO: Add Description</summary>
+        /// <summary>The authentication methods that are supported for the user.</summary>
         public Microsoft.Graph.Models.Authentication Authentication {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Authentication>(nameof(Authentication)); }
             set { BackingStore?.Set(nameof(Authentication), value); }
@@ -241,7 +240,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.InferenceClassification>(nameof(InferenceClassification)); }
             set { BackingStore?.Set(nameof(InferenceClassification), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The insights property</summary>
         public OfficeGraphInsights Insights {
             get { return BackingStore?.Get<OfficeGraphInsights>(nameof(Insights)); }
             set { BackingStore?.Set(nameof(Insights), value); }
@@ -351,7 +350,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>(nameof(OfficeLocation)); }
             set { BackingStore?.Set(nameof(OfficeLocation), value); }
         }
-        /// <summary>Read-only.</summary>
+        /// <summary>The onenote property</summary>
         public Microsoft.Graph.Models.Onenote Onenote {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>(nameof(Onenote)); }
             set { BackingStore?.Set(nameof(Onenote), value); }
@@ -456,7 +455,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ProfilePhoto>(nameof(Photo)); }
             set { BackingStore?.Set(nameof(Photo), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The photos property</summary>
         public List<ProfilePhoto> Photos {
             get { return BackingStore?.Get<List<ProfilePhoto>>(nameof(Photos)); }
             set { BackingStore?.Set(nameof(Photos), value); }
@@ -521,7 +520,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ScopedRoleMembership>>(nameof(ScopedRoleMemberOf)); }
             set { BackingStore?.Set(nameof(ScopedRoleMemberOf), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The settings property</summary>
         public UserSettings Settings {
             get { return BackingStore?.Get<UserSettings>(nameof(Settings)); }
             set { BackingStore?.Set(nameof(Settings), value); }

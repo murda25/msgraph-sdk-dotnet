@@ -1,11 +1,16 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.Archive;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels;
+using Microsoft.Graph.Me.JoinedTeams.Item.Clone;
+using Microsoft.Graph.Me.JoinedTeams.Item.CompleteMigration;
 using Microsoft.Graph.Me.JoinedTeams.Item.Group;
 using Microsoft.Graph.Me.JoinedTeams.Item.InstalledApps;
 using Microsoft.Graph.Me.JoinedTeams.Item.Members;
 using Microsoft.Graph.Me.JoinedTeams.Item.Operations;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel;
 using Microsoft.Graph.Me.JoinedTeams.Item.Schedule;
+using Microsoft.Graph.Me.JoinedTeams.Item.SendActivityNotification;
 using Microsoft.Graph.Me.JoinedTeams.Item.Template;
+using Microsoft.Graph.Me.JoinedTeams.Item.Unarchive;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -19,9 +24,21 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.JoinedTeams.Item {
     /// <summary>Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.</summary>
     public class TeamItemRequestBuilder {
+        /// <summary>The archive property</summary>
+        public ArchiveRequestBuilder Archive { get =>
+            new ArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The channels property</summary>
         public ChannelsRequestBuilder Channels { get =>
             new ChannelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The clone property</summary>
+        public CloneRequestBuilder Clone { get =>
+            new CloneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The completeMigration property</summary>
+        public CompleteMigrationRequestBuilder CompleteMigration { get =>
+            new CompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The group property</summary>
         public GroupRequestBuilder Group { get =>
@@ -51,9 +68,17 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The sendActivityNotification property</summary>
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The template property</summary>
         public TemplateRequestBuilder Template { get =>
             new TemplateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unarchive property</summary>
+        public UnarchiveRequestBuilder Unarchive { get =>
+            new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }

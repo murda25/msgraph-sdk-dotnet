@@ -1,4 +1,5 @@
 using Microsoft.Graph.Me.JoinedTeams.Count;
+using Microsoft.Graph.Me.JoinedTeams.GetAllMessages;
 using Microsoft.Graph.Me.JoinedTeams.Item;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -97,6 +98,12 @@ namespace Microsoft.Graph.Me.JoinedTeams {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the getAllMessages method.
+        /// </summary>
+        public GetAllMessagesRequestBuilder GetAllMessages() {
+            return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.

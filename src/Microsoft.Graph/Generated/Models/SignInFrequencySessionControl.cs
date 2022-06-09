@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the identityContainer singleton.</summary>
     public class SignInFrequencySessionControl : ConditionalAccessSessionControl, IParsable {
-        /// <summary>Possible values are: days, hours.</summary>
+        /// <summary>Possible values are: days, hours, or null if frequencyInterval is everyTime .</summary>
         public SigninFrequencyType? Type {
             get { return BackingStore?.Get<SigninFrequencyType?>(nameof(Type)); }
             set { BackingStore?.Set(nameof(Type), value); }

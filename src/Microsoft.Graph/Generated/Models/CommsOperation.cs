@@ -30,7 +30,16 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.commsOperation" => new CommsOperation(),
+                "#microsoft.graph.cancelMediaProcessingOperation" => new CancelMediaProcessingOperation(),
+                "#microsoft.graph.inviteParticipantsOperation" => new InviteParticipantsOperation(),
+                "#microsoft.graph.muteParticipantOperation" => new MuteParticipantOperation(),
+                "#microsoft.graph.playPromptOperation" => new PlayPromptOperation(),
+                "#microsoft.graph.recordOperation" => new RecordOperation(),
+                "#microsoft.graph.startHoldMusicOperation" => new StartHoldMusicOperation(),
+                "#microsoft.graph.stopHoldMusicOperation" => new StopHoldMusicOperation(),
+                "#microsoft.graph.subscribeToToneOperation" => new SubscribeToToneOperation(),
+                "#microsoft.graph.unmuteParticipantOperation" => new UnmuteParticipantOperation(),
+                "#microsoft.graph.updateRecordingStatusOperation" => new UpdateRecordingStatusOperation(),
                 _ => new CommsOperation(),
             };
         }

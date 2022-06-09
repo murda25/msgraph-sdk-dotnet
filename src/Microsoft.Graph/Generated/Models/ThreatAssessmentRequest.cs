@@ -55,7 +55,10 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.threatAssessmentRequest" => new ThreatAssessmentRequest(),
+                "#microsoft.graph.emailFileAssessmentRequest" => new EmailFileAssessmentRequest(),
+                "#microsoft.graph.fileAssessmentRequest" => new FileAssessmentRequest(),
+                "#microsoft.graph.mailAssessmentRequest" => new MailAssessmentRequest(),
+                "#microsoft.graph.urlAssessmentRequest" => new UrlAssessmentRequest(),
                 _ => new ThreatAssessmentRequest(),
             };
         }

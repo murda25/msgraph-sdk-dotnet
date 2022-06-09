@@ -1,24 +1,5 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.AssignLicense;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.ChangePassword;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.CheckMemberGroups;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.CheckMemberObjects;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.ExportPersonalData;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.FindMeetingTimes;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.GetMailTips;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.GetManagedAppDiagnosticStatuses;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.GetManagedAppPolicies;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.GetMemberGroups;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.GetMemberObjects;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.ReminderViewWithStartDateTimeWithEndDateTime;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.RemoveAllDevicesFromManagement;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.ReprocessLicenseAssignment;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.Restore;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.RevokeSignInSessions;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.SendMail;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.TranslateExchangeIds;
-using Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User.WipeManagedAppRegistrationsByDeviceTag;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -30,76 +11,12 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User {
     /// <summary>Casts the previous resource to user.</summary>
     public class UserRequestBuilder {
-        /// <summary>The assignLicense property</summary>
-        public AssignLicenseRequestBuilder AssignLicense { get =>
-            new AssignLicenseRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The changePassword property</summary>
-        public ChangePasswordRequestBuilder ChangePassword { get =>
-            new ChangePasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The checkMemberGroups property</summary>
-        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The checkMemberObjects property</summary>
-        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The exportPersonalData property</summary>
-        public ExportPersonalDataRequestBuilder ExportPersonalData { get =>
-            new ExportPersonalDataRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The findMeetingTimes property</summary>
-        public FindMeetingTimesRequestBuilder FindMeetingTimes { get =>
-            new FindMeetingTimesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The getMailTips property</summary>
-        public GetMailTipsRequestBuilder GetMailTips { get =>
-            new GetMailTipsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The getMemberGroups property</summary>
-        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The getMemberObjects property</summary>
-        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The removeAllDevicesFromManagement property</summary>
-        public RemoveAllDevicesFromManagementRequestBuilder RemoveAllDevicesFromManagement { get =>
-            new RemoveAllDevicesFromManagementRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The reprocessLicenseAssignment property</summary>
-        public ReprocessLicenseAssignmentRequestBuilder ReprocessLicenseAssignment { get =>
-            new ReprocessLicenseAssignmentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The restore property</summary>
-        public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The revokeSignInSessions property</summary>
-        public RevokeSignInSessionsRequestBuilder RevokeSignInSessions { get =>
-            new RevokeSignInSessionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The sendMail property</summary>
-        public SendMailRequestBuilder SendMail { get =>
-            new SendMailRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The translateExchangeIds property</summary>
-        public TranslateExchangeIdsRequestBuilder TranslateExchangeIds { get =>
-            new TranslateExchangeIdsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>The wipeManagedAppRegistrationsByDeviceTag property</summary>
-        public WipeManagedAppRegistrationsByDeviceTagRequestBuilder WipeManagedAppRegistrationsByDeviceTag { get =>
-            new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new UserRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -160,28 +77,6 @@ namespace Microsoft.Graph.Users.Item.TransitiveMemberOf.Item.User {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.User>(requestInfo, Microsoft.Graph.Models.User.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the getManagedAppDiagnosticStatuses method.
-        /// </summary>
-        public GetManagedAppDiagnosticStatusesRequestBuilder GetManagedAppDiagnosticStatuses() {
-            return new GetManagedAppDiagnosticStatusesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>
-        /// Provides operations to call the getManagedAppPolicies method.
-        /// </summary>
-        public GetManagedAppPoliciesRequestBuilder GetManagedAppPolicies() {
-            return new GetManagedAppPoliciesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>
-        /// Provides operations to call the reminderView method.
-        /// <param name="endDateTime">Usage: EndDateTime=&apos;{EndDateTime}&apos;</param>
-        /// <param name="startDateTime">Usage: StartDateTime=&apos;{StartDateTime}&apos;</param>
-        /// </summary>
-        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string endDateTime, string startDateTime) {
-            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
-            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
-            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime);
         }
         /// <summary>Get the item of type microsoft.graph.directoryObject as microsoft.graph.user</summary>
         public class UserRequestBuilderGetQueryParameters {

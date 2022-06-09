@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.bookingCustomerBase" => new BookingCustomerBase(),
+                "#microsoft.graph.bookingCustomer" => new BookingCustomer(),
                 _ => new BookingCustomerBase(),
             };
         }

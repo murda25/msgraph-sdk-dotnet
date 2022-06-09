@@ -70,7 +70,30 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.deviceConfiguration" => new DeviceConfiguration(),
+                "#microsoft.graph.androidCustomConfiguration" => new AndroidCustomConfiguration(),
+                "#microsoft.graph.androidGeneralDeviceConfiguration" => new AndroidGeneralDeviceConfiguration(),
+                "#microsoft.graph.androidWorkProfileCustomConfiguration" => new AndroidWorkProfileCustomConfiguration(),
+                "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration" => new AndroidWorkProfileGeneralDeviceConfiguration(),
+                "#microsoft.graph.appleDeviceFeaturesConfigurationBase" => new AppleDeviceFeaturesConfigurationBase(),
+                "#microsoft.graph.editionUpgradeConfiguration" => new EditionUpgradeConfiguration(),
+                "#microsoft.graph.iosCertificateProfile" => new IosCertificateProfile(),
+                "#microsoft.graph.iosCustomConfiguration" => new IosCustomConfiguration(),
+                "#microsoft.graph.iosGeneralDeviceConfiguration" => new IosGeneralDeviceConfiguration(),
+                "#microsoft.graph.iosUpdateConfiguration" => new IosUpdateConfiguration(),
+                "#microsoft.graph.macOSCustomConfiguration" => new MacOSCustomConfiguration(),
+                "#microsoft.graph.macOSGeneralDeviceConfiguration" => new MacOSGeneralDeviceConfiguration(),
+                "#microsoft.graph.sharedPCConfiguration" => new SharedPCConfiguration(),
+                "#microsoft.graph.windows10CustomConfiguration" => new Windows10CustomConfiguration(),
+                "#microsoft.graph.windows10EndpointProtectionConfiguration" => new Windows10EndpointProtectionConfiguration(),
+                "#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration" => new Windows10EnterpriseModernAppManagementConfiguration(),
+                "#microsoft.graph.windows10GeneralConfiguration" => new Windows10GeneralConfiguration(),
+                "#microsoft.graph.windows10SecureAssessmentConfiguration" => new Windows10SecureAssessmentConfiguration(),
+                "#microsoft.graph.windows10TeamGeneralConfiguration" => new Windows10TeamGeneralConfiguration(),
+                "#microsoft.graph.windows81GeneralConfiguration" => new Windows81GeneralConfiguration(),
+                "#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration" => new WindowsDefenderAdvancedThreatProtectionConfiguration(),
+                "#microsoft.graph.windowsPhone81CustomConfiguration" => new WindowsPhone81CustomConfiguration(),
+                "#microsoft.graph.windowsPhone81GeneralConfiguration" => new WindowsPhone81GeneralConfiguration(),
+                "#microsoft.graph.windowsUpdateForBusinessConfiguration" => new WindowsUpdateForBusinessConfiguration(),
                 _ => new DeviceConfiguration(),
             };
         }

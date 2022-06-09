@@ -1,13 +1,18 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Archive;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Clone;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.CompleteMigration;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Group;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.InstalledApps;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Members;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Operations;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.SendActivityNotification;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Template;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Unarchive;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -19,9 +24,21 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.JoinedTeams.Item {
     /// <summary>Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.</summary>
     public class TeamItemRequestBuilder {
+        /// <summary>The archive property</summary>
+        public ArchiveRequestBuilder Archive { get =>
+            new ArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The channels property</summary>
         public ChannelsRequestBuilder Channels { get =>
             new ChannelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The clone property</summary>
+        public CloneRequestBuilder Clone { get =>
+            new CloneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The completeMigration property</summary>
+        public CompleteMigrationRequestBuilder CompleteMigration { get =>
+            new CompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The group property</summary>
         public GroupRequestBuilder Group { get =>
@@ -51,9 +68,17 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item {
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The sendActivityNotification property</summary>
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The template property</summary>
         public TemplateRequestBuilder Template { get =>
             new TemplateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unarchive property</summary>
+        public UnarchiveRequestBuilder Unarchive { get =>
+            new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }

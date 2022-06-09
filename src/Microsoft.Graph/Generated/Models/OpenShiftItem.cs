@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class OpenShiftItem : ShiftItem, IParsable {
         /// <summary>Count of the number of slots for the given open shift.</summary>
         public int? OpenSlotCount {

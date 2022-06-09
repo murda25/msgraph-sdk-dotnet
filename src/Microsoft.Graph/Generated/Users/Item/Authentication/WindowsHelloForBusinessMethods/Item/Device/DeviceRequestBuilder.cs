@@ -1,9 +1,14 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.CheckMemberGroups;
+using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.CheckMemberObjects;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.Extensions;
+using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.GetMemberGroups;
+using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.GetMemberObjects;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.MemberOf;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.RegisteredOwners;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.RegisteredUsers;
+using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.Restore;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.TransitiveMemberOf;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -16,9 +21,25 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device {
     /// <summary>Provides operations to manage the device property of the microsoft.graph.windowsHelloForBusinessAuthenticationMethod entity.</summary>
     public class DeviceRequestBuilder {
+        /// <summary>The checkMemberGroups property</summary>
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The checkMemberObjects property</summary>
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The extensions property</summary>
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getMemberGroups property</summary>
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getMemberObjects property</summary>
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The memberOf property</summary>
         public MemberOfRequestBuilder MemberOf { get =>
@@ -36,6 +57,10 @@ namespace Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMetho
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The restore property</summary>
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The transitiveMemberOf property</summary>
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
             new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);

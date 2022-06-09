@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of chat entities.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class TeamworkHostedContent : Entity, IParsable {
         /// <summary>Write only. Bytes for the hosted content (such as images).</summary>
         public byte[] ContentBytes {
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.teamworkHostedContent" => new TeamworkHostedContent(),
+                "#microsoft.graph.chatMessageHostedContent" => new ChatMessageHostedContent(),
                 _ => new TeamworkHostedContent(),
             };
         }

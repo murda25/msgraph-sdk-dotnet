@@ -1,15 +1,5 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.AddKey;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.AddPassword;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.AddTokenSigningCertificate;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.CheckMemberGroups;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.CheckMemberObjects;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.GetMemberGroups;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.GetMemberObjects;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.RemoveKey;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.RemovePassword;
-using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal.Restore;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,50 +11,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf.Item.ServicePrincipal {
     /// <summary>Casts the previous resource to servicePrincipal.</summary>
     public class ServicePrincipalRequestBuilder {
-        /// <summary>The addKey property</summary>
-        public AddKeyRequestBuilder AddKey { get =>
-            new AddKeyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The addPassword property</summary>
-        public AddPasswordRequestBuilder AddPassword { get =>
-            new AddPasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The addTokenSigningCertificate property</summary>
-        public AddTokenSigningCertificateRequestBuilder AddTokenSigningCertificate { get =>
-            new AddTokenSigningCertificateRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The checkMemberGroups property</summary>
-        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The checkMemberObjects property</summary>
-        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The getMemberGroups property</summary>
-        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The getMemberObjects property</summary>
-        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The removeKey property</summary>
-        public RemoveKeyRequestBuilder RemoveKey { get =>
-            new RemoveKeyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The removePassword property</summary>
-        public RemovePasswordRequestBuilder RemovePassword { get =>
-            new RemovePasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The restore property</summary>
-        public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

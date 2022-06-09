@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public enum DeviceManagementExchangeAccessState {
         /// <summary>No access state discovered from Exchange</summary>
         None,

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class Group : DirectoryObject, IParsable {
         /// <summary>The list of users or groups that are allowed to create post&apos;s or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.</summary>
         public List<DirectoryObject> AcceptedSenders {
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>(nameof(MembersWithLicenseErrors)); }
             set { BackingStore?.Set(nameof(MembersWithLicenseErrors), value); }
         }
-        /// <summary>Read-only.</summary>
+        /// <summary>The onenote property</summary>
         public Microsoft.Graph.Models.Onenote Onenote {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>(nameof(Onenote)); }
             set { BackingStore?.Set(nameof(Onenote), value); }

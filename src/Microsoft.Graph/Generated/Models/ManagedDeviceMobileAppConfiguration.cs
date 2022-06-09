@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.managedDeviceMobileAppConfiguration" => new ManagedDeviceMobileAppConfiguration(),
+                "#microsoft.graph.iosMobileAppConfiguration" => new IosMobileAppConfiguration(),
                 _ => new ManagedDeviceMobileAppConfiguration(),
             };
         }

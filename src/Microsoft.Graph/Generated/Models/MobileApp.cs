@@ -90,7 +90,14 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.mobileApp" => new MobileApp(),
+                "#microsoft.graph.androidStoreApp" => new AndroidStoreApp(),
+                "#microsoft.graph.iosStoreApp" => new IosStoreApp(),
+                "#microsoft.graph.iosVppApp" => new IosVppApp(),
+                "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
+                "#microsoft.graph.managedApp" => new ManagedApp(),
+                "#microsoft.graph.microsoftStoreForBusinessApp" => new MicrosoftStoreForBusinessApp(),
+                "#microsoft.graph.mobileLobApp" => new MobileLobApp(),
+                "#microsoft.graph.webApp" => new WebApp(),
                 _ => new MobileApp(),
             };
         }
