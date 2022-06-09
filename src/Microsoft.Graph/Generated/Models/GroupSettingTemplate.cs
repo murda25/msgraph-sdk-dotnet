@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplate : DirectoryObject, IParsable {
         /// <summary>Description of the template.</summary>
         public string Description {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class OnenoteEntityHierarchyModel : OnenoteEntitySchemaObjectModel, IParsable {
         /// <summary>Identity of the user, device, and application which created the item. Read-only.</summary>
         public IdentitySet CreatedBy {
@@ -35,7 +35,9 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.onenoteEntityHierarchyModel" => new OnenoteEntityHierarchyModel(),
+                "#microsoft.graph.notebook" => new Notebook(),
+                "#microsoft.graph.onenoteSection" => new OnenoteSection(),
+                "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 _ => new OnenoteEntityHierarchyModel(),
             };
         }

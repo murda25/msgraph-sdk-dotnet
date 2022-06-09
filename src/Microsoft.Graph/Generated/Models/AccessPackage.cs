@@ -6,12 +6,12 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class AccessPackage : Entity, IParsable {
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The assignmentPolicies property</summary>
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies {
             get { return BackingStore?.Get<List<AccessPackageAssignmentPolicy>>(nameof(AssignmentPolicies)); }
             set { BackingStore?.Set(nameof(AssignmentPolicies), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The catalog property</summary>
         public AccessPackageCatalog Catalog {
             get { return BackingStore?.Get<AccessPackageCatalog>(nameof(Catalog)); }
             set { BackingStore?.Set(nameof(Catalog), value); }

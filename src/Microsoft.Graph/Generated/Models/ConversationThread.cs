@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class ConversationThread : Entity, IParsable {
         /// <summary>The Cc: recipients for the thread. Returned only on $select.</summary>
         public List<Recipient> CcRecipients {
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>(nameof(LastDeliveredDateTime)); }
             set { BackingStore?.Set(nameof(LastDeliveredDateTime), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The posts property</summary>
         public List<Post> Posts {
             get { return BackingStore?.Get<List<Post>>(nameof(Posts)); }
             set { BackingStore?.Set(nameof(Posts), value); }

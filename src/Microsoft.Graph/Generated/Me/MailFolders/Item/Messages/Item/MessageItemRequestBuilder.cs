@@ -1,5 +1,4 @@
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Attachments;
-using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CalendarSharingMessage;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Copy;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateForward;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateReply;
@@ -29,10 +28,6 @@ namespace Microsoft.Graph.Me.MailFolders.Item.Messages.Item {
         /// <summary>The attachments property</summary>
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The calendarSharingMessage property</summary>
-        public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
-            new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Content property</summary>
         public ContentRequestBuilder Content { get =>

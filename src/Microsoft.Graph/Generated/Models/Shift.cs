@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class Shift : ChangeTrackedEntity, IParsable {
         /// <summary>The draft version of this shift that is viewable by managers. Required.</summary>
         public ShiftItem DraftShift {

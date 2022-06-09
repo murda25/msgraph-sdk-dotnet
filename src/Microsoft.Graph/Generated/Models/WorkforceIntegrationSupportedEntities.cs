@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the teamwork singleton.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public enum WorkforceIntegrationSupportedEntities {
         None,
         Shift,

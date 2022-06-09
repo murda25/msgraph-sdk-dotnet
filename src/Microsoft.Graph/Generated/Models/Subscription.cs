@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class Subscription : Entity, IParsable {
         /// <summary>Optional. Identifier of the application used to create the subscription. Read-only.</summary>
         public string ApplicationId {

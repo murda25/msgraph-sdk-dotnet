@@ -25,7 +25,9 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.educationOutcome" => new EducationOutcome(),
+                "#microsoft.graph.educationFeedbackOutcome" => new EducationFeedbackOutcome(),
+                "#microsoft.graph.educationPointsOutcome" => new EducationPointsOutcome(),
+                "#microsoft.graph.educationRubricOutcome" => new EducationRubricOutcome(),
                 _ => new EducationOutcome(),
             };
         }

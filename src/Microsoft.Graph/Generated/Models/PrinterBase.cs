@@ -60,7 +60,8 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.printerBase" => new PrinterBase(),
+                "#microsoft.graph.printer" => new Printer(),
+                "#microsoft.graph.printerShare" => new PrinterShare(),
                 _ => new PrinterBase(),
             };
         }

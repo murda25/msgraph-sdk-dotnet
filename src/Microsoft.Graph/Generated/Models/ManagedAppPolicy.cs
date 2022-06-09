@@ -40,7 +40,9 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.managedAppPolicy" => new ManagedAppPolicy(),
+                "#microsoft.graph.managedAppConfiguration" => new ManagedAppConfiguration(),
+                "#microsoft.graph.managedAppProtection" => new ManagedAppProtection(),
+                "#microsoft.graph.windowsInformationProtection" => new WindowsInformationProtection(),
                 _ => new ManagedAppPolicy(),
             };
         }

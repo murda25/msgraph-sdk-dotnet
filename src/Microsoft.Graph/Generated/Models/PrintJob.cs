@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PrintJobConfiguration>(nameof(Configuration)); }
             set { BackingStore?.Set(nameof(Configuration), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The createdBy property</summary>
         public UserIdentity CreatedBy {
             get { return BackingStore?.Get<UserIdentity>(nameof(CreatedBy)); }
             set { BackingStore?.Set(nameof(CreatedBy), value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
             set { BackingStore?.Set(nameof(CreatedDateTime), value); }
         }
-        /// <summary>Read-only.</summary>
+        /// <summary>The documents property</summary>
         public List<PrintDocument> Documents {
             get { return BackingStore?.Get<List<PrintDocument>>(nameof(Documents)); }
             set { BackingStore?.Set(nameof(Documents), value); }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class Contact : OutlookItem, IParsable {
         /// <summary>The name of the contact&apos;s assistant.</summary>
         public string AssistantName {

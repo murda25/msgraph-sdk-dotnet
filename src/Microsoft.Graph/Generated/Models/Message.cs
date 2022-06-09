@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class Message : OutlookItem, IParsable {
         /// <summary>The fileAttachment and itemAttachment attachments for the message.</summary>
         public List<Attachment> Attachments {
@@ -162,12 +161,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new Message CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
-            return mappingValue switch {
-                "#microsoft.graph.message" => new Message(),
-                _ => new Message(),
-            };
+            return new Message();
         }
         /// <summary>
         /// The deserialization information for the current model

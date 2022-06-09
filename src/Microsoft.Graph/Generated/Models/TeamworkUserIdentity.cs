@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of chat entities.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class TeamworkUserIdentity : Identity, IParsable {
         /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.</summary>
         public TeamworkUserIdentityType? UserIdentityType {

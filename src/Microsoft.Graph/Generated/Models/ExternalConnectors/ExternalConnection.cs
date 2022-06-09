@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             get { return BackingStore?.Get<string>(nameof(Description)); }
             set { BackingStore?.Set(nameof(Description), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The groups property</summary>
         public List<ExternalGroup> Groups {
             get { return BackingStore?.Get<List<ExternalGroup>>(nameof(Groups)); }
             set { BackingStore?.Set(nameof(Groups), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The items property</summary>
         public List<ExternalItem> Items {
             get { return BackingStore?.Get<List<ExternalItem>>(nameof(Items)); }
             set { BackingStore?.Set(nameof(Items), value); }
@@ -31,12 +31,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             get { return BackingStore?.Get<string>(nameof(Name)); }
             set { BackingStore?.Set(nameof(Name), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The operations property</summary>
         public List<ConnectionOperation> Operations {
             get { return BackingStore?.Get<List<ConnectionOperation>>(nameof(Operations)); }
             set { BackingStore?.Set(nameof(Operations), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The schema property</summary>
         public Microsoft.Graph.Models.ExternalConnectors.Schema Schema {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema>(nameof(Schema)); }
             set { BackingStore?.Set(nameof(Schema), value); }

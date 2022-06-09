@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.managedEBook" => new ManagedEBook(),
+                "#microsoft.graph.iosVppEBook" => new IosVppEBook(),
                 _ => new ManagedEBook(),
             };
         }

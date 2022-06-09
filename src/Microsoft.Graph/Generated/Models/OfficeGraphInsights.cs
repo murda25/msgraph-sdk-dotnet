@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class OfficeGraphInsights : Entity, IParsable {
         /// <summary>Access this property from the derived type itemInsights.</summary>
         public List<SharedInsight> Shared {

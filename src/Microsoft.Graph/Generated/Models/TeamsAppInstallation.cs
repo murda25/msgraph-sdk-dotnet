@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of chat entities.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class TeamsAppInstallation : Entity, IParsable {
         /// <summary>The app that is installed.</summary>
         public Microsoft.Graph.Models.TeamsApp TeamsApp {
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.teamsAppInstallation" => new TeamsAppInstallation(),
+                "#microsoft.graph.userScopeTeamsAppInstallation" => new UserScopeTeamsAppInstallation(),
                 _ => new TeamsAppInstallation(),
             };
         }

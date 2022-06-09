@@ -1,5 +1,8 @@
 using Microsoft.Graph.Groups.Item.PermissionGrants.Count;
+using Microsoft.Graph.Groups.Item.PermissionGrants.GetAvailableExtensionProperties;
+using Microsoft.Graph.Groups.Item.PermissionGrants.GetByIds;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item;
+using Microsoft.Graph.Groups.Item.PermissionGrants.ValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -17,12 +20,24 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The getAvailableExtensionProperties property</summary>
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getByIds property</summary>
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>The validateProperties property</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Microsoft.Graph.groups.item.permissionGrants.item collection</summary>
         public ResourceSpecificPermissionGrantItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

@@ -3,6 +3,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Chats.Item.InstalledApps;
 using Microsoft.Graph.Users.Item.Chats.Item.Members;
 using Microsoft.Graph.Users.Item.Chats.Item.Messages;
+using Microsoft.Graph.Users.Item.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Users.Item.Chats.Item.Tabs;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -31,6 +32,10 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The sendActivityNotification property</summary>
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class ListItemVersion : BaseItemVersion, IParsable {
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
         public FieldValueSet Fields {

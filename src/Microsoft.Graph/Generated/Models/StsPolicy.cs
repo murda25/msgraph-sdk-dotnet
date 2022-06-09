@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class StsPolicy : PolicyBase, IParsable {
         /// <summary>The appliesTo property</summary>
         public List<DirectoryObject> AppliesTo {
@@ -27,12 +26,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new StsPolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
-            return mappingValue switch {
-                "#microsoft.graph.stsPolicy" => new StsPolicy(),
-                _ => new StsPolicy(),
-            };
+            return new StsPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -1,4 +1,5 @@
 using Microsoft.Graph.Me.Chats.Count;
+using Microsoft.Graph.Me.Chats.GetAllMessages;
 using Microsoft.Graph.Me.Chats.Item;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -97,6 +98,12 @@ namespace Microsoft.Graph.Me.Chats {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the getAllMessages method.
+        /// </summary>
+        public GetAllMessagesRequestBuilder GetAllMessages() {
+            return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Get chats from me

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class PlannerGroup : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerPlans owned by the group.</summary>
         public List<PlannerPlan> Plans {

@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class Call : Entity, IParsable {
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
             get { return BackingStore?.Get<List<AudioRoutingGroup>>(nameof(AudioRoutingGroups)); }
             set { BackingStore?.Set(nameof(AudioRoutingGroups), value); }
@@ -66,12 +66,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>(nameof(MyParticipantId)); }
             set { BackingStore?.Set(nameof(MyParticipantId), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The operations property</summary>
         public List<CommsOperation> Operations {
             get { return BackingStore?.Get<List<CommsOperation>>(nameof(Operations)); }
             set { BackingStore?.Set(nameof(Operations), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The participants property</summary>
         public List<Participant> Participants {
             get { return BackingStore?.Get<List<Participant>>(nameof(Participants)); }
             set { BackingStore?.Set(nameof(Participants), value); }

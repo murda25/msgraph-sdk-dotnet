@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class SchedulingGroup : ChangeTrackedEntity, IParsable {
         /// <summary>The display name for the schedulingGroup. Required.</summary>
         public string DisplayName {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class WorkbookComment : Entity, IParsable {
         /// <summary>The content of the comment.</summary>
         public string Content {
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>(nameof(ContentType)); }
             set { BackingStore?.Set(nameof(ContentType), value); }
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The replies property</summary>
         public List<WorkbookCommentReply> Replies {
             get { return BackingStore?.Get<List<WorkbookCommentReply>>(nameof(Replies)); }
             set { BackingStore?.Set(nameof(Replies), value); }

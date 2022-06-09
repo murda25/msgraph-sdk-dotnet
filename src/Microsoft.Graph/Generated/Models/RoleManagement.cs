@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>The directory property</summary>
         public RbacApplication DirectoryObject {
             get { return BackingStore?.Get<RbacApplication>(nameof(DirectoryObject)); }
             set { BackingStore?.Set(nameof(DirectoryObject), value); }

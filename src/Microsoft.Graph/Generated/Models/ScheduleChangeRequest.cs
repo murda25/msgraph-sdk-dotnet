@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
     public class ScheduleChangeRequest : ChangeTrackedEntity, IParsable {
         /// <summary>The assignedTo property</summary>
         public ScheduleChangeRequestActor? AssignedTo {
@@ -52,12 +51,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new ScheduleChangeRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
-            return mappingValue switch {
-                "#microsoft.graph.scheduleChangeRequest" => new ScheduleChangeRequest(),
-                _ => new ScheduleChangeRequest(),
-            };
+            return new ScheduleChangeRequest();
         }
         /// <summary>
         /// The deserialization information for the current model

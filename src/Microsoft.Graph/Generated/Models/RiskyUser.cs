@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.riskyUser" => new RiskyUser(),
+                "#microsoft.graph.riskyUserHistoryItem" => new RiskyUserHistoryItem(),
                 _ => new RiskyUser(),
             };
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class Team : Entity, IParsable {
         /// <summary>The collection of channels and messages associated with the team.</summary>
         public List<Channel> Channels {

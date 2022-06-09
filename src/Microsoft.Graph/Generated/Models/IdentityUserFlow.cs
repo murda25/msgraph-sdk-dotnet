@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.identityUserFlow" => new IdentityUserFlow(),
+                "#microsoft.graph.b2xIdentityUserFlow" => new B2xIdentityUserFlow(),
                 _ => new IdentityUserFlow(),
             };
         }

@@ -1,7 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Attachments;
-using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.CalendarSharingMessage;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Copy;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.CreateForward;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.CreateReply;
@@ -29,10 +28,6 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages
         /// <summary>The attachments property</summary>
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The calendarSharingMessage property</summary>
-        public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
-            new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Content property</summary>
         public ContentRequestBuilder Content { get =>

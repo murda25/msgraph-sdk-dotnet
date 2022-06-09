@@ -75,7 +75,14 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.deviceCompliancePolicy" => new DeviceCompliancePolicy(),
+                "#microsoft.graph.androidCompliancePolicy" => new AndroidCompliancePolicy(),
+                "#microsoft.graph.androidWorkProfileCompliancePolicy" => new AndroidWorkProfileCompliancePolicy(),
+                "#microsoft.graph.iosCompliancePolicy" => new IosCompliancePolicy(),
+                "#microsoft.graph.macOSCompliancePolicy" => new MacOSCompliancePolicy(),
+                "#microsoft.graph.windows10CompliancePolicy" => new Windows10CompliancePolicy(),
+                "#microsoft.graph.windows10MobileCompliancePolicy" => new Windows10MobileCompliancePolicy(),
+                "#microsoft.graph.windows81CompliancePolicy" => new Windows81CompliancePolicy(),
+                "#microsoft.graph.windowsPhone81CompliancePolicy" => new WindowsPhone81CompliancePolicy(),
                 _ => new DeviceCompliancePolicy(),
             };
         }

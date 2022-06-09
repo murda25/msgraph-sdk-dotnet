@@ -90,7 +90,8 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
-                "#microsoft.graph.managedAppRegistration" => new ManagedAppRegistration(),
+                "#microsoft.graph.androidManagedAppRegistration" => new AndroidManagedAppRegistration(),
+                "#microsoft.graph.iosManagedAppRegistration" => new IosManagedAppRegistration(),
                 _ => new ManagedAppRegistration(),
             };
         }

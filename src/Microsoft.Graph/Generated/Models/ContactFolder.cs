@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to user.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class ContactFolder : Entity, IParsable {
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
         public List<ContactFolder> ChildFolders {

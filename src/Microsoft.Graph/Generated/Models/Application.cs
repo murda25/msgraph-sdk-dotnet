@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of application entities.</summary>
+    /// <summary>Provides operations to call the instantiate method.</summary>
     public class Application : DirectoryObject, IParsable {
         /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
         public List<AddIn> AddIns {
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
             set { BackingStore?.Set(nameof(CreatedDateTime), value); }
         }
-        /// <summary>Read-only.</summary>
+        /// <summary>The createdOnBehalfOf property</summary>
         public DirectoryObject CreatedOnBehalfOf {
             get { return BackingStore?.Get<DirectoryObject>(nameof(CreatedOnBehalfOf)); }
             set { BackingStore?.Set(nameof(CreatedOnBehalfOf), value); }
