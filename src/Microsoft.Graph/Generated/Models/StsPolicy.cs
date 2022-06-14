@@ -26,7 +26,16 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new StsPolicy CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new StsPolicy();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.activityBasedTimeoutPolicy" => new ActivityBasedTimeoutPolicy(),
+                "#microsoft.graph.claimsMappingPolicy" => new ClaimsMappingPolicy(),
+                "#microsoft.graph.homeRealmDiscoveryPolicy" => new HomeRealmDiscoveryPolicy(),
+                "#microsoft.graph.tokenIssuancePolicy" => new TokenIssuancePolicy(),
+                "#microsoft.graph.tokenLifetimePolicy" => new TokenLifetimePolicy(),
+                _ => new StsPolicy(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

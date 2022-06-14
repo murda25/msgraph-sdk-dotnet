@@ -31,7 +31,16 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new MobileLobApp CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileLobApp();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.androidLobApp" => new AndroidLobApp(),
+                "#microsoft.graph.iosLobApp" => new IosLobApp(),
+                "#microsoft.graph.win32LobApp" => new Win32LobApp(),
+                "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
+                "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
+                _ => new MobileLobApp(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

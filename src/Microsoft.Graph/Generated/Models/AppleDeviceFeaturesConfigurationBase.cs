@@ -11,7 +11,13 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new AppleDeviceFeaturesConfigurationBase CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppleDeviceFeaturesConfigurationBase();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.iosDeviceFeaturesConfiguration" => new IosDeviceFeaturesConfiguration(),
+                "#microsoft.graph.macOSDeviceFeaturesConfiguration" => new MacOSDeviceFeaturesConfiguration(),
+                _ => new AppleDeviceFeaturesConfigurationBase(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

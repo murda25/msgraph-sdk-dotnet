@@ -31,6 +31,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AppRole>>(nameof(AppRoles)); }
             set { BackingStore?.Set(nameof(AppRoles), value); }
         }
+        /// <summary>Specifies the certification status of the application.</summary>
+        public Microsoft.Graph.Models.Certification Certification {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Certification>(nameof(Certification)); }
+            set { BackingStore?.Set(nameof(Certification), value); }
+        }
         /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>(nameof(CreatedDateTime)); }
@@ -209,6 +214,7 @@ namespace Microsoft.Graph.Models {
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
                 {"appRoles", n => { AppRoles = n.GetCollectionOfObjectValues<AppRole>(AppRole.CreateFromDiscriminatorValue).ToList(); } },
+                {"certification", n => { Certification = n.GetObjectValue<Microsoft.Graph.Models.Certification>(Microsoft.Graph.Models.Certification.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdOnBehalfOf", n => { CreatedOnBehalfOf = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
@@ -255,6 +261,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("applicationTemplateId", ApplicationTemplateId);
             writer.WriteCollectionOfObjectValues<AppRole>("appRoles", AppRoles);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Certification>("certification", Certification);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<DirectoryObject>("createdOnBehalfOf", CreatedOnBehalfOf);
             writer.WriteStringValue("description", Description);
