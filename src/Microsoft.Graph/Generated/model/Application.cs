@@ -64,6 +64,13 @@ namespace Microsoft.Graph
         public IEnumerable<AppRole> AppRoles { get; set; }
     
         /// <summary>
+        /// Gets or sets certification.
+        /// Specifies the certification status of the application.
+        /// </summary>
+        [JsonPropertyName("certification")]
+        public Certification Certification { get; set; }
+    
+        /// <summary>
         /// Gets or sets created date time.
         /// The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
         /// </summary>
@@ -246,7 +253,6 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets created on behalf of.
-        /// Read-only.
         /// </summary>
         [JsonPropertyName("createdOnBehalfOf")]
         public DirectoryObject CreatedOnBehalfOf { get; set; }

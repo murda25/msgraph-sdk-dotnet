@@ -569,6 +569,17 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the GraphServiceSecurity request builder.
+        /// </summary>
+        public virtual ISecurityRequestBuilder Security
+        {
+            get
+            {
+                return new SecurityRequestBuilder(this.BaseUrl + "/security", this);
+            }
+        }
+    
+        /// <summary>
         /// Gets the GraphServiceIdentity request builder.
         /// </summary>
         public virtual IIdentityContainerRequestBuilder Identity
@@ -763,17 +774,6 @@ namespace Microsoft.Graph
             get
             {
                 return new PrintRequestBuilder(this.BaseUrl + "/print", this);
-            }
-        }
-    
-        /// <summary>
-        /// Gets the GraphServiceSecurity request builder.
-        /// </summary>
-        public virtual ISecurityRequestBuilder Security
-        {
-            get
-            {
-                return new SecurityRequestBuilder(this.BaseUrl + "/security", this);
             }
         }
     
