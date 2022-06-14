@@ -25,15 +25,10 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>preview.7</VersionSuffix>
+    <VersionSuffix>preview.8</VersionSuffix>
     <PackageReleaseNotes>
-- Latest metadata updates from 7th June 2022 snapshot
-- Adds missing odata cast paths for the places API
-- Adds functionality to send the relevant accept header on request execution
-- Fixed missing response error mappings for OData functions/actions
-- Fixed missing actions/functions defined on collection navigation properties
+- Latest metadata updates from 14th June 2022 snapshot
 - Fixed missing derived models not directly referenced in openApi paths
-- Fixed paging for odata functions/actions e.g. delta requests
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
