@@ -154,7 +154,6 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets audio routing groups.
-        /// Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("audioRoutingGroups")]
         public ICallAudioRoutingGroupsCollectionPage AudioRoutingGroups { get; set; }
@@ -168,7 +167,6 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets operations.
-        /// Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("operations")]
         public ICallOperationsCollectionPage Operations { get; set; }
@@ -182,7 +180,6 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets participants.
-        /// Read-only. Nullable.
         /// </summary>
         [JsonPropertyName("participants")]
         public ICallParticipantsCollectionPage Participants { get; set; }

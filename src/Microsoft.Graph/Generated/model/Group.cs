@@ -489,6 +489,27 @@ namespace Microsoft.Graph
         public string EventsNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets photo.
+        /// The group's profile photo.
+        /// </summary>
+        [JsonPropertyName("photo")]
+        public ProfilePhoto Photo { get; set; }
+    
+        /// <summary>
+        /// Gets or sets photos.
+        /// The profile photos owned by the group. Read-only. Nullable.
+        /// </summary>
+        [JsonPropertyName("photos")]
+        public IGroupPhotosCollectionPage Photos { get; set; }
+
+        /// <summary>
+        /// Gets or sets photosNextLink.
+        /// </summary>
+        [JsonPropertyName("photos@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string PhotosNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets rejected senders.
         /// The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
         /// </summary>
@@ -588,31 +609,9 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets onenote.
-        /// Read-only.
         /// </summary>
         [JsonPropertyName("onenote")]
         public Onenote Onenote { get; set; }
-    
-        /// <summary>
-        /// Gets or sets photo.
-        /// The group's profile photo.
-        /// </summary>
-        [JsonPropertyName("photo")]
-        public ProfilePhoto Photo { get; set; }
-    
-        /// <summary>
-        /// Gets or sets photos.
-        /// The profile photos owned by the group. Read-only. Nullable.
-        /// </summary>
-        [JsonPropertyName("photos")]
-        public IGroupPhotosCollectionPage Photos { get; set; }
-
-        /// <summary>
-        /// Gets or sets photosNextLink.
-        /// </summary>
-        [JsonPropertyName("photos@odata.nextLink")]
-        [JsonConverter(typeof(NextLinkConverter))]
-        public string PhotosNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets team.
