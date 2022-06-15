@@ -324,6 +324,12 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     groupToInitialize.Events.AdditionalData = groupToInitialize.AdditionalData;
                 }
+                if (groupToInitialize.Photos != null && groupToInitialize.Photos.CurrentPage != null)
+                {
+                    groupToInitialize.Photos.InitializeNextPageRequest(this.Client, groupToInitialize.PhotosNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    groupToInitialize.Photos.AdditionalData = groupToInitialize.AdditionalData;
+                }
                 if (groupToInitialize.RejectedSenders != null && groupToInitialize.RejectedSenders.CurrentPage != null)
                 {
                     groupToInitialize.RejectedSenders.InitializeNextPageRequest(this.Client, groupToInitialize.RejectedSendersNextLink);
@@ -359,12 +365,6 @@ namespace Microsoft.Graph
                     groupToInitialize.GroupLifecyclePolicies.InitializeNextPageRequest(this.Client, groupToInitialize.GroupLifecyclePoliciesNextLink);
                     // Copy the additional data collection to the page itself so that information is not lost
                     groupToInitialize.GroupLifecyclePolicies.AdditionalData = groupToInitialize.AdditionalData;
-                }
-                if (groupToInitialize.Photos != null && groupToInitialize.Photos.CurrentPage != null)
-                {
-                    groupToInitialize.Photos.InitializeNextPageRequest(this.Client, groupToInitialize.PhotosNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    groupToInitialize.Photos.AdditionalData = groupToInitialize.AdditionalData;
                 }
 
             }
