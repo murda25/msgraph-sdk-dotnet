@@ -1,9 +1,11 @@
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.CompleteMigration;
+using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.FilesFolder;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Members;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.ProvisionEmail;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.RemoveEmail;
+using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.SharedWithTeams;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Tabs;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -46,6 +48,10 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The sharedWithTeams property</summary>
+        public SharedWithTeamsRequestBuilder SharedWithTeams { get =>
+            new SharedWithTeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
@@ -151,6 +157,12 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Provides operations to call the doesUserHaveAccess method.
+        /// </summary>
+        public DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() {
+            return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The general channel for the team.

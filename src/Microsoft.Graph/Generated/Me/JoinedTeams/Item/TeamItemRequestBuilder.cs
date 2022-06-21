@@ -1,8 +1,10 @@
+using Microsoft.Graph.Me.JoinedTeams.Item.AllChannels;
 using Microsoft.Graph.Me.JoinedTeams.Item.Archive;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels;
 using Microsoft.Graph.Me.JoinedTeams.Item.Clone;
 using Microsoft.Graph.Me.JoinedTeams.Item.CompleteMigration;
 using Microsoft.Graph.Me.JoinedTeams.Item.Group;
+using Microsoft.Graph.Me.JoinedTeams.Item.IncomingChannels;
 using Microsoft.Graph.Me.JoinedTeams.Item.InstalledApps;
 using Microsoft.Graph.Me.JoinedTeams.Item.Members;
 using Microsoft.Graph.Me.JoinedTeams.Item.Operations;
@@ -24,6 +26,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.JoinedTeams.Item {
     /// <summary>Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.</summary>
     public class TeamItemRequestBuilder {
+        /// <summary>The allChannels property</summary>
+        public AllChannelsRequestBuilder AllChannels { get =>
+            new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The archive property</summary>
         public ArchiveRequestBuilder Archive { get =>
             new ArchiveRequestBuilder(PathParameters, RequestAdapter);
@@ -43,6 +49,10 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         /// <summary>The group property</summary>
         public GroupRequestBuilder Group { get =>
             new GroupRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The incomingChannels property</summary>
+        public IncomingChannelsRequestBuilder IncomingChannels { get =>
+            new IncomingChannelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>

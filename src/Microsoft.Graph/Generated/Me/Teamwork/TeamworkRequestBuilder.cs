@@ -1,3 +1,4 @@
+using Microsoft.Graph.Me.Teamwork.AssociatedTeams;
 using Microsoft.Graph.Me.Teamwork.InstalledApps;
 using Microsoft.Graph.Me.Teamwork.SendActivityNotification;
 using Microsoft.Graph.Models;
@@ -13,6 +14,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Teamwork {
     /// <summary>Provides operations to manage the teamwork property of the microsoft.graph.user entity.</summary>
     public class TeamworkRequestBuilder {
+        /// <summary>The associatedTeams property</summary>
+        public AssociatedTeamsRequestBuilder AssociatedTeams { get =>
+            new AssociatedTeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);

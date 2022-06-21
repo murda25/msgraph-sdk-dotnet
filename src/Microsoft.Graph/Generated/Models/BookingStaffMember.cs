@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>(nameof(EmailAddress)); }
             set { BackingStore?.Set(nameof(EmailAddress), value); }
         }
-        /// <summary>The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required.</summary>
+        /// <summary>The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required.</summary>
         public BookingStaffRole? Role {
             get { return BackingStore?.Get<BookingStaffRole?>(nameof(Role)); }
             set { BackingStore?.Set(nameof(Role), value); }

@@ -1,8 +1,10 @@
+using Microsoft.Graph.Groups.Item.Team.AllChannels;
 using Microsoft.Graph.Groups.Item.Team.Archive;
 using Microsoft.Graph.Groups.Item.Team.Channels;
 using Microsoft.Graph.Groups.Item.Team.Clone;
 using Microsoft.Graph.Groups.Item.Team.CompleteMigration;
 using Microsoft.Graph.Groups.Item.Team.Group;
+using Microsoft.Graph.Groups.Item.Team.IncomingChannels;
 using Microsoft.Graph.Groups.Item.Team.InstalledApps;
 using Microsoft.Graph.Groups.Item.Team.Members;
 using Microsoft.Graph.Groups.Item.Team.Operations;
@@ -24,6 +26,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Groups.Item.Team {
     /// <summary>Provides operations to manage the team property of the microsoft.graph.group entity.</summary>
     public class TeamRequestBuilder {
+        /// <summary>The allChannels property</summary>
+        public AllChannelsRequestBuilder AllChannels { get =>
+            new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The archive property</summary>
         public ArchiveRequestBuilder Archive { get =>
             new ArchiveRequestBuilder(PathParameters, RequestAdapter);
@@ -43,6 +49,10 @@ namespace Microsoft.Graph.Groups.Item.Team {
         /// <summary>The group property</summary>
         public GroupRequestBuilder Group { get =>
             new GroupRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The incomingChannels property</summary>
+        public IncomingChannelsRequestBuilder IncomingChannels { get =>
+            new IncomingChannelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>

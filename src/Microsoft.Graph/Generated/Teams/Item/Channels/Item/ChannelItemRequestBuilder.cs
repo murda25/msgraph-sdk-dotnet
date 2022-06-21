@@ -1,11 +1,13 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Teams.Item.Channels.Item.CompleteMigration;
+using Microsoft.Graph.Teams.Item.Channels.Item.DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName;
 using Microsoft.Graph.Teams.Item.Channels.Item.FilesFolder;
 using Microsoft.Graph.Teams.Item.Channels.Item.Members;
 using Microsoft.Graph.Teams.Item.Channels.Item.Messages;
 using Microsoft.Graph.Teams.Item.Channels.Item.ProvisionEmail;
 using Microsoft.Graph.Teams.Item.Channels.Item.RemoveEmail;
+using Microsoft.Graph.Teams.Item.Channels.Item.SharedWithTeams;
 using Microsoft.Graph.Teams.Item.Channels.Item.Tabs;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -46,6 +48,10 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The sharedWithTeams property</summary>
+        public SharedWithTeamsRequestBuilder SharedWithTeams { get =>
+            new SharedWithTeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
@@ -151,6 +157,12 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Provides operations to call the doesUserHaveAccess method.
+        /// </summary>
+        public DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() {
+            return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The collection of channels and messages associated with the team.

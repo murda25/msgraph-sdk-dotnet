@@ -6,6 +6,11 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class UserTeamwork : Entity, IParsable {
+        /// <summary>The list of associatedTeamInfo objects that a user is associated with.</summary>
+        public List<AssociatedTeamInfo> AssociatedTeams {
+            get { return BackingStore?.Get<List<AssociatedTeamInfo>>(nameof(AssociatedTeams)); }
+            set { BackingStore?.Set(nameof(AssociatedTeams), value); }
+        }
         /// <summary>The apps installed in the personal scope of this user.</summary>
         public List<UserScopeTeamsAppInstallation> InstalledApps {
             get { return BackingStore?.Get<List<UserScopeTeamsAppInstallation>>(nameof(InstalledApps)); }
@@ -24,6 +29,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"associatedTeams", n => { AssociatedTeams = n.GetCollectionOfObjectValues<AssociatedTeamInfo>(AssociatedTeamInfo.CreateFromDiscriminatorValue).ToList(); } },
                 {"installedApps", n => { InstalledApps = n.GetCollectionOfObjectValues<UserScopeTeamsAppInstallation>(UserScopeTeamsAppInstallation.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
@@ -34,6 +40,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<AssociatedTeamInfo>("associatedTeams", AssociatedTeams);
             writer.WriteCollectionOfObjectValues<UserScopeTeamsAppInstallation>("installedApps", InstalledApps);
         }
     }

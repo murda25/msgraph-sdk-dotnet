@@ -6,6 +6,11 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class Team : Entity, IParsable {
+        /// <summary>List of channels either hosted in or shared with the team (incoming channels).</summary>
+        public List<Channel> AllChannels {
+            get { return BackingStore?.Get<List<Channel>>(nameof(AllChannels)); }
+            set { BackingStore?.Set(nameof(AllChannels), value); }
+        }
         /// <summary>The collection of channels and messages associated with the team.</summary>
         public List<Channel> Channels {
             get { return BackingStore?.Get<List<Channel>>(nameof(Channels)); }
@@ -45,6 +50,11 @@ namespace Microsoft.Graph.Models {
         public TeamGuestSettings GuestSettings {
             get { return BackingStore?.Get<TeamGuestSettings>(nameof(GuestSettings)); }
             set { BackingStore?.Set(nameof(GuestSettings), value); }
+        }
+        /// <summary>List of channels shared with the team.</summary>
+        public List<Channel> IncomingChannels {
+            get { return BackingStore?.Get<List<Channel>>(nameof(IncomingChannels)); }
+            set { BackingStore?.Set(nameof(IncomingChannels), value); }
         }
         /// <summary>The apps installed in this team.</summary>
         public List<TeamsAppInstallation> InstalledApps {
@@ -101,6 +111,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<TeamsTemplate>(nameof(Template)); }
             set { BackingStore?.Set(nameof(Template), value); }
         }
+        /// <summary>The ID of the Azure Active Directory tenant.</summary>
+        public string TenantId {
+            get { return BackingStore?.Get<string>(nameof(TenantId)); }
+            set { BackingStore?.Set(nameof(TenantId), value); }
+        }
         /// <summary>The visibility of the group and team. Defaults to Public.</summary>
         public TeamVisibilityType? Visibility {
             get { return BackingStore?.Get<TeamVisibilityType?>(nameof(Visibility)); }
@@ -124,6 +139,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"allChannels", n => { AllChannels = n.GetCollectionOfObjectValues<Channel>(Channel.CreateFromDiscriminatorValue).ToList(); } },
                 {"channels", n => { Channels = n.GetCollectionOfObjectValues<Channel>(Channel.CreateFromDiscriminatorValue).ToList(); } },
                 {"classification", n => { Classification = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -132,6 +148,7 @@ namespace Microsoft.Graph.Models {
                 {"funSettings", n => { FunSettings = n.GetObjectValue<TeamFunSettings>(TeamFunSettings.CreateFromDiscriminatorValue); } },
                 {"group", n => { Group = n.GetObjectValue<Microsoft.Graph.Models.Group>(Microsoft.Graph.Models.Group.CreateFromDiscriminatorValue); } },
                 {"guestSettings", n => { GuestSettings = n.GetObjectValue<TeamGuestSettings>(TeamGuestSettings.CreateFromDiscriminatorValue); } },
+                {"incomingChannels", n => { IncomingChannels = n.GetCollectionOfObjectValues<Channel>(Channel.CreateFromDiscriminatorValue).ToList(); } },
                 {"installedApps", n => { InstalledApps = n.GetCollectionOfObjectValues<TeamsAppInstallation>(TeamsAppInstallation.CreateFromDiscriminatorValue).ToList(); } },
                 {"internalId", n => { InternalId = n.GetStringValue(); } },
                 {"isArchived", n => { IsArchived = n.GetBoolValue(); } },
@@ -143,6 +160,7 @@ namespace Microsoft.Graph.Models {
                 {"schedule", n => { Schedule = n.GetObjectValue<Microsoft.Graph.Models.Schedule>(Microsoft.Graph.Models.Schedule.CreateFromDiscriminatorValue); } },
                 {"specialization", n => { Specialization = n.GetEnumValue<TeamSpecialization>(); } },
                 {"template", n => { Template = n.GetObjectValue<TeamsTemplate>(TeamsTemplate.CreateFromDiscriminatorValue); } },
+                {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"visibility", n => { Visibility = n.GetEnumValue<TeamVisibilityType>(); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
@@ -154,6 +172,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<Channel>("allChannels", AllChannels);
             writer.WriteCollectionOfObjectValues<Channel>("channels", Channels);
             writer.WriteStringValue("classification", Classification);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
@@ -162,6 +181,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<TeamFunSettings>("funSettings", FunSettings);
             writer.WriteObjectValue<Microsoft.Graph.Models.Group>("group", Group);
             writer.WriteObjectValue<TeamGuestSettings>("guestSettings", GuestSettings);
+            writer.WriteCollectionOfObjectValues<Channel>("incomingChannels", IncomingChannels);
             writer.WriteCollectionOfObjectValues<TeamsAppInstallation>("installedApps", InstalledApps);
             writer.WriteStringValue("internalId", InternalId);
             writer.WriteBoolValue("isArchived", IsArchived);
@@ -173,6 +193,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.Schedule>("schedule", Schedule);
             writer.WriteEnumValue<TeamSpecialization>("specialization", Specialization);
             writer.WriteObjectValue<TeamsTemplate>("template", Template);
+            writer.WriteStringValue("tenantId", TenantId);
             writer.WriteEnumValue<TeamVisibilityType>("visibility", Visibility);
             writer.WriteStringValue("webUrl", WebUrl);
         }
