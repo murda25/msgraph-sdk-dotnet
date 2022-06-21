@@ -99,6 +99,13 @@ namespace Microsoft.Graph
         public TeamSpecialization? Specialization { get; set; }
     
         /// <summary>
+        /// Gets or sets tenant id.
+        /// The ID of the Azure Active Directory tenant.
+        /// </summary>
+        [JsonPropertyName("tenantId")]
+        public string TenantId { get; set; }
+    
+        /// <summary>
         /// Gets or sets visibility.
         /// The visibility of the group and team. Defaults to Public.
         /// </summary>
@@ -111,6 +118,20 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("webUrl")]
         public string WebUrl { get; set; }
+    
+        /// <summary>
+        /// Gets or sets all channels.
+        /// List of channels either hosted in or shared with the team (incoming channels).
+        /// </summary>
+        [JsonPropertyName("allChannels")]
+        public ITeamAllChannelsCollectionWithReferencesPage AllChannels { get; set; }
+
+        /// <summary>
+        /// Gets or sets allChannelsNextLink.
+        /// </summary>
+        [JsonPropertyName("allChannels@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AllChannelsNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets channels.
@@ -131,6 +152,20 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("group")]
         public Group Group { get; set; }
+    
+        /// <summary>
+        /// Gets or sets incoming channels.
+        /// List of channels shared with the team.
+        /// </summary>
+        [JsonPropertyName("incomingChannels")]
+        public ITeamIncomingChannelsCollectionWithReferencesPage IncomingChannels { get; set; }
+
+        /// <summary>
+        /// Gets or sets incomingChannelsNextLink.
+        /// </summary>
+        [JsonPropertyName("incomingChannels@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string IncomingChannelsNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets installed apps.
