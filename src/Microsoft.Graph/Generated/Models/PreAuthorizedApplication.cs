@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>(nameof(AdditionalData)); }
             set { BackingStore?.Set(nameof(AdditionalData), value); }
         }
-        /// <summary>The unique identifier for the application.</summary>
+        /// <summary>The unique identifier for the client application.</summary>
         public string AppId {
             get { return BackingStore?.Get<string>(nameof(AppId)); }
             set { BackingStore?.Set(nameof(AppId), value); }

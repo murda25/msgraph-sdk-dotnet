@@ -51,10 +51,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ChatMessage>>(nameof(Messages)); }
             set { BackingStore?.Set(nameof(Messages), value); }
         }
+        /// <summary>A collection of teams with which a channel is shared.</summary>
+        public List<SharedWithChannelTeamInfo> SharedWithTeams {
+            get { return BackingStore?.Get<List<SharedWithChannelTeamInfo>>(nameof(SharedWithTeams)); }
+            set { BackingStore?.Set(nameof(SharedWithTeams), value); }
+        }
         /// <summary>A collection of all the tabs in the channel. A navigation property.</summary>
         public List<TeamsTab> Tabs {
             get { return BackingStore?.Get<List<TeamsTab>>(nameof(Tabs)); }
             set { BackingStore?.Set(nameof(Tabs), value); }
+        }
+        /// <summary>The ID of the Azure Active Directory tenant.</summary>
+        public string TenantId {
+            get { return BackingStore?.Get<string>(nameof(TenantId)); }
+            set { BackingStore?.Set(nameof(TenantId), value); }
         }
         /// <summary>A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
         public string WebUrl {
@@ -83,7 +93,9 @@ namespace Microsoft.Graph.Models {
                 {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue).ToList(); } },
                 {"membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
                 {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue).ToList(); } },
+                {"sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<SharedWithChannelTeamInfo>(SharedWithChannelTeamInfo.CreateFromDiscriminatorValue).ToList(); } },
                 {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue).ToList(); } },
+                {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -103,7 +115,9 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<ConversationMember>("members", Members);
             writer.WriteEnumValue<ChannelMembershipType>("membershipType", MembershipType);
             writer.WriteCollectionOfObjectValues<ChatMessage>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", SharedWithTeams);
             writer.WriteCollectionOfObjectValues<TeamsTab>("tabs", Tabs);
+            writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("webUrl", WebUrl);
         }
     }

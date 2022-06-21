@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to call the instantiate method.</summary>
+    /// <summary>Provides operations to manage the collection of application entities.</summary>
     public class OAuth2PermissionGrant : Entity, IParsable {
         /// <summary>The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).</summary>
         public string ClientId {
@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>(nameof(ConsentType)); }
             set { BackingStore?.Set(nameof(ConsentType), value); }
         }
-        /// <summary>The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal.</summary>
+        /// <summary>The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. Supports $filter (eq only).</summary>
         public string PrincipalId {
             get { return BackingStore?.Get<string>(nameof(PrincipalId)); }
             set { BackingStore?.Set(nameof(PrincipalId), value); }
         }
-        /// <summary>The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user.</summary>
+        /// <summary>The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. Supports $filter (eq only).</summary>
         public string ResourceId {
             get { return BackingStore?.Get<string>(nameof(ResourceId)); }
             set { BackingStore?.Set(nameof(ResourceId), value); }

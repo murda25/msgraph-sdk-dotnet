@@ -4,5 +4,6 @@ namespace Microsoft.Graph.Models {
         Standard,
         Private,
         UnknownFutureValue,
+        Shared,
     }
 }

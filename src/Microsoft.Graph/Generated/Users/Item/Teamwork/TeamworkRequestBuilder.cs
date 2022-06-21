@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Users.Item.Teamwork.AssociatedTeams;
 using Microsoft.Graph.Users.Item.Teamwork.InstalledApps;
 using Microsoft.Graph.Users.Item.Teamwork.SendActivityNotification;
 using Microsoft.Kiota.Abstractions;
@@ -13,6 +14,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Teamwork {
     /// <summary>Provides operations to manage the teamwork property of the microsoft.graph.user entity.</summary>
     public class TeamworkRequestBuilder {
+        /// <summary>The associatedTeams property</summary>
+        public AssociatedTeamsRequestBuilder AssociatedTeams { get =>
+            new AssociatedTeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);

@@ -1,9 +1,11 @@
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.CompleteMigration;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.FilesFolder;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Members;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.ProvisionEmail;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.SharedWithTeams;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -46,6 +48,10 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The sharedWithTeams property</summary>
+        public SharedWithTeamsRequestBuilder SharedWithTeams { get =>
+            new SharedWithTeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
@@ -151,6 +157,12 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Provides operations to call the doesUserHaveAccess method.
+        /// </summary>
+        public DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() {
+            return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The general channel for the team.
