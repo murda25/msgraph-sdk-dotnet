@@ -64,6 +64,13 @@ namespace Microsoft.Graph
         public ChannelMembershipType? MembershipType { get; set; }
     
         /// <summary>
+        /// Gets or sets tenant id.
+        /// The ID of the Azure Active Directory tenant.
+        /// </summary>
+        [JsonPropertyName("tenantId")]
+        public string TenantId { get; set; }
+    
+        /// <summary>
         /// Gets or sets web url.
         /// A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
         /// </summary>
@@ -104,6 +111,20 @@ namespace Microsoft.Graph
         [JsonPropertyName("messages@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string MessagesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets shared with teams.
+        /// A collection of teams with which a channel is shared.
+        /// </summary>
+        [JsonPropertyName("sharedWithTeams")]
+        public IChannelSharedWithTeamsCollectionPage SharedWithTeams { get; set; }
+
+        /// <summary>
+        /// Gets or sets sharedWithTeamsNextLink.
+        /// </summary>
+        [JsonPropertyName("sharedWithTeams@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string SharedWithTeamsNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets tabs.

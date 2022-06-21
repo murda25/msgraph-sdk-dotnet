@@ -21,6 +21,20 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets associated teams.
+        /// The list of associatedTeamInfo objects that a user is associated with.
+        /// </summary>
+        [JsonPropertyName("associatedTeams")]
+        public IUserTeamworkAssociatedTeamsCollectionPage AssociatedTeams { get; set; }
+
+        /// <summary>
+        /// Gets or sets associatedTeamsNextLink.
+        /// </summary>
+        [JsonPropertyName("associatedTeams@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AssociatedTeamsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets installed apps.
         /// The apps installed in the personal scope of this user.
         /// </summary>
