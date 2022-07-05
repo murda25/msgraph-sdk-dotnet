@@ -87,6 +87,30 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for Operations.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationOperationsCollectionRequestBuilder"/>.</returns>
+        public IAuthenticationOperationsCollectionRequestBuilder Operations
+        {
+            get
+            {
+                return new AuthenticationOperationsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("operations"), this.Client);
+            }
+        }
+
+        /// <summary>
+        /// Gets the request builder for PasswordMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationPasswordMethodsCollectionRequestBuilder"/>.</returns>
+        public IAuthenticationPasswordMethodsCollectionRequestBuilder PasswordMethods
+        {
+            get
+            {
+                return new AuthenticationPasswordMethodsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("passwordMethods"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for TemporaryAccessPassMethods.
         /// </summary>
         /// <returns>The <see cref="IAuthenticationTemporaryAccessPassMethodsCollectionRequestBuilder"/>.</returns>

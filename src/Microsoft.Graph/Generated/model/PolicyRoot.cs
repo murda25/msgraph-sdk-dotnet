@@ -70,6 +70,13 @@ namespace Microsoft.Graph
         public string ClaimsMappingPoliciesNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets cross tenant access policy.
+        /// The custom rules that define an access scenario when interacting with external Azure AD tenants.
+        /// </summary>
+        [JsonPropertyName("crossTenantAccessPolicy")]
+        public CrossTenantAccessPolicy CrossTenantAccessPolicy { get; set; }
+    
+        /// <summary>
         /// Gets or sets home realm discovery policies.
         /// The policy to control Azure AD authentication behavior for federated users.
         /// </summary>

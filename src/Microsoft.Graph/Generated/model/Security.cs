@@ -21,6 +21,12 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets cases.
+        /// </summary>
+        [JsonPropertyName("cases")]
+        public Microsoft.Graph.SecurityNamespace.CasesRoot Cases { get; set; }
+    
+        /// <summary>
         /// Gets or sets alerts.
         /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// </summary>

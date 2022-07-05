@@ -50,6 +50,18 @@ namespace Microsoft.Graph
         IAuthenticationMicrosoftAuthenticatorMethodsCollectionRequestBuilder MicrosoftAuthenticatorMethods { get; }
 
         /// <summary>
+        /// Gets the request builder for Operations.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationOperationsCollectionRequestBuilder"/>.</returns>
+        IAuthenticationOperationsCollectionRequestBuilder Operations { get; }
+
+        /// <summary>
+        /// Gets the request builder for PasswordMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationPasswordMethodsCollectionRequestBuilder"/>.</returns>
+        IAuthenticationPasswordMethodsCollectionRequestBuilder PasswordMethods { get; }
+
+        /// <summary>
         /// Gets the request builder for TemporaryAccessPassMethods.
         /// </summary>
         /// <returns>The <see cref="IAuthenticationTemporaryAccessPassMethodsCollectionRequestBuilder"/>.</returns>
