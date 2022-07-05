@@ -21,13 +21,6 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
-        /// Gets or sets conditional access.
-        /// the entry point for the Conditional Access (CA) object model.
-        /// </summary>
-        [JsonPropertyName("conditionalAccess")]
-        public ConditionalAccessRoot ConditionalAccess { get; set; }
-    
-        /// <summary>
         /// Gets or sets api connectors.
         /// Represents entry point for API connectors.
         /// </summary>
@@ -82,6 +75,13 @@ namespace Microsoft.Graph
         [JsonPropertyName("userFlowAttributes@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string UserFlowAttributesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets conditional access.
+        /// the entry point for the Conditional Access (CA) object model.
+        /// </summary>
+        [JsonPropertyName("conditionalAccess")]
+        public ConditionalAccessRoot ConditionalAccess { get; set; }
     
     }
 }

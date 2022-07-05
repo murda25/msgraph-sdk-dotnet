@@ -32,6 +32,12 @@ namespace Microsoft.Graph
         new ISecurityRequest Request(IEnumerable<Option> options);
     
         /// <summary>
+        /// Gets the request builder for Cases.
+        /// </summary>
+        /// <returns>The <see cref="Microsoft.Graph.SecurityNamespace.ICasesRootRequestBuilder"/>.</returns>
+        Microsoft.Graph.SecurityNamespace.ICasesRootRequestBuilder Cases { get; }
+
+        /// <summary>
         /// Gets the request builder for Alerts.
         /// </summary>
         /// <returns>The <see cref="ISecurityAlertsCollectionRequestBuilder"/>.</returns>

@@ -31,5 +31,13 @@ namespace Microsoft.Graph
         /// <returns>The built request.</returns>
         new IAuthenticationMethodRequest Request(IEnumerable<Option> options);
     
+        /// <summary>
+        /// Gets the request builder for AuthenticationMethodResetPassword.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationMethodResetPasswordRequestBuilder"/>.</returns>
+        IAuthenticationMethodResetPasswordRequestBuilder ResetPassword(
+            string newPassword = null,
+            bool? requireChangeOnNextSignIn = null);
+    
     }
 }

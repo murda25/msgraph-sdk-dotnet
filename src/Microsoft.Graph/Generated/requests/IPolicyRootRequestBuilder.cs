@@ -62,6 +62,12 @@ namespace Microsoft.Graph
         IPolicyRootClaimsMappingPoliciesCollectionRequestBuilder ClaimsMappingPolicies { get; }
 
         /// <summary>
+        /// Gets the request builder for CrossTenantAccessPolicy.
+        /// </summary>
+        /// <returns>The <see cref="ICrossTenantAccessPolicyRequestBuilder"/>.</returns>
+        ICrossTenantAccessPolicyRequestBuilder CrossTenantAccessPolicy { get; }
+
+        /// <summary>
         /// Gets the request builder for HomeRealmDiscoveryPolicies.
         /// </summary>
         /// <returns>The <see cref="IPolicyRootHomeRealmDiscoveryPoliciesCollectionRequestBuilder"/>.</returns>

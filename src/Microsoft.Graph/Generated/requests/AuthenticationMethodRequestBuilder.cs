@@ -50,5 +50,20 @@ namespace Microsoft.Graph
             return new AuthenticationMethodRequest(this.RequestUrl, this.Client, options);
         }
     
+        /// <summary>
+        /// Gets the request builder for AuthenticationMethodResetPassword.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationMethodResetPasswordRequestBuilder"/>.</returns>
+        public IAuthenticationMethodResetPasswordRequestBuilder ResetPassword(
+            string newPassword = null,
+            bool? requireChangeOnNextSignIn = null)
+        {
+            return new AuthenticationMethodResetPasswordRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.resetPassword"),
+                this.Client,
+                newPassword,
+                requireChangeOnNextSignIn);
+        }
+    
     }
 }
