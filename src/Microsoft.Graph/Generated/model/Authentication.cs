@@ -63,6 +63,33 @@ namespace Microsoft.Graph
         public string MicrosoftAuthenticatorMethodsNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets operations.
+        /// </summary>
+        [JsonPropertyName("operations")]
+        public IAuthenticationOperationsCollectionPage Operations { get; set; }
+
+        /// <summary>
+        /// Gets or sets operationsNextLink.
+        /// </summary>
+        [JsonPropertyName("operations@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string OperationsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets password methods.
+        /// Represents the details of the password authentication method registered to a user for authentication.
+        /// </summary>
+        [JsonPropertyName("passwordMethods")]
+        public IAuthenticationPasswordMethodsCollectionPage PasswordMethods { get; set; }
+
+        /// <summary>
+        /// Gets or sets passwordMethodsNextLink.
+        /// </summary>
+        [JsonPropertyName("passwordMethods@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string PasswordMethodsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets temporary access pass methods.
         /// Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
         /// </summary>

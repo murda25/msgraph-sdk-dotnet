@@ -20,6 +20,14 @@ namespace Microsoft.Graph
     public partial class RichLongRunningOperation : LongRunningOperation
     {
     
+        ///<summary>
+        /// The RichLongRunningOperation constructor
+        ///</summary>
+        public RichLongRunningOperation()
+        {
+            this.ODataType = "microsoft.graph.richLongRunningOperation";
+        }
+
         /// <summary>
         /// Gets or sets error.
         /// Error due to which the operation failed.

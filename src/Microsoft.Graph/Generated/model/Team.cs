@@ -99,6 +99,13 @@ namespace Microsoft.Graph
         public TeamSpecialization? Specialization { get; set; }
     
         /// <summary>
+        /// Gets or sets summary.
+        /// Contains summary information about the team, including number of owners, members, and guests.
+        /// </summary>
+        [JsonPropertyName("summary")]
+        public TeamSummary Summary { get; set; }
+    
+        /// <summary>
         /// Gets or sets tenant id.
         /// The ID of the Azure Active Directory tenant.
         /// </summary>
