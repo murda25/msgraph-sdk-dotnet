@@ -32,6 +32,12 @@ namespace Microsoft.Graph
         new IAuthenticationRequest Request(IEnumerable<Option> options);
     
         /// <summary>
+        /// Gets the request builder for EmailMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationEmailMethodsCollectionRequestBuilder"/>.</returns>
+        IAuthenticationEmailMethodsCollectionRequestBuilder EmailMethods { get; }
+
+        /// <summary>
         /// Gets the request builder for Fido2Methods.
         /// </summary>
         /// <returns>The <see cref="IAuthenticationFido2MethodsCollectionRequestBuilder"/>.</returns>
@@ -60,6 +66,18 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IAuthenticationPasswordMethodsCollectionRequestBuilder"/>.</returns>
         IAuthenticationPasswordMethodsCollectionRequestBuilder PasswordMethods { get; }
+
+        /// <summary>
+        /// Gets the request builder for PhoneMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationPhoneMethodsCollectionRequestBuilder"/>.</returns>
+        IAuthenticationPhoneMethodsCollectionRequestBuilder PhoneMethods { get; }
+
+        /// <summary>
+        /// Gets the request builder for SoftwareOathMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationSoftwareOathMethodsCollectionRequestBuilder"/>.</returns>
+        IAuthenticationSoftwareOathMethodsCollectionRequestBuilder SoftwareOathMethods { get; }
 
         /// <summary>
         /// Gets the request builder for TemporaryAccessPassMethods.

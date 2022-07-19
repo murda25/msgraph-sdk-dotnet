@@ -21,6 +21,20 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets email methods.
+        /// Represents the email addresses registered to a user for authentication.
+        /// </summary>
+        [JsonPropertyName("emailMethods")]
+        public IAuthenticationEmailMethodsCollectionPage EmailMethods { get; set; }
+
+        /// <summary>
+        /// Gets or sets emailMethodsNextLink.
+        /// </summary>
+        [JsonPropertyName("emailMethods@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string EmailMethodsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets fido2methods.
         /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
@@ -88,6 +102,33 @@ namespace Microsoft.Graph
         [JsonPropertyName("passwordMethods@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string PasswordMethodsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets phone methods.
+        /// Represents the phone registered to a user for authentication.
+        /// </summary>
+        [JsonPropertyName("phoneMethods")]
+        public IAuthenticationPhoneMethodsCollectionPage PhoneMethods { get; set; }
+
+        /// <summary>
+        /// Gets or sets phoneMethodsNextLink.
+        /// </summary>
+        [JsonPropertyName("phoneMethods@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string PhoneMethodsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets software oath methods.
+        /// </summary>
+        [JsonPropertyName("softwareOathMethods")]
+        public IAuthenticationSoftwareOathMethodsCollectionPage SoftwareOathMethods { get; set; }
+
+        /// <summary>
+        /// Gets or sets softwareOathMethodsNextLink.
+        /// </summary>
+        [JsonPropertyName("softwareOathMethods@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string SoftwareOathMethodsNextLink { get; set; }
     
         /// <summary>
         /// Gets or sets temporary access pass methods.

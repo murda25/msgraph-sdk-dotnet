@@ -203,6 +203,13 @@ namespace Microsoft.Graph
         public IEnumerable<RequiredResourceAccess> RequiredResourceAccess { get; set; }
     
         /// <summary>
+        /// Gets or sets saml metadata url.
+        /// The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+        /// </summary>
+        [JsonPropertyName("samlMetadataUrl")]
+        public string SamlMetadataUrl { get; set; }
+    
+        /// <summary>
         /// Gets or sets service management reference.
         /// References application or service contact information from a Service or Asset Management database. Nullable.
         /// </summary>
