@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.DeviceManagement.TermsAndConditions {
     /// <summary>Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.</summary>
     public class TermsAndConditionsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

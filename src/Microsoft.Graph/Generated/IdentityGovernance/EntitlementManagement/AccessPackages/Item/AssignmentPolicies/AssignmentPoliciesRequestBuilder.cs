@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AssignmentPolicies {
     /// <summary>Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.</summary>
     public class AssignmentPoliciesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

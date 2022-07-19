@@ -48,6 +48,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("from"); }
             set { BackingStore?.Set("from", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The query property</summary>
         public SearchQuery Query {
             get { return BackingStore?.Get<SearchQuery>("query"); }
@@ -79,6 +84,7 @@ namespace Microsoft.Graph.Models {
         public SearchRequest() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.searchRequest";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -100,6 +106,7 @@ namespace Microsoft.Graph.Models {
                 {"entityTypes", n => { EntityTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"from", n => { From = n.GetIntValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"query", n => { Query = n.GetObjectValue<SearchQuery>(SearchQuery.CreateFromDiscriminatorValue); } },
                 {"queryAlterationOptions", n => { QueryAlterationOptions = n.GetObjectValue<SearchAlterationOptions>(SearchAlterationOptions.CreateFromDiscriminatorValue); } },
                 {"resultTemplateOptions", n => { ResultTemplateOptions = n.GetObjectValue<ResultTemplateOption>(ResultTemplateOption.CreateFromDiscriminatorValue); } },
@@ -120,6 +127,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("entityTypes", EntityTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteIntValue("from", From);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<SearchQuery>("query", Query);
             writer.WriteObjectValue<SearchAlterationOptions>("queryAlterationOptions", QueryAlterationOptions);
             writer.WriteObjectValue<ResultTemplateOption>("resultTemplateOptions", ResultTemplateOptions);

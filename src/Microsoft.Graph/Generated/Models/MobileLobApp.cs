@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new MobileLobApp and sets the default values.
         /// </summary>
         public MobileLobApp() : base() {
-            Type = "#microsoft.graph.mobileLobApp";
+            OdataType = "#microsoft.graph.mobileLobApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -22,6 +22,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("permissionName", value); }
         }
         /// <summary>
+        /// Instantiates a new delegatedPermissionClassification and sets the default values.
+        /// </summary>
+        public DelegatedPermissionClassification() : base() {
+            OdataType = "#microsoft.graph.delegatedPermissionClassification";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

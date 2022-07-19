@@ -33,6 +33,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isEnabled"); }
             set { BackingStore?.Set("isEnabled", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The value of the permission.</summary>
         public string Value {
             get { return BackingStore?.Get<string>("value"); }
@@ -44,6 +49,7 @@ namespace Microsoft.Graph.Models {
         public ResourceSpecificPermission() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.resourceSpecificPermission";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,6 +68,7 @@ namespace Microsoft.Graph.Models {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetStringValue(); } },
                 {"isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -75,6 +82,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("isEnabled", IsEnabled);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

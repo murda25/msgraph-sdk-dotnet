@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new authenticationMethodConfiguration and sets the default values.
         /// </summary>
         public AuthenticationMethodConfiguration() : base() {
-            Type = "#microsoft.graph.authenticationMethodConfiguration";
+            OdataType = "#microsoft.graph.authenticationMethodConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

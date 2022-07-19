@@ -159,7 +159,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Trending.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new trendingItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new TrendingItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public TrendingItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Trending.Item {
             /// <summary>Request query parameters</summary>
             public TrendingItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new TrendingItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new trendingItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new TrendingItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public TrendingItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Trending.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new trendingItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new TrendingItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public TrendingItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

@@ -48,6 +48,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("id"); }
             set { BackingStore?.Set("id", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The printer ID that the job was queued for. Read-only.</summary>
         public string PrinterId {
             get { return BackingStore?.Get<string>("printerId"); }
@@ -64,6 +69,7 @@ namespace Microsoft.Graph.Models {
         public ArchivedPrintJob() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.archivedPrintJob";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -85,6 +91,7 @@ namespace Microsoft.Graph.Models {
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"id", n => { Id = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"printerId", n => { PrinterId = n.GetStringValue(); } },
                 {"processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
@@ -102,6 +109,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<UserIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("printerId", PrinterId);
             writer.WriteEnumValue<PrintJobProcessingState>("processingState", ProcessingState);
             writer.WriteAdditionalData(AdditionalData);

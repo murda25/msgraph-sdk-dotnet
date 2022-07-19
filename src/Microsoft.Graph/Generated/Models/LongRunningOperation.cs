@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new longRunningOperation and sets the default values.
         /// </summary>
         public LongRunningOperation() : base() {
-            Type = "#microsoft.graph.longRunningOperation";
+            OdataType = "#microsoft.graph.longRunningOperation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

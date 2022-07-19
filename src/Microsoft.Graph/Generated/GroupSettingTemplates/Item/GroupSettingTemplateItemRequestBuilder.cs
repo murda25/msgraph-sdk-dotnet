@@ -179,7 +179,7 @@ namespace Microsoft.Graph.GroupSettingTemplates.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new groupSettingTemplateItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -204,7 +204,7 @@ namespace Microsoft.Graph.GroupSettingTemplates.Item {
             /// <summary>Request query parameters</summary>
             public GroupSettingTemplateItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new GroupSettingTemplateItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new groupSettingTemplateItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingTemplateItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingTemplateItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -218,7 +218,7 @@ namespace Microsoft.Graph.GroupSettingTemplates.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new groupSettingTemplateItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

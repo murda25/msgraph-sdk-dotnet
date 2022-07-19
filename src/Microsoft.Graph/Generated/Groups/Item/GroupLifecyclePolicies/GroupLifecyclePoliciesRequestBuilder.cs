@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Groups.Item.GroupLifecyclePolicies {
     /// <summary>Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.</summary>
     public class GroupLifecyclePoliciesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

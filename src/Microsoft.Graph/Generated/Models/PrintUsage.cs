@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new printUsage and sets the default values.
         /// </summary>
         public PrintUsage() : base() {
-            Type = "#microsoft.graph.printUsage";
+            OdataType = "#microsoft.graph.printUsage";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

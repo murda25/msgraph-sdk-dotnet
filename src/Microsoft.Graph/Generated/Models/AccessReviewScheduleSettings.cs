@@ -53,6 +53,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("mailNotificationsEnabled"); }
             set { BackingStore?.Set("mailNotificationsEnabled", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.</summary>
         public bool? RecommendationsEnabled {
             get { return BackingStore?.Get<bool?>("recommendationsEnabled"); }
@@ -74,6 +79,7 @@ namespace Microsoft.Graph.Models {
         public AccessReviewScheduleSettings() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.accessReviewScheduleSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -96,6 +102,7 @@ namespace Microsoft.Graph.Models {
                 {"instanceDurationInDays", n => { InstanceDurationInDays = n.GetIntValue(); } },
                 {"justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
                 {"mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
                 {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
                 {"reminderNotificationsEnabled", n => { ReminderNotificationsEnabled = n.GetBoolValue(); } },
@@ -115,6 +122,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteIntValue("instanceDurationInDays", InstanceDurationInDays);
             writer.WriteBoolValue("justificationRequiredOnApproval", JustificationRequiredOnApproval);
             writer.WriteBoolValue("mailNotificationsEnabled", MailNotificationsEnabled);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("recommendationsEnabled", RecommendationsEnabled);
             writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
             writer.WriteBoolValue("reminderNotificationsEnabled", ReminderNotificationsEnabled);

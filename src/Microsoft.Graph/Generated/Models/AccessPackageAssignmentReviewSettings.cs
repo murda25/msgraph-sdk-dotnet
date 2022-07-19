@@ -43,6 +43,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isSelfReview"); }
             set { BackingStore?.Set("isSelfReview", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>This collection specifies the users or group of users who will review the access package assignments.</summary>
         public List<SubjectSet> PrimaryReviewers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryReviewers"); }
@@ -59,6 +64,7 @@ namespace Microsoft.Graph.Models {
         public AccessPackageAssignmentReviewSettings() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.accessPackageAssignmentReviewSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -79,6 +85,7 @@ namespace Microsoft.Graph.Models {
                 {"isRecommendationEnabled", n => { IsRecommendationEnabled = n.GetBoolValue(); } },
                 {"isReviewerJustificationRequired", n => { IsReviewerJustificationRequired = n.GetBoolValue(); } },
                 {"isSelfReview", n => { IsSelfReview = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"primaryReviewers", n => { PrimaryReviewers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
                 {"schedule", n => { Schedule = n.GetObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule.CreateFromDiscriminatorValue); } },
             };
@@ -95,6 +102,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("isRecommendationEnabled", IsRecommendationEnabled);
             writer.WriteBoolValue("isReviewerJustificationRequired", IsReviewerJustificationRequired);
             writer.WriteBoolValue("isSelfReview", IsSelfReview);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<SubjectSet>("primaryReviewers", PrimaryReviewers);
             writer.WriteObjectValue<EntitlementManagementSchedule>("schedule", Schedule);
             writer.WriteAdditionalData(AdditionalData);

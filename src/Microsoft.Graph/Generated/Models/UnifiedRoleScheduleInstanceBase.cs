@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new unifiedRoleScheduleInstanceBase and sets the default values.
         /// </summary>
         public UnifiedRoleScheduleInstanceBase() : base() {
-            Type = "#microsoft.graph.unifiedRoleScheduleInstanceBase";
+            OdataType = "#microsoft.graph.unifiedRoleScheduleInstanceBase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

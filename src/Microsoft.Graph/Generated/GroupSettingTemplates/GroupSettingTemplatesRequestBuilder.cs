@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.GroupSettingTemplates {
     /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
     public class GroupSettingTemplatesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

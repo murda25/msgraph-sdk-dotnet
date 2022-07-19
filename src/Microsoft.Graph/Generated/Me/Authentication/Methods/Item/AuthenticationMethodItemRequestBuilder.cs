@@ -159,7 +159,7 @@ namespace Microsoft.Graph.Me.Authentication.Methods.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new authenticationMethodItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Me.Authentication.Methods.Item {
             /// <summary>Request query parameters</summary>
             public AuthenticationMethodItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new AuthenticationMethodItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new authenticationMethodItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new AuthenticationMethodItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public AuthenticationMethodItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.Me.Authentication.Methods.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new authenticationMethodItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new AuthenticationMethodItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public AuthenticationMethodItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

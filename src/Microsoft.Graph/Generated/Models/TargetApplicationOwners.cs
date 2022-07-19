@@ -6,6 +6,12 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TargetApplicationOwners : SubjectSet, IParsable {
         /// <summary>
+        /// Instantiates a new TargetApplicationOwners and sets the default values.
+        /// </summary>
+        public TargetApplicationOwners() : base() {
+            OdataType = "#microsoft.graph.targetApplicationOwners";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

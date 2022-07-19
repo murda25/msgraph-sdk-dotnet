@@ -159,7 +159,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Channels.Item.Messages.Item.Replies.I
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new chatMessageItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new ChatMessageItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public ChatMessageItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Channels.Item.Messages.Item.Replies.I
             /// <summary>Request query parameters</summary>
             public ChatMessageItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ChatMessageItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new chatMessageItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ChatMessageItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ChatMessageItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Channels.Item.Messages.Item.Replies.I
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new chatMessageItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ChatMessageItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public ChatMessageItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

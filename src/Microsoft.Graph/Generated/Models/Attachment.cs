@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new attachment and sets the default values.
         /// </summary>
         public Attachment() : base() {
-            Type = "#microsoft.graph.attachment";
+            OdataType = "#microsoft.graph.attachment";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

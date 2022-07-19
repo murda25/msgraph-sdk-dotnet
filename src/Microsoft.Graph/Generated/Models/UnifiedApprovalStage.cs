@@ -38,6 +38,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isEscalationEnabled"); }
             set { BackingStore?.Set("isEscalationEnabled", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The primary approvers of this stage.</summary>
         public List<SubjectSet> PrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryApprovers"); }
@@ -49,6 +54,7 @@ namespace Microsoft.Graph.Models {
         public UnifiedApprovalStage() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.unifiedApprovalStage";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,6 +74,7 @@ namespace Microsoft.Graph.Models {
                 {"escalationTimeInMinutes", n => { EscalationTimeInMinutes = n.GetIntValue(); } },
                 {"isApproverJustificationRequired", n => { IsApproverJustificationRequired = n.GetBoolValue(); } },
                 {"isEscalationEnabled", n => { IsEscalationEnabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"primaryApprovers", n => { PrimaryApprovers = n.GetCollectionOfObjectValues<SubjectSet>(SubjectSet.CreateFromDiscriminatorValue).ToList(); } },
             };
         }
@@ -82,6 +89,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteIntValue("escalationTimeInMinutes", EscalationTimeInMinutes);
             writer.WriteBoolValue("isApproverJustificationRequired", IsApproverJustificationRequired);
             writer.WriteBoolValue("isEscalationEnabled", IsEscalationEnabled);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<SubjectSet>("primaryApprovers", PrimaryApprovers);
             writer.WriteAdditionalData(AdditionalData);
         }

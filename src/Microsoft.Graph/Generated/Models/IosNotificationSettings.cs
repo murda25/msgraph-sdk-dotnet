@@ -39,6 +39,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("enabled"); }
             set { BackingStore?.Set("enabled", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Publisher to be associated with the bundleID.</summary>
         public string Publisher {
             get { return BackingStore?.Get<string>("publisher"); }
@@ -65,6 +70,7 @@ namespace Microsoft.Graph.Models {
         public IosNotificationSettings() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.iosNotificationSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -84,6 +90,7 @@ namespace Microsoft.Graph.Models {
                 {"badgesEnabled", n => { BadgesEnabled = n.GetBoolValue(); } },
                 {"bundleID", n => { BundleID = n.GetStringValue(); } },
                 {"enabled", n => { Enabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"publisher", n => { Publisher = n.GetStringValue(); } },
                 {"showInNotificationCenter", n => { ShowInNotificationCenter = n.GetBoolValue(); } },
                 {"showOnLockScreen", n => { ShowOnLockScreen = n.GetBoolValue(); } },
@@ -101,6 +108,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("badgesEnabled", BadgesEnabled);
             writer.WriteStringValue("bundleID", BundleID);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteBoolValue("showInNotificationCenter", ShowInNotificationCenter);
             writer.WriteBoolValue("showOnLockScreen", ShowOnLockScreen);

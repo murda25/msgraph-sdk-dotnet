@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("itemId"); }
             set { BackingStore?.Set("itemId", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.</summary>
         public double? RelevanceScore {
             get { return BackingStore?.Get<double?>("relevanceScore"); }
@@ -39,6 +44,7 @@ namespace Microsoft.Graph.Models {
         public ScoredEmailAddress() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.scoredEmailAddress";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,6 +61,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"address", n => { Address = n.GetStringValue(); } },
                 {"itemId", n => { ItemId = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"relevanceScore", n => { RelevanceScore = n.GetDoubleValue(); } },
                 {"selectionLikelihood", n => { SelectionLikelihood = n.GetEnumValue<SelectionLikelihoodInfo>(); } },
             };
@@ -67,6 +74,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("itemId", ItemId);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDoubleValue("relevanceScore", RelevanceScore);
             writer.WriteEnumValue<SelectionLikelihoodInfo>("selectionLikelihood", SelectionLikelihood);
             writer.WriteAdditionalData(AdditionalData);

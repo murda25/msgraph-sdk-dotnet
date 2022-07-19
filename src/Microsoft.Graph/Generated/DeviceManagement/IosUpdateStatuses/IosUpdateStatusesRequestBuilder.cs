@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
     /// <summary>Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.</summary>
     public class IosUpdateStatusesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new onenoteEntityBaseModel and sets the default values.
         /// </summary>
         public OnenoteEntityBaseModel() : base() {
-            Type = "#microsoft.graph.onenoteEntityBaseModel";
+            OdataType = "#microsoft.graph.onenoteEntityBaseModel";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -27,8 +27,13 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.notebook" => new Notebook(),
+                "#microsoft.graph.onenoteEntityHierarchyModel" => new OnenoteEntityHierarchyModel(),
                 "#microsoft.graph.onenoteEntitySchemaObjectModel" => new OnenoteEntitySchemaObjectModel(),
+                "#microsoft.graph.onenotePage" => new OnenotePage(),
                 "#microsoft.graph.onenoteResource" => new OnenoteResource(),
+                "#microsoft.graph.onenoteSection" => new OnenoteSection(),
+                "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 _ => new OnenoteEntityBaseModel(),
             };
         }

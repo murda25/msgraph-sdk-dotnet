@@ -10,6 +10,7 @@ using Microsoft.Graph.Teams.Item.IncomingChannels;
 using Microsoft.Graph.Teams.Item.InstalledApps;
 using Microsoft.Graph.Teams.Item.Members;
 using Microsoft.Graph.Teams.Item.Operations;
+using Microsoft.Graph.Teams.Item.Photo;
 using Microsoft.Graph.Teams.Item.PrimaryChannel;
 using Microsoft.Graph.Teams.Item.Schedule;
 using Microsoft.Graph.Teams.Item.SendActivityNotification;
@@ -68,6 +69,10 @@ namespace Microsoft.Graph.Teams.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The photo property</summary>
+        public PhotoRequestBuilder Photo { get =>
+            new PhotoRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The primaryChannel property</summary>
         public PrimaryChannelRequestBuilder PrimaryChannel { get =>
             new PrimaryChannelRequestBuilder(PathParameters, RequestAdapter);
@@ -229,7 +234,7 @@ namespace Microsoft.Graph.Teams.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new teamItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new TeamItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public TeamItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -254,7 +259,7 @@ namespace Microsoft.Graph.Teams.Item {
             /// <summary>Request query parameters</summary>
             public TeamItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new TeamItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new teamItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new TeamItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public TeamItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -268,7 +273,7 @@ namespace Microsoft.Graph.Teams.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new teamItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new TeamItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public TeamItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

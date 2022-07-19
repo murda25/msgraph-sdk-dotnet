@@ -37,6 +37,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("sectionsUrl", value); }
         }
         /// <summary>
+        /// Instantiates a new sectionGroup and sets the default values.
+        /// </summary>
+        public SectionGroup() : base() {
+            OdataType = "#microsoft.graph.sectionGroup";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

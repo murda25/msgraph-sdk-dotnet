@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>An abstract class containing the base properties for Intune mobile apps.</summary>
     public class MobileApp : Entity, IParsable {
         /// <summary>The list of group assignments for this mobile app.</summary>
         public List<MobileAppAssignment> Assignments {
@@ -82,10 +83,10 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publishingState", value); }
         }
         /// <summary>
-        /// Instantiates a new MobileApp and sets the default values.
+        /// Instantiates a new mobileApp and sets the default values.
         /// </summary>
         public MobileApp() : base() {
-            Type = "#microsoft.graph.mobileApp";
+            OdataType = "#microsoft.graph.mobileApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -96,14 +97,24 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.androidLobApp" => new AndroidLobApp(),
                 "#microsoft.graph.androidStoreApp" => new AndroidStoreApp(),
+                "#microsoft.graph.iosLobApp" => new IosLobApp(),
                 "#microsoft.graph.iosStoreApp" => new IosStoreApp(),
                 "#microsoft.graph.iosVppApp" => new IosVppApp(),
                 "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
+                "#microsoft.graph.managedAndroidLobApp" => new ManagedAndroidLobApp(),
+                "#microsoft.graph.managedAndroidStoreApp" => new ManagedAndroidStoreApp(),
                 "#microsoft.graph.managedApp" => new ManagedApp(),
+                "#microsoft.graph.managedIOSLobApp" => new ManagedIOSLobApp(),
+                "#microsoft.graph.managedIOSStoreApp" => new ManagedIOSStoreApp(),
+                "#microsoft.graph.managedMobileLobApp" => new ManagedMobileLobApp(),
                 "#microsoft.graph.microsoftStoreForBusinessApp" => new MicrosoftStoreForBusinessApp(),
                 "#microsoft.graph.mobileLobApp" => new MobileLobApp(),
                 "#microsoft.graph.webApp" => new WebApp(),
+                "#microsoft.graph.win32LobApp" => new Win32LobApp(),
+                "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
+                "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
                 _ => new MobileApp(),
             };
         }

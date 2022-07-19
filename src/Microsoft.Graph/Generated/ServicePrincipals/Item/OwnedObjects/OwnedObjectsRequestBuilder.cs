@@ -26,7 +26,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.OwnedObjects {
         public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
             new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

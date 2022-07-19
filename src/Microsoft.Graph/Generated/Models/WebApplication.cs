@@ -28,6 +28,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("logoutUrl"); }
             set { BackingStore?.Set("logoutUrl", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.</summary>
         public List<string> RedirectUris {
             get { return BackingStore?.Get<List<string>>("redirectUris"); }
@@ -39,6 +44,7 @@ namespace Microsoft.Graph.Models {
         public WebApplication() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.webApplication";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,6 +62,7 @@ namespace Microsoft.Graph.Models {
                 {"homePageUrl", n => { HomePageUrl = n.GetStringValue(); } },
                 {"implicitGrantSettings", n => { ImplicitGrantSettings = n.GetObjectValue<Microsoft.Graph.Models.ImplicitGrantSettings>(Microsoft.Graph.Models.ImplicitGrantSettings.CreateFromDiscriminatorValue); } },
                 {"logoutUrl", n => { LogoutUrl = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"redirectUris", n => { RedirectUris = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
             };
         }
@@ -68,6 +75,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("homePageUrl", HomePageUrl);
             writer.WriteObjectValue<Microsoft.Graph.Models.ImplicitGrantSettings>("implicitGrantSettings", ImplicitGrantSettings);
             writer.WriteStringValue("logoutUrl", LogoutUrl);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("redirectUris", RedirectUris);
             writer.WriteAdditionalData(AdditionalData);
         }

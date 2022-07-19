@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
     /// <summary>Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.</summary>
     public class DeviceEnrollmentConfigurationsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

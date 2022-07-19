@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new extension and sets the default values.
         /// </summary>
         public Extension() : base() {
-            Type = "#microsoft.graph.extension";
+            OdataType = "#microsoft.graph.extension";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

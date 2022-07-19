@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new IdentityProviderBase and sets the default values.
         /// </summary>
         public IdentityProviderBase() : base() {
-            Type = "#microsoft.graph.identityProviderBase";
+            OdataType = "#microsoft.graph.identityProviderBase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -28,6 +28,8 @@ namespace Microsoft.Graph.Models {
             return mappingValue switch {
                 "#microsoft.graph.appleManagedIdentityProvider" => new AppleManagedIdentityProvider(),
                 "#microsoft.graph.builtInIdentityProvider" => new BuiltInIdentityProvider(),
+                "#microsoft.graph.internalDomainFederation" => new InternalDomainFederation(),
+                "#microsoft.graph.samlOrWsFedExternalDomainFederation" => new SamlOrWsFedExternalDomainFederation(),
                 "#microsoft.graph.samlOrWsFedProvider" => new SamlOrWsFedProvider(),
                 "#microsoft.graph.socialIdentityProvider" => new SocialIdentityProvider(),
                 _ => new IdentityProviderBase(),

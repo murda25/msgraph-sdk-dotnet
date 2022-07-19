@@ -47,6 +47,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             set { BackingStore?.Set("state", value); }
         }
         /// <summary>
+        /// Instantiates a new externalConnection and sets the default values.
+        /// </summary>
+        public ExternalConnection() : base() {
+            OdataType = "#microsoft.graph.externalConnectors.externalConnection";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

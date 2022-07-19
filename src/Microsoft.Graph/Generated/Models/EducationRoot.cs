@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationUser>("me"); }
             set { BackingStore?.Set("me", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The schools property</summary>
         public List<EducationSchool> Schools {
             get { return BackingStore?.Get<List<EducationSchool>>("schools"); }
@@ -39,6 +44,7 @@ namespace Microsoft.Graph.Models {
         public EducationRoot() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.educationRoot";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,6 +61,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"classes", n => { Classes = n.GetCollectionOfObjectValues<EducationClass>(EducationClass.CreateFromDiscriminatorValue).ToList(); } },
                 {"me", n => { Me = n.GetObjectValue<EducationUser>(EducationUser.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"schools", n => { Schools = n.GetCollectionOfObjectValues<EducationSchool>(EducationSchool.CreateFromDiscriminatorValue).ToList(); } },
                 {"users", n => { Users = n.GetCollectionOfObjectValues<EducationUser>(EducationUser.CreateFromDiscriminatorValue).ToList(); } },
             };
@@ -67,6 +74,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<EducationClass>("classes", Classes);
             writer.WriteObjectValue<EducationUser>("me", Me);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<EducationSchool>("schools", Schools);
             writer.WriteCollectionOfObjectValues<EducationUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);

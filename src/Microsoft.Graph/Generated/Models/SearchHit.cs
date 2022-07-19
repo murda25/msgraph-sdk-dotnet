@@ -18,10 +18,15 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("contentSource"); }
             set { BackingStore?.Set("contentSource", value); }
         }
-        /// <summary>The internal identifier for the item.</summary>
+        /// <summary>The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.</summary>
         public string HitId {
             get { return BackingStore?.Get<string>("hitId"); }
             set { BackingStore?.Set("hitId", value); }
+        }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
         }
         /// <summary>The rank or the order of the result.</summary>
         public int? Rank {
@@ -49,6 +54,7 @@ namespace Microsoft.Graph.Models {
         public SearchHit() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.searchHit";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -65,6 +71,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"contentSource", n => { ContentSource = n.GetStringValue(); } },
                 {"hitId", n => { HitId = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"rank", n => { Rank = n.GetIntValue(); } },
                 {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
                 {"resultTemplateId", n => { ResultTemplateId = n.GetStringValue(); } },
@@ -79,6 +86,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("contentSource", ContentSource);
             writer.WriteStringValue("hitId", HitId);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("rank", Rank);
             writer.WriteObjectValue<Entity>("resource", Resource);
             writer.WriteStringValue("resultTemplateId", ResultTemplateId);

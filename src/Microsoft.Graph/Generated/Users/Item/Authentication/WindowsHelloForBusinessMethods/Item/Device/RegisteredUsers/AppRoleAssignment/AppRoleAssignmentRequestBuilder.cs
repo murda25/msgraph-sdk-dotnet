@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods.Item.Device.RegisteredUsers.AppRoleAssignment {
     /// <summary>Casts the previous resource to appRoleAssignment.</summary>
     public class AppRoleAssignmentRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

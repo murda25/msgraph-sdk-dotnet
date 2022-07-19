@@ -22,8 +22,8 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The driveItem property</summary>
-        public Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item.DriveItem.DriveItemRequestBuilder DriveItem { get =>
-            new Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item.DriveItem.DriveItemRequestBuilder(PathParameters, RequestAdapter);
+        public DriveItemRequestBuilder DriveItem { get =>
+            new DriveItemRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fields property</summary>
         public FieldsRequestBuilder Fields { get =>
@@ -194,7 +194,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new listItemItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new ListItemItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public ListItemItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -219,7 +219,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// <summary>Request query parameters</summary>
             public ListItemItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ListItemItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new listItemItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ListItemItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ListItemItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -233,7 +233,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new listItemItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ListItemItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public ListItemItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

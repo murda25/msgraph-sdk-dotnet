@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.AuditLogs.SignIns {
     /// <summary>Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.</summary>
     public class SignInsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Directory.AdministrativeUnits {
     /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
     public class AdministrativeUnitsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

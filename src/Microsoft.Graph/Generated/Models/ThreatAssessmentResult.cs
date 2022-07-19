@@ -22,6 +22,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resultType", value); }
         }
         /// <summary>
+        /// Instantiates a new threatAssessmentResult and sets the default values.
+        /// </summary>
+        public ThreatAssessmentResult() : base() {
+            OdataType = "#microsoft.graph.threatAssessmentResult";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

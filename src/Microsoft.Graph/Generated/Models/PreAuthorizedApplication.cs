@@ -23,12 +23,18 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("delegatedPermissionIds"); }
             set { BackingStore?.Set("delegatedPermissionIds", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>
         /// Instantiates a new preAuthorizedApplication and sets the default values.
         /// </summary>
         public PreAuthorizedApplication() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.preAuthorizedApplication";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,6 +51,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"delegatedPermissionIds", n => { DelegatedPermissionIds = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -55,6 +62,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("appId", AppId);
             writer.WriteCollectionOfPrimitiveValues<string>("delegatedPermissionIds", DelegatedPermissionIds);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

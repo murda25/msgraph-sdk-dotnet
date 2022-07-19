@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models.Security {
         /// Instantiates a new search and sets the default values.
         /// </summary>
         public Search() : base() {
-            Type = "#microsoft.graph.security.search";
+            OdataType = "#microsoft.graph.security.search";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

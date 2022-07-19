@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models.Security {
         /// Instantiates a new tag and sets the default values.
         /// </summary>
         public Tag() : base() {
-            Type = "#microsoft.graph.security.tag";
+            OdataType = "#microsoft.graph.security.tag";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

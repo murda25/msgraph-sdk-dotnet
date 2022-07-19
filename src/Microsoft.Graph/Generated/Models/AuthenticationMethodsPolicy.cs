@@ -42,6 +42,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("registrationEnforcement", value); }
         }
         /// <summary>
+        /// Instantiates a new authenticationMethodsPolicy and sets the default values.
+        /// </summary>
+        public AuthenticationMethodsPolicy() : base() {
+            OdataType = "#microsoft.graph.authenticationMethodsPolicy";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

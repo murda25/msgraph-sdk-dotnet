@@ -62,6 +62,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("targetResources", value); }
         }
         /// <summary>
+        /// Instantiates a new directoryAudit and sets the default values.
+        /// </summary>
+        public DirectoryAudit() : base() {
+            OdataType = "#microsoft.graph.directoryAudit";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

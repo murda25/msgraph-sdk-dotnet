@@ -176,6 +176,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("workProfileRequirePassword", value); }
         }
         /// <summary>
+        /// Instantiates a new AndroidWorkProfileGeneralDeviceConfiguration and sets the default values.
+        /// </summary>
+        public AndroidWorkProfileGeneralDeviceConfiguration() : base() {
+            OdataType = "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

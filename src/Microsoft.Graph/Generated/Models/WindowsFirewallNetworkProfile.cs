@@ -49,6 +49,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("incomingTrafficBlocked"); }
             set { BackingStore?.Set("incomingTrafficBlocked", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.</summary>
         public bool? OutboundConnectionsBlocked {
             get { return BackingStore?.Get<bool?>("outboundConnectionsBlocked"); }
@@ -80,6 +85,7 @@ namespace Microsoft.Graph.Models {
         public WindowsFirewallNetworkProfile() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.windowsFirewallNetworkProfile";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,6 +107,7 @@ namespace Microsoft.Graph.Models {
                 {"inboundConnectionsBlocked", n => { InboundConnectionsBlocked = n.GetBoolValue(); } },
                 {"inboundNotificationsBlocked", n => { InboundNotificationsBlocked = n.GetBoolValue(); } },
                 {"incomingTrafficBlocked", n => { IncomingTrafficBlocked = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"outboundConnectionsBlocked", n => { OutboundConnectionsBlocked = n.GetBoolValue(); } },
                 {"policyRulesFromGroupPolicyMerged", n => { PolicyRulesFromGroupPolicyMerged = n.GetBoolValue(); } },
                 {"securedPacketExemptionAllowed", n => { SecuredPacketExemptionAllowed = n.GetBoolValue(); } },
@@ -121,6 +128,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("inboundConnectionsBlocked", InboundConnectionsBlocked);
             writer.WriteBoolValue("inboundNotificationsBlocked", InboundNotificationsBlocked);
             writer.WriteBoolValue("incomingTrafficBlocked", IncomingTrafficBlocked);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("outboundConnectionsBlocked", OutboundConnectionsBlocked);
             writer.WriteBoolValue("policyRulesFromGroupPolicyMerged", PolicyRulesFromGroupPolicyMerged);
             writer.WriteBoolValue("securedPacketExemptionAllowed", SecuredPacketExemptionAllowed);

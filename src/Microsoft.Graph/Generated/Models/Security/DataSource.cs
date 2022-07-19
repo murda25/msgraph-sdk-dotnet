@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models.Security {
         /// Instantiates a new dataSource and sets the default values.
         /// </summary>
         public DataSource() : base() {
-            Type = "#microsoft.graph.security.dataSource";
+            OdataType = "#microsoft.graph.security.dataSource";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

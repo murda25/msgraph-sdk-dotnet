@@ -47,6 +47,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("supportedSingleSignOnModes", value); }
         }
         /// <summary>
+        /// Instantiates a new applicationTemplate and sets the default values.
+        /// </summary>
+        public ApplicationTemplate() : base() {
+            OdataType = "#microsoft.graph.applicationTemplate";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

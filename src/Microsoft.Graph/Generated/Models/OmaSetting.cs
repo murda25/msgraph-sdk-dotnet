@@ -25,15 +25,15 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>OMA.</summary>
         public string OmaUri {
             get { return BackingStore?.Get<string>("omaUri"); }
             set { BackingStore?.Set("omaUri", value); }
-        }
-        /// <summary>The type property</summary>
-        public string Type {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
         }
         /// <summary>
         /// Instantiates a new omaSetting and sets the default values.
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
         public OmaSetting() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            Type = "#microsoft.graph.omaSetting";
+            OdataType = "#microsoft.graph.omaSetting";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,8 +69,8 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"omaUri", n => { OmaUri = n.GetStringValue(); } },
-                {"@odata.type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -81,8 +81,8 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("omaUri", OmaUri);
-            writer.WriteStringValue("@odata.type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new operation and sets the default values.
         /// </summary>
         public Operation() : base() {
-            Type = "#microsoft.graph.operation";
+            OdataType = "#microsoft.graph.operation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

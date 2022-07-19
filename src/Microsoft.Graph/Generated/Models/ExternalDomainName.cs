@@ -7,6 +7,12 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ExternalDomainName : Entity, IParsable {
         /// <summary>
+        /// Instantiates a new externalDomainName and sets the default values.
+        /// </summary>
+        public ExternalDomainName() : base() {
+            OdataType = "#microsoft.graph.externalDomainName";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isScheduledActionEnabled"); }
             set { BackingStore?.Set("isScheduledActionEnabled", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Device should be noncompliant when there is no compliance policy targeted when this is true</summary>
         public bool? SecureByDefault {
             get { return BackingStore?.Get<bool?>("secureByDefault"); }
@@ -34,6 +39,7 @@ namespace Microsoft.Graph.Models {
         public DeviceManagementSettings() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.deviceManagementSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,6 +56,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"deviceComplianceCheckinThresholdDays", n => { DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
                 {"isScheduledActionEnabled", n => { IsScheduledActionEnabled = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"secureByDefault", n => { SecureByDefault = n.GetBoolValue(); } },
             };
         }
@@ -61,6 +68,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("deviceComplianceCheckinThresholdDays", DeviceComplianceCheckinThresholdDays);
             writer.WriteBoolValue("isScheduledActionEnabled", IsScheduledActionEnabled);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("secureByDefault", SecureByDefault);
             writer.WriteAdditionalData(AdditionalData);
         }

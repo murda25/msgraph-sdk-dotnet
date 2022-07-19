@@ -34,6 +34,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("instanceDisplayName"); }
             set { BackingStore?.Set("instanceDisplayName", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The setting that is being reported</summary>
         public string Setting {
             get { return BackingStore?.Get<string>("setting"); }
@@ -80,6 +85,7 @@ namespace Microsoft.Graph.Models {
         public DeviceConfigurationSettingState() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.deviceConfigurationSettingState";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -98,6 +104,7 @@ namespace Microsoft.Graph.Models {
                 {"errorCode", n => { ErrorCode = n.GetLongValue(); } },
                 {"errorDescription", n => { ErrorDescription = n.GetStringValue(); } },
                 {"instanceDisplayName", n => { InstanceDisplayName = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"setting", n => { Setting = n.GetStringValue(); } },
                 {"settingName", n => { SettingName = n.GetStringValue(); } },
                 {"sources", n => { Sources = n.GetCollectionOfObjectValues<SettingSource>(SettingSource.CreateFromDiscriminatorValue).ToList(); } },
@@ -118,6 +125,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteLongValue("errorCode", ErrorCode);
             writer.WriteStringValue("errorDescription", ErrorDescription);
             writer.WriteStringValue("instanceDisplayName", InstanceDisplayName);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("setting", Setting);
             writer.WriteStringValue("settingName", SettingName);
             writer.WriteCollectionOfObjectValues<SettingSource>("sources", Sources);

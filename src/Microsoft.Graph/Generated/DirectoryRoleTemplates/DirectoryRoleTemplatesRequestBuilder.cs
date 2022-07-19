@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.DirectoryRoleTemplates {
     /// <summary>Provides operations to manage the collection of directoryRoleTemplate entities.</summary>
     public class DirectoryRoleTemplatesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

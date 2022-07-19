@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models.Security {
         /// Instantiates a new case and sets the default values.
         /// </summary>
         public Case() : base() {
-            Type = "#microsoft.graph.security.case";
+            OdataType = "#microsoft.graph.security.case";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

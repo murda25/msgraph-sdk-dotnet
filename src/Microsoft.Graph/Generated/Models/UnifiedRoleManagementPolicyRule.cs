@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.
         /// </summary>
         public UnifiedRoleManagementPolicyRule() : base() {
-            Type = "#microsoft.graph.unifiedRoleManagementPolicyRule";
+            OdataType = "#microsoft.graph.unifiedRoleManagementPolicyRule";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

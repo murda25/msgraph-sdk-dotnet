@@ -18,6 +18,11 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The servicePrincipal property</summary>
         public Microsoft.Graph.Models.ServicePrincipal ServicePrincipal {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ServicePrincipal>("servicePrincipal"); }
@@ -29,6 +34,7 @@ namespace Microsoft.Graph.Models {
         public ApplicationServicePrincipal() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.applicationServicePrincipal";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,6 +50,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"application", n => { Application = n.GetObjectValue<Microsoft.Graph.Models.Application>(Microsoft.Graph.Models.Application.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<Microsoft.Graph.Models.ServicePrincipal>(Microsoft.Graph.Models.ServicePrincipal.CreateFromDiscriminatorValue); } },
             };
         }
@@ -54,6 +61,7 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<Microsoft.Graph.Models.Application>("application", Application);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<Microsoft.Graph.Models.ServicePrincipal>("servicePrincipal", ServicePrincipal);
             writer.WriteAdditionalData(AdditionalData);
         }

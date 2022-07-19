@@ -42,6 +42,12 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("startDateTime", value); }
         }
         /// <summary>
+        /// Instantiates a new session and sets the default values.
+        /// </summary>
+        public Session() : base() {
+            OdataType = "#microsoft.graph.callRecords.session";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

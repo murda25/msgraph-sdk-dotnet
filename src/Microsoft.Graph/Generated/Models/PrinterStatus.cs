@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("details"); }
             set { BackingStore?.Set("details", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The state property</summary>
         public PrinterProcessingState? State {
             get { return BackingStore?.Get<PrinterProcessingState?>("state"); }
@@ -34,6 +39,7 @@ namespace Microsoft.Graph.Models {
         public PrinterStatus() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.printerStatus";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,6 +56,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"details", n => { Details = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"state", n => { State = n.GetEnumValue<PrinterProcessingState>(); } },
             };
         }
@@ -61,6 +68,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("details", Details);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteEnumValue<PrinterProcessingState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }

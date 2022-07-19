@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new namedLocation and sets the default values.
         /// </summary>
         public NamedLocation() : base() {
-            Type = "#microsoft.graph.namedLocation";
+            OdataType = "#microsoft.graph.namedLocation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

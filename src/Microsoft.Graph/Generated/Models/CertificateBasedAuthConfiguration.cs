@@ -12,6 +12,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("certificateAuthorities", value); }
         }
         /// <summary>
+        /// Instantiates a new certificateBasedAuthConfiguration and sets the default values.
+        /// </summary>
+        public CertificateBasedAuthConfiguration() : base() {
+            OdataType = "#microsoft.graph.certificateBasedAuthConfiguration";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

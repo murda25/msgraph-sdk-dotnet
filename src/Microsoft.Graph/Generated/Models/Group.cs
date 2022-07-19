@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to group.</summary>
     public class Group : DirectoryObject, IParsable {
         /// <summary>The list of users or groups that are allowed to create post&apos;s or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.</summary>
         public List<DirectoryObject> AcceptedSenders {
@@ -329,6 +330,12 @@ namespace Microsoft.Graph.Models {
         public string Visibility {
             get { return BackingStore?.Get<string>("visibility"); }
             set { BackingStore?.Set("visibility", value); }
+        }
+        /// <summary>
+        /// Instantiates a new group and sets the default values.
+        /// </summary>
+        public Group() : base() {
+            OdataType = "#microsoft.graph.group";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

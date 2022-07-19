@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceConfigurationDeviceStatus : Entity, IParsable {
         /// <summary>The DateTime when device compliance grace period expires</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime {
@@ -40,6 +40,12 @@ namespace Microsoft.Graph.Models {
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
+        }
+        /// <summary>
+        /// Instantiates a new deviceConfigurationDeviceStatus and sets the default values.
+        /// </summary>
+        public DeviceConfigurationDeviceStatus() : base() {
+            OdataType = "#microsoft.graph.deviceConfigurationDeviceStatus";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

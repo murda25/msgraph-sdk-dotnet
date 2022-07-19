@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Insights.Used {
     /// <summary>Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class UsedRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

@@ -159,7 +159,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new accessPackageCatalogItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item
             /// <summary>Request query parameters</summary>
             public AccessPackageCatalogItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new AccessPackageCatalogItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new accessPackageCatalogItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new AccessPackageCatalogItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public AccessPackageCatalogItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new accessPackageCatalogItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

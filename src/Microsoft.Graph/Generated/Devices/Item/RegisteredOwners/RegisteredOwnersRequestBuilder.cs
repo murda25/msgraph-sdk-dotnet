@@ -22,7 +22,7 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
         public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
             new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The ref property</summary>
+        /// <summary>The Ref property</summary>
         public RefRequestBuilder Ref { get =>
             new RefRequestBuilder(PathParameters, RequestAdapter);
         }

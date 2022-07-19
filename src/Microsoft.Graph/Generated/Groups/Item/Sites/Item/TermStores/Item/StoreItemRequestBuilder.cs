@@ -164,7 +164,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new storeItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new StoreItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public StoreItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -189,7 +189,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item {
             /// <summary>Request query parameters</summary>
             public StoreItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new StoreItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new storeItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new StoreItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public StoreItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -203,7 +203,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new storeItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new StoreItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public StoreItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

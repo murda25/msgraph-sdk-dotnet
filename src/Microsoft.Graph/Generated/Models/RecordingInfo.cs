@@ -18,6 +18,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IdentitySet>("initiator"); }
             set { BackingStore?.Set("initiator", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The recordingStatus property</summary>
         public Microsoft.Graph.Models.RecordingStatus? RecordingStatus {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RecordingStatus?>("recordingStatus"); }
@@ -29,6 +34,7 @@ namespace Microsoft.Graph.Models {
         public RecordingInfo() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.recordingInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,6 +50,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"initiator", n => { Initiator = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"recordingStatus", n => { RecordingStatus = n.GetEnumValue<RecordingStatus>(); } },
             };
         }
@@ -54,6 +61,7 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<IdentitySet>("initiator", Initiator);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteEnumValue<RecordingStatus>("recordingStatus", RecordingStatus);
             writer.WriteAdditionalData(AdditionalData);
         }

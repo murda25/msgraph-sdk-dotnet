@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new bookingStaffMemberBase and sets the default values.
         /// </summary>
         public BookingStaffMemberBase() : base() {
-            Type = "#microsoft.graph.bookingStaffMemberBase";
+            OdataType = "#microsoft.graph.bookingStaffMemberBase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

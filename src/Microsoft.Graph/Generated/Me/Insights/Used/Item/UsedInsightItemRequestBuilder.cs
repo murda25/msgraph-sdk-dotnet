@@ -159,7 +159,7 @@ namespace Microsoft.Graph.Me.Insights.Used.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new usedInsightItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new UsedInsightItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public UsedInsightItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Me.Insights.Used.Item {
             /// <summary>Request query parameters</summary>
             public UsedInsightItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new UsedInsightItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new usedInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new UsedInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public UsedInsightItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.Me.Insights.Used.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new usedInsightItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new UsedInsightItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public UsedInsightItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

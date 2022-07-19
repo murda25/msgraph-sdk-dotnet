@@ -46,6 +46,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("settings", value); }
         }
         /// <summary>
+        /// Instantiates a new EntitlementManagement and sets the default values.
+        /// </summary>
+        public EntitlementManagement() : base() {
+            OdataType = "#microsoft.graph.entitlementManagement";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

@@ -23,12 +23,18 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<RbacApplication>("entitlementManagement"); }
             set { BackingStore?.Set("entitlementManagement", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>
         /// Instantiates a new RoleManagement and sets the default values.
         /// </summary>
         public RoleManagement() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.roleManagement";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,6 +51,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"directory", n => { DirectoryObject = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
                 {"entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -55,6 +62,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<RbacApplication>("directory", DirectoryObject);
             writer.WriteObjectValue<RbacApplication>("entitlementManagement", EntitlementManagement);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

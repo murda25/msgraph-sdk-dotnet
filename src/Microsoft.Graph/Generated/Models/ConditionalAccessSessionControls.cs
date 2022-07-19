@@ -28,6 +28,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("disableResilienceDefaults"); }
             set { BackingStore?.Set("disableResilienceDefaults", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.</summary>
         public PersistentBrowserSessionControl PersistentBrowser {
             get { return BackingStore?.Get<PersistentBrowserSessionControl>("persistentBrowser"); }
@@ -44,6 +49,7 @@ namespace Microsoft.Graph.Models {
         public ConditionalAccessSessionControls() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.conditionalAccessSessionControls";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,6 +67,7 @@ namespace Microsoft.Graph.Models {
                 {"applicationEnforcedRestrictions", n => { ApplicationEnforcedRestrictions = n.GetObjectValue<ApplicationEnforcedRestrictionsSessionControl>(ApplicationEnforcedRestrictionsSessionControl.CreateFromDiscriminatorValue); } },
                 {"cloudAppSecurity", n => { CloudAppSecurity = n.GetObjectValue<CloudAppSecuritySessionControl>(CloudAppSecuritySessionControl.CreateFromDiscriminatorValue); } },
                 {"disableResilienceDefaults", n => { DisableResilienceDefaults = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"persistentBrowser", n => { PersistentBrowser = n.GetObjectValue<PersistentBrowserSessionControl>(PersistentBrowserSessionControl.CreateFromDiscriminatorValue); } },
                 {"signInFrequency", n => { SignInFrequency = n.GetObjectValue<SignInFrequencySessionControl>(SignInFrequencySessionControl.CreateFromDiscriminatorValue); } },
             };
@@ -74,6 +81,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", ApplicationEnforcedRestrictions);
             writer.WriteObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", CloudAppSecurity);
             writer.WriteBoolValue("disableResilienceDefaults", DisableResilienceDefaults);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<PersistentBrowserSessionControl>("persistentBrowser", PersistentBrowser);
             writer.WriteObjectValue<SignInFrequencySessionControl>("signInFrequency", SignInFrequency);
             writer.WriteAdditionalData(AdditionalData);

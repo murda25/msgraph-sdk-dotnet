@@ -49,6 +49,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<MimeContent>("lightBackgroundLogo"); }
             set { BackingStore?.Set("lightBackgroundLogo", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Display name of the company/organization’s IT helpdesk site.</summary>
         public string OnlineSupportSiteName {
             get { return BackingStore?.Get<string>("onlineSupportSiteName"); }
@@ -90,6 +95,7 @@ namespace Microsoft.Graph.Models {
         public IntuneBrand() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.intuneBrand";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -111,6 +117,7 @@ namespace Microsoft.Graph.Models {
                 {"darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
                 {"onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
                 {"privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
@@ -133,6 +140,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<MimeContent>("darkBackgroundLogo", DarkBackgroundLogo);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("onlineSupportSiteName", OnlineSupportSiteName);
             writer.WriteStringValue("onlineSupportSiteUrl", OnlineSupportSiteUrl);
             writer.WriteStringValue("privacyUrl", PrivacyUrl);
