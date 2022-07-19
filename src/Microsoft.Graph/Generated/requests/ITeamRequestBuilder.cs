@@ -74,6 +74,12 @@ namespace Microsoft.Graph
         ITeamOperationsCollectionRequestBuilder Operations { get; }
 
         /// <summary>
+        /// Gets the request builder for Photo.
+        /// </summary>
+        /// <returns>The <see cref="IProfilePhotoRequestBuilder"/>.</returns>
+        IProfilePhotoRequestBuilder Photo { get; }
+
+        /// <summary>
         /// Gets the request builder for PrimaryChannel.
         /// </summary>
         /// <returns>The <see cref="IChannelRequestBuilder"/>.</returns>

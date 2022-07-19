@@ -51,6 +51,18 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the request builder for EmailMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationEmailMethodsCollectionRequestBuilder"/>.</returns>
+        public IAuthenticationEmailMethodsCollectionRequestBuilder EmailMethods
+        {
+            get
+            {
+                return new AuthenticationEmailMethodsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("emailMethods"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for Fido2Methods.
         /// </summary>
         /// <returns>The <see cref="IAuthenticationFido2MethodsCollectionRequestBuilder"/>.</returns>
@@ -107,6 +119,30 @@ namespace Microsoft.Graph
             get
             {
                 return new AuthenticationPasswordMethodsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("passwordMethods"), this.Client);
+            }
+        }
+
+        /// <summary>
+        /// Gets the request builder for PhoneMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationPhoneMethodsCollectionRequestBuilder"/>.</returns>
+        public IAuthenticationPhoneMethodsCollectionRequestBuilder PhoneMethods
+        {
+            get
+            {
+                return new AuthenticationPhoneMethodsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("phoneMethods"), this.Client);
+            }
+        }
+
+        /// <summary>
+        /// Gets the request builder for SoftwareOathMethods.
+        /// </summary>
+        /// <returns>The <see cref="IAuthenticationSoftwareOathMethodsCollectionRequestBuilder"/>.</returns>
+        public IAuthenticationSoftwareOathMethodsCollectionRequestBuilder SoftwareOathMethods
+        {
+            get
+            {
+                return new AuthenticationSoftwareOathMethodsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("softwareOathMethods"), this.Client);
             }
         }
 
