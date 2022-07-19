@@ -33,6 +33,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("languageId"); }
             set { BackingStore?.Set("languageId", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The participant ID of the participant. Read-only.</summary>
         public string ParticipantId {
             get { return BackingStore?.Get<string>("participantId"); }
@@ -49,6 +54,7 @@ namespace Microsoft.Graph.Models {
         public ParticipantInfo() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.participantInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,6 +73,7 @@ namespace Microsoft.Graph.Models {
                 {"endpointType", n => { EndpointType = n.GetEnumValue<EndpointType>(); } },
                 {"identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"languageId", n => { LanguageId = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"participantId", n => { ParticipantId = n.GetStringValue(); } },
                 {"region", n => { Region = n.GetStringValue(); } },
             };
@@ -81,6 +88,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<EndpointType>("endpointType", EndpointType);
             writer.WriteObjectValue<IdentitySet>("identity", Identity);
             writer.WriteStringValue("languageId", LanguageId);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("participantId", ParticipantId);
             writer.WriteStringValue("region", Region);
             writer.WriteAdditionalData(AdditionalData);

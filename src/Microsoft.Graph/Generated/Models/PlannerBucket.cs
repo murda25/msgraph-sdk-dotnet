@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Casts the previous resource to group.</summary>
     public class PlannerBucket : Entity, IParsable {
         /// <summary>Name of the bucket.</summary>
         public string Name {
@@ -25,6 +25,12 @@ namespace Microsoft.Graph.Models {
         public List<PlannerTask> Tasks {
             get { return BackingStore?.Get<List<PlannerTask>>("tasks"); }
             set { BackingStore?.Set("tasks", value); }
+        }
+        /// <summary>
+        /// Instantiates a new plannerBucket and sets the default values.
+        /// </summary>
+        public PlannerBucket() : base() {
+            OdataType = "#microsoft.graph.plannerBucket";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

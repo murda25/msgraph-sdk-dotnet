@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.SharedWithTeams.Item
             /// <summary>Request query parameters</summary>
             public ConversationMemberItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ConversationMemberItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new conversationMemberItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ConversationMemberItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ConversationMemberItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();

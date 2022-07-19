@@ -7,6 +7,12 @@ namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the admin singleton.</summary>
     public class UserFlowLanguagePage : Entity, IParsable {
         /// <summary>
+        /// Instantiates a new userFlowLanguagePage and sets the default values.
+        /// </summary>
+        public UserFlowLanguagePage() : base() {
+            OdataType = "#microsoft.graph.userFlowLanguagePage";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

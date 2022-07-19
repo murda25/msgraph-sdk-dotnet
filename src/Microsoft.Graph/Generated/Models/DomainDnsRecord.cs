@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new domainDnsRecord and sets the default values.
         /// </summary>
         public DomainDnsRecord() : base() {
-            Type = "#microsoft.graph.domainDnsRecord";
+            OdataType = "#microsoft.graph.domainDnsRecord";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

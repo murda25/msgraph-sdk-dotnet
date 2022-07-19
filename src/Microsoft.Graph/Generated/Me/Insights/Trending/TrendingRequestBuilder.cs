@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Insights.Trending {
     /// <summary>Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.</summary>
     public class TrendingRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

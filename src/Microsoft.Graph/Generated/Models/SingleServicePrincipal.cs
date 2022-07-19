@@ -16,6 +16,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("servicePrincipalId", value); }
         }
         /// <summary>
+        /// Instantiates a new SingleServicePrincipal and sets the default values.
+        /// </summary>
+        public SingleServicePrincipal() : base() {
+            OdataType = "#microsoft.graph.singleServicePrincipal";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

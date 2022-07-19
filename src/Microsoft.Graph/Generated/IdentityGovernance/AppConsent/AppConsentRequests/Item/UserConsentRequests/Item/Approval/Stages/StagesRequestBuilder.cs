@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.Item.Approval.Stages {
     /// <summary>Provides operations to manage the stages property of the microsoft.graph.approval entity.</summary>
     public class StagesRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Communications.Calls.Item.Participants {
     /// <summary>Provides operations to manage the participants property of the microsoft.graph.call entity.</summary>
     public class ParticipantsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

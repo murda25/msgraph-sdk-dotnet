@@ -249,7 +249,7 @@ namespace Microsoft.Graph.Applications.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new applicationItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new ApplicationItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public ApplicationItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -274,7 +274,7 @@ namespace Microsoft.Graph.Applications.Item {
             /// <summary>Request query parameters</summary>
             public ApplicationItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ApplicationItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new applicationItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ApplicationItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ApplicationItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -288,7 +288,7 @@ namespace Microsoft.Graph.Applications.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new applicationItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ApplicationItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public ApplicationItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

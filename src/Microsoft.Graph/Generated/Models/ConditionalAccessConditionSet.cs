@@ -38,6 +38,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ConditionalAccessLocations>("locations"); }
             set { BackingStore?.Set("locations", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Platforms included in and excluded from the policy.</summary>
         public ConditionalAccessPlatforms Platforms {
             get { return BackingStore?.Get<ConditionalAccessPlatforms>("platforms"); }
@@ -64,6 +69,7 @@ namespace Microsoft.Graph.Models {
         public ConditionalAccessConditionSet() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.conditionalAccessConditionSet";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -83,6 +89,7 @@ namespace Microsoft.Graph.Models {
                 {"clientAppTypes", n => { ClientAppTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"devices", n => { Devices = n.GetObjectValue<ConditionalAccessDevices>(ConditionalAccessDevices.CreateFromDiscriminatorValue); } },
                 {"locations", n => { Locations = n.GetObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"platforms", n => { Platforms = n.GetObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms.CreateFromDiscriminatorValue); } },
                 {"signInRiskLevels", n => { SignInRiskLevels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"userRiskLevels", n => { UserRiskLevels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
@@ -100,6 +107,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("clientAppTypes", ClientAppTypes);
             writer.WriteObjectValue<ConditionalAccessDevices>("devices", Devices);
             writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ConditionalAccessPlatforms>("platforms", Platforms);
             writer.WriteCollectionOfPrimitiveValues<string>("signInRiskLevels", SignInRiskLevels);
             writer.WriteCollectionOfPrimitiveValues<string>("userRiskLevels", UserRiskLevels);

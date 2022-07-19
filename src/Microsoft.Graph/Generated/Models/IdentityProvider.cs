@@ -21,6 +21,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+        /// <summary>The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.</summary>
+        public string Type {
+            get { return BackingStore?.Get<string>("type"); }
+            set { BackingStore?.Set("type", value); }
+        }
+        /// <summary>
+        /// Instantiates a new identityProvider and sets the default values.
+        /// </summary>
+        public IdentityProvider() : base() {
+            OdataType = "#microsoft.graph.identityProvider";
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
@@ -37,6 +48,7 @@ namespace Microsoft.Graph.Models {
                 {"clientId", n => { ClientId = n.GetStringValue(); } },
                 {"clientSecret", n => { ClientSecret = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
+                {"type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +61,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("clientId", ClientId);
             writer.WriteStringValue("clientSecret", ClientSecret);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new deviceEnrollmentConfiguration and sets the default values.
         /// </summary>
         public DeviceEnrollmentConfiguration() : base() {
-            Type = "#microsoft.graph.deviceEnrollmentConfiguration";
+            OdataType = "#microsoft.graph.deviceEnrollmentConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

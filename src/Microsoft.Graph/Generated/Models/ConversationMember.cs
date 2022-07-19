@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class ConversationMember : Entity, IParsable {
         /// <summary>The display name of the user.</summary>
         public string DisplayName {
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new conversationMember and sets the default values.
         /// </summary>
         public ConversationMember() : base() {
-            Type = "#microsoft.graph.conversationMember";
+            OdataType = "#microsoft.graph.conversationMember";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

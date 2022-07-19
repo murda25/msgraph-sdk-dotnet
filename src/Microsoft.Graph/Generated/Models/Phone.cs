@@ -23,6 +23,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("number"); }
             set { BackingStore?.Set("number", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The region property</summary>
         public string Region {
             get { return BackingStore?.Get<string>("region"); }
@@ -39,6 +44,7 @@ namespace Microsoft.Graph.Models {
         public Phone() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.phone";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,6 +61,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"language", n => { Language = n.GetStringValue(); } },
                 {"number", n => { Number = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"region", n => { Region = n.GetStringValue(); } },
                 {"type", n => { Type = n.GetEnumValue<PhoneType>(); } },
             };
@@ -67,6 +74,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("number", Number);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("region", Region);
             writer.WriteEnumValue<PhoneType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

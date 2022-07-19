@@ -28,6 +28,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isAcquiredByPrinter"); }
             set { BackingStore?.Set("isAcquiredByPrinter", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The state property</summary>
         public PrintJobProcessingState? State {
             get { return BackingStore?.Get<PrintJobProcessingState?>("state"); }
@@ -39,6 +44,7 @@ namespace Microsoft.Graph.Models {
         public PrintJobStatus() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.printJobStatus";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,6 +62,7 @@ namespace Microsoft.Graph.Models {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"details", n => { Details = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"isAcquiredByPrinter", n => { IsAcquiredByPrinter = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"state", n => { State = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
         }
@@ -68,6 +75,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("details", Details);
             writer.WriteBoolValue("isAcquiredByPrinter", IsAcquiredByPrinter);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteEnumValue<PrintJobProcessingState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }

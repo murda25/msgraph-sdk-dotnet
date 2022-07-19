@@ -18,6 +18,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<long?>("end"); }
             set { BackingStore?.Set("end", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The inclusive lower bound of the integer range.</summary>
         public long? Start {
             get { return BackingStore?.Get<long?>("start"); }
@@ -29,6 +34,7 @@ namespace Microsoft.Graph.Models {
         public IntegerRange() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.integerRange";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,6 +50,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"end", n => { End = n.GetLongValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"start", n => { Start = n.GetLongValue(); } },
             };
         }
@@ -54,6 +61,7 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("end", End);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteLongValue("start", Start);
             writer.WriteAdditionalData(AdditionalData);
         }

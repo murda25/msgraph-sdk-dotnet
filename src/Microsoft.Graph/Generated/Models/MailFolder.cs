@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new mailFolder and sets the default values.
         /// </summary>
         public MailFolder() : base() {
-            Type = "#microsoft.graph.mailFolder";
+            OdataType = "#microsoft.graph.mailFolder";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

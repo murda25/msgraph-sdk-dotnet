@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class TeamsAppInstallation : Entity, IParsable {
         /// <summary>The app that is installed.</summary>
         public Microsoft.Graph.Models.TeamsApp TeamsApp {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new teamsAppInstallation and sets the default values.
         /// </summary>
         public TeamsAppInstallation() : base() {
-            Type = "#microsoft.graph.teamsAppInstallation";
+            OdataType = "#microsoft.graph.teamsAppInstallation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

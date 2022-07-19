@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Casts the previous resource to group.</summary>
     public class Channel : Entity, IParsable {
         /// <summary>Read only. Timestamp at which the channel was created.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -70,6 +70,12 @@ namespace Microsoft.Graph.Models {
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
+        }
+        /// <summary>
+        /// Instantiates a new channel and sets the default values.
+        /// </summary>
+        public Channel() : base() {
+            OdataType = "#microsoft.graph.channel";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

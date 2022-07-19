@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new request and sets the default values.
         /// </summary>
         public Request() : base() {
-            Type = "#microsoft.graph.request";
+            OdataType = "#microsoft.graph.request";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

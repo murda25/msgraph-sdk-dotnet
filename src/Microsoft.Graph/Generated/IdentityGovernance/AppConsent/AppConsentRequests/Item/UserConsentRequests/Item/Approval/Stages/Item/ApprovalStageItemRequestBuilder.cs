@@ -154,7 +154,7 @@ namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new approvalStageItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new ApprovalStageItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public ApprovalStageItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -179,7 +179,7 @@ namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.
             /// <summary>Request query parameters</summary>
             public ApprovalStageItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ApprovalStageItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new approvalStageItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ApprovalStageItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ApprovalStageItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -193,7 +193,7 @@ namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new approvalStageItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ApprovalStageItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public ApprovalStageItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

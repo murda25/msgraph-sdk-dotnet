@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new managedAppPolicy and sets the default values.
         /// </summary>
         public ManagedAppPolicy() : base() {
-            Type = "#microsoft.graph.managedAppPolicy";
+            OdataType = "#microsoft.graph.managedAppPolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,9 +47,16 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.androidManagedAppProtection" => new AndroidManagedAppProtection(),
+                "#microsoft.graph.defaultManagedAppProtection" => new DefaultManagedAppProtection(),
+                "#microsoft.graph.iosManagedAppProtection" => new IosManagedAppProtection(),
                 "#microsoft.graph.managedAppConfiguration" => new ManagedAppConfiguration(),
                 "#microsoft.graph.managedAppProtection" => new ManagedAppProtection(),
+                "#microsoft.graph.mdmWindowsInformationProtectionPolicy" => new MdmWindowsInformationProtectionPolicy(),
+                "#microsoft.graph.targetedManagedAppConfiguration" => new TargetedManagedAppConfiguration(),
+                "#microsoft.graph.targetedManagedAppProtection" => new TargetedManagedAppProtection(),
                 "#microsoft.graph.windowsInformationProtection" => new WindowsInformationProtection(),
+                "#microsoft.graph.windowsInformationProtectionPolicy" => new WindowsInformationProtectionPolicy(),
                 _ => new ManagedAppPolicy(),
             };
         }

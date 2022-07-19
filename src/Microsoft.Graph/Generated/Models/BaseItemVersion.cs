@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new baseItemVersion and sets the default values.
         /// </summary>
         public BaseItemVersion() : base() {
-            Type = "#microsoft.graph.baseItemVersion";
+            OdataType = "#microsoft.graph.baseItemVersion";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

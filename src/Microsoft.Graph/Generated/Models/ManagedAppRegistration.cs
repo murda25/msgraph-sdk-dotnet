@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new managedAppRegistration and sets the default values.
         /// </summary>
         public ManagedAppRegistration() : base() {
-            Type = "#microsoft.graph.managedAppRegistration";
+            OdataType = "#microsoft.graph.managedAppRegistration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

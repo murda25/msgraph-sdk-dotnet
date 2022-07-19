@@ -18,6 +18,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("class"); }
             set { BackingStore?.Set("class", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The secondary type of data source, such as OrganizationUser.</summary>
         public string Subclass {
             get { return BackingStore?.Get<string>("subclass"); }
@@ -29,6 +34,7 @@ namespace Microsoft.Graph.Models {
         public PersonType() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.personType";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,6 +50,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"class", n => { Class = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"subclass", n => { Subclass = n.GetStringValue(); } },
             };
         }
@@ -54,6 +61,7 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("class", Class);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("subclass", Subclass);
             writer.WriteAdditionalData(AdditionalData);
         }

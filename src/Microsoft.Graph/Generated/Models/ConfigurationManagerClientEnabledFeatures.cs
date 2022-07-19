@@ -34,6 +34,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("modernApps"); }
             set { BackingStore?.Set("modernApps", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Whether resource access is managed by Intune</summary>
         public bool? ResourceAccess {
             get { return BackingStore?.Get<bool?>("resourceAccess"); }
@@ -50,6 +55,7 @@ namespace Microsoft.Graph.Models {
         public ConfigurationManagerClientEnabledFeatures() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.configurationManagerClientEnabledFeatures";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,6 +74,7 @@ namespace Microsoft.Graph.Models {
                 {"deviceConfiguration", n => { DeviceConfiguration = n.GetBoolValue(); } },
                 {"inventory", n => { Inventory = n.GetBoolValue(); } },
                 {"modernApps", n => { ModernApps = n.GetBoolValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"resourceAccess", n => { ResourceAccess = n.GetBoolValue(); } },
                 {"windowsUpdateForBusiness", n => { WindowsUpdateForBusiness = n.GetBoolValue(); } },
             };
@@ -82,6 +89,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("deviceConfiguration", DeviceConfiguration);
             writer.WriteBoolValue("inventory", Inventory);
             writer.WriteBoolValue("modernApps", ModernApps);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("resourceAccess", ResourceAccess);
             writer.WriteBoolValue("windowsUpdateForBusiness", WindowsUpdateForBusiness);
             writer.WriteAdditionalData(AdditionalData);

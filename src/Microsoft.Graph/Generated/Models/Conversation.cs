@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Casts the previous resource to group.</summary>
     public class Conversation : Entity, IParsable {
         /// <summary>Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.</summary>
         public bool? HasAttachments {
@@ -35,6 +35,12 @@ namespace Microsoft.Graph.Models {
         public List<string> UniqueSenders {
             get { return BackingStore?.Get<List<string>>("uniqueSenders"); }
             set { BackingStore?.Set("uniqueSenders", value); }
+        }
+        /// <summary>
+        /// Instantiates a new conversation and sets the default values.
+        /// </summary>
+        public Conversation() : base() {
+            OdataType = "#microsoft.graph.conversation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

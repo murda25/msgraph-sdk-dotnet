@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new printerBase and sets the default values.
         /// </summary>
         public PrinterBase() : base() {
-            Type = "#microsoft.graph.printerBase";
+            OdataType = "#microsoft.graph.printerBase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

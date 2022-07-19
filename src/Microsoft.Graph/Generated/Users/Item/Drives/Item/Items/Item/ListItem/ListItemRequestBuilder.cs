@@ -22,8 +22,8 @@ namespace Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem {
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The driveItem property</summary>
-        public Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.DriveItem.DriveItemRequestBuilder DriveItem { get =>
-            new Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.DriveItem.DriveItemRequestBuilder(PathParameters, RequestAdapter);
+        public DriveItemRequestBuilder DriveItem { get =>
+            new DriveItemRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fields property</summary>
         public FieldsRequestBuilder Fields { get =>

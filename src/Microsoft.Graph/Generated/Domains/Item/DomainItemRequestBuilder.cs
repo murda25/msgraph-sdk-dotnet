@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Domains.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new domainItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new DomainItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public DomainItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -209,7 +209,7 @@ namespace Microsoft.Graph.Domains.Item {
             /// <summary>Request query parameters</summary>
             public DomainItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new DomainItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new domainItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new DomainItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public DomainItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -223,7 +223,7 @@ namespace Microsoft.Graph.Domains.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new domainItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new DomainItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public DomainItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

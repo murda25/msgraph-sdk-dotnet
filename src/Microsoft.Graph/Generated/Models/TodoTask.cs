@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ItemBody>("body"); }
             set { BackingStore?.Set("body", value); }
         }
-        /// <summary>The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: &apos;2020-01-01T00:00:00Z&apos;.</summary>
+        /// <summary>The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: &apos;2020-01-01T00:00:00Z&apos;.</summary>
         public DateTimeOffset? BodyLastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("bodyLastModifiedDateTime"); }
             set { BackingStore?.Set("bodyLastModifiedDateTime", value); }
@@ -85,6 +85,12 @@ namespace Microsoft.Graph.Models {
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
+        }
+        /// <summary>
+        /// Instantiates a new todoTask and sets the default values.
+        /// </summary>
+        public TodoTask() : base() {
+            OdataType = "#microsoft.graph.todoTask";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

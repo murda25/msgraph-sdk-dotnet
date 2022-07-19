@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new threatAssessmentRequest and sets the default values.
         /// </summary>
         public ThreatAssessmentRequest() : base() {
-            Type = "#microsoft.graph.threatAssessmentRequest";
+            OdataType = "#microsoft.graph.threatAssessmentRequest";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -1,8 +1,11 @@
+using Microsoft.Graph.Me.Authentication.EmailMethods;
 using Microsoft.Graph.Me.Authentication.Fido2Methods;
 using Microsoft.Graph.Me.Authentication.Methods;
 using Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods;
 using Microsoft.Graph.Me.Authentication.Operations;
 using Microsoft.Graph.Me.Authentication.PasswordMethods;
+using Microsoft.Graph.Me.Authentication.PhoneMethods;
+using Microsoft.Graph.Me.Authentication.SoftwareOathMethods;
 using Microsoft.Graph.Me.Authentication.TemporaryAccessPassMethods;
 using Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods;
 using Microsoft.Graph.Models;
@@ -18,6 +21,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Authentication {
     /// <summary>Provides operations to manage the authentication property of the microsoft.graph.user entity.</summary>
     public class AuthenticationRequestBuilder {
+        /// <summary>The emailMethods property</summary>
+        public EmailMethodsRequestBuilder EmailMethods { get =>
+            new EmailMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The fido2Methods property</summary>
         public Fido2MethodsRequestBuilder Fido2Methods { get =>
             new Fido2MethodsRequestBuilder(PathParameters, RequestAdapter);
@@ -40,8 +47,16 @@ namespace Microsoft.Graph.Me.Authentication {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The phoneMethods property</summary>
+        public PhoneMethodsRequestBuilder PhoneMethods { get =>
+            new PhoneMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The softwareOathMethods property</summary>
+        public SoftwareOathMethodsRequestBuilder SoftwareOathMethods { get =>
+            new SoftwareOathMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The temporaryAccessPassMethods property</summary>
         public TemporaryAccessPassMethodsRequestBuilder TemporaryAccessPassMethods { get =>
             new TemporaryAccessPassMethodsRequestBuilder(PathParameters, RequestAdapter);

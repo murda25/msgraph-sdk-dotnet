@@ -46,10 +46,21 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
         }
+        /// <summary>The type property</summary>
+        public CallType? Type {
+            get { return BackingStore?.Get<CallType?>("type"); }
+            set { BackingStore?.Set("type", value); }
+        }
         /// <summary>Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.</summary>
         public long? Version {
             get { return BackingStore?.Get<long?>("version"); }
             set { BackingStore?.Set("version", value); }
+        }
+        /// <summary>
+        /// Instantiates a new callRecord and sets the default values.
+        /// </summary>
+        public CallRecord() : base() {
+            OdataType = "#microsoft.graph.callRecords.callRecord";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,6 +83,7 @@ namespace Microsoft.Graph.Models.CallRecords {
                 {"participants", n => { Participants = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.IdentitySet>(Microsoft.Graph.Models.IdentitySet.CreateFromDiscriminatorValue).ToList(); } },
                 {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue).ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                {"type", n => { Type = n.GetEnumValue<CallType>(); } },
                 {"version", n => { Version = n.GetLongValue(); } },
             };
         }
@@ -90,6 +102,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.IdentitySet>("participants", Participants);
             writer.WriteCollectionOfObjectValues<Session>("sessions", Sessions);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
+            writer.WriteEnumValue<CallType>("type", Type);
             writer.WriteLongValue("version", Version);
         }
     }

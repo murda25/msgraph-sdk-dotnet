@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new deviceConfiguration and sets the default values.
         /// </summary>
         public DeviceConfiguration() : base() {
-            Type = "#microsoft.graph.deviceConfiguration";
+            OdataType = "#microsoft.graph.deviceConfiguration";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -85,9 +85,11 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.editionUpgradeConfiguration" => new EditionUpgradeConfiguration(),
                 "#microsoft.graph.iosCertificateProfile" => new IosCertificateProfile(),
                 "#microsoft.graph.iosCustomConfiguration" => new IosCustomConfiguration(),
+                "#microsoft.graph.iosDeviceFeaturesConfiguration" => new IosDeviceFeaturesConfiguration(),
                 "#microsoft.graph.iosGeneralDeviceConfiguration" => new IosGeneralDeviceConfiguration(),
                 "#microsoft.graph.iosUpdateConfiguration" => new IosUpdateConfiguration(),
                 "#microsoft.graph.macOSCustomConfiguration" => new MacOSCustomConfiguration(),
+                "#microsoft.graph.macOSDeviceFeaturesConfiguration" => new MacOSDeviceFeaturesConfiguration(),
                 "#microsoft.graph.macOSGeneralDeviceConfiguration" => new MacOSGeneralDeviceConfiguration(),
                 "#microsoft.graph.sharedPCConfiguration" => new SharedPCConfiguration(),
                 "#microsoft.graph.windows10CustomConfiguration" => new Windows10CustomConfiguration(),

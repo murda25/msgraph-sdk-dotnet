@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.Cust
             /// <summary>Request query parameters</summary>
             public DataSourceItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new DataSourceItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new dataSourceItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new DataSourceItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public DataSourceItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();

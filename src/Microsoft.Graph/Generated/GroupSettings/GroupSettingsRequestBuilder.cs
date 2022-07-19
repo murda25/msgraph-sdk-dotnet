@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.GroupSettings {
     /// <summary>Provides operations to manage the collection of groupSetting entities.</summary>
     public class GroupSettingsRequestBuilder {
-        /// <summary>The count property</summary>
+        /// <summary>The Count property</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }

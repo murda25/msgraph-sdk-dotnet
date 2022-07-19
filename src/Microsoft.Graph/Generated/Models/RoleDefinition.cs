@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new roleDefinition and sets the default values.
         /// </summary>
         public RoleDefinition() : base() {
-            Type = "#microsoft.graph.roleDefinition";
+            OdataType = "#microsoft.graph.roleDefinition";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

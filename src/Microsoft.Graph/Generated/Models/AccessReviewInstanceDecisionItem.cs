@@ -72,6 +72,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("reviewedDateTime", value); }
         }
         /// <summary>
+        /// Instantiates a new accessReviewInstanceDecisionItem and sets the default values.
+        /// </summary>
+        public AccessReviewInstanceDecisionItem() : base() {
+            OdataType = "#microsoft.graph.accessReviewInstanceDecisionItem";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

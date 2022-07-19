@@ -13,6 +13,11 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>A property that indicates that an operation that might update the binary content of a file is pending completion.</summary>
         public Microsoft.Graph.Models.PendingContentUpdate PendingContentUpdate {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PendingContentUpdate>("pendingContentUpdate"); }
@@ -24,6 +29,7 @@ namespace Microsoft.Graph.Models {
         public PendingOperations() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.pendingOperations";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,6 +44,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"pendingContentUpdate", n => { PendingContentUpdate = n.GetObjectValue<Microsoft.Graph.Models.PendingContentUpdate>(Microsoft.Graph.Models.PendingContentUpdate.CreateFromDiscriminatorValue); } },
             };
         }
@@ -47,6 +54,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<Microsoft.Graph.Models.PendingContentUpdate>("pendingContentUpdate", PendingContentUpdate);
             writer.WriteAdditionalData(AdditionalData);
         }

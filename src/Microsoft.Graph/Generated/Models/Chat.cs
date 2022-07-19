@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class Chat : Entity, IParsable {
         /// <summary>The chatType property</summary>
         public Microsoft.Graph.Models.ChatType? ChatType {
@@ -60,6 +60,12 @@ namespace Microsoft.Graph.Models {
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
+        }
+        /// <summary>
+        /// Instantiates a new chat and sets the default values.
+        /// </summary>
+        public Chat() : base() {
+            OdataType = "#microsoft.graph.chat";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

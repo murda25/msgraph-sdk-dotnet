@@ -5,10 +5,21 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SignInFrequencySessionControl : ConditionalAccessSessionControl, IParsable {
+        /// <summary>Possible values are: days, hours, or null if frequencyInterval is everyTime .</summary>
+        public SigninFrequencyType? Type {
+            get { return BackingStore?.Get<SigninFrequencyType?>("type"); }
+            set { BackingStore?.Set("type", value); }
+        }
         /// <summary>The number of days or hours.</summary>
         public int? Value {
             get { return BackingStore?.Get<int?>("value"); }
             set { BackingStore?.Set("value", value); }
+        }
+        /// <summary>
+        /// Instantiates a new SignInFrequencySessionControl and sets the default values.
+        /// </summary>
+        public SignInFrequencySessionControl() : base() {
+            OdataType = "#microsoft.graph.signInFrequencySessionControl";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -23,6 +34,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"type", n => { Type = n.GetEnumValue<SigninFrequencyType>(); } },
                 {"value", n => { Value = n.GetIntValue(); } },
             };
         }
@@ -33,6 +45,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<SigninFrequencyType>("type", Type);
             writer.WriteIntValue("value", Value);
         }
     }

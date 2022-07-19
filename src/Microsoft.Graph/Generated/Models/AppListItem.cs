@@ -29,6 +29,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The publisher of the application</summary>
         public string Publisher {
             get { return BackingStore?.Get<string>("publisher"); }
@@ -40,6 +45,7 @@ namespace Microsoft.Graph.Models {
         public AppListItem() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.appListItem";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -57,6 +63,7 @@ namespace Microsoft.Graph.Models {
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"publisher", n => { Publisher = n.GetStringValue(); } },
             };
         }
@@ -69,6 +76,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("appStoreUrl", AppStoreUrl);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteAdditionalData(AdditionalData);
         }

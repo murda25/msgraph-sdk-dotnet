@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new educationOutcome and sets the default values.
         /// </summary>
         public EducationOutcome() : base() {
-            Type = "#microsoft.graph.educationOutcome";
+            OdataType = "#microsoft.graph.educationOutcome";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

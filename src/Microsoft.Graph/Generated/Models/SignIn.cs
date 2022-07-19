@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new signIn and sets the default values.
         /// </summary>
         public SignIn() : base() {
-            Type = "#microsoft.graph.signIn";
+            OdataType = "#microsoft.graph.signIn";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

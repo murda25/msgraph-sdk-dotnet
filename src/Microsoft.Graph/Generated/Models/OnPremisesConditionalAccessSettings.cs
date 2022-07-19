@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant.</summary>
     public class OnPremisesConditionalAccessSettings : Entity, IParsable {
         /// <summary>Indicates if on premises conditional access is enabled for this organization</summary>
         public bool? Enabled {
@@ -25,6 +24,12 @@ namespace Microsoft.Graph.Models {
         public bool? OverrideDefaultRule {
             get { return BackingStore?.Get<bool?>("overrideDefaultRule"); }
             set { BackingStore?.Set("overrideDefaultRule", value); }
+        }
+        /// <summary>
+        /// Instantiates a new onPremisesConditionalAccessSettings and sets the default values.
+        /// </summary>
+        public OnPremisesConditionalAccessSettings() : base() {
+            OdataType = "#microsoft.graph.onPremisesConditionalAccessSettings";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

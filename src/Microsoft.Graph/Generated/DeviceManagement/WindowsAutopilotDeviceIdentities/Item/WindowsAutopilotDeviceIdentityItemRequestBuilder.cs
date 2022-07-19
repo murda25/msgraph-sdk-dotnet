@@ -169,7 +169,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new windowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -194,7 +194,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
             /// <summary>Request query parameters</summary>
             public WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new windowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -208,7 +208,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new windowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

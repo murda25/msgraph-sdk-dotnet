@@ -6,6 +6,12 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class MacOSDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable {
         /// <summary>
+        /// Instantiates a new MacOSDeviceFeaturesConfiguration and sets the default values.
+        /// </summary>
+        public MacOSDeviceFeaturesConfiguration() : base() {
+            OdataType = "#microsoft.graph.macOSDeviceFeaturesConfiguration";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

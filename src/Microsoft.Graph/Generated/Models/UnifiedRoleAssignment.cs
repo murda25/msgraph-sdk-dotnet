@@ -52,6 +52,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("roleDefinitionId", value); }
         }
         /// <summary>
+        /// Instantiates a new unifiedRoleAssignment and sets the default values.
+        /// </summary>
+        public UnifiedRoleAssignment() : base() {
+            OdataType = "#microsoft.graph.unifiedRoleAssignment";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

@@ -159,7 +159,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new vppTokenItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new VppTokenItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public VppTokenItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens.Item {
             /// <summary>Request query parameters</summary>
             public VppTokenItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new VppTokenItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new vppTokenItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new VppTokenItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public VppTokenItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new vppTokenItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new VppTokenItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public VppTokenItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

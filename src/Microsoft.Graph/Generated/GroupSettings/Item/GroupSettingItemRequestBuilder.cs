@@ -154,7 +154,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new groupSettingItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -179,7 +179,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             /// <summary>Request query parameters</summary>
             public GroupSettingItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new GroupSettingItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new groupSettingItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -193,7 +193,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new groupSettingItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new GroupSettingItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public GroupSettingItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
         /// </summary>
         public DeviceManagementTroubleshootingEvent() : base() {
-            Type = "#microsoft.graph.deviceManagementTroubleshootingEvent";
+            OdataType = "#microsoft.graph.deviceManagementTroubleshootingEvent";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

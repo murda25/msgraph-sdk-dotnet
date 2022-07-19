@@ -154,7 +154,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -179,7 +179,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             /// <summary>Request query parameters</summary>
             public BookingStaffMemberBaseItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new BookingStaffMemberBaseItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -193,7 +193,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new bookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

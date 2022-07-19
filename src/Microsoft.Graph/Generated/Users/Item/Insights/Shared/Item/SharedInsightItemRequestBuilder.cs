@@ -164,7 +164,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new sharedInsightItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new SharedInsightItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public SharedInsightItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -189,7 +189,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared.Item {
             /// <summary>Request query parameters</summary>
             public SharedInsightItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new SharedInsightItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new sharedInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new SharedInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public SharedInsightItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -203,7 +203,7 @@ namespace Microsoft.Graph.Users.Item.Insights.Shared.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new sharedInsightItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new SharedInsightItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public SharedInsightItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

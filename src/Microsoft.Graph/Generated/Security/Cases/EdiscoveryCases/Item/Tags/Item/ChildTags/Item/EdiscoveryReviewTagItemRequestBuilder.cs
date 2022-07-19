@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTag
             /// <summary>Request query parameters</summary>
             public EdiscoveryReviewTagItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new EdiscoveryReviewTagItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();

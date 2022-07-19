@@ -53,6 +53,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<double?>("longitude"); }
             set { BackingStore?.Set("longitude", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.</summary>
         public List<string> Organization {
             get { return BackingStore?.Get<List<string>>("organization"); }
@@ -104,6 +109,7 @@ namespace Microsoft.Graph.Models {
         public PrinterLocation() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.printerLocation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -126,6 +132,7 @@ namespace Microsoft.Graph.Models {
                 {"floorDescription", n => { FloorDescription = n.GetStringValue(); } },
                 {"latitude", n => { Latitude = n.GetDoubleValue(); } },
                 {"longitude", n => { Longitude = n.GetDoubleValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"organization", n => { Organization = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"roomDescription", n => { RoomDescription = n.GetStringValue(); } },
@@ -151,6 +158,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("floorDescription", FloorDescription);
             writer.WriteDoubleValue("latitude", Latitude);
             writer.WriteDoubleValue("longitude", Longitude);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("organization", Organization);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("roomDescription", RoomDescription);

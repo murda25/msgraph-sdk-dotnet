@@ -27,6 +27,12 @@ namespace Microsoft.Graph.Models.TermStore {
             set { BackingStore?.Set("toTerm", value); }
         }
         /// <summary>
+        /// Instantiates a new relation and sets the default values.
+        /// </summary>
+        public Relation() : base() {
+            OdataType = "#microsoft.graph.termStore.relation";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

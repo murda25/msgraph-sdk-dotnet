@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
         /// Instantiates a new authenticationMethod and sets the default values.
         /// </summary>
         public AuthenticationMethod() : base() {
-            Type = "#microsoft.graph.authenticationMethod";
+            OdataType = "#microsoft.graph.authenticationMethod";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -22,9 +22,12 @@ namespace Microsoft.Graph.Models {
             var mappingValueNode = parseNode.GetChildNode("@odata.type");
             var mappingValue = mappingValueNode?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.emailAuthenticationMethod" => new EmailAuthenticationMethod(),
                 "#microsoft.graph.fido2AuthenticationMethod" => new Fido2AuthenticationMethod(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod" => new MicrosoftAuthenticatorAuthenticationMethod(),
                 "#microsoft.graph.passwordAuthenticationMethod" => new PasswordAuthenticationMethod(),
+                "#microsoft.graph.phoneAuthenticationMethod" => new PhoneAuthenticationMethod(),
+                "#microsoft.graph.softwareOathAuthenticationMethod" => new SoftwareOathAuthenticationMethod(),
                 "#microsoft.graph.temporaryAccessPassAuthenticationMethod" => new TemporaryAccessPassAuthenticationMethod(),
                 "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod" => new WindowsHelloForBusinessAuthenticationMethod(),
                 _ => new AuthenticationMethod(),

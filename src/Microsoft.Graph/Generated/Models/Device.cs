@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to device.</summary>
     public class Device : DirectoryObject, IParsable {
         /// <summary>true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.</summary>
         public bool? AccountEnabled {
@@ -124,6 +125,12 @@ namespace Microsoft.Graph.Models {
         public string TrustType {
             get { return BackingStore?.Get<string>("trustType"); }
             set { BackingStore?.Set("trustType", value); }
+        }
+        /// <summary>
+        /// Instantiates a new device and sets the default values.
+        /// </summary>
+        public Device() : base() {
+            OdataType = "#microsoft.graph.device";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceConfigurationUserStatus : Entity, IParsable {
         /// <summary>Devices count for that user.</summary>
         public int? DevicesCount {
@@ -30,6 +30,12 @@ namespace Microsoft.Graph.Models {
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
+        }
+        /// <summary>
+        /// Instantiates a new deviceConfigurationUserStatus and sets the default values.
+        /// </summary>
+        public DeviceConfigurationUserStatus() : base() {
+            OdataType = "#microsoft.graph.deviceConfigurationUserStatus";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

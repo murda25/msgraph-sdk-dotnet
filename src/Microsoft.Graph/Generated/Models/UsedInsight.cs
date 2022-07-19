@@ -27,6 +27,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceVisualization", value); }
         }
         /// <summary>
+        /// Instantiates a new usedInsight and sets the default values.
+        /// </summary>
+        public UsedInsight() : base() {
+            OdataType = "#microsoft.graph.usedInsight";
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>

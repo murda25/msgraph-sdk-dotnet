@@ -174,7 +174,7 @@ namespace Microsoft.Graph.Connections.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new externalConnectionItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new ExternalConnectionItemRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
             public ExternalConnectionItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -199,7 +199,7 @@ namespace Microsoft.Graph.Connections.Item {
             /// <summary>Request query parameters</summary>
             public ExternalConnectionItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ExternalConnectionItemRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new externalConnectionItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new ExternalConnectionItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public ExternalConnectionItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
@@ -213,7 +213,7 @@ namespace Microsoft.Graph.Connections.Item {
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new externalConnectionItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ExternalConnectionItemRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
             public ExternalConnectionItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();

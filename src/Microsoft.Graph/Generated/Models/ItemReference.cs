@@ -33,6 +33,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>Path that can be used to navigate to the item. Read-only.</summary>
         public string PathObject {
             get { return BackingStore?.Get<string>("path"); }
@@ -59,6 +64,7 @@ namespace Microsoft.Graph.Models {
         public ItemReference() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.itemReference";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,6 +83,7 @@ namespace Microsoft.Graph.Models {
                 {"driveType", n => { DriveType = n.GetStringValue(); } },
                 {"id", n => { Id = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"path", n => { PathObject = n.GetStringValue(); } },
                 {"shareId", n => { ShareId = n.GetStringValue(); } },
                 {"sharepointIds", n => { SharepointIds = n.GetObjectValue<Microsoft.Graph.Models.SharepointIds>(Microsoft.Graph.Models.SharepointIds.CreateFromDiscriminatorValue); } },
@@ -93,6 +100,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("driveType", DriveType);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("path", PathObject);
             writer.WriteStringValue("shareId", ShareId);
             writer.WriteObjectValue<Microsoft.Graph.Models.SharepointIds>("sharepointIds", SharepointIds);

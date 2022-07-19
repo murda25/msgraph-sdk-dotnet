@@ -98,6 +98,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("multipageLayouts"); }
             set { BackingStore?.Set("multipageLayouts", value); }
         }
+        /// <summary>The OdataType property</summary>
+        public string OdataType {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
         /// <summary>The print orientations supported by the printer. Valid values are described in the following table.</summary>
         public List<string> Orientations {
             get { return BackingStore?.Get<List<string>>("orientations"); }
@@ -144,6 +149,7 @@ namespace Microsoft.Graph.Models {
         public PrinterCapabilities() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
+            OdataType = "#microsoft.graph.printerCapabilities";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -175,6 +181,7 @@ namespace Microsoft.Graph.Models {
                 {"mediaSizes", n => { MediaSizes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"mediaTypes", n => { MediaTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"multipageLayouts", n => { MultipageLayouts = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"orientations", n => { Orientations = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"outputBins", n => { OutputBins = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"pagesPerSheet", n => { PagesPerSheet = n.GetCollectionOfPrimitiveValues<int?>().ToList(); } },
@@ -208,6 +215,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("mediaSizes", MediaSizes);
             writer.WriteCollectionOfPrimitiveValues<string>("mediaTypes", MediaTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("multipageLayouts", MultipageLayouts);
+            writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("orientations", Orientations);
             writer.WriteCollectionOfPrimitiveValues<string>("outputBins", OutputBins);
             writer.WriteCollectionOfPrimitiveValues<int?>("pagesPerSheet", PagesPerSheet);
