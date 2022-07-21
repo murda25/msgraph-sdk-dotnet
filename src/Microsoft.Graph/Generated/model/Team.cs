@@ -217,6 +217,13 @@ namespace Microsoft.Graph
         public string OperationsNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets photo.
+        /// The team photo.
+        /// </summary>
+        [JsonPropertyName("photo")]
+        public ProfilePhoto Photo { get; set; }
+    
+        /// <summary>
         /// Gets or sets primary channel.
         /// The general channel for the team.
         /// </summary>

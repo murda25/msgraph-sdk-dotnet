@@ -29,6 +29,12 @@ namespace Microsoft.Graph
         public AllowedTargetScope? AllowedTargetScope { get; set; }
     
         /// <summary>
+        /// Gets or sets automatic request settings.
+        /// </summary>
+        [JsonPropertyName("automaticRequestSettings")]
+        public AccessPackageAutomaticRequestSettings AutomaticRequestSettings { get; set; }
+    
+        /// <summary>
         /// Gets or sets created date time.
         /// The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
         /// </summary>

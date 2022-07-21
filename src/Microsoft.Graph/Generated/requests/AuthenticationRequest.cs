@@ -246,6 +246,12 @@ namespace Microsoft.Graph
 
             if (authenticationToInitialize != null)
             {
+                if (authenticationToInitialize.EmailMethods != null && authenticationToInitialize.EmailMethods.CurrentPage != null)
+                {
+                    authenticationToInitialize.EmailMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.EmailMethodsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    authenticationToInitialize.EmailMethods.AdditionalData = authenticationToInitialize.AdditionalData;
+                }
                 if (authenticationToInitialize.Fido2Methods != null && authenticationToInitialize.Fido2Methods.CurrentPage != null)
                 {
                     authenticationToInitialize.Fido2Methods.InitializeNextPageRequest(this.Client, authenticationToInitialize.Fido2MethodsNextLink);
@@ -275,6 +281,18 @@ namespace Microsoft.Graph
                     authenticationToInitialize.PasswordMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.PasswordMethodsNextLink);
                     // Copy the additional data collection to the page itself so that information is not lost
                     authenticationToInitialize.PasswordMethods.AdditionalData = authenticationToInitialize.AdditionalData;
+                }
+                if (authenticationToInitialize.PhoneMethods != null && authenticationToInitialize.PhoneMethods.CurrentPage != null)
+                {
+                    authenticationToInitialize.PhoneMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.PhoneMethodsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    authenticationToInitialize.PhoneMethods.AdditionalData = authenticationToInitialize.AdditionalData;
+                }
+                if (authenticationToInitialize.SoftwareOathMethods != null && authenticationToInitialize.SoftwareOathMethods.CurrentPage != null)
+                {
+                    authenticationToInitialize.SoftwareOathMethods.InitializeNextPageRequest(this.Client, authenticationToInitialize.SoftwareOathMethodsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    authenticationToInitialize.SoftwareOathMethods.AdditionalData = authenticationToInitialize.AdditionalData;
                 }
                 if (authenticationToInitialize.TemporaryAccessPassMethods != null && authenticationToInitialize.TemporaryAccessPassMethods.CurrentPage != null)
                 {
