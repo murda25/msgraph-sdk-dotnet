@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to group.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public enum ScheduleChangeRequestActor {
         Sender,
         Recipient,

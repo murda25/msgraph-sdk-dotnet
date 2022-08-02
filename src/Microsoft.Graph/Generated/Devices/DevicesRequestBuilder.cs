@@ -1,4 +1,5 @@
 using Microsoft.Graph.Devices.Count;
+using Microsoft.Graph.Devices.Delta;
 using Microsoft.Graph.Devices.GetAvailableExtensionProperties;
 using Microsoft.Graph.Devices.GetByIds;
 using Microsoft.Graph.Devices.Item;
@@ -112,6 +113,12 @@ namespace Microsoft.Graph.Devices {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the delta method.
+        /// </summary>
+        public DeltaRequestBuilder Delta() {
+            return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Retrieve a list of devices registered in the directory. 

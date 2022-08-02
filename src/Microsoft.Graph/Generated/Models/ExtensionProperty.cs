@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
-        /// <summary>Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication</summary>
+        /// <summary>Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization</summary>
         public List<string> TargetObjects {
             get { return BackingStore?.Get<List<string>>("targetObjects"); }
             set { BackingStore?.Set("targetObjects", value); }

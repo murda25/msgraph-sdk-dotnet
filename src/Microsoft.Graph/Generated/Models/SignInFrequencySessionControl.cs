@@ -5,6 +5,16 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SignInFrequencySessionControl : ConditionalAccessSessionControl, IParsable {
+        /// <summary>The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.</summary>
+        public SignInFrequencyAuthenticationType? AuthenticationType {
+            get { return BackingStore?.Get<SignInFrequencyAuthenticationType?>("authenticationType"); }
+            set { BackingStore?.Set("authenticationType", value); }
+        }
+        /// <summary>The possible values are timeBased, everyTime, unknownFutureValue.</summary>
+        public SignInFrequencyInterval? FrequencyInterval {
+            get { return BackingStore?.Get<SignInFrequencyInterval?>("frequencyInterval"); }
+            set { BackingStore?.Set("frequencyInterval", value); }
+        }
         /// <summary>Possible values are: days, hours, or null if frequencyInterval is everyTime .</summary>
         public SigninFrequencyType? Type {
             get { return BackingStore?.Get<SigninFrequencyType?>("type"); }
@@ -34,6 +44,8 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"authenticationType", n => { AuthenticationType = n.GetEnumValue<SignInFrequencyAuthenticationType>(); } },
+                {"frequencyInterval", n => { FrequencyInterval = n.GetEnumValue<SignInFrequencyInterval>(); } },
                 {"type", n => { Type = n.GetEnumValue<SigninFrequencyType>(); } },
                 {"value", n => { Value = n.GetIntValue(); } },
             };
@@ -45,6 +57,8 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<SignInFrequencyAuthenticationType>("authenticationType", AuthenticationType);
+            writer.WriteEnumValue<SignInFrequencyInterval>("frequencyInterval", FrequencyInterval);
             writer.WriteEnumValue<SigninFrequencyType>("type", Type);
             writer.WriteIntValue("value", Value);
         }

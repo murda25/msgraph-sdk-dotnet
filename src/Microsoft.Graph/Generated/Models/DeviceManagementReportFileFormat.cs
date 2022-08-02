@@ -1,7 +1,7 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public enum DeviceManagementReportFileFormat {
-        /// <summary>Comma-separated values</summary>
+        /// <summary>CSV Format</summary>
         Csv,
         /// <summary>Portable Document Format</summary>
         Pdf,

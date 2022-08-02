@@ -1,4 +1,5 @@
 using Microsoft.Graph.Drive.Root.ListItem.Analytics;
+using Microsoft.Graph.Drive.Root.ListItem.DocumentSetVersions;
 using Microsoft.Graph.Drive.Root.ListItem.DriveItem;
 using Microsoft.Graph.Drive.Root.ListItem.Fields;
 using Microsoft.Graph.Drive.Root.ListItem.GetActivitiesByInterval;
@@ -20,6 +21,10 @@ namespace Microsoft.Graph.Drive.Root.ListItem {
         /// <summary>The analytics property</summary>
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The documentSetVersions property</summary>
+        public DocumentSetVersionsRequestBuilder DocumentSetVersions { get =>
+            new DocumentSetVersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The driveItem property</summary>
         public DriveItemRequestBuilder DriveItem { get =>
