@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.Analytics;
+using Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.DocumentSetVersions;
 using Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.DriveItem;
 using Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.Fields;
 using Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem.GetActivitiesByInterval;
@@ -20,6 +21,10 @@ namespace Microsoft.Graph.Users.Item.Drives.Item.Items.Item.ListItem {
         /// <summary>The analytics property</summary>
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The documentSetVersions property</summary>
+        public DocumentSetVersionsRequestBuilder DocumentSetVersions { get =>
+            new DocumentSetVersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The driveItem property</summary>
         public DriveItemRequestBuilder DriveItem { get =>

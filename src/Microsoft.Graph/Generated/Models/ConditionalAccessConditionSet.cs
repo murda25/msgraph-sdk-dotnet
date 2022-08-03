@@ -48,6 +48,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ConditionalAccessPlatforms>("platforms"); }
             set { BackingStore?.Set("platforms", value); }
         }
+        /// <summary>Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.</summary>
+        public List<string> ServicePrincipalRiskLevels {
+            get { return BackingStore?.Get<List<string>>("servicePrincipalRiskLevels"); }
+            set { BackingStore?.Set("servicePrincipalRiskLevels", value); }
+        }
         /// <summary>Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
         public List<string> SignInRiskLevels {
             get { return BackingStore?.Get<List<string>>("signInRiskLevels"); }
@@ -91,6 +96,7 @@ namespace Microsoft.Graph.Models {
                 {"locations", n => { Locations = n.GetObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"platforms", n => { Platforms = n.GetObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms.CreateFromDiscriminatorValue); } },
+                {"servicePrincipalRiskLevels", n => { ServicePrincipalRiskLevels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"signInRiskLevels", n => { SignInRiskLevels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"userRiskLevels", n => { UserRiskLevels = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"users", n => { Users = n.GetObjectValue<ConditionalAccessUsers>(ConditionalAccessUsers.CreateFromDiscriminatorValue); } },
@@ -109,6 +115,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ConditionalAccessPlatforms>("platforms", Platforms);
+            writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalRiskLevels", ServicePrincipalRiskLevels);
             writer.WriteCollectionOfPrimitiveValues<string>("signInRiskLevels", SignInRiskLevels);
             writer.WriteCollectionOfPrimitiveValues<string>("userRiskLevels", UserRiskLevels);
             writer.WriteObjectValue<ConditionalAccessUsers>("users", Users);

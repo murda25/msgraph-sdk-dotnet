@@ -10,6 +10,7 @@ using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerSetti
 using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetHistoricalReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetNoncompliantDevicesAndSettingsReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceMetadata;
 using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceSummaryReport;
@@ -75,6 +76,10 @@ namespace Microsoft.Graph.DeviceManagement.Reports {
         /// <summary>The getHistoricalReport property</summary>
         public GetHistoricalReportRequestBuilder GetHistoricalReport { get =>
             new GetHistoricalReportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The getNoncompliantDevicesAndSettingsReport property</summary>
+        public GetNoncompliantDevicesAndSettingsReportRequestBuilder GetNoncompliantDevicesAndSettingsReport { get =>
+            new GetNoncompliantDevicesAndSettingsReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The getPolicyNonComplianceMetadata property</summary>
         public GetPolicyNonComplianceMetadataRequestBuilder GetPolicyNonComplianceMetadata { get =>

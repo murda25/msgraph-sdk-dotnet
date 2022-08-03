@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public enum NotificationTemplateBrandingOptions {
         /// <summary>No Branding.</summary>
         None,
@@ -9,5 +9,7 @@ namespace Microsoft.Graph.Models {
         IncludeCompanyName,
         /// <summary>Include Contact Info.</summary>
         IncludeContactInformation,
+        /// <summary>Include Device Details.</summary>
+        IncludeDeviceDetails,
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,12 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new ListItemVersion CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ListItemVersion();
+            var mappingValueNode = parseNode.GetChildNode("@odata.type");
+            var mappingValue = mappingValueNode?.GetStringValue();
+            return mappingValue switch {
+                "#microsoft.graph.documentSetVersion" => new DocumentSetVersion(),
+                _ => new ListItemVersion(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
