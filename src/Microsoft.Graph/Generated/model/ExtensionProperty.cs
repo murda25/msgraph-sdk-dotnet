@@ -51,14 +51,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets name.
-        /// Name of the extension property. Not nullable.
+        /// Name of the extension property. Not nullable. Supports $filter (eq).
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
     
         /// <summary>
         /// Gets or sets target objects.
-        /// Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+        /// Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
         /// </summary>
         [JsonPropertyName("targetObjects")]
         public IEnumerable<string> TargetObjects { get; set; }

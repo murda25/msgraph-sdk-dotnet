@@ -40,5 +40,10 @@ namespace Microsoft.Graph
         /// </summary>
         IncludeContactInformation = 4,
 	
+        /// <summary>
+        /// Include Device Details
+        /// </summary>
+        IncludeDeviceDetails = 16,
+	
     }
 }
