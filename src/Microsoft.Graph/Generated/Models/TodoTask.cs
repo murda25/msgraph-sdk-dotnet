@@ -6,6 +6,16 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class TodoTask : Entity, IParsable {
+        /// <summary>A collection of file attachments for the task.</summary>
+        public List<AttachmentBase> Attachments {
+            get { return BackingStore?.Get<List<AttachmentBase>>("attachments"); }
+            set { BackingStore?.Set("attachments", value); }
+        }
+        /// <summary>The attachmentSessions property</summary>
+        public List<AttachmentSession> AttachmentSessions {
+            get { return BackingStore?.Get<List<AttachmentSession>>("attachmentSessions"); }
+            set { BackingStore?.Set("attachmentSessions", value); }
+        }
         /// <summary>The task body that typically contains information about the task.</summary>
         public ItemBody Body {
             get { return BackingStore?.Get<ItemBody>("body"); }
@@ -26,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ChecklistItem>>("checklistItems"); }
             set { BackingStore?.Set("checklistItems", value); }
         }
-        /// <summary>The date in the specified time zone that the task was finished.</summary>
+        /// <summary>The date and time in the specified time zone that the task was finished.</summary>
         public DateTimeTimeZone CompletedDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("completedDateTime"); }
             set { BackingStore?.Set("completedDateTime", value); }
@@ -36,7 +46,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The date in the specified time zone that the task is to be finished.</summary>
+        /// <summary>The date and time in the specified time zone that the task is to be finished.</summary>
         public DateTimeTimeZone DueDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("dueDateTime"); }
             set { BackingStore?.Set("dueDateTime", value); }
@@ -45,6 +55,11 @@ namespace Microsoft.Graph.Models {
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
+        }
+        /// <summary>Indicates whether the task has attachments.</summary>
+        public bool? HasAttachments {
+            get { return BackingStore?.Get<bool?>("hasAttachments"); }
+            set { BackingStore?.Set("hasAttachments", value); }
         }
         /// <summary>The importance property</summary>
         public Microsoft.Graph.Models.Importance? Importance {
@@ -71,10 +86,15 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PatternedRecurrence>("recurrence"); }
             set { BackingStore?.Set("recurrence", value); }
         }
-        /// <summary>The date and time for a reminder alert of the task to occur.</summary>
+        /// <summary>The date and time in the specified time zone for a reminder alert of the task to occur.</summary>
         public DateTimeTimeZone ReminderDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("reminderDateTime"); }
             set { BackingStore?.Set("reminderDateTime", value); }
+        }
+        /// <summary>The date and time in the specified time zone at which the task is scheduled to start.</summary>
+        public DateTimeTimeZone StartDateTime {
+            get { return BackingStore?.Get<DateTimeTimeZone>("startDateTime"); }
+            set { BackingStore?.Set("startDateTime", value); }
         }
         /// <summary>The status property</summary>
         public TaskStatus? Status {
@@ -105,6 +125,8 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<AttachmentBase>(AttachmentBase.CreateFromDiscriminatorValue).ToList(); } },
+                {"attachmentSessions", n => { AttachmentSessions = n.GetCollectionOfObjectValues<AttachmentSession>(AttachmentSession.CreateFromDiscriminatorValue).ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"bodyLastModifiedDateTime", n => { BodyLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
@@ -113,12 +135,14 @@ namespace Microsoft.Graph.Models {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"dueDateTime", n => { DueDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue).ToList(); } },
+                {"hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
                 {"importance", n => { Importance = n.GetEnumValue<Importance>(); } },
                 {"isReminderOn", n => { IsReminderOn = n.GetBoolValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"linkedResources", n => { LinkedResources = n.GetCollectionOfObjectValues<LinkedResource>(LinkedResource.CreateFromDiscriminatorValue).ToList(); } },
                 {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
                 {"reminderDateTime", n => { ReminderDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 {"status", n => { Status = n.GetEnumValue<TaskStatus>(); } },
                 {"title", n => { Title = n.GetStringValue(); } },
             };
@@ -130,6 +154,8 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<AttachmentBase>("attachments", Attachments);
+            writer.WriteCollectionOfObjectValues<AttachmentSession>("attachmentSessions", AttachmentSessions);
             writer.WriteObjectValue<ItemBody>("body", Body);
             writer.WriteDateTimeOffsetValue("bodyLastModifiedDateTime", BodyLastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
@@ -138,12 +164,14 @@ namespace Microsoft.Graph.Models {
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<DateTimeTimeZone>("dueDateTime", DueDateTime);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
+            writer.WriteBoolValue("hasAttachments", HasAttachments);
             writer.WriteEnumValue<Importance>("importance", Importance);
             writer.WriteBoolValue("isReminderOn", IsReminderOn);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfObjectValues<LinkedResource>("linkedResources", LinkedResources);
             writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
             writer.WriteObjectValue<DateTimeTimeZone>("reminderDateTime", ReminderDateTime);
+            writer.WriteObjectValue<DateTimeTimeZone>("startDateTime", StartDateTime);
             writer.WriteEnumValue<TaskStatus>("status", Status);
             writer.WriteStringValue("title", Title);
         }

@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isSyncedFromOnPremises"); }
             set { BackingStore?.Set("isSyncedFromOnPremises", value); }
         }
-        /// <summary>Name of the extension property. Not nullable.</summary>
+        /// <summary>Name of the extension property. Not nullable. Supports $filter (eq).</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }

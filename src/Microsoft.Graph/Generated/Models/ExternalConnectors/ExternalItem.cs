@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ExternalConnectors.Acl>>("acl"); }
             set { BackingStore?.Set("acl", value); }
         }
-        /// <summary>A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
+        /// <summary>A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
         public ExternalItemContent Content {
             get { return BackingStore?.Get<ExternalItemContent>("content"); }
             set { BackingStore?.Set("content", value); }
