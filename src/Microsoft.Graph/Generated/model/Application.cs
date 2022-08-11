@@ -44,7 +44,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets app id.
-        /// The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+        /// The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
         /// </summary>
         [JsonPropertyName("appId")]
         public string AppId { get; set; }
@@ -260,13 +260,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets created on behalf of.
+        /// Supports $filter (eq when counting empty collections). Read-only.
         /// </summary>
         [JsonPropertyName("createdOnBehalfOf")]
         public DirectoryObject CreatedOnBehalfOf { get; set; }
     
         /// <summary>
         /// Gets or sets extension properties.
-        /// Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+        /// Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
         /// </summary>
         [JsonPropertyName("extensionProperties")]
         public IApplicationExtensionPropertiesCollectionPage ExtensionProperties { get; set; }
@@ -307,7 +308,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets owners.
-        /// Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+        /// Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
         /// </summary>
         [JsonPropertyName("owners")]
         public IApplicationOwnersCollectionWithReferencesPage Owners { get; set; }
