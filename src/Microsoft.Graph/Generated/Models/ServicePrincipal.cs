@@ -101,7 +101,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Endpoint>>("endpoints"); }
             set { BackingStore?.Set("endpoints", value); }
         }
-        /// <summary>The federatedIdentityCredentials property</summary>
+        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).</summary>
         public List<FederatedIdentityCredential> FederatedIdentityCredentials {
             get { return BackingStore?.Get<List<FederatedIdentityCredential>>("federatedIdentityCredentials"); }
             set { BackingStore?.Set("federatedIdentityCredentials", value); }
