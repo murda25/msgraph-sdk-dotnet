@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class EducationAssignmentIndividualRecipient : EducationAssignmentRecipient, IParsable {
-        /// <summary>A collection of ids of the recipients.</summary>
+        /// <summary>A collection of IDs of the recipients.</summary>
         public List<string> Recipients {
             get { return BackingStore?.Get<List<string>>("recipients"); }
             set { BackingStore?.Set("recipients", value); }

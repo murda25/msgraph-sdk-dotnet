@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SocialIdentityProvider : IdentityProviderBase, IParsable {
-        /// <summary>The client identifier for the application obtained when registering the application with the identity provider. Required.</summary>
+        /// <summary>The identifier for the client application obtained when registering the application with the identity provider. Required.</summary>
         public string ClientId {
             get { return BackingStore?.Get<string>("clientId"); }
             set { BackingStore?.Set("clientId", value); }

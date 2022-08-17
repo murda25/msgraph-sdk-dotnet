@@ -20,12 +20,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AppRoleAssignment>>("appRoleAssignments"); }
             set { BackingStore?.Set("appRoleAssignments", value); }
         }
-        /// <summary>The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.</summary>
+        /// <summary>The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.</summary>
         public List<AssignedLabel> AssignedLabels {
             get { return BackingStore?.Get<List<AssignedLabel>>("assignedLabels"); }
             set { BackingStore?.Set("assignedLabels", value); }
         }
-        /// <summary>The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.</summary>
+        /// <summary>The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.</summary>
         public List<AssignedLicense> AssignedLicenses {
             get { return BackingStore?.Get<List<AssignedLicense>>("assignedLicenses"); }
             set { BackingStore?.Set("assignedLicenses", value); }
@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.</summary>
+        /// <summary>The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.</summary>
         public DirectoryObject CreatedOnBehalfOf {
             get { return BackingStore?.Get<DirectoryObject>("createdOnBehalfOf"); }
             set { BackingStore?.Set("createdOnBehalfOf", value); }
@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
+        /// <summary>The display name for the group. This property is required when a group is created and cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Drive>>("drives"); }
             set { BackingStore?.Set("drives", value); }
         }
-        /// <summary>The group&apos;s events.</summary>
+        /// <summary>The group&apos;s calendar events.</summary>
         public List<Event> Events {
             get { return BackingStore?.Get<List<Event>>("events"); }
             set { BackingStore?.Set("events", value); }
@@ -110,27 +110,27 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("groupTypes"); }
             set { BackingStore?.Set("groupTypes", value); }
         }
-        /// <summary>Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).</summary>
+        /// <summary>Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example. Supports $filter (eq).</summary>
         public bool? HasMembersWithLicenseErrors {
             get { return BackingStore?.Get<bool?>("hasMembersWithLicenseErrors"); }
             set { BackingStore?.Set("hasMembersWithLicenseErrors", value); }
         }
-        /// <summary>true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? HideFromAddressLists {
             get { return BackingStore?.Get<bool?>("hideFromAddressLists"); }
             set { BackingStore?.Set("hideFromAddressLists", value); }
         }
-        /// <summary>true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public bool? HideFromOutlookClients {
             get { return BackingStore?.Get<bool?>("hideFromOutlookClients"); }
             set { BackingStore?.Set("hideFromOutlookClients", value); }
         }
-        /// <summary>When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
+        /// <summary>When a group is associated with a team this property determines whether the team is in read-only mode.To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.</summary>
         public bool? IsArchived {
             get { return BackingStore?.Get<bool?>("isArchived"); }
             set { BackingStore?.Set("isArchived", value); }
         }
-        /// <summary>Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).</summary>
         public bool? IsAssignableToRole {
             get { return BackingStore?.Get<bool?>("isAssignableToRole"); }
             set { BackingStore?.Set("isAssignableToRole", value); }
@@ -140,7 +140,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isSubscribedByMail"); }
             set { BackingStore?.Set("isSubscribedByMail", value); }
         }
-        /// <summary>Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.</summary>
+        /// <summary>Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.</summary>
         public Microsoft.Graph.Models.LicenseProcessingState LicenseProcessingState {
             get { return BackingStore?.Get<Microsoft.Graph.Models.LicenseProcessingState>("licenseProcessingState"); }
             set { BackingStore?.Set("licenseProcessingState", value); }
@@ -150,22 +150,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("mail"); }
             set { BackingStore?.Set("mail", value); }
         }
-        /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).</summary>
+        /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).</summary>
         public bool? MailEnabled {
             get { return BackingStore?.Get<bool?>("mailEnabled"); }
             set { BackingStore?.Set("mailEnabled", value); }
         }
-        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : . &lt;&gt; , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).</summary>
+        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : . &lt;&gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string MailNickname {
             get { return BackingStore?.Get<string>("mailNickname"); }
             set { BackingStore?.Set("mailNickname", value); }
         }
-        /// <summary>Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.</summary>
         public List<DirectoryObject> MemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("memberOf"); }
             set { BackingStore?.Set("memberOf", value); }
         }
-        /// <summary>Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).</summary>
+        /// <summary>The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=members($select=id,userPrincipalName,displayName).</summary>
         public List<DirectoryObject> Members {
             get { return BackingStore?.Get<List<DirectoryObject>>("members"); }
             set { BackingStore?.Set("members", value); }
@@ -190,7 +190,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>("onenote"); }
             set { BackingStore?.Set("onenote", value); }
         }
-        /// <summary>Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.</summary>
+        /// <summary>The onPremisesDomainName property</summary>
         public string OnPremisesDomainName {
             get { return BackingStore?.Get<string>("onPremisesDomainName"); }
             set { BackingStore?.Set("onPremisesDomainName", value); }
@@ -200,7 +200,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("onPremisesLastSyncDateTime"); }
             set { BackingStore?.Set("onPremisesLastSyncDateTime", value); }
         }
-        /// <summary>Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.</summary>
+        /// <summary>The onPremisesNetBiosName property</summary>
         public string OnPremisesNetBiosName {
             get { return BackingStore?.Get<string>("onPremisesNetBiosName"); }
             set { BackingStore?.Set("onPremisesNetBiosName", value); }
@@ -225,17 +225,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
         }
-        /// <summary>The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=owners($select=id,userPrincipalName,displayName).</summary>
+        /// <summary>The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,&apos;Role&apos;)&amp;$select=id,displayName&amp;$expand=owners($select=id,userPrincipalName,displayName).</summary>
         public List<DirectoryObject> Owners {
             get { return BackingStore?.Get<List<DirectoryObject>>("owners"); }
             set { BackingStore?.Set("owners", value); }
         }
-        /// <summary>The permissions that have been granted for a group to a specific application. Supports $expand.</summary>
+        /// <summary>The permission that has been granted for a group to a specific application. Supports $expand.</summary>
         public List<ResourceSpecificPermissionGrant> PermissionGrants {
             get { return BackingStore?.Get<List<ResourceSpecificPermissionGrant>>("permissionGrants"); }
             set { BackingStore?.Set("permissionGrants", value); }
         }
-        /// <summary>The group&apos;s profile photo.</summary>
+        /// <summary>The group&apos;s profile photo</summary>
         public ProfilePhoto Photo {
             get { return BackingStore?.Get<ProfilePhoto>("photo"); }
             set { BackingStore?.Set("photo", value); }
@@ -245,7 +245,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ProfilePhoto>>("photos"); }
             set { BackingStore?.Set("photos", value); }
         }
-        /// <summary>Selective Planner services available to the group. Read-only. Nullable.</summary>
+        /// <summary>Entry-point to Planner resource that might exist for a Unified Group.</summary>
         public PlannerGroup Planner {
             get { return BackingStore?.Get<PlannerGroup>("planner"); }
             set { BackingStore?.Set("planner", value); }
@@ -260,7 +260,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("preferredLanguage"); }
             set { BackingStore?.Set("preferredLanguage", value); }
         }
-        /// <summary>Email addresses for the group that direct to the same group mailbox. For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).</summary>
+        /// <summary>Email addresses for the group that direct to the same group mailbox. For example: [&apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;]. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).</summary>
         public List<string> ProxyAddresses {
             get { return BackingStore?.Get<List<string>>("proxyAddresses"); }
             set { BackingStore?.Set("proxyAddresses", value); }
@@ -275,7 +275,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("renewedDateTime"); }
             set { BackingStore?.Set("renewedDateTime", value); }
         }
-        /// <summary>Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).</summary>
+        /// <summary>Specifies whether the group is a security group. Required. Returned by default. Supports $filter (eq, ne, not, in).</summary>
         public bool? SecurityEnabled {
             get { return BackingStore?.Get<bool?>("securityEnabled"); }
             set { BackingStore?.Set("securityEnabled", value); }
@@ -320,7 +320,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>("transitiveMembers"); }
             set { BackingStore?.Set("transitiveMembers", value); }
         }
-        /// <summary>Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
+        /// <summary>Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).</summary>
         public int? UnseenCount {
             get { return BackingStore?.Get<int?>("unseenCount"); }
             set { BackingStore?.Set("unseenCount", value); }

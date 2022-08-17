@@ -5,17 +5,17 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RiskDetection : Entity, IParsable {
-        /// <summary>Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.</summary>
+        /// <summary>Indicates the activity type the detected risk is linked to. Possible values are: signin, user, unknownFutureValue.</summary>
         public ActivityType? Activity {
             get { return BackingStore?.Get<ActivityType?>("activity"); }
             set { BackingStore?.Set("activity", value); }
         }
-        /// <summary>Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is look like this: 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? ActivityDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("activityDateTime"); }
             set { BackingStore?.Set("activityDateTime", value); }
         }
-        /// <summary>Additional information associated with the risk detection in JSON format.</summary>
+        /// <summary>Additional information associated with the risk detection in JSON format. For example, &apos;[{/&apos;Key/&apos;:/&apos;userAgent/&apos;,/&apos;Value/&apos;:/&apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36/&apos;}]&apos;. Possible keys in the additionalInfo JSON string are: userAgent, alertUrl, relatedEventTimeInUtc, relatedUserAgent, deviceInformation, relatedLocation, requestId, correlationId, lastActivityTimeInUtc, malwareName, clientLocation, clientIp, riskReasons. For more information about riskReasons and possible values, see riskReasons values.</summary>
         public string AdditionalInfo {
             get { return BackingStore?.Get<string>("additionalInfo"); }
             set { BackingStore?.Set("additionalInfo", value); }
@@ -25,12 +25,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("correlationId"); }
             set { BackingStore?.Set("correlationId", value); }
         }
-        /// <summary>Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? DetectedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("detectedDateTime"); }
             set { BackingStore?.Set("detectedDateTime", value); }
         }
-        /// <summary>Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.</summary>
+        /// <summary>Timing of the detected risk (real-time/offline). Possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.</summary>
         public RiskDetectionTimingType? DetectionTimingType {
             get { return BackingStore?.Get<RiskDetectionTimingType?>("detectionTimingType"); }
             set { BackingStore?.Set("detectionTimingType", value); }
@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("ipAddress"); }
             set { BackingStore?.Set("ipAddress", value); }
         }
-        /// <summary>Date and time that the risk detection was last updated.</summary>
+        /// <summary>Date and time that the risk detection was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is look like this: 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? LastUpdatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastUpdatedDateTime"); }
             set { BackingStore?.Set("lastUpdatedDateTime", value); }
@@ -55,22 +55,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("requestId"); }
             set { BackingStore?.Set("requestId", value); }
         }
-        /// <summary>Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.</summary>
+        /// <summary>Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.RiskDetail? RiskDetail {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RiskDetail?>("riskDetail"); }
             set { BackingStore?.Set("riskDetail", value); }
         }
-        /// <summary>The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.  For more information about each value, see riskEventType values.</summary>
+        /// <summary>The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, passwordSpray, impossibleTravel, newCountry, anomalousToken, tokenIssuerAnomaly,suspiciousBrowser, riskyIPAddress, mcasSuspiciousInboxManipulationRules, suspiciousInboxForwarding, and unknownFutureValue. If the risk detection is a premium detection, will show generic. For more information about each value, see riskEventType values.</summary>
         public string RiskEventType {
             get { return BackingStore?.Get<string>("riskEventType"); }
             set { BackingStore?.Set("riskEventType", value); }
         }
-        /// <summary>Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.</summary>
+        /// <summary>Level of the detected risk. Possible values are: low, medium, high, hidden, none, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.RiskLevel? RiskLevel {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RiskLevel?>("riskLevel"); }
             set { BackingStore?.Set("riskLevel", value); }
         }
-        /// <summary>The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.</summary>
+        /// <summary>The state of a detected risky user or sign-in. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.RiskState? RiskState {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RiskState?>("riskState"); }
             set { BackingStore?.Set("riskState", value); }
@@ -80,17 +80,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("source"); }
             set { BackingStore?.Set("source", value); }
         }
-        /// <summary>Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.</summary>
+        /// <summary>Indicates the type of token issuer for the detected sign-in risk. Possible values are: AzureAD, ADFederationServices, UnknownFutureValue.</summary>
         public Microsoft.Graph.Models.TokenIssuerType? TokenIssuerType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TokenIssuerType?>("tokenIssuerType"); }
             set { BackingStore?.Set("tokenIssuerType", value); }
         }
-        /// <summary>Name of the user.</summary>
+        /// <summary>The user principal name (UPN) of the user.</summary>
         public string UserDisplayName {
             get { return BackingStore?.Get<string>("userDisplayName"); }
             set { BackingStore?.Set("userDisplayName", value); }
         }
-        /// <summary>Unique ID of the user.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Unique ID of the user.</summary>
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }

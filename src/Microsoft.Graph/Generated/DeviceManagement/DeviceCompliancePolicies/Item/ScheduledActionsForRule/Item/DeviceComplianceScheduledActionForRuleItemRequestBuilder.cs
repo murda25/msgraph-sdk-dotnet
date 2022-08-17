@@ -68,7 +68,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Schedul
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -123,7 +123,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Schedul
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Schedul
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The list of scheduled action for this rule</summary>
+        /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
         public class DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

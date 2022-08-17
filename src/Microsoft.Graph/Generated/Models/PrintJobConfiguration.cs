@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PrintMargin>("margin"); }
             set { BackingStore?.Set("margin", value); }
         }
-        /// <summary>The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.</summary>
+        /// <summary>The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.</summary>
         public string MediaSize {
             get { return BackingStore?.Get<string>("mediaSize"); }
             set { BackingStore?.Set("mediaSize", value); }

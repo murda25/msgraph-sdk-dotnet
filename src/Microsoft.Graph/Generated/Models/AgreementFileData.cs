@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path &apos;your_file_path&apos; -Encoding byte)).</summary>
+        /// <summary>Data that represents the terms of use PDF document. Read-only.</summary>
         public byte[] Data {
             get { return BackingStore?.Get<byte[]>("data"); }
             set { BackingStore?.Set("data", value); }

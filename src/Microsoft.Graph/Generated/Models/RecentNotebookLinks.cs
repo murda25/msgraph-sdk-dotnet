@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Opens the notebook in the OneNote client, if it&apos;s installed.</summary>
+        /// <summary>Opens the notebook in the OneNote native client if it&apos;s installed.</summary>
         public ExternalLink OneNoteClientUrl {
             get { return BackingStore?.Get<ExternalLink>("oneNoteClientUrl"); }
             set { BackingStore?.Set("oneNoteClientUrl", value); }

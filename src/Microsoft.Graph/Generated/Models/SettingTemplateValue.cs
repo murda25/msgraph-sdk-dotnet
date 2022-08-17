@@ -13,17 +13,17 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Default value for the setting. Read-only.</summary>
+        /// <summary>Default value for the setting.</summary>
         public string DefaultValue {
             get { return BackingStore?.Get<string>("defaultValue"); }
             set { BackingStore?.Set("defaultValue", value); }
         }
-        /// <summary>Description of the setting. Read-only.</summary>
+        /// <summary>Description of the setting.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>Name of the setting. Read-only.</summary>
+        /// <summary>Name of the setting.</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Type of the setting. Read-only.</summary>
+        /// <summary>Type of the setting.</summary>
         public string Type {
             get { return BackingStore?.Get<string>("type"); }
             set { BackingStore?.Set("type", value); }

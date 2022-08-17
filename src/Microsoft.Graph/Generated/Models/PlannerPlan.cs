@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PlannerPlan : Entity, IParsable {
-        /// <summary>Collection of buckets in the plan. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public List<PlannerBucket> Buckets {
             get { return BackingStore?.Get<List<PlannerBucket>>("buckets"); }
             set { BackingStore?.Set("buckets", value); }
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>Additional details about the plan. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Additional details about the plan.</summary>
         public PlannerPlanDetails Details {
             get { return BackingStore?.Get<PlannerPlanDetails>("details"); }
             set { BackingStore?.Set("details", value); }
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("owner"); }
             set { BackingStore?.Set("owner", value); }
         }
-        /// <summary>Collection of tasks in the plan. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Collection of tasks in the plan.</summary>
         public List<PlannerTask> Tasks {
             get { return BackingStore?.Get<List<PlannerTask>>("tasks"); }
             set { BackingStore?.Set("tasks", value); }

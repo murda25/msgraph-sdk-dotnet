@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class BookingBusiness : Entity, IParsable {
-        /// <summary>The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.</summary>
+        /// <summary>The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.</summary>
         public PhysicalAddress Address {
             get { return BackingStore?.Get<PhysicalAddress>("address"); }
             set { BackingStore?.Set("address", value); }

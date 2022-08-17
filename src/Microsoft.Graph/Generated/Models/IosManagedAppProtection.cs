@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ManagedMobileApp>>("apps"); }
             set { BackingStore?.Set("apps", value); }
         }
-        /// <summary>A custom browser protocol to open weblink on iOS.</summary>
+        /// <summary>A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
         public string CustomBrowserProtocol {
             get { return BackingStore?.Get<string>("customBrowserProtocol"); }
             set { BackingStore?.Set("customBrowserProtocol", value); }

@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems.I
             return requestInfo;
         }
         /// <summary>
-        /// A collection of smaller subtasks linked to the more complex parent task.
+        /// A collection of checklistItems linked to a task.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ChecklistItemItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems.I
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// A collection of smaller subtasks linked to the more complex parent task.
+        /// A collection of checklistItems linked to a task.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems.I
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>A collection of smaller subtasks linked to the more complex parent task.</summary>
+        /// <summary>A collection of checklistItems linked to a task.</summary>
         public class ChecklistItemItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

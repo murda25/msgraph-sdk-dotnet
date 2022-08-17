@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The requestor&apos;s desired expiration pattern type.</summary>
+        /// <summary>The requestor&apos;s desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.</summary>
         public ExpirationPatternType? Type {
             get { return BackingStore?.Get<ExpirationPatternType?>("type"); }
             set { BackingStore?.Set("type", value); }

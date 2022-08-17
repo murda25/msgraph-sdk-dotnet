@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Teams {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// List all teams in an organization.
+        /// Retrieve the properties and relationships of the specified team.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TeamsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.Teams {
             return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// List all teams in an organization.
+        /// Retrieve the properties and relationships of the specified team.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.Teams {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Team>(requestInfo, Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>List all teams in an organization.</summary>
+        /// <summary>Retrieve the properties and relationships of the specified team.</summary>
         public class TeamsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

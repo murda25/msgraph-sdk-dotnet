@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ItemBody>("body"); }
             set { BackingStore?.Set("body", value); }
         }
-        /// <summary>The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.</summary>
+        /// <summary>The first 255 characters of the message body. It is in text format.</summary>
         public string BodyPreview {
             get { return BackingStore?.Get<string>("bodyPreview"); }
             set { BackingStore?.Set("bodyPreview", value); }

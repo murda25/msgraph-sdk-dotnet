@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Run campaigns to remind users to setup targeted authentication methods.</summary>
+        /// <summary>Run campaigns to remind users to set up targeted authentication methods.</summary>
         public Microsoft.Graph.Models.AuthenticationMethodsRegistrationCampaign AuthenticationMethodsRegistrationCampaign {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AuthenticationMethodsRegistrationCampaign>("authenticationMethodsRegistrationCampaign"); }
             set { BackingStore?.Set("authenticationMethodsRegistrationCampaign", value); }

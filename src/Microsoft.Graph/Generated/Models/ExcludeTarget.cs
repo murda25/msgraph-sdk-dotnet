@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The object identifier of an Azure AD user or group.</summary>
+        /// <summary>The object identifier of an Azure Active Directory user or group.</summary>
         public string Id {
             get { return BackingStore?.Get<string>("id"); }
             set { BackingStore?.Set("id", value); }

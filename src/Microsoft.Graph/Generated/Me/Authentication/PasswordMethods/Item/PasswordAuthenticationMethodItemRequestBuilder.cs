@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the details of the password authentication method registered to a user for authentication.
+        /// Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the details of the password authentication method registered to a user for authentication.
+        /// Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Represents the details of the password authentication method registered to a user for authentication.</summary>
+        /// <summary>Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.</summary>
         public class PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

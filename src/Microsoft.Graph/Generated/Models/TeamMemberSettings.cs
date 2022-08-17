@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowCreatePrivateChannels"); }
             set { BackingStore?.Set("allowCreatePrivateChannels", value); }
         }
-        /// <summary>If set to true, members can add and update any channels.</summary>
+        /// <summary>If set to true, members can add and update channels.</summary>
         public bool? AllowCreateUpdateChannels {
             get { return BackingStore?.Get<bool?>("allowCreateUpdateChannels"); }
             set { BackingStore?.Set("allowCreateUpdateChannels", value); }

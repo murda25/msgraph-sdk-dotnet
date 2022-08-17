@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("orientation"); }
             set { BackingStore?.Set("orientation", value); }
         }
-        /// <summary>The date and time the photo was taken in UTC time. Read-only.</summary>
+        /// <summary>Represents the date and time the photo was taken. Read-only.</summary>
         public DateTimeOffset? TakenDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("takenDateTime"); }
             set { BackingStore?.Set("takenDateTime", value); }

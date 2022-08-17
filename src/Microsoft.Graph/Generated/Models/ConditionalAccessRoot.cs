@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<NamedLocation>>("namedLocations"); }
             set { BackingStore?.Set("namedLocations", value); }
         }
-        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access policies.</summary>
+        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.</summary>
         public List<ConditionalAccessPolicy> Policies {
             get { return BackingStore?.Get<List<ConditionalAccessPolicy>>("policies"); }
             set { BackingStore?.Set("policies", value); }

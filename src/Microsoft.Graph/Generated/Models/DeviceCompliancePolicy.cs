@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The list of scheduled action for this rule</summary>
+        /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
         public List<DeviceComplianceScheduledActionForRule> ScheduledActionsForRule {
             get { return BackingStore?.Get<List<DeviceComplianceScheduledActionForRule>>("scheduledActionsForRule"); }
             set { BackingStore?.Set("scheduledActionsForRule", value); }

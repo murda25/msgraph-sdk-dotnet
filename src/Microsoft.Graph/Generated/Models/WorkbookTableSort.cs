@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("matchCase"); }
             set { BackingStore?.Set("matchCase", value); }
         }
-        /// <summary>Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.</summary>
+        /// <summary>Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.</summary>
         public string Method {
             get { return BackingStore?.Get<string>("method"); }
             set { BackingStore?.Set("method", value); }

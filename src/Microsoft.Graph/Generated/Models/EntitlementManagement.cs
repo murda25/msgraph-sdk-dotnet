@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Approval>>("accessPackageAssignmentApprovals"); }
             set { BackingStore?.Set("accessPackageAssignmentApprovals", value); }
         }
-        /// <summary>Represents access package objects.</summary>
+        /// <summary>Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.</summary>
         public List<AccessPackage> AccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>>("accessPackages"); }
             set { BackingStore?.Set("accessPackages", value); }
@@ -35,12 +35,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AccessPackageCatalog>>("catalogs"); }
             set { BackingStore?.Set("catalogs", value); }
         }
-        /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
+        /// <summary>References to a directory or domain of another organization whose users can request access.</summary>
         public List<ConnectedOrganization> ConnectedOrganizations {
             get { return BackingStore?.Get<List<ConnectedOrganization>>("connectedOrganizations"); }
             set { BackingStore?.Set("connectedOrganizations", value); }
         }
-        /// <summary>Represents the settings that control the behavior of Azure AD entitlement management.</summary>
+        /// <summary>The settings that control the behavior of Azure AD entitlement management.</summary>
         public EntitlementManagementSettings Settings {
             get { return BackingStore?.Get<EntitlementManagementSettings>("settings"); }
             set { BackingStore?.Set("settings", value); }

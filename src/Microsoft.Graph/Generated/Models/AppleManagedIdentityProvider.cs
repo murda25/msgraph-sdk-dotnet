@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AppleManagedIdentityProvider : IdentityProviderBase, IParsable {
-        /// <summary>The certificate data which is a long string of text from the certificate, can be null.</summary>
+        /// <summary>The certificate data, which is a long string of text from the certificate. Can be null.</summary>
         public string CertificateData {
             get { return BackingStore?.Get<string>("certificateData"); }
             set { BackingStore?.Set("certificateData", value); }

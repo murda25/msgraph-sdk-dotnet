@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class EventMessage : Message, IParsable {
-        /// <summary>The end time of the requested meeting.</summary>
+        /// <summary>The endDateTime property</summary>
         public DateTimeTimeZone EndDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }

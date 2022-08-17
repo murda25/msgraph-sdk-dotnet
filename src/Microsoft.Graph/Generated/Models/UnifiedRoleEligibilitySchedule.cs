@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class UnifiedRoleEligibilitySchedule : UnifiedRoleScheduleBase, IParsable {
-        /// <summary>Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq).</summary>
+        /// <summary>How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).</summary>
         public string MemberType {
             get { return BackingStore?.Get<string>("memberType"); }
             set { BackingStore?.Set("memberType", value); }
         }
-        /// <summary>The schedule object of the eligible role assignment request.</summary>
+        /// <summary>The period of the role eligibility.</summary>
         public RequestSchedule ScheduleInfo {
             get { return BackingStore?.Get<RequestSchedule>("scheduleInfo"); }
             set { BackingStore?.Set("scheduleInfo", value); }

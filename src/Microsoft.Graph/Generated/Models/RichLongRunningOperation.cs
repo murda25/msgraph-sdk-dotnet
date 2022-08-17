@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RichLongRunningOperation : LongRunningOperation, IParsable {
-        /// <summary>Error due to which the operation failed.</summary>
+        /// <summary>Error that caused the operation to fail.</summary>
         public PublicError Error {
             get { return BackingStore?.Get<PublicError>("error"); }
             set { BackingStore?.Set("error", value); }
@@ -15,12 +15,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("percentageComplete"); }
             set { BackingStore?.Set("percentageComplete", value); }
         }
-        /// <summary>A unique identifier for the result.</summary>
+        /// <summary>The unique identifier for the result.</summary>
         public string ResourceId {
             get { return BackingStore?.Get<string>("resourceId"); }
             set { BackingStore?.Set("resourceId", value); }
         }
-        /// <summary>Type of the operation.</summary>
+        /// <summary>The type of the operation.</summary>
         public string Type {
             get { return BackingStore?.Get<string>("type"); }
             set { BackingStore?.Set("type", value); }

@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.User>("user"); }
             set { BackingStore?.Set("user", value); }
         }
-        /// <summary>The GUID of the user.</summary>
+        /// <summary>The guid of the user.</summary>
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }

@@ -18,12 +18,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Optional, used to uniquely identity the resource. If passed the prompt uri will be cached against this resourceId as key.</summary>
+        /// <summary>Optional. Used to uniquely identity the resource. If passed in, the prompt uri will be cached against this resourceId as a key.</summary>
         public string ResourceId {
             get { return BackingStore?.Get<string>("resourceId"); }
             set { BackingStore?.Set("resourceId", value); }
         }
-        /// <summary>Path to the prompt to be played. Currently only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16KHz) sampling rate is only supported.</summary>
+        /// <summary>Path to the prompt that will be played. Currently supports only Wave file (.wav) format, single-channel, 16-bit samples with a 16,000 (16KHz) sampling rate.</summary>
         public string Uri {
             get { return BackingStore?.Get<string>("uri"); }
             set { BackingStore?.Set("uri", value); }

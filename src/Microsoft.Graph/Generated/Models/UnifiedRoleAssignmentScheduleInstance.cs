@@ -25,12 +25,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("memberType"); }
             set { BackingStore?.Set("memberType", value); }
         }
-        /// <summary>The identifier of the role assignment in Azure AD.</summary>
+        /// <summary>The identifier of the role assignment in Azure AD. Supports $filter (eq, ne).</summary>
         public string RoleAssignmentOriginId {
             get { return BackingStore?.Get<string>("roleAssignmentOriginId"); }
             set { BackingStore?.Set("roleAssignmentOriginId", value); }
         }
-        /// <summary>The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.</summary>
+        /// <summary>The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. Supports $filter (eq, ne).</summary>
         public string RoleAssignmentScheduleId {
             get { return BackingStore?.Get<string>("roleAssignmentScheduleId"); }
             set { BackingStore?.Set("roleAssignmentScheduleId", value); }

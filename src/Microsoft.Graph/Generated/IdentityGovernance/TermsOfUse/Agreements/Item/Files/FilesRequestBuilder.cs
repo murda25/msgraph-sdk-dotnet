@@ -57,7 +57,7 @@ namespace Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<FilesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
             };
             return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, AgreementFileLocalization.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.</summary>
         public class FilesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AccessReviewReviewer : Entity, IParsable {
         /// <summary>The date when the reviewer was added for the access review.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>User principal name of the user.</summary>
+        /// <summary>User principal name of the reviewer.</summary>
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }

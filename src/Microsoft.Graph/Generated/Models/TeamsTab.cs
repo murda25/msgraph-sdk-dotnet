@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamsTab : Entity, IParsable {
         /// <summary>Container for custom settings applied to a tab. The tab is considered configured only once this property is set.</summary>
         public TeamsTabConfiguration Configuration {
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The application that is linked to the tab.</summary>
+        /// <summary>The application that is linked to the tab. This cannot be changed after tab creation.</summary>
         public Microsoft.Graph.Models.TeamsApp TeamsApp {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TeamsApp>("teamsApp"); }
             set { BackingStore?.Set("teamsApp", value); }

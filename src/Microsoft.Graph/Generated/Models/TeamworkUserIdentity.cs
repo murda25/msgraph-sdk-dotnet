@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TeamworkUserIdentity : Identity, IParsable {
-        /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.</summary>
+        /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.</summary>
         public TeamworkUserIdentityType? UserIdentityType {
             get { return BackingStore?.Get<TeamworkUserIdentityType?>("userIdentityType"); }
             set { BackingStore?.Set("userIdentityType", value); }

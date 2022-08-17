@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.EmailMethods {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents the email addresses registered to a user for authentication.
+        /// The email address registered to a user for authentication.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<EmailMethodsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.EmailMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the email addresses registered to a user for authentication.
+        /// The email address registered to a user for authentication.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.EmailMethods {
             };
             return await RequestAdapter.SendAsync<EmailAuthenticationMethod>(requestInfo, EmailAuthenticationMethod.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents the email addresses registered to a user for authentication.</summary>
+        /// <summary>The email address registered to a user for authentication.</summary>
         public class EmailMethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

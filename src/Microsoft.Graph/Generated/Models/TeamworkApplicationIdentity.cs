@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TeamworkApplicationIdentity : Identity, IParsable {
-        /// <summary>Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.</summary>
+        /// <summary>Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.</summary>
         public TeamworkApplicationIdentityType? ApplicationIdentityType {
             get { return BackingStore?.Get<TeamworkApplicationIdentityType?>("applicationIdentityType"); }
             set { BackingStore?.Set("applicationIdentityType", value); }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ThreatAssessmentRequest : Entity, IParsable {
         /// <summary>The category property</summary>
         public ThreatCategory? Category {
@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ThreatExpectedAssessment?>("expectedAssessment"); }
             set { BackingStore?.Set("expectedAssessment", value); }
         }
-        /// <summary>The source of the threat assessment request. Possible values are: user, administrator.</summary>
+        /// <summary>The source of the threat assessment request. Possible values are: administrator.</summary>
         public ThreatAssessmentRequestSource? RequestSource {
             get { return BackingStore?.Get<ThreatAssessmentRequestSource?>("requestSource"); }
             set { BackingStore?.Set("requestSource", value); }

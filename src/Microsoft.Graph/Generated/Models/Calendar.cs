@@ -20,17 +20,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Event>>("calendarView"); }
             set { BackingStore?.Set("calendarView", value); }
         }
-        /// <summary>true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only.</summary>
+        /// <summary>true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access.</summary>
         public bool? CanEdit {
             get { return BackingStore?.Get<bool?>("canEdit"); }
             set { BackingStore?.Set("canEdit", value); }
         }
-        /// <summary>true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only.</summary>
+        /// <summary>true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it.</summary>
         public bool? CanShare {
             get { return BackingStore?.Get<bool?>("canShare"); }
             set { BackingStore?.Set("canShare", value); }
         }
-        /// <summary>true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only.</summary>
+        /// <summary>true if the user can read calendar items that have been marked private, false otherwise.</summary>
         public bool? CanViewPrivateItems {
             get { return BackingStore?.Get<bool?>("canViewPrivateItems"); }
             set { BackingStore?.Set("canViewPrivateItems", value); }
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Event>>("events"); }
             set { BackingStore?.Set("events", value); }
         }
-        /// <summary>The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty.</summary>
+        /// <summary>The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only.</summary>
         public string HexColor {
             get { return BackingStore?.Get<string>("hexColor"); }
             set { BackingStore?.Set("hexColor", value); }
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
-        /// <summary>If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.</summary>
+        /// <summary>If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user.</summary>
         public EmailAddress Owner {
             get { return BackingStore?.Get<EmailAddress>("owner"); }
             set { BackingStore?.Set("owner", value); }

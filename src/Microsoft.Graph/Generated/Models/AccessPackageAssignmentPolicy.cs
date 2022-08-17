@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AccessPackageAssignmentPolicy : Entity, IParsable {
-        /// <summary>The access package with this policy. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Access package containing this policy. Read-only.</summary>
         public Microsoft.Graph.Models.AccessPackage AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>("accessPackage"); }
             set { BackingStore?.Set("accessPackage", value); }
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AccessPackageCatalog>("catalog"); }
             set { BackingStore?.Set("catalog", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The display name of the policy. Supports $filter (eq).</summary>
+        /// <summary>The display name of the policy.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
@@ -46,17 +46,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ExpirationPattern>("expiration"); }
             set { BackingStore?.Set("expiration", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("modifiedDateTime"); }
             set { BackingStore?.Set("modifiedDateTime", value); }
         }
-        /// <summary>Who must approve requests for access package in this policy.</summary>
+        /// <summary>Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.</summary>
         public AccessPackageAssignmentApprovalSettings RequestApprovalSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings"); }
             set { BackingStore?.Set("requestApprovalSettings", value); }
         }
-        /// <summary>Who can request this access package from this policy.</summary>
+        /// <summary>Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.</summary>
         public AccessPackageAssignmentRequestorSettings RequestorSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentRequestorSettings>("requestorSettings"); }
             set { BackingStore?.Set("requestorSettings", value); }

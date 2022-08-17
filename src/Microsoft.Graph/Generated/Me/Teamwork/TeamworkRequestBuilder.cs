@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Me.Teamwork {
             return requestInfo;
         }
         /// <summary>
-        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
+        /// Get teamwork from me
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TeamworkRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Me.Teamwork {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
+        /// Get teamwork from me
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -176,7 +176,7 @@ namespace Microsoft.Graph.Me.Teamwork {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>A container for Microsoft Teams features available for the user. Read-only. Nullable.</summary>
+        /// <summary>Get teamwork from me</summary>
         public class TeamworkRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

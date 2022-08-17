@@ -72,7 +72,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The permissions that have been granted for a group to a specific application. Supports $expand.
+        /// The permission that has been granted for a group to a specific application. Supports $expand.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PermissionGrantsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions that have been granted for a group to a specific application. Supports $expand.
+        /// The permission that has been granted for a group to a specific application. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -143,7 +143,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
             };
             return await RequestAdapter.SendAsync<ResourceSpecificPermissionGrant>(requestInfo, ResourceSpecificPermissionGrant.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The permissions that have been granted for a group to a specific application. Supports $expand.</summary>
+        /// <summary>The permission that has been granted for a group to a specific application. Supports $expand.</summary>
         public class PermissionGrantsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

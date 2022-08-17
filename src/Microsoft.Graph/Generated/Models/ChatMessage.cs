@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ChatMessage : Entity, IParsable {
         /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
         public List<ChatMessageAttachment> Attachments {
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("etag"); }
             set { BackingStore?.Set("etag", value); }
         }
-        /// <summary>Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.</summary>
+        /// <summary>Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.</summary>
         public EventMessageDetail EventDetail {
             get { return BackingStore?.Get<EventMessageDetail>("eventDetail"); }
             set { BackingStore?.Set("eventDetail", value); }
@@ -76,7 +76,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("locale"); }
             set { BackingStore?.Set("locale", value); }
         }
-        /// <summary>List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.</summary>
+        /// <summary>List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.</summary>
         public List<ChatMessageMention> Mentions {
             get { return BackingStore?.Get<List<ChatMessageMention>>("mentions"); }
             set { BackingStore?.Set("mentions", value); }

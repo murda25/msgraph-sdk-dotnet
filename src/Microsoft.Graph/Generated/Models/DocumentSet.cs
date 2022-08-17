@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Indicates whether to add the name of the document set to each file name.</summary>
+        /// <summary>Specifies whether to push welcome page changes to inherited content types.</summary>
         public bool? PropagateWelcomePageChanges {
             get { return BackingStore?.Get<bool?>("propagateWelcomePageChanges"); }
             set { BackingStore?.Set("propagateWelcomePageChanges", value); }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ColumnDefinition>>("sharedColumns"); }
             set { BackingStore?.Set("sharedColumns", value); }
         }
-        /// <summary>Add the name of the Document Set to each file name.</summary>
+        /// <summary>Indicates whether to add the name of the document set to each file name.</summary>
         public bool? ShouldPrefixNameToFile {
             get { return BackingStore?.Get<bool?>("shouldPrefixNameToFile"); }
             set { BackingStore?.Set("shouldPrefixNameToFile", value); }

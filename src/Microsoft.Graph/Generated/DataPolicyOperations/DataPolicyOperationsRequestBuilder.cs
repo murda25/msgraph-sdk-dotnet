@@ -57,7 +57,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Retrieve the properties of the dataPolicyOperation object.
+        /// Retrieve the properties of a **dataPolicyOperation** object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DataPolicyOperationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of the dataPolicyOperation object.
+        /// Retrieve the properties of a **dataPolicyOperation** object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
             };
             return await RequestAdapter.SendAsync<DataPolicyOperation>(requestInfo, DataPolicyOperation.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Retrieve the properties of the dataPolicyOperation object.</summary>
+        /// <summary>Retrieve the properties of a **dataPolicyOperation** object.</summary>
         public class DataPolicyOperationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

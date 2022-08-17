@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class DriveItemVersion : BaseItemVersion, IParsable {
-        /// <summary>The content property</summary>
+        /// <summary>The content stream for this version of the item.</summary>
         public byte[] Content {
             get { return BackingStore?.Get<byte[]>("content"); }
             set { BackingStore?.Set("content", value); }

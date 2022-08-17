@@ -5,24 +5,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AttachmentBase : Entity, IParsable {
-        /// <summary>The MIME type.</summary>
+        /// <summary>The contentType property</summary>
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The display name of the attachment. This does not need to be the actual file name.</summary>
+        /// <summary>The name property</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
-        /// <summary>The length of the attachment in bytes.</summary>
+        /// <summary>The size property</summary>
         public int? Size {
             get { return BackingStore?.Get<int?>("size"); }
             set { BackingStore?.Set("size", value); }

@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The team photo.
+        /// The profile photo for the team.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PhotoRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -123,7 +123,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Photo {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The team photo.
+        /// The profile photo for the team.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Photo {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The team photo.</summary>
+        /// <summary>The profile photo for the team.</summary>
         public class PhotoRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

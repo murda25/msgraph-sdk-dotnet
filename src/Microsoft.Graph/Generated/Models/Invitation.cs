@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("invitedUserDisplayName"); }
             set { BackingStore?.Set("invitedUserDisplayName", value); }
         }
-        /// <summary>The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&amp;)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`</summary>
+        /// <summary>The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&amp;)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (&apos;)Angle brackets (&lt; &gt;)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.</summary>
         public string InvitedUserEmailAddress {
             get { return BackingStore?.Get<string>("invitedUserEmailAddress"); }
             set { BackingStore?.Set("invitedUserEmailAddress", value); }
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.InvitedUserMessageInfo>("invitedUserMessageInfo"); }
             set { BackingStore?.Set("invitedUserMessageInfo", value); }
         }
-        /// <summary>The userType of the user being invited. By default, this is Guest. You can invite as Member if you&apos;re are company administrator. The default is false.</summary>
+        /// <summary>The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.</summary>
         public string InvitedUserType {
             get { return BackingStore?.Get<string>("invitedUserType"); }
             set { BackingStore?.Set("invitedUserType", value); }
@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("inviteRedeemUrl"); }
             set { BackingStore?.Set("inviteRedeemUrl", value); }
         }
-        /// <summary>The URL user should be redirected to once the invitation is redeemed. Required.</summary>
+        /// <summary>The URL the user should be redirected to once the invitation is redeemed. Required.</summary>
         public string InviteRedirectUrl {
             get { return BackingStore?.Get<string>("inviteRedirectUrl"); }
             set { BackingStore?.Set("inviteRedirectUrl", value); }
@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("sendInvitationMessage"); }
             set { BackingStore?.Set("sendInvitationMessage", value); }
         }
-        /// <summary>The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error</summary>
+        /// <summary>The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.</summary>
         public string Status {
             get { return BackingStore?.Get<string>("status"); }
             set { BackingStore?.Set("status", value); }

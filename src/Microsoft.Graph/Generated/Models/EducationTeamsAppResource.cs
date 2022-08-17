@@ -5,22 +5,22 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class EducationTeamsAppResource : EducationResource, IParsable {
-        /// <summary>URL that points to the app&apos;s icon.</summary>
+        /// <summary>The appIconWebUrl property</summary>
         public string AppIconWebUrl {
             get { return BackingStore?.Get<string>("appIconWebUrl"); }
             set { BackingStore?.Set("appIconWebUrl", value); }
         }
-        /// <summary>Teams App ID of the application.</summary>
+        /// <summary>The appId property</summary>
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
-        /// <summary>URL for the app resource that will be opened by Teams.</summary>
+        /// <summary>The teamsEmbeddedContentUrl property</summary>
         public string TeamsEmbeddedContentUrl {
             get { return BackingStore?.Get<string>("teamsEmbeddedContentUrl"); }
             set { BackingStore?.Set("teamsEmbeddedContentUrl", value); }
         }
-        /// <summary>URL for the app resource that can be opened in the browser.</summary>
+        /// <summary>The webUrl property</summary>
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }

@@ -30,12 +30,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeTimeZone>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>The current number of customers in the appointment.</summary>
+        /// <summary>The current number of customers in the appointment</summary>
         public int? FilledAttendeesCount {
             get { return BackingStore?.Get<int?>("filledAttendeesCount"); }
             set { BackingStore?.Set("filledAttendeesCount", value); }
         }
-        /// <summary>True indicates that the appointment will be held online. Default value is false.</summary>
+        /// <summary>If true, indicates that the appointment will be held online. Default value is false.</summary>
         public bool? IsLocationOnline {
             get { return BackingStore?.Get<bool?>("isLocationOnline"); }
             set { BackingStore?.Set("isLocationOnline", value); }
@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("maximumAttendeesCount"); }
             set { BackingStore?.Set("maximumAttendeesCount", value); }
         }
-        /// <summary>True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.</summary>
+        /// <summary>If true indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.</summary>
         public bool? OptOutOfCustomerEmail {
             get { return BackingStore?.Get<bool?>("optOutOfCustomerEmail"); }
             set { BackingStore?.Set("optOutOfCustomerEmail", value); }
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<BookingReminder>>("reminders"); }
             set { BackingStore?.Set("reminders", value); }
         }
-        /// <summary>An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.</summary>
+        /// <summary>An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. Only supported for appointment if maxAttendeeCount is 1.</summary>
         public string SelfServiceAppointmentId {
             get { return BackingStore?.Get<string>("selfServiceAppointmentId"); }
             set { BackingStore?.Set("selfServiceAppointmentId", value); }
@@ -105,7 +105,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("serviceNotes"); }
             set { BackingStore?.Set("serviceNotes", value); }
         }
-        /// <summary>True indicates SMS notifications will be sent to the customers for the appointment. Default value is false.</summary>
+        /// <summary>If true, indicates SMS notifications will be sent to the customers for the appointment. Default value is false.</summary>
         public bool? SmsNotificationsEnabled {
             get { return BackingStore?.Get<bool?>("smsNotificationsEnabled"); }
             set { BackingStore?.Set("smsNotificationsEnabled", value); }

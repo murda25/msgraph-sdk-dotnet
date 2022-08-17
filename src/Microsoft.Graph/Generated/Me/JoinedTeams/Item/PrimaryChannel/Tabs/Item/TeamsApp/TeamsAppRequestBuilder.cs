@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item.TeamsApp 
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The application that is linked to the tab.
+        /// The application that is linked to the tab. This cannot be changed after tab creation.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TeamsAppRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item.TeamsApp 
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab.
+        /// The application that is linked to the tab. This cannot be changed after tab creation.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs.Item.TeamsApp 
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TeamsApp>(requestInfo, Microsoft.Graph.Models.TeamsApp.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The application that is linked to the tab.</summary>
+        /// <summary>The application that is linked to the tab. This cannot be changed after tab creation.</summary>
         public class TeamsAppRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

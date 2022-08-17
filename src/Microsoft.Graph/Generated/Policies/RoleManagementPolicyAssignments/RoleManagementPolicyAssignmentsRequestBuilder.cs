@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// The assignment of a role management policy to a role definition object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// The assignment of a role management policy to a role definition object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments {
             };
             return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents the role management policy assignments.</summary>
+        /// <summary>The assignment of a role management policy to a role definition object.</summary>
         public class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

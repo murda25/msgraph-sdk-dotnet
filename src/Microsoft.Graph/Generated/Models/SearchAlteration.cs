@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)</summary>
+        /// <summary>Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is: /ue000, /ue001.</summary>
         public string AlteredHighlightedQueryString {
             get { return BackingStore?.Get<string>("alteredHighlightedQueryString"); }
             set { BackingStore?.Set("alteredHighlightedQueryString", value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("alteredQueryString"); }
             set { BackingStore?.Set("alteredQueryString", value); }
         }
-        /// <summary>Represents changed segments with respect to original query.</summary>
+        /// <summary>Represents changed segments related to an original user query.</summary>
         public List<AlteredQueryToken> AlteredQueryTokens {
             get { return BackingStore?.Get<List<AlteredQueryToken>>("alteredQueryTokens"); }
             set { BackingStore?.Set("alteredQueryTokens", value); }

@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The CRC32 value of the file (if available). Read-only.</summary>
+        /// <summary>The CRC32 value of the file in little endian (if available). Read-only.</summary>
         public string Crc32Hash {
             get { return BackingStore?.Get<string>("crc32Hash"); }
             set { BackingStore?.Set("crc32Hash", value); }

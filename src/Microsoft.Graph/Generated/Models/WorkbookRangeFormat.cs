@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WorkbookRangeFont>("font"); }
             set { BackingStore?.Set("font", value); }
         }
-        /// <summary>Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.</summary>
+        /// <summary>Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.</summary>
         public string HorizontalAlignment {
             get { return BackingStore?.Get<string>("horizontalAlignment"); }
             set { BackingStore?.Set("horizontalAlignment", value); }
@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<double?>("rowHeight"); }
             set { BackingStore?.Set("rowHeight", value); }
         }
-        /// <summary>Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.</summary>
+        /// <summary>Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.</summary>
         public string VerticalAlignment {
             get { return BackingStore?.Get<string>("verticalAlignment"); }
             set { BackingStore?.Set("verticalAlignment", value); }

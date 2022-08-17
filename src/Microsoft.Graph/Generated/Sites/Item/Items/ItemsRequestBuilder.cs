@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Sites.Item.Items {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can&apos;t be enumerated.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ItemsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Sites.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can&apos;t be enumerated.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Sites.Item.Items {
             };
             return await RequestAdapter.SendAsync<BaseItemCollectionResponse>(requestInfo, BaseItemCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
         public class ItemsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

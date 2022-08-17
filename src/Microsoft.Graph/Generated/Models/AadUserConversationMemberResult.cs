@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AadUserConversationMemberResult : ActionResultPart, IParsable {
-        /// <summary>The user object ID of the Azure AD user that was being added as part of the bulk operation.</summary>
+        /// <summary>The userId property</summary>
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }

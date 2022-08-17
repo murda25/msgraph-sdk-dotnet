@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("recipientActionMessage"); }
             set { BackingStore?.Set("recipientActionMessage", value); }
         }
-        /// <summary>User id of the recipient of the offer shift request.</summary>
+        /// <summary>User ID of the recipient of the offer shift request.</summary>
         public string RecipientUserId {
             get { return BackingStore?.Get<string>("recipientUserId"); }
             set { BackingStore?.Set("recipientUserId", value); }
         }
-        /// <summary>User id of the sender of the offer shift request.</summary>
+        /// <summary>User ID of the sender of the offer shift request.</summary>
         public string SenderShiftId {
             get { return BackingStore?.Get<string>("senderShiftId"); }
             set { BackingStore?.Set("senderShiftId", value); }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Attachment : Entity, IParsable {
         /// <summary>The MIME type.</summary>
         public string ContentType {
@@ -22,7 +22,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The display name of the attachment. This does not need to be the actual file name.</summary>
+        /// <summary>The attachment&apos;s file name.</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }

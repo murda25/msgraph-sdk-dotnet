@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to servicePrincipal.</summary>
+    /// <summary>Provides operations to call the instantiate method.</summary>
     public class DelegatedPermissionClassification : Entity, IParsable {
         /// <summary>The classification value being given. Possible value: low. Does not support $filter.</summary>
         public PermissionClassificationType? Classification {
             get { return BackingStore?.Get<PermissionClassificationType?>("classification"); }
             set { BackingStore?.Set("classification", value); }
         }
-        /// <summary>The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.</summary>
+        /// <summary>The unique identifier (id) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.</summary>
         public string PermissionId {
             get { return BackingStore?.Get<string>("permissionId"); }
             set { BackingStore?.Set("permissionId", value); }
         }
-        /// <summary>The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.</summary>
+        /// <summary>The claim value (value) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Does not support $filter.</summary>
         public string PermissionName {
             get { return BackingStore?.Get<string>("permissionName"); }
             set { BackingStore?.Set("permissionName", value); }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Post : OutlookItem, IParsable {
-        /// <summary>The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Read-only. Nullable. Supports $expand.</summary>
         public List<Attachment> Attachments {
             get { return BackingStore?.Get<List<Attachment>>("attachments"); }
             set { BackingStore?.Set("attachments", value); }
@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("hasAttachments"); }
             set { BackingStore?.Set("hasAttachments", value); }
         }
-        /// <summary>The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.</summary>
+        /// <summary>Read-only. Supports $expand.</summary>
         public Post InReplyTo {
             get { return BackingStore?.Get<Post>("inReplyTo"); }
             set { BackingStore?.Set("inReplyTo", value); }

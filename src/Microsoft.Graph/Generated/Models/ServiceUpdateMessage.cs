@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ServiceAnnouncementAttachment>>("attachments"); }
             set { BackingStore?.Set("attachments", value); }
         }
-        /// <summary>The zip file of all attachments for a message.</summary>
+        /// <summary>The zip file that contains all attachments for a message.</summary>
         public byte[] AttachmentsArchive {
             get { return BackingStore?.Get<byte[]>("attachmentsArchive"); }
             set { BackingStore?.Set("attachmentsArchive", value); }

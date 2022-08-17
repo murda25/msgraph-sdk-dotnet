@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("requestDurationInDays"); }
             set { BackingStore?.Set("requestDurationInDays", value); }
         }
-        /// <summary>Required.</summary>
+        /// <summary>The list of reviewers for the admin consent. Required.</summary>
         public List<AccessReviewReviewerScope> Reviewers {
             get { return BackingStore?.Get<List<AccessReviewReviewerScope>>("reviewers"); }
             set { BackingStore?.Set("reviewers", value); }

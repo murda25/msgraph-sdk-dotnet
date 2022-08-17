@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.</summary>
+        /// <summary>A list of identityUserFlowAttribute object identifiers that determine the order in which attributes should be collected within a user flow.</summary>
         public List<string> Order {
             get { return BackingStore?.Get<List<string>>("order"); }
             set { BackingStore?.Set("order", value); }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationOrganization : Entity, IParsable {
         /// <summary>Organization description.</summary>
         public string Description {
@@ -17,7 +17,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>Where this user was created from. Possible values are: sis, lms, or manual.</summary>
+        /// <summary>Source where this organization was created from. Possible values are: sis, manual.</summary>
         public EducationExternalSource? ExternalSource {
             get { return BackingStore?.Get<EducationExternalSource?>("externalSource"); }
             set { BackingStore?.Set("externalSource", value); }

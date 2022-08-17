@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Users.Item.ScopedRoleMemberOf {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The scoped-role administrative unit memberships for this user. Read-only. Nullable.
+        /// Get scopedRoleMemberOf from users
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ScopedRoleMemberOfRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Users.Item.ScopedRoleMemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// The scoped-role administrative unit memberships for this user. Read-only. Nullable.
+        /// Get scopedRoleMemberOf from users
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Users.Item.ScopedRoleMemberOf {
             };
             return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, ScopedRoleMembership.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The scoped-role administrative unit memberships for this user. Read-only. Nullable.</summary>
+        /// <summary>Get scopedRoleMemberOf from users</summary>
         public class ScopedRoleMemberOfRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

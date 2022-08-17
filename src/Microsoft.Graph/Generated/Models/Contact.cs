@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<EmailAddress>>("emailAddresses"); }
             set { BackingStore?.Set("emailAddresses", value); }
         }
-        /// <summary>The collection of open extensions defined for the contact. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the contact. Read-only. Nullable.</summary>
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
             set { BackingStore?.Set("extensions", value); }

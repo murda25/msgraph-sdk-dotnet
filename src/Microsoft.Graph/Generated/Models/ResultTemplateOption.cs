@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. This property is optional.</summary>
+        /// <summary>Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.</summary>
         public bool? EnableResultTemplate {
             get { return BackingStore?.Get<bool?>("enableResultTemplate"); }
             set { BackingStore?.Set("enableResultTemplate", value); }

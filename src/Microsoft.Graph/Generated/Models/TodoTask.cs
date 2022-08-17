@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TodoTask : Entity, IParsable {
-        /// <summary>A collection of file attachments for the task.</summary>
+        /// <summary>The attachments property</summary>
         public List<AttachmentBase> Attachments {
             get { return BackingStore?.Get<List<AttachmentBase>>("attachments"); }
             set { BackingStore?.Set("attachments", value); }
@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("categories"); }
             set { BackingStore?.Set("categories", value); }
         }
-        /// <summary>A collection of smaller subtasks linked to the more complex parent task.</summary>
+        /// <summary>A collection of checklistItems linked to a task.</summary>
         public List<ChecklistItem> ChecklistItems {
             get { return BackingStore?.Get<List<ChecklistItem>>("checklistItems"); }
             set { BackingStore?.Set("checklistItems", value); }
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
-        /// <summary>Indicates whether the task has attachments.</summary>
+        /// <summary>The hasAttachments property</summary>
         public bool? HasAttachments {
             get { return BackingStore?.Get<bool?>("hasAttachments"); }
             set { BackingStore?.Set("hasAttachments", value); }
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeTimeZone>("reminderDateTime"); }
             set { BackingStore?.Set("reminderDateTime", value); }
         }
-        /// <summary>The date and time in the specified time zone at which the task is scheduled to start.</summary>
+        /// <summary>The startDateTime property</summary>
         public DateTimeTimeZone StartDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }

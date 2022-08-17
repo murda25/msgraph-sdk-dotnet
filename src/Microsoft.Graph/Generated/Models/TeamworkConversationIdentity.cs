@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TeamworkConversationIdentity : Identity, IParsable {
-        /// <summary>Type of conversation. Possible values are: team, channel, and chat.</summary>
+        /// <summary>Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.</summary>
         public TeamworkConversationIdentityType? ConversationIdentityType {
             get { return BackingStore?.Get<TeamworkConversationIdentityType?>("conversationIdentityType"); }
             set { BackingStore?.Set("conversationIdentityType", value); }

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TimeConstraint : IAdditionalDataHolder, IBackedModel, IParsable {
-        /// <summary>The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.</summary>
+        /// <summary>The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.</summary>
         public Microsoft.Graph.Models.ActivityDomain? ActivityDomain {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ActivityDomain?>("activityDomain"); }
             set { BackingStore?.Set("activityDomain", value); }

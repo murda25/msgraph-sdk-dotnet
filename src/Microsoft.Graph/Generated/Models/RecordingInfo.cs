@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The identities of recording initiator.</summary>
+        /// <summary>The identities of the recording initiator.</summary>
         public IdentitySet Initiator {
             get { return BackingStore?.Get<IdentitySet>("initiator"); }
             set { BackingStore?.Set("initiator", value); }

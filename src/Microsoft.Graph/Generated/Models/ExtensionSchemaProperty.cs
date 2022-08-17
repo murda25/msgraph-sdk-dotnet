@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The name of the strongly typed property defined as part of a schema extension.</summary>
+        /// <summary>The name of the strongly-typed property defined as part of a schema extension.</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }

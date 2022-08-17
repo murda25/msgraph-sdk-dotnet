@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// A collection of smaller subtasks linked to the more complex parent task.
+        /// A collection of checklistItems linked to a task.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ChecklistItemsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of smaller subtasks linked to the more complex parent task.
+        /// A collection of checklistItems linked to a task.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             };
             return await RequestAdapter.SendAsync<ChecklistItem>(requestInfo, ChecklistItem.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>A collection of smaller subtasks linked to the more complex parent task.</summary>
+        /// <summary>A collection of checklistItems linked to a task.</summary>
         public class ChecklistItemsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

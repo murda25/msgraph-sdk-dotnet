@@ -5,17 +5,17 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AuthenticationFlowsPolicy : Entity, IParsable {
-        /// <summary>Inherited property. A description of the policy. This property is not a key. Optional. Read-only.</summary>
+        /// <summary>Inherited property. A description of the policy. Optional. Read-only.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.</summary>
+        /// <summary>Inherited property. The human-readable name of the policy. Optional. Read-only.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.</summary>
+        /// <summary>Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.</summary>
         public SelfServiceSignUpAuthenticationFlowConfiguration SelfServiceSignUp {
             get { return BackingStore?.Get<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp"); }
             set { BackingStore?.Set("selfServiceSignUp", value); }

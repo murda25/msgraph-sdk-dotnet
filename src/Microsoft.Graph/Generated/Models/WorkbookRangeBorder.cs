@@ -4,24 +4,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class WorkbookRangeBorder : Entity, IParsable {
         /// <summary>HTML color code representing the color of the border line, of the form #RRGGBB (e.g. &apos;FFA500&apos;) or as a named HTML color (e.g. &apos;orange&apos;).</summary>
         public string Color {
             get { return BackingStore?.Get<string>("color"); }
             set { BackingStore?.Set("color", value); }
         }
-        /// <summary>Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.</summary>
+        /// <summary>Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.</summary>
         public string SideIndex {
             get { return BackingStore?.Get<string>("sideIndex"); }
             set { BackingStore?.Set("sideIndex", value); }
         }
-        /// <summary>One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.</summary>
+        /// <summary>One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.</summary>
         public string Style {
             get { return BackingStore?.Get<string>("style"); }
             set { BackingStore?.Set("style", value); }
         }
-        /// <summary>Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.</summary>
+        /// <summary>Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.</summary>
         public string Weight {
             get { return BackingStore?.Get<string>("weight"); }
             set { BackingStore?.Set("weight", value); }

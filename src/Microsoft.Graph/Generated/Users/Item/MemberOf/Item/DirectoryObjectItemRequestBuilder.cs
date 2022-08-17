@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Users.Item.MemberOf.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DirectoryObjectItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Users.Item.MemberOf.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -108,7 +108,7 @@ namespace Microsoft.Graph.Users.Item.MemberOf.Item {
             };
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

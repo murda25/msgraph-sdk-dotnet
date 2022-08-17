@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("countryCode"); }
             set { BackingStore?.Set("countryCode", value); }
         }
-        /// <summary>The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.</summary>
+        /// <summary>The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.</summary>
         public Microsoft.Graph.Models.EndpointType? EndpointType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.EndpointType?>("endpointType"); }
             set { BackingStore?.Set("endpointType", value); }
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("participantId"); }
             set { BackingStore?.Set("participantId", value); }
         }
-        /// <summary>The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant&apos;s current physical location, unlike countryCode. Read-only.</summary>
+        /// <summary>The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant&apos;s current physical location. Read-only.</summary>
         public string Region {
             get { return BackingStore?.Get<string>("region"); }
             set { BackingStore?.Set("region", value); }

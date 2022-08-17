@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians.Item.Us
             return requestInfo;
         }
         /// <summary>
-        /// Data source entity for a custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<UserSourceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians.Item.Us
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Data source entity for a custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
+        /// Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians.Item.Us
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Data source entity for a custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.</summary>
+        /// <summary>Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.</summary>
         public class UserSourceItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

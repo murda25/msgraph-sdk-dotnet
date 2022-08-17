@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DisplayNameLocalization>>("descriptions"); }
             set { BackingStore?.Set("descriptions", value); }
         }
-        /// <summary>The formula to validate column value. For examples, see Examples of common formulas in lists</summary>
+        /// <summary>The formula to validate column value. For examples, see Examples of common formulas in lists.</summary>
         public string Formula {
             get { return BackingStore?.Get<string>("formula"); }
             set { BackingStore?.Set("formula", value); }

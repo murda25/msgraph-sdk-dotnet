@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+        /// Get joinedTeams from users
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<JoinedTeamsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams {
             return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+        /// Get joinedTeams from users
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Team>(requestInfo, Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The Microsoft Teams teams that the user is a member of. Read-only. Nullable.</summary>
+        /// <summary>Get joinedTeams from users</summary>
         public class JoinedTeamsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Sites.Item.ExternalColumns.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// Get externalColumns from sites
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ColumnDefinitionItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Sites.Item.ExternalColumns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// Get externalColumns from sites
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Sites.Item.ExternalColumns.Item {
             };
             return await RequestAdapter.SendAsync<ColumnDefinition>(requestInfo, ColumnDefinition.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
+        /// <summary>Get externalColumns from sites</summary>
         public class ColumnDefinitionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

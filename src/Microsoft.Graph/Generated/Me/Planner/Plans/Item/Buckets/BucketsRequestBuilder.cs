@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Me.Planner.Plans.Item.Buckets {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Collection of buckets in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of buckets in the plan.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<BucketsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Me.Planner.Plans.Item.Buckets {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of buckets in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of buckets in the plan.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Me.Planner.Plans.Item.Buckets {
             };
             return await RequestAdapter.SendAsync<PlannerBucket>(requestInfo, PlannerBucket.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Collection of buckets in the plan. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public class BucketsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

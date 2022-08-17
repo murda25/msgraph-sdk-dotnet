@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<IdentityApiConnector>>("apiConnectors"); }
             set { BackingStore?.Set("apiConnectors", value); }
         }
-        /// <summary>Represents entry point for B2X and self-service sign-up identity userflows.</summary>
+        /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
         public List<B2xIdentityUserFlow> B2xUserFlows {
             get { return BackingStore?.Get<List<B2xIdentityUserFlow>>("b2xUserFlows"); }
             set { BackingStore?.Set("b2xUserFlows", value); }
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ConditionalAccessRoot>("conditionalAccess"); }
             set { BackingStore?.Set("conditionalAccess", value); }
         }
-        /// <summary>Represents entry point for identity provider base.</summary>
+        /// <summary>The identityProviders property</summary>
         public List<IdentityProviderBase> IdentityProviders {
             get { return BackingStore?.Get<List<IdentityProviderBase>>("identityProviders"); }
             set { BackingStore?.Set("identityProviders", value); }

@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Me.Planner.Tasks {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TasksRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Me.Planner.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Me.Planner.Tasks {
             };
             return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, PlannerTask.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerPlans shared with the user.</summary>
         public class TasksRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

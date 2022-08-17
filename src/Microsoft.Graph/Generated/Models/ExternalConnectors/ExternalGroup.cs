@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.</summary>
+        /// <summary>A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.</summary>
         public List<Identity> Members {
             get { return BackingStore?.Get<List<Identity>>("members"); }
             set { BackingStore?.Set("members", value); }

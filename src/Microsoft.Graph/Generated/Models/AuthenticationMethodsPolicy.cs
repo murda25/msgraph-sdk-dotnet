@@ -11,22 +11,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AuthenticationMethodConfiguration>>("authenticationMethodConfigurations"); }
             set { BackingStore?.Set("authenticationMethodConfigurations", value); }
         }
-        /// <summary>A description of the policy.</summary>
+        /// <summary>A description of the policy. Read-only.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The name of the policy.</summary>
+        /// <summary>The name of the policy. Read-only.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The date and time of the last update to the policy.</summary>
+        /// <summary>The date and time of the last update to the policy. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The version of the policy in use.</summary>
+        /// <summary>The version of the policy in use. Read-only.</summary>
         public string PolicyVersion {
             get { return BackingStore?.Get<string>("policyVersion"); }
             set { BackingStore?.Set("policyVersion", value); }

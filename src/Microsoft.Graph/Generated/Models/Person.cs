@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Person : Entity, IParsable {
         /// <summary>The person&apos;s birthday.</summary>
         public string Birthday {
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("personNotes"); }
             set { BackingStore?.Set("personNotes", value); }
         }
-        /// <summary>The type of person, for example distribution list.</summary>
+        /// <summary>The type of person.</summary>
         public Microsoft.Graph.Models.PersonType PersonType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PersonType>("personType"); }
             set { BackingStore?.Set("personType", value); }

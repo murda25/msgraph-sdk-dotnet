@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Defines the actual buckets of the computed aggregation.</summary>
+        /// <summary>The buckets property</summary>
         public List<SearchBucket> Buckets {
             get { return BackingStore?.Get<List<SearchBucket>>("buckets"); }
             set { BackingStore?.Set("buckets", value); }
         }
-        /// <summary>Defines on which field the aggregation was computed on.</summary>
+        /// <summary>The field property</summary>
         public string Field {
             get { return BackingStore?.Get<string>("field"); }
             set { BackingStore?.Set("field", value); }

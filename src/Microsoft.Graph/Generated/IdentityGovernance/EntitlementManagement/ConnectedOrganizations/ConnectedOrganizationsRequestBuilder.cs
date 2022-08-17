@@ -57,7 +57,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// References to a directory or domain of another organization whose users can request access.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ConnectedOrganizationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             return requestInfo;
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// References to a directory or domain of another organization whose users can request access.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             };
             return await RequestAdapter.SendAsync<ConnectedOrganization>(requestInfo, ConnectedOrganization.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
+        /// <summary>References to a directory or domain of another organization whose users can request access.</summary>
         public class ConnectedOrganizationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

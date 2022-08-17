@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AssignedPlan>>("assignedPlans"); }
             set { BackingStore?.Set("assignedPlans", value); }
         }
-        /// <summary>Resource to manage the default branding for the organization. Nullable.</summary>
+        /// <summary>Branding for the organization. Nullable.</summary>
         public OrganizationalBranding Branding {
             get { return BackingStore?.Get<OrganizationalBranding>("branding"); }
             set { BackingStore?.Set("branding", value); }
@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The collection of open extensions defined for the organization resource. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
@@ -65,12 +65,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<MdmAuthority?>("mobileDeviceManagementAuthority"); }
             set { BackingStore?.Set("mobileDeviceManagementAuthority", value); }
         }
-        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("onPremisesLastSyncDateTime"); }
             set { BackingStore?.Set("onPremisesLastSyncDateTime", value); }
         }
-        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
         public bool? OnPremisesSyncEnabled {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("postalCode"); }
             set { BackingStore?.Set("postalCode", value); }
         }
-        /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example en.</summary>
+        /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
         public string PreferredLanguage {
             get { return BackingStore?.Get<string>("preferredLanguage"); }
             set { BackingStore?.Set("preferredLanguage", value); }

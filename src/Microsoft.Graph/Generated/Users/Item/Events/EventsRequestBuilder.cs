@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Users.Item.Events {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user&apos;s events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<EventsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.Users.Item.Events {
             return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// The user&apos;s events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.Users.Item.Events {
             };
             return await RequestAdapter.SendAsync<Event>(requestInfo, Event.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The user&apos;s events. Default is to show events under the Default Calendar. Read-only. Nullable.</summary>
+        /// <summary>The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.</summary>
         public class EventsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

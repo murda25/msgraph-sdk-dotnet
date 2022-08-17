@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The set of audience external to the signed-in user&apos;s organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.</summary>
+        /// <summary>The set of audience external to the signed-in user&apos;s organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.</summary>
         public ExternalAudienceScope? ExternalAudience {
             get { return BackingStore?.Get<ExternalAudienceScope?>("externalAudience"); }
             set { BackingStore?.Set("externalAudience", value); }
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeTimeZone>("scheduledStartDateTime"); }
             set { BackingStore?.Set("scheduledStartDateTime", value); }
         }
-        /// <summary>Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.</summary>
+        /// <summary>Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.</summary>
         public AutomaticRepliesStatus? Status {
             get { return BackingStore?.Get<AutomaticRepliesStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

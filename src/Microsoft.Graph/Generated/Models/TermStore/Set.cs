@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models.TermStore {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>Description giving details on the term usage.</summary>
+        /// <summary>Description that gives details on the term usage.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }

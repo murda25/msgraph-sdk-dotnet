@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Contacts.Item.MemberOf.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
+        /// Get memberOf from contacts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DirectoryObjectItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Contacts.Item.MemberOf.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
+        /// Get memberOf from contacts
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -108,7 +108,7 @@ namespace Microsoft.Graph.Contacts.Item.MemberOf.Item {
             };
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Groups that this contact is a member of. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Get memberOf from contacts</summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

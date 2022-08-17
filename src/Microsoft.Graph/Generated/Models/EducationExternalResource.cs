@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class EducationExternalResource : EducationResource, IParsable {
-        /// <summary>Location of the resource. Required.</summary>
+        /// <summary>Location of the resource. Required</summary>
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }

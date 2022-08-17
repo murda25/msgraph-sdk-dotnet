@@ -63,7 +63,7 @@ namespace Microsoft.Graph.SubscribedSkus.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get a specific commercial subscription that an organization has acquired.
+        /// Get entity from subscribedSkus by key
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SubscribedSkuItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.SubscribedSkus.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a specific commercial subscription that an organization has acquired.
+        /// Get entity from subscribedSkus by key
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.SubscribedSkus.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get a specific commercial subscription that an organization has acquired.</summary>
+        /// <summary>Get entity from subscribedSkus by key</summary>
         public class SubscribedSkuItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>
             [QueryParameter("%24select")]

@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Provides details of query alteration response for spelling correction.</summary>
+        /// <summary>Provides information related to spelling corrections in the alteration response.</summary>
         public AlterationResponse QueryAlterationResponse {
             get { return BackingStore?.Get<AlterationResponse>("queryAlterationResponse"); }
             set { BackingStore?.Set("queryAlterationResponse", value); }

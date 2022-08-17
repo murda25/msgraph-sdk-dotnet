@@ -30,12 +30,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("classCode"); }
             set { BackingStore?.Set("classCode", value); }
         }
-        /// <summary>Course information for the class.</summary>
+        /// <summary>The course property</summary>
         public EducationCourse Course {
             get { return BackingStore?.Get<EducationCourse>("course"); }
             set { BackingStore?.Set("course", value); }
         }
-        /// <summary>Entity who created the class.</summary>
+        /// <summary>Entity who created the class</summary>
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("externalName"); }
             set { BackingStore?.Set("externalName", value); }
         }
-        /// <summary>The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.</summary>
+        /// <summary>How this class was created. Possible values are: sis, manual.</summary>
         public EducationExternalSource? ExternalSource {
             get { return BackingStore?.Get<EducationExternalSource?>("externalSource"); }
             set { BackingStore?.Set("externalSource", value); }
@@ -100,7 +100,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<EducationUser>>("teachers"); }
             set { BackingStore?.Set("teachers", value); }
         }
-        /// <summary>Term for the class.</summary>
+        /// <summary>Term for this class.</summary>
         public EducationTerm Term {
             get { return BackingStore?.Get<EducationTerm>("term"); }
             set { BackingStore?.Set("term", value); }

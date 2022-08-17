@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Set of tasks that can be performed on a resource.</summary>
+        /// <summary>Set of tasks that can be performed on a resource. Required.</summary>
         public List<string> AllowedResourceActions {
             get { return BackingStore?.Get<List<string>>("allowedResourceActions"); }
             set { BackingStore?.Set("allowedResourceActions", value); }

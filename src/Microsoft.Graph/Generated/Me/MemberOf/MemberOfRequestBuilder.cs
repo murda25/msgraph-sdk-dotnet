@@ -87,7 +87,7 @@ namespace Microsoft.Graph.Me.MemberOf {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<MemberOfRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -107,7 +107,7 @@ namespace Microsoft.Graph.Me.MemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -120,7 +120,7 @@ namespace Microsoft.Graph.Me.MemberOf {
             };
             return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
         public class MemberOfRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

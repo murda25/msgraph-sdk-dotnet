@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Indicates if there are higher storage quota plans available. Read-only.</summary>
+        /// <summary>Indicates whether there are higher storage quota plans available. Read-only.</summary>
         public bool? UpgradeAvailable {
             get { return BackingStore?.Get<bool?>("upgradeAvailable"); }
             set { BackingStore?.Set("upgradeAvailable", value); }

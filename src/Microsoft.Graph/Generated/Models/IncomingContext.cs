@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The id of the participant that is under observation. Read-only.</summary>
+        /// <summary>The ID of the participant that is under observation. Read-only.</summary>
         public string ObservedParticipantId {
             get { return BackingStore?.Get<string>("observedParticipantId"); }
             set { BackingStore?.Set("observedParticipantId", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IdentitySet>("onBehalfOf"); }
             set { BackingStore?.Set("onBehalfOf", value); }
         }
-        /// <summary>The id of the participant that triggered the incoming call. Read-only.</summary>
+        /// <summary>The ID of the participant that triggered the incoming call. Read-only.</summary>
         public string SourceParticipantId {
             get { return BackingStore?.Get<string>("sourceParticipantId"); }
             set { BackingStore?.Set("sourceParticipantId", value); }

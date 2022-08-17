@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isLocationOnline"); }
             set { BackingStore?.Set("isLocationOnline", value); }
         }
-        /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.</summary>
+        /// <summary>The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.</summary>
         public int? MaximumAttendeesCount {
             get { return BackingStore?.Get<int?>("maximumAttendeesCount"); }
             set { BackingStore?.Set("maximumAttendeesCount", value); }

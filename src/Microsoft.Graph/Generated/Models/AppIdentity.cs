@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Refers to the unique identifier representing Application Id in the Azure Active Directory.</summary>
+        /// <summary>Refers to the Unique GUID representing Application Id in the Azure Active Directory.</summary>
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.</summary>
+        /// <summary>Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.</summary>
         public string ServicePrincipalId {
             get { return BackingStore?.Get<string>("servicePrincipalId"); }
             set { BackingStore?.Set("servicePrincipalId", value); }

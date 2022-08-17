@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class DriveItem : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place on this item.</summary>
         public ItemAnalytics Analytics {
             get { return BackingStore?.Get<ItemAnalytics>("analytics"); }
             set { BackingStore?.Set("analytics", value); }
         }
-        /// <summary>Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.</summary>
+        /// <summary>Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.</summary>
         public Microsoft.Graph.Models.Audio Audio {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Audio>("audio"); }
             set { BackingStore?.Set("audio", value); }
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Package>("package"); }
             set { BackingStore?.Set("package", value); }
         }
-        /// <summary>If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.</summary>
+        /// <summary>If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.</summary>
         public Microsoft.Graph.Models.PendingOperations PendingOperations {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PendingOperations>("pendingOperations"); }
             set { BackingStore?.Set("pendingOperations", value); }

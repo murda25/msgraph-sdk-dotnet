@@ -208,7 +208,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of servicePrincipal object.
+        /// Update entity in servicePrincipals
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -257,7 +257,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ServicePrincipal>(requestInfo, Microsoft.Graph.Models.ServicePrincipal.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the properties of servicePrincipal object.
+        /// Update entity in servicePrincipals
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

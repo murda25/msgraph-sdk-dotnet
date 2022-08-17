@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Folder ID of an archive folder for the user. Read only.</summary>
+        /// <summary>Folder ID of an archive folder for the user.</summary>
         public string ArchiveFolder {
             get { return BackingStore?.Get<string>("archiveFolder"); }
             set { BackingStore?.Set("archiveFolder", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("dateFormat"); }
             set { BackingStore?.Set("dateFormat", value); }
         }
-        /// <summary>If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.</summary>
+        /// <summary>If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.</summary>
         public Microsoft.Graph.Models.DelegateMeetingMessageDeliveryOptions? DelegateMeetingMessageDeliveryOptions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DelegateMeetingMessageDeliveryOptions?>("delegateMeetingMessageDeliveryOptions"); }
             set { BackingStore?.Set("delegateMeetingMessageDeliveryOptions", value); }
@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("timeZone"); }
             set { BackingStore?.Set("timeZone", value); }
         }
-        /// <summary>The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.</summary>
+        /// <summary>The userPurpose property</summary>
         public Microsoft.Graph.Models.UserPurpose? UserPurpose {
             get { return BackingStore?.Get<Microsoft.Graph.Models.UserPurpose?>("userPurpose"); }
             set { BackingStore?.Set("userPurpose", value); }

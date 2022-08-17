@@ -78,7 +78,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
             return requestInfo;
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<AccessPackageItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents access package objects.
+        /// Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -176,7 +176,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Represents access package objects.</summary>
+        /// <summary>Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.</summary>
         public class AccessPackageItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

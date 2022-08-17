@@ -10,17 +10,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("customerId"); }
             set { BackingStore?.Set("customerId", value); }
         }
-        /// <summary>It consists of the list of custom questions and answers given by the customer as part of the appointment.</summary>
+        /// <summary>It consists of the list of custom questions and answers given by the customer as part of the appointment</summary>
         public List<BookingQuestionAnswer> CustomQuestionAnswers {
             get { return BackingStore?.Get<List<BookingQuestionAnswer>>("customQuestionAnswers"); }
             set { BackingStore?.Set("customQuestionAnswers", value); }
         }
-        /// <summary>The SMTP address of the bookingCustomer who is booking the appointment.</summary>
+        /// <summary>The SMTP address of the bookingCustomer who is booking the appointment</summary>
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
-        /// <summary>Represents location information for the bookingCustomer who is booking the appointment.</summary>
+        /// <summary>Represents location information for the bookingCustomer who is booking the appointment.</summary>
         public Microsoft.Graph.Models.Location Location {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Location>("location"); }
             set { BackingStore?.Set("location", value); }

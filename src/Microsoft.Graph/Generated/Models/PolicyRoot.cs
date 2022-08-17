@@ -65,12 +65,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<PermissionGrantPolicy>>("permissionGrantPolicies"); }
             set { BackingStore?.Set("permissionGrantPolicies", value); }
         }
-        /// <summary>Represents the role management policies.</summary>
+        /// <summary>Specifies the various policies associated with scopes and roles.</summary>
         public List<UnifiedRoleManagementPolicy> RoleManagementPolicies {
             get { return BackingStore?.Get<List<UnifiedRoleManagementPolicy>>("roleManagementPolicies"); }
             set { BackingStore?.Set("roleManagementPolicies", value); }
         }
-        /// <summary>Represents the role management policy assignments.</summary>
+        /// <summary>The assignment of a role management policy to a role definition object.</summary>
         public List<UnifiedRoleManagementPolicyAssignment> RoleManagementPolicyAssignments {
             get { return BackingStore?.Get<List<UnifiedRoleManagementPolicyAssignment>>("roleManagementPolicyAssignments"); }
             set { BackingStore?.Set("roleManagementPolicyAssignments", value); }

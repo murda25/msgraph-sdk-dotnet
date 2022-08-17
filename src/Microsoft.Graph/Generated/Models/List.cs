@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ListInfo>("list"); }
             set { BackingStore?.Set("list", value); }
         }
-        /// <summary>The collection of long running operations for the list.</summary>
+        /// <summary>The collection of long-running operations on the list.</summary>
         public List<RichLongRunningOperation> Operations {
             get { return BackingStore?.Get<List<RichLongRunningOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }

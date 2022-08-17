@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Count of guests in a team.</summary>
+        /// <summary>The guestsCount property</summary>
         public int? GuestsCount {
             get { return BackingStore?.Get<int?>("guestsCount"); }
             set { BackingStore?.Set("guestsCount", value); }
         }
-        /// <summary>Count of members in a team.</summary>
+        /// <summary>The membersCount property</summary>
         public int? MembersCount {
             get { return BackingStore?.Get<int?>("membersCount"); }
             set { BackingStore?.Set("membersCount", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Count of owners in a team.</summary>
+        /// <summary>The ownersCount property</summary>
         public int? OwnersCount {
             get { return BackingStore?.Get<int?>("ownersCount"); }
             set { BackingStore?.Set("ownersCount", value); }

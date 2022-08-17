@@ -143,7 +143,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+        /// Get joinedTeams from users
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TeamItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The Microsoft Teams teams that the user is a member of. Read-only. Nullable.
+        /// Get joinedTeams from users
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -241,7 +241,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The Microsoft Teams teams that the user is a member of. Read-only. Nullable.</summary>
+        /// <summary>Get joinedTeams from users</summary>
         public class TeamItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

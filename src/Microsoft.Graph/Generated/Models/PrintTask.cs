@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PrintTask : Entity, IParsable {
         /// <summary>The definition property</summary>
         public PrintTaskDefinition Definition {
             get { return BackingStore?.Get<PrintTaskDefinition>("definition"); }
             set { BackingStore?.Set("definition", value); }
         }
-        /// <summary>The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.</summary>
+        /// <summary>The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.</summary>
         public string ParentUrl {
             get { return BackingStore?.Get<string>("parentUrl"); }
             set { BackingStore?.Set("parentUrl", value); }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TaskFileAttachment : AttachmentBase, IParsable {
-        /// <summary>The base64-encoded contents of the file.</summary>
+        /// <summary>The contentBytes property</summary>
         public byte[] ContentBytes {
             get { return BackingStore?.Get<byte[]>("contentBytes"); }
             set { BackingStore?.Set("contentBytes", value); }

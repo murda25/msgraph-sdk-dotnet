@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Indicates whether the media is muted by the server.</summary>
+        /// <summary>If the media is muted by the server.</summary>
         public bool? ServerMuted {
             get { return BackingStore?.Get<bool?>("serverMuted"); }
             set { BackingStore?.Set("serverMuted", value); }

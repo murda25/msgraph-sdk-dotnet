@@ -21,12 +21,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AgreementFile>("file"); }
             set { BackingStore?.Set("file", value); }
         }
-        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.</summary>
         public List<AgreementFileLocalization> Files {
             get { return BackingStore?.Get<List<AgreementFileLocalization>>("files"); }
             set { BackingStore?.Set("files", value); }
         }
-        /// <summary>This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven&apos;t already done so. Supports $filter (eq).</summary>
+        /// <summary>Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven&apos;t already done so. Supports $filter (eq).</summary>
         public bool? IsPerDeviceAcceptanceRequired {
             get { return BackingStore?.Get<bool?>("isPerDeviceAcceptanceRequired"); }
             set { BackingStore?.Set("isPerDeviceAcceptanceRequired", value); }
@@ -36,12 +36,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isViewingBeforeAcceptanceRequired"); }
             set { BackingStore?.Set("isViewingBeforeAcceptanceRequired", value); }
         }
-        /// <summary>Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).</summary>
+        /// <summary>Expiration schedule and frequency of agreement for all users. Supports $filter (eq).</summary>
         public Microsoft.Graph.Models.TermsExpiration TermsExpiration {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TermsExpiration>("termsExpiration"); }
             set { BackingStore?.Set("termsExpiration", value); }
         }
-        /// <summary>The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.</summary>
+        /// <summary>The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq).</summary>
         public TimeSpan? UserReacceptRequiredFrequency {
             get { return BackingStore?.Get<TimeSpan?>("userReacceptRequiredFrequency"); }
             set { BackingStore?.Set("userReacceptRequiredFrequency", value); }

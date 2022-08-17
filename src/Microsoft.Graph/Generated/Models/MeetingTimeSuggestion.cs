@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("order"); }
             set { BackingStore?.Set("order", value); }
         }
-        /// <summary>Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
+        /// <summary>Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
         public FreeBusyStatus? OrganizerAvailability {
             get { return BackingStore?.Get<FreeBusyStatus?>("organizerAvailability"); }
             set { BackingStore?.Set("organizerAvailability", value); }

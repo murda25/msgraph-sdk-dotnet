@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("calendarEventId"); }
             set { BackingStore?.Set("calendarEventId", value); }
         }
-        /// <summary>The URL which can be clicked on to join or uniquely identify the meeting.</summary>
+        /// <summary>The URL that users click to join or uniquely identify the meeting.</summary>
         public string JoinWebUrl {
             get { return BackingStore?.Get<string>("joinWebUrl"); }
             set { BackingStore?.Set("joinWebUrl", value); }

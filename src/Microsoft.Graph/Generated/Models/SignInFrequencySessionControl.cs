@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SignInFrequencyInterval?>("frequencyInterval"); }
             set { BackingStore?.Set("frequencyInterval", value); }
         }
-        /// <summary>Possible values are: days, hours, or null if frequencyInterval is everyTime .</summary>
+        /// <summary>Possible values are: days, hours.</summary>
         public SigninFrequencyType? Type {
             get { return BackingStore?.Get<SigninFrequencyType?>("type"); }
             set { BackingStore?.Set("type", value); }

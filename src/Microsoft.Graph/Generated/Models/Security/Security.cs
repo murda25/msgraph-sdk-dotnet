@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
     public class Security : Entity, IParsable {
-        /// <summary>Notifications for suspicious or potential security issues in a customer’s tenant.</summary>
+        /// <summary>The alerts property</summary>
         public List<Microsoft.Graph.Models.Alert> Alerts {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Alert>>("alerts"); }
             set { BackingStore?.Set("alerts", value); }

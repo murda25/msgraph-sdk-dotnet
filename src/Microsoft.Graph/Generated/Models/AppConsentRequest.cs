@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
         public string AppDisplayName {
@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
-        /// <summary>A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.</summary>
+        /// <summary>A list of pending scopes waiting for approval. Required.</summary>
         public List<AppConsentRequestScope> PendingScopes {
             get { return BackingStore?.Get<List<AppConsentRequestScope>>("pendingScopes"); }
             set { BackingStore?.Set("pendingScopes", value); }
         }
-        /// <summary>A list of pending user consent requests.</summary>
+        /// <summary>A list of pending user consent requests. Supports $filter (eq).</summary>
         public List<UserConsentRequest> UserConsentRequests {
             get { return BackingStore?.Get<List<UserConsentRequest>>("userConsentRequests"); }
             set { BackingStore?.Set("userConsentRequests", value); }

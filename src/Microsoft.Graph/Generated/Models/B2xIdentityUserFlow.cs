@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class B2xIdentityUserFlow : IdentityUserFlow, IParsable {
-        /// <summary>Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.</summary>
+        /// <summary>Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.</summary>
         public UserFlowApiConnectorConfiguration ApiConnectorConfiguration {
             get { return BackingStore?.Get<UserFlowApiConnectorConfiguration>("apiConnectorConfiguration"); }
             set { BackingStore?.Set("apiConnectorConfiguration", value); }
@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<IdentityProvider>>("identityProviders"); }
             set { BackingStore?.Set("identityProviders", value); }
         }
-        /// <summary>The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.</summary>
+        /// <summary>The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.</summary>
         public List<UserFlowLanguageConfiguration> Languages {
             get { return BackingStore?.Get<List<UserFlowLanguageConfiguration>>("languages"); }
             set { BackingStore?.Set("languages", value); }

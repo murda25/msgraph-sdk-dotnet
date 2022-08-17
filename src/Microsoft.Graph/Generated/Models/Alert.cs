@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Alert : Entity, IParsable {
         /// <summary>Name or alias of the activity group (attacker) this alert is attributed to.</summary>
         public string ActivityGroupName {
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<FileSecurityState>>("fileStates"); }
             set { BackingStore?.Set("fileStates", value); }
         }
-        /// <summary>A collection of alertHistoryStates comprising an audit log of all updates made to an alert.</summary>
+        /// <summary>The historyStates property</summary>
         public List<AlertHistoryState> HistoryStates {
             get { return BackingStore?.Get<List<AlertHistoryState>>("historyStates"); }
             set { BackingStore?.Set("historyStates", value); }

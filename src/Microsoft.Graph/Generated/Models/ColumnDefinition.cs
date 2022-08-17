@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ColumnDefinition : Entity, IParsable {
         /// <summary>This column stores boolean values.</summary>
         public BooleanColumn Boolean {
@@ -76,7 +76,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<HyperlinkOrPictureColumn>("hyperlinkOrPicture"); }
             set { BackingStore?.Set("hyperlinkOrPicture", value); }
         }
-        /// <summary>Specifies whether the column values can used for sorting and searching.</summary>
+        /// <summary>Specifies whether the column values can be used for sorting and searching.</summary>
         public bool? Indexed {
             get { return BackingStore?.Get<bool?>("indexed"); }
             set { BackingStore?.Set("indexed", value); }
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PersonOrGroupColumn>("personOrGroup"); }
             set { BackingStore?.Set("personOrGroup", value); }
         }
-        /// <summary>If true, changes to this column will be propagated to lists that implement the column.</summary>
+        /// <summary>If &apos;true&apos;, changes to this column will be propagated to lists that implement the column.</summary>
         public bool? PropagateChanges {
             get { return BackingStore?.Get<bool?>("propagateChanges"); }
             set { BackingStore?.Set("propagateChanges", value); }
@@ -131,12 +131,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("required"); }
             set { BackingStore?.Set("required", value); }
         }
-        /// <summary>The source column for content type column.</summary>
+        /// <summary>The source column for the content type column.</summary>
         public ColumnDefinition SourceColumn {
             get { return BackingStore?.Get<ColumnDefinition>("sourceColumn"); }
             set { BackingStore?.Set("sourceColumn", value); }
         }
-        /// <summary>ContentType from which this column is inherited from. Used only to fetch contentTypes columns.</summary>
+        /// <summary>ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.</summary>
         public ContentTypeInfo SourceContentType {
             get { return BackingStore?.Get<ContentTypeInfo>("sourceContentType"); }
             set { BackingStore?.Set("sourceContentType", value); }

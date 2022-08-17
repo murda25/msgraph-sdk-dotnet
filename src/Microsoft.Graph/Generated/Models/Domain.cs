@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>("domainNameReferences"); }
             set { BackingStore?.Set("domainNameReferences", value); }
         }
-        /// <summary>Domain settings configured by customer when federated with Azure AD. Supports $expand.</summary>
+        /// <summary>Domain settings configured by a customer when federated with Azure AD. Supports $expand.</summary>
         public List<InternalDomainFederation> FederationConfiguration {
             get { return BackingStore?.Get<List<InternalDomainFederation>>("federationConfiguration"); }
             set { BackingStore?.Set("federationConfiguration", value); }
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DomainState>("state"); }
             set { BackingStore?.Set("state", value); }
         }
-        /// <summary>The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.</summary>
+        /// <summary>The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.</summary>
         public List<string> SupportedServices {
             get { return BackingStore?.Get<List<string>>("supportedServices"); }
             set { BackingStore?.Set("supportedServices", value); }

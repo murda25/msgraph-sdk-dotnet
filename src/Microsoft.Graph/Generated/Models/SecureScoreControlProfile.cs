@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class SecureScoreControlProfile : Entity, IParsable {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
         public string ActionType {
@@ -21,17 +21,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("azureTenantId"); }
             set { BackingStore?.Set("azureTenantId", value); }
         }
-        /// <summary>The collection of compliance information associated with secure score control</summary>
+        /// <summary>The complianceInformation property</summary>
         public List<Microsoft.Graph.Models.ComplianceInformation> ComplianceInformation {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ComplianceInformation>>("complianceInformation"); }
             set { BackingStore?.Set("complianceInformation", value); }
         }
-        /// <summary>Control action category (Account, Data, Device, Apps, Infrastructure).</summary>
+        /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
         public string ControlCategory {
             get { return BackingStore?.Get<string>("controlCategory"); }
             set { BackingStore?.Set("controlCategory", value); }
         }
-        /// <summary>Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).</summary>
+        /// <summary>The controlStateUpdates property</summary>
         public List<SecureScoreControlStateUpdate> ControlStateUpdates {
             get { return BackingStore?.Get<List<SecureScoreControlStateUpdate>>("controlStateUpdates"); }
             set { BackingStore?.Set("controlStateUpdates", value); }
@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>Current obtained max score on specified date.</summary>
+        /// <summary>max attainable score for the control.</summary>
         public double? MaxScore {
             get { return BackingStore?.Get<double?>("maxScore"); }
             set { BackingStore?.Set("maxScore", value); }
@@ -76,12 +76,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("service"); }
             set { BackingStore?.Set("service", value); }
         }
-        /// <summary>List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).</summary>
+        /// <summary>List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,</summary>
         public List<string> Threats {
             get { return BackingStore?.Get<List<string>>("threats"); }
             set { BackingStore?.Set("threats", value); }
         }
-        /// <summary>Control tier (Core, Defense in Depth, Advanced.)</summary>
+        /// <summary>The tier property</summary>
         public string Tier {
             get { return BackingStore?.Get<string>("tier"); }
             set { BackingStore?.Set("tier", value); }
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
         }
-        /// <summary>User impact of implementing control (low, moderate, high).</summary>
+        /// <summary>The userImpact property</summary>
         public string UserImpact {
             get { return BackingStore?.Get<string>("userImpact"); }
             set { BackingStore?.Set("userImpact", value); }

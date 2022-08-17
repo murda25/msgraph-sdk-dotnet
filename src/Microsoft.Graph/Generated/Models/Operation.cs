@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Operation : Entity, IParsable {
         /// <summary>The start time of the operation.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -17,7 +17,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastActionDateTime"); }
             set { BackingStore?.Set("lastActionDateTime", value); }
         }
-        /// <summary>Possible values are: notStarted, running, completed, failed. Read-only.</summary>
+        /// <summary>The current status of the operation: notStarted, running, completed, failed</summary>
         public OperationStatus? Status {
             get { return BackingStore?.Get<OperationStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -11,14 +11,14 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The email address of an entity instance.</summary>
+        /// <summary>The email address of the person or entity.</summary>
         public string Address {
             get { return BackingStore?.Get<string>("address"); }
             set { BackingStore?.Set("address", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The display name of an entity instance.</summary>
+        /// <summary>The display name of the person or entity.</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }

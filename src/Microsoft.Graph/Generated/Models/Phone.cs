@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("region"); }
             set { BackingStore?.Set("region", value); }
         }
-        /// <summary>The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.</summary>
+        /// <summary>The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.</summary>
         public PhoneType? Type {
             get { return BackingStore?.Get<PhoneType?>("type"); }
             set { BackingStore?.Set("type", value); }

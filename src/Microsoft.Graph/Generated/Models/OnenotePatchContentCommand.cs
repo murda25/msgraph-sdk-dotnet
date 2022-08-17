@@ -28,12 +28,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.</summary>
+        /// <summary>The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.</summary>
         public OnenotePatchInsertPosition? Position {
             get { return BackingStore?.Get<OnenotePatchInsertPosition?>("position"); }
             set { BackingStore?.Set("position", value); }
         }
-        /// <summary>The element to update. Must be the #&lt;data-id&gt; or the generated {id} of the element, or the body or title keyword.</summary>
+        /// <summary>The element to update. Must be the #&lt;data-id&gt; or the generated &lt;id&gt; of the element, or the body or title keyword.</summary>
         public string Target {
             get { return BackingStore?.Get<string>("target"); }
             set { BackingStore?.Set("target", value); }

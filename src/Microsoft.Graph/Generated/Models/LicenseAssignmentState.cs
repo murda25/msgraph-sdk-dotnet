@@ -11,24 +11,24 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.</summary>
+        /// <summary>The assignedByGroup property</summary>
         public string AssignedByGroup {
             get { return BackingStore?.Get<string>("assignedByGroup"); }
             set { BackingStore?.Set("assignedByGroup", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The service plans that are disabled in this assignment. Read-Only.</summary>
+        /// <summary>The disabledPlans property</summary>
         public List<string> DisabledPlans {
             get { return BackingStore?.Get<List<string>>("disabledPlans"); }
             set { BackingStore?.Set("disabledPlans", value); }
         }
-        /// <summary>License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.</summary>
+        /// <summary>The error property</summary>
         public string Error {
             get { return BackingStore?.Get<string>("error"); }
             set { BackingStore?.Set("error", value); }
         }
-        /// <summary>The timestamp when the state of the license assignment was last updated.</summary>
+        /// <summary>The lastUpdatedDateTime property</summary>
         public DateTimeOffset? LastUpdatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastUpdatedDateTime"); }
             set { BackingStore?.Set("lastUpdatedDateTime", value); }
@@ -38,12 +38,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The unique identifier for the SKU. Read-Only.</summary>
+        /// <summary>The skuId property</summary>
         public string SkuId {
             get { return BackingStore?.Get<string>("skuId"); }
             set { BackingStore?.Set("skuId", value); }
         }
-        /// <summary>Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.</summary>
+        /// <summary>The state property</summary>
         public string State {
             get { return BackingStore?.Get<string>("state"); }
             set { BackingStore?.Set("state", value); }

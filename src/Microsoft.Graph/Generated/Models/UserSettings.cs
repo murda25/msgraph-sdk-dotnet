@@ -5,17 +5,17 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class UserSettings : Entity, IParsable {
-        /// <summary>Reflects the Office Delve organization level setting. When set to true, the organization doesn&apos;t have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.</summary>
+        /// <summary>The contributionToContentDiscoveryAsOrganizationDisabled property</summary>
         public bool? ContributionToContentDiscoveryAsOrganizationDisabled {
             get { return BackingStore?.Get<bool?>("contributionToContentDiscoveryAsOrganizationDisabled"); }
             set { BackingStore?.Set("contributionToContentDiscoveryAsOrganizationDisabled", value); }
         }
-        /// <summary>When set to true, documents in the user&apos;s Office Delve are disabled. Users can control this setting in Office Delve.</summary>
+        /// <summary>The contributionToContentDiscoveryDisabled property</summary>
         public bool? ContributionToContentDiscoveryDisabled {
             get { return BackingStore?.Get<bool?>("contributionToContentDiscoveryDisabled"); }
             set { BackingStore?.Set("contributionToContentDiscoveryDisabled", value); }
         }
-        /// <summary>The shift preferences for the user.</summary>
+        /// <summary>The shiftPreferences property</summary>
         public Microsoft.Graph.Models.ShiftPreferences ShiftPreferences {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ShiftPreferences>("shiftPreferences"); }
             set { BackingStore?.Set("shiftPreferences", value); }

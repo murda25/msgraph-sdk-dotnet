@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("metadata"); }
             set { BackingStore?.Set("metadata", value); }
         }
-        /// <summary>Information on whether the participant has recording capability.</summary>
+        /// <summary>Information about whether the participant has recording capability.</summary>
         public Microsoft.Graph.Models.RecordingInfo RecordingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RecordingInfo>("recordingInfo"); }
             set { BackingStore?.Set("recordingInfo", value); }
