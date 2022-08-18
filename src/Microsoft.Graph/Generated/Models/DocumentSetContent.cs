@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ContentTypeInfo>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
-        /// <summary>Name of the file in resource folder that should be added as a default content or a template in the document set</summary>
+        /// <summary>Name of the file in resource folder that should be added as a default content or a template in the document set.</summary>
         public string FileName {
             get { return BackingStore?.Get<string>("fileName"); }
             set { BackingStore?.Set("fileName", value); }

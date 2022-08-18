@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class AudioRoutingGroup : Entity, IParsable {
-        /// <summary>List of receiving participant ids.</summary>
+        /// <summary>The receivers property</summary>
         public List<string> Receivers {
             get { return BackingStore?.Get<List<string>>("receivers"); }
             set { BackingStore?.Set("receivers", value); }
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RoutingMode?>("routingMode"); }
             set { BackingStore?.Set("routingMode", value); }
         }
-        /// <summary>List of source participant ids.</summary>
+        /// <summary>The sources property</summary>
         public List<string> Sources {
             get { return BackingStore?.Get<List<string>>("sources"); }
             set { BackingStore?.Set("sources", value); }

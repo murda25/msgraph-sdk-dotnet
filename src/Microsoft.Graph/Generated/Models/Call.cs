@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("callChainId"); }
             set { BackingStore?.Set("callChainId", value); }
         }
-        /// <summary>Contains the optional features for the call.</summary>
+        /// <summary>The callOptions property</summary>
         public Microsoft.Graph.Models.CallOptions CallOptions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.CallOptions>("callOptions"); }
             set { BackingStore?.Set("callOptions", value); }
@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<CallRoute>>("callRoutes"); }
             set { BackingStore?.Set("callRoutes", value); }
         }
-        /// <summary>The chat information. Required information for meeting scenarios.</summary>
+        /// <summary>The chat information. Required information for joining a meeting.</summary>
         public Microsoft.Graph.Models.ChatInfo ChatInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo>("chatInfo"); }
             set { BackingStore?.Set("chatInfo", value); }
@@ -41,12 +41,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CallDirection?>("direction"); }
             set { BackingStore?.Set("direction", value); }
         }
-        /// <summary>The context associated with an incoming call. Read-only. Server generated.</summary>
+        /// <summary>The incomingContext property</summary>
         public Microsoft.Graph.Models.IncomingContext IncomingContext {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IncomingContext>("incomingContext"); }
             set { BackingStore?.Set("incomingContext", value); }
         }
-        /// <summary>The media configuration. Required information for creating peer to peer calls or joining meetings.</summary>
+        /// <summary>The media configuration. Required.</summary>
         public Microsoft.Graph.Models.MediaConfig MediaConfig {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaConfig>("mediaConfig"); }
             set { BackingStore?.Set("mediaConfig", value); }
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CallMediaState>("mediaState"); }
             set { BackingStore?.Set("mediaState", value); }
         }
-        /// <summary>The meeting information. Required information for meeting scenarios.</summary>
+        /// <summary>The meeting information that&apos;s required for joining a meeting.</summary>
         public Microsoft.Graph.Models.MeetingInfo MeetingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MeetingInfo>("meetingInfo"); }
             set { BackingStore?.Set("meetingInfo", value); }
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ToneInfo>("toneInfo"); }
             set { BackingStore?.Set("toneInfo", value); }
         }
-        /// <summary>The transcription information for the call. Read-only.</summary>
+        /// <summary>The transcription property</summary>
         public CallTranscriptionInfo Transcription {
             get { return BackingStore?.Get<CallTranscriptionInfo>("transcription"); }
             set { BackingStore?.Set("transcription", value); }

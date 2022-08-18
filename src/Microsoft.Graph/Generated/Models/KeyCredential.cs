@@ -28,12 +28,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.</summary>
+        /// <summary>The certificate&apos;s raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.</summary>
         public byte[] Key {
             get { return BackingStore?.Get<byte[]>("key"); }
             set { BackingStore?.Set("key", value); }
         }
-        /// <summary>The unique identifier for the key.</summary>
+        /// <summary>The unique identifier (GUID) for the key.</summary>
         public string KeyId {
             get { return BackingStore?.Get<string>("keyId"); }
             set { BackingStore?.Set("keyId", value); }

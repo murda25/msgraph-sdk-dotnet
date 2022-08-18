@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Name of the application managing the network connection (for example, Facebook, SMTP, etc.).</summary>
+        /// <summary>Name of the application managing the network connection (for example, Facebook or SMTP).</summary>
         public string ApplicationName {
             get { return BackingStore?.Get<string>("applicationName"); }
             set { BackingStore?.Set("applicationName", value); }

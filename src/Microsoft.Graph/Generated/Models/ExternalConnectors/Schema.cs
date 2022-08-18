@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
     public class Schema : Entity, IParsable {
-        /// <summary>Must be set to microsoft.graph.externalItem. Required.</summary>
+        /// <summary>Must be set to microsoft.graph.externalConnector.externalItem. Required.</summary>
         public string BaseType {
             get { return BackingStore?.Get<string>("baseType"); }
             set { BackingStore?.Set("baseType", value); }

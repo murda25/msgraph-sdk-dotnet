@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AccessReviewNotificationRecipientScope>("notificationRecipientScope"); }
             set { BackingStore?.Set("notificationRecipientScope", value); }
         }
-        /// <summary>Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.</summary>
+        /// <summary>Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.</summary>
         public string NotificationTemplateType {
             get { return BackingStore?.Get<string>("notificationTemplateType"); }
             set { BackingStore?.Set("notificationTemplateType", value); }

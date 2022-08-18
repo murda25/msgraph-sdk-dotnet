@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ContentType : Entity, IParsable {
-        /// <summary>List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.</summary>
+        /// <summary>List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.</summary>
         public List<string> AssociatedHubsUrls {
             get { return BackingStore?.Get<List<string>>("associatedHubsUrls"); }
             set { BackingStore?.Set("associatedHubsUrls", value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ContentType>>("baseTypes"); }
             set { BackingStore?.Set("baseTypes", value); }
         }
-        /// <summary>The collection of columns that are required by this content type</summary>
+        /// <summary>The collection of columns that are required by this content type.</summary>
         public List<ColumnLink> ColumnLinks {
             get { return BackingStore?.Get<List<ColumnLink>>("columnLinks"); }
             set { BackingStore?.Set("columnLinks", value); }
@@ -91,12 +91,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("propagateChanges"); }
             set { BackingStore?.Set("propagateChanges", value); }
         }
-        /// <summary>If true, the content type cannot be modified unless this value is first set to false.</summary>
+        /// <summary>If true, the content type can&apos;t be modified unless this value is first set to false.</summary>
         public bool? ReadOnly {
             get { return BackingStore?.Get<bool?>("readOnly"); }
             set { BackingStore?.Set("readOnly", value); }
         }
-        /// <summary>If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.</summary>
+        /// <summary>If true, the content type can&apos;t be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.</summary>
         public bool? Sealed {
             get { return BackingStore?.Get<bool?>("sealed"); }
             set { BackingStore?.Set("sealed", value); }

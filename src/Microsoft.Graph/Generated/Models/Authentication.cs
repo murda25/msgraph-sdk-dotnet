@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Authentication : Entity, IParsable {
-        /// <summary>Represents the email addresses registered to a user for authentication.</summary>
+        /// <summary>The email address registered to a user for authentication.</summary>
         public List<EmailAuthenticationMethod> EmailMethods {
             get { return BackingStore?.Get<List<EmailAuthenticationMethod>>("emailMethods"); }
             set { BackingStore?.Set("emailMethods", value); }
@@ -25,22 +25,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<MicrosoftAuthenticatorAuthenticationMethod>>("microsoftAuthenticatorMethods"); }
             set { BackingStore?.Set("microsoftAuthenticatorMethods", value); }
         }
-        /// <summary>The operations property</summary>
+        /// <summary>Represents the status of a long-running operation.</summary>
         public List<LongRunningOperation> Operations {
             get { return BackingStore?.Get<List<LongRunningOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
-        /// <summary>Represents the details of the password authentication method registered to a user for authentication.</summary>
+        /// <summary>Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.</summary>
         public List<PasswordAuthenticationMethod> PasswordMethods {
             get { return BackingStore?.Get<List<PasswordAuthenticationMethod>>("passwordMethods"); }
             set { BackingStore?.Set("passwordMethods", value); }
         }
-        /// <summary>Represents the phone registered to a user for authentication.</summary>
+        /// <summary>The phone numbers registered to a user for authentication.</summary>
         public List<PhoneAuthenticationMethod> PhoneMethods {
             get { return BackingStore?.Get<List<PhoneAuthenticationMethod>>("phoneMethods"); }
             set { BackingStore?.Set("phoneMethods", value); }
         }
-        /// <summary>The softwareOathMethods property</summary>
+        /// <summary>The software OATH TOTP applications registered to a user for authentication.</summary>
         public List<SoftwareOathAuthenticationMethod> SoftwareOathMethods {
             get { return BackingStore?.Get<List<SoftwareOathAuthenticationMethod>>("softwareOathMethods"); }
             set { BackingStore?.Set("softwareOathMethods", value); }

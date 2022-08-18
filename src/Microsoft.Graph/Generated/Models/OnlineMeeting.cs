@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class OnlineMeeting : Entity, IParsable {
         /// <summary>Indicates whether attendees can turn on their camera.</summary>
         public bool? AllowAttendeeToEnableCamera {
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowAttendeeToEnableMic"); }
             set { BackingStore?.Set("allowAttendeeToEnableMic", value); }
         }
-        /// <summary>Specifies who can be a presenter in a meeting.</summary>
+        /// <summary>Specifies who can be a presenter in a meeting. Possible values are listed in the following table.</summary>
         public OnlineMeetingPresenters? AllowedPresenters {
             get { return BackingStore?.Get<OnlineMeetingPresenters?>("allowedPresenters"); }
             set { BackingStore?.Set("allowedPresenters", value); }
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<MeetingChatMode?>("allowMeetingChat"); }
             set { BackingStore?.Set("allowMeetingChat", value); }
         }
-        /// <summary>Indicates if Teams reactions are enabled for the meeting.</summary>
+        /// <summary>Indicates whether Teams reactions are enabled for the meeting.</summary>
         public bool? AllowTeamworkReactions {
             get { return BackingStore?.Get<bool?>("allowTeamworkReactions"); }
             set { BackingStore?.Set("allowTeamworkReactions", value); }
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<MeetingAttendanceReport>>("attendanceReports"); }
             set { BackingStore?.Set("attendanceReports", value); }
         }
-        /// <summary>The content stream of the attendee report of a Teams live event. Read-only.</summary>
+        /// <summary>The content stream of the attendee report of a Microsoft Teams live event. Read-only.</summary>
         public byte[] AttendeeReport {
             get { return BackingStore?.Get<byte[]>("attendeeReport"); }
             set { BackingStore?.Set("attendeeReport", value); }
@@ -66,12 +66,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>The external ID. A custom ID. Optional.</summary>
+        /// <summary>The externalId property</summary>
         public string ExternalId {
             get { return BackingStore?.Get<string>("externalId"); }
             set { BackingStore?.Set("externalId", value); }
         }
-        /// <summary>Indicates whether this is a Teams live event.</summary>
+        /// <summary>Indicates if this is a Teams live event.</summary>
         public bool? IsBroadcast {
             get { return BackingStore?.Get<bool?>("isBroadcast"); }
             set { BackingStore?.Set("isBroadcast", value); }
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isEntryExitAnnounced"); }
             set { BackingStore?.Set("isEntryExitAnnounced", value); }
         }
-        /// <summary>The join information in the language and locale variant specified in &apos;Accept-Language&apos; request HTTP header. Read-only.</summary>
+        /// <summary>The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only.</summary>
         public ItemBody JoinInformation {
             get { return BackingStore?.Get<ItemBody>("joinInformation"); }
             set { BackingStore?.Set("joinInformation", value); }
@@ -91,12 +91,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("joinWebUrl"); }
             set { BackingStore?.Set("joinWebUrl", value); }
         }
-        /// <summary>Specifies which participants can bypass the meeting lobby.</summary>
+        /// <summary>Specifies which participants can bypass the meeting   lobby.</summary>
         public Microsoft.Graph.Models.LobbyBypassSettings LobbyBypassSettings {
             get { return BackingStore?.Get<Microsoft.Graph.Models.LobbyBypassSettings>("lobbyBypassSettings"); }
             set { BackingStore?.Set("lobbyBypassSettings", value); }
         }
-        /// <summary>The participants associated with the online meeting. This includes the organizer and the attendees.</summary>
+        /// <summary>The participants associated with the online meeting.  This includes the organizer and the attendees.</summary>
         public MeetingParticipants Participants {
             get { return BackingStore?.Get<MeetingParticipants>("participants"); }
             set { BackingStore?.Set("participants", value); }

@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationAddToCalendarOptions?>("addToCalendarAction"); }
             set { BackingStore?.Set("addToCalendarAction", value); }
         }
-        /// <summary>Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.</summary>
+        /// <summary>Identifies whether students can submit after the due date. If this property isn&apos;t specified during create, it defaults to true.</summary>
         public bool? AllowLateSubmissions {
             get { return BackingStore?.Get<bool?>("allowLateSubmissions"); }
             set { BackingStore?.Set("allowLateSubmissions", value); }
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowStudentsToAddResourcesToSubmission"); }
             set { BackingStore?.Set("allowStudentsToAddResourcesToSubmission", value); }
         }
-        /// <summary>The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The date when the assignment should become active.  If in the future, the assignment isn&apos;t shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? AssignDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("assignDateTime"); }
             set { BackingStore?.Set("assignDateTime", value); }
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.</summary>
+        /// <summary>Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn&apos;t allowed after the assignment has been published.</summary>
         public string NotificationChannelUrl {
             get { return BackingStore?.Get<string>("notificationChannelUrl"); }
             set { BackingStore?.Set("notificationChannelUrl", value); }
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationRubric>("rubric"); }
             set { BackingStore?.Set("rubric", value); }
         }
-        /// <summary>Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.</summary>
+        /// <summary>Status of the Assignment.  You can&apos;t PATCH this value.  Possible values are: draft, scheduled, published, assigned.</summary>
         public EducationAssignmentStatus? Status {
             get { return BackingStore?.Get<EducationAssignmentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

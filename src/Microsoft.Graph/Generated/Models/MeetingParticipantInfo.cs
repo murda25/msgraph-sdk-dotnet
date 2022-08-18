@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Specifies the participant&apos;s role in the meeting.</summary>
+        /// <summary>Specifies the participant&apos;s role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.</summary>
         public OnlineMeetingRole? Role {
             get { return BackingStore?.Get<OnlineMeetingRole?>("role"); }
             set { BackingStore?.Set("role", value); }

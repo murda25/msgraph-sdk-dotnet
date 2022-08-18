@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ApiApplication>("api"); }
             set { BackingStore?.Set("api", value); }
         }
-        /// <summary>The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).</summary>
+        /// <summary>The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only. Supports $filter (eq).</summary>
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DirectoryObject>("createdOnBehalfOf"); }
             set { BackingStore?.Set("createdOnBehalfOf", value); }
         }
-        /// <summary>Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
+        /// <summary>Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<FederatedIdentityCredential>>("federatedIdentityCredentials"); }
             set { BackingStore?.Set("federatedIdentityCredentials", value); }
         }
-        /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).</summary>
+        /// <summary>Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).</summary>
         public string GroupMembershipClaims {
             get { return BackingStore?.Get<string>("groupMembershipClaims"); }
             set { BackingStore?.Set("groupMembershipClaims", value); }
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("identifierUris"); }
             set { BackingStore?.Set("identifierUris", value); }
         }
-        /// <summary>Basic profile information of the application, such as it&apos;s marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
+        /// <summary>Basic profile information of the application such as  app&apos;s marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
         public InformationalUrl Info {
             get { return BackingStore?.Get<InformationalUrl>("info"); }
             set { BackingStore?.Set("info", value); }
@@ -96,7 +96,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isDeviceOnlyAuthSupported"); }
             set { BackingStore?.Set("isDeviceOnlyAuthSupported", value); }
         }
-        /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.</summary>
+        /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.</summary>
         public bool? IsFallbackPublicClient {
             get { return BackingStore?.Get<bool?>("isFallbackPublicClient"); }
             set { BackingStore?.Set("isFallbackPublicClient", value); }
@@ -146,7 +146,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PublicClientApplication>("publicClient"); }
             set { BackingStore?.Set("publicClient", value); }
         }
-        /// <summary>The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).</summary>
+        /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application&apos;s publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public string PublisherDomain {
             get { return BackingStore?.Get<string>("publisherDomain"); }
             set { BackingStore?.Set("publisherDomain", value); }
@@ -176,7 +176,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SpaApplication>("spa"); }
             set { BackingStore?.Set("spa", value); }
         }
-        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).</summary>
+        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> Tags {
             get { return BackingStore?.Get<List<string>>("tags"); }
             set { BackingStore?.Set("tags", value); }
@@ -191,7 +191,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<TokenIssuancePolicy>>("tokenIssuancePolicies"); }
             set { BackingStore?.Set("tokenIssuancePolicies", value); }
         }
-        /// <summary>The tokenLifetimePolicies assigned to this application. Supports $expand.</summary>
+        /// <summary>The tokenLifetimePolicies property</summary>
         public List<TokenLifetimePolicy> TokenLifetimePolicies {
             get { return BackingStore?.Get<List<TokenLifetimePolicy>>("tokenLifetimePolicies"); }
             set { BackingStore?.Set("tokenLifetimePolicies", value); }

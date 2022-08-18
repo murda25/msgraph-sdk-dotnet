@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("builtInControls"); }
             set { BackingStore?.Set("builtInControls", value); }
         }
-        /// <summary>List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).</summary>
+        /// <summary>List of custom controls IDs required by the policy. For more information, see Custom controls.</summary>
         public List<string> CustomAuthenticationFactors {
             get { return BackingStore?.Get<List<string>>("customAuthenticationFactors"); }
             set { BackingStore?.Set("customAuthenticationFactors", value); }

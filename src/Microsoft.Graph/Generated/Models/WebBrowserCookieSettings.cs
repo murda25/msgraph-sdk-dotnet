@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public enum WebBrowserCookieSettings {
         /// <summary>Browser default value, no intent.</summary>
         BrowserDefault,

@@ -4,29 +4,29 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to endpoint.</summary>
+    /// <summary>Provides operations to call the instantiate method.</summary>
     public class Endpoint : DirectoryObject, IParsable {
-        /// <summary>Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.</summary>
+        /// <summary>The capability property</summary>
         public string Capability {
             get { return BackingStore?.Get<string>("capability"); }
             set { BackingStore?.Set("capability", value); }
         }
-        /// <summary>Application id of the publishing underlying service. Not nullable. Read-only.</summary>
+        /// <summary>The providerId property</summary>
         public string ProviderId {
             get { return BackingStore?.Get<string>("providerId"); }
             set { BackingStore?.Set("providerId", value); }
         }
-        /// <summary>Name of the publishing underlying service. Read-only.</summary>
+        /// <summary>The providerName property</summary>
         public string ProviderName {
             get { return BackingStore?.Get<string>("providerName"); }
             set { BackingStore?.Set("providerName", value); }
         }
-        /// <summary>For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.</summary>
+        /// <summary>The providerResourceId property</summary>
         public string ProviderResourceId {
             get { return BackingStore?.Get<string>("providerResourceId"); }
             set { BackingStore?.Set("providerResourceId", value); }
         }
-        /// <summary>URL of the published resource. Not nullable. Read-only.</summary>
+        /// <summary>The uri property</summary>
         public string Uri {
             get { return BackingStore?.Get<string>("uri"); }
             set { BackingStore?.Set("uri", value); }

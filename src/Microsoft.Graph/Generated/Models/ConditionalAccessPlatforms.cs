@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.</summary>
+        /// <summary>Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.</summary>
         public List<string> ExcludePlatforms {
             get { return BackingStore?.Get<List<string>>("excludePlatforms"); }
             set { BackingStore?.Set("excludePlatforms", value); }
         }
-        /// <summary>Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.</summary>
+        /// <summary>Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.</summary>
         public List<string> IncludePlatforms {
             get { return BackingStore?.Get<List<string>>("includePlatforms"); }
             set { BackingStore?.Set("includePlatforms", value); }

@@ -10,12 +10,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ManagedMobileApp>>("apps"); }
             set { BackingStore?.Set("apps", value); }
         }
-        /// <summary>Friendly name of the preferred custom browser to open weblink on Android.</summary>
+        /// <summary>Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
         public string CustomBrowserDisplayName {
             get { return BackingStore?.Get<string>("customBrowserDisplayName"); }
             set { BackingStore?.Set("customBrowserDisplayName", value); }
         }
-        /// <summary>Unique identifier of a custom browser to open weblink on Android.</summary>
+        /// <summary>Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
         public string CustomBrowserPackageId {
             get { return BackingStore?.Get<string>("customBrowserPackageId"); }
             set { BackingStore?.Set("customBrowserPackageId", value); }

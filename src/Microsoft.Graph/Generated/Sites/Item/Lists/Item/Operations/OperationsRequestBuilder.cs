@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Operations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of long running operations for the list.
+        /// The collection of long-running operations on the list.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<OperationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of long running operations for the list.
+        /// The collection of long-running operations on the list.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Operations {
             };
             return await RequestAdapter.SendAsync<RichLongRunningOperation>(requestInfo, RichLongRunningOperation.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The collection of long running operations for the list.</summary>
+        /// <summary>The collection of long-running operations on the list.</summary>
         public class OperationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The name of the content source which the externalItem is part of .</summary>
+        /// <summary>The name of the content source that the externalItem is part of.</summary>
         public string ContentSource {
             get { return BackingStore?.Get<string>("contentSource"); }
             set { BackingStore?.Set("contentSource", value); }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Entity>("resource"); }
             set { BackingStore?.Set("resource", value); }
         }
-        /// <summary>ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.</summary>
+        /// <summary>ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.</summary>
         public string ResultTemplateId {
             get { return BackingStore?.Get<string>("resultTemplateId"); }
             set { BackingStore?.Set("resultTemplateId", value); }

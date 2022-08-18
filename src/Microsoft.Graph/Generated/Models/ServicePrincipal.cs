@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to servicePrincipal.</summary>
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled {
@@ -41,12 +40,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("applicationTemplateId"); }
             set { BackingStore?.Set("applicationTemplateId", value); }
         }
-        /// <summary>Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.Supports $filter (eq, ne, NOT, ge, le).</summary>
+        /// <summary>Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).</summary>
         public string AppOwnerOrganizationId {
             get { return BackingStore?.Get<string>("appOwnerOrganizationId"); }
             set { BackingStore?.Set("appOwnerOrganizationId", value); }
         }
-        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.</summary>
+        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
         public List<AppRoleAssignment> AppRoleAssignedTo {
             get { return BackingStore?.Get<List<AppRoleAssignment>>("appRoleAssignedTo"); }
             set { BackingStore?.Set("appRoleAssignedTo", value); }
@@ -76,7 +75,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>("createdObjects"); }
             set { BackingStore?.Set("createdObjects", value); }
         }
-        /// <summary>The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.</summary>
+        /// <summary>The delegatedPermissionClassifications property</summary>
         public List<DelegatedPermissionClassification> DelegatedPermissionClassifications {
             get { return BackingStore?.Get<List<DelegatedPermissionClassification>>("delegatedPermissionClassifications"); }
             set { BackingStore?.Set("delegatedPermissionClassifications", value); }
@@ -96,7 +95,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.</summary>
+        /// <summary>The endpoints property</summary>
         public List<Endpoint> Endpoints {
             get { return BackingStore?.Get<List<Endpoint>>("endpoints"); }
             set { BackingStore?.Set("endpoints", value); }
@@ -171,7 +170,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>("owners"); }
             set { BackingStore?.Set("owners", value); }
         }
-        /// <summary>The collection of password credentials associated with the service principal. Not nullable.</summary>
+        /// <summary>The collection of password credentials associated with the application. Not nullable.</summary>
         public List<PasswordCredential> PasswordCredentials {
             get { return BackingStore?.Get<List<PasswordCredential>>("passwordCredentials"); }
             set { BackingStore?.Set("passwordCredentials", value); }
@@ -181,7 +180,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("preferredSingleSignOnMode"); }
             set { BackingStore?.Set("preferredSingleSignOnMode", value); }
         }
-        /// <summary>Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.</summary>
+        /// <summary>The preferredTokenSigningKeyThumbprint property</summary>
         public string PreferredTokenSigningKeyThumbprint {
             get { return BackingStore?.Get<string>("preferredTokenSigningKeyThumbprint"); }
             set { BackingStore?.Set("preferredTokenSigningKeyThumbprint", value); }
@@ -206,7 +205,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("servicePrincipalNames"); }
             set { BackingStore?.Set("servicePrincipalNames", value); }
         }
-        /// <summary>Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.</summary>
+        /// <summary>Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.</summary>
         public string ServicePrincipalType {
             get { return BackingStore?.Get<string>("servicePrincipalType"); }
             set { BackingStore?.Set("servicePrincipalType", value); }
@@ -226,12 +225,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("tokenEncryptionKeyId"); }
             set { BackingStore?.Set("tokenEncryptionKeyId", value); }
         }
-        /// <summary>The tokenIssuancePolicies assigned to this service principal. Supports $expand.</summary>
+        /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
         public List<TokenIssuancePolicy> TokenIssuancePolicies {
             get { return BackingStore?.Get<List<TokenIssuancePolicy>>("tokenIssuancePolicies"); }
             set { BackingStore?.Set("tokenIssuancePolicies", value); }
         }
-        /// <summary>The tokenLifetimePolicies assigned to this service principal. Supports $expand.</summary>
+        /// <summary>The tokenLifetimePolicies assigned to this service principal.</summary>
         public List<TokenLifetimePolicy> TokenLifetimePolicies {
             get { return BackingStore?.Get<List<TokenLifetimePolicy>>("tokenLifetimePolicies"); }
             set { BackingStore?.Set("tokenLifetimePolicies", value); }

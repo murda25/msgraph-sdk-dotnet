@@ -41,12 +41,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PublicError>("error"); }
             set { BackingStore?.Set("error", value); }
         }
-        /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
+        /// <summary>The externalColumns property</summary>
         public List<ColumnDefinition> ExternalColumns {
             get { return BackingStore?.Get<List<ColumnDefinition>>("externalColumns"); }
             set { BackingStore?.Set("externalColumns", value); }
         }
-        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
         public List<BaseItem> Items {
             get { return BackingStore?.Get<List<BaseItem>>("items"); }
             set { BackingStore?.Set("items", value); }
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>("onenote"); }
             set { BackingStore?.Set("onenote", value); }
         }
-        /// <summary>The collection of long running operations for the site.</summary>
+        /// <summary>The collection of long-running operations on the site.</summary>
         public List<RichLongRunningOperation> Operations {
             get { return BackingStore?.Get<List<RichLongRunningOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Site>>("sites"); }
             set { BackingStore?.Set("sites", value); }
         }
-        /// <summary>The termStore under this site.</summary>
+        /// <summary>The default termStore under this site.</summary>
         public Store TermStore {
             get { return BackingStore?.Get<Store>("termStore"); }
             set { BackingStore?.Set("termStore", value); }

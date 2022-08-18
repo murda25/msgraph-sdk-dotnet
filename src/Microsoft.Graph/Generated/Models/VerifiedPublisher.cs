@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The verified publisher name from the app publisher&apos;s Microsoft Partner Network (MPN) account.</summary>
+        /// <summary>The verified publisher name from the app publisher&apos;s Partner Center account.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }

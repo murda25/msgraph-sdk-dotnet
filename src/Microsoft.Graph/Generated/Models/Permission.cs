@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Permission : Entity, IParsable {
         /// <summary>A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.</summary>
         public DateTimeOffset? ExpirationDateTime {
@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SharePointIdentitySet>("grantedToV2"); }
             set { BackingStore?.Set("grantedToV2", value); }
         }
-        /// <summary>Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.</summary>
+        /// <summary>Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..</summary>
         public bool? HasPassword {
             get { return BackingStore?.Get<bool?>("hasPassword"); }
             set { BackingStore?.Set("hasPassword", value); }
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("roles"); }
             set { BackingStore?.Set("roles", value); }
         }
-        /// <summary>A unique token that can be used to access this shared item via the [shares API][]. Read-only.</summary>
+        /// <summary>A unique token that can be used to access this shared item via the **shares** API. Read-only.</summary>
         public string ShareId {
             get { return BackingStore?.Get<string>("shareId"); }
             set { BackingStore?.Set("shareId", value); }

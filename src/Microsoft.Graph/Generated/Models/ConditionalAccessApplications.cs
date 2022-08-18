@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("includeApplications"); }
             set { BackingStore?.Set("includeApplications", value); }
         }
-        /// <summary>Authentication context class references include. Supported values are c1 through c25.</summary>
+        /// <summary>The includeAuthenticationContextClassReferences property</summary>
         public List<string> IncludeAuthenticationContextClassReferences {
             get { return BackingStore?.Get<List<string>>("includeAuthenticationContextClassReferences"); }
             set { BackingStore?.Set("includeAuthenticationContextClassReferences", value); }

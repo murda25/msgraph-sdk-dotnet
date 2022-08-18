@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents entry point for B2X and self-service sign-up identity userflows.
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<B2xUserFlowsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for B2X and self-service sign-up identity userflows.
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows {
             };
             return await RequestAdapter.SendAsync<B2xIdentityUserFlow>(requestInfo, B2xIdentityUserFlow.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents entry point for B2X and self-service sign-up identity userflows.</summary>
+        /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
         public class B2xUserFlowsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

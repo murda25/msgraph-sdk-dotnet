@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationUser : Entity, IParsable {
-        /// <summary>True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter.</summary>
+        /// <summary>True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.</summary>
         public bool? AccountEnabled {
             get { return BackingStore?.Get<bool?>("accountEnabled"); }
             set { BackingStore?.Set("accountEnabled", value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AssignedPlan>>("assignedPlans"); }
             set { BackingStore?.Set("assignedPlans", value); }
         }
-        /// <summary>List of assignments for the user. Nullable.</summary>
+        /// <summary>Assignments belonging to the user.</summary>
         public List<EducationAssignment> Assignments {
             get { return BackingStore?.Get<List<EducationAssignment>>("assignments"); }
             set { BackingStore?.Set("assignments", value); }
@@ -36,52 +36,52 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<EducationClass>>("classes"); }
             set { BackingStore?.Set("classes", value); }
         }
-        /// <summary>Entity who created the user.</summary>
+        /// <summary>The entity who created the user.</summary>
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
-        /// <summary>The name for the department in which the user works. Supports /$filter.</summary>
+        /// <summary>The name for the department in which the user works. Supports $filter.</summary>
         public string Department {
             get { return BackingStore?.Get<string>("department"); }
             set { BackingStore?.Set("department", value); }
         }
-        /// <summary>The name displayed in the address book for the user. Supports $filter and $orderby.</summary>
+        /// <summary>The name displayed in the address book for the user. This is usually the combination of the user&apos;s first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.</summary>
+        /// <summary>Where this user was created from. Possible values are: sis, manual.</summary>
         public EducationExternalSource? ExternalSource {
             get { return BackingStore?.Get<EducationExternalSource?>("externalSource"); }
             set { BackingStore?.Set("externalSource", value); }
         }
-        /// <summary>The name of the external source this resources was generated from.</summary>
+        /// <summary>The name of the external source this resource was generated from.</summary>
         public string ExternalSourceDetail {
             get { return BackingStore?.Get<string>("externalSourceDetail"); }
             set { BackingStore?.Set("externalSourceDetail", value); }
         }
-        /// <summary>The given name (first name) of the user. Supports /$filter.</summary>
+        /// <summary>The given name (first name) of the user. Supports $filter.</summary>
         public string GivenName {
             get { return BackingStore?.Get<string>("givenName"); }
             set { BackingStore?.Set("givenName", value); }
         }
-        /// <summary>The SMTP address for the user; for example, &apos;jeff@contoso.onmicrosoft.com&apos;. Read-Only. Supports /$filter.</summary>
+        /// <summary>The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Read-Only. Supports $filter.</summary>
         public string Mail {
             get { return BackingStore?.Get<string>("mail"); }
             set { BackingStore?.Set("mail", value); }
         }
-        /// <summary>Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources.</summary>
+        /// <summary>The mail address of the user.</summary>
         public PhysicalAddress MailingAddress {
             get { return BackingStore?.Get<PhysicalAddress>("mailingAddress"); }
             set { BackingStore?.Set("mailingAddress", value); }
         }
-        /// <summary>The mail alias for the user. This property must be specified when a user is created. Supports /$filter.</summary>
+        /// <summary>The mail alias for the user. This property must be specified when a user is created. Supports $filter.</summary>
         public string MailNickname {
             get { return BackingStore?.Get<string>("mailNickname"); }
             set { BackingStore?.Set("mailNickname", value); }
         }
-        /// <summary>The middle name of user.</summary>
+        /// <summary>The middle name of the user.</summary>
         public string MiddleName {
             get { return BackingStore?.Get<string>("middleName"); }
             set { BackingStore?.Set("middleName", value); }
@@ -96,22 +96,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("officeLocation"); }
             set { BackingStore?.Set("officeLocation", value); }
         }
-        /// <summary>Additional information used to associate the AAD user with it&apos;s Active Directory counterpart.</summary>
+        /// <summary>Additional information used to associate the Azure Active Directory user with its Active Directory counterpart.</summary>
         public EducationOnPremisesInfo OnPremisesInfo {
             get { return BackingStore?.Get<EducationOnPremisesInfo>("onPremisesInfo"); }
             set { BackingStore?.Set("onPremisesInfo", value); }
         }
-        /// <summary>Specifies password policies for the user. See standard [user] resource for additional details.</summary>
+        /// <summary>Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two can be specified together; for example: DisablePasswordExpiration, DisableStrongPassword.</summary>
         public string PasswordPolicies {
             get { return BackingStore?.Get<string>("passwordPolicies"); }
             set { BackingStore?.Set("passwordPolicies", value); }
         }
-        /// <summary>Specifies the password profile for the user. The profile contains the user&apos;s password. This property is required when a user is created. See standard [user] resource for additional details.</summary>
+        /// <summary>Specifies the password profile for the user. The profile contains the user&apos;s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required.</summary>
         public Microsoft.Graph.Models.PasswordProfile PasswordProfile {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PasswordProfile>("passwordProfile"); }
             set { BackingStore?.Set("passwordProfile", value); }
         }
-        /// <summary>The preferred language for the user. Should follow ISO 639-1 Code; for example, &apos;en-US&apos;.</summary>
+        /// <summary>The preferred language for the user that should follow the ISO 639-1 code, for example, en-US.</summary>
         public string PreferredLanguage {
             get { return BackingStore?.Get<string>("preferredLanguage"); }
             set { BackingStore?.Set("preferredLanguage", value); }
@@ -131,12 +131,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("refreshTokensValidFromDateTime"); }
             set { BackingStore?.Set("refreshTokensValidFromDateTime", value); }
         }
-        /// <summary>Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue</summary>
+        /// <summary>Related records associated with the user. Read-only.</summary>
         public List<RelatedContact> RelatedContacts {
             get { return BackingStore?.Get<List<RelatedContact>>("relatedContacts"); }
             set { BackingStore?.Set("relatedContacts", value); }
         }
-        /// <summary>Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources.</summary>
+        /// <summary>The address where the user lives.</summary>
         public PhysicalAddress ResidenceAddress {
             get { return BackingStore?.Get<PhysicalAddress>("residenceAddress"); }
             set { BackingStore?.Set("residenceAddress", value); }
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationStudent>("student"); }
             set { BackingStore?.Set("student", value); }
         }
-        /// <summary>The user&apos;s surname (family name or last name). Supports /$filter.</summary>
+        /// <summary>The user&apos;s surname (family name or last name). Supports $filter.</summary>
         public string Surname {
             get { return BackingStore?.Get<string>("surname"); }
             set { BackingStore?.Set("surname", value); }
@@ -176,7 +176,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationTeacher>("teacher"); }
             set { BackingStore?.Set("teacher", value); }
         }
-        /// <summary>A two-letter country code ([ISO 3166 Alpha-2]). Required for users who will be assigned licenses. Not nullable. Supports /$filter.</summary>
+        /// <summary>A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: US, JP, and GB. Not nullable. Supports $filter.</summary>
         public string UsageLocation {
             get { return BackingStore?.Get<string>("usageLocation"); }
             set { BackingStore?.Set("usageLocation", value); }
@@ -186,12 +186,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.User>("user"); }
             set { BackingStore?.Set("user", value); }
         }
-        /// <summary>The user principal name (UPN) for the user. Supports $filter and $orderby. See standard [user] resource for additional details.</summary>
+        /// <summary>The user principal name (UPN) of the user. The UPN is an internet-style login name for the user based on the internet standard RFC 822. By convention, this should map to the user&apos;s email name. The general format is alias@domain, where domain must be present in the tenant&apos;s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of the organization. Supports $filter and $orderby.</summary>
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
         }
-        /// <summary>A string value that can be used to classify user types in your directory, such as &apos;Member&apos; and &apos;Guest&apos;. Supports /$filter.</summary>
+        /// <summary>A string value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter.</summary>
         public string UserType {
             get { return BackingStore?.Get<string>("userType"); }
             set { BackingStore?.Set("userType", value); }

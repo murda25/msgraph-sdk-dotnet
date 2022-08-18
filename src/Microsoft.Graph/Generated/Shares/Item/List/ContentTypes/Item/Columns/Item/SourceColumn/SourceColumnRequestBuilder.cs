@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Shares.Item.List.ContentTypes.Item.Columns.Item.Source
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The source column for content type column.
+        /// The source column for the content type column.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SourceColumnRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Shares.Item.List.ContentTypes.Item.Columns.Item.Source
             return requestInfo;
         }
         /// <summary>
-        /// The source column for content type column.
+        /// The source column for the content type column.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Shares.Item.List.ContentTypes.Item.Columns.Item.Source
             };
             return await RequestAdapter.SendAsync<ColumnDefinition>(requestInfo, ColumnDefinition.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The source column for content type column.</summary>
+        /// <summary>The source column for the content type column.</summary>
         public class SourceColumnRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

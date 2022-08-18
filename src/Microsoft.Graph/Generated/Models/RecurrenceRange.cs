@@ -39,7 +39,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Date?>("startDate"); }
             set { BackingStore?.Set("startDate", value); }
         }
-        /// <summary>The recurrence range. Possible values are: endDate, noEnd, numbered. Required.</summary>
+        /// <summary>The recurrence range. The possible values are: endDate, noEnd, numbered. Required.</summary>
         public RecurrenceRangeType? Type {
             get { return BackingStore?.Get<RecurrenceRangeType?>("type"); }
             set { BackingStore?.Set("type", value); }

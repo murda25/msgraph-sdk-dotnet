@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicies {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents the role management policies.
+        /// Specifies the various policies associated with scopes and roles.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<RoleManagementPoliciesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the role management policies.
+        /// Specifies the various policies associated with scopes and roles.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicies {
             };
             return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicy>(requestInfo, UnifiedRoleManagementPolicy.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents the role management policies.</summary>
+        /// <summary>Specifies the various policies associated with scopes and roles.</summary>
         public class RoleManagementPoliciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

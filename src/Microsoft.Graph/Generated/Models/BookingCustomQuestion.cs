@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("answerOptions"); }
             set { BackingStore?.Set("answerOptions", value); }
         }
-        /// <summary>Display name of this entity.</summary>
+        /// <summary>The question.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }

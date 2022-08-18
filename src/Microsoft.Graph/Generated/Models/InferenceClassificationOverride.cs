@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class InferenceClassificationOverride : Entity, IParsable {
-        /// <summary>Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.</summary>
+        /// <summary>Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.</summary>
         public InferenceClassificationType? ClassifyAs {
             get { return BackingStore?.Get<InferenceClassificationType?>("classifyAs"); }
             set { BackingStore?.Set("classifyAs", value); }

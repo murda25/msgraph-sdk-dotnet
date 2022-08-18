@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<TeamworkUserIdentity>>("members"); }
             set { BackingStore?.Set("members", value); }
         }
-        /// <summary>The timestamp denoting how far back a conversation&apos;s history is shared with the conversation members.</summary>
+        /// <summary>The timestamp that denotes how far back a conversation&apos;s history is shared with the conversation members.</summary>
         public DateTimeOffset? VisibleHistoryStartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("visibleHistoryStartDateTime"); }
             set { BackingStore?.Set("visibleHistoryStartDateTime", value); }

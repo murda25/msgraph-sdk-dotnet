@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("defaultDecisionEnabled"); }
             set { BackingStore?.Set("defaultDecisionEnabled", value); }
         }
-        /// <summary>Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.</summary>
+        /// <summary>Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.</summary>
         public int? InstanceDurationInDays {
             get { return BackingStore?.Get<int?>("instanceDurationInDays"); }
             set { BackingStore?.Set("instanceDurationInDays", value); }

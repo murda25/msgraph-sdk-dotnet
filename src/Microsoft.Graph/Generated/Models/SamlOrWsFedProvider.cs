@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("passiveSignInUri"); }
             set { BackingStore?.Set("passiveSignInUri", value); }
         }
-        /// <summary>Preferred authentication protocol. Supported values include saml or wsfed.</summary>
+        /// <summary>Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.</summary>
         public AuthenticationProtocol? PreferredAuthenticationProtocol {
             get { return BackingStore?.Get<AuthenticationProtocol?>("preferredAuthenticationProtocol"); }
             set { BackingStore?.Set("preferredAuthenticationProtocol", value); }

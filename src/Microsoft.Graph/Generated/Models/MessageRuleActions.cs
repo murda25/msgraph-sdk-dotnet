@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("permanentDelete"); }
             set { BackingStore?.Set("permanentDelete", value); }
         }
-        /// <summary>The email address to which a message should be redirected.</summary>
+        /// <summary>The email addresses to which a message should be redirected.</summary>
         public List<Recipient> RedirectTo {
             get { return BackingStore?.Get<List<Recipient>>("redirectTo"); }
             set { BackingStore?.Set("redirectTo", value); }

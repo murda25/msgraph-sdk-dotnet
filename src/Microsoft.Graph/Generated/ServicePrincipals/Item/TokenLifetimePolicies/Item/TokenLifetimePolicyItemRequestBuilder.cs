@@ -45,7 +45,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+        /// The tokenLifetimePolicies assigned to this service principal.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+        /// The tokenLifetimePolicies assigned to this service principal.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             };
             return await RequestAdapter.SendAsync<TokenLifetimePolicy>(requestInfo, TokenLifetimePolicy.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The tokenLifetimePolicies assigned to this service principal. Supports $expand.</summary>
+        /// <summary>The tokenLifetimePolicies assigned to this service principal.</summary>
         public class TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

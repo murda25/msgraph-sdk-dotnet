@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Conversation : Entity, IParsable {
         /// <summary>Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.</summary>
         public bool? HasAttachments {
             get { return BackingStore?.Get<bool?>("hasAttachments"); }
             set { BackingStore?.Set("hasAttachments", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? LastDeliveredDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastDeliveredDateTime"); }
             set { BackingStore?.Set("lastDeliveredDateTime", value); }
         }
-        /// <summary>A short summary from the body of the latest post in this conversation.</summary>
+        /// <summary>A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).</summary>
         public string Preview {
             get { return BackingStore?.Get<string>("preview"); }
             set { BackingStore?.Set("preview", value); }

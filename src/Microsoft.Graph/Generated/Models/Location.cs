@@ -34,7 +34,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("locationEmailAddress"); }
             set { BackingStore?.Set("locationEmailAddress", value); }
         }
-        /// <summary>The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.</summary>
+        /// <summary>The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.</summary>
         public Microsoft.Graph.Models.LocationType? LocationType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.LocationType?>("locationType"); }
             set { BackingStore?.Set("locationType", value); }

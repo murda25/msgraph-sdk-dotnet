@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Json>("values"); }
             set { BackingStore?.Set("values", value); }
         }
-        /// <summary>Represents the type of data of each cell. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.</summary>
+        /// <summary>Represents the type of data of each cell. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.</summary>
         public Json ValueTypes {
             get { return BackingStore?.Get<Json>("valueTypes"); }
             set { BackingStore?.Set("valueTypes", value); }

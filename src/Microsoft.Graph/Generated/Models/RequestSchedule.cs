@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>In entitlement management, when the access should expire.</summary>
+        /// <summary>When the eligible or active assignment expires.</summary>
         public ExpirationPattern Expiration {
             get { return BackingStore?.Get<ExpirationPattern>("expiration"); }
             set { BackingStore?.Set("expiration", value); }
@@ -23,12 +23,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.</summary>
+        /// <summary>The frequency of the  eligible or active assignment. This property is currently unsupported in PIM.</summary>
         public PatternedRecurrence Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence>("recurrence"); }
             set { BackingStore?.Set("recurrence", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.</summary>
+        /// <summary>When the  eligible or active assignment becomes active.</summary>
         public DateTimeOffset? StartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }

@@ -73,7 +73,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             return requestInfo;
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// References to a directory or domain of another organization whose users can request access.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ConnectedOrganizationItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents references to a directory or domain of another organization whose users can request access.
+        /// References to a directory or domain of another organization whose users can request access.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -171,7 +171,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
+        /// <summary>References to a directory or domain of another organization whose users can request access.</summary>
         public class ConnectedOrganizationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

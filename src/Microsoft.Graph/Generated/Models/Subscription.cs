@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Subscription : Entity, IParsable {
         /// <summary>Optional. Identifier of the application used to create the subscription. Read-only.</summary>
         public string ApplicationId {
@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("changeType"); }
             set { BackingStore?.Set("changeType", value); }
         }
-        /// <summary>Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.</summary>
+        /// <summary>Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.</summary>
         public string ClientState {
             get { return BackingStore?.Get<string>("clientState"); }
             set { BackingStore?.Set("clientState", value); }
         }
-        /// <summary>Optional. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.</summary>
+        /// <summary>Optional. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.</summary>
         public string CreatorId {
             get { return BackingStore?.Get<string>("creatorId"); }
             set { BackingStore?.Set("creatorId", value); }
@@ -31,7 +31,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("encryptionCertificate"); }
             set { BackingStore?.Set("encryptionCertificate", value); }
         }
-        /// <summary>Optional. A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Required when includeResourceData is true.</summary>
+        /// <summary>Optional. A custom app-provided identifier to help identify the certificate needed to decrypt resource data.</summary>
         public string EncryptionCertificateId {
             get { return BackingStore?.Get<string>("encryptionCertificateId"); }
             set { BackingStore?.Set("encryptionCertificateId", value); }
@@ -56,12 +56,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("lifecycleNotificationUrl"); }
             set { BackingStore?.Set("lifecycleNotificationUrl", value); }
         }
-        /// <summary>Optional.  OData query options for specifying the value for the targeting resource. Clients receive notifications when the resource reaches the state matching the query options provided here. With this new property in the subscription creation payload along with all existing properties, Webhooks will deliver notifications whenever a resource reaches the desired state mentioned in the notificationQueryOptions property. For example, when the print job is completed or when a print job resource isFetchable property value becomes true etc.</summary>
+        /// <summary>Optional. OData query options for specifying value for the targeting resource. Clients receive notifications when resource reaches the state matching the query options provided here. With this new property in the subscription creation payload along with all existing properties, Webhooks will deliver notifications whenever a resource reaches the desired state mentioned in the notificationQueryOptions property. For example, when the print job is completed or when a print job resource isFetchable property value becomes true etc.</summary>
         public string NotificationQueryOptions {
             get { return BackingStore?.Get<string>("notificationQueryOptions"); }
             set { BackingStore?.Set("notificationQueryOptions", value); }
         }
-        /// <summary>Required. The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol.</summary>
+        /// <summary>Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.</summary>
         public string NotificationUrl {
             get { return BackingStore?.Get<string>("notificationUrl"); }
             set { BackingStore?.Set("notificationUrl", value); }
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("notificationUrlAppId"); }
             set { BackingStore?.Set("notificationUrlAppId", value); }
         }
-        /// <summary>Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource.</summary>
+        /// <summary>Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.</summary>
         public string Resource {
             get { return BackingStore?.Get<string>("resource"); }
             set { BackingStore?.Set("resource", value); }

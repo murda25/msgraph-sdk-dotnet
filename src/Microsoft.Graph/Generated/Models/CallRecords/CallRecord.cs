@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<List<Session>>("sessions"); }
             set { BackingStore?.Set("sessions", value); }
         }
-        /// <summary>UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? StartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<CallType?>("type"); }
             set { BackingStore?.Set("type", value); }
         }
-        /// <summary>Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.</summary>
+        /// <summary>Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.</summary>
         public long? Version {
             get { return BackingStore?.Get<long?>("version"); }
             set { BackingStore?.Set("version", value); }

@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group&apos;s profile photo.
+        /// The group&apos;s profile photo
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PhotoRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -123,7 +123,7 @@ namespace Microsoft.Graph.Groups.Item.Photo {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The group&apos;s profile photo.
+        /// The group&apos;s profile photo
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.Groups.Item.Photo {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The group&apos;s profile photo.</summary>
+        /// <summary>The group&apos;s profile photo</summary>
         public class PhotoRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>
             [QueryParameter("%24select")]

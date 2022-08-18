@@ -73,7 +73,7 @@ namespace Microsoft.Graph.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The termStore under this site.
+        /// The default termStore under this site.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TermStoreRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Sites.Item.TermStore {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The termStore under this site.
+        /// The default termStore under this site.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -171,7 +171,7 @@ namespace Microsoft.Graph.Sites.Item.TermStore {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The termStore under this site.</summary>
+        /// <summary>The default termStore under this site.</summary>
         public class TermStoreRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

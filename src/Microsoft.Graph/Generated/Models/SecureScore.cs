@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class SecureScore : Entity, IParsable {
         /// <summary>Active user count of the given tenant.</summary>
         public int? ActiveUserCount {
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<double?>("currentScore"); }
             set { BackingStore?.Set("currentScore", value); }
         }
-        /// <summary>Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).</summary>
+        /// <summary>Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).</summary>
         public List<string> EnabledServices {
             get { return BackingStore?.Get<List<string>>("enabledServices"); }
             set { BackingStore?.Set("enabledServices", value); }

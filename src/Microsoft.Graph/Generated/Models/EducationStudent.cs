@@ -24,7 +24,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("externalId"); }
             set { BackingStore?.Set("externalId", value); }
         }
-        /// <summary>Possible values are: female, male, other.</summary>
+        /// <summary>The possible values are: female, male, other, unknownFutureValue.</summary>
         public EducationGender? Gender {
             get { return BackingStore?.Get<EducationGender?>("gender"); }
             set { BackingStore?.Set("gender", value); }

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class DirectoryAudit : Entity, IParsable {
         /// <summary>Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ActivityDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("activityDateTime"); }
             set { BackingStore?.Set("activityDateTime", value); }
         }
-        /// <summary>Indicates the activity name or the operation name (E.g. &apos;Create User&apos;, &apos;Add member to group&apos;). For a list of activities logged, refer to Azure Ad activity list.</summary>
+        /// <summary>Indicates the activity name or the operation name (examples: &apos;Create User&apos; and &apos;Add member to group&apos;). For full list, see Azure AD activity list.</summary>
         public string ActivityDisplayName {
             get { return BackingStore?.Get<string>("activityDisplayName"); }
             set { BackingStore?.Set("activityDisplayName", value); }
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("resultReason"); }
             set { BackingStore?.Set("resultReason", value); }
         }
-        /// <summary>Information about the resource that changed due to the activity.</summary>
+        /// <summary>Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.</summary>
         public List<TargetResource> TargetResources {
             get { return BackingStore?.Get<List<TargetResource>>("targetResources"); }
             set { BackingStore?.Set("targetResources", value); }

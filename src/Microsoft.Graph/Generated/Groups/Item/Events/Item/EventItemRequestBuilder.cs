@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The group&apos;s events.
+        /// The group&apos;s calendar events.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<EventItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -183,7 +183,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The group&apos;s events.
+        /// The group&apos;s calendar events.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -226,7 +226,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The group&apos;s events.</summary>
+        /// <summary>The group&apos;s calendar events.</summary>
         public class EventItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>
             [QueryParameter("%24select")]

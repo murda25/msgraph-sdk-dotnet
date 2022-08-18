@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Name of property that was modified.</summary>
+        /// <summary>Indicates the property name of the target attribute that was changed.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>New property value.</summary>
+        /// <summary>Indicates the updated value for the propery.</summary>
         public string NewValue {
             get { return BackingStore?.Get<string>("newValue"); }
             set { BackingStore?.Set("newValue", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Old property value.</summary>
+        /// <summary>Indicates the previous value (before the update) for the property.</summary>
         public string OldValue {
             get { return BackingStore?.Get<string>("oldValue"); }
             set { BackingStore?.Set("oldValue", value); }

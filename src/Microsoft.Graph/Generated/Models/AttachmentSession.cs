@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AttachmentSession : Entity, IParsable {
-        /// <summary>The content streams that are uploaded.</summary>
+        /// <summary>The content property</summary>
         public byte[] Content {
             get { return BackingStore?.Get<byte[]>("content"); }
             set { BackingStore?.Set("content", value); }
         }
-        /// <summary>The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.</summary>
+        /// <summary>The expirationDateTime property</summary>
         public DateTimeOffset? ExpirationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("expirationDateTime"); }
             set { BackingStore?.Set("expirationDateTime", value); }
         }
-        /// <summary>Indicates a single value {start} that represents the location in the file where the next upload should begin.</summary>
+        /// <summary>The nextExpectedRanges property</summary>
         public List<string> NextExpectedRanges {
             get { return BackingStore?.Get<List<string>>("nextExpectedRanges"); }
             set { BackingStore?.Set("nextExpectedRanges", value); }

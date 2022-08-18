@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class CountryNamedLocation : NamedLocation, IParsable {
-        /// <summary>List of countries and/or regions in two-letter format specified by ISO 3166-2.</summary>
+        /// <summary>List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.</summary>
         public List<string> CountriesAndRegions {
             get { return BackingStore?.Get<List<string>>("countriesAndRegions"); }
             set { BackingStore?.Set("countriesAndRegions", value); }
         }
-        /// <summary>Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.</summary>
+        /// <summary>Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.</summary>
         public CountryLookupMethodType? CountryLookupMethod {
             get { return BackingStore?.Get<CountryLookupMethodType?>("countryLookupMethod"); }
             set { BackingStore?.Set("countryLookupMethod", value); }

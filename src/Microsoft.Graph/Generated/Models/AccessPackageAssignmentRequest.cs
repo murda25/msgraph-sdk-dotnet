@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AccessPackageAssignmentRequest : Entity, IParsable {
-        /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.</summary>
         public Microsoft.Graph.Models.AccessPackage AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>("accessPackage"); }
             set { BackingStore?.Set("accessPackage", value); }
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("completedDateTime"); }
             set { BackingStore?.Set("completedDateTime", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
@@ -31,17 +31,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AccessPackageSubject>("requestor"); }
             set { BackingStore?.Set("requestor", value); }
         }
-        /// <summary>One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.</summary>
+        /// <summary>The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.</summary>
         public AccessPackageRequestType? RequestType {
             get { return BackingStore?.Get<AccessPackageRequestType?>("requestType"); }
             set { BackingStore?.Set("requestType", value); }
         }
-        /// <summary>The range of dates that access is to be assigned to the requestor. Read-only.</summary>
+        /// <summary>The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.</summary>
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
-        /// <summary>The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only.</summary>
+        /// <summary>The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. Supports $filter (eq).</summary>
         public AccessPackageRequestState? State {
             get { return BackingStore?.Get<AccessPackageRequestState?>("state"); }
             set { BackingStore?.Set("state", value); }

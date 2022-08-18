@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("fitPdfToPage"); }
             set { BackingStore?.Set("fitPdfToPage", value); }
         }
-        /// <summary>The default input bin that serves as the paper source.</summary>
+        /// <summary>The inputBin property</summary>
         public string InputBin {
             get { return BackingStore?.Get<string>("inputBin"); }
             set { BackingStore?.Set("inputBin", value); }

@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AccessReviewNotificationRecipientQueryScope : AccessReviewNotificationRecipientScope, IParsable {
-        /// <summary>This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.</summary>
+        /// <summary>Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.</summary>
         public string Query {
             get { return BackingStore?.Get<string>("query"); }
             set { BackingStore?.Set("query", value); }
         }
-        /// <summary>In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.</summary>
+        /// <summary>In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.</summary>
         public string QueryRoot {
             get { return BackingStore?.Get<string>("queryRoot"); }
             set { BackingStore?.Set("queryRoot", value); }

@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AccessPackageCatalog : Entity, IParsable {
-        /// <summary>The access packages in this catalog. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
         public List<AccessPackage> AccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>>("accessPackages"); }
             set { BackingStore?.Set("accessPackages", value); }
         }
-        /// <summary>One of UserManaged or ServiceDefault.</summary>
+        /// <summary>Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.</summary>
         public AccessPackageCatalogType? CatalogType {
             get { return BackingStore?.Get<AccessPackageCatalogType?>("catalogType"); }
             set { BackingStore?.Set("catalogType", value); }
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The display name of the access package catalog. Supports $filter (eq, contains).</summary>
+        /// <summary>The display name of the access package catalog.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }

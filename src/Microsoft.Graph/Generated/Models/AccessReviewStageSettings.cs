@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AccessReviewReviewerScope>>("reviewers"); }
             set { BackingStore?.Set("reviewers", value); }
         }
-        /// <summary>Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.</summary>
+        /// <summary>Unique identifier of the accessReviewStageSettings object. The stageId will be used by the dependsOn property to indicate the order of the stages. Required.</summary>
         public string StageId {
             get { return BackingStore?.Get<string>("stageId"); }
             set { BackingStore?.Set("stageId", value); }

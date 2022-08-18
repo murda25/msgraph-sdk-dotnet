@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("color"); }
             set { BackingStore?.Set("color", value); }
         }
-        /// <summary>Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.</summary>
+        /// <summary>Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.</summary>
         public string DataOption {
             get { return BackingStore?.Get<string>("dataOption"); }
             set { BackingStore?.Set("dataOption", value); }
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.</summary>
+        /// <summary>Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.</summary>
         public string SortOn {
             get { return BackingStore?.Get<string>("sortOn"); }
             set { BackingStore?.Set("sortOn", value); }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class DataSourceContainer : Entity, IParsable {
         /// <summary>Created date and time of the dataSourceContainer entity.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -17,7 +17,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The hold status of the dataSourceContainer.The possible values are: notApplied, applied, applying, removing, partial</summary>
+        /// <summary>The hold status of the dataSourceContainer. The possible values are: notApplied, applied, applying, removing, partial</summary>
         public DataSourceHoldStatus? HoldStatus {
             get { return BackingStore?.Get<DataSourceHoldStatus?>("holdStatus"); }
             set { BackingStore?.Set("holdStatus", value); }

@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Used to set the value as the default.</summary>
+        /// <summary>Determines whether the value is set as the default.</summary>
         public bool? IsDefault {
             get { return BackingStore?.Get<bool?>("isDefault"); }
             set { BackingStore?.Set("isDefault", value); }
         }
-        /// <summary>The display name of the property displayed to the end user in the user flow.</summary>
+        /// <summary>The display name of the property displayed to the user in the user flow.</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }

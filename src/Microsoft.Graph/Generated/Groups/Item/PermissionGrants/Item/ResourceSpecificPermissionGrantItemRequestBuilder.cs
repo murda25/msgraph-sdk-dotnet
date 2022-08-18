@@ -88,7 +88,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions that have been granted for a group to a specific application. Supports $expand.
+        /// The permission that has been granted for a group to a specific application. Supports $expand.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -143,7 +143,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The permissions that have been granted for a group to a specific application. Supports $expand.
+        /// The permission that has been granted for a group to a specific application. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>The permissions that have been granted for a group to a specific application. Supports $expand.</summary>
+        /// <summary>The permission that has been granted for a group to a specific application. Supports $expand.</summary>
         public class ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

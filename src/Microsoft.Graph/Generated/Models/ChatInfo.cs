@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The unique identifier for a message in a Microsoft Teams channel.</summary>
+        /// <summary>The unique identifier of a message in a Microsoft Teams channel.</summary>
         public string MessageId {
             get { return BackingStore?.Get<string>("messageId"); }
             set { BackingStore?.Set("messageId", value); }

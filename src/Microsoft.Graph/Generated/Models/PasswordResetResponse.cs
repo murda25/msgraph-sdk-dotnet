@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The newPassword property</summary>
+        /// <summary>The Azure AD-generated password.</summary>
         public string NewPassword {
             get { return BackingStore?.Get<string>("newPassword"); }
             set { BackingStore?.Set("newPassword", value); }

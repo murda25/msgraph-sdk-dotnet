@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>List of notes associated with the request.</summary>
+        /// <summary>List of notes associcated with the request.</summary>
         public List<AuthoredNote> Notes {
             get { return BackingStore?.Get<List<AuthoredNote>>("notes"); }
             set { BackingStore?.Set("notes", value); }
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<SubjectRightsRequestStageDetail>>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
-        /// <summary>The status of the request. Possible values are: active, closed, unknownFutureValue.</summary>
+        /// <summary>The status of the request.. Possible values are: active, closed, unknownFutureValue.</summary>
         public SubjectRightsRequestStatus? Status {
             get { return BackingStore?.Get<SubjectRightsRequestStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Team>("team"); }
             set { BackingStore?.Set("team", value); }
         }
-        /// <summary>The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.</summary>
+        /// <summary>The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.</summary>
         public SubjectRightsRequestType? Type {
             get { return BackingStore?.Get<SubjectRightsRequestType?>("type"); }
             set { BackingStore?.Set("type", value); }

@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<TimeSpan?>("durationUntilExternalUserDeletedAfterBlocked"); }
             set { BackingStore?.Set("durationUntilExternalUserDeletedAfterBlocked", value); }
         }
-        /// <summary>One of None, BlockSignIn, or BlockSignInAndDelete.</summary>
+        /// <summary>Automatic action that the service should take when an external user&apos;s last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.</summary>
         public AccessPackageExternalUserLifecycleAction? ExternalUserLifecycleAction {
             get { return BackingStore?.Get<AccessPackageExternalUserLifecycleAction?>("externalUserLifecycleAction"); }
             set { BackingStore?.Set("externalUserLifecycleAction", value); }

@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The query specifying who will be the reviewer. See table for examples.</summary>
+        /// <summary>The query specifying who will be the reviewer.</summary>
         public string Query {
             get { return BackingStore?.Get<string>("query"); }
             set { BackingStore?.Set("query", value); }

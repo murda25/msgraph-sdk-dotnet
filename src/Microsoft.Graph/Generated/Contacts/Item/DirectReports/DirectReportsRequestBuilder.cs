@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Contacts.Item.DirectReports {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The contact&apos;s direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
+        /// Get directReports from contacts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<DirectReportsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -87,7 +87,7 @@ namespace Microsoft.Graph.Contacts.Item.DirectReports {
             return requestInfo;
         }
         /// <summary>
-        /// The contact&apos;s direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
+        /// Get directReports from contacts
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -100,7 +100,7 @@ namespace Microsoft.Graph.Contacts.Item.DirectReports {
             };
             return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The contact&apos;s direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>Get directReports from contacts</summary>
         public class DirectReportsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

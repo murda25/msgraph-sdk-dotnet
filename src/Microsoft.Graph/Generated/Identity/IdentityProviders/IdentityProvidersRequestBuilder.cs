@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Identity.IdentityProviders {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get identityProviders from identity
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<IdentityProvidersRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.Identity.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Represents entry point for identity provider base.
+        /// Get identityProviders from identity
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.Identity.IdentityProviders {
             };
             return await RequestAdapter.SendAsync<IdentityProviderBase>(requestInfo, IdentityProviderBase.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents entry point for identity provider base.</summary>
+        /// <summary>Get identityProviders from identity</summary>
         public class IdentityProvidersRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

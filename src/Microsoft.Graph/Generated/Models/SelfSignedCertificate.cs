@@ -13,27 +13,27 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Custom key identifier.</summary>
+        /// <summary>The customKeyIdentifier property</summary>
         public byte[] CustomKeyIdentifier {
             get { return BackingStore?.Get<byte[]>("customKeyIdentifier"); }
             set { BackingStore?.Set("customKeyIdentifier", value); }
         }
-        /// <summary>The friendly name for the key.</summary>
+        /// <summary>The displayName property</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The endDateTime property</summary>
         public DateTimeOffset? EndDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>The value for the key credential. Should be a base-64 encoded value.</summary>
+        /// <summary>The key property</summary>
         public byte[] Key {
             get { return BackingStore?.Get<byte[]>("key"); }
             set { BackingStore?.Set("key", value); }
         }
-        /// <summary>The unique identifier (GUID) for the key.</summary>
+        /// <summary>The keyId property</summary>
         public string KeyId {
             get { return BackingStore?.Get<string>("keyId"); }
             set { BackingStore?.Set("keyId", value); }
@@ -43,22 +43,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The startDateTime property</summary>
         public DateTimeOffset? StartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
         }
-        /// <summary>The thumbprint value for the key.</summary>
+        /// <summary>The thumbprint property</summary>
         public string Thumbprint {
             get { return BackingStore?.Get<string>("thumbprint"); }
             set { BackingStore?.Set("thumbprint", value); }
         }
-        /// <summary>The type of key credential. &apos;AsymmetricX509Cert&apos;.</summary>
+        /// <summary>The type property</summary>
         public string Type {
             get { return BackingStore?.Get<string>("type"); }
             set { BackingStore?.Set("type", value); }
         }
-        /// <summary>A string that describes the purpose for which the key can be used. For example, &apos;Verify&apos;.</summary>
+        /// <summary>The usage property</summary>
         public string Usage {
             get { return BackingStore?.Get<string>("usage"); }
             set { BackingStore?.Set("usage", value); }

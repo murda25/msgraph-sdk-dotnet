@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<AttendeeBase>("attendee"); }
             set { BackingStore?.Set("attendee", value); }
         }
-        /// <summary>The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
+        /// <summary>The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.</summary>
         public FreeBusyStatus? Availability {
             get { return BackingStore?.Get<FreeBusyStatus?>("availability"); }
             set { BackingStore?.Set("availability", value); }

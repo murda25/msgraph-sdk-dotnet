@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Team : Entity, IParsable {
         /// <summary>List of channels either hosted in or shared with the team (incoming channels).</summary>
         public List<Channel> AllChannels {
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<TeamsAsyncOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
-        /// <summary>The team photo.</summary>
+        /// <summary>The profile photo for the team.</summary>
         public ProfilePhoto Photo {
             get { return BackingStore?.Get<ProfilePhoto>("photo"); }
             set { BackingStore?.Set("photo", value); }
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<TeamSpecialization?>("specialization"); }
             set { BackingStore?.Set("specialization", value); }
         }
-        /// <summary>Contains summary information about the team, including number of owners, members, and guests.</summary>
+        /// <summary>The summary property</summary>
         public TeamSummary Summary {
             get { return BackingStore?.Get<TeamSummary>("summary"); }
             set { BackingStore?.Set("summary", value); }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class WorkbookTable : Entity, IParsable {
         /// <summary>Represents a collection of all the columns in the table. Read-only.</summary>
         public List<WorkbookTableColumn> Columns {
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WorkbookTableSort>("sort"); }
             set { BackingStore?.Set("sort", value); }
         }
-        /// <summary>Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.</summary>
+        /// <summary>Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.</summary>
         public string Style {
             get { return BackingStore?.Get<string>("style"); }
             set { BackingStore?.Set("style", value); }

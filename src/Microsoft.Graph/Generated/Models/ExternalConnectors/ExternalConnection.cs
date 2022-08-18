@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema>("schema"); }
             set { BackingStore?.Set("schema", value); }
         }
-        /// <summary>Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.</summary>
+        /// <summary>Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.</summary>
         public ConnectionState? State {
             get { return BackingStore?.Get<ConnectionState?>("state"); }
             set { BackingStore?.Set("state", value); }

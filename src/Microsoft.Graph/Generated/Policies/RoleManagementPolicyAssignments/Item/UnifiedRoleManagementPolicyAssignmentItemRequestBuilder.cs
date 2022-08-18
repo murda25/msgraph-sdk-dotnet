@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// The assignment of a role management policy to a role definition object.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -123,7 +123,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// The assignment of a role management policy to a role definition object.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Represents the role management policy assignments.</summary>
+        /// <summary>The assignment of a role management policy to a role definition object.</summary>
         public class UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

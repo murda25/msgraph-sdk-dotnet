@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ItemAttachment : Attachment, IParsable {
-        /// <summary>The attached contact, message or event. Navigation property.</summary>
+        /// <summary>The attached message or event. Navigation property.</summary>
         public OutlookItem Item {
             get { return BackingStore?.Get<OutlookItem>("item"); }
             set { BackingStore?.Set("item", value); }

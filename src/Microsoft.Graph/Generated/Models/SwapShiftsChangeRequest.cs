@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SwapShiftsChangeRequest : OfferShiftRequest, IParsable {
-        /// <summary>Shift ID for the recipient user with whom the request is to swap.</summary>
+        /// <summary>ShiftId for the recipient user with whom the request is to swap.</summary>
         public string RecipientShiftId {
             get { return BackingStore?.Get<string>("recipientShiftId"); }
             set { BackingStore?.Set("recipientShiftId", value); }

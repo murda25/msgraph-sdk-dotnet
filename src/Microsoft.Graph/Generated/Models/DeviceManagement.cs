@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ImportedWindowsAutopilotDeviceIdentity>>("importedWindowsAutopilotDeviceIdentities"); }
             set { BackingStore?.Set("importedWindowsAutopilotDeviceIdentities", value); }
         }
-        /// <summary>Intune Account ID for given tenant</summary>
+        /// <summary>Intune Account Id for given tenant</summary>
         public string IntuneAccountId {
             get { return BackingStore?.Get<string>("intuneAccountId"); }
             set { BackingStore?.Set("intuneAccountId", value); }

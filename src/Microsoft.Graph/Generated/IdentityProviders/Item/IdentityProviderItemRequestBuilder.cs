@@ -45,7 +45,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete an identityProvider.
+        /// Delete an existing identityProvider.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IdentityProviderItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
@@ -63,7 +63,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an identityProvider.
+        /// Retrieve the properties of an existing identityProvider.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<IdentityProviderItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an identityProvider object.
+        /// Update properties in an existing identityProvider.
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -104,7 +104,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete an identityProvider.
+        /// Delete an existing identityProvider.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an identityProvider.
+        /// Retrieve the properties of an existing identityProvider.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -132,7 +132,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
             return await RequestAdapter.SendAsync<IdentityProvider>(requestInfo, IdentityProvider.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the properties of an identityProvider object.
+        /// Update properties in an existing identityProvider.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.IdentityProviders.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Retrieve the properties and relationships of an identityProvider.</summary>
+        /// <summary>Retrieve the properties of an existing identityProvider.</summary>
         public class IdentityProviderItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

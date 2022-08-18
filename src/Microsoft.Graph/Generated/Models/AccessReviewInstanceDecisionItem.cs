@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AccessReviewInstanceDecisionItem : Entity, IParsable {
         /// <summary>The identifier of the accessReviewInstance parent. Supports $select. Read-only.</summary>
         public string AccessReviewId {
@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<UserIdentity>("appliedBy"); }
             set { BackingStore?.Set("appliedBy", value); }
         }
-        /// <summary>The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only.</summary>
+        /// <summary>The timestamp when the approval decision was applied.00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn&apos;t applied the decision or it was automatically applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only.</summary>
         public DateTimeOffset? AppliedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("appliedDateTime"); }
             set { BackingStore?.Set("appliedDateTime", value); }
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Identity>("principal"); }
             set { BackingStore?.Set("principal", value); }
         }
-        /// <summary>Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.</summary>
+        /// <summary>A link to the principal object. For example, https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.</summary>
         public string PrincipalLink {
             get { return BackingStore?.Get<string>("principalLink"); }
             set { BackingStore?.Set("principalLink", value); }
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("resourceLink"); }
             set { BackingStore?.Set("resourceLink", value); }
         }
-        /// <summary>The identifier of the reviewer. Supports $select. Read-only.</summary>
+        /// <summary>The identifier of the reviewer.00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn&apos;t reviewed. Supports $select. Read-only.</summary>
         public UserIdentity ReviewedBy {
             get { return BackingStore?.Get<UserIdentity>("reviewedBy"); }
             set { BackingStore?.Set("reviewedBy", value); }

@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Teamwork.WorkforceIntegrations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// A workforce integration with shifts.
+        /// Get workforceIntegrations from teamwork
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<WorkforceIntegrationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Teamwork.WorkforceIntegrations {
             return requestInfo;
         }
         /// <summary>
-        /// A workforce integration with shifts.
+        /// Get workforceIntegrations from teamwork
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Teamwork.WorkforceIntegrations {
             };
             return await RequestAdapter.SendAsync<WorkforceIntegration>(requestInfo, WorkforceIntegration.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>A workforce integration with shifts.</summary>
+        /// <summary>Get workforceIntegrations from teamwork</summary>
         public class WorkforceIntegrationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

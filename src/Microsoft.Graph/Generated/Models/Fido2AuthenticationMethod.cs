@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<string>>("attestationCertificates"); }
             set { BackingStore?.Set("attestationCertificates", value); }
         }
-        /// <summary>The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.</summary>
+        /// <summary>The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.</summary>
         public Microsoft.Graph.Models.AttestationLevel? AttestationLevel {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttestationLevel?>("attestationLevel"); }
             set { BackingStore?.Set("attestationLevel", value); }

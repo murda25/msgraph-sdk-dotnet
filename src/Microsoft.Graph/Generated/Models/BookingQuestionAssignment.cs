@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Indicates whether it is mandatory to answer the custom question.</summary>
+        /// <summary>The ID of the custom question.</summary>
         public bool? IsRequired {
             get { return BackingStore?.Get<bool?>("isRequired"); }
             set { BackingStore?.Set("isRequired", value); }
@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>If it is mandatory to answer the custom question.</summary>
+        /// <summary>Indicates whether it is mandatory to answer the custom question.</summary>
         public string QuestionId {
             get { return BackingStore?.Get<string>("questionId"); }
             set { BackingStore?.Set("questionId", value); }

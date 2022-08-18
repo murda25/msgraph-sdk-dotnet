@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("connectedOrganizationId"); }
             set { BackingStore?.Set("connectedOrganizationId", value); }
         }
-        /// <summary>The name of the connected organization. Read only.</summary>
+        /// <summary>The name of the connected organization.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }

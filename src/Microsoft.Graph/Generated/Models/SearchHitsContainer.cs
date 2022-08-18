@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.</summary>
+        /// <summary>The aggregations property</summary>
         public List<SearchAggregation> Aggregations {
             get { return BackingStore?.Get<List<SearchAggregation>>("aggregations"); }
             set { BackingStore?.Set("aggregations", value); }

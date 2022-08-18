@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Information of the meeting attendees.</summary>
+        /// <summary>The attendees property</summary>
         public List<MeetingParticipantInfo> Attendees {
             get { return BackingStore?.Get<List<MeetingParticipantInfo>>("attendees"); }
             set { BackingStore?.Set("attendees", value); }
@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Information of the meeting organizer.</summary>
+        /// <summary>The organizer property</summary>
         public MeetingParticipantInfo Organizer {
             get { return BackingStore?.Get<MeetingParticipantInfo>("organizer"); }
             set { BackingStore?.Set("organizer", value); }

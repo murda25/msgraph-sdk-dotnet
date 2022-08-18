@@ -23,12 +23,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("originalQueryString"); }
             set { BackingStore?.Set("originalQueryString", value); }
         }
-        /// <summary>Defines the details of alteration information for the spelling correction.</summary>
+        /// <summary>Defines the details of the alteration information for the spelling correction.</summary>
         public SearchAlteration QueryAlteration {
             get { return BackingStore?.Get<SearchAlteration>("queryAlteration"); }
             set { BackingStore?.Set("queryAlteration", value); }
         }
-        /// <summary>Defines the type of the spelling correction. Possible values are suggestion, modification.</summary>
+        /// <summary>Defines the type of the spelling correction. Possible values are: suggestion, modification.</summary>
         public SearchAlterationType? QueryAlterationType {
             get { return BackingStore?.Get<SearchAlterationType?>("queryAlterationType"); }
             set { BackingStore?.Set("queryAlterationType", value); }

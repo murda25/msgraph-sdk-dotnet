@@ -11,19 +11,19 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The type of the attachment. The possible values are: file, item, reference. Required.</summary>
+        /// <summary>The attachmentType property</summary>
         public Microsoft.Graph.Models.AttachmentType? AttachmentType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentType?>("attachmentType"); }
             set { BackingStore?.Set("attachmentType", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The nature of the data in the attachment. Optional.</summary>
+        /// <summary>The contentType property</summary>
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
-        /// <summary>The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.</summary>
+        /// <summary>The name property</summary>
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The length of the attachment in bytes. Required.</summary>
+        /// <summary>The size property</summary>
         public long? Size {
             get { return BackingStore?.Get<long?>("size"); }
             set { BackingStore?.Set("size", value); }

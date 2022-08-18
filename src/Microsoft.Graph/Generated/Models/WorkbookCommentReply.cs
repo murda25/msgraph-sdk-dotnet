@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class WorkbookCommentReply : Entity, IParsable {
-        /// <summary>The content of replied comment.</summary>
+        /// <summary>The content of a comment reply.</summary>
         public string Content {
             get { return BackingStore?.Get<string>("content"); }
             set { BackingStore?.Set("content", value); }
         }
-        /// <summary>Indicates the type for the replied comment.</summary>
+        /// <summary>Indicates the type for the comment reply.</summary>
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
             set { BackingStore?.Set("contentType", value); }

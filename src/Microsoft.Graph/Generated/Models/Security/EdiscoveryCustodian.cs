@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<List<UnifiedGroupSource>>("unifiedGroupSources"); }
             set { BackingStore?.Set("unifiedGroupSources", value); }
         }
-        /// <summary>Data source entity for a custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.</summary>
+        /// <summary>Data source entity for a the custodian. This is the container for a custodian&apos;s mailbox and OneDrive for Business site.</summary>
         public List<UserSource> UserSources {
             get { return BackingStore?.Get<List<UserSource>>("userSources"); }
             set { BackingStore?.Set("userSources", value); }

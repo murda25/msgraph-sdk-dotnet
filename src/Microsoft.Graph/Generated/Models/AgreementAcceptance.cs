@@ -6,12 +6,12 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class AgreementAcceptance : Entity, IParsable {
-        /// <summary>ID of the agreement file accepted by the user.</summary>
+        /// <summary>The identifier of the agreement file accepted by the user.</summary>
         public string AgreementFileId {
             get { return BackingStore?.Get<string>("agreementFileId"); }
             set { BackingStore?.Set("agreementFileId", value); }
         }
-        /// <summary>ID of the agreement.</summary>
+        /// <summary>The identifier of the agreement.</summary>
         public string AgreementId {
             get { return BackingStore?.Get<string>("agreementId"); }
             set { BackingStore?.Set("agreementId", value); }
@@ -26,27 +26,27 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("deviceId"); }
             set { BackingStore?.Set("deviceId", value); }
         }
-        /// <summary>The operating system used for accepting the agreement.</summary>
+        /// <summary>The operating system used to accept the agreement.</summary>
         public string DeviceOSType {
             get { return BackingStore?.Get<string>("deviceOSType"); }
             set { BackingStore?.Set("deviceOSType", value); }
         }
-        /// <summary>The operating system version of the device used for accepting the agreement.</summary>
+        /// <summary>The operating system version of the device used to accept the agreement.</summary>
         public string DeviceOSVersion {
             get { return BackingStore?.Get<string>("deviceOSVersion"); }
             set { BackingStore?.Set("deviceOSVersion", value); }
         }
-        /// <summary>The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ExpirationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("expirationDateTime"); }
             set { BackingStore?.Set("expirationDateTime", value); }
         }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? RecordedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("recordedDateTime"); }
             set { BackingStore?.Set("recordedDateTime", value); }
         }
-        /// <summary>Possible values are: accepted, declined. Supports $filter (eq).</summary>
+        /// <summary>The state of the agreement acceptance. Possible values are: accepted, declined. Supports $filter (eq).</summary>
         public AgreementAcceptanceState? State {
             get { return BackingStore?.Get<AgreementAcceptanceState?>("state"); }
             set { BackingStore?.Set("state", value); }
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("userEmail"); }
             set { BackingStore?.Set("userEmail", value); }
         }
-        /// <summary>ID of the user who accepted the agreement.</summary>
+        /// <summary>The identifier of the user who accepted the agreement.</summary>
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }

@@ -62,7 +62,7 @@ namespace Microsoft.Graph.Applications.Item.TokenLifetimePolicies {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
+        /// Get tokenLifetimePolicies from applications
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<TokenLifetimePoliciesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.Applications.Item.TokenLifetimePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
+        /// Get tokenLifetimePolicies from applications
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Applications.Item.TokenLifetimePolicies {
             };
             return await RequestAdapter.SendAsync<TokenLifetimePolicyCollectionResponse>(requestInfo, TokenLifetimePolicyCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The tokenLifetimePolicies assigned to this application. Supports $expand.</summary>
+        /// <summary>Get tokenLifetimePolicies from applications</summary>
         public class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Notifications for suspicious or potential security issues in a customer’s tenant.
+        /// Get alerts from security
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<AlertItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Security.Alerts.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Notifications for suspicious or potential security issues in a customer’s tenant.
+        /// Get alerts from security
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Security.Alerts.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Notifications for suspicious or potential security issues in a customer’s tenant.</summary>
+        /// <summary>Get alerts from security</summary>
         public class AlertItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

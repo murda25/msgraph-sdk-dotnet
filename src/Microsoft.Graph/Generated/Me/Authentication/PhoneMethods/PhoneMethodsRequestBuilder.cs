@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Me.Authentication.PhoneMethods {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents the phone registered to a user for authentication.
+        /// The phone numbers registered to a user for authentication.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<PhoneMethodsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Me.Authentication.PhoneMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the phone registered to a user for authentication.
+        /// The phone numbers registered to a user for authentication.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Me.Authentication.PhoneMethods {
             };
             return await RequestAdapter.SendAsync<PhoneAuthenticationMethod>(requestInfo, PhoneAuthenticationMethod.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Represents the phone registered to a user for authentication.</summary>
+        /// <summary>The phone numbers registered to a user for authentication.</summary>
         public class PhoneMethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

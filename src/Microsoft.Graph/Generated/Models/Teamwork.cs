@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Teamwork : Entity, IParsable {
-        /// <summary>A workforce integration with shifts.</summary>
+        /// <summary>The workforceIntegrations property</summary>
         public List<WorkforceIntegration> WorkforceIntegrations {
             get { return BackingStore?.Get<List<WorkforceIntegration>>("workforceIntegrations"); }
             set { BackingStore?.Set("workforceIntegrations", value); }

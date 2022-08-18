@@ -11,39 +11,39 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format &apos;{field}:/&apos;{aggregationFilterToken}/&apos;&apos;. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format &apos;{field}:or(/&apos;{aggregationFilterToken1}/&apos;,/&apos;{aggregationFilterToken2}/&apos;)&apos;. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.</summary>
+        /// <summary>The aggregationFilters property</summary>
         public List<string> AggregationFilters {
             get { return BackingStore?.Get<List<string>>("aggregationFilters"); }
             set { BackingStore?.Set("aggregationFilters", value); }
         }
-        /// <summary>Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.</summary>
+        /// <summary>The aggregations property</summary>
         public List<AggregationOption> Aggregations {
             get { return BackingStore?.Get<List<AggregationOption>>("aggregations"); }
             set { BackingStore?.Set("aggregations", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.</summary>
+        /// <summary>The contentSources property</summary>
         public List<string> ContentSources {
             get { return BackingStore?.Get<List<string>>("contentSources"); }
             set { BackingStore?.Set("contentSources", value); }
         }
-        /// <summary>This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.</summary>
+        /// <summary>The enableTopResults property</summary>
         public bool? EnableTopResults {
             get { return BackingStore?.Get<bool?>("enableTopResults"); }
             set { BackingStore?.Set("enableTopResults", value); }
         }
-        /// <summary>One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.</summary>
+        /// <summary>The entityTypes property</summary>
         public List<string> EntityTypes {
             get { return BackingStore?.Get<List<string>>("entityTypes"); }
             set { BackingStore?.Set("entityTypes", value); }
         }
-        /// <summary>Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.</summary>
+        /// <summary>The fields property</summary>
         public List<string> Fields {
             get { return BackingStore?.Get<List<string>>("fields"); }
             set { BackingStore?.Set("fields", value); }
         }
-        /// <summary>Specifies the offset for the search results. Offset 0 returns the very first result. Optional.</summary>
+        /// <summary>The from property</summary>
         public int? From {
             get { return BackingStore?.Get<int?>("from"); }
             set { BackingStore?.Set("from", value); }
@@ -58,22 +58,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SearchQuery>("query"); }
             set { BackingStore?.Set("query", value); }
         }
-        /// <summary>Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.</summary>
+        /// <summary>The queryAlterationOptions property</summary>
         public SearchAlterationOptions QueryAlterationOptions {
             get { return BackingStore?.Get<SearchAlterationOptions>("queryAlterationOptions"); }
             set { BackingStore?.Set("queryAlterationOptions", value); }
         }
-        /// <summary>Provides the search result templates options for rendering connectors search results.</summary>
+        /// <summary>The resultTemplateOptions property</summary>
         public ResultTemplateOption ResultTemplateOptions {
             get { return BackingStore?.Get<ResultTemplateOption>("resultTemplateOptions"); }
             set { BackingStore?.Set("resultTemplateOptions", value); }
         }
-        /// <summary>The size of the page to be retrieved. Optional.</summary>
+        /// <summary>The size property</summary>
         public int? Size {
             get { return BackingStore?.Get<int?>("size"); }
             set { BackingStore?.Set("size", value); }
         }
-        /// <summary>Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.</summary>
+        /// <summary>The sortProperties property</summary>
         public List<SortProperty> SortProperties {
             get { return BackingStore?.Get<List<SortProperty>>("sortProperties"); }
             set { BackingStore?.Set("sortProperties", value); }

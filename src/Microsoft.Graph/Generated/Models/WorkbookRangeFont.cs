@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<double?>("size"); }
             set { BackingStore?.Set("size", value); }
         }
-        /// <summary>Type of underline applied to the font. Possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.</summary>
+        /// <summary>Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.</summary>
         public string Underline {
             get { return BackingStore?.Get<string>("underline"); }
             set { BackingStore?.Set("underline", value); }

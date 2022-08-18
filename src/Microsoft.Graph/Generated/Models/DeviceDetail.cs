@@ -13,27 +13,27 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Indicates the browser information of the used for signing-in.</summary>
+        /// <summary>Indicates the browser information of the used for signing in.</summary>
         public string Browser {
             get { return BackingStore?.Get<string>("browser"); }
             set { BackingStore?.Set("browser", value); }
         }
-        /// <summary>Refers to the UniqueID of the device used for signing-in.</summary>
+        /// <summary>Refers to the UniqueID of the device used for signing in.</summary>
         public string DeviceId {
             get { return BackingStore?.Get<string>("deviceId"); }
             set { BackingStore?.Set("deviceId", value); }
         }
-        /// <summary>Refers to the name of the device used for signing-in.</summary>
+        /// <summary>Refers to the name of the device used for signing in.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>Indicates whether the device is compliant or not.</summary>
+        /// <summary>Indicates whether the device is compliant.</summary>
         public bool? IsCompliant {
             get { return BackingStore?.Get<bool?>("isCompliant"); }
             set { BackingStore?.Set("isCompliant", value); }
         }
-        /// <summary>Indicates if the device is managed or not.</summary>
+        /// <summary>Indicates whether the device is managed.</summary>
         public bool? IsManaged {
             get { return BackingStore?.Get<bool?>("isManaged"); }
             set { BackingStore?.Set("isManaged", value); }
@@ -43,12 +43,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Indicates the OS name and version used for signing-in.</summary>
+        /// <summary>Indicates the operating system name and version used for signing in.</summary>
         public string OperatingSystem {
             get { return BackingStore?.Get<string>("operatingSystem"); }
             set { BackingStore?.Set("operatingSystem", value); }
         }
-        /// <summary>Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.</summary>
+        /// <summary>Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.</summary>
         public string TrustType {
             get { return BackingStore?.Get<string>("trustType"); }
             set { BackingStore?.Set("trustType", value); }

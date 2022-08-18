@@ -18,12 +18,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.</summary>
+        /// <summary>Optional. The latitude, in decimal, for the item. Read-only.</summary>
         public double? Latitude {
             get { return BackingStore?.Get<double?>("latitude"); }
             set { BackingStore?.Set("latitude", value); }
         }
-        /// <summary>Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.</summary>
+        /// <summary>Optional. The longitude, in decimal, for the item. Read-only.</summary>
         public double? Longitude {
             get { return BackingStore?.Get<double?>("longitude"); }
             set { BackingStore?.Set("longitude", value); }

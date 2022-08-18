@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>Possible values are: other, home, work, blog, profile.</summary>
+        /// <summary>The possible values are: other, home, work, blog, profile.</summary>
         public WebsiteType? Type {
             get { return BackingStore?.Get<WebsiteType?>("type"); }
             set { BackingStore?.Set("type", value); }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationSubmission : Entity, IParsable {
         /// <summary>The outcomes property</summary>
         public List<EducationOutcome> Outcomes {
@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("returnedDateTime"); }
             set { BackingStore?.Set("returnedDateTime", value); }
         }
-        /// <summary>Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.</summary>
+        /// <summary>Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.</summary>
         public EducationSubmissionStatus? Status {
             get { return BackingStore?.Get<EducationSubmissionStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
