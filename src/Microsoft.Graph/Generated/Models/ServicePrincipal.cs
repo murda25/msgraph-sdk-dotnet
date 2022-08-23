@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Casts the previous resource to servicePrincipal.</summary>
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled {
@@ -180,7 +181,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("preferredSingleSignOnMode"); }
             set { BackingStore?.Set("preferredSingleSignOnMode", value); }
         }
-        /// <summary>The preferredTokenSigningKeyThumbprint property</summary>
+        /// <summary>Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.</summary>
         public string PreferredTokenSigningKeyThumbprint {
             get { return BackingStore?.Get<string>("preferredTokenSigningKeyThumbprint"); }
             set { BackingStore?.Set("preferredTokenSigningKeyThumbprint", value); }
@@ -239,6 +240,11 @@ namespace Microsoft.Graph.Models {
         public List<DirectoryObject> TransitiveMemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("transitiveMemberOf"); }
             set { BackingStore?.Set("transitiveMemberOf", value); }
+        }
+        /// <summary>Specifies the verified publisher of the application which this service principal represents.</summary>
+        public Microsoft.Graph.Models.VerifiedPublisher VerifiedPublisher {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.VerifiedPublisher>("verifiedPublisher"); }
+            set { BackingStore?.Set("verifiedPublisher", value); }
         }
         /// <summary>
         /// Instantiates a new servicePrincipal and sets the default values.
@@ -306,6 +312,7 @@ namespace Microsoft.Graph.Models {
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue).ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue).ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue).ToList(); } },
+                {"verifiedPublisher", n => { VerifiedPublisher = n.GetObjectValue<Microsoft.Graph.Models.VerifiedPublisher>(Microsoft.Graph.Models.VerifiedPublisher.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -362,6 +369,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);
+            writer.WriteObjectValue<Microsoft.Graph.Models.VerifiedPublisher>("verifiedPublisher", VerifiedPublisher);
         }
     }
 }

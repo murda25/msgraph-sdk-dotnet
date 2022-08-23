@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AllowedTargetScope?>("allowedTargetScope"); }
             set { BackingStore?.Set("allowedTargetScope", value); }
         }
-        /// <summary>The automaticRequestSettings property</summary>
+        /// <summary>This property is only present for an auto assignment policy; if absent, this is a request-based policy.</summary>
         public AccessPackageAutomaticRequestSettings AutomaticRequestSettings {
             get { return BackingStore?.Get<AccessPackageAutomaticRequestSettings>("automaticRequestSettings"); }
             set { BackingStore?.Set("automaticRequestSettings", value); }
