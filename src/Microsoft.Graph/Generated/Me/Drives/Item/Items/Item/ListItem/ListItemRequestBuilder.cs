@@ -27,8 +27,8 @@ namespace Microsoft.Graph.Me.Drives.Item.Items.Item.ListItem {
             new DocumentSetVersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The driveItem property</summary>
-        public DriveItemRequestBuilder DriveItem { get =>
-            new DriveItemRequestBuilder(PathParameters, RequestAdapter);
+        public Microsoft.Graph.Me.Drives.Item.Items.Item.ListItem.DriveItem.DriveItemRequestBuilder DriveItem { get =>
+            new Microsoft.Graph.Me.Drives.Item.Items.Item.ListItem.DriveItem.DriveItemRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fields property</summary>
         public FieldsRequestBuilder Fields { get =>

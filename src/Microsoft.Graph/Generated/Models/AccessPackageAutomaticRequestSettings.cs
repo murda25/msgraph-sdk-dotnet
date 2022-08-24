@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("removeAccessWhenTargetLeavesAllowedTargets"); }
             set { BackingStore?.Set("removeAccessWhenTargetLeavesAllowedTargets", value); }
         }
-        /// <summary>The requestAccessForAllowedTargets property</summary>
+        /// <summary>If set to true, automatic assignments will be created for targets in the allowed target scope.</summary>
         public bool? RequestAccessForAllowedTargets {
             get { return BackingStore?.Get<bool?>("requestAccessForAllowedTargets"); }
             set { BackingStore?.Set("requestAccessForAllowedTargets", value); }
