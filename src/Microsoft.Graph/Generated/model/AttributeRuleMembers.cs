@@ -29,12 +29,14 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets description.
+        /// A description of the membership rule.
         /// </summary>
         [JsonPropertyName("description")]
         public string Description { get; set; }
     
         /// <summary>
         /// Gets or sets membershipRule.
+        /// Determines the allowed target users for this policy. For more information about the syntax of the membership rule, see Membership Rules syntax.
         /// </summary>
         [JsonPropertyName("membershipRule")]
         public string MembershipRule { get; set; }

@@ -35,6 +35,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets requestAccessForAllowedTargets.
+        /// If set to true, automatic assignments will be created for targets in the allowed target scope.
         /// </summary>
         [JsonPropertyName("requestAccessForAllowedTargets")]
         public bool? RequestAccessForAllowedTargets { get; set; }
