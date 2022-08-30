@@ -30,6 +30,13 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets or sets allow windows11upgrade.
+        /// When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("allowWindows11Upgrade")]
+        public bool? AllowWindows11Upgrade { get; set; }
+    
+        /// <summary>
         /// Gets or sets automatic update mode.
         /// Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl.
         /// </summary>
@@ -37,11 +44,39 @@ namespace Microsoft.Graph
         public AutomaticUpdateMode? AutomaticUpdateMode { get; set; }
     
         /// <summary>
+        /// Gets or sets auto restart notification dismissal.
+        /// Specify the method by which the auto-restart required notification is dismissed. Possible values are: NotConfigured, Automatic, User. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("autoRestartNotificationDismissal")]
+        public AutoRestartNotificationDismissalMethod? AutoRestartNotificationDismissal { get; set; }
+    
+        /// <summary>
         /// Gets or sets business ready updates only.
         /// Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
         /// </summary>
         [JsonPropertyName("businessReadyUpdatesOnly")]
         public WindowsUpdateType? BusinessReadyUpdatesOnly { get; set; }
+    
+        /// <summary>
+        /// Gets or sets deadline for feature updates in days.
+        /// Number of days before feature updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("deadlineForFeatureUpdatesInDays")]
+        public Int32? DeadlineForFeatureUpdatesInDays { get; set; }
+    
+        /// <summary>
+        /// Gets or sets deadline for quality updates in days.
+        /// Number of days before quality updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("deadlineForQualityUpdatesInDays")]
+        public Int32? DeadlineForQualityUpdatesInDays { get; set; }
+    
+        /// <summary>
+        /// Gets or sets deadline grace period in days.
+        /// Number of days after deadline until restarts occur automatically with valid range from 0 to 7 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("deadlineGracePeriodInDays")]
+        public Int32? DeadlineGracePeriodInDays { get; set; }
     
         /// <summary>
         /// Gets or sets delivery optimization mode.
@@ -56,6 +91,27 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("driversExcluded")]
         public bool? DriversExcluded { get; set; }
+    
+        /// <summary>
+        /// Gets or sets engaged restart deadline in days.
+        /// Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("engagedRestartDeadlineInDays")]
+        public Int32? EngagedRestartDeadlineInDays { get; set; }
+    
+        /// <summary>
+        /// Gets or sets engaged restart snooze schedule in days.
+        /// Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("engagedRestartSnoozeScheduleInDays")]
+        public Int32? EngagedRestartSnoozeScheduleInDays { get; set; }
+    
+        /// <summary>
+        /// Gets or sets engaged restart transition schedule in days.
+        /// Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("engagedRestartTransitionScheduleInDays")]
+        public Int32? EngagedRestartTransitionScheduleInDays { get; set; }
     
         /// <summary>
         /// Gets or sets feature updates deferral period in days.
@@ -79,6 +135,34 @@ namespace Microsoft.Graph
         public DateTimeOffset? FeatureUpdatesPauseExpiryDateTime { get; set; }
     
         /// <summary>
+        /// Gets or sets feature updates pause start date.
+        /// The Feature Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
+        /// </summary>
+        [JsonPropertyName("featureUpdatesPauseStartDate")]
+        public Date FeatureUpdatesPauseStartDate { get; set; }
+    
+        /// <summary>
+        /// Gets or sets feature updates rollback start date time.
+        /// The Feature Updates Rollback Start datetime.This value is the time when the admin rolled back the Feature update for the ring.Returned by default.Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("featureUpdatesRollbackStartDateTime")]
+        public DateTimeOffset? FeatureUpdatesRollbackStartDateTime { get; set; }
+    
+        /// <summary>
+        /// Gets or sets feature updates rollback window in days.
+        /// The number of days after a Feature Update for which a rollback is valid with valid range from 2 to 60 days. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("featureUpdatesRollbackWindowInDays")]
+        public Int32? FeatureUpdatesRollbackWindowInDays { get; set; }
+    
+        /// <summary>
+        /// Gets or sets feature updates will be rolled back.
+        /// When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("featureUpdatesWillBeRolledBack")]
+        public bool? FeatureUpdatesWillBeRolledBack { get; set; }
+    
+        /// <summary>
         /// Gets or sets installation schedule.
         /// Installation schedule
         /// </summary>
@@ -91,6 +175,13 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("microsoftUpdateServiceAllowed")]
         public bool? MicrosoftUpdateServiceAllowed { get; set; }
+    
+        /// <summary>
+        /// Gets or sets postpone reboot until after deadline.
+        /// When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("postponeRebootUntilAfterDeadline")]
+        public bool? PostponeRebootUntilAfterDeadline { get; set; }
     
         /// <summary>
         /// Gets or sets prerelease features.
@@ -119,6 +210,76 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("qualityUpdatesPauseExpiryDateTime")]
         public DateTimeOffset? QualityUpdatesPauseExpiryDateTime { get; set; }
+    
+        /// <summary>
+        /// Gets or sets quality updates pause start date.
+        /// The Quality Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
+        /// </summary>
+        [JsonPropertyName("qualityUpdatesPauseStartDate")]
+        public Date QualityUpdatesPauseStartDate { get; set; }
+    
+        /// <summary>
+        /// Gets or sets quality updates rollback start date time.
+        /// The Quality Updates Rollback Start datetime. This value is the time when the admin rolled back the Quality update for the ring. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("qualityUpdatesRollbackStartDateTime")]
+        public DateTimeOffset? QualityUpdatesRollbackStartDateTime { get; set; }
+    
+        /// <summary>
+        /// Gets or sets quality updates will be rolled back.
+        /// When TRUE, rollback Quality Updates on the next device check in. When FALSE, do not rollback Quality Updates on the next device check in. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("qualityUpdatesWillBeRolledBack")]
+        public bool? QualityUpdatesWillBeRolledBack { get; set; }
+    
+        /// <summary>
+        /// Gets or sets schedule imminent restart warning in minutes.
+        /// Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes). Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("scheduleImminentRestartWarningInMinutes")]
+        public Int32? ScheduleImminentRestartWarningInMinutes { get; set; }
+    
+        /// <summary>
+        /// Gets or sets schedule restart warning in hours.
+        /// Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours). Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("scheduleRestartWarningInHours")]
+        public Int32? ScheduleRestartWarningInHours { get; set; }
+    
+        /// <summary>
+        /// Gets or sets skip checks before restart.
+        /// When TRUE, skips all checks before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. When FALSE, does not skip all checks before restart. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("skipChecksBeforeRestart")]
+        public bool? SkipChecksBeforeRestart { get; set; }
+    
+        /// <summary>
+        /// Gets or sets update notification level.
+        /// Specifies what Windows Update notifications users see. Possible values are: NotConfigured, DefaultNotifications, RestartWarningsOnly, DisableAllNotifications. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("updateNotificationLevel")]
+        public WindowsUpdateNotificationDisplayOption? UpdateNotificationLevel { get; set; }
+    
+        /// <summary>
+        /// Gets or sets update weeks.
+        /// Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("updateWeeks")]
+        public WindowsUpdateForBusinessUpdateWeeks? UpdateWeeks { get; set; }
+    
+        /// <summary>
+        /// Gets or sets user pause access.
+        /// Specifies whether to enable end user’s access to pause software updates. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("userPauseAccess")]
+        public Enablement? UserPauseAccess { get; set; }
+    
+        /// <summary>
+        /// Gets or sets user windows update scan access.
+        /// Specifies whether to disable user’s access to scan Windows Update. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported.
+        /// </summary>
+        [JsonPropertyName("userWindowsUpdateScanAccess")]
+        public Enablement? UserWindowsUpdateScanAccess { get; set; }
     
     }
 }
