@@ -13,31 +13,36 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The enum DeviceManagementReportFileFormat.
+    /// The enum WindowsUpdateNotificationDisplayOption.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum DeviceManagementReportFileFormat
+    public enum WindowsUpdateNotificationDisplayOption
     {
     
         /// <summary>
-        /// Csv
+        /// Not Configured
         /// </summary>
-        Csv = 0,
+        NotConfigured = 0,
 	
         /// <summary>
-        /// Pdf
+        /// Default Notifications
         /// </summary>
-        Pdf = 1,
+        DefaultNotifications = 1,
 	
         /// <summary>
-        /// Json
+        /// Restart Warnings Only
         /// </summary>
-        Json = 2,
+        RestartWarningsOnly = 2,
+	
+        /// <summary>
+        /// Disable All Notifications
+        /// </summary>
+        DisableAllNotifications = 3,
 	
         /// <summary>
         /// Unknown Future Value
         /// </summary>
-        UnknownFutureValue = 3,
+        UnknownFutureValue = 4,
 	
     }
 }

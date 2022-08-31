@@ -13,31 +13,47 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The enum DeviceManagementReportFileFormat.
+    /// The enum WindowsUpdateForBusinessUpdateWeeks.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum DeviceManagementReportFileFormat
+	[System.Flags]
+    public enum WindowsUpdateForBusinessUpdateWeeks
     {
     
         /// <summary>
-        /// Csv
+        /// User Defined
         /// </summary>
-        Csv = 0,
+        UserDefined = 0,
 	
         /// <summary>
-        /// Pdf
+        /// First Week
         /// </summary>
-        Pdf = 1,
+        FirstWeek = 1,
 	
         /// <summary>
-        /// Json
+        /// Second Week
         /// </summary>
-        Json = 2,
+        SecondWeek = 2,
+	
+        /// <summary>
+        /// Third Week
+        /// </summary>
+        ThirdWeek = 4,
+	
+        /// <summary>
+        /// Fourth Week
+        /// </summary>
+        FourthWeek = 8,
+	
+        /// <summary>
+        /// Every Week
+        /// </summary>
+        EveryWeek = 15,
 	
         /// <summary>
         /// Unknown Future Value
         /// </summary>
-        UnknownFutureValue = 3,
+        UnknownFutureValue = 22,
 	
     }
 }
