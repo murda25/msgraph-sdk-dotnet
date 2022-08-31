@@ -13,26 +13,26 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The enum DeviceManagementReportFileFormat.
+    /// The enum AutoRestartNotificationDismissalMethod.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum DeviceManagementReportFileFormat
+    public enum AutoRestartNotificationDismissalMethod
     {
     
         /// <summary>
-        /// Csv
+        /// Not Configured
         /// </summary>
-        Csv = 0,
+        NotConfigured = 0,
 	
         /// <summary>
-        /// Pdf
+        /// Automatic
         /// </summary>
-        Pdf = 1,
+        Automatic = 1,
 	
         /// <summary>
-        /// Json
+        /// User
         /// </summary>
-        Json = 2,
+        User = 2,
 	
         /// <summary>
         /// Unknown Future Value
