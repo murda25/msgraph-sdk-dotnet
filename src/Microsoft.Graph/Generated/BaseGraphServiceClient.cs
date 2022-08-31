@@ -19,7 +19,7 @@ using Microsoft.Graph.DataPolicyOperations;
 using Microsoft.Graph.DeviceAppManagement;
 using Microsoft.Graph.DeviceManagement;
 using Microsoft.Graph.Devices;
-using Microsoft.Graph.Directory;
+using Microsoft.Graph.DirectoryNamespace;
 using Microsoft.Graph.DirectoryObjects;
 using Microsoft.Graph.DirectoryRoles;
 using Microsoft.Graph.DirectoryRoleTemplates;

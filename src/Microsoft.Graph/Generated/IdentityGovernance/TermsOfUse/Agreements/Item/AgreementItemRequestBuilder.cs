@@ -1,5 +1,5 @@
 using Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.Acceptances;
-using Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.File;
+using Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.FileNamespace;
 using Microsoft.Graph.IdentityGovernance.TermsOfUse.Agreements.Item.Files;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
