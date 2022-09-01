@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Singleton entity that acts as a container for all device management functionality.</summary>
     public class DeviceManagement : Entity, IParsable {
         /// <summary>Apple push notification certificate.</summary>
         public Microsoft.Graph.Models.ApplePushNotificationCertificate ApplePushNotificationCertificate {
@@ -181,7 +182,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("windowsInformationProtectionNetworkLearningSummaries", value); }
         }
         /// <summary>
-        /// Instantiates a new DeviceManagement and sets the default values.
+        /// Instantiates a new deviceManagement and sets the default values.
         /// </summary>
         public DeviceManagement() : base() {
             OdataType = "#microsoft.graph.deviceManagement";

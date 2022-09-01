@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Casts the previous resource to group.</summary>
     public enum TimeOffReasonIconType {
         None,
         Car,

@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.RoleManagement.Directory;
+using Microsoft.Graph.RoleManagement.DirectoryNamespace;
 using Microsoft.Graph.RoleManagement.EntitlementManagement;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

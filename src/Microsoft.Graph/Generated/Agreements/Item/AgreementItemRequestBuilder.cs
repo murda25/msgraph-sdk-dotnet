@@ -1,5 +1,5 @@
 using Microsoft.Graph.Agreements.Item.Acceptances;
-using Microsoft.Graph.Agreements.Item.File;
+using Microsoft.Graph.Agreements.Item.FileNamespace;
 using Microsoft.Graph.Agreements.Item.Files;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
