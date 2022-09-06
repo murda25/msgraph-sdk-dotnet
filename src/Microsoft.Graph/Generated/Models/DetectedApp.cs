@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned.</summary>
     public class DetectedApp : Entity, IParsable {
         /// <summary>The number of devices that have installed this application</summary>
         public int? DeviceCount {
@@ -41,7 +42,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("version", value); }
         }
         /// <summary>
-        /// Instantiates a new DetectedApp and sets the default values.
+        /// Instantiates a new detectedApp and sets the default values.
         /// </summary>
         public DetectedApp() : base() {
             OdataType = "#microsoft.graph.detectedApp";

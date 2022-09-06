@@ -1,6 +1,5 @@
 using Microsoft.Graph.AuditLogs.DirectoryAudits;
 using Microsoft.Graph.AuditLogs.Provisioning;
-using Microsoft.Graph.AuditLogs.RestrictedSignIns;
 using Microsoft.Graph.AuditLogs.SignIns;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -27,10 +26,6 @@ namespace Microsoft.Graph.AuditLogs {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The restrictedSignIns property</summary>
-        public RestrictedSignInsRequestBuilder RestrictedSignIns { get =>
-            new RestrictedSignInsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The signIns property</summary>
         public SignInsRequestBuilder SignIns { get =>
             new SignInsRequestBuilder(PathParameters, RequestAdapter);
@@ -111,7 +106,7 @@ namespace Microsoft.Graph.AuditLogs {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<AuditLogRoot> GetAsync(Action<AuditLogsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<AuditLogRoot> GetAsync(CancellationToken cancellationToken = default, Action<AuditLogsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
@@ -126,7 +121,7 @@ namespace Microsoft.Graph.AuditLogs {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(AuditLogRoot body, Action<AuditLogsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(AuditLogRoot body, CancellationToken cancellationToken = default, Action<AuditLogsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

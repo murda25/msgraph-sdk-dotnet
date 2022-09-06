@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WindowsDeliveryOptimizationMode?>("deliveryOptimizationMode"); }
             set { BackingStore?.Set("deliveryOptimizationMode", value); }
         }
-        /// <summary>Exclude Windows update Drivers</summary>
+        /// <summary>When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.</summary>
         public bool? DriversExcluded {
             get { return BackingStore?.Get<bool?>("driversExcluded"); }
             set { BackingStore?.Set("driversExcluded", value); }
@@ -66,17 +66,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<int?>("engagedRestartTransitionScheduleInDays"); }
             set { BackingStore?.Set("engagedRestartTransitionScheduleInDays", value); }
         }
-        /// <summary>Defer Feature Updates by these many days</summary>
+        /// <summary>Defer Feature Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.</summary>
         public int? FeatureUpdatesDeferralPeriodInDays {
             get { return BackingStore?.Get<int?>("featureUpdatesDeferralPeriodInDays"); }
             set { BackingStore?.Set("featureUpdatesDeferralPeriodInDays", value); }
         }
-        /// <summary>Pause Feature Updates</summary>
+        /// <summary>When TRUE, assigned devices are paused from receiving feature updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Feature Updates. Returned by default. Query parameters are not supported.s</summary>
         public bool? FeatureUpdatesPaused {
             get { return BackingStore?.Get<bool?>("featureUpdatesPaused"); }
             set { BackingStore?.Set("featureUpdatesPaused", value); }
         }
-        /// <summary>Feature Updates Pause Expiry datetime</summary>
+        /// <summary>The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.</summary>
         public DateTimeOffset? FeatureUpdatesPauseExpiryDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("featureUpdatesPauseExpiryDateTime"); }
             set { BackingStore?.Set("featureUpdatesPauseExpiryDateTime", value); }
@@ -101,12 +101,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("featureUpdatesWillBeRolledBack"); }
             set { BackingStore?.Set("featureUpdatesWillBeRolledBack", value); }
         }
-        /// <summary>Installation schedule</summary>
+        /// <summary>The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.</summary>
         public WindowsUpdateInstallScheduleType InstallationSchedule {
             get { return BackingStore?.Get<WindowsUpdateInstallScheduleType>("installationSchedule"); }
             set { BackingStore?.Set("installationSchedule", value); }
         }
-        /// <summary>Allow Microsoft Update Service</summary>
+        /// <summary>When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.</summary>
         public bool? MicrosoftUpdateServiceAllowed {
             get { return BackingStore?.Get<bool?>("microsoftUpdateServiceAllowed"); }
             set { BackingStore?.Set("microsoftUpdateServiceAllowed", value); }
@@ -121,17 +121,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PrereleaseFeatures?>("prereleaseFeatures"); }
             set { BackingStore?.Set("prereleaseFeatures", value); }
         }
-        /// <summary>Defer Quality Updates by these many days</summary>
+        /// <summary>Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.</summary>
         public int? QualityUpdatesDeferralPeriodInDays {
             get { return BackingStore?.Get<int?>("qualityUpdatesDeferralPeriodInDays"); }
             set { BackingStore?.Set("qualityUpdatesDeferralPeriodInDays", value); }
         }
-        /// <summary>Pause Quality Updates</summary>
+        /// <summary>When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.</summary>
         public bool? QualityUpdatesPaused {
             get { return BackingStore?.Get<bool?>("qualityUpdatesPaused"); }
             set { BackingStore?.Set("qualityUpdatesPaused", value); }
         }
-        /// <summary>Quality Updates Pause Expiry datetime</summary>
+        /// <summary>The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.</summary>
         public DateTimeOffset? QualityUpdatesPauseExpiryDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("qualityUpdatesPauseExpiryDateTime"); }
             set { BackingStore?.Set("qualityUpdatesPauseExpiryDateTime", value); }
@@ -171,7 +171,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WindowsUpdateNotificationDisplayOption?>("updateNotificationLevel"); }
             set { BackingStore?.Set("updateNotificationLevel", value); }
         }
-        /// <summary>Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported.</summary>
+        /// <summary>Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.</summary>
         public WindowsUpdateForBusinessUpdateWeeks? UpdateWeeks {
             get { return BackingStore?.Get<WindowsUpdateForBusinessUpdateWeeks?>("updateWeeks"); }
             set { BackingStore?.Set("updateWeeks", value); }

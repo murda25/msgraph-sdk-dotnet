@@ -1,4 +1,3 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -134,12 +133,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new SignIn CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
-            return mappingValue switch {
-                "#microsoft.graph.restrictedSignIn" => new RestrictedSignIn(),
-                _ => new SignIn(),
-            };
+            return new SignIn();
         }
         /// <summary>
         /// The deserialization information for the current model
