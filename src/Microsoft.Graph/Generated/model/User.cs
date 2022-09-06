@@ -379,6 +379,13 @@ namespace Microsoft.Graph
         public IEnumerable<string> ProxyAddresses { get; set; }
     
         /// <summary>
+        /// Gets or sets security identifier.
+        /// Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
+        /// </summary>
+        [JsonPropertyName("securityIdentifier")]
+        public string SecurityIdentifier { get; set; }
+    
+        /// <summary>
         /// Gets or sets show in address list.
         /// Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue.
         /// </summary>
