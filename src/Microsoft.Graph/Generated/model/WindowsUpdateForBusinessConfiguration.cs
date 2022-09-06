@@ -38,21 +38,21 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets automatic update mode.
-        /// Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl.
+        /// The Automatic Update Mode. Possible values are: UserDefined, NotifyDownload, AutoInstallAtMaintenanceTime, AutoInstallAndRebootAtMaintenanceTime, AutoInstallAndRebootAtScheduledTime, AutoInstallAndRebootWithoutEndUserControl, WindowsDefault. UserDefined is the default value, no intent. Returned by default. Query parameters are not supported. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl.
         /// </summary>
         [JsonPropertyName("automaticUpdateMode")]
         public AutomaticUpdateMode? AutomaticUpdateMode { get; set; }
     
         /// <summary>
         /// Gets or sets auto restart notification dismissal.
-        /// Specify the method by which the auto-restart required notification is dismissed. Possible values are: NotConfigured, Automatic, User. Returned by default. Query parameters are not supported.
+        /// Specify the method by which the auto-restart required notification is dismissed. Possible values are: NotConfigured, Automatic, User. Returned by default. Query parameters are not supported. Possible values are: notConfigured, automatic, user, unknownFutureValue.
         /// </summary>
         [JsonPropertyName("autoRestartNotificationDismissal")]
         public AutoRestartNotificationDismissalMethod? AutoRestartNotificationDismissal { get; set; }
     
         /// <summary>
         /// Gets or sets business ready updates only.
-        /// Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+        /// Determines which branch devices will receive their updates from. Possible values are: UserDefined, All, BusinessReadyOnly, WindowsInsiderBuildFast, WindowsInsiderBuildSlow, WindowsInsiderBuildRelease. Returned by default. Query parameters are not supported. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
         /// </summary>
         [JsonPropertyName("businessReadyUpdatesOnly")]
         public WindowsUpdateType? BusinessReadyUpdatesOnly { get; set; }
@@ -80,14 +80,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets delivery optimization mode.
-        /// Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+        /// The Delivery Optimization Mode. Possible values are: UserDefined, HttpOnly, HttpWithPeeringNat, HttpWithPeeringPrivateGroup, HttpWithInternetPeering, SimpleDownload, BypassMode. UserDefined allows the user to set. Returned by default. Query parameters are not supported. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
         /// </summary>
         [JsonPropertyName("deliveryOptimizationMode")]
         public WindowsDeliveryOptimizationMode? DeliveryOptimizationMode { get; set; }
     
         /// <summary>
         /// Gets or sets drivers excluded.
-        /// Exclude Windows update Drivers
+        /// When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("driversExcluded")]
         public bool? DriversExcluded { get; set; }
@@ -115,21 +115,21 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets feature updates deferral period in days.
-        /// Defer Feature Updates by these many days
+        /// Defer Feature Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("featureUpdatesDeferralPeriodInDays")]
         public Int32? FeatureUpdatesDeferralPeriodInDays { get; set; }
     
         /// <summary>
         /// Gets or sets feature updates paused.
-        /// Pause Feature Updates
+        /// When TRUE, assigned devices are paused from receiving feature updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Feature Updates. Returned by default. Query parameters are not supported.s
         /// </summary>
         [JsonPropertyName("featureUpdatesPaused")]
         public bool? FeatureUpdatesPaused { get; set; }
     
         /// <summary>
         /// Gets or sets feature updates pause expiry date time.
-        /// Feature Updates Pause Expiry datetime
+        /// The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("featureUpdatesPauseExpiryDateTime")]
         public DateTimeOffset? FeatureUpdatesPauseExpiryDateTime { get; set; }
@@ -164,14 +164,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets installation schedule.
-        /// Installation schedule
+        /// The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("installationSchedule")]
         public WindowsUpdateInstallScheduleType InstallationSchedule { get; set; }
     
         /// <summary>
         /// Gets or sets microsoft update service allowed.
-        /// Allow Microsoft Update Service
+        /// When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("microsoftUpdateServiceAllowed")]
         public bool? MicrosoftUpdateServiceAllowed { get; set; }
@@ -185,28 +185,28 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets prerelease features.
-        /// The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+        /// The Pre-Release Features. Possible values are: UserDefined, SettingsOnly, SettingsAndExperimentations, NotAllowed. UserDefined is the default value, no intent. Returned by default. Query parameters are not supported. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
         /// </summary>
         [JsonPropertyName("prereleaseFeatures")]
         public PrereleaseFeatures? PrereleaseFeatures { get; set; }
     
         /// <summary>
         /// Gets or sets quality updates deferral period in days.
-        /// Defer Quality Updates by these many days
+        /// Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("qualityUpdatesDeferralPeriodInDays")]
         public Int32? QualityUpdatesDeferralPeriodInDays { get; set; }
     
         /// <summary>
         /// Gets or sets quality updates paused.
-        /// Pause Quality Updates
+        /// When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("qualityUpdatesPaused")]
         public bool? QualityUpdatesPaused { get; set; }
     
         /// <summary>
         /// Gets or sets quality updates pause expiry date time.
-        /// Quality Updates Pause Expiry datetime
+        /// The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
         /// </summary>
         [JsonPropertyName("qualityUpdatesPauseExpiryDateTime")]
         public DateTimeOffset? QualityUpdatesPauseExpiryDateTime { get; set; }
@@ -255,28 +255,28 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets update notification level.
-        /// Specifies what Windows Update notifications users see. Possible values are: NotConfigured, DefaultNotifications, RestartWarningsOnly, DisableAllNotifications. Returned by default. Query parameters are not supported.
+        /// Specifies what Windows Update notifications users see. Possible values are: NotConfigured, DefaultNotifications, RestartWarningsOnly, DisableAllNotifications. Returned by default. Query parameters are not supported. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications, unknownFutureValue.
         /// </summary>
         [JsonPropertyName("updateNotificationLevel")]
         public WindowsUpdateNotificationDisplayOption? UpdateNotificationLevel { get; set; }
     
         /// <summary>
         /// Gets or sets update weeks.
-        /// Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported.
+        /// Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
         /// </summary>
         [JsonPropertyName("updateWeeks")]
         public WindowsUpdateForBusinessUpdateWeeks? UpdateWeeks { get; set; }
     
         /// <summary>
         /// Gets or sets user pause access.
-        /// Specifies whether to enable end user’s access to pause software updates. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported.
+        /// Specifies whether to enable end user’s access to pause software updates. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported. Possible values are: notConfigured, enabled, disabled.
         /// </summary>
         [JsonPropertyName("userPauseAccess")]
         public Enablement? UserPauseAccess { get; set; }
     
         /// <summary>
         /// Gets or sets user windows update scan access.
-        /// Specifies whether to disable user’s access to scan Windows Update. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported.
+        /// Specifies whether to disable user’s access to scan Windows Update. Possible values are: NotConfigured, Enabled, Disabled. Returned by default. Query parameters are not supported. Possible values are: notConfigured, enabled, disabled.
         /// </summary>
         [JsonPropertyName("userWindowsUpdateScanAccess")]
         public Enablement? UserWindowsUpdateScanAccess { get; set; }
