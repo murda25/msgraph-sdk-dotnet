@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC).</summary>
     public class ResourceOperation : Entity, IParsable {
         /// <summary>Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.</summary>
         public string ActionName {
@@ -21,7 +22,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceName", value); }
         }
         /// <summary>
-        /// Instantiates a new ResourceOperation and sets the default values.
+        /// Instantiates a new resourceOperation and sets the default values.
         /// </summary>
         public ResourceOperation() : base() {
             OdataType = "#microsoft.graph.resourceOperation";

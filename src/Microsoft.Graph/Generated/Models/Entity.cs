@@ -441,7 +441,6 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.request" => new Request(),
                 "#microsoft.graph.resourceOperation" => new ResourceOperation(),
                 "#microsoft.graph.resourceSpecificPermissionGrant" => new ResourceSpecificPermissionGrant(),
-                "#microsoft.graph.restrictedSignIn" => new RestrictedSignIn(),
                 "#microsoft.graph.richLongRunningOperation" => new RichLongRunningOperation(),
                 "#microsoft.graph.riskDetection" => new RiskDetection(),
                 "#microsoft.graph.riskyUser" => new RiskyUser(),

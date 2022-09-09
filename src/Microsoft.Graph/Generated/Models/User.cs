@@ -520,6 +520,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ScopedRoleMembership>>("scopedRoleMemberOf"); }
             set { BackingStore?.Set("scopedRoleMemberOf", value); }
         }
+        /// <summary>Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).</summary>
+        public string SecurityIdentifier {
+            get { return BackingStore?.Get<string>("securityIdentifier"); }
+            set { BackingStore?.Set("securityIdentifier", value); }
+        }
         /// <summary>The settings property</summary>
         public UserSettings Settings {
             get { return BackingStore?.Get<UserSettings>("settings"); }
@@ -707,6 +712,7 @@ namespace Microsoft.Graph.Models {
                 {"responsibilities", n => { Responsibilities = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"schools", n => { Schools = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"scopedRoleMemberOf", n => { ScopedRoleMemberOf = n.GetCollectionOfObjectValues<ScopedRoleMembership>(ScopedRoleMembership.CreateFromDiscriminatorValue).ToList(); } },
+                {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
                 {"settings", n => { Settings = n.GetObjectValue<UserSettings>(UserSettings.CreateFromDiscriminatorValue); } },
                 {"showInAddressList", n => { ShowInAddressList = n.GetBoolValue(); } },
                 {"signInSessionsValidFromDateTime", n => { SignInSessionsValidFromDateTime = n.GetDateTimeOffsetValue(); } },
@@ -832,6 +838,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("responsibilities", Responsibilities);
             writer.WriteCollectionOfPrimitiveValues<string>("schools", Schools);
             writer.WriteCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMemberOf", ScopedRoleMemberOf);
+            writer.WriteStringValue("securityIdentifier", SecurityIdentifier);
             writer.WriteObjectValue<UserSettings>("settings", Settings);
             writer.WriteBoolValue("showInAddressList", ShowInAddressList);
             writer.WriteDateTimeOffsetValue("signInSessionsValidFromDateTime", SignInSessionsValidFromDateTime);
