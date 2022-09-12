@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Models {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
                 {"settingCount", n => { SettingCount = n.GetIntValue(); } },
-                {"settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<DeviceCompliancePolicySettingState>(DeviceCompliancePolicySettingState.CreateFromDiscriminatorValue).ToList(); } },
+                {"settingStates", n => { SettingStates = n.GetCollectionOfObjectValues<DeviceCompliancePolicySettingState>(DeviceCompliancePolicySettingState.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
                 {"version", n => { Version = n.GetIntValue(); } },
             };

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class SharedInsight : Entity, IParsable {
         /// <summary>Details about the shared item. Read only.</summary>
         public SharingDetail LastShared {
@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
                 {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
                 {"resourceReference", n => { ResourceReference = n.GetObjectValue<Microsoft.Graph.Models.ResourceReference>(Microsoft.Graph.Models.ResourceReference.CreateFromDiscriminatorValue); } },
                 {"resourceVisualization", n => { ResourceVisualization = n.GetObjectValue<Microsoft.Graph.Models.ResourceVisualization>(Microsoft.Graph.Models.ResourceVisualization.CreateFromDiscriminatorValue); } },
-                {"sharingHistory", n => { SharingHistory = n.GetCollectionOfObjectValues<SharingDetail>(SharingDetail.CreateFromDiscriminatorValue).ToList(); } },
+                {"sharingHistory", n => { SharingHistory = n.GetCollectionOfObjectValues<SharingDetail>(SharingDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class MailFolder : Entity, IParsable {
         /// <summary>The number of immediate child mailFolders in the current mailFolder.</summary>
         public int? ChildFolderCount {
@@ -74,8 +74,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new MailFolder CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.mailSearchFolder" => new MailSearchFolder(),
                 _ => new MailFolder(),
@@ -87,14 +86,14 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"childFolderCount", n => { ChildFolderCount = n.GetIntValue(); } },
-                {"childFolders", n => { ChildFolders = n.GetCollectionOfObjectValues<MailFolder>(MailFolder.CreateFromDiscriminatorValue).ToList(); } },
+                {"childFolders", n => { ChildFolders = n.GetCollectionOfObjectValues<MailFolder>(MailFolder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"isHidden", n => { IsHidden = n.GetBoolValue(); } },
-                {"messageRules", n => { MessageRules = n.GetCollectionOfObjectValues<MessageRule>(MessageRule.CreateFromDiscriminatorValue).ToList(); } },
-                {"messages", n => { Messages = n.GetCollectionOfObjectValues<Message>(Message.CreateFromDiscriminatorValue).ToList(); } },
-                {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue).ToList(); } },
+                {"messageRules", n => { MessageRules = n.GetCollectionOfObjectValues<MessageRule>(MessageRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"messages", n => { Messages = n.GetCollectionOfObjectValues<Message>(Message.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"parentFolderId", n => { ParentFolderId = n.GetStringValue(); } },
-                {"singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue).ToList(); } },
+                {"singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"totalItemCount", n => { TotalItemCount = n.GetIntValue(); } },
                 {"unreadItemCount", n => { UnreadItemCount = n.GetIntValue(); } },
             };

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class UnifiedRoleManagementPolicy : Entity, IParsable {
         /// <summary>Description for the policy.</summary>
         public string Description {
@@ -72,11 +72,11 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"effectiveRules", n => { EffectiveRules = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>(UnifiedRoleManagementPolicyRule.CreateFromDiscriminatorValue).ToList(); } },
+                {"effectiveRules", n => { EffectiveRules = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>(UnifiedRoleManagementPolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isOrganizationDefault", n => { IsOrganizationDefault = n.GetBoolValue(); } },
                 {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"rules", n => { Rules = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>(UnifiedRoleManagementPolicyRule.CreateFromDiscriminatorValue).ToList(); } },
+                {"rules", n => { Rules = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicyRule>(UnifiedRoleManagementPolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"scopeId", n => { ScopeId = n.GetStringValue(); } },
                 {"scopeType", n => { ScopeType = n.GetStringValue(); } },
             };

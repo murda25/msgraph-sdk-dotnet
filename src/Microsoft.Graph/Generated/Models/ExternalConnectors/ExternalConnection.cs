@@ -67,10 +67,10 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"configuration", n => { Configuration = n.GetObjectValue<Microsoft.Graph.Models.ExternalConnectors.Configuration>(Microsoft.Graph.Models.ExternalConnectors.Configuration.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue).ToList(); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue).ToList(); } },
+                {"operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"schema", n => { Schema = n.GetObjectValue<Microsoft.Graph.Models.ExternalConnectors.Schema>(Microsoft.Graph.Models.ExternalConnectors.Schema.CreateFromDiscriminatorValue); } },
                 {"state", n => { State = n.GetEnumValue<ConnectionState>(); } },
             };

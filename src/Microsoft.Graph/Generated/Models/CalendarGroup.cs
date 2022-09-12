@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class CalendarGroup : Entity, IParsable {
         /// <summary>The calendars in the calendar group. Navigation property. Read-only. Nullable.</summary>
         public List<Calendar> Calendars {
@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<Calendar>(Calendar.CreateFromDiscriminatorValue).ToList(); } },
+                {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<Calendar>(Calendar.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"changeKey", n => { ChangeKey = n.GetStringValue(); } },
                 {"classId", n => { ClassId = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },

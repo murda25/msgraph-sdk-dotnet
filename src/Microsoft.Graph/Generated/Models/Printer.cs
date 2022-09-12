@@ -59,13 +59,13 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"connectors", n => { Connectors = n.GetCollectionOfObjectValues<PrintConnector>(PrintConnector.CreateFromDiscriminatorValue).ToList(); } },
+                {"connectors", n => { Connectors = n.GetCollectionOfObjectValues<PrintConnector>(PrintConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"hasPhysicalDevice", n => { HasPhysicalDevice = n.GetBoolValue(); } },
                 {"isShared", n => { IsShared = n.GetBoolValue(); } },
                 {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
                 {"registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
-                {"shares", n => { Shares = n.GetCollectionOfObjectValues<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue).ToList(); } },
-                {"taskTriggers", n => { TaskTriggers = n.GetCollectionOfObjectValues<PrintTaskTrigger>(PrintTaskTrigger.CreateFromDiscriminatorValue).ToList(); } },
+                {"shares", n => { Shares = n.GetCollectionOfObjectValues<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"taskTriggers", n => { TaskTriggers = n.GetCollectionOfObjectValues<PrintTaskTrigger>(PrintTaskTrigger.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

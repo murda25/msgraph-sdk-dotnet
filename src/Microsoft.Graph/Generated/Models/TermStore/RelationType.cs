@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models.TermStore {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public enum RelationType {
         Pin,
         Reuse,

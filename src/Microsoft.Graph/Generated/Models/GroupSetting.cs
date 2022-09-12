@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class GroupSetting : Entity, IParsable {
         /// <summary>Display name of this group of settings, which comes from the associated template.</summary>
         public string DisplayName {
@@ -42,7 +42,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"templateId", n => { TemplateId = n.GetStringValue(); } },
-                {"values", n => { Values = n.GetCollectionOfObjectValues<SettingValue>(SettingValue.CreateFromDiscriminatorValue).ToList(); } },
+                {"values", n => { Values = n.GetCollectionOfObjectValues<SettingValue>(SettingValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

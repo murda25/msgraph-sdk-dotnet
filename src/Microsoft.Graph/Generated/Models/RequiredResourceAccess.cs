@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"resourceAccess", n => { ResourceAccess = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.ResourceAccess>(Microsoft.Graph.Models.ResourceAccess.CreateFromDiscriminatorValue).ToList(); } },
+                {"resourceAccess", n => { ResourceAccess = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.ResourceAccess>(Microsoft.Graph.Models.ResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"resourceAppId", n => { ResourceAppId = n.GetStringValue(); } },
             };
         }

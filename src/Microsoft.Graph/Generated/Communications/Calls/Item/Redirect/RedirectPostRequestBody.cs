@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Redirect {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"callbackUri", n => { CallbackUri = n.GetStringValue(); } },
-                {"targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue).ToList(); } },
+                {"targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"timeout", n => { Timeout = n.GetIntValue(); } },
             };
         }

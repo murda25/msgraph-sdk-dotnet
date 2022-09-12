@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class SignIn : Entity, IParsable {
         /// <summary>App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
         public string AppDisplayName {
@@ -142,7 +142,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue).ToList(); } },
+                {"appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"clientAppUsed", n => { ClientAppUsed = n.GetStringValue(); } },
                 {"conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
                 {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
@@ -154,8 +154,8 @@ namespace Microsoft.Graph.Models {
                 {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
                 {"resourceId", n => { ResourceId = n.GetStringValue(); } },
                 {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"riskEventTypes_v2", n => { RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"riskEventTypes_v2", n => { RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
                 {"riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
                 {"riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },

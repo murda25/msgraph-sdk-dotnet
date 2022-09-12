@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Answer {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"acceptedModalities", n => { AcceptedModalities = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"acceptedModalities", n => { AcceptedModalities = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"callbackUri", n => { CallbackUri = n.GetStringValue(); } },
                 {"callOptions", n => { CallOptions = n.GetObjectValue<IncomingCallOptions>(IncomingCallOptions.CreateFromDiscriminatorValue); } },
                 {"mediaConfig", n => { MediaConfig = n.GetObjectValue<Microsoft.Graph.Models.MediaConfig>(Microsoft.Graph.Models.MediaConfig.CreateFromDiscriminatorValue); } },

@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"audiences", n => { Audiences = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"audiences", n => { Audiences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"issuer", n => { Issuer = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },

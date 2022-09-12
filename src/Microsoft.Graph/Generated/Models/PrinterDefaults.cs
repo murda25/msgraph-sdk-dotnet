@@ -129,7 +129,7 @@ namespace Microsoft.Graph.Models {
                 {"copiesPerJob", n => { CopiesPerJob = n.GetIntValue(); } },
                 {"dpi", n => { Dpi = n.GetIntValue(); } },
                 {"duplexMode", n => { DuplexMode = n.GetEnumValue<PrintDuplexMode>(); } },
-                {"finishings", n => { Finishings = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"finishings", n => { Finishings = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"fitPdfToPage", n => { FitPdfToPage = n.GetBoolValue(); } },
                 {"inputBin", n => { InputBin = n.GetStringValue(); } },
                 {"mediaColor", n => { MediaColor = n.GetStringValue(); } },

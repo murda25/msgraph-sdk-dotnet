@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class IdentityUserFlowAttributeAssignment : Entity, IParsable {
         /// <summary>The display name of the identityUserFlowAttribute within a user flow.</summary>
         public string DisplayName {
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Models {
                 {"isOptional", n => { IsOptional = n.GetBoolValue(); } },
                 {"requiresVerification", n => { RequiresVerification = n.GetBoolValue(); } },
                 {"userAttribute", n => { UserAttribute = n.GetObjectValue<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue); } },
-                {"userAttributeValues", n => { UserAttributeValues = n.GetCollectionOfObjectValues<UserAttributeValuesItem>(UserAttributeValuesItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"userAttributeValues", n => { UserAttributeValues = n.GetCollectionOfObjectValues<UserAttributeValuesItem>(UserAttributeValuesItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userInputType", n => { UserInputType = n.GetEnumValue<IdentityUserFlowAttributeInputType>(); } },
             };
         }

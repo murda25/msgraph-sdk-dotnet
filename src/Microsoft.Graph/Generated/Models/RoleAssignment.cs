@@ -39,8 +39,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new RoleAssignment CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.deviceAndAppManagementRoleAssignment" => new DeviceAndAppManagementRoleAssignment(),
                 _ => new RoleAssignment(),
@@ -53,7 +52,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"description", n => { Description = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<Microsoft.Graph.Models.RoleDefinition>(Microsoft.Graph.Models.RoleDefinition.CreateFromDiscriminatorValue); } },
             };
         }

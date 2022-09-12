@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Me.Drives.Item.Root.Invite {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Permission>(Microsoft.Graph.Models.Permission.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Permission>(Microsoft.Graph.Models.Permission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

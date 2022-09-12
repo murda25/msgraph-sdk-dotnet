@@ -69,8 +69,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new OrganizationalBrandingProperties CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.organizationalBranding" => new OrganizationalBranding(),
                 "#microsoft.graph.organizationalBrandingLocalization" => new OrganizationalBrandingLocalization(),
@@ -87,7 +86,7 @@ namespace Microsoft.Graph.Models {
                 {"backgroundImageRelativeUrl", n => { BackgroundImageRelativeUrl = n.GetStringValue(); } },
                 {"bannerLogo", n => { BannerLogo = n.GetByteArrayValue(); } },
                 {"bannerLogoRelativeUrl", n => { BannerLogoRelativeUrl = n.GetStringValue(); } },
-                {"cdnList", n => { CdnList = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"cdnList", n => { CdnList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"signInPageText", n => { SignInPageText = n.GetStringValue(); } },
                 {"squareLogo", n => { SquareLogo = n.GetByteArrayValue(); } },
                 {"squareLogoRelativeUrl", n => { SquareLogoRelativeUrl = n.GetStringValue(); } },

@@ -39,9 +39,9 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"shared", n => { Shared = n.GetCollectionOfObjectValues<SharedInsight>(SharedInsight.CreateFromDiscriminatorValue).ToList(); } },
-                {"trending", n => { Trending = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Trending>(Microsoft.Graph.Models.Trending.CreateFromDiscriminatorValue).ToList(); } },
-                {"used", n => { Used = n.GetCollectionOfObjectValues<UsedInsight>(UsedInsight.CreateFromDiscriminatorValue).ToList(); } },
+                {"shared", n => { Shared = n.GetCollectionOfObjectValues<SharedInsight>(SharedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"trending", n => { Trending = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Trending>(Microsoft.Graph.Models.Trending.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"used", n => { Used = n.GetCollectionOfObjectValues<UsedInsight>(UsedInsight.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

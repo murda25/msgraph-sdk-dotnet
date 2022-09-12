@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"encodedSettingXml", n => { EncodedSettingXml = n.GetByteArrayValue(); } },
-                {"settings", n => { Settings = n.GetCollectionOfObjectValues<AppConfigurationSettingItem>(AppConfigurationSettingItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"settings", n => { Settings = n.GetCollectionOfObjectValues<AppConfigurationSettingItem>(AppConfigurationSettingItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

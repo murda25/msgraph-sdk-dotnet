@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Repli
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

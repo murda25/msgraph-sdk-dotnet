@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class BaseItemVersion : Entity, IParsable {
         /// <summary>Identity of the user which last modified the version. Read-only.</summary>
         public IdentitySet LastModifiedBy {
@@ -34,8 +34,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new BaseItemVersion CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.documentSetVersion" => new DocumentSetVersion(),
                 "#microsoft.graph.driveItemVersion" => new DriveItemVersion(),

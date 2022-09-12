@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class MultiValueLegacyExtendedProperty : Entity, IParsable {
         /// <summary>A collection of property values.</summary>
         public List<string> Value {
@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

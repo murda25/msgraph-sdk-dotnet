@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class PrintJob : Entity, IParsable {
         /// <summary>The configuration property</summary>
         public PrintJobConfiguration Configuration {
@@ -73,12 +73,12 @@ namespace Microsoft.Graph.Models {
                 {"configuration", n => { Configuration = n.GetObjectValue<PrintJobConfiguration>(PrintJobConfiguration.CreateFromDiscriminatorValue); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"documents", n => { Documents = n.GetCollectionOfObjectValues<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue).ToList(); } },
+                {"documents", n => { Documents = n.GetCollectionOfObjectValues<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isFetchable", n => { IsFetchable = n.GetBoolValue(); } },
                 {"redirectedFrom", n => { RedirectedFrom = n.GetStringValue(); } },
                 {"redirectedTo", n => { RedirectedTo = n.GetStringValue(); } },
                 {"status", n => { Status = n.GetObjectValue<PrintJobStatus>(PrintJobStatus.CreateFromDiscriminatorValue); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<PrintTask>(PrintTask.CreateFromDiscriminatorValue).ToList(); } },
+                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<PrintTask>(PrintTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

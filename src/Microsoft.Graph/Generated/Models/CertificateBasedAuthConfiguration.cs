@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"certificateAuthorities", n => { CertificateAuthorities = n.GetCollectionOfObjectValues<CertificateAuthority>(CertificateAuthority.CreateFromDiscriminatorValue).ToList(); } },
+                {"certificateAuthorities", n => { CertificateAuthorities = n.GetCollectionOfObjectValues<CertificateAuthority>(CertificateAuthority.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

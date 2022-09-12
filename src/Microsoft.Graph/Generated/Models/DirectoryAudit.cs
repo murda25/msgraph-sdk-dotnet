@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class DirectoryAudit : Entity, IParsable {
         /// <summary>Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ActivityDateTime {
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 {"activityDisplayName", n => { ActivityDisplayName = n.GetStringValue(); } },
-                {"additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue).ToList(); } },
+                {"additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"category", n => { Category = n.GetStringValue(); } },
                 {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 {"initiatedBy", n => { InitiatedBy = n.GetObjectValue<AuditActivityInitiator>(AuditActivityInitiator.CreateFromDiscriminatorValue); } },
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Models {
                 {"operationType", n => { OperationType = n.GetStringValue(); } },
                 {"result", n => { Result = n.GetEnumValue<OperationResult>(); } },
                 {"resultReason", n => { ResultReason = n.GetStringValue(); } },
-                {"targetResources", n => { TargetResources = n.GetCollectionOfObjectValues<TargetResource>(TargetResource.CreateFromDiscriminatorValue).ToList(); } },
+                {"targetResources", n => { TargetResources = n.GetCollectionOfObjectValues<TargetResource>(TargetResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

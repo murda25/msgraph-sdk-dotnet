@@ -40,7 +40,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item.A
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"enrollmentConfigurationAssignments", n => { EnrollmentConfigurationAssignments = n.GetCollectionOfObjectValues<EnrollmentConfigurationAssignment>(EnrollmentConfigurationAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"enrollmentConfigurationAssignments", n => { EnrollmentConfigurationAssignments = n.GetCollectionOfObjectValues<EnrollmentConfigurationAssignment>(EnrollmentConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

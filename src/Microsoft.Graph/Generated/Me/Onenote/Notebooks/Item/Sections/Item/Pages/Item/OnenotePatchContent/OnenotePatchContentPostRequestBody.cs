@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Me.Onenote.Notebooks.Item.Sections.Item.Pages.Item.One
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"commands", n => { Commands = n.GetCollectionOfObjectValues<OnenotePatchContentCommand>(OnenotePatchContentCommand.CreateFromDiscriminatorValue).ToList(); } },
+                {"commands", n => { Commands = n.GetCollectionOfObjectValues<OnenotePatchContentCommand>(OnenotePatchContentCommand.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

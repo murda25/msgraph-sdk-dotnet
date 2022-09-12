@@ -40,7 +40,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs.Item
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.AccessPackage>(Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.AccessPackage>(Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

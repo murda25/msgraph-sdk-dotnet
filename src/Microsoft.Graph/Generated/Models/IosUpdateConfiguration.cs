@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"activeHoursEnd", n => { ActiveHoursEnd = n.GetTimeValue(); } },
                 {"activeHoursStart", n => { ActiveHoursStart = n.GetTimeValue(); } },
-                {"scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"utcTimeOffsetInMinutes", n => { UtcTimeOffsetInMinutes = n.GetIntValue(); } },
             };
         }

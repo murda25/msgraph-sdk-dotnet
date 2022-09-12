@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class UserActivity : Entity, IParsable {
         /// <summary>Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.</summary>
         public string ActivationUrl {
@@ -104,7 +104,7 @@ namespace Microsoft.Graph.Models {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"fallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
-                {"historyItems", n => { HistoryItems = n.GetCollectionOfObjectValues<ActivityHistoryItem>(ActivityHistoryItem.CreateFromDiscriminatorValue).ToList(); } },
+                {"historyItems", n => { HistoryItems = n.GetCollectionOfObjectValues<ActivityHistoryItem>(ActivityHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"status", n => { Status = n.GetEnumValue<Status>(); } },
                 {"userTimezone", n => { UserTimezone = n.GetStringValue(); } },

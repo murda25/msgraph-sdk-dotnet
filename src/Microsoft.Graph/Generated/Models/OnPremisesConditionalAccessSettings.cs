@@ -45,8 +45,8 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"enabled", n => { Enabled = n.GetBoolValue(); } },
-                {"excludedGroups", n => { ExcludedGroups = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"includedGroups", n => { IncludedGroups = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"excludedGroups", n => { ExcludedGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"includedGroups", n => { IncludedGroups = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"overrideDefaultRule", n => { OverrideDefaultRule = n.GetBoolValue(); } },
             };
         }

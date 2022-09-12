@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"details", n => { Details = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"details", n => { Details = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"isAcquiredByPrinter", n => { IsAcquiredByPrinter = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"state", n => { State = n.GetEnumValue<PrintJobProcessingState>(); } },

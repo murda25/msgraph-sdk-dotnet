@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"appleId", n => { AppleId = n.GetStringValue(); } },
-                {"genres", n => { Genres = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"genres", n => { Genres = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"language", n => { Language = n.GetStringValue(); } },
                 {"seller", n => { Seller = n.GetStringValue(); } },
                 {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },

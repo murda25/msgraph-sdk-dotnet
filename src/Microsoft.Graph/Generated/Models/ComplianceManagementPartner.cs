@@ -70,13 +70,13 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"androidEnrollmentAssignments", n => { AndroidEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"androidEnrollmentAssignments", n => { AndroidEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"androidOnboarded", n => { AndroidOnboarded = n.GetBoolValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"iosEnrollmentAssignments", n => { IosEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"iosEnrollmentAssignments", n => { IosEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"iosOnboarded", n => { IosOnboarded = n.GetBoolValue(); } },
                 {"lastHeartbeatDateTime", n => { LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
-                {"macOsEnrollmentAssignments", n => { MacOsEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue).ToList(); } },
+                {"macOsEnrollmentAssignments", n => { MacOsEnrollmentAssignments = n.GetCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"macOsOnboarded", n => { MacOsOnboarded = n.GetBoolValue(); } },
                 {"partnerState", n => { PartnerState = n.GetEnumValue<DeviceManagementPartnerTenantState>(); } },
             };

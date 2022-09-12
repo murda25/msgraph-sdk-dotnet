@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"resourceActions", n => { ResourceActions = n.GetCollectionOfObjectValues<ResourceAction>(ResourceAction.CreateFromDiscriminatorValue).ToList(); } },
+                {"resourceActions", n => { ResourceActions = n.GetCollectionOfObjectValues<ResourceAction>(ResourceAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

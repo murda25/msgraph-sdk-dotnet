@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Users.Item.FindMeetingTimes {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"attendees", n => { Attendees = n.GetCollectionOfObjectValues<AttendeeBase>(AttendeeBase.CreateFromDiscriminatorValue).ToList(); } },
+                {"attendees", n => { Attendees = n.GetCollectionOfObjectValues<AttendeeBase>(AttendeeBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isOrganizerOptional", n => { IsOrganizerOptional = n.GetBoolValue(); } },
                 {"locationConstraint", n => { LocationConstraint = n.GetObjectValue<Microsoft.Graph.Models.LocationConstraint>(Microsoft.Graph.Models.LocationConstraint.CreateFromDiscriminatorValue); } },
                 {"maxCandidates", n => { MaxCandidates = n.GetIntValue(); } },

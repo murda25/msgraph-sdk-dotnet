@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ThreatAssessmentRequest : Entity, IParsable {
         /// <summary>The category property</summary>
         public ThreatCategory? Category {
@@ -59,8 +59,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static new ThreatAssessmentRequest CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.emailFileAssessmentRequest" => new EmailFileAssessmentRequest(),
                 "#microsoft.graph.fileAssessmentRequest" => new FileAssessmentRequest(),
@@ -80,7 +79,7 @@ namespace Microsoft.Graph.Models {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"expectedAssessment", n => { ExpectedAssessment = n.GetEnumValue<ThreatExpectedAssessment>(); } },
                 {"requestSource", n => { RequestSource = n.GetEnumValue<ThreatAssessmentRequestSource>(); } },
-                {"results", n => { Results = n.GetCollectionOfObjectValues<ThreatAssessmentResult>(ThreatAssessmentResult.CreateFromDiscriminatorValue).ToList(); } },
+                {"results", n => { Results = n.GetCollectionOfObjectValues<ThreatAssessmentResult>(ThreatAssessmentResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"status", n => { Status = n.GetEnumValue<ThreatAssessmentStatus>(); } },
             };
         }

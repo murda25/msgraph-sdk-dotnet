@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ChatMessage : Entity, IParsable {
         /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
         public List<ChatMessageAttachment> Attachments {
@@ -140,7 +140,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<ChatMessageAttachment>(ChatMessageAttachment.CreateFromDiscriminatorValue).ToList(); } },
+                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<ChatMessageAttachment>(ChatMessageAttachment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
                 {"channelIdentity", n => { ChannelIdentity = n.GetObjectValue<Microsoft.Graph.Models.ChannelIdentity>(Microsoft.Graph.Models.ChannelIdentity.CreateFromDiscriminatorValue); } },
                 {"chatId", n => { ChatId = n.GetStringValue(); } },
@@ -149,16 +149,16 @@ namespace Microsoft.Graph.Models {
                 {"etag", n => { Etag = n.GetStringValue(); } },
                 {"eventDetail", n => { EventDetail = n.GetObjectValue<EventMessageDetail>(EventMessageDetail.CreateFromDiscriminatorValue); } },
                 {"from", n => { From = n.GetObjectValue<ChatMessageFromIdentitySet>(ChatMessageFromIdentitySet.CreateFromDiscriminatorValue); } },
-                {"hostedContents", n => { HostedContents = n.GetCollectionOfObjectValues<ChatMessageHostedContent>(ChatMessageHostedContent.CreateFromDiscriminatorValue).ToList(); } },
+                {"hostedContents", n => { HostedContents = n.GetCollectionOfObjectValues<ChatMessageHostedContent>(ChatMessageHostedContent.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"importance", n => { Importance = n.GetEnumValue<ChatMessageImportance>(); } },
                 {"lastEditedDateTime", n => { LastEditedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"locale", n => { Locale = n.GetStringValue(); } },
-                {"mentions", n => { Mentions = n.GetCollectionOfObjectValues<ChatMessageMention>(ChatMessageMention.CreateFromDiscriminatorValue).ToList(); } },
+                {"mentions", n => { Mentions = n.GetCollectionOfObjectValues<ChatMessageMention>(ChatMessageMention.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"messageType", n => { MessageType = n.GetEnumValue<ChatMessageType>(); } },
                 {"policyViolation", n => { PolicyViolation = n.GetObjectValue<ChatMessagePolicyViolation>(ChatMessagePolicyViolation.CreateFromDiscriminatorValue); } },
-                {"reactions", n => { Reactions = n.GetCollectionOfObjectValues<ChatMessageReaction>(ChatMessageReaction.CreateFromDiscriminatorValue).ToList(); } },
-                {"replies", n => { Replies = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue).ToList(); } },
+                {"reactions", n => { Reactions = n.GetCollectionOfObjectValues<ChatMessageReaction>(ChatMessageReaction.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"replies", n => { Replies = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"replyToId", n => { ReplyToId = n.GetStringValue(); } },
                 {"subject", n => { Subject = n.GetStringValue(); } },
                 {"summary", n => { Summary = n.GetStringValue(); } },

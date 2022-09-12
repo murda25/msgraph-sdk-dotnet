@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Models.ODataErrors {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"code", n => { Code = n.GetStringValue(); } },
-                {"details", n => { Details = n.GetCollectionOfObjectValues<ErrorDetails>(ErrorDetails.CreateFromDiscriminatorValue).ToList(); } },
+                {"details", n => { Details = n.GetCollectionOfObjectValues<ErrorDetails>(ErrorDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"innererror", n => { Innererror = n.GetObjectValue<Microsoft.Graph.Models.ODataErrors.InnerError>(Microsoft.Graph.Models.ODataErrors.InnerError.CreateFromDiscriminatorValue); } },
                 {"message", n => { Message = n.GetStringValue(); } },
                 {"target", n => { Target = n.GetStringValue(); } },

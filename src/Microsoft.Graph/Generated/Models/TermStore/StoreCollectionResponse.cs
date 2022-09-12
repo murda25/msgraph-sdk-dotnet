@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Models.TermStore {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.nextLink", n => { OdataNextLink = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Store>(Store.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<Store>(Store.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -54,7 +54,7 @@ namespace Microsoft.Graph.Models {
                 {"defaultLocale", n => { DefaultLocale = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"localizedNotificationMessages", n => { LocalizedNotificationMessages = n.GetCollectionOfObjectValues<LocalizedNotificationMessage>(LocalizedNotificationMessage.CreateFromDiscriminatorValue).ToList(); } },
+                {"localizedNotificationMessages", n => { LocalizedNotificationMessages = n.GetCollectionOfObjectValues<LocalizedNotificationMessage>(LocalizedNotificationMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"acl", n => { Acl = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.ExternalConnectors.Acl>(Microsoft.Graph.Models.ExternalConnectors.Acl.CreateFromDiscriminatorValue).ToList(); } },
+                {"acl", n => { Acl = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.ExternalConnectors.Acl>(Microsoft.Graph.Models.ExternalConnectors.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
                 {"properties", n => { Properties = n.GetObjectValue<Microsoft.Graph.Models.ExternalConnectors.Properties>(Microsoft.Graph.Models.ExternalConnectors.Properties.CreateFromDiscriminatorValue); } },
             };

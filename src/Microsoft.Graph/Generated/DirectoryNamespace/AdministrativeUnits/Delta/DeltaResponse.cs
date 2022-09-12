@@ -40,7 +40,7 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits.Delta {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.AdministrativeUnit>(Microsoft.Graph.Models.AdministrativeUnit.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.AdministrativeUnit>(Microsoft.Graph.Models.AdministrativeUnit.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

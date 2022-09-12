@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.TermStore {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class Group : Entity, IParsable {
         /// <summary>Date and time of the group creation. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models.TermStore {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"parentSiteId", n => { ParentSiteId = n.GetStringValue(); } },
                 {"scope", n => { Scope = n.GetEnumValue<TermGroupScope>(); } },
-                {"sets", n => { Sets = n.GetCollectionOfObjectValues<Set>(Set.CreateFromDiscriminatorValue).ToList(); } },
+                {"sets", n => { Sets = n.GetCollectionOfObjectValues<Set>(Set.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

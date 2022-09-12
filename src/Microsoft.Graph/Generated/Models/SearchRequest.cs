@@ -99,19 +99,19 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"aggregationFilters", n => { AggregationFilters = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<AggregationOption>(AggregationOption.CreateFromDiscriminatorValue).ToList(); } },
-                {"contentSources", n => { ContentSources = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"aggregationFilters", n => { AggregationFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<AggregationOption>(AggregationOption.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"contentSources", n => { ContentSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"enableTopResults", n => { EnableTopResults = n.GetBoolValue(); } },
-                {"entityTypes", n => { EntityTypes = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"entityTypes", n => { EntityTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"from", n => { From = n.GetIntValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"query", n => { Query = n.GetObjectValue<SearchQuery>(SearchQuery.CreateFromDiscriminatorValue); } },
                 {"queryAlterationOptions", n => { QueryAlterationOptions = n.GetObjectValue<SearchAlterationOptions>(SearchAlterationOptions.CreateFromDiscriminatorValue); } },
                 {"resultTemplateOptions", n => { ResultTemplateOptions = n.GetObjectValue<ResultTemplateOption>(ResultTemplateOption.CreateFromDiscriminatorValue); } },
                 {"size", n => { Size = n.GetIntValue(); } },
-                {"sortProperties", n => { SortProperties = n.GetCollectionOfObjectValues<SortProperty>(SortProperty.CreateFromDiscriminatorValue).ToList(); } },
+                {"sortProperties", n => { SortProperties = n.GetCollectionOfObjectValues<SortProperty>(SortProperty.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
