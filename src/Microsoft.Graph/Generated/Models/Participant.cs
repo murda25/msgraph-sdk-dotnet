@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Models {
                 {"info", n => { Info = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
                 {"isInLobby", n => { IsInLobby = n.GetBoolValue(); } },
                 {"isMuted", n => { IsMuted = n.GetBoolValue(); } },
-                {"mediaStreams", n => { MediaStreams = n.GetCollectionOfObjectValues<MediaStream>(MediaStream.CreateFromDiscriminatorValue).ToList(); } },
+                {"mediaStreams", n => { MediaStreams = n.GetCollectionOfObjectValues<MediaStream>(MediaStream.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"metadata", n => { Metadata = n.GetStringValue(); } },
                 {"recordingInfo", n => { RecordingInfo = n.GetObjectValue<Microsoft.Graph.Models.RecordingInfo>(Microsoft.Graph.Models.RecordingInfo.CreateFromDiscriminatorValue); } },
             };

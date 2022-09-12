@@ -74,7 +74,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue).ToList(); } },
+                {"apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"customBrowserDisplayName", n => { CustomBrowserDisplayName = n.GetStringValue(); } },
                 {"customBrowserPackageId", n => { CustomBrowserPackageId = n.GetStringValue(); } },
                 {"deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },

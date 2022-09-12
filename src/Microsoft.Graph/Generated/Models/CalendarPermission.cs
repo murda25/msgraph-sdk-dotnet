@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class CalendarPermission : Entity, IParsable {
         /// <summary>List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.</summary>
         public List<string> AllowedRoles {
@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"allowedRoles", n => { AllowedRoles = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"allowedRoles", n => { AllowedRoles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"emailAddress", n => { EmailAddress = n.GetObjectValue<Microsoft.Graph.Models.EmailAddress>(Microsoft.Graph.Models.EmailAddress.CreateFromDiscriminatorValue); } },
                 {"isInsideOrganization", n => { IsInsideOrganization = n.GetBoolValue(); } },
                 {"isRemovable", n => { IsRemovable = n.GetBoolValue(); } },

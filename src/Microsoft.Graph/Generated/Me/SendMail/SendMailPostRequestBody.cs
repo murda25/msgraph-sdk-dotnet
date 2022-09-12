@@ -45,8 +45,8 @@ namespace Microsoft.Graph.Me.SendMail {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
-                {"saveToSentItems", n => { SaveToSentItems = n.GetBoolValue(); } },
+                {"Message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
+                {"SaveToSentItems", n => { SaveToSentItems = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -55,8 +55,8 @@ namespace Microsoft.Graph.Me.SendMail {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("message", Message);
-            writer.WriteBoolValue("saveToSentItems", SaveToSentItems);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("Message", Message);
+            writer.WriteBoolValue("SaveToSentItems", SaveToSentItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

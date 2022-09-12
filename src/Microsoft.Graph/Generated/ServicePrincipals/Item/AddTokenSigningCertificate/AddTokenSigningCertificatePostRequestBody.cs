@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate {
     /// <summary>Provides operations to call the addTokenSigningCertificate method.</summary>
-    public class SelfSignedCertificatePostRequestBody : IAdditionalDataHolder, IBackedModel, IParsable {
+    public class AddTokenSigningCertificatePostRequestBody : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
@@ -25,9 +25,9 @@ namespace Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate {
             set { BackingStore?.Set("endDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new SelfSignedCertificatePostRequestBody and sets the default values.
+        /// Instantiates a new addTokenSigningCertificatePostRequestBody and sets the default values.
         /// </summary>
-        public SelfSignedCertificatePostRequestBody() {
+        public AddTokenSigningCertificatePostRequestBody() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
@@ -35,9 +35,9 @@ namespace Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate {
         /// Creates a new instance of the appropriate class based on discriminator value
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
-        public static SelfSignedCertificatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static AddTokenSigningCertificatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SelfSignedCertificatePostRequestBody();
+            return new AddTokenSigningCertificatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"answerInputType", n => { AnswerInputType = n.GetEnumValue<AnswerInputType>(); } },
-                {"answerOptions", n => { AnswerOptions = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"answerOptions", n => { AnswerOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
             };
         }

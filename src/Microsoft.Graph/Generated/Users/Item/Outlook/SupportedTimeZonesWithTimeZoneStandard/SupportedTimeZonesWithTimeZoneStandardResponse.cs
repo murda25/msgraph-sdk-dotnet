@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Users.Item.Outlook.SupportedTimeZonesWithTimeZoneStand
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<TimeZoneInformation>(TimeZoneInformation.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<TimeZoneInformation>(TimeZoneInformation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

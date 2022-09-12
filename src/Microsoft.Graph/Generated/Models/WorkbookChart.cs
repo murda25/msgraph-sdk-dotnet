@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class WorkbookChart : Entity, IParsable {
         /// <summary>Represents chart axes. Read-only.</summary>
         public WorkbookChartAxes Axes {
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.Models {
                 {"left", n => { Left = n.GetDoubleValue(); } },
                 {"legend", n => { Legend = n.GetObjectValue<WorkbookChartLegend>(WorkbookChartLegend.CreateFromDiscriminatorValue); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"series", n => { Series = n.GetCollectionOfObjectValues<WorkbookChartSeries>(WorkbookChartSeries.CreateFromDiscriminatorValue).ToList(); } },
+                {"series", n => { Series = n.GetCollectionOfObjectValues<WorkbookChartSeries>(WorkbookChartSeries.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"title", n => { Title = n.GetObjectValue<WorkbookChartTitle>(WorkbookChartTitle.CreateFromDiscriminatorValue); } },
                 {"top", n => { Top = n.GetDoubleValue(); } },
                 {"width", n => { Width = n.GetDoubleValue(); } },

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Models.CallRecords {
                 {"caller", n => { Caller = n.GetObjectValue<Endpoint>(Endpoint.CreateFromDiscriminatorValue); } },
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"failureInfo", n => { FailureInfo = n.GetObjectValue<Microsoft.Graph.Models.CallRecords.FailureInfo>(Microsoft.Graph.Models.CallRecords.FailureInfo.CreateFromDiscriminatorValue); } },
-                {"media", n => { Media = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.CallRecords.Media>(Microsoft.Graph.Models.CallRecords.Media.CreateFromDiscriminatorValue).ToList(); } },
+                {"media", n => { Media = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.CallRecords.Media>(Microsoft.Graph.Models.CallRecords.Media.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }

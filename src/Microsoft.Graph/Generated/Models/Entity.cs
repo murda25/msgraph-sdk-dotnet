@@ -42,8 +42,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public static Entity CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.aadUserConversationMember" => new AadUserConversationMember(),
                 "#microsoft.graph.accessPackage" => new AccessPackage(),

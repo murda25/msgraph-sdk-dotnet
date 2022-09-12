@@ -140,7 +140,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
-                {"customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue).ToList(); } },
+                {"customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"customerTimeZone", n => { CustomerTimeZone = n.GetStringValue(); } },
                 {"duration", n => { Duration = n.GetTimeSpanValue(); } },
                 {"endDateTime", n => { EndDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
@@ -153,14 +153,14 @@ namespace Microsoft.Graph.Models {
                 {"preBuffer", n => { PreBuffer = n.GetTimeSpanValue(); } },
                 {"price", n => { Price = n.GetDoubleValue(); } },
                 {"priceType", n => { PriceType = n.GetEnumValue<BookingPriceType>(); } },
-                {"reminders", n => { Reminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue).ToList(); } },
+                {"reminders", n => { Reminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"selfServiceAppointmentId", n => { SelfServiceAppointmentId = n.GetStringValue(); } },
                 {"serviceId", n => { ServiceId = n.GetStringValue(); } },
                 {"serviceLocation", n => { ServiceLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
                 {"serviceName", n => { ServiceName = n.GetStringValue(); } },
                 {"serviceNotes", n => { ServiceNotes = n.GetStringValue(); } },
                 {"smsNotificationsEnabled", n => { SmsNotificationsEnabled = n.GetBoolValue(); } },
-                {"staffMemberIds", n => { StaffMemberIds = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"staffMemberIds", n => { StaffMemberIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
             };
         }

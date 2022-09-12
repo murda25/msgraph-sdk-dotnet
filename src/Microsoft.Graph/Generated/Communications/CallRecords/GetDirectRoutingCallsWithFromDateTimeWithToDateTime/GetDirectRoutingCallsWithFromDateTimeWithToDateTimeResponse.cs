@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Communications.CallRecords.GetDirectRoutingCallsWithFr
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DirectRoutingLogRow>(DirectRoutingLogRow.CreateFromDiscriminatorValue).ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<DirectRoutingLogRow>(DirectRoutingLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

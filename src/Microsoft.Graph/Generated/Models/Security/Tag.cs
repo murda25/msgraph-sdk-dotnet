@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class Tag : Entity, IParsable {
         /// <summary>The createdBy property</summary>
         public Microsoft.Graph.Models.IdentitySet CreatedBy {
@@ -39,8 +39,7 @@ namespace Microsoft.Graph.Models.Security {
         /// </summary>
         public static new Tag CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValueNode = parseNode.GetChildNode("@odata.type");
-            var mappingValue = mappingValueNode?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.security.ediscoveryReviewTag" => new EdiscoveryReviewTag(),
                 _ => new Tag(),

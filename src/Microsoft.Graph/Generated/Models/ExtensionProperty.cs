@@ -54,7 +54,7 @@ namespace Microsoft.Graph.Models {
                 {"dataType", n => { DataType = n.GetStringValue(); } },
                 {"isSyncedFromOnPremises", n => { IsSyncedFromOnPremises = n.GetBoolValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"targetObjects", n => { TargetObjects = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"targetObjects", n => { TargetObjects = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

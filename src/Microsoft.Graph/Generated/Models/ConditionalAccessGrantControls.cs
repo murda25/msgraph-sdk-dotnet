@@ -59,11 +59,11 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"builtInControls", n => { BuiltInControls = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"customAuthenticationFactors", n => { CustomAuthenticationFactors = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"builtInControls", n => { BuiltInControls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"customAuthenticationFactors", n => { CustomAuthenticationFactors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"operator", n => { Operator = n.GetStringValue(); } },
-                {"termsOfUse", n => { TermsOfUse = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"termsOfUse", n => { TermsOfUse = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the admin singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class WorkbookTable : Entity, IParsable {
         /// <summary>Represents a collection of all the columns in the table. Read-only.</summary>
         public List<WorkbookTableColumn> Columns {
@@ -95,12 +95,12 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"columns", n => { Columns = n.GetCollectionOfObjectValues<WorkbookTableColumn>(WorkbookTableColumn.CreateFromDiscriminatorValue).ToList(); } },
+                {"columns", n => { Columns = n.GetCollectionOfObjectValues<WorkbookTableColumn>(WorkbookTableColumn.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"highlightFirstColumn", n => { HighlightFirstColumn = n.GetBoolValue(); } },
                 {"highlightLastColumn", n => { HighlightLastColumn = n.GetBoolValue(); } },
                 {"legacyId", n => { LegacyId = n.GetStringValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
-                {"rows", n => { Rows = n.GetCollectionOfObjectValues<WorkbookTableRow>(WorkbookTableRow.CreateFromDiscriminatorValue).ToList(); } },
+                {"rows", n => { Rows = n.GetCollectionOfObjectValues<WorkbookTableRow>(WorkbookTableRow.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"showBandedColumns", n => { ShowBandedColumns = n.GetBoolValue(); } },
                 {"showBandedRows", n => { ShowBandedRows = n.GetBoolValue(); } },
                 {"showFilterButton", n => { ShowFilterButton = n.GetBoolValue(); } },
