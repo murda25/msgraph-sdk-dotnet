@@ -50,7 +50,7 @@ namespace Microsoft.Graph.TermStore
     
         /// <summary>
         /// Gets or sets sets.
-        /// Collection of all sets available in the term store.
+        /// Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
         /// </summary>
         [JsonPropertyName("sets")]
         public IStoreSetsCollectionPage Sets { get; set; }

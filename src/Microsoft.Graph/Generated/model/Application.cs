@@ -78,6 +78,12 @@ namespace Microsoft.Graph
         public DateTimeOffset? CreatedDateTime { get; set; }
     
         /// <summary>
+        /// Gets or sets default redirect uri.
+        /// </summary>
+        [JsonPropertyName("defaultRedirectUri")]
+        public string DefaultRedirectUri { get; set; }
+    
+        /// <summary>
         /// Gets or sets description.
         /// Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
         /// </summary>
@@ -281,7 +287,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets federated identity credentials.
-        /// Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+        /// Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
         /// </summary>
         [JsonPropertyName("federatedIdentityCredentials")]
         public IApplicationFederatedIdentityCredentialsCollectionPage FederatedIdentityCredentials { get; set; }
