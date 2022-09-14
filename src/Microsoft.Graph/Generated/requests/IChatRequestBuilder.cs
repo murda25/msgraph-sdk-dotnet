@@ -50,6 +50,12 @@ namespace Microsoft.Graph
         IChatMessagesCollectionRequestBuilder Messages { get; }
 
         /// <summary>
+        /// Gets the request builder for PinnedMessages.
+        /// </summary>
+        /// <returns>The <see cref="IChatPinnedMessagesCollectionRequestBuilder"/>.</returns>
+        IChatPinnedMessagesCollectionRequestBuilder PinnedMessages { get; }
+
+        /// <summary>
         /// Gets the request builder for Tabs.
         /// </summary>
         /// <returns>The <see cref="IChatTabsCollectionRequestBuilder"/>.</returns>
