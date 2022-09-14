@@ -17,17 +17,17 @@ namespace Microsoft.Graph
     using System.Linq.Expressions;
 
     /// <summary>
-    /// The type ChatRequest.
+    /// The type PinnedChatMessageInfoRequest.
     /// </summary>
-    public partial class ChatRequest : BaseRequest, IChatRequest
+    public partial class PinnedChatMessageInfoRequest : BaseRequest, IPinnedChatMessageInfoRequest
     {
         /// <summary>
-        /// Constructs a new ChatRequest.
+        /// Constructs a new PinnedChatMessageInfoRequest.
         /// </summary>
         /// <param name="requestUrl">The URL for the built request.</param>
         /// <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
         /// <param name="options">Query and header option name value pairs for the request.</param>
-        public ChatRequest(
+        public PinnedChatMessageInfoRequest(
             string requestUrl,
             IBaseClient client,
             IEnumerable<Option> options)
@@ -36,46 +36,46 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Creates the specified Chat using POST.
+        /// Creates the specified PinnedChatMessageInfo using POST.
         /// </summary>
-        /// <param name="chatToCreate">The Chat to create.</param>
+        /// <param name="pinnedChatMessageInfoToCreate">The PinnedChatMessageInfo to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The created Chat.</returns>
-        public async System.Threading.Tasks.Task<Chat> CreateAsync(Chat chatToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The created PinnedChatMessageInfo.</returns>
+        public async System.Threading.Tasks.Task<PinnedChatMessageInfo> CreateAsync(PinnedChatMessageInfo pinnedChatMessageInfoToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            var newEntity = await this.SendAsync<Chat>(chatToCreate, cancellationToken).ConfigureAwait(false);
+            var newEntity = await this.SendAsync<PinnedChatMessageInfo>(pinnedChatMessageInfoToCreate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(newEntity);
             return newEntity;
         }
 
         /// <summary>
-        /// Creates the specified Chat using POST and returns a <see cref="GraphResponse{Chat}"/> object.
+        /// Creates the specified PinnedChatMessageInfo using POST and returns a <see cref="GraphResponse{PinnedChatMessageInfo}"/> object.
         /// </summary>
-        /// <param name="chatToCreate">The Chat to create.</param>
+        /// <param name="pinnedChatMessageInfoToCreate">The PinnedChatMessageInfo to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{Chat}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Chat>> CreateResponseAsync(Chat chatToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{PinnedChatMessageInfo}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<PinnedChatMessageInfo>> CreateResponseAsync(PinnedChatMessageInfo pinnedChatMessageInfoToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            return this.SendAsyncWithGraphResponse<Chat>(chatToCreate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<PinnedChatMessageInfo>(pinnedChatMessageInfoToCreate, cancellationToken);
         }
 
         /// <summary>
-        /// Deletes the specified Chat.
+        /// Deletes the specified PinnedChatMessageInfo.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
         public async System.Threading.Tasks.Task DeleteAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.DELETE;
-            await this.SendAsync<Chat>(null, cancellationToken).ConfigureAwait(false);
+            await this.SendAsync<PinnedChatMessageInfo>(null, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Deletes the specified Chat and returns a <see cref="GraphResponse"/> object.
+        /// Deletes the specified PinnedChatMessageInfo and returns a <see cref="GraphResponse"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task of <see cref="GraphResponse"/> to await.</returns>
@@ -86,85 +86,85 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Gets the specified Chat.
+        /// Gets the specified PinnedChatMessageInfo.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The Chat.</returns>
-        public async System.Threading.Tasks.Task<Chat> GetAsync(CancellationToken cancellationToken = default)
+        /// <returns>The PinnedChatMessageInfo.</returns>
+        public async System.Threading.Tasks.Task<PinnedChatMessageInfo> GetAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            var retrievedEntity = await this.SendAsync<Chat>(null, cancellationToken).ConfigureAwait(false);
+            var retrievedEntity = await this.SendAsync<PinnedChatMessageInfo>(null, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(retrievedEntity);
             return retrievedEntity;
         }
 
         /// <summary>
-        /// Gets the specified Chat and returns a <see cref="GraphResponse{Chat}"/> object.
+        /// Gets the specified PinnedChatMessageInfo and returns a <see cref="GraphResponse{PinnedChatMessageInfo}"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{Chat}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Chat>> GetResponseAsync(CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{PinnedChatMessageInfo}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<PinnedChatMessageInfo>> GetResponseAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            return this.SendAsyncWithGraphResponse<Chat>(null, cancellationToken);
+            return this.SendAsyncWithGraphResponse<PinnedChatMessageInfo>(null, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified Chat using PATCH.
+        /// Updates the specified PinnedChatMessageInfo using PATCH.
         /// </summary>
-        /// <param name="chatToUpdate">The Chat to update.</param>
+        /// <param name="pinnedChatMessageInfoToUpdate">The PinnedChatMessageInfo to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The updated Chat.</returns>
-        public async System.Threading.Tasks.Task<Chat> UpdateAsync(Chat chatToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The updated PinnedChatMessageInfo.</returns>
+        public async System.Threading.Tasks.Task<PinnedChatMessageInfo> UpdateAsync(PinnedChatMessageInfo pinnedChatMessageInfoToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            var updatedEntity = await this.SendAsync<Chat>(chatToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<PinnedChatMessageInfo>(pinnedChatMessageInfoToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified Chat using PATCH and returns a <see cref="GraphResponse{Chat}"/> object.
+        /// Updates the specified PinnedChatMessageInfo using PATCH and returns a <see cref="GraphResponse{PinnedChatMessageInfo}"/> object.
         /// </summary>
-        /// <param name="chatToUpdate">The Chat to update.</param>
+        /// <param name="pinnedChatMessageInfoToUpdate">The PinnedChatMessageInfo to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The <see cref="GraphResponse{Chat}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Chat>> UpdateResponseAsync(Chat chatToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{PinnedChatMessageInfo}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<PinnedChatMessageInfo>> UpdateResponseAsync(PinnedChatMessageInfo pinnedChatMessageInfoToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            return this.SendAsyncWithGraphResponse<Chat>(chatToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<PinnedChatMessageInfo>(pinnedChatMessageInfoToUpdate, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified Chat using PUT.
+        /// Updates the specified PinnedChatMessageInfo using PUT.
         /// </summary>
-        /// <param name="chatToUpdate">The Chat object to update.</param>
+        /// <param name="pinnedChatMessageInfoToUpdate">The PinnedChatMessageInfo object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
-        public async System.Threading.Tasks.Task<Chat> PutAsync(Chat chatToUpdate, CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<PinnedChatMessageInfo> PutAsync(PinnedChatMessageInfo pinnedChatMessageInfoToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            var updatedEntity = await this.SendAsync<Chat>(chatToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<PinnedChatMessageInfo>(pinnedChatMessageInfoToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified Chat using PUT and returns a <see cref="GraphResponse{Chat}"/> object.
+        /// Updates the specified PinnedChatMessageInfo using PUT and returns a <see cref="GraphResponse{PinnedChatMessageInfo}"/> object.
         /// </summary>
-        /// <param name="chatToUpdate">The Chat object to update.</param>
+        /// <param name="pinnedChatMessageInfoToUpdate">The PinnedChatMessageInfo object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The task to await of <see cref="GraphResponse{Chat}"/>.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Chat>> PutResponseAsync(Chat chatToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The task to await of <see cref="GraphResponse{PinnedChatMessageInfo}"/>.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<PinnedChatMessageInfo>> PutResponseAsync(PinnedChatMessageInfo pinnedChatMessageInfoToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            return this.SendAsyncWithGraphResponse<Chat>(chatToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<PinnedChatMessageInfo>(pinnedChatMessageInfoToUpdate, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IChatRequest Expand(string value)
+        public IPinnedChatMessageInfoRequest Expand(string value)
         {
             this.QueryOptions.Add(new QueryOption("$expand", value));
             return this;
@@ -183,7 +183,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="expandExpression">The expression from which to calculate the expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IChatRequest Expand(Expression<Func<Chat, object>> expandExpression)
+        public IPinnedChatMessageInfoRequest Expand(Expression<Func<PinnedChatMessageInfo, object>> expandExpression)
         {
 		    if (expandExpression == null)
             {
@@ -207,7 +207,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The select value.</param>
         /// <returns>The request object to send.</returns>
-        public IChatRequest Select(string value)
+        public IPinnedChatMessageInfoRequest Select(string value)
         {
             this.QueryOptions.Add(new QueryOption("$select", value));
             return this;
@@ -218,7 +218,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="selectExpression">The expression from which to calculate the select value.</param>
         /// <returns>The request object to send.</returns>
-        public IChatRequest Select(Expression<Func<Chat, object>> selectExpression)
+        public IPinnedChatMessageInfoRequest Select(Expression<Func<PinnedChatMessageInfo, object>> selectExpression)
         {
             if (selectExpression == null)
             {
@@ -240,45 +240,9 @@ namespace Microsoft.Graph
         /// <summary>
         /// Initializes any collection properties after deserialization, like next requests for paging.
         /// </summary>
-        /// <param name="chatToInitialize">The <see cref="Chat"/> with the collection properties to initialize.</param>
-        private void InitializeCollectionProperties(Chat chatToInitialize)
+        /// <param name="pinnedChatMessageInfoToInitialize">The <see cref="PinnedChatMessageInfo"/> with the collection properties to initialize.</param>
+        private void InitializeCollectionProperties(PinnedChatMessageInfo pinnedChatMessageInfoToInitialize)
         {
-
-            if (chatToInitialize != null)
-            {
-                if (chatToInitialize.InstalledApps != null && chatToInitialize.InstalledApps.CurrentPage != null)
-                {
-                    chatToInitialize.InstalledApps.InitializeNextPageRequest(this.Client, chatToInitialize.InstalledAppsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    chatToInitialize.InstalledApps.AdditionalData = chatToInitialize.AdditionalData;
-                }
-                if (chatToInitialize.Members != null && chatToInitialize.Members.CurrentPage != null)
-                {
-                    chatToInitialize.Members.InitializeNextPageRequest(this.Client, chatToInitialize.MembersNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    chatToInitialize.Members.AdditionalData = chatToInitialize.AdditionalData;
-                }
-                if (chatToInitialize.Messages != null && chatToInitialize.Messages.CurrentPage != null)
-                {
-                    chatToInitialize.Messages.InitializeNextPageRequest(this.Client, chatToInitialize.MessagesNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    chatToInitialize.Messages.AdditionalData = chatToInitialize.AdditionalData;
-                }
-                if (chatToInitialize.PinnedMessages != null && chatToInitialize.PinnedMessages.CurrentPage != null)
-                {
-                    chatToInitialize.PinnedMessages.InitializeNextPageRequest(this.Client, chatToInitialize.PinnedMessagesNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    chatToInitialize.PinnedMessages.AdditionalData = chatToInitialize.AdditionalData;
-                }
-                if (chatToInitialize.Tabs != null && chatToInitialize.Tabs.CurrentPage != null)
-                {
-                    chatToInitialize.Tabs.InitializeNextPageRequest(this.Client, chatToInitialize.TabsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    chatToInitialize.Tabs.AdditionalData = chatToInitialize.AdditionalData;
-                }
-
-            }
-
 
         }
     }
