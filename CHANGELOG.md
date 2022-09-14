@@ -11,7 +11,12 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ### Changed
 
-- Latest metadata updates from latest snapshot
+## [5.0.0-preview.10] - 2022-07-20
+
+### Changed
+
+- Latest metadata updates from 13th September 2022 snapshot
+- MAUI support
 - Fix incorrected nested paths that would point to incorrect request builders.
 
 ## [5.0.0-preview.10] - 2022-07-20
