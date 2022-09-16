@@ -34,8 +34,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("enableTopResults", value); }
         }
         /// <summary>The entityTypes property</summary>
-        public List<string> EntityTypes {
-            get { return BackingStore?.Get<List<string>>("entityTypes"); }
+        public List<EntityType?> EntityTypes {
+            get { return BackingStore?.Get<List<EntityType?>>("entityTypes"); }
             set { BackingStore?.Set("entityTypes", value); }
         }
         /// <summary>The fields property</summary>
@@ -103,7 +103,7 @@ namespace Microsoft.Graph.Models {
                 {"aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<AggregationOption>(AggregationOption.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"contentSources", n => { ContentSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"enableTopResults", n => { EnableTopResults = n.GetBoolValue(); } },
-                {"entityTypes", n => { EntityTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"entityTypes", n => { EntityTypes = n.GetCollectionOfEnumValues<EntityType>()?.ToList(); } },
                 {"fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"from", n => { From = n.GetIntValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -124,7 +124,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AggregationOption>("aggregations", Aggregations);
             writer.WriteCollectionOfPrimitiveValues<string>("contentSources", ContentSources);
             writer.WriteBoolValue("enableTopResults", EnableTopResults);
-            writer.WriteCollectionOfPrimitiveValues<string>("entityTypes", EntityTypes);
+            writer.WriteCollectionOfEnumValues<EntityType>("entityTypes", EntityTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteIntValue("from", From);
             writer.WriteStringValue("@odata.type", OdataType);

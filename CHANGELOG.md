@@ -11,6 +11,8 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ### Changed
 
+- Fixes incorrect types for collection types referencing enums - [Kiota #1846](https://github.com/microsoft/kiota/pull/1846)
+
 ## [5.0.0-preview.10] - 2022-07-20
 
 ### Changed

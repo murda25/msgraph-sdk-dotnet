@@ -19,8 +19,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
         /// <summary>The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.</summary>
-        public List<string> Details {
-            get { return BackingStore?.Get<List<string>>("details"); }
+        public List<PrinterProcessingStateDetail?> Details {
+            get { return BackingStore?.Get<List<PrinterProcessingStateDetail?>>("details"); }
             set { BackingStore?.Set("details", value); }
         }
         /// <summary>The OdataType property</summary>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
-                {"details", n => { Details = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"details", n => { Details = n.GetCollectionOfEnumValues<PrinterProcessingStateDetail>()?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"state", n => { State = n.GetEnumValue<PrinterProcessingState>(); } },
             };
@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfPrimitiveValues<string>("details", Details);
+            writer.WriteCollectionOfEnumValues<PrinterProcessingStateDetail>("details", Details);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteEnumValue<PrinterProcessingState>("state", State);
             writer.WriteAdditionalData(AdditionalData);

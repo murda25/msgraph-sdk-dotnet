@@ -39,8 +39,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
         /// <summary>The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.</summary>
-        public List<string> Operations {
-            get { return BackingStore?.Get<List<string>>("operations"); }
+        public List<UnifiedRoleManagementPolicyRuleTargetOperations?> Operations {
+            get { return BackingStore?.Get<List<UnifiedRoleManagementPolicyRuleTargetOperations?>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
         /// <summary>The targetObjects property</summary>
@@ -74,7 +74,7 @@ namespace Microsoft.Graph.Models {
                 {"inheritableSettings", n => { InheritableSettings = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"level", n => { Level = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operations", n => { Operations = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"operations", n => { Operations = n.GetCollectionOfEnumValues<UnifiedRoleManagementPolicyRuleTargetOperations>()?.ToList(); } },
                 {"targetObjects", n => { TargetObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -89,7 +89,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("inheritableSettings", InheritableSettings);
             writer.WriteStringValue("level", Level);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfPrimitiveValues<string>("operations", Operations);
+            writer.WriteCollectionOfEnumValues<UnifiedRoleManagementPolicyRuleTargetOperations>("operations", Operations);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("targetObjects", TargetObjects);
             writer.WriteAdditionalData(AdditionalData);
         }
