@@ -39,8 +39,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("duplexMode", value); }
         }
         /// <summary>The default set of finishings to apply to print jobs. Valid values are described in the following table.</summary>
-        public List<string> Finishings {
-            get { return BackingStore?.Get<List<string>>("finishings"); }
+        public List<PrintFinishing?> Finishings {
+            get { return BackingStore?.Get<List<PrintFinishing?>>("finishings"); }
             set { BackingStore?.Set("finishings", value); }
         }
         /// <summary>The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions.</summary>
@@ -129,7 +129,7 @@ namespace Microsoft.Graph.Models {
                 {"copiesPerJob", n => { CopiesPerJob = n.GetIntValue(); } },
                 {"dpi", n => { Dpi = n.GetIntValue(); } },
                 {"duplexMode", n => { DuplexMode = n.GetEnumValue<PrintDuplexMode>(); } },
-                {"finishings", n => { Finishings = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
                 {"fitPdfToPage", n => { FitPdfToPage = n.GetBoolValue(); } },
                 {"inputBin", n => { InputBin = n.GetStringValue(); } },
                 {"mediaColor", n => { MediaColor = n.GetStringValue(); } },
@@ -155,7 +155,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteIntValue("copiesPerJob", CopiesPerJob);
             writer.WriteIntValue("dpi", Dpi);
             writer.WriteEnumValue<PrintDuplexMode>("duplexMode", DuplexMode);
-            writer.WriteCollectionOfPrimitiveValues<string>("finishings", Finishings);
+            writer.WriteCollectionOfEnumValues<PrintFinishing>("finishings", Finishings);
             writer.WriteBoolValue("fitPdfToPage", FitPdfToPage);
             writer.WriteStringValue("inputBin", InputBin);
             writer.WriteStringValue("mediaColor", MediaColor);

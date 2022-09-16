@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class SignIn : Entity, IParsable {
         /// <summary>App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
         public string AppDisplayName {
@@ -77,8 +77,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("riskDetail", value); }
         }
         /// <summary>Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue. Supports $filter (eq operator only).</summary>
-        public List<string> RiskEventTypes {
-            get { return BackingStore?.Get<List<string>>("riskEventTypes"); }
+        public List<RiskEventType?> RiskEventTypes {
+            get { return BackingStore?.Get<List<RiskEventType?>>("riskEventTypes"); }
             set { BackingStore?.Set("riskEventTypes", value); }
         }
         /// <summary>The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).</summary>
@@ -154,7 +154,7 @@ namespace Microsoft.Graph.Models {
                 {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
                 {"resourceId", n => { ResourceId = n.GetStringValue(); } },
                 {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"riskEventTypes", n => { RiskEventTypes = n.GetCollectionOfEnumValues<RiskEventType>()?.ToList(); } },
                 {"riskEventTypes_v2", n => { RiskEventTypes_v2 = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
                 {"riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("resourceDisplayName", ResourceDisplayName);
             writer.WriteStringValue("resourceId", ResourceId);
             writer.WriteEnumValue<RiskDetail>("riskDetail", RiskDetail);
-            writer.WriteCollectionOfPrimitiveValues<string>("riskEventTypes", RiskEventTypes);
+            writer.WriteCollectionOfEnumValues<RiskEventType>("riskEventTypes", RiskEventTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("riskEventTypes_v2", RiskEventTypes_v2);
             writer.WriteEnumValue<RiskLevel>("riskLevelAggregated", RiskLevelAggregated);
             writer.WriteEnumValue<RiskLevel>("riskLevelDuringSignIn", RiskLevelDuringSignIn);

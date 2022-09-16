@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
@@ -77,8 +77,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("participants", value); }
         }
         /// <summary>The requestedModalities property</summary>
-        public List<string> RequestedModalities {
-            get { return BackingStore?.Get<List<string>>("requestedModalities"); }
+        public List<Modality?> RequestedModalities {
+            get { return BackingStore?.Get<List<Modality?>>("requestedModalities"); }
             set { BackingStore?.Set("requestedModalities", value); }
         }
         /// <summary>The resultInfo property</summary>
@@ -154,7 +154,7 @@ namespace Microsoft.Graph.Models {
                 {"myParticipantId", n => { MyParticipantId = n.GetStringValue(); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<CommsOperation>(CommsOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"participants", n => { Participants = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"requestedModalities", n => { RequestedModalities = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"requestedModalities", n => { RequestedModalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
                 {"resultInfo", n => { ResultInfo = n.GetObjectValue<Microsoft.Graph.Models.ResultInfo>(Microsoft.Graph.Models.ResultInfo.CreateFromDiscriminatorValue); } },
                 {"source", n => { Source = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
                 {"state", n => { State = n.GetEnumValue<CallState>(); } },
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("myParticipantId", MyParticipantId);
             writer.WriteCollectionOfObjectValues<CommsOperation>("operations", Operations);
             writer.WriteCollectionOfObjectValues<Participant>("participants", Participants);
-            writer.WriteCollectionOfPrimitiveValues<string>("requestedModalities", RequestedModalities);
+            writer.WriteCollectionOfEnumValues<Modality>("requestedModalities", RequestedModalities);
             writer.WriteObjectValue<Microsoft.Graph.Models.ResultInfo>("resultInfo", ResultInfo);
             writer.WriteObjectValue<ParticipantInfo>("source", Source);
             writer.WriteEnumValue<CallState>("state", State);

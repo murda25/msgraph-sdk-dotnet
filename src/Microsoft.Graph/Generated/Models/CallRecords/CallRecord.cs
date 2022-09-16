@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.CallRecords {
-    /// <summary>Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class CallRecord : Entity, IParsable {
         /// <summary>UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? EndDateTime {
@@ -22,8 +22,8 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
         /// <summary>List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.</summary>
-        public List<string> Modalities {
-            get { return BackingStore?.Get<List<string>>("modalities"); }
+        public List<Modality?> Modalities {
+            get { return BackingStore?.Get<List<Modality?>>("modalities"); }
             set { BackingStore?.Set("modalities", value); }
         }
         /// <summary>The organizing party&apos;s identity.</summary>
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Models.CallRecords {
                 {"endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
                 {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"modalities", n => { Modalities = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
                 {"organizer", n => { Organizer = n.GetObjectValue<Microsoft.Graph.Models.IdentitySet>(Microsoft.Graph.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 {"participants", n => { Participants = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.IdentitySet>(Microsoft.Graph.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteStringValue("joinWebUrl", JoinWebUrl);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfPrimitiveValues<string>("modalities", Modalities);
+            writer.WriteCollectionOfEnumValues<Modality>("modalities", Modalities);
             writer.WriteObjectValue<Microsoft.Graph.Models.IdentitySet>("organizer", Organizer);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.IdentitySet>("participants", Participants);
             writer.WriteCollectionOfObjectValues<Session>("sessions", Sessions);
