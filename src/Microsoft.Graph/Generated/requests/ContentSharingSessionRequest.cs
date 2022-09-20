@@ -17,17 +17,17 @@ namespace Microsoft.Graph
     using System.Linq.Expressions;
 
     /// <summary>
-    /// The type CallRequest.
+    /// The type ContentSharingSessionRequest.
     /// </summary>
-    public partial class CallRequest : BaseRequest, ICallRequest
+    public partial class ContentSharingSessionRequest : BaseRequest, IContentSharingSessionRequest
     {
         /// <summary>
-        /// Constructs a new CallRequest.
+        /// Constructs a new ContentSharingSessionRequest.
         /// </summary>
         /// <param name="requestUrl">The URL for the built request.</param>
         /// <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
         /// <param name="options">Query and header option name value pairs for the request.</param>
-        public CallRequest(
+        public ContentSharingSessionRequest(
             string requestUrl,
             IBaseClient client,
             IEnumerable<Option> options)
@@ -36,46 +36,46 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Creates the specified Call using POST.
+        /// Creates the specified ContentSharingSession using POST.
         /// </summary>
-        /// <param name="callToCreate">The Call to create.</param>
+        /// <param name="contentSharingSessionToCreate">The ContentSharingSession to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The created Call.</returns>
-        public async System.Threading.Tasks.Task<Call> CreateAsync(Call callToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The created ContentSharingSession.</returns>
+        public async System.Threading.Tasks.Task<ContentSharingSession> CreateAsync(ContentSharingSession contentSharingSessionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            var newEntity = await this.SendAsync<Call>(callToCreate, cancellationToken).ConfigureAwait(false);
+            var newEntity = await this.SendAsync<ContentSharingSession>(contentSharingSessionToCreate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(newEntity);
             return newEntity;
         }
 
         /// <summary>
-        /// Creates the specified Call using POST and returns a <see cref="GraphResponse{Call}"/> object.
+        /// Creates the specified ContentSharingSession using POST and returns a <see cref="GraphResponse{ContentSharingSession}"/> object.
         /// </summary>
-        /// <param name="callToCreate">The Call to create.</param>
+        /// <param name="contentSharingSessionToCreate">The ContentSharingSession to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{Call}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Call>> CreateResponseAsync(Call callToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ContentSharingSession}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ContentSharingSession>> CreateResponseAsync(ContentSharingSession contentSharingSessionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            return this.SendAsyncWithGraphResponse<Call>(callToCreate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ContentSharingSession>(contentSharingSessionToCreate, cancellationToken);
         }
 
         /// <summary>
-        /// Deletes the specified Call.
+        /// Deletes the specified ContentSharingSession.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
         public async System.Threading.Tasks.Task DeleteAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.DELETE;
-            await this.SendAsync<Call>(null, cancellationToken).ConfigureAwait(false);
+            await this.SendAsync<ContentSharingSession>(null, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Deletes the specified Call and returns a <see cref="GraphResponse"/> object.
+        /// Deletes the specified ContentSharingSession and returns a <see cref="GraphResponse"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task of <see cref="GraphResponse"/> to await.</returns>
@@ -86,85 +86,85 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Gets the specified Call.
+        /// Gets the specified ContentSharingSession.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The Call.</returns>
-        public async System.Threading.Tasks.Task<Call> GetAsync(CancellationToken cancellationToken = default)
+        /// <returns>The ContentSharingSession.</returns>
+        public async System.Threading.Tasks.Task<ContentSharingSession> GetAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            var retrievedEntity = await this.SendAsync<Call>(null, cancellationToken).ConfigureAwait(false);
+            var retrievedEntity = await this.SendAsync<ContentSharingSession>(null, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(retrievedEntity);
             return retrievedEntity;
         }
 
         /// <summary>
-        /// Gets the specified Call and returns a <see cref="GraphResponse{Call}"/> object.
+        /// Gets the specified ContentSharingSession and returns a <see cref="GraphResponse{ContentSharingSession}"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{Call}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Call>> GetResponseAsync(CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ContentSharingSession}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ContentSharingSession>> GetResponseAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            return this.SendAsyncWithGraphResponse<Call>(null, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ContentSharingSession>(null, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified Call using PATCH.
+        /// Updates the specified ContentSharingSession using PATCH.
         /// </summary>
-        /// <param name="callToUpdate">The Call to update.</param>
+        /// <param name="contentSharingSessionToUpdate">The ContentSharingSession to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The updated Call.</returns>
-        public async System.Threading.Tasks.Task<Call> UpdateAsync(Call callToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The updated ContentSharingSession.</returns>
+        public async System.Threading.Tasks.Task<ContentSharingSession> UpdateAsync(ContentSharingSession contentSharingSessionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            var updatedEntity = await this.SendAsync<Call>(callToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<ContentSharingSession>(contentSharingSessionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified Call using PATCH and returns a <see cref="GraphResponse{Call}"/> object.
+        /// Updates the specified ContentSharingSession using PATCH and returns a <see cref="GraphResponse{ContentSharingSession}"/> object.
         /// </summary>
-        /// <param name="callToUpdate">The Call to update.</param>
+        /// <param name="contentSharingSessionToUpdate">The ContentSharingSession to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The <see cref="GraphResponse{Call}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Call>> UpdateResponseAsync(Call callToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{ContentSharingSession}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ContentSharingSession>> UpdateResponseAsync(ContentSharingSession contentSharingSessionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            return this.SendAsyncWithGraphResponse<Call>(callToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ContentSharingSession>(contentSharingSessionToUpdate, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified Call using PUT.
+        /// Updates the specified ContentSharingSession using PUT.
         /// </summary>
-        /// <param name="callToUpdate">The Call object to update.</param>
+        /// <param name="contentSharingSessionToUpdate">The ContentSharingSession object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
-        public async System.Threading.Tasks.Task<Call> PutAsync(Call callToUpdate, CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<ContentSharingSession> PutAsync(ContentSharingSession contentSharingSessionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            var updatedEntity = await this.SendAsync<Call>(callToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<ContentSharingSession>(contentSharingSessionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified Call using PUT and returns a <see cref="GraphResponse{Call}"/> object.
+        /// Updates the specified ContentSharingSession using PUT and returns a <see cref="GraphResponse{ContentSharingSession}"/> object.
         /// </summary>
-        /// <param name="callToUpdate">The Call object to update.</param>
+        /// <param name="contentSharingSessionToUpdate">The ContentSharingSession object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The task to await of <see cref="GraphResponse{Call}"/>.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<Call>> PutResponseAsync(Call callToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The task to await of <see cref="GraphResponse{ContentSharingSession}"/>.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<ContentSharingSession>> PutResponseAsync(ContentSharingSession contentSharingSessionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            return this.SendAsyncWithGraphResponse<Call>(callToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<ContentSharingSession>(contentSharingSessionToUpdate, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The expand value.</param>
         /// <returns>The request object to send.</returns>
-        public ICallRequest Expand(string value)
+        public IContentSharingSessionRequest Expand(string value)
         {
             this.QueryOptions.Add(new QueryOption("$expand", value));
             return this;
@@ -183,7 +183,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="expandExpression">The expression from which to calculate the expand value.</param>
         /// <returns>The request object to send.</returns>
-        public ICallRequest Expand(Expression<Func<Call, object>> expandExpression)
+        public IContentSharingSessionRequest Expand(Expression<Func<ContentSharingSession, object>> expandExpression)
         {
 		    if (expandExpression == null)
             {
@@ -207,7 +207,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The select value.</param>
         /// <returns>The request object to send.</returns>
-        public ICallRequest Select(string value)
+        public IContentSharingSessionRequest Select(string value)
         {
             this.QueryOptions.Add(new QueryOption("$select", value));
             return this;
@@ -218,7 +218,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="selectExpression">The expression from which to calculate the select value.</param>
         /// <returns>The request object to send.</returns>
-        public ICallRequest Select(Expression<Func<Call, object>> selectExpression)
+        public IContentSharingSessionRequest Select(Expression<Func<ContentSharingSession, object>> selectExpression)
         {
             if (selectExpression == null)
             {
@@ -240,39 +240,9 @@ namespace Microsoft.Graph
         /// <summary>
         /// Initializes any collection properties after deserialization, like next requests for paging.
         /// </summary>
-        /// <param name="callToInitialize">The <see cref="Call"/> with the collection properties to initialize.</param>
-        private void InitializeCollectionProperties(Call callToInitialize)
+        /// <param name="contentSharingSessionToInitialize">The <see cref="ContentSharingSession"/> with the collection properties to initialize.</param>
+        private void InitializeCollectionProperties(ContentSharingSession contentSharingSessionToInitialize)
         {
-
-            if (callToInitialize != null)
-            {
-                if (callToInitialize.AudioRoutingGroups != null && callToInitialize.AudioRoutingGroups.CurrentPage != null)
-                {
-                    callToInitialize.AudioRoutingGroups.InitializeNextPageRequest(this.Client, callToInitialize.AudioRoutingGroupsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    callToInitialize.AudioRoutingGroups.AdditionalData = callToInitialize.AdditionalData;
-                }
-                if (callToInitialize.ContentSharingSessions != null && callToInitialize.ContentSharingSessions.CurrentPage != null)
-                {
-                    callToInitialize.ContentSharingSessions.InitializeNextPageRequest(this.Client, callToInitialize.ContentSharingSessionsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    callToInitialize.ContentSharingSessions.AdditionalData = callToInitialize.AdditionalData;
-                }
-                if (callToInitialize.Operations != null && callToInitialize.Operations.CurrentPage != null)
-                {
-                    callToInitialize.Operations.InitializeNextPageRequest(this.Client, callToInitialize.OperationsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    callToInitialize.Operations.AdditionalData = callToInitialize.AdditionalData;
-                }
-                if (callToInitialize.Participants != null && callToInitialize.Participants.CurrentPage != null)
-                {
-                    callToInitialize.Participants.InitializeNextPageRequest(this.Client, callToInitialize.ParticipantsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    callToInitialize.Participants.AdditionalData = callToInitialize.AdditionalData;
-                }
-
-            }
-
 
         }
     }

@@ -15,31 +15,23 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type CallOptions.
+    /// The type X509CertificateAuthenticationModeConfiguration.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<CallOptions>))]
-    public partial class CallOptions
+    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateAuthenticationModeConfiguration>))]
+    public partial class X509CertificateAuthenticationModeConfiguration
     {
 
-        ///<summary>
-        /// The internal CallOptions constructor
-        ///</summary>
-        protected internal CallOptions()
-        {
-            // Don't allow initialization of abstract complex types
-        }
-
         /// <summary>
-        /// Gets or sets hideBotAfterEscalation.
+        /// Gets or sets rules.
         /// </summary>
-        [JsonPropertyName("hideBotAfterEscalation")]
-        public bool? HideBotAfterEscalation { get; set; }
+        [JsonPropertyName("rules")]
+        public IEnumerable<X509CertificateRule> Rules { get; set; }
     
         /// <summary>
-        /// Gets or sets isContentSharingNotificationEnabled.
+        /// Gets or sets x509CertificateAuthenticationDefaultMode.
         /// </summary>
-        [JsonPropertyName("isContentSharingNotificationEnabled")]
-        public bool? IsContentSharingNotificationEnabled { get; set; }
+        [JsonPropertyName("x509CertificateAuthenticationDefaultMode")]
+        public X509CertificateAuthenticationMode? X509CertificateAuthenticationDefaultMode { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.
