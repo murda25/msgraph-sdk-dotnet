@@ -30,6 +30,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.fido2AuthenticationMethodConfiguration" => new Fido2AuthenticationMethodConfiguration(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration" => new MicrosoftAuthenticatorAuthenticationMethodConfiguration(),
                 "#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration" => new TemporaryAccessPassAuthenticationMethodConfiguration(),
+                "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration" => new X509CertificateAuthenticationMethodConfiguration(),
                 _ => new AuthenticationMethodConfiguration(),
             };
         }
