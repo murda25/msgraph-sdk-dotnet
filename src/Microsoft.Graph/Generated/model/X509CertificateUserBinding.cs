@@ -15,31 +15,29 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type CallOptions.
+    /// The type X509CertificateUserBinding.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<CallOptions>))]
-    public partial class CallOptions
+    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateUserBinding>))]
+    public partial class X509CertificateUserBinding
     {
 
-        ///<summary>
-        /// The internal CallOptions constructor
-        ///</summary>
-        protected internal CallOptions()
-        {
-            // Don't allow initialization of abstract complex types
-        }
-
         /// <summary>
-        /// Gets or sets hideBotAfterEscalation.
+        /// Gets or sets priority.
         /// </summary>
-        [JsonPropertyName("hideBotAfterEscalation")]
-        public bool? HideBotAfterEscalation { get; set; }
+        [JsonPropertyName("priority")]
+        public Int32? Priority { get; set; }
     
         /// <summary>
-        /// Gets or sets isContentSharingNotificationEnabled.
+        /// Gets or sets userProperty.
         /// </summary>
-        [JsonPropertyName("isContentSharingNotificationEnabled")]
-        public bool? IsContentSharingNotificationEnabled { get; set; }
+        [JsonPropertyName("userProperty")]
+        public string UserProperty { get; set; }
+    
+        /// <summary>
+        /// Gets or sets x509CertificateField.
+        /// </summary>
+        [JsonPropertyName("x509CertificateField")]
+        public string X509CertificateField { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.
