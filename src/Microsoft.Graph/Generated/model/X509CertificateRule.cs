@@ -15,31 +15,29 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type CallOptions.
+    /// The type X509CertificateRule.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<CallOptions>))]
-    public partial class CallOptions
+    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
+    public partial class X509CertificateRule
     {
 
-        ///<summary>
-        /// The internal CallOptions constructor
-        ///</summary>
-        protected internal CallOptions()
-        {
-            // Don't allow initialization of abstract complex types
-        }
-
         /// <summary>
-        /// Gets or sets hideBotAfterEscalation.
+        /// Gets or sets identifier.
         /// </summary>
-        [JsonPropertyName("hideBotAfterEscalation")]
-        public bool? HideBotAfterEscalation { get; set; }
+        [JsonPropertyName("identifier")]
+        public string Identifier { get; set; }
     
         /// <summary>
-        /// Gets or sets isContentSharingNotificationEnabled.
+        /// Gets or sets x509CertificateAuthenticationMode.
         /// </summary>
-        [JsonPropertyName("isContentSharingNotificationEnabled")]
-        public bool? IsContentSharingNotificationEnabled { get; set; }
+        [JsonPropertyName("x509CertificateAuthenticationMode")]
+        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
+    
+        /// <summary>
+        /// Gets or sets x509CertificateRuleType.
+        /// </summary>
+        [JsonPropertyName("x509CertificateRuleType")]
+        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

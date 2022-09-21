@@ -79,5 +79,10 @@ namespace Microsoft.Graph
         /// </summary>
         UnknownFutureValue = 11,
 	
+        /// <summary>
+        /// M365DAdmin Dismissed Detection
+        /// </summary>
+        M365DAdminDismissedDetection = 12,
+	
     }
 }
