@@ -149,6 +149,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.connectedOrganization" => new ConnectedOrganization(),
                 "#microsoft.graph.contact" => new Contact(),
                 "#microsoft.graph.contactFolder" => new ContactFolder(),
+                "#microsoft.graph.contentSharingSession" => new ContentSharingSession(),
                 "#microsoft.graph.contentType" => new ContentType(),
                 "#microsoft.graph.contract" => new Contract(),
                 "#microsoft.graph.conversation" => new Conversation(),
@@ -658,6 +659,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.workbookWorksheet" => new WorkbookWorksheet(),
                 "#microsoft.graph.workbookWorksheetProtection" => new WorkbookWorksheetProtection(),
                 "#microsoft.graph.workforceIntegration" => new WorkforceIntegration(),
+                "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration" => new X509CertificateAuthenticationMethodConfiguration(),
                 _ => new Entity(),
             };
         }

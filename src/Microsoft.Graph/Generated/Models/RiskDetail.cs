@@ -13,5 +13,6 @@ namespace Microsoft.Graph.Models {
         Hidden,
         AdminConfirmedUserCompromised,
         UnknownFutureValue,
+        M365DAdminDismissedDetection,
     }
 }

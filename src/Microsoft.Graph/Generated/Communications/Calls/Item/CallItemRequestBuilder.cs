@@ -2,6 +2,7 @@ using Microsoft.Graph.Communications.Calls.Item.Answer;
 using Microsoft.Graph.Communications.Calls.Item.AudioRoutingGroups;
 using Microsoft.Graph.Communications.Calls.Item.CancelMediaProcessing;
 using Microsoft.Graph.Communications.Calls.Item.ChangeScreenSharingRole;
+using Microsoft.Graph.Communications.Calls.Item.ContentSharingSessions;
 using Microsoft.Graph.Communications.Calls.Item.KeepAlive;
 using Microsoft.Graph.Communications.Calls.Item.Mute;
 using Microsoft.Graph.Communications.Calls.Item.Operations;
@@ -42,6 +43,10 @@ namespace Microsoft.Graph.Communications.Calls.Item {
         /// <summary>The changeScreenSharingRole property</summary>
         public ChangeScreenSharingRoleRequestBuilder ChangeScreenSharingRole { get =>
             new ChangeScreenSharingRoleRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The contentSharingSessions property</summary>
+        public ContentSharingSessionsRequestBuilder ContentSharingSessions { get =>
+            new ContentSharingSessionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The keepAlive property</summary>
         public KeepAliveRequestBuilder KeepAlive { get =>

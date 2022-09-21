@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
@@ -35,6 +35,11 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.ChatInfo ChatInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo>("chatInfo"); }
             set { BackingStore?.Set("chatInfo", value); }
+        }
+        /// <summary>The contentSharingSessions property</summary>
+        public List<ContentSharingSession> ContentSharingSessions {
+            get { return BackingStore?.Get<List<ContentSharingSession>>("contentSharingSessions"); }
+            set { BackingStore?.Set("contentSharingSessions", value); }
         }
         /// <summary>The direction of the call. The possible value are incoming or outgoing. Read-only.</summary>
         public CallDirection? Direction {
@@ -146,6 +151,7 @@ namespace Microsoft.Graph.Models {
                 {"callOptions", n => { CallOptions = n.GetObjectValue<Microsoft.Graph.Models.CallOptions>(Microsoft.Graph.Models.CallOptions.CreateFromDiscriminatorValue); } },
                 {"callRoutes", n => { CallRoutes = n.GetCollectionOfObjectValues<CallRoute>(CallRoute.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"chatInfo", n => { ChatInfo = n.GetObjectValue<Microsoft.Graph.Models.ChatInfo>(Microsoft.Graph.Models.ChatInfo.CreateFromDiscriminatorValue); } },
+                {"contentSharingSessions", n => { ContentSharingSessions = n.GetCollectionOfObjectValues<ContentSharingSession>(ContentSharingSession.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"direction", n => { Direction = n.GetEnumValue<CallDirection>(); } },
                 {"incomingContext", n => { IncomingContext = n.GetObjectValue<Microsoft.Graph.Models.IncomingContext>(Microsoft.Graph.Models.IncomingContext.CreateFromDiscriminatorValue); } },
                 {"mediaConfig", n => { MediaConfig = n.GetObjectValue<Microsoft.Graph.Models.MediaConfig>(Microsoft.Graph.Models.MediaConfig.CreateFromDiscriminatorValue); } },
@@ -178,6 +184,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.CallOptions>("callOptions", CallOptions);
             writer.WriteCollectionOfObjectValues<CallRoute>("callRoutes", CallRoutes);
             writer.WriteObjectValue<Microsoft.Graph.Models.ChatInfo>("chatInfo", ChatInfo);
+            writer.WriteCollectionOfObjectValues<ContentSharingSession>("contentSharingSessions", ContentSharingSessions);
             writer.WriteEnumValue<CallDirection>("direction", Direction);
             writer.WriteObjectValue<Microsoft.Graph.Models.IncomingContext>("incomingContext", IncomingContext);
             writer.WriteObjectValue<Microsoft.Graph.Models.MediaConfig>("mediaConfig", MediaConfig);
