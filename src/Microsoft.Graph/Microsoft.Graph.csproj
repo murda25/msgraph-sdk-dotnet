@@ -27,7 +27,7 @@
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix></VersionSuffix>
     <PackageReleaseNotes>
-- Latest metadata updates from 20th September 2022 snapshot
+- Latest metadata updates from 27th September 2022 snapshot
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
