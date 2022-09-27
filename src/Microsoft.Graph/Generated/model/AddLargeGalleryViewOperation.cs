@@ -15,18 +15,19 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type Pinned Chat Message Info.
+    /// The type Add Large Gallery View Operation.
     /// </summary>
-    public partial class PinnedChatMessageInfo : Entity
+    public partial class AddLargeGalleryViewOperation : CommsOperation
     {
     
-        /// <summary>
-        /// Gets or sets message.
-        /// Represents details about the chat message that is pinned.
-        /// </summary>
-        [JsonPropertyName("message")]
-        public ChatMessage Message { get; set; }
-    
+        ///<summary>
+        /// The AddLargeGalleryViewOperation constructor
+        ///</summary>
+        public AddLargeGalleryViewOperation()
+        {
+            this.ODataType = "microsoft.graph.addLargeGalleryViewOperation";
+        }
+
     }
 }
 

@@ -114,6 +114,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets pinned messages.
+        /// A collection of all the pinned messages in the chat. Nullable.
         /// </summary>
         [JsonPropertyName("pinnedMessages")]
         public IChatPinnedMessagesCollectionPage PinnedMessages { get; set; }
