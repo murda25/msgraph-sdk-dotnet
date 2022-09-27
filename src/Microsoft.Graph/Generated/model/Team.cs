@@ -230,6 +230,19 @@ namespace Microsoft.Graph
         public Channel PrimaryChannel { get; set; }
     
         /// <summary>
+        /// Gets or sets tags.
+        /// </summary>
+        [JsonPropertyName("tags")]
+        public ITeamTagsCollectionPage Tags { get; set; }
+
+        /// <summary>
+        /// Gets or sets tagsNextLink.
+        /// </summary>
+        [JsonPropertyName("tags@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string TagsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets template.
         /// The template this team was created from. See available templates.
         /// </summary>

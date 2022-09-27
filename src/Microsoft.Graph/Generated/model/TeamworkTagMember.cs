@@ -15,17 +15,28 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type Pinned Chat Message Info.
+    /// The type Teamwork Tag Member.
     /// </summary>
-    public partial class PinnedChatMessageInfo : Entity
+    public partial class TeamworkTagMember : Entity
     {
     
         /// <summary>
-        /// Gets or sets message.
-        /// Represents details about the chat message that is pinned.
+        /// Gets or sets display name.
         /// </summary>
-        [JsonPropertyName("message")]
-        public ChatMessage Message { get; set; }
+        [JsonPropertyName("displayName")]
+        public string DisplayName { get; set; }
+    
+        /// <summary>
+        /// Gets or sets tenant id.
+        /// </summary>
+        [JsonPropertyName("tenantId")]
+        public string TenantId { get; set; }
+    
+        /// <summary>
+        /// Gets or sets user id.
+        /// </summary>
+        [JsonPropertyName("userId")]
+        public string UserId { get; set; }
     
     }
 }

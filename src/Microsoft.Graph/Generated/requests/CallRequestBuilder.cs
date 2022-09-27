@@ -116,6 +116,19 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for CallAddLargeGalleryView.
+        /// </summary>
+        /// <returns>The <see cref="ICallAddLargeGalleryViewRequestBuilder"/>.</returns>
+        public ICallAddLargeGalleryViewRequestBuilder AddLargeGalleryView(
+            string clientContext = null)
+        {
+            return new CallAddLargeGalleryViewRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.addLargeGalleryView"),
+                this.Client,
+                clientContext);
+        }
+
+        /// <summary>
         /// Gets the request builder for CallAnswer.
         /// </summary>
         /// <returns>The <see cref="ICallAnswerRequestBuilder"/>.</returns>
