@@ -1,6 +1,9 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AccessPackagesIncompatibleWith;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AssignmentPolicies;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.Catalog;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.GetApplicablePolicyRequirements;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.IncompatibleAccessPackages;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item.IncompatibleGroups;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -14,6 +17,10 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackages.Item {
     /// <summary>Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.</summary>
     public class AccessPackageItemRequestBuilder {
+        /// <summary>The accessPackagesIncompatibleWith property</summary>
+        public AccessPackagesIncompatibleWithRequestBuilder AccessPackagesIncompatibleWith { get =>
+            new AccessPackagesIncompatibleWithRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The assignmentPolicies property</summary>
         public AssignmentPoliciesRequestBuilder AssignmentPolicies { get =>
             new AssignmentPoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -25,6 +32,14 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
         /// <summary>The getApplicablePolicyRequirements property</summary>
         public GetApplicablePolicyRequirementsRequestBuilder GetApplicablePolicyRequirements { get =>
             new GetApplicablePolicyRequirementsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The incompatibleAccessPackages property</summary>
+        public IncompatibleAccessPackagesRequestBuilder IncompatibleAccessPackages { get =>
+            new IncompatibleAccessPackagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The incompatibleGroups property</summary>
+        public IncompatibleGroupsRequestBuilder IncompatibleGroups { get =>
+            new IncompatibleGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -109,6 +124,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new AccessPackageItemRequestBuilderPatchRequestConfiguration();
@@ -153,14 +169,14 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Microsoft.Graph.Models.AccessPackage body, Action<AccessPackageItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.AccessPackage> PatchAsync(Microsoft.Graph.Models.AccessPackage body, Action<AccessPackageItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AccessPackage>(requestInfo, Microsoft.Graph.Models.AccessPackage.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class AccessPackageItemRequestBuilderDeleteRequestConfiguration {

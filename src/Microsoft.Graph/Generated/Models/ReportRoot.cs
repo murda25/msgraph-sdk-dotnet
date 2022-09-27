@@ -25,6 +25,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<PrintUsageByUser>>("monthlyPrintUsageByUser"); }
             set { BackingStore?.Set("monthlyPrintUsageByUser", value); }
         }
+        /// <summary>The security property</summary>
+        public SecurityReportsRoot Security {
+            get { return BackingStore?.Get<SecurityReportsRoot>("security"); }
+            set { BackingStore?.Set("security", value); }
+        }
         /// <summary>
         /// Instantiates a new ReportRoot and sets the default values.
         /// </summary>
@@ -48,6 +53,7 @@ namespace Microsoft.Graph.Models {
                 {"dailyPrintUsageByUser", n => { DailyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"monthlyPrintUsageByPrinter", n => { MonthlyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"monthlyPrintUsageByUser", n => { MonthlyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"security", n => { Security = n.GetObjectValue<SecurityReportsRoot>(SecurityReportsRoot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,6 +67,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", DailyPrintUsageByUser);
             writer.WriteCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", MonthlyPrintUsageByPrinter);
             writer.WriteCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", MonthlyPrintUsageByUser);
+            writer.WriteObjectValue<SecurityReportsRoot>("security", Security);
         }
     }
 }
