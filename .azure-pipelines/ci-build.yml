@@ -15,6 +15,10 @@ variables:
   BuildConfiguration: 'release'
 
 steps:
+- pwsh: git config --system core.longpaths true
+
+- checkout: self
+
 - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@2
   displayName: 'Run CredScan'
   inputs:
