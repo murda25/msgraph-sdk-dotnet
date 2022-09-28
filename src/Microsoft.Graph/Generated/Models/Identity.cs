@@ -45,6 +45,7 @@ namespace Microsoft.Graph.Models {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.emailIdentity" => new EmailIdentity(),
                 "#microsoft.graph.initiator" => new Initiator(),
                 "#microsoft.graph.provisionedIdentity" => new ProvisionedIdentity(),
                 "#microsoft.graph.provisioningServicePrincipal" => new ProvisioningServicePrincipal(),

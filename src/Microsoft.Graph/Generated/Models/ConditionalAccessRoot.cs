@@ -5,6 +5,11 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ConditionalAccessRoot : Entity, IParsable {
+        /// <summary>The authenticationContextClassReferences property</summary>
+        public List<AuthenticationContextClassReference> AuthenticationContextClassReferences {
+            get { return BackingStore?.Get<List<AuthenticationContextClassReference>>("authenticationContextClassReferences"); }
+            set { BackingStore?.Set("authenticationContextClassReferences", value); }
+        }
         /// <summary>Read-only. Nullable. Returns a collection of the specified named locations.</summary>
         public List<NamedLocation> NamedLocations {
             get { return BackingStore?.Get<List<NamedLocation>>("namedLocations"); }
@@ -34,6 +39,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<NamedLocation>(NamedLocation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"policies", n => { Policies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -45,6 +51,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", AuthenticationContextClassReferences);
             writer.WriteCollectionOfObjectValues<NamedLocation>("namedLocations", NamedLocations);
             writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("policies", Policies);
         }

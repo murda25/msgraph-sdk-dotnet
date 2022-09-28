@@ -11,8 +11,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ### Changed
 
-- Latest metadata updates from 20th September 2022 snapshot
 - Fixes incorrect types for collection types referencing enums - [Kiota #1846](https://github.com/microsoft/kiota/pull/1846)
+- Fixes missing return object types for PATCH/POST/PUT calls - https://github.com/microsoftgraph/msgraph-beta-sdk-dotnet/issues/478
+- Fixes missing QueryParameters for odata functions e.g delta 
+- Latest metadata updates from 27th September 2022 snapshot
 
 ## [5.0.0-preview.11] - 2022-07-20
 

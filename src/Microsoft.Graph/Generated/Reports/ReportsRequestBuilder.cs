@@ -96,6 +96,7 @@ using Microsoft.Graph.Reports.ManagedDeviceEnrollmentTopFailures;
 using Microsoft.Graph.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByUser;
+using Microsoft.Graph.Reports.Security;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -127,6 +128,10 @@ namespace Microsoft.Graph.Reports {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The security property</summary>
+        public SecurityRequestBuilder Security { get =>
+            new SecurityRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -188,6 +193,7 @@ namespace Microsoft.Graph.Reports {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
+            requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new ReportsRequestBuilderPatchRequestConfiguration();
@@ -958,14 +964,14 @@ namespace Microsoft.Graph.Reports {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ReportRoot body, Action<ReportsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<ReportRoot> PatchAsync(ReportRoot body, Action<ReportsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ReportRoot>(requestInfo, ReportRoot.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>Get reports</summary>
         public class ReportsRequestBuilderGetQueryParameters {

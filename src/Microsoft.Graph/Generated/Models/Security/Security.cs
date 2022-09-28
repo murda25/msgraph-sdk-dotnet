@@ -10,6 +10,11 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Alert>>("alerts"); }
             set { BackingStore?.Set("alerts", value); }
         }
+        /// <summary>The attackSimulation property</summary>
+        public Microsoft.Graph.Models.AttackSimulationRoot AttackSimulation {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AttackSimulationRoot>("attackSimulation"); }
+            set { BackingStore?.Set("attackSimulation", value); }
+        }
         /// <summary>The cases property</summary>
         public CasesRoot Cases {
             get { return BackingStore?.Get<CasesRoot>("cases"); }
@@ -45,6 +50,7 @@ namespace Microsoft.Graph.Models.Security {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"alerts", n => { Alerts = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Alert>(Microsoft.Graph.Models.Alert.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"attackSimulation", n => { AttackSimulation = n.GetObjectValue<Microsoft.Graph.Models.AttackSimulationRoot>(Microsoft.Graph.Models.AttackSimulationRoot.CreateFromDiscriminatorValue); } },
                 {"cases", n => { Cases = n.GetObjectValue<CasesRoot>(CasesRoot.CreateFromDiscriminatorValue); } },
                 {"secureScoreControlProfiles", n => { SecureScoreControlProfiles = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.SecureScoreControlProfile>(Microsoft.Graph.Models.SecureScoreControlProfile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"secureScores", n => { SecureScores = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.SecureScore>(Microsoft.Graph.Models.SecureScore.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -58,6 +64,7 @@ namespace Microsoft.Graph.Models.Security {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.Alert>("alerts", Alerts);
+            writer.WriteObjectValue<Microsoft.Graph.Models.AttackSimulationRoot>("attackSimulation", AttackSimulation);
             writer.WriteObjectValue<CasesRoot>("cases", Cases);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.SecureScoreControlProfile>("secureScoreControlProfiles", SecureScoreControlProfiles);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.SecureScore>("secureScores", SecureScores);

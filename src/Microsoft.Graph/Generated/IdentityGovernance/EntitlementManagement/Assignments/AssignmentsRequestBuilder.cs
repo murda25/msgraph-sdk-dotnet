@@ -1,3 +1,5 @@
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.AdditionalAccess;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Count;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.FilterByCurrentUserWithOn;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item;
@@ -31,6 +33,22 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments {
             return new AccessPackageAssignmentItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
+        /// Provides operations to call the additionalAccess method.
+        /// </summary>
+        public AdditionalAccessRequestBuilder AdditionalAccess() {
+            return new AdditionalAccessRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>
+        /// Provides operations to call the additionalAccess method.
+        /// <param name="accessPackageId">Usage: accessPackageId=&apos;{accessPackageId}&apos;</param>
+        /// <param name="incompatibleAccessPackageId">Usage: incompatibleAccessPackageId=&apos;{incompatibleAccessPackageId}&apos;</param>
+        /// </summary>
+        public AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId(string accessPackageId, string incompatibleAccessPackageId) {
+            if(string.IsNullOrEmpty(accessPackageId)) throw new ArgumentNullException(nameof(accessPackageId));
+            if(string.IsNullOrEmpty(incompatibleAccessPackageId)) throw new ArgumentNullException(nameof(incompatibleAccessPackageId));
+            return new AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder(PathParameters, RequestAdapter, accessPackageId, incompatibleAccessPackageId);
+        }
+        /// <summary>
         /// Instantiates a new AssignmentsRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -38,7 +56,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments {
         public AssignmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -51,14 +69,14 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments {
         public AssignmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The assignment of an access package to a subject for a period of time.
+        /// In Azure AD entitlement management, retrieve a list of accessPackageAssignment objects. For directory-wide administrators, the resulting list includes all the assignments, current and well as expired, that the caller has access to read, across all catalogs and access packages.  If the caller is on behalf of a delegated user who is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq &apos;a914b616-e04e-476b-aa37-91038f0b165b&apos;`.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<AssignmentsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -108,7 +126,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// The assignment of an access package to a subject for a period of time.
+        /// In Azure AD entitlement management, retrieve a list of accessPackageAssignment objects. For directory-wide administrators, the resulting list includes all the assignments, current and well as expired, that the caller has access to read, across all catalogs and access packages.  If the caller is on behalf of a delegated user who is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq &apos;a914b616-e04e-476b-aa37-91038f0b165b&apos;`.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -137,7 +155,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments {
             };
             return await RequestAdapter.SendAsync<AccessPackageAssignment>(requestInfo, AccessPackageAssignment.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>The assignment of an access package to a subject for a period of time.</summary>
+        /// <summary>In Azure AD entitlement management, retrieve a list of accessPackageAssignment objects. For directory-wide administrators, the resulting list includes all the assignments, current and well as expired, that the caller has access to read, across all catalogs and access packages.  If the caller is on behalf of a delegated user who is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq &apos;a914b616-e04e-476b-aa37-91038f0b165b&apos;`.</summary>
         public class AssignmentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
