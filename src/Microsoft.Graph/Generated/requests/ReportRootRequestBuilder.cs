@@ -97,6 +97,18 @@ namespace Microsoft.Graph
                 return new ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder(this.AppendSegmentToRequestUrl("monthlyPrintUsageByUser"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for Security.
+        /// </summary>
+        /// <returns>The <see cref="ISecurityReportsRootRequestBuilder"/>.</returns>
+        public ISecurityReportsRootRequestBuilder Security
+        {
+            get
+            {
+                return new SecurityReportsRootRequestBuilder(this.AppendSegmentToRequestUrl("security"), this.Client);
+            }
+        }
     
         /// <summary>
         /// Gets the request builder for ReportRootDeviceConfigurationDeviceActivity.

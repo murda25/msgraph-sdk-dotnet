@@ -56,6 +56,19 @@ namespace Microsoft.Graph
         public DateTimeOffset? ModifiedDateTime { get; set; }
     
         /// <summary>
+        /// Gets or sets access packages incompatible with.
+        /// </summary>
+        [JsonPropertyName("accessPackagesIncompatibleWith")]
+        public IAccessPackageAccessPackagesIncompatibleWithCollectionWithReferencesPage AccessPackagesIncompatibleWith { get; set; }
+
+        /// <summary>
+        /// Gets or sets accessPackagesIncompatibleWithNextLink.
+        /// </summary>
+        [JsonPropertyName("accessPackagesIncompatibleWith@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AccessPackagesIncompatibleWithNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets assignment policies.
         /// </summary>
         [JsonPropertyName("assignmentPolicies")]
@@ -73,6 +86,32 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("catalog")]
         public AccessPackageCatalog Catalog { get; set; }
+    
+        /// <summary>
+        /// Gets or sets incompatible access packages.
+        /// </summary>
+        [JsonPropertyName("incompatibleAccessPackages")]
+        public IAccessPackageIncompatibleAccessPackagesCollectionWithReferencesPage IncompatibleAccessPackages { get; set; }
+
+        /// <summary>
+        /// Gets or sets incompatibleAccessPackagesNextLink.
+        /// </summary>
+        [JsonPropertyName("incompatibleAccessPackages@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string IncompatibleAccessPackagesNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets incompatible groups.
+        /// </summary>
+        [JsonPropertyName("incompatibleGroups")]
+        public IAccessPackageIncompatibleGroupsCollectionPage IncompatibleGroups { get; set; }
+
+        /// <summary>
+        /// Gets or sets incompatibleGroupsNextLink.
+        /// </summary>
+        [JsonPropertyName("incompatibleGroups@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string IncompatibleGroupsNextLink { get; set; }
     
     }
 }

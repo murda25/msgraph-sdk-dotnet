@@ -21,6 +21,20 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets authentication context class references.
+        /// Read-only. Nullable. Returns a collection of the specified authentication context class references.
+        /// </summary>
+        [JsonPropertyName("authenticationContextClassReferences")]
+        public IConditionalAccessRootAuthenticationContextClassReferencesCollectionPage AuthenticationContextClassReferences { get; set; }
+
+        /// <summary>
+        /// Gets or sets authenticationContextClassReferencesNextLink.
+        /// </summary>
+        [JsonPropertyName("authenticationContextClassReferences@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AuthenticationContextClassReferencesNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets named locations.
         /// Read-only. Nullable. Returns a collection of the specified named locations.
         /// </summary>

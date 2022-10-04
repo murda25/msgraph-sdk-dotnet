@@ -246,11 +246,29 @@ namespace Microsoft.Graph
 
             if (accessPackageToInitialize != null)
             {
+                if (accessPackageToInitialize.AccessPackagesIncompatibleWith != null && accessPackageToInitialize.AccessPackagesIncompatibleWith.CurrentPage != null)
+                {
+                    accessPackageToInitialize.AccessPackagesIncompatibleWith.InitializeNextPageRequest(this.Client, accessPackageToInitialize.AccessPackagesIncompatibleWithNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    accessPackageToInitialize.AccessPackagesIncompatibleWith.AdditionalData = accessPackageToInitialize.AdditionalData;
+                }
                 if (accessPackageToInitialize.AssignmentPolicies != null && accessPackageToInitialize.AssignmentPolicies.CurrentPage != null)
                 {
                     accessPackageToInitialize.AssignmentPolicies.InitializeNextPageRequest(this.Client, accessPackageToInitialize.AssignmentPoliciesNextLink);
                     // Copy the additional data collection to the page itself so that information is not lost
                     accessPackageToInitialize.AssignmentPolicies.AdditionalData = accessPackageToInitialize.AdditionalData;
+                }
+                if (accessPackageToInitialize.IncompatibleAccessPackages != null && accessPackageToInitialize.IncompatibleAccessPackages.CurrentPage != null)
+                {
+                    accessPackageToInitialize.IncompatibleAccessPackages.InitializeNextPageRequest(this.Client, accessPackageToInitialize.IncompatibleAccessPackagesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    accessPackageToInitialize.IncompatibleAccessPackages.AdditionalData = accessPackageToInitialize.AdditionalData;
+                }
+                if (accessPackageToInitialize.IncompatibleGroups != null && accessPackageToInitialize.IncompatibleGroups.CurrentPage != null)
+                {
+                    accessPackageToInitialize.IncompatibleGroups.InitializeNextPageRequest(this.Client, accessPackageToInitialize.IncompatibleGroupsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    accessPackageToInitialize.IncompatibleGroups.AdditionalData = accessPackageToInitialize.AdditionalData;
                 }
 
             }
