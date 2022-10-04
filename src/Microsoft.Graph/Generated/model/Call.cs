@@ -37,6 +37,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets call options.
+        /// Contains the optional features for the call.
         /// </summary>
         [JsonPropertyName("callOptions")]
         public CallOptions CallOptions { get; set; }
@@ -64,6 +65,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets incoming context.
+        /// Call context associated with an incoming call.
         /// </summary>
         [JsonPropertyName("incomingContext")]
         public IncomingContext IncomingContext { get; set; }
@@ -97,36 +99,42 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets requested modalities.
+        /// The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
         /// </summary>
         [JsonPropertyName("requestedModalities")]
         public IEnumerable<Modality> RequestedModalities { get; set; }
     
         /// <summary>
         /// Gets or sets result info.
+        /// The result information. For example can hold termination reason. Read-only.
         /// </summary>
         [JsonPropertyName("resultInfo")]
         public ResultInfo ResultInfo { get; set; }
     
         /// <summary>
         /// Gets or sets source.
+        /// The originator of the call.
         /// </summary>
         [JsonPropertyName("source")]
         public ParticipantInfo Source { get; set; }
     
         /// <summary>
         /// Gets or sets state.
+        /// The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
         /// </summary>
         [JsonPropertyName("state")]
         public CallState? State { get; set; }
     
         /// <summary>
         /// Gets or sets subject.
+        /// The subject of the conversation.
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; }
     
         /// <summary>
         /// Gets or sets targets.
+        /// The targets of the call. Required information for creating peer to peer call.
         /// </summary>
         [JsonPropertyName("targets")]
         public IEnumerable<InvitationParticipantInfo> Targets { get; set; }
@@ -145,6 +153,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets transcription.
+        /// The transcription information for the call. Read-only.
         /// </summary>
         [JsonPropertyName("transcription")]
         public CallTranscriptionInfo Transcription { get; set; }

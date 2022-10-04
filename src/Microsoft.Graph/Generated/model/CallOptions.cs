@@ -31,12 +31,14 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets hideBotAfterEscalation.
+        /// Indicates whether to hide the app after the call is escalated.
         /// </summary>
         [JsonPropertyName("hideBotAfterEscalation")]
         public bool? HideBotAfterEscalation { get; set; }
     
         /// <summary>
         /// Gets or sets isContentSharingNotificationEnabled.
+        /// Indicates whether content sharing notifications should be enabled for the call.
         /// </summary>
         [JsonPropertyName("isContentSharingNotificationEnabled")]
         public bool? IsContentSharingNotificationEnabled { get; set; }

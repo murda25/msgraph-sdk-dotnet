@@ -51,6 +51,18 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the request builder for AccessPackagesIncompatibleWith.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAccessPackagesIncompatibleWithCollectionWithReferencesRequestBuilder"/>.</returns>
+        public IAccessPackageAccessPackagesIncompatibleWithCollectionWithReferencesRequestBuilder AccessPackagesIncompatibleWith
+        {
+            get
+            {
+                return new AccessPackageAccessPackagesIncompatibleWithCollectionWithReferencesRequestBuilder(this.AppendSegmentToRequestUrl("accessPackagesIncompatibleWith"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for AssignmentPolicies.
         /// </summary>
         /// <returns>The <see cref="IAccessPackageAssignmentPoliciesCollectionRequestBuilder"/>.</returns>
@@ -71,6 +83,30 @@ namespace Microsoft.Graph
             get
             {
                 return new AccessPackageCatalogWithReferenceRequestBuilder(this.AppendSegmentToRequestUrl("catalog"), this.Client);
+            }
+        }
+
+        /// <summary>
+        /// Gets the request builder for IncompatibleAccessPackages.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageIncompatibleAccessPackagesCollectionWithReferencesRequestBuilder"/>.</returns>
+        public IAccessPackageIncompatibleAccessPackagesCollectionWithReferencesRequestBuilder IncompatibleAccessPackages
+        {
+            get
+            {
+                return new AccessPackageIncompatibleAccessPackagesCollectionWithReferencesRequestBuilder(this.AppendSegmentToRequestUrl("incompatibleAccessPackages"), this.Client);
+            }
+        }
+
+        /// <summary>
+        /// Gets the request builder for IncompatibleGroups.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageIncompatibleGroupsCollectionRequestBuilder"/>.</returns>
+        public IAccessPackageIncompatibleGroupsCollectionRequestBuilder IncompatibleGroups
+        {
+            get
+            {
+                return new AccessPackageIncompatibleGroupsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("incompatibleGroups"), this.Client);
             }
         }
     

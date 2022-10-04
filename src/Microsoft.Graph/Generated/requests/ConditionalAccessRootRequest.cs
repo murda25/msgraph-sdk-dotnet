@@ -246,6 +246,12 @@ namespace Microsoft.Graph
 
             if (conditionalAccessRootToInitialize != null)
             {
+                if (conditionalAccessRootToInitialize.AuthenticationContextClassReferences != null && conditionalAccessRootToInitialize.AuthenticationContextClassReferences.CurrentPage != null)
+                {
+                    conditionalAccessRootToInitialize.AuthenticationContextClassReferences.InitializeNextPageRequest(this.Client, conditionalAccessRootToInitialize.AuthenticationContextClassReferencesNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    conditionalAccessRootToInitialize.AuthenticationContextClassReferences.AdditionalData = conditionalAccessRootToInitialize.AdditionalData;
+                }
                 if (conditionalAccessRootToInitialize.NamedLocations != null && conditionalAccessRootToInitialize.NamedLocations.CurrentPage != null)
                 {
                     conditionalAccessRootToInitialize.NamedLocations.InitializeNextPageRequest(this.Client, conditionalAccessRootToInitialize.NamedLocationsNextLink);
