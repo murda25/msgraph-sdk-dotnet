@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The attackSimulationUser property</summary>
+        /// <summary>The user in an attack simulation and training campaign.</summary>
         public Microsoft.Graph.Models.AttackSimulationUser AttackSimulationUser {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttackSimulationUser>("attackSimulationUser"); }
             set { BackingStore?.Set("attackSimulationUser", value); }
@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The repeatOffenceCount property</summary>
+        /// <summary>Number of repeat offences of the user in attack simulation and training campaigns.</summary>
         public int? RepeatOffenceCount {
             get { return BackingStore?.Get<int?>("repeatOffenceCount"); }
             set { BackingStore?.Set("repeatOffenceCount", value); }

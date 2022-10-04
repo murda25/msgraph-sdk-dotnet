@@ -18,22 +18,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The recommendedActions property</summary>
+        /// <summary>List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type.</summary>
         public List<RecommendedAction> RecommendedActions {
             get { return BackingStore?.Get<List<RecommendedAction>>("recommendedActions"); }
             set { BackingStore?.Set("recommendedActions", value); }
         }
-        /// <summary>The resolvedTargetsCount property</summary>
+        /// <summary>Number of valid users in the attack simulation and training campaign.</summary>
         public int? ResolvedTargetsCount {
             get { return BackingStore?.Get<int?>("resolvedTargetsCount"); }
             set { BackingStore?.Set("resolvedTargetsCount", value); }
         }
-        /// <summary>The simulationEventsContent property</summary>
+        /// <summary>Summary of simulation events in the attack simulation and training campaign.</summary>
         public Microsoft.Graph.Models.SimulationEventsContent SimulationEventsContent {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SimulationEventsContent>("simulationEventsContent"); }
             set { BackingStore?.Set("simulationEventsContent", value); }
         }
-        /// <summary>The trainingEventsContent property</summary>
+        /// <summary>Summary of assigned trainings in the attack simulation and training campaign.</summary>
         public Microsoft.Graph.Models.TrainingEventsContent TrainingEventsContent {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TrainingEventsContent>("trainingEventsContent"); }
             set { BackingStore?.Set("trainingEventsContent", value); }

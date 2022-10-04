@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The assignedTrainingsInfos property</summary>
+        /// <summary>List of assigned trainings and their information in an attack simulation and training campaign.</summary>
         public List<AssignedTrainingInfo> AssignedTrainingsInfos {
             get { return BackingStore?.Get<List<AssignedTrainingInfo>>("assignedTrainingsInfos"); }
             set { BackingStore?.Set("assignedTrainingsInfos", value); }
@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The trainingsAssignedUserCount property</summary>
+        /// <summary>Number of users who were assigned trainings in an attack simulation and training campaign.</summary>
         public int? TrainingsAssignedUserCount {
             get { return BackingStore?.Get<int?>("trainingsAssignedUserCount"); }
             set { BackingStore?.Set("trainingsAssignedUserCount", value); }

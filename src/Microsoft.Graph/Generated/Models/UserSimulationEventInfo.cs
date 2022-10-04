@@ -13,22 +13,22 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The browser property</summary>
+        /// <summary>Browser information from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
         public string Browser {
             get { return BackingStore?.Get<string>("browser"); }
             set { BackingStore?.Set("browser", value); }
         }
-        /// <summary>The eventDateTime property</summary>
+        /// <summary>Date and time of the simulation event by a user in an attack simulation and training campaign.</summary>
         public DateTimeOffset? EventDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("eventDateTime"); }
             set { BackingStore?.Set("eventDateTime", value); }
         }
-        /// <summary>The eventName property</summary>
+        /// <summary>Name of the simulation event by a user in an attack simulation and training campaign.</summary>
         public string EventName {
             get { return BackingStore?.Get<string>("eventName"); }
             set { BackingStore?.Set("eventName", value); }
         }
-        /// <summary>The ipAddress property</summary>
+        /// <summary>IP address from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
         public string IpAddress {
             get { return BackingStore?.Get<string>("ipAddress"); }
             set { BackingStore?.Set("ipAddress", value); }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The osPlatformDeviceDetails property</summary>
+        /// <summary>The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign.</summary>
         public string OsPlatformDeviceDetails {
             get { return BackingStore?.Get<string>("osPlatformDeviceDetails"); }
             set { BackingStore?.Set("osPlatformDeviceDetails", value); }

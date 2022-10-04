@@ -6,77 +6,77 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class Simulation : Entity, IParsable {
-        /// <summary>The attackTechnique property</summary>
+        /// <summary>The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.</summary>
         public SimulationAttackTechnique? AttackTechnique {
             get { return BackingStore?.Get<SimulationAttackTechnique?>("attackTechnique"); }
             set { BackingStore?.Set("attackTechnique", value); }
         }
-        /// <summary>The attackType property</summary>
+        /// <summary>Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.</summary>
         public SimulationAttackType? AttackType {
             get { return BackingStore?.Get<SimulationAttackType?>("attackType"); }
             set { BackingStore?.Set("attackType", value); }
         }
-        /// <summary>The automationId property</summary>
+        /// <summary>Unique identifier for the attack simulation automation.</summary>
         public string AutomationId {
             get { return BackingStore?.Get<string>("automationId"); }
             set { BackingStore?.Set("automationId", value); }
         }
-        /// <summary>The completionDateTime property</summary>
+        /// <summary>Date and time of completion of the attack simulation and training campaign. Supports $filter and $orderby.</summary>
         public DateTimeOffset? CompletionDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("completionDateTime"); }
             set { BackingStore?.Set("completionDateTime", value); }
         }
-        /// <summary>The createdBy property</summary>
+        /// <summary>Identity of the user who created the attack simulation and training campaign.</summary>
         public EmailIdentity CreatedBy {
             get { return BackingStore?.Get<EmailIdentity>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Date and time of creation of the attack simulation and training campaign.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The description property</summary>
+        /// <summary>Description of the attack simulation and training campaign.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the attack simulation and training campaign. Supports $filter and $orderby.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The isAutomated property</summary>
+        /// <summary>Flag that represents if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.</summary>
         public bool? IsAutomated {
             get { return BackingStore?.Get<bool?>("isAutomated"); }
             set { BackingStore?.Set("isAutomated", value); }
         }
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>Identity of the user who most recently modified the attack simulation and training campaign.</summary>
         public EmailIdentity LastModifiedBy {
             get { return BackingStore?.Get<EmailIdentity>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>Date and time of the most recent modification of the attack simulation and training campaign.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The launchDateTime property</summary>
+        /// <summary>Date and time of the launch/start of the attack simulation and training campaign. Supports $filter and $orderby.</summary>
         public DateTimeOffset? LaunchDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("launchDateTime"); }
             set { BackingStore?.Set("launchDateTime", value); }
         }
-        /// <summary>The payloadDeliveryPlatform property</summary>
+        /// <summary>Method of delivery of the phishing payload used in the attack simulation and training campaign. Possible values are: unknown, sms, email, teams, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.PayloadDeliveryPlatform? PayloadDeliveryPlatform {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PayloadDeliveryPlatform?>("payloadDeliveryPlatform"); }
             set { BackingStore?.Set("payloadDeliveryPlatform", value); }
         }
-        /// <summary>The report property</summary>
+        /// <summary>Report of the attack simulation and training campaign.</summary>
         public SimulationReport Report {
             get { return BackingStore?.Get<SimulationReport>("report"); }
             set { BackingStore?.Set("report", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>Status of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, draft, running, scheduled, succeeded, failed, cancelled, excluded, unknownFutureValue.</summary>
         public SimulationStatus? Status {
             get { return BackingStore?.Get<SimulationStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

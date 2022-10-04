@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RecommendedAction : IAdditionalDataHolder, IBackedModel, IParsable {
-        /// <summary>The actionWebUrl property</summary>
+        /// <summary>Web URL to the recommended action.</summary>
         public string ActionWebUrl {
             get { return BackingStore?.Get<string>("actionWebUrl"); }
             set { BackingStore?.Set("actionWebUrl", value); }
@@ -23,12 +23,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The potentialScoreImpact property</summary>
+        /// <summary>Potential improvement in the tenant security score from the recommended action.</summary>
         public double? PotentialScoreImpact {
             get { return BackingStore?.Get<double?>("potentialScoreImpact"); }
             set { BackingStore?.Set("potentialScoreImpact", value); }
         }
-        /// <summary>The title property</summary>
+        /// <summary>Title of the recommended action.</summary>
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("callChainId"); }
             set { BackingStore?.Set("callChainId", value); }
         }
-        /// <summary>The callOptions property</summary>
+        /// <summary>Contains the optional features for the call.</summary>
         public Microsoft.Graph.Models.CallOptions CallOptions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.CallOptions>("callOptions"); }
             set { BackingStore?.Set("callOptions", value); }
@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CallDirection?>("direction"); }
             set { BackingStore?.Set("direction", value); }
         }
-        /// <summary>The incomingContext property</summary>
+        /// <summary>Call context associated with an incoming call.</summary>
         public Microsoft.Graph.Models.IncomingContext IncomingContext {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IncomingContext>("incomingContext"); }
             set { BackingStore?.Set("incomingContext", value); }
@@ -81,32 +81,32 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<Participant>>("participants"); }
             set { BackingStore?.Set("participants", value); }
         }
-        /// <summary>The requestedModalities property</summary>
+        /// <summary>The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.</summary>
         public List<Modality?> RequestedModalities {
             get { return BackingStore?.Get<List<Modality?>>("requestedModalities"); }
             set { BackingStore?.Set("requestedModalities", value); }
         }
-        /// <summary>The resultInfo property</summary>
+        /// <summary>The result information. For example can hold termination reason. Read-only.</summary>
         public Microsoft.Graph.Models.ResultInfo ResultInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo>("resultInfo"); }
             set { BackingStore?.Set("resultInfo", value); }
         }
-        /// <summary>The source property</summary>
+        /// <summary>The originator of the call.</summary>
         public ParticipantInfo Source {
             get { return BackingStore?.Get<ParticipantInfo>("source"); }
             set { BackingStore?.Set("source", value); }
         }
-        /// <summary>The state property</summary>
+        /// <summary>The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.</summary>
         public CallState? State {
             get { return BackingStore?.Get<CallState?>("state"); }
             set { BackingStore?.Set("state", value); }
         }
-        /// <summary>The subject property</summary>
+        /// <summary>The subject of the conversation.</summary>
         public string Subject {
             get { return BackingStore?.Get<string>("subject"); }
             set { BackingStore?.Set("subject", value); }
         }
-        /// <summary>The targets property</summary>
+        /// <summary>The targets of the call. Required information for creating peer to peer call.</summary>
         public List<InvitationParticipantInfo> Targets {
             get { return BackingStore?.Get<List<InvitationParticipantInfo>>("targets"); }
             set { BackingStore?.Set("targets", value); }
@@ -121,7 +121,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ToneInfo>("toneInfo"); }
             set { BackingStore?.Set("toneInfo", value); }
         }
-        /// <summary>The transcription property</summary>
+        /// <summary>The transcription information for the call. Read-only.</summary>
         public CallTranscriptionInfo Transcription {
             get { return BackingStore?.Get<CallTranscriptionInfo>("transcription"); }
             set { BackingStore?.Set("transcription", value); }

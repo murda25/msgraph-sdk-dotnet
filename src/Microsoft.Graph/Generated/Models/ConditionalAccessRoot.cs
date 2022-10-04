@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ConditionalAccessRoot : Entity, IParsable {
-        /// <summary>The authenticationContextClassReferences property</summary>
+        /// <summary>Read-only. Nullable. Returns a collection of the specified authentication context class references.</summary>
         public List<AuthenticationContextClassReference> AuthenticationContextClassReferences {
             get { return BackingStore?.Get<List<AuthenticationContextClassReference>>("authenticationContextClassReferences"); }
             set { BackingStore?.Set("authenticationContextClassReferences", value); }

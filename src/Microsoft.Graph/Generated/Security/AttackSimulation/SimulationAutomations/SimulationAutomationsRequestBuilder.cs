@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get simulationAutomations from security
+        /// Get a list of attack simulation automations for a tenant.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SimulationAutomationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations {
             return requestInfo;
         }
         /// <summary>
-        /// Get simulationAutomations from security
+        /// Get a list of attack simulation automations for a tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -128,7 +128,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations {
             };
             return await RequestAdapter.SendAsync<SimulationAutomation>(requestInfo, SimulationAutomation.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
         }
-        /// <summary>Get simulationAutomations from security</summary>
+        /// <summary>Get a list of attack simulation automations for a tenant.</summary>
         public class SimulationAutomationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]

@@ -11,24 +11,24 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The attackSimulationUser property</summary>
+        /// <summary>User in an attack simulation and training campaign.</summary>
         public Microsoft.Graph.Models.AttackSimulationUser AttackSimulationUser {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttackSimulationUser>("attackSimulationUser"); }
             set { BackingStore?.Set("attackSimulationUser", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The clickCount property</summary>
+        /// <summary>Number of link clicks in the received payloads by the user in attack simulation and training campaigns.</summary>
         public int? ClickCount {
             get { return BackingStore?.Get<int?>("clickCount"); }
             set { BackingStore?.Set("clickCount", value); }
         }
-        /// <summary>The compromisedCount property</summary>
+        /// <summary>Number of compromising actions by the user in attack simulation and training campaigns.</summary>
         public int? CompromisedCount {
             get { return BackingStore?.Get<int?>("compromisedCount"); }
             set { BackingStore?.Set("compromisedCount", value); }
         }
-        /// <summary>The latestSimulationDateTime property</summary>
+        /// <summary>Date and time of the latest attack simulation and training campaign that the user was included in.</summary>
         public DateTimeOffset? LatestSimulationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("latestSimulationDateTime"); }
             set { BackingStore?.Set("latestSimulationDateTime", value); }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The simulationCount property</summary>
+        /// <summary>Number of attack simulation and training campaigns that the user was included in.</summary>
         public int? SimulationCount {
             get { return BackingStore?.Get<int?>("simulationCount"); }
             set { BackingStore?.Set("simulationCount", value); }
