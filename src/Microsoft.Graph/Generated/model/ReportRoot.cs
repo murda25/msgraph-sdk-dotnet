@@ -72,6 +72,12 @@ namespace Microsoft.Graph
         [JsonConverter(typeof(NextLinkConverter))]
         public string MonthlyPrintUsageByUserNextLink { get; set; }
     
+        /// <summary>
+        /// Gets or sets security.
+        /// </summary>
+        [JsonPropertyName("security")]
+        public SecurityReportsRoot Security { get; set; }
+    
     }
 }
 

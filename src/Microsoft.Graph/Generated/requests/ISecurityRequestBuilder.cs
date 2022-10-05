@@ -38,6 +38,12 @@ namespace Microsoft.Graph
         Microsoft.Graph.SecurityNamespace.ICasesRootRequestBuilder Cases { get; }
 
         /// <summary>
+        /// Gets the request builder for AttackSimulation.
+        /// </summary>
+        /// <returns>The <see cref="IAttackSimulationRootRequestBuilder"/>.</returns>
+        IAttackSimulationRootRequestBuilder AttackSimulation { get; }
+
+        /// <summary>
         /// Gets the request builder for Alerts.
         /// </summary>
         /// <returns>The <see cref="ISecurityAlertsCollectionRequestBuilder"/>.</returns>

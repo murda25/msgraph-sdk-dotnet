@@ -27,6 +27,12 @@ namespace Microsoft.Graph
         public Microsoft.Graph.SecurityNamespace.CasesRoot Cases { get; set; }
     
         /// <summary>
+        /// Gets or sets attack simulation.
+        /// </summary>
+        [JsonPropertyName("attackSimulation")]
+        public AttackSimulationRoot AttackSimulation { get; set; }
+    
+        /// <summary>
         /// Gets or sets alerts.
         /// </summary>
         [JsonPropertyName("alerts")]
