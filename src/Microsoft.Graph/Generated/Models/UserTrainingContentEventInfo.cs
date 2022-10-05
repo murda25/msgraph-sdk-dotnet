@@ -13,17 +13,17 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The browser property</summary>
+        /// <summary>Browser of the user from where the training event was generated.</summary>
         public string Browser {
             get { return BackingStore?.Get<string>("browser"); }
             set { BackingStore?.Set("browser", value); }
         }
-        /// <summary>The contentDateTime property</summary>
+        /// <summary>Date and time of the training content playback by the user.</summary>
         public DateTimeOffset? ContentDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("contentDateTime"); }
             set { BackingStore?.Set("contentDateTime", value); }
         }
-        /// <summary>The ipAddress property</summary>
+        /// <summary>IP address of the user for the training event.</summary>
         public string IpAddress {
             get { return BackingStore?.Get<string>("ipAddress"); }
             set { BackingStore?.Set("ipAddress", value); }
@@ -33,12 +33,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The osPlatformDeviceDetails property</summary>
+        /// <summary>The operating system, platform, and device details of the user for the training event.</summary>
         public string OsPlatformDeviceDetails {
             get { return BackingStore?.Get<string>("osPlatformDeviceDetails"); }
             set { BackingStore?.Set("osPlatformDeviceDetails", value); }
         }
-        /// <summary>The potentialScoreImpact property</summary>
+        /// <summary>Potential improvement in the tenant security posture after completion of the training by the user.</summary>
         public double? PotentialScoreImpact {
             get { return BackingStore?.Get<double?>("potentialScoreImpact"); }
             set { BackingStore?.Set("potentialScoreImpact", value); }

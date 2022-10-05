@@ -11,29 +11,29 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The assignedTrainingsCount property</summary>
+        /// <summary>Number of trainings assigned to a user in an attack simulation and training campaign.</summary>
         public int? AssignedTrainingsCount {
             get { return BackingStore?.Get<int?>("assignedTrainingsCount"); }
             set { BackingStore?.Set("assignedTrainingsCount", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The completedTrainingsCount property</summary>
+        /// <summary>Number of trainings completed by a user in an attack simulation and training campaign.</summary>
         public int? CompletedTrainingsCount {
             get { return BackingStore?.Get<int?>("completedTrainingsCount"); }
             set { BackingStore?.Set("completedTrainingsCount", value); }
         }
-        /// <summary>The compromisedDateTime property</summary>
+        /// <summary>Date and time of the compromising online action by a user in an attack simulation and training campaign.</summary>
         public DateTimeOffset? CompromisedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("compromisedDateTime"); }
             set { BackingStore?.Set("compromisedDateTime", value); }
         }
-        /// <summary>The inProgressTrainingsCount property</summary>
+        /// <summary>Number of trainings in progress by a user in an attack simulation and training campaign.</summary>
         public int? InProgressTrainingsCount {
             get { return BackingStore?.Get<int?>("inProgressTrainingsCount"); }
             set { BackingStore?.Set("inProgressTrainingsCount", value); }
         }
-        /// <summary>The isCompromised property</summary>
+        /// <summary>Indicates whether a user was compromised in an attack simulation and training campaign.</summary>
         public bool? IsCompromised {
             get { return BackingStore?.Get<bool?>("isCompromised"); }
             set { BackingStore?.Set("isCompromised", value); }
@@ -43,22 +43,22 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The reportedPhishDateTime property</summary>
+        /// <summary>Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.</summary>
         public DateTimeOffset? ReportedPhishDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("reportedPhishDateTime"); }
             set { BackingStore?.Set("reportedPhishDateTime", value); }
         }
-        /// <summary>The simulationEvents property</summary>
+        /// <summary>List of simulation events of a user in the attack simulation and training campaign.</summary>
         public List<UserSimulationEventInfo> SimulationEvents {
             get { return BackingStore?.Get<List<UserSimulationEventInfo>>("simulationEvents"); }
             set { BackingStore?.Set("simulationEvents", value); }
         }
-        /// <summary>The simulationUser property</summary>
+        /// <summary>User in an attack simulation and training campaign.</summary>
         public AttackSimulationUser SimulationUser {
             get { return BackingStore?.Get<AttackSimulationUser>("simulationUser"); }
             set { BackingStore?.Set("simulationUser", value); }
         }
-        /// <summary>The trainingEvents property</summary>
+        /// <summary>List of training events of a user in the attack simulation and training campaign.</summary>
         public List<UserTrainingEventInfo> TrainingEvents {
             get { return BackingStore?.Get<List<UserTrainingEventInfo>>("trainingEvents"); }
             set { BackingStore?.Set("trainingEvents", value); }

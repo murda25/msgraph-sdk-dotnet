@@ -11,19 +11,19 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The assignedDateTime property</summary>
+        /// <summary>Date and time of assignment of the training to the user.</summary>
         public DateTimeOffset? AssignedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("assignedDateTime"); }
             set { BackingStore?.Set("assignedDateTime", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The completionDateTime property</summary>
+        /// <summary>Date and time of completion of the training by the user.</summary>
         public DateTimeOffset? CompletionDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("completionDateTime"); }
             set { BackingStore?.Set("completionDateTime", value); }
         }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the assigned training.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The trainingStatus property</summary>
+        /// <summary>The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.TrainingStatus? TrainingStatus {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TrainingStatus?>("trainingStatus"); }
             set { BackingStore?.Set("trainingStatus", value); }

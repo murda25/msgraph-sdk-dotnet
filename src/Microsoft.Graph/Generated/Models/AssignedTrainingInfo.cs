@@ -11,19 +11,19 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The assignedUserCount property</summary>
+        /// <summary>Number of users who were assigned the training in an attack simulation and training campaign.</summary>
         public int? AssignedUserCount {
             get { return BackingStore?.Get<int?>("assignedUserCount"); }
             set { BackingStore?.Set("assignedUserCount", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The completedUserCount property</summary>
+        /// <summary>Number of users who completed the training in an attack simulation and training campaign.</summary>
         public int? CompletedUserCount {
             get { return BackingStore?.Get<int?>("completedUserCount"); }
             set { BackingStore?.Set("completedUserCount", value); }
         }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the training in an attack simulation and training campaign.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }

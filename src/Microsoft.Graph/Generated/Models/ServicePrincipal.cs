@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to servicePrincipal.</summary>
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled {
@@ -247,7 +246,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("verifiedPublisher", value); }
         }
         /// <summary>
-        /// Instantiates a new servicePrincipal and sets the default values.
+        /// Instantiates a new ServicePrincipal and sets the default values.
         /// </summary>
         public ServicePrincipal() : base() {
             OdataType = "#microsoft.graph.servicePrincipal";

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class EmailIdentity : Identity, IParsable {
-        /// <summary>The email property</summary>
+        /// <summary>Email address of the user.</summary>
         public string Email {
             get { return BackingStore?.Get<string>("email"); }
             set { BackingStore?.Set("email", value); }

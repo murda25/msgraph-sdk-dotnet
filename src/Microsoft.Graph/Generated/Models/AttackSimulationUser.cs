@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the user.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The email property</summary>
+        /// <summary>Email address of the user.</summary>
         public string Email {
             get { return BackingStore?.Get<string>("email"); }
             set { BackingStore?.Set("email", value); }
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The userId property</summary>
+        /// <summary>This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.</summary>
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }

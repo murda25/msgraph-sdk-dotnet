@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AttackSimulationRoot : Entity, IParsable {
-        /// <summary>The simulationAutomations property</summary>
+        /// <summary>Represents simulation automation created to run on a tenant.</summary>
         public List<SimulationAutomation> SimulationAutomations {
             get { return BackingStore?.Get<List<SimulationAutomation>>("simulationAutomations"); }
             set { BackingStore?.Set("simulationAutomations", value); }
         }
-        /// <summary>The simulations property</summary>
+        /// <summary>Represents an attack simulation training campaign in a tenant.</summary>
         public List<Simulation> Simulations {
             get { return BackingStore?.Get<List<Simulation>>("simulations"); }
             set { BackingStore?.Set("simulations", value); }

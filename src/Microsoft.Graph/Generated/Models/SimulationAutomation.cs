@@ -6,52 +6,52 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class SimulationAutomation : Entity, IParsable {
-        /// <summary>The createdBy property</summary>
+        /// <summary>Identity of the user who created the attack simulation automation.</summary>
         public EmailIdentity CreatedBy {
             get { return BackingStore?.Get<EmailIdentity>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Date and time when the attack simulation automation was created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The description property</summary>
+        /// <summary>Description of the attack simulation automation.</summary>
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the attack simulation automation. Supports $filter and $orderby.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>Identity of the user who most recently modified the attack simulation automation.</summary>
         public EmailIdentity LastModifiedBy {
             get { return BackingStore?.Get<EmailIdentity>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>Date and time when the attack simulation automation was most recently modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The lastRunDateTime property</summary>
+        /// <summary>Date and time of the latest run of the attack simulation automation.</summary>
         public DateTimeOffset? LastRunDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastRunDateTime"); }
             set { BackingStore?.Set("lastRunDateTime", value); }
         }
-        /// <summary>The nextRunDateTime property</summary>
+        /// <summary>Date and time of the upcoming run of the attack simulation automation.</summary>
         public DateTimeOffset? NextRunDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("nextRunDateTime"); }
             set { BackingStore?.Set("nextRunDateTime", value); }
         }
-        /// <summary>The runs property</summary>
+        /// <summary>A collection of simulation automation runs.</summary>
         public List<SimulationAutomationRun> Runs {
             get { return BackingStore?.Get<List<SimulationAutomationRun>>("runs"); }
             set { BackingStore?.Set("runs", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>Status of the attack simulation automation. Supports $filter and $orderby. The possible values are: unknown, draft, notRunning, running, completed, unknownFutureValue.</summary>
         public SimulationAutomationStatus? Status {
             get { return BackingStore?.Get<SimulationAutomationStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

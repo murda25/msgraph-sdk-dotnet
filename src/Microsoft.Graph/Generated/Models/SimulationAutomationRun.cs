@@ -6,22 +6,22 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class SimulationAutomationRun : Entity, IParsable {
-        /// <summary>The endDateTime property</summary>
+        /// <summary>Date and time when the run ends in an attack simulation automation.</summary>
         public DateTimeOffset? EndDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>The simulationId property</summary>
+        /// <summary>Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.</summary>
         public string SimulationId {
             get { return BackingStore?.Get<string>("simulationId"); }
             set { BackingStore?.Set("simulationId", value); }
         }
-        /// <summary>The startDateTime property</summary>
+        /// <summary>Date and time when the run starts in an attack simulation automation.</summary>
         public DateTimeOffset? StartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.</summary>
         public SimulationAutomationRunStatus? Status {
             get { return BackingStore?.Get<SimulationAutomationRunStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -14,12 +14,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The hideBotAfterEscalation property</summary>
+        /// <summary>Indicates whether to hide the app after the call is escalated.</summary>
         public bool? HideBotAfterEscalation {
             get { return BackingStore?.Get<bool?>("hideBotAfterEscalation"); }
             set { BackingStore?.Set("hideBotAfterEscalation", value); }
         }
-        /// <summary>The isContentSharingNotificationEnabled property</summary>
+        /// <summary>Indicates whether content sharing notifications should be enabled for the call.</summary>
         public bool? IsContentSharingNotificationEnabled {
             get { return BackingStore?.Get<bool?>("isContentSharingNotificationEnabled"); }
             set { BackingStore?.Set("isContentSharingNotificationEnabled", value); }

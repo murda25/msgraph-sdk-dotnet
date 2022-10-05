@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations.Item.R
             return requestInfo;
         }
         /// <summary>
-        /// Get runs from security
+        /// A collection of simulation automation runs.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<SimulationAutomationRunItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -119,7 +119,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations.Item.R
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get runs from security
+        /// A collection of simulation automation runs.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -162,7 +162,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.SimulationAutomations.Item.R
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Get runs from security</summary>
+        /// <summary>A collection of simulation automation runs.</summary>
         public class SimulationAutomationRunItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

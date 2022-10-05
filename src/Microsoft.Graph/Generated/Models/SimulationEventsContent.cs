@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The compromisedRate property</summary>
+        /// <summary>Actual percentage of users who fell for the simulated attack in an attack simulation and training campaign.</summary>
         public double? CompromisedRate {
             get { return BackingStore?.Get<double?>("compromisedRate"); }
             set { BackingStore?.Set("compromisedRate", value); }
         }
-        /// <summary>The events property</summary>
+        /// <summary>List of simulation events in an attack simulation and training campaign.</summary>
         public List<SimulationEvent> Events {
             get { return BackingStore?.Get<List<SimulationEvent>>("events"); }
             set { BackingStore?.Set("events", value); }

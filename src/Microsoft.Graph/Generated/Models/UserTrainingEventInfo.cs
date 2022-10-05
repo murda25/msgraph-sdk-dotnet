@@ -13,12 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the training.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The latestTrainingStatus property</summary>
+        /// <summary>Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.</summary>
         public TrainingStatus? LatestTrainingStatus {
             get { return BackingStore?.Get<TrainingStatus?>("latestTrainingStatus"); }
             set { BackingStore?.Set("latestTrainingStatus", value); }
@@ -28,17 +28,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The trainingAssignedProperties property</summary>
+        /// <summary>Event details of the training when it was assigned to the user.</summary>
         public UserTrainingContentEventInfo TrainingAssignedProperties {
             get { return BackingStore?.Get<UserTrainingContentEventInfo>("trainingAssignedProperties"); }
             set { BackingStore?.Set("trainingAssignedProperties", value); }
         }
-        /// <summary>The trainingCompletedProperties property</summary>
+        /// <summary>Event details of the training when it was completed by the user.</summary>
         public UserTrainingContentEventInfo TrainingCompletedProperties {
             get { return BackingStore?.Get<UserTrainingContentEventInfo>("trainingCompletedProperties"); }
             set { BackingStore?.Set("trainingCompletedProperties", value); }
         }
-        /// <summary>The trainingUpdatedProperties property</summary>
+        /// <summary>Event details of the training when it was updated/in-progress by the user.</summary>
         public UserTrainingContentEventInfo TrainingUpdatedProperties {
             get { return BackingStore?.Get<UserTrainingContentEventInfo>("trainingUpdatedProperties"); }
             set { BackingStore?.Set("trainingUpdatedProperties", value); }

@@ -18,12 +18,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The overview property</summary>
+        /// <summary>Overview of an attack simulation and training campaign.</summary>
         public SimulationReportOverview Overview {
             get { return BackingStore?.Get<SimulationReportOverview>("overview"); }
             set { BackingStore?.Set("overview", value); }
         }
-        /// <summary>The simulationUsers property</summary>
+        /// <summary>The tenant users and their online actions in an attack simulation and training campaign.</summary>
         public List<UserSimulationDetails> SimulationUsers {
             get { return BackingStore?.Get<List<UserSimulationDetails>>("simulationUsers"); }
             set { BackingStore?.Set("simulationUsers", value); }
