@@ -231,6 +231,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets tags.
+        /// The tags associated with the team.
         /// </summary>
         [JsonPropertyName("tags")]
         public ITeamTagsCollectionPage Tags { get; set; }

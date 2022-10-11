@@ -22,11 +22,53 @@ namespace Microsoft.Graph
     {
 
         /// <summary>
+        /// Gets or sets androidCorporateWorkProfileCount.
+        /// The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+        /// </summary>
+        [JsonPropertyName("androidCorporateWorkProfileCount")]
+        public Int32? AndroidCorporateWorkProfileCount { get; set; }
+    
+        /// <summary>
         /// Gets or sets androidCount.
         /// Number of android device count.
         /// </summary>
         [JsonPropertyName("androidCount")]
         public Int32? AndroidCount { get; set; }
+    
+        /// <summary>
+        /// Gets or sets androidDedicatedCount.
+        /// Number of dedicated Android devices.
+        /// </summary>
+        [JsonPropertyName("androidDedicatedCount")]
+        public Int32? AndroidDedicatedCount { get; set; }
+    
+        /// <summary>
+        /// Gets or sets androidDeviceAdminCount.
+        /// Number of device admin Android devices.
+        /// </summary>
+        [JsonPropertyName("androidDeviceAdminCount")]
+        public Int32? AndroidDeviceAdminCount { get; set; }
+    
+        /// <summary>
+        /// Gets or sets androidFullyManagedCount.
+        /// Number of fully managed Android devices.
+        /// </summary>
+        [JsonPropertyName("androidFullyManagedCount")]
+        public Int32? AndroidFullyManagedCount { get; set; }
+    
+        /// <summary>
+        /// Gets or sets androidWorkProfileCount.
+        /// Number of work profile Android devices.
+        /// </summary>
+        [JsonPropertyName("androidWorkProfileCount")]
+        public Int32? AndroidWorkProfileCount { get; set; }
+    
+        /// <summary>
+        /// Gets or sets configMgrDeviceCount.
+        /// Number of ConfigMgr managed devices.
+        /// </summary>
+        [JsonPropertyName("configMgrDeviceCount")]
+        public Int32? ConfigMgrDeviceCount { get; set; }
     
         /// <summary>
         /// Gets or sets iosCount.

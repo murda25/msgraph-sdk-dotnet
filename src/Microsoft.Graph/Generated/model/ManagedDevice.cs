@@ -246,6 +246,13 @@ namespace Microsoft.Graph
         public ManagementAgentType? ManagementAgent { get; set; }
     
         /// <summary>
+        /// Gets or sets management certificate expiration date.
+        /// Reports device management certificate expiration date. This property is read-only.
+        /// </summary>
+        [JsonPropertyName("managementCertificateExpirationDate")]
+        public DateTimeOffset? ManagementCertificateExpirationDate { get; set; }
+    
+        /// <summary>
         /// Gets or sets manufacturer.
         /// Manufacturer of the device. This property is read-only.
         /// </summary>
@@ -321,6 +328,13 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("remoteAssistanceSessionUrl")]
         public string RemoteAssistanceSessionUrl { get; set; }
+    
+        /// <summary>
+        /// Gets or sets require user enrollment approval.
+        /// Reports if the managed iOS device is user approval enrollment. This property is read-only.
+        /// </summary>
+        [JsonPropertyName("requireUserEnrollmentApproval")]
+        public bool? RequireUserEnrollmentApproval { get; set; }
     
         /// <summary>
         /// Gets or sets serial number.
@@ -412,6 +426,20 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("deviceCategory")]
         public DeviceCategory DeviceCategory { get; set; }
+    
+        /// <summary>
+        /// Gets or sets users.
+        /// The primary users associated with the managed device.
+        /// </summary>
+        [JsonPropertyName("users")]
+        public IManagedDeviceUsersCollectionWithReferencesPage Users { get; set; }
+
+        /// <summary>
+        /// Gets or sets usersNextLink.
+        /// </summary>
+        [JsonPropertyName("users@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string UsersNextLink { get; set; }
     
     }
 }

@@ -166,6 +166,34 @@ namespace Microsoft.Graph
             string period);
 
         /// <summary>
+        /// Gets the request builder for ReportRootGetM365AppPlatformUserCounts.
+        /// </summary>
+        /// <returns>The <see cref="IReportRootGetM365AppPlatformUserCountsRequestBuilder"/>.</returns>
+        IReportRootGetM365AppPlatformUserCountsRequestBuilder GetM365AppPlatformUserCounts(
+            string period);
+
+        /// <summary>
+        /// Gets the request builder for ReportRootGetM365AppUserCounts.
+        /// </summary>
+        /// <returns>The <see cref="IReportRootGetM365AppUserCountsRequestBuilder"/>.</returns>
+        IReportRootGetM365AppUserCountsRequestBuilder GetM365AppUserCounts(
+            string period);
+
+        /// <summary>
+        /// Gets the request builder for ReportRootGetM365AppUserDetail.
+        /// </summary>
+        /// <returns>The <see cref="IReportRootGetM365AppUserDetailRequestBuilder"/>.</returns>
+        IReportRootGetM365AppUserDetailRequestBuilder GetM365AppUserDetail(
+            Date date);
+
+        /// <summary>
+        /// Gets the request builder for ReportRootGetM365AppUserDetail.
+        /// </summary>
+        /// <returns>The <see cref="IReportRootGetM365AppUserDetailRequestBuilder"/>.</returns>
+        IReportRootGetM365AppUserDetailRequestBuilder GetM365AppUserDetail(
+            string period);
+
+        /// <summary>
         /// Gets the request builder for ReportRootGetMailboxUsageDetail.
         /// </summary>
         /// <returns>The <see cref="IReportRootGetMailboxUsageDetailRequestBuilder"/>.</returns>
