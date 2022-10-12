@@ -42,6 +42,20 @@ namespace Microsoft.Graph
         public string CertificateSerialNumber { get; set; }
     
         /// <summary>
+        /// Gets or sets certificate upload failure reason.
+        /// The reason the certificate upload failed.
+        /// </summary>
+        [JsonPropertyName("certificateUploadFailureReason")]
+        public string CertificateUploadFailureReason { get; set; }
+    
+        /// <summary>
+        /// Gets or sets certificate upload status.
+        /// The certificate upload status.
+        /// </summary>
+        [JsonPropertyName("certificateUploadStatus")]
+        public string CertificateUploadStatus { get; set; }
+    
+        /// <summary>
         /// Gets or sets expiration date time.
         /// The expiration date and time for Apple push notification certificate.
         /// </summary>

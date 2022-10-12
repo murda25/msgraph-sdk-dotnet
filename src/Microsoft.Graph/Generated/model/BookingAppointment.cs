@@ -29,6 +29,12 @@ namespace Microsoft.Graph
         public string AdditionalInformation { get; set; }
     
         /// <summary>
+        /// Gets or sets anonymous join web url.
+        /// </summary>
+        [JsonPropertyName("anonymousJoinWebUrl")]
+        public string AnonymousJoinWebUrl { get; set; }
+    
+        /// <summary>
         /// Gets or sets customers.
         /// It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
         /// </summary>
