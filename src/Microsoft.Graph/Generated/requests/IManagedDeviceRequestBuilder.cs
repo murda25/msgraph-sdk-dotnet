@@ -48,6 +48,12 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IDeviceCategoryRequestBuilder"/>.</returns>
         IDeviceCategoryRequestBuilder DeviceCategory { get; }
+
+        /// <summary>
+        /// Gets the request builder for Users.
+        /// </summary>
+        /// <returns>The <see cref="IManagedDeviceUsersCollectionWithReferencesRequestBuilder"/>.</returns>
+        IManagedDeviceUsersCollectionWithReferencesRequestBuilder Users { get; }
     
         /// <summary>
         /// Gets the request builder for ManagedDeviceBypassActivationLock.

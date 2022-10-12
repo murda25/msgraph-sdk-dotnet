@@ -258,6 +258,12 @@ namespace Microsoft.Graph
                     // Copy the additional data collection to the page itself so that information is not lost
                     managedDeviceToInitialize.DeviceConfigurationStates.AdditionalData = managedDeviceToInitialize.AdditionalData;
                 }
+                if (managedDeviceToInitialize.Users != null && managedDeviceToInitialize.Users.CurrentPage != null)
+                {
+                    managedDeviceToInitialize.Users.InitializeNextPageRequest(this.Client, managedDeviceToInitialize.UsersNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    managedDeviceToInitialize.Users.AdditionalData = managedDeviceToInitialize.AdditionalData;
+                }
 
             }
 

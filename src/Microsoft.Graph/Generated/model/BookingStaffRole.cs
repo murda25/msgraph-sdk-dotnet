@@ -44,5 +44,15 @@ namespace Microsoft.Graph
         /// </summary>
         UnknownFutureValue = 4,
 	
+        /// <summary>
+        /// Scheduler
+        /// </summary>
+        Scheduler = 5,
+	
+        /// <summary>
+        /// Team Member
+        /// </summary>
+        TeamMember = 6,
+	
     }
 }

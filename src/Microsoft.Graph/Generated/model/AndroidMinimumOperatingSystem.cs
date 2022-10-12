@@ -92,6 +92,48 @@ namespace Microsoft.Graph
         public bool? V5_1 { get; set; }
     
         /// <summary>
+        /// Gets or sets v6_0.
+        /// Version 6.0 or later.
+        /// </summary>
+        [JsonPropertyName("v6_0")]
+        public bool? V6_0 { get; set; }
+    
+        /// <summary>
+        /// Gets or sets v7_0.
+        /// Version 7.0 or later.
+        /// </summary>
+        [JsonPropertyName("v7_0")]
+        public bool? V7_0 { get; set; }
+    
+        /// <summary>
+        /// Gets or sets v7_1.
+        /// Version 7.1 or later.
+        /// </summary>
+        [JsonPropertyName("v7_1")]
+        public bool? V7_1 { get; set; }
+    
+        /// <summary>
+        /// Gets or sets v8_0.
+        /// Version 8.0 or later.
+        /// </summary>
+        [JsonPropertyName("v8_0")]
+        public bool? V8_0 { get; set; }
+    
+        /// <summary>
+        /// Gets or sets v8_1.
+        /// Version 8.1 or later.
+        /// </summary>
+        [JsonPropertyName("v8_1")]
+        public bool? V8_1 { get; set; }
+    
+        /// <summary>
+        /// Gets or sets v9_0.
+        /// Version 9.0 or later.
+        /// </summary>
+        [JsonPropertyName("v9_0")]
+        public bool? V9_0 { get; set; }
+    
+        /// <summary>
         /// Gets or sets additional data.
         /// </summary>
         [JsonExtensionData]

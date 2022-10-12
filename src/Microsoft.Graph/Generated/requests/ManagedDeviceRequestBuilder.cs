@@ -85,6 +85,18 @@ namespace Microsoft.Graph
                 return new DeviceCategoryRequestBuilder(this.AppendSegmentToRequestUrl("deviceCategory"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for Users.
+        /// </summary>
+        /// <returns>The <see cref="IManagedDeviceUsersCollectionWithReferencesRequestBuilder"/>.</returns>
+        public IManagedDeviceUsersCollectionWithReferencesRequestBuilder Users
+        {
+            get
+            {
+                return new ManagedDeviceUsersCollectionWithReferencesRequestBuilder(this.AppendSegmentToRequestUrl("users"), this.Client);
+            }
+        }
     
         /// <summary>
         /// Gets the request builder for ManagedDeviceBypassActivationLock.

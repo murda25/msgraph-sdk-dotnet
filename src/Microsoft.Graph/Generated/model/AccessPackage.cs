@@ -57,6 +57,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets access packages incompatible with.
+        /// The access packages that are incompatible with this package. Read-only.
         /// </summary>
         [JsonPropertyName("accessPackagesIncompatibleWith")]
         public IAccessPackageAccessPackagesIncompatibleWithCollectionWithReferencesPage AccessPackagesIncompatibleWith { get; set; }
@@ -89,6 +90,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets incompatible access packages.
+        /// The access packages whose assigned users are ineligible to be assigned this access package.
         /// </summary>
         [JsonPropertyName("incompatibleAccessPackages")]
         public IAccessPackageIncompatibleAccessPackagesCollectionWithReferencesPage IncompatibleAccessPackages { get; set; }
@@ -102,6 +104,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets incompatible groups.
+        /// The groups whose members are ineligible to be assigned this access package.
         /// </summary>
         [JsonPropertyName("incompatibleGroups")]
         public IAccessPackageIncompatibleGroupsCollectionPage IncompatibleGroups { get; set; }
