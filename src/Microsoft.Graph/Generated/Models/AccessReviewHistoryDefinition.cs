@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class AccessReviewHistoryDefinition : Entity, IParsable {
         /// <summary>The createdBy property</summary>
         public UserIdentity CreatedBy {
@@ -56,7 +57,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("status", value); }
         }
         /// <summary>
-        /// Instantiates a new AccessReviewHistoryDefinition and sets the default values.
+        /// Instantiates a new accessReviewHistoryDefinition and sets the default values.
         /// </summary>
         public AccessReviewHistoryDefinition() : base() {
             OdataType = "#microsoft.graph.accessReviewHistoryDefinition";

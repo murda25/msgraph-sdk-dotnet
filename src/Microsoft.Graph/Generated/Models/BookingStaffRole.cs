@@ -6,5 +6,7 @@ namespace Microsoft.Graph.Models {
         Viewer,
         ExternalGuest,
         UnknownFutureValue,
+        Scheduler,
+        TeamMember,
     }
 }

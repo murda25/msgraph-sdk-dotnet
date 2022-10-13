@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<TeamSummary>("summary"); }
             set { BackingStore?.Set("summary", value); }
         }
-        /// <summary>The tags property</summary>
+        /// <summary>The tags associated with the team.</summary>
         public List<TeamworkTag> Tags {
             get { return BackingStore?.Get<List<TeamworkTag>>("tags"); }
             set { BackingStore?.Set("tags", value); }
