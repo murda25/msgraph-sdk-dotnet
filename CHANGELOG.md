@@ -11,6 +11,14 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ### Changed
 
+- Adds OdataDeltaLink property to collection responses for delta
+
+## [5.0.0-preview.12] - 2022-09-29
+
+### Added
+
+### Changed
+
 - Fixes incorrect types for collection types referencing enums - [Kiota #1846](https://github.com/microsoft/kiota/pull/1846)
 - Fixes missing return object types for PATCH/POST/PUT calls - https://github.com/microsoftgraph/msgraph-beta-sdk-dotnet/issues/478
 - Fixes missing QueryParameters for odata functions e.g delta 
