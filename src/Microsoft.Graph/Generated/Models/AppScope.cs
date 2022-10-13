@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("type", value); }
         }
         /// <summary>
-        /// Instantiates a new AppScope and sets the default values.
+        /// Instantiates a new appScope and sets the default values.
         /// </summary>
         public AppScope() : base() {
             OdataType = "#microsoft.graph.appScope";

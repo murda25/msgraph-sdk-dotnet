@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class Agreement : Entity, IParsable {
         /// <summary>Read-only. Information about acceptances of this agreement.</summary>
         public List<AgreementAcceptance> Acceptances {

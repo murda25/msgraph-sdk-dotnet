@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ListItemVersion : BaseItemVersion, IParsable {
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
         public FieldValueSet Fields {
@@ -12,7 +13,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("fields", value); }
         }
         /// <summary>
-        /// Instantiates a new ListItemVersion and sets the default values.
+        /// Instantiates a new listItemVersion and sets the default values.
         /// </summary>
         public ListItemVersion() : base() {
             OdataType = "#microsoft.graph.listItemVersion";
