@@ -76,7 +76,7 @@ var user = await graphServiceClient
     .GetAsync();
 ```
 
-#### Request executor methods
+### Request executor methods
 
 V5 of the SDK simplifies the request methods to simply reflect the HTTP methods being used. This therefore means that 
 - `UpdateAsync()` methods are now `PatchAsync()`
@@ -98,6 +98,19 @@ To pass query Options, the `QueryOption` class is no longer used. Query options 
 var user = await graphServiceClient
     .Users["{user-id}"]
     .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime"});
+```
+
+Example with multiple parameters
+
+```cs
+var groups = await graphServiceClient
+    .Groups
+    .GetAsync(requestConfiguration =>
+    {
+        requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime","displayName"};
+        requestConfiguration.QueryParameters.Expand = new string[] { "members" };
+        requestConfiguration.QueryParameters.Filter = "startswith(displayName%2C+'J')";
+    });
 ```
 
 ### Collections
