@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class List : BaseItem, IParsable {
         /// <summary>The collection of field definitions for this list.</summary>
         public List<ColumnDefinition> Columns {

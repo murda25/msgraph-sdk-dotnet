@@ -1,6 +1,7 @@
 using Microsoft.Graph.Identity.ConditionalAccess.AuthenticationContextClassReferences;
 using Microsoft.Graph.Identity.ConditionalAccess.NamedLocations;
 using Microsoft.Graph.Identity.ConditionalAccess.Policies;
+using Microsoft.Graph.Identity.ConditionalAccess.Templates;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -30,6 +31,10 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>The templates property</summary>
+        public TemplatesRequestBuilder Templates { get =>
+            new TemplatesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -123,45 +128,42 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
         /// Delete navigation property conditionalAccess for identity
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<ConditionalAccessRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<ConditionalAccessRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
         /// the entry point for the Conditional Access (CA) object model.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ConditionalAccessRoot> GetAsync(Action<ConditionalAccessRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<ConditionalAccessRoot> GetAsync(Action<ConditionalAccessRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property conditionalAccess in identity
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ConditionalAccessRoot> PatchAsync(ConditionalAccessRoot body, Action<ConditionalAccessRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<ConditionalAccessRoot> PatchAsync(ConditionalAccessRoot body, Action<ConditionalAccessRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class ConditionalAccessRequestBuilderDeleteRequestConfiguration {

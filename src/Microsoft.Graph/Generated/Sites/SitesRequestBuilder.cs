@@ -90,15 +90,14 @@ namespace Microsoft.Graph.Sites {
         /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SiteCollectionResponse> GetAsync(Action<SitesRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<SiteCollectionResponse> GetAsync(Action<SitesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<SiteCollectionResponse>(requestInfo, SiteCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<SiteCollectionResponse>(requestInfo, SiteCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.</summary>
         public class SitesRequestBuilderGetQueryParameters {

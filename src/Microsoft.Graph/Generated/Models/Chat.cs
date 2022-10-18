@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class Chat : Entity, IParsable {
         /// <summary>The chatType property</summary>
         public Microsoft.Graph.Models.ChatType? ChatType {
@@ -19,6 +20,11 @@ namespace Microsoft.Graph.Models {
         public List<TeamsAppInstallation> InstalledApps {
             get { return BackingStore?.Get<List<TeamsAppInstallation>>("installedApps"); }
             set { BackingStore?.Set("installedApps", value); }
+        }
+        /// <summary>Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.</summary>
+        public ChatMessageInfo LastMessagePreview {
+            get { return BackingStore?.Get<ChatMessageInfo>("lastMessagePreview"); }
+            set { BackingStore?.Set("lastMessagePreview", value); }
         }
         /// <summary>Date and time at which the chat was renamed or list of members were last changed. Read-only.</summary>
         public DateTimeOffset? LastUpdatedDateTime {
@@ -60,6 +66,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("topic"); }
             set { BackingStore?.Set("topic", value); }
         }
+        /// <summary>Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.</summary>
+        public ChatViewpoint Viewpoint {
+            get { return BackingStore?.Get<ChatViewpoint>("viewpoint"); }
+            set { BackingStore?.Set("viewpoint", value); }
+        }
         /// <summary>The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.</summary>
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
@@ -87,6 +98,7 @@ namespace Microsoft.Graph.Models {
                 {"chatType", n => { ChatType = n.GetEnumValue<ChatType>(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"installedApps", n => { InstalledApps = n.GetCollectionOfObjectValues<TeamsAppInstallation>(TeamsAppInstallation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"lastMessagePreview", n => { LastMessagePreview = n.GetObjectValue<ChatMessageInfo>(ChatMessageInfo.CreateFromDiscriminatorValue); } },
                 {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"members", n => { Members = n.GetCollectionOfObjectValues<ConversationMember>(ConversationMember.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -95,6 +107,7 @@ namespace Microsoft.Graph.Models {
                 {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"topic", n => { Topic = n.GetStringValue(); } },
+                {"viewpoint", n => { Viewpoint = n.GetObjectValue<ChatViewpoint>(ChatViewpoint.CreateFromDiscriminatorValue); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -108,6 +121,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<ChatType>("chatType", ChatType);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteCollectionOfObjectValues<TeamsAppInstallation>("installedApps", InstalledApps);
+            writer.WriteObjectValue<ChatMessageInfo>("lastMessagePreview", LastMessagePreview);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteCollectionOfObjectValues<ConversationMember>("members", Members);
             writer.WriteCollectionOfObjectValues<ChatMessage>("messages", Messages);
@@ -116,6 +130,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<TeamsTab>("tabs", Tabs);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("topic", Topic);
+            writer.WriteObjectValue<ChatViewpoint>("viewpoint", Viewpoint);
             writer.WriteStringValue("webUrl", WebUrl);
         }
     }

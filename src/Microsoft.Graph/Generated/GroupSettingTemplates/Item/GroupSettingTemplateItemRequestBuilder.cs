@@ -133,45 +133,42 @@ namespace Microsoft.Graph.GroupSettingTemplates.Item {
         /// Delete entity from groupSettingTemplates
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
         /// A group setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the groupSettingTemplate object, including the available settings and their defaults.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GroupSettingTemplate> GetAsync(Action<GroupSettingTemplateItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<GroupSettingTemplate> GetAsync(Action<GroupSettingTemplateItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update entity in groupSettingTemplates
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GroupSettingTemplate> PatchAsync(GroupSettingTemplate body, Action<GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<GroupSettingTemplate> PatchAsync(GroupSettingTemplate body, Action<GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration {

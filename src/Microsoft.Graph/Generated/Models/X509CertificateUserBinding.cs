@@ -18,17 +18,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The priority property</summary>
+        /// <summary>The priority of the binding. Azure AD uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required</summary>
         public int? Priority {
             get { return BackingStore?.Get<int?>("priority"); }
             set { BackingStore?.Set("priority", value); }
         }
-        /// <summary>The userProperty property</summary>
+        /// <summary>Defines the Azure AD user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required.</summary>
         public string UserProperty {
             get { return BackingStore?.Get<string>("userProperty"); }
             set { BackingStore?.Set("userProperty", value); }
         }
-        /// <summary>The x509CertificateField property</summary>
+        /// <summary>The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey.</summary>
         public string X509CertificateField {
             get { return BackingStore?.Get<string>("x509CertificateField"); }
             set { BackingStore?.Set("x509CertificateField", value); }

@@ -109,31 +109,29 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits {
         /// Retrieve a list of administrativeUnit objects.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<AdministrativeUnitCollectionResponse> GetAsync(Action<AdministrativeUnitsRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<AdministrativeUnitCollectionResponse> GetAsync(Action<AdministrativeUnitsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AdministrativeUnitCollectionResponse>(requestInfo, AdministrativeUnitCollectionResponse.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AdministrativeUnitCollectionResponse>(requestInfo, AdministrativeUnitCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Use this API to create a new administrativeUnit.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.AdministrativeUnit> PostAsync(Microsoft.Graph.Models.AdministrativeUnit body, Action<AdministrativeUnitsRequestBuilderPostRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.AdministrativeUnit> PostAsync(Microsoft.Graph.Models.AdministrativeUnit body, Action<AdministrativeUnitsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AdministrativeUnit>(requestInfo, Microsoft.Graph.Models.AdministrativeUnit.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AdministrativeUnit>(requestInfo, Microsoft.Graph.Models.AdministrativeUnit.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Retrieve a list of administrativeUnit objects.</summary>
         public class AdministrativeUnitsRequestBuilderGetQueryParameters {

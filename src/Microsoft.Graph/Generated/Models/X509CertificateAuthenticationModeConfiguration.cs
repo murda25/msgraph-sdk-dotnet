@@ -18,12 +18,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The rules property</summary>
+        /// <summary>Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.</summary>
         public List<X509CertificateRule> Rules {
             get { return BackingStore?.Get<List<X509CertificateRule>>("rules"); }
             set { BackingStore?.Set("rules", value); }
         }
-        /// <summary>The x509CertificateAuthenticationDefaultMode property</summary>
+        /// <summary>The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.</summary>
         public X509CertificateAuthenticationMode? X509CertificateAuthenticationDefaultMode {
             get { return BackingStore?.Get<X509CertificateAuthenticationMode?>("x509CertificateAuthenticationDefaultMode"); }
             set { BackingStore?.Set("x509CertificateAuthenticationDefaultMode", value); }

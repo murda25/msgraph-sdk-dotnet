@@ -246,7 +246,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("verifiedPublisher", value); }
         }
         /// <summary>
-        /// Instantiates a new ServicePrincipal and sets the default values.
+        /// Instantiates a new servicePrincipal and sets the default values.
         /// </summary>
         public ServicePrincipal() : base() {
             OdataType = "#microsoft.graph.servicePrincipal";

@@ -5,7 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class MicrosoftAuthenticatorAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
-        /// <summary>A collection of users or groups who are enabled to use the authentication method.</summary>
+        /// <summary>A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.</summary>
+        public MicrosoftAuthenticatorFeatureSettings FeatureSettings {
+            get { return BackingStore?.Get<MicrosoftAuthenticatorFeatureSettings>("featureSettings"); }
+            set { BackingStore?.Set("featureSettings", value); }
+        }
+        /// <summary>A collection of users or groups who are enabled to use the authentication method. Expanded by default.</summary>
         public List<MicrosoftAuthenticatorAuthenticationMethodTarget> IncludeTargets {
             get { return BackingStore?.Get<List<MicrosoftAuthenticatorAuthenticationMethodTarget>>("includeTargets"); }
             set { BackingStore?.Set("includeTargets", value); }
@@ -29,6 +34,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"featureSettings", n => { FeatureSettings = n.GetObjectValue<MicrosoftAuthenticatorFeatureSettings>(MicrosoftAuthenticatorFeatureSettings.CreateFromDiscriminatorValue); } },
                 {"includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>(MicrosoftAuthenticatorAuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -39,6 +45,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", FeatureSettings);
             writer.WriteCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", IncludeTargets);
         }
     }

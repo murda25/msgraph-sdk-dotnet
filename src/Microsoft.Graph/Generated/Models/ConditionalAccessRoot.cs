@@ -20,6 +20,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<ConditionalAccessPolicy>>("policies"); }
             set { BackingStore?.Set("policies", value); }
         }
+        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access templates.</summary>
+        public List<ConditionalAccessTemplate> Templates {
+            get { return BackingStore?.Get<List<ConditionalAccessTemplate>>("templates"); }
+            set { BackingStore?.Set("templates", value); }
+        }
         /// <summary>
         /// Instantiates a new conditionalAccessRoot and sets the default values.
         /// </summary>
@@ -42,6 +47,7 @@ namespace Microsoft.Graph.Models {
                 {"authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<NamedLocation>(NamedLocation.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"policies", n => { Policies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"templates", n => { Templates = n.GetCollectionOfObjectValues<ConditionalAccessTemplate>(ConditionalAccessTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,6 +60,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", AuthenticationContextClassReferences);
             writer.WriteCollectionOfObjectValues<NamedLocation>("namedLocations", NamedLocations);
             writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("policies", Policies);
+            writer.WriteCollectionOfObjectValues<ConditionalAccessTemplate>("templates", Templates);
         }
     }
 }

@@ -1,9 +1,14 @@
+using Microsoft.Graph.Chats.Item.HideForUser;
 using Microsoft.Graph.Chats.Item.InstalledApps;
+using Microsoft.Graph.Chats.Item.LastMessagePreview;
+using Microsoft.Graph.Chats.Item.MarkChatReadForUser;
+using Microsoft.Graph.Chats.Item.MarkChatUnreadForUser;
 using Microsoft.Graph.Chats.Item.Members;
 using Microsoft.Graph.Chats.Item.Messages;
 using Microsoft.Graph.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Chats.Item.Tabs;
+using Microsoft.Graph.Chats.Item.UnhideForUser;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -17,9 +22,25 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Chats.Item {
     /// <summary>Provides operations to manage the collection of chat entities.</summary>
     public class ChatItemRequestBuilder {
+        /// <summary>The hideForUser property</summary>
+        public HideForUserRequestBuilder HideForUser { get =>
+            new HideForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lastMessagePreview property</summary>
+        public LastMessagePreviewRequestBuilder LastMessagePreview { get =>
+            new LastMessagePreviewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The markChatReadForUser property</summary>
+        public MarkChatReadForUserRequestBuilder MarkChatReadForUser { get =>
+            new MarkChatReadForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The markChatUnreadForUser property</summary>
+        public MarkChatUnreadForUserRequestBuilder MarkChatUnreadForUser { get =>
+            new MarkChatUnreadForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The members property</summary>
         public MembersRequestBuilder Members { get =>
@@ -44,6 +65,10 @@ namespace Microsoft.Graph.Chats.Item {
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unhideForUser property</summary>
+        public UnhideForUserRequestBuilder UnhideForUser { get =>
+            new UnhideForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -93,7 +118,7 @@ namespace Microsoft.Graph.Chats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a single chat (without its messages).
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<ChatItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -138,45 +163,42 @@ namespace Microsoft.Graph.Chats.Item {
         /// Delete entity from chats
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<ChatItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<ChatItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a single chat (without its messages).
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.Chat> GetAsync(Action<ChatItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Chat> GetAsync(Action<ChatItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update the properties of a chat object.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.Chat> PatchAsync(Microsoft.Graph.Models.Chat body, Action<ChatItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Chat> PatchAsync(Microsoft.Graph.Models.Chat body, Action<ChatItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class ChatItemRequestBuilderDeleteRequestConfiguration {
@@ -192,7 +214,7 @@ namespace Microsoft.Graph.Chats.Item {
                 Headers = new Dictionary<string, string>();
             }
         }
-        /// <summary>Retrieve a single chat (without its messages).</summary>
+        /// <summary>Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.</summary>
         public class ChatItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]

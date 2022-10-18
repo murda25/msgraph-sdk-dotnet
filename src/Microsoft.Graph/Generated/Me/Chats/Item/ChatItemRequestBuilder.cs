@@ -1,9 +1,14 @@
+using Microsoft.Graph.Me.Chats.Item.HideForUser;
 using Microsoft.Graph.Me.Chats.Item.InstalledApps;
+using Microsoft.Graph.Me.Chats.Item.LastMessagePreview;
+using Microsoft.Graph.Me.Chats.Item.MarkChatReadForUser;
+using Microsoft.Graph.Me.Chats.Item.MarkChatUnreadForUser;
 using Microsoft.Graph.Me.Chats.Item.Members;
 using Microsoft.Graph.Me.Chats.Item.Messages;
 using Microsoft.Graph.Me.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Me.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Me.Chats.Item.Tabs;
+using Microsoft.Graph.Me.Chats.Item.UnhideForUser;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -17,9 +22,25 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Chats.Item {
     /// <summary>Provides operations to manage the chats property of the microsoft.graph.user entity.</summary>
     public class ChatItemRequestBuilder {
+        /// <summary>The hideForUser property</summary>
+        public HideForUserRequestBuilder HideForUser { get =>
+            new HideForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The installedApps property</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lastMessagePreview property</summary>
+        public LastMessagePreviewRequestBuilder LastMessagePreview { get =>
+            new LastMessagePreviewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The markChatReadForUser property</summary>
+        public MarkChatReadForUserRequestBuilder MarkChatReadForUser { get =>
+            new MarkChatReadForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The markChatUnreadForUser property</summary>
+        public MarkChatUnreadForUserRequestBuilder MarkChatUnreadForUser { get =>
+            new MarkChatUnreadForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The members property</summary>
         public MembersRequestBuilder Members { get =>
@@ -44,6 +65,10 @@ namespace Microsoft.Graph.Me.Chats.Item {
         /// <summary>The tabs property</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unhideForUser property</summary>
+        public UnhideForUserRequestBuilder UnhideForUser { get =>
+            new UnhideForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -138,45 +163,42 @@ namespace Microsoft.Graph.Me.Chats.Item {
         /// Delete navigation property chats for me
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<ChatItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<ChatItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Get chats from me
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.Chat> GetAsync(Action<ChatItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Chat> GetAsync(Action<ChatItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property chats in me
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Microsoft.Graph.Models.Chat> PatchAsync(Microsoft.Graph.Models.Chat body, Action<ChatItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Chat> PatchAsync(Microsoft.Graph.Models.Chat body, Action<ChatItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, responseHandler, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Chat>(requestInfo, Microsoft.Graph.Models.Chat.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class ChatItemRequestBuilderDeleteRequestConfiguration {
