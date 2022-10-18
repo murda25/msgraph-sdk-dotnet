@@ -15,32 +15,25 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type X509CertificateRule.
+    /// The type MicrosoftAuthenticatorFeatureSettings.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
-    public partial class X509CertificateRule
+    [JsonConverter(typeof(DerivedTypeConverter<MicrosoftAuthenticatorFeatureSettings>))]
+    public partial class MicrosoftAuthenticatorFeatureSettings
     {
 
         /// <summary>
-        /// Gets or sets identifier.
-        /// The identifier of the X.509 certificate. Required.
+        /// Gets or sets displayAppInformationRequiredState.
+        /// Determines whether the user's Authenticator app will show them the client app they are signing into.
         /// </summary>
-        [JsonPropertyName("identifier")]
-        public string Identifier { get; set; }
+        [JsonPropertyName("displayAppInformationRequiredState")]
+        public AuthenticationMethodFeatureConfiguration DisplayAppInformationRequiredState { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateAuthenticationMode.
-        /// The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+        /// Gets or sets displayLocationInformationRequiredState.
+        /// Determines whether the user's Authenticator app will show them the geographic location of where the authentication request originated from.
         /// </summary>
-        [JsonPropertyName("x509CertificateAuthenticationMode")]
-        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
-    
-        /// <summary>
-        /// Gets or sets x509CertificateRuleType.
-        /// The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
-        /// </summary>
-        [JsonPropertyName("x509CertificateRuleType")]
-        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        [JsonPropertyName("displayLocationInformationRequiredState")]
+        public AuthenticationMethodFeatureConfiguration DisplayLocationInformationRequiredState { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

@@ -15,32 +15,32 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type X509CertificateRule.
+    /// The type AuthenticationMethodFeatureConfiguration.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
-    public partial class X509CertificateRule
+    [JsonConverter(typeof(DerivedTypeConverter<AuthenticationMethodFeatureConfiguration>))]
+    public partial class AuthenticationMethodFeatureConfiguration
     {
 
         /// <summary>
-        /// Gets or sets identifier.
-        /// The identifier of the X.509 certificate. Required.
+        /// Gets or sets excludeTarget.
+        /// A single entity that is excluded from this feature.
         /// </summary>
-        [JsonPropertyName("identifier")]
-        public string Identifier { get; set; }
+        [JsonPropertyName("excludeTarget")]
+        public FeatureTarget ExcludeTarget { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateAuthenticationMode.
-        /// The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+        /// Gets or sets includeTarget.
+        /// A single entity that is included in this feature.
         /// </summary>
-        [JsonPropertyName("x509CertificateAuthenticationMode")]
-        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
+        [JsonPropertyName("includeTarget")]
+        public FeatureTarget IncludeTarget { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateRuleType.
-        /// The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
+        /// Gets or sets state.
+        /// Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled.
         /// </summary>
-        [JsonPropertyName("x509CertificateRuleType")]
-        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        [JsonPropertyName("state")]
+        public AdvancedConfigState? State { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

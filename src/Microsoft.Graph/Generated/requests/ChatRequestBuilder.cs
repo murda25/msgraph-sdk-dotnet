@@ -63,6 +63,18 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for LastMessagePreview.
+        /// </summary>
+        /// <returns>The <see cref="IChatMessageInfoRequestBuilder"/>.</returns>
+        public IChatMessageInfoRequestBuilder LastMessagePreview
+        {
+            get
+            {
+                return new ChatMessageInfoRequestBuilder(this.AppendSegmentToRequestUrl("lastMessagePreview"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for Members.
         /// </summary>
         /// <returns>The <see cref="IChatMembersCollectionRequestBuilder"/>.</returns>
@@ -131,6 +143,60 @@ namespace Microsoft.Graph
                 previewText,
                 templateParameters,
                 recipient);
+        }
+
+        /// <summary>
+        /// Gets the request builder for ChatHideForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatHideForUserRequestBuilder"/>.</returns>
+        public IChatHideForUserRequestBuilder HideForUser(
+            TeamworkUserIdentity user = null)
+        {
+            return new ChatHideForUserRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.hideForUser"),
+                this.Client,
+                user);
+        }
+
+        /// <summary>
+        /// Gets the request builder for ChatMarkChatReadForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatMarkChatReadForUserRequestBuilder"/>.</returns>
+        public IChatMarkChatReadForUserRequestBuilder MarkChatReadForUser(
+            TeamworkUserIdentity user = null)
+        {
+            return new ChatMarkChatReadForUserRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.markChatReadForUser"),
+                this.Client,
+                user);
+        }
+
+        /// <summary>
+        /// Gets the request builder for ChatMarkChatUnreadForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatMarkChatUnreadForUserRequestBuilder"/>.</returns>
+        public IChatMarkChatUnreadForUserRequestBuilder MarkChatUnreadForUser(
+            TeamworkUserIdentity user = null,
+            DateTimeOffset? lastMessageReadDateTime = null)
+        {
+            return new ChatMarkChatUnreadForUserRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.markChatUnreadForUser"),
+                this.Client,
+                user,
+                lastMessageReadDateTime);
+        }
+
+        /// <summary>
+        /// Gets the request builder for ChatUnhideForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatUnhideForUserRequestBuilder"/>.</returns>
+        public IChatUnhideForUserRequestBuilder UnhideForUser(
+            TeamworkUserIdentity user = null)
+        {
+            return new ChatUnhideForUserRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.unhideForUser"),
+                this.Client,
+                user);
         }
     
     }

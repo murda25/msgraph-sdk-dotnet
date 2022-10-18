@@ -15,32 +15,25 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type X509CertificateRule.
+    /// The type ChatViewpoint.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
-    public partial class X509CertificateRule
+    [JsonConverter(typeof(DerivedTypeConverter<ChatViewpoint>))]
+    public partial class ChatViewpoint
     {
 
         /// <summary>
-        /// Gets or sets identifier.
-        /// The identifier of the X.509 certificate. Required.
+        /// Gets or sets isHidden.
+        /// Indicates whether the chat is hidden for the current user.
         /// </summary>
-        [JsonPropertyName("identifier")]
-        public string Identifier { get; set; }
+        [JsonPropertyName("isHidden")]
+        public bool? IsHidden { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateAuthenticationMode.
-        /// The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+        /// Gets or sets lastMessageReadDateTime.
+        /// Represents the dateTime up until which the current user has read chatMessages in a specific chat.
         /// </summary>
-        [JsonPropertyName("x509CertificateAuthenticationMode")]
-        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
-    
-        /// <summary>
-        /// Gets or sets x509CertificateRuleType.
-        /// The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
-        /// </summary>
-        [JsonPropertyName("x509CertificateRuleType")]
-        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        [JsonPropertyName("lastMessageReadDateTime")]
+        public DateTimeOffset? LastMessageReadDateTime { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.
