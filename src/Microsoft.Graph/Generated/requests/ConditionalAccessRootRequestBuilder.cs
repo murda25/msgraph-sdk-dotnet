@@ -85,6 +85,18 @@ namespace Microsoft.Graph
                 return new ConditionalAccessRootPoliciesCollectionRequestBuilder(this.AppendSegmentToRequestUrl("policies"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for Templates.
+        /// </summary>
+        /// <returns>The <see cref="IConditionalAccessRootTemplatesCollectionRequestBuilder"/>.</returns>
+        public IConditionalAccessRootTemplatesCollectionRequestBuilder Templates
+        {
+            get
+            {
+                return new ConditionalAccessRootTemplatesCollectionRequestBuilder(this.AppendSegmentToRequestUrl("templates"), this.Client);
+            }
+        }
     
     }
 }

@@ -64,6 +64,13 @@ namespace Microsoft.Graph
         public string Topic { get; set; }
     
         /// <summary>
+        /// Gets or sets viewpoint.
+        /// Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
+        /// </summary>
+        [JsonPropertyName("viewpoint")]
+        public ChatViewpoint Viewpoint { get; set; }
+    
+        /// <summary>
         /// Gets or sets web url.
         /// The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.
         /// </summary>
@@ -83,6 +90,13 @@ namespace Microsoft.Graph
         [JsonPropertyName("installedApps@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string InstalledAppsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets last message preview.
+        /// Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+        /// </summary>
+        [JsonPropertyName("lastMessagePreview")]
+        public ChatMessageInfo LastMessagePreview { get; set; }
     
         /// <summary>
         /// Gets or sets members.

@@ -15,32 +15,32 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type X509CertificateRule.
+    /// The type ConditionalAccessPolicyDetail.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
-    public partial class X509CertificateRule
+    [JsonConverter(typeof(DerivedTypeConverter<ConditionalAccessPolicyDetail>))]
+    public partial class ConditionalAccessPolicyDetail
     {
 
         /// <summary>
-        /// Gets or sets identifier.
-        /// The identifier of the X.509 certificate. Required.
+        /// Gets or sets conditions.
+        /// Represents the type of conditions that govern when the policy applies.
         /// </summary>
-        [JsonPropertyName("identifier")]
-        public string Identifier { get; set; }
+        [JsonPropertyName("conditions")]
+        public ConditionalAccessConditionSet Conditions { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateAuthenticationMode.
-        /// The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+        /// Gets or sets grantControls.
+        /// Represents grant controls that must be fulfilled for the policy.
         /// </summary>
-        [JsonPropertyName("x509CertificateAuthenticationMode")]
-        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
+        [JsonPropertyName("grantControls")]
+        public ConditionalAccessGrantControls GrantControls { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateRuleType.
-        /// The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
+        /// Gets or sets sessionControls.
+        /// Represents a complex type of session controls that is enforced after sign-in.
         /// </summary>
-        [JsonPropertyName("x509CertificateRuleType")]
-        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        [JsonPropertyName("sessionControls")]
+        public ConditionalAccessSessionControls SessionControls { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

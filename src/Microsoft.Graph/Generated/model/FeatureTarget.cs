@@ -15,32 +15,25 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type X509CertificateRule.
+    /// The type FeatureTarget.
     /// </summary>
-    [JsonConverter(typeof(DerivedTypeConverter<X509CertificateRule>))]
-    public partial class X509CertificateRule
+    [JsonConverter(typeof(DerivedTypeConverter<FeatureTarget>))]
+    public partial class FeatureTarget
     {
 
         /// <summary>
-        /// Gets or sets identifier.
-        /// The identifier of the X.509 certificate. Required.
+        /// Gets or sets id.
+        /// The ID of the entity that's targeted in the include or exclude rule, or all_users to target all users.
         /// </summary>
-        [JsonPropertyName("identifier")]
-        public string Identifier { get; set; }
+        [JsonPropertyName("id")]
+        public string Id { get; set; }
     
         /// <summary>
-        /// Gets or sets x509CertificateAuthenticationMode.
-        /// The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
+        /// Gets or sets targetType.
+        /// The kind of entity that's targeted. The possible values are: group, administrativeUnit, role, unknownFutureValue.
         /// </summary>
-        [JsonPropertyName("x509CertificateAuthenticationMode")]
-        public X509CertificateAuthenticationMode? X509CertificateAuthenticationMode { get; set; }
-    
-        /// <summary>
-        /// Gets or sets x509CertificateRuleType.
-        /// The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
-        /// </summary>
-        [JsonPropertyName("x509CertificateRuleType")]
-        public X509CertificateRuleType? X509CertificateRuleType { get; set; }
+        [JsonPropertyName("targetType")]
+        public FeatureTargetType? TargetType { get; set; }
     
         /// <summary>
         /// Gets or sets additional data.

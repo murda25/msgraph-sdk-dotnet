@@ -29,8 +29,15 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets or sets feature settings.
+        /// A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
+        /// </summary>
+        [JsonPropertyName("featureSettings")]
+        public MicrosoftAuthenticatorFeatureSettings FeatureSettings { get; set; }
+    
+        /// <summary>
         /// Gets or sets include targets.
-        /// A collection of users or groups who are enabled to use the authentication method.
+        /// A collection of users or groups who are enabled to use the authentication method. Expanded by default.
         /// </summary>
         [JsonPropertyName("includeTargets")]
         public IMicrosoftAuthenticatorAuthenticationMethodConfigurationIncludeTargetsCollectionPage IncludeTargets { get; set; }
