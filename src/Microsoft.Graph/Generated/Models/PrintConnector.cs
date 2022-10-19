@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class PrintConnector : Entity, IParsable {
         /// <summary>The connector&apos;s version.</summary>
         public string AppVersion {
@@ -37,7 +36,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("registeredDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new printConnector and sets the default values.
+        /// Instantiates a new PrintConnector and sets the default values.
         /// </summary>
         public PrintConnector() : base() {
             OdataType = "#microsoft.graph.printConnector";

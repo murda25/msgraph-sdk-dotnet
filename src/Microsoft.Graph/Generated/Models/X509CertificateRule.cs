@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The identifier property</summary>
+        /// <summary>The identifier of the X.509 certificate. Required.</summary>
         public string Identifier {
             get { return BackingStore?.Get<string>("identifier"); }
             set { BackingStore?.Set("identifier", value); }
@@ -23,12 +23,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The x509CertificateAuthenticationMode property</summary>
+        /// <summary>The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.</summary>
         public Microsoft.Graph.Models.X509CertificateAuthenticationMode? X509CertificateAuthenticationMode {
             get { return BackingStore?.Get<Microsoft.Graph.Models.X509CertificateAuthenticationMode?>("x509CertificateAuthenticationMode"); }
             set { BackingStore?.Set("x509CertificateAuthenticationMode", value); }
         }
-        /// <summary>The x509CertificateRuleType property</summary>
+        /// <summary>The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.</summary>
         public Microsoft.Graph.Models.X509CertificateRuleType? X509CertificateRuleType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.X509CertificateRuleType?>("x509CertificateRuleType"); }
             set { BackingStore?.Set("x509CertificateRuleType", value); }

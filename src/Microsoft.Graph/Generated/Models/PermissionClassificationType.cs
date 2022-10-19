@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to call the instantiate method.</summary>
     public enum PermissionClassificationType {
         Low,
         Medium,
