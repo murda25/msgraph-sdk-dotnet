@@ -62,6 +62,20 @@ namespace Microsoft.Graph
         [JsonConverter(typeof(NextLinkConverter))]
         public string PoliciesNextLink { get; set; }
     
+        /// <summary>
+        /// Gets or sets templates.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// </summary>
+        [JsonPropertyName("templates")]
+        public IConditionalAccessRootTemplatesCollectionPage Templates { get; set; }
+
+        /// <summary>
+        /// Gets or sets templatesNextLink.
+        /// </summary>
+        [JsonPropertyName("templates@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string TemplatesNextLink { get; set; }
+    
     }
 }
 

@@ -38,6 +38,12 @@ namespace Microsoft.Graph
         IChatInstalledAppsCollectionRequestBuilder InstalledApps { get; }
 
         /// <summary>
+        /// Gets the request builder for LastMessagePreview.
+        /// </summary>
+        /// <returns>The <see cref="IChatMessageInfoRequestBuilder"/>.</returns>
+        IChatMessageInfoRequestBuilder LastMessagePreview { get; }
+
+        /// <summary>
         /// Gets the request builder for Members.
         /// </summary>
         /// <returns>The <see cref="IChatMembersCollectionRequestBuilder"/>.</returns>
@@ -72,6 +78,35 @@ namespace Microsoft.Graph
             ItemBody previewText = null,
             IEnumerable<KeyValuePair> templateParameters = null,
             TeamworkNotificationRecipient recipient = null);
+
+        /// <summary>
+        /// Gets the request builder for ChatHideForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatHideForUserRequestBuilder"/>.</returns>
+        IChatHideForUserRequestBuilder HideForUser(
+            TeamworkUserIdentity user = null);
+
+        /// <summary>
+        /// Gets the request builder for ChatMarkChatReadForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatMarkChatReadForUserRequestBuilder"/>.</returns>
+        IChatMarkChatReadForUserRequestBuilder MarkChatReadForUser(
+            TeamworkUserIdentity user = null);
+
+        /// <summary>
+        /// Gets the request builder for ChatMarkChatUnreadForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatMarkChatUnreadForUserRequestBuilder"/>.</returns>
+        IChatMarkChatUnreadForUserRequestBuilder MarkChatUnreadForUser(
+            TeamworkUserIdentity user = null,
+            DateTimeOffset? lastMessageReadDateTime = null);
+
+        /// <summary>
+        /// Gets the request builder for ChatUnhideForUser.
+        /// </summary>
+        /// <returns>The <see cref="IChatUnhideForUserRequestBuilder"/>.</returns>
+        IChatUnhideForUserRequestBuilder UnhideForUser(
+            TeamworkUserIdentity user = null);
     
     }
 }
