@@ -63,6 +63,12 @@ namespace Microsoft.Graph
         public string InviteRedirectUrl { get; set; }
     
         /// <summary>
+        /// Gets or sets reset redemption.
+        /// </summary>
+        [JsonPropertyName("resetRedemption")]
+        public bool? ResetRedemption { get; set; }
+    
+        /// <summary>
         /// Gets or sets send invitation message.
         /// Indicates whether an email should be sent to the user being invited. The default is false.
         /// </summary>
