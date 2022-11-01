@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Methods {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents all authentication methods registered to a user.
+        /// Retrieve a list of authenticationMethod objects. This API returns only authentication methods supported on this API version. See Azure AD authentication methods API overview for a list of currently supported methods.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<MethodsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Methods {
             return requestInfo;
         }
         /// <summary>
-        /// Represents all authentication methods registered to a user.
+        /// Retrieve a list of authenticationMethod objects. This API returns only authentication methods supported on this API version. See Azure AD authentication methods API overview for a list of currently supported methods.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Methods {
             };
             return await RequestAdapter.SendAsync<AuthenticationMethod>(requestInfo, AuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Represents all authentication methods registered to a user.</summary>
+        /// <summary>Retrieve a list of authenticationMethod objects. This API returns only authentication methods supported on this API version. See Azure AD authentication methods API overview for a list of currently supported methods.</summary>
         public class MethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
