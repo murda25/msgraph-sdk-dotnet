@@ -177,14 +177,14 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets free storage space in bytes.
-        /// Free Storage in Bytes. This property is read-only.
+        /// Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("freeStorageSpaceInBytes")]
         public Int64? FreeStorageSpaceInBytes { get; set; }
     
         /// <summary>
         /// Gets or sets iccid.
-        /// Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+        /// Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("iccid")]
         public string Iccid { get; set; }
@@ -275,7 +275,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets notes.
-        /// Notes on the device created by IT Admin
+        /// Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.
         /// </summary>
         [JsonPropertyName("notes")]
         public string Notes { get; set; }
@@ -310,7 +310,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets physical memory in bytes.
-        /// Total Memory in Bytes. This property is read-only.
+        /// Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("physicalMemoryInBytes")]
         public Int64? PhysicalMemoryInBytes { get; set; }
@@ -359,7 +359,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets udid.
-        /// Unique Device Identifier for iOS and macOS devices. This property is read-only.
+        /// Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("udid")]
         public string Udid { get; set; }
