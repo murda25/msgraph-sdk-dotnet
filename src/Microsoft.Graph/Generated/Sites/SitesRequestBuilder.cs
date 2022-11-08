@@ -15,17 +15,17 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Sites {
     /// <summary>Provides operations to manage the collection of site entities.</summary>
     public class SitesRequestBuilder {
-        /// <summary>The add property</summary>
+        /// <summary>Provides operations to call the add method.</summary>
         public AddRequestBuilder Add { get =>
             new AddRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The Count property</summary>
+        /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The remove property</summary>
+        /// <summary>Provides operations to call the remove method.</summary>
         public RemoveRequestBuilder Remove { get =>
             new RemoveRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Sites {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the Microsoft.Graph.sites.item collection</summary>
+        /// <summary>Provides operations to manage the collection of site entities.</summary>
         public SiteItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("site%2Did", position);
@@ -41,9 +41,9 @@ namespace Microsoft.Graph.Sites {
         } }
         /// <summary>
         /// Instantiates a new SitesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public SitesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -54,9 +54,9 @@ namespace Microsoft.Graph.Sites {
         }
         /// <summary>
         /// Instantiates a new SitesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public SitesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -68,8 +68,8 @@ namespace Microsoft.Graph.Sites {
         }
         /// <summary>
         /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<SitesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -88,9 +88,9 @@ namespace Microsoft.Graph.Sites {
         }
         /// <summary>
         /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<SiteCollectionResponse> GetAsync(Action<SitesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

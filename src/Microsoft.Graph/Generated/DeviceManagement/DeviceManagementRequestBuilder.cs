@@ -1,4 +1,5 @@
 using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate;
+using Microsoft.Graph.DeviceManagement.AuditEvents;
 using Microsoft.Graph.DeviceManagement.ComplianceManagementPartners;
 using Microsoft.Graph.DeviceManagement.ConditionalAccessSettings;
 using Microsoft.Graph.DeviceManagement.DetectedApps;
@@ -44,141 +45,145 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.DeviceManagement {
     /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
     public class DeviceManagementRequestBuilder {
-        /// <summary>The applePushNotificationCertificate property</summary>
+        /// <summary>Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.</summary>
         public ApplePushNotificationCertificateRequestBuilder ApplePushNotificationCertificate { get =>
             new ApplePushNotificationCertificateRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The complianceManagementPartners property</summary>
+        /// <summary>Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.</summary>
+        public AuditEventsRequestBuilder AuditEvents { get =>
+            new AuditEventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.</summary>
         public ComplianceManagementPartnersRequestBuilder ComplianceManagementPartners { get =>
             new ComplianceManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The conditionalAccessSettings property</summary>
+        /// <summary>Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.</summary>
         public ConditionalAccessSettingsRequestBuilder ConditionalAccessSettings { get =>
             new ConditionalAccessSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The detectedApps property</summary>
+        /// <summary>Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.</summary>
         public DetectedAppsRequestBuilder DetectedApps { get =>
             new DetectedAppsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceCategories property</summary>
+        /// <summary>Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceCategoriesRequestBuilder DeviceCategories { get =>
             new DeviceCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceCompliancePolicies property</summary>
+        /// <summary>Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceCompliancePoliciesRequestBuilder DeviceCompliancePolicies { get =>
             new DeviceCompliancePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceCompliancePolicyDeviceStateSummary property</summary>
+        /// <summary>Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceCompliancePolicyDeviceStateSummaryRequestBuilder DeviceCompliancePolicyDeviceStateSummary { get =>
             new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceCompliancePolicySettingStateSummaries property</summary>
+        /// <summary>Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceCompliancePolicySettingStateSummariesRequestBuilder DeviceCompliancePolicySettingStateSummaries { get =>
             new DeviceCompliancePolicySettingStateSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceConfigurationDeviceStateSummaries property</summary>
+        /// <summary>Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceConfigurationDeviceStateSummariesRequestBuilder DeviceConfigurationDeviceStateSummaries { get =>
             new DeviceConfigurationDeviceStateSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceConfigurations property</summary>
+        /// <summary>Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceConfigurationsRequestBuilder DeviceConfigurations { get =>
             new DeviceConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceEnrollmentConfigurations property</summary>
+        /// <summary>Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceEnrollmentConfigurationsRequestBuilder DeviceEnrollmentConfigurations { get =>
             new DeviceEnrollmentConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deviceManagementPartners property</summary>
+        /// <summary>Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.</summary>
         public DeviceManagementPartnersRequestBuilder DeviceManagementPartners { get =>
             new DeviceManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The exchangeConnectors property</summary>
+        /// <summary>Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.</summary>
         public ExchangeConnectorsRequestBuilder ExchangeConnectors { get =>
             new ExchangeConnectorsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The importedWindowsAutopilotDeviceIdentities property</summary>
+        /// <summary>Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.</summary>
         public ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder ImportedWindowsAutopilotDeviceIdentities { get =>
             new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The iosUpdateStatuses property</summary>
+        /// <summary>Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.</summary>
         public IosUpdateStatusesRequestBuilder IosUpdateStatuses { get =>
             new IosUpdateStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The managedDeviceOverview property</summary>
+        /// <summary>Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity.</summary>
         public ManagedDeviceOverviewRequestBuilder ManagedDeviceOverview { get =>
             new ManagedDeviceOverviewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The managedDevices property</summary>
+        /// <summary>Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.</summary>
         public ManagedDevicesRequestBuilder ManagedDevices { get =>
             new ManagedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The mobileThreatDefenseConnectors property</summary>
+        /// <summary>Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.</summary>
         public MobileThreatDefenseConnectorsRequestBuilder MobileThreatDefenseConnectors { get =>
             new MobileThreatDefenseConnectorsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The notificationMessageTemplates property</summary>
+        /// <summary>Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.</summary>
         public NotificationMessageTemplatesRequestBuilder NotificationMessageTemplates { get =>
             new NotificationMessageTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The remoteAssistancePartners property</summary>
+        /// <summary>Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.</summary>
         public RemoteAssistancePartnersRequestBuilder RemoteAssistancePartners { get =>
             new RemoteAssistancePartnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The reports property</summary>
+        /// <summary>Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.</summary>
         public ReportsRequestBuilder Reports { get =>
             new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The resourceOperations property</summary>
+        /// <summary>Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.</summary>
         public ResourceOperationsRequestBuilder ResourceOperations { get =>
             new ResourceOperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The roleAssignments property</summary>
+        /// <summary>Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.</summary>
         public RoleAssignmentsRequestBuilder RoleAssignments { get =>
             new RoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The roleDefinitions property</summary>
+        /// <summary>Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.</summary>
         public RoleDefinitionsRequestBuilder RoleDefinitions { get =>
             new RoleDefinitionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The softwareUpdateStatusSummary property</summary>
+        /// <summary>Provides operations to manage the softwareUpdateStatusSummary property of the microsoft.graph.deviceManagement entity.</summary>
         public SoftwareUpdateStatusSummaryRequestBuilder SoftwareUpdateStatusSummary { get =>
             new SoftwareUpdateStatusSummaryRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The telecomExpenseManagementPartners property</summary>
+        /// <summary>Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.</summary>
         public TelecomExpenseManagementPartnersRequestBuilder TelecomExpenseManagementPartners { get =>
             new TelecomExpenseManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The termsAndConditions property</summary>
+        /// <summary>Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.</summary>
         public TermsAndConditionsRequestBuilder TermsAndConditions { get =>
             new TermsAndConditionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The troubleshootingEvents property</summary>
+        /// <summary>Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.</summary>
         public TroubleshootingEventsRequestBuilder TroubleshootingEvents { get =>
             new TroubleshootingEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>The windowsAutopilotDeviceIdentities property</summary>
+        /// <summary>Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.</summary>
         public WindowsAutopilotDeviceIdentitiesRequestBuilder WindowsAutopilotDeviceIdentities { get =>
             new WindowsAutopilotDeviceIdentitiesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The windowsInformationProtectionAppLearningSummaries property</summary>
+        /// <summary>Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.</summary>
         public WindowsInformationProtectionAppLearningSummariesRequestBuilder WindowsInformationProtectionAppLearningSummaries { get =>
             new WindowsInformationProtectionAppLearningSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The windowsInformationProtectionNetworkLearningSummaries property</summary>
+        /// <summary>Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.</summary>
         public WindowsInformationProtectionNetworkLearningSummariesRequestBuilder WindowsInformationProtectionNetworkLearningSummaries { get =>
             new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DeviceManagementRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public DeviceManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -189,9 +194,9 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Instantiates a new DeviceManagementRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public DeviceManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -203,8 +208,8 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Get deviceManagement
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<DeviceManagementRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -223,9 +228,9 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Update deviceManagement
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.DeviceManagement body, Action<DeviceManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -245,9 +250,9 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Get deviceManagement
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.DeviceManagement> GetAsync(Action<DeviceManagementRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -258,18 +263,18 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Provides operations to call the getEffectivePermissions method.
-        /// <param name="scope">Usage: scope=&apos;{scope}&apos;</param>
         /// </summary>
+        /// <param name="scope">Usage: scope=&apos;{scope}&apos;</param>
         public GetEffectivePermissionsWithScopeRequestBuilder GetEffectivePermissionsWithScope(string scope) {
             if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
             return new GetEffectivePermissionsWithScopeRequestBuilder(PathParameters, RequestAdapter, scope);
         }
         /// <summary>
         /// Update deviceManagement
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.DeviceManagement> PatchAsync(Microsoft.Graph.Models.DeviceManagement body, Action<DeviceManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
@@ -281,8 +286,8 @@ namespace Microsoft.Graph.DeviceManagement {
         }
         /// <summary>
         /// Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
-        /// <param name="domainName">Usage: domainName=&apos;{domainName}&apos;</param>
         /// </summary>
+        /// <param name="domainName">Usage: domainName=&apos;{domainName}&apos;</param>
         public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder VerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
             if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
             return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
