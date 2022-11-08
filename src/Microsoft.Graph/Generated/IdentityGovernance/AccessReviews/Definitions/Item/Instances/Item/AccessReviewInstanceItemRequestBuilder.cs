@@ -20,23 +20,23 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item {
     /// <summary>Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.</summary>
     public class AccessReviewInstanceItemRequestBuilder {
-        /// <summary>The acceptRecommendations property</summary>
+        /// <summary>Provides operations to call the acceptRecommendations method.</summary>
         public AcceptRecommendationsRequestBuilder AcceptRecommendations { get =>
             new AcceptRecommendationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The applyDecisions property</summary>
+        /// <summary>Provides operations to call the applyDecisions method.</summary>
         public ApplyDecisionsRequestBuilder ApplyDecisions { get =>
             new ApplyDecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The batchRecordDecisions property</summary>
+        /// <summary>Provides operations to call the batchRecordDecisions method.</summary>
         public BatchRecordDecisionsRequestBuilder BatchRecordDecisions { get =>
             new BatchRecordDecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The contactedReviewers property</summary>
+        /// <summary>Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.</summary>
         public ContactedReviewersRequestBuilder ContactedReviewers { get =>
             new ContactedReviewersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The decisions property</summary>
+        /// <summary>Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.</summary>
         public DecisionsRequestBuilder Decisions { get =>
             new DecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -44,19 +44,19 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The resetDecisions property</summary>
+        /// <summary>Provides operations to call the resetDecisions method.</summary>
         public ResetDecisionsRequestBuilder ResetDecisions { get =>
             new ResetDecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The sendReminder property</summary>
+        /// <summary>Provides operations to call the sendReminder method.</summary>
         public SendReminderRequestBuilder SendReminder { get =>
             new SendReminderRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The stages property</summary>
+        /// <summary>Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.</summary>
         public StagesRequestBuilder Stages { get =>
             new StagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The stop property</summary>
+        /// <summary>Provides operations to call the stop method.</summary>
         public StopRequestBuilder Stop { get =>
             new StopRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -64,9 +64,9 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new AccessReviewInstanceItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public AccessReviewInstanceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -77,9 +77,9 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// Instantiates a new AccessReviewInstanceItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public AccessReviewInstanceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -91,8 +91,8 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// Delete navigation property instances for identityGovernance
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Action<AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -109,8 +109,8 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<AccessReviewInstanceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -129,9 +129,9 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// Update the navigation property instances in identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(AccessReviewInstance body, Action<AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -151,9 +151,9 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// Delete navigation property instances for identityGovernance
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task DeleteAsync(Action<AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -164,9 +164,9 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<AccessReviewInstance> GetAsync(Action<AccessReviewInstanceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -177,10 +177,10 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         }
         /// <summary>
         /// Update the navigation property instances in identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<AccessReviewInstance> PatchAsync(AccessReviewInstance body, Action<AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);

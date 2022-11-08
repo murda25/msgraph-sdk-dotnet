@@ -10,6 +10,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ApplePushNotificationCertificate>("applePushNotificationCertificate"); }
             set { BackingStore?.Set("applePushNotificationCertificate", value); }
         }
+        /// <summary>The Audit Events</summary>
+        public List<AuditEvent> AuditEvents {
+            get { return BackingStore?.Get<List<AuditEvent>>("auditEvents"); }
+            set { BackingStore?.Set("auditEvents", value); }
+        }
         /// <summary>The list of Compliance Management Partners configured by the tenant.</summary>
         public List<ComplianceManagementPartner> ComplianceManagementPartners {
             get { return BackingStore?.Get<List<ComplianceManagementPartner>>("complianceManagementPartners"); }
@@ -188,8 +193,8 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DeviceManagement CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new DeviceManagement();
@@ -200,6 +205,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"applePushNotificationCertificate", n => { ApplePushNotificationCertificate = n.GetObjectValue<Microsoft.Graph.Models.ApplePushNotificationCertificate>(Microsoft.Graph.Models.ApplePushNotificationCertificate.CreateFromDiscriminatorValue); } },
+                {"auditEvents", n => { AuditEvents = n.GetCollectionOfObjectValues<AuditEvent>(AuditEvent.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"complianceManagementPartners", n => { ComplianceManagementPartners = n.GetCollectionOfObjectValues<ComplianceManagementPartner>(ComplianceManagementPartner.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"conditionalAccessSettings", n => { ConditionalAccessSettings = n.GetObjectValue<OnPremisesConditionalAccessSettings>(OnPremisesConditionalAccessSettings.CreateFromDiscriminatorValue); } },
                 {"detectedApps", n => { DetectedApps = n.GetCollectionOfObjectValues<DetectedApp>(DetectedApp.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -238,12 +244,13 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<Microsoft.Graph.Models.ApplePushNotificationCertificate>("applePushNotificationCertificate", ApplePushNotificationCertificate);
+            writer.WriteCollectionOfObjectValues<AuditEvent>("auditEvents", AuditEvents);
             writer.WriteCollectionOfObjectValues<ComplianceManagementPartner>("complianceManagementPartners", ComplianceManagementPartners);
             writer.WriteObjectValue<OnPremisesConditionalAccessSettings>("conditionalAccessSettings", ConditionalAccessSettings);
             writer.WriteCollectionOfObjectValues<DetectedApp>("detectedApps", DetectedApps);

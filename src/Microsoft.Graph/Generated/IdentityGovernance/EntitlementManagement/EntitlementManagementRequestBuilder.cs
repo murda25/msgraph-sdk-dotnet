@@ -19,31 +19,31 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
     /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.</summary>
     public class EntitlementManagementRequestBuilder {
-        /// <summary>The accessPackageAssignmentApprovals property</summary>
+        /// <summary>Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.</summary>
         public AccessPackageAssignmentApprovalsRequestBuilder AccessPackageAssignmentApprovals { get =>
             new AccessPackageAssignmentApprovalsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The accessPackages property</summary>
+        /// <summary>Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.</summary>
         public AccessPackagesRequestBuilder AccessPackages { get =>
             new AccessPackagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The assignmentPolicies property</summary>
+        /// <summary>Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.</summary>
         public AssignmentPoliciesRequestBuilder AssignmentPolicies { get =>
             new AssignmentPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The assignmentRequests property</summary>
+        /// <summary>Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.</summary>
         public AssignmentRequestsRequestBuilder AssignmentRequests { get =>
             new AssignmentRequestsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The assignments property</summary>
+        /// <summary>Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.</summary>
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The catalogs property</summary>
+        /// <summary>Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.</summary>
         public CatalogsRequestBuilder Catalogs { get =>
             new CatalogsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The connectedOrganizations property</summary>
+        /// <summary>Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.</summary>
         public ConnectedOrganizationsRequestBuilder ConnectedOrganizations { get =>
             new ConnectedOrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -51,7 +51,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The settings property</summary>
+        /// <summary>Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.</summary>
         public SettingsRequestBuilder Settings { get =>
             new SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -59,9 +59,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public EntitlementManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -72,9 +72,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public EntitlementManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -86,8 +86,8 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Delete navigation property entitlementManagement for identityGovernance
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Action<EntitlementManagementRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -104,8 +104,8 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Get entitlementManagement from identityGovernance
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<EntitlementManagementRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -124,9 +124,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Update the navigation property entitlementManagement in identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.EntitlementManagement body, Action<EntitlementManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -146,9 +146,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Delete navigation property entitlementManagement for identityGovernance
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task DeleteAsync(Action<EntitlementManagementRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -159,9 +159,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Get entitlementManagement from identityGovernance
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.EntitlementManagement> GetAsync(Action<EntitlementManagementRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -172,10 +172,10 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         }
         /// <summary>
         /// Update the navigation property entitlementManagement in identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.EntitlementManagement> PatchAsync(Microsoft.Graph.Models.EntitlementManagement body, Action<EntitlementManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);

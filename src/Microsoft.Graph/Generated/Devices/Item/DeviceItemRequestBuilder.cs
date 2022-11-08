@@ -21,47 +21,47 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Devices.Item {
     /// <summary>Provides operations to manage the collection of device entities.</summary>
     public class DeviceItemRequestBuilder {
-        /// <summary>The checkMemberGroups property</summary>
+        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
             new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The checkMemberObjects property</summary>
+        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
             new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The extensions property</summary>
+        /// <summary>Provides operations to manage the extensions property of the microsoft.graph.device entity.</summary>
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The getMemberGroups property</summary>
+        /// <summary>Provides operations to call the getMemberGroups method.</summary>
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
             new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The getMemberObjects property</summary>
+        /// <summary>Provides operations to call the getMemberObjects method.</summary>
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
             new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The memberOf property</summary>
+        /// <summary>Provides operations to manage the memberOf property of the microsoft.graph.device entity.</summary>
         public MemberOfRequestBuilder MemberOf { get =>
             new MemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The registeredOwners property</summary>
+        /// <summary>Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.</summary>
         public RegisteredOwnersRequestBuilder RegisteredOwners { get =>
             new RegisteredOwnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The registeredUsers property</summary>
+        /// <summary>Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.</summary>
         public RegisteredUsersRequestBuilder RegisteredUsers { get =>
             new RegisteredUsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The restore property</summary>
+        /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The transitiveMemberOf property</summary>
+        /// <summary>Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.</summary>
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
             new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -69,9 +69,9 @@ namespace Microsoft.Graph.Devices.Item {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new DeviceItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public DeviceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -82,9 +82,9 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Instantiates a new DeviceItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public DeviceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -96,8 +96,8 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Delete a registered device.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Action<DeviceItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -114,8 +114,8 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Get the properties and relationships of a device object.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<DeviceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -134,9 +134,9 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.Device body, Action<DeviceItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -156,9 +156,9 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Delete a registered device.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task DeleteAsync(Action<DeviceItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -169,9 +169,9 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Get the properties and relationships of a device object.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.Device> GetAsync(Action<DeviceItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -182,10 +182,10 @@ namespace Microsoft.Graph.Devices.Item {
         }
         /// <summary>
         /// Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.Device> PatchAsync(Microsoft.Graph.Models.Device body, Action<DeviceItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);

@@ -38,8 +38,8 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static Entity CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
@@ -100,6 +100,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.attackSimulationRoot" => new AttackSimulationRoot(),
                 "#microsoft.graph.attendanceRecord" => new AttendanceRecord(),
                 "#microsoft.graph.audioRoutingGroup" => new AudioRoutingGroup(),
+                "#microsoft.graph.auditEvent" => new AuditEvent(),
                 "#microsoft.graph.auditLogRoot" => new AuditLogRoot(),
                 "#microsoft.graph.authentication" => new Authentication(),
                 "#microsoft.graph.authenticationContextClassReference" => new AuthenticationContextClassReference(),
@@ -229,6 +230,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.educationCategory" => new EducationCategory(),
                 "#microsoft.graph.educationClass" => new EducationClass(),
                 "#microsoft.graph.educationFeedbackOutcome" => new EducationFeedbackOutcome(),
+                "#microsoft.graph.educationFeedbackResourceOutcome" => new EducationFeedbackResourceOutcome(),
                 "#microsoft.graph.educationOrganization" => new EducationOrganization(),
                 "#microsoft.graph.educationOutcome" => new EducationOutcome(),
                 "#microsoft.graph.educationPointsOutcome" => new EducationPointsOutcome(),
@@ -320,6 +322,8 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.macOSCustomConfiguration" => new MacOSCustomConfiguration(),
                 "#microsoft.graph.macOSDeviceFeaturesConfiguration" => new MacOSDeviceFeaturesConfiguration(),
                 "#microsoft.graph.macOSGeneralDeviceConfiguration" => new MacOSGeneralDeviceConfiguration(),
+                "#microsoft.graph.macOSLobApp" => new MacOSLobApp(),
+                "#microsoft.graph.macOSMicrosoftEdgeApp" => new MacOSMicrosoftEdgeApp(),
                 "#microsoft.graph.macOSOfficeSuiteApp" => new MacOSOfficeSuiteApp(),
                 "#microsoft.graph.mailAssessmentRequest" => new MailAssessmentRequest(),
                 "#microsoft.graph.mailFolder" => new MailFolder(),
@@ -685,8 +689,8 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);

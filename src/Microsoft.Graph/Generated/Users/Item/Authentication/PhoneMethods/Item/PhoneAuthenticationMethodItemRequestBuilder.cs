@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
     /// <summary>Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.</summary>
     public class PhoneAuthenticationMethodItemRequestBuilder {
-        /// <summary>The disableSmsSignIn property</summary>
+        /// <summary>Provides operations to call the disableSmsSignIn method.</summary>
         public DisableSmsSignInRequestBuilder DisableSmsSignIn { get =>
             new DisableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The enableSmsSignIn property</summary>
+        /// <summary>Provides operations to call the enableSmsSignIn method.</summary>
         public EnableSmsSignInRequestBuilder EnableSmsSignIn { get =>
             new EnableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -29,9 +29,9 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PhoneAuthenticationMethodItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public PhoneAuthenticationMethodItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -42,9 +42,9 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// Instantiates a new PhoneAuthenticationMethodItemRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public PhoneAuthenticationMethodItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -56,8 +56,8 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// Delete navigation property phoneMethods for users
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateDeleteRequestInformation(Action<PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -74,8 +74,8 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// The phone numbers registered to a user for authentication.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -94,9 +94,9 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// Update the navigation property phoneMethods in users
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(PhoneAuthenticationMethod body, Action<PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -116,9 +116,9 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// Delete navigation property phoneMethods for users
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task DeleteAsync(Action<PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -129,9 +129,9 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// The phone numbers registered to a user for authentication.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PhoneAuthenticationMethod> GetAsync(Action<PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -142,10 +142,10 @@ namespace Microsoft.Graph.Users.Item.Authentication.PhoneMethods.Item {
         }
         /// <summary>
         /// Update the navigation property phoneMethods in users
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<PhoneAuthenticationMethod> PatchAsync(PhoneAuthenticationMethod body, Action<PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);

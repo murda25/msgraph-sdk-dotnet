@@ -15,15 +15,15 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance {
     /// <summary>Provides operations to manage the identityGovernance singleton.</summary>
     public class IdentityGovernanceRequestBuilder {
-        /// <summary>The accessReviews property</summary>
+        /// <summary>Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.</summary>
         public AccessReviewsRequestBuilder AccessReviews { get =>
             new AccessReviewsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The appConsent property</summary>
+        /// <summary>Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.</summary>
         public AppConsentRequestBuilder AppConsent { get =>
             new AppConsentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The entitlementManagement property</summary>
+        /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.</summary>
         public EntitlementManagementRequestBuilder EntitlementManagement { get =>
             new EntitlementManagementRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -31,7 +31,7 @@ namespace Microsoft.Graph.IdentityGovernance {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>The termsOfUse property</summary>
+        /// <summary>Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.</summary>
         public TermsOfUseRequestBuilder TermsOfUse { get =>
             new TermsOfUseRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -39,9 +39,9 @@ namespace Microsoft.Graph.IdentityGovernance {
         private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public IdentityGovernanceRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -52,9 +52,9 @@ namespace Microsoft.Graph.IdentityGovernance {
         }
         /// <summary>
         /// Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public IdentityGovernanceRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -66,8 +66,8 @@ namespace Microsoft.Graph.IdentityGovernance {
         }
         /// <summary>
         /// Get identityGovernance
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -86,9 +86,9 @@ namespace Microsoft.Graph.IdentityGovernance {
         }
         /// <summary>
         /// Update identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -108,9 +108,9 @@ namespace Microsoft.Graph.IdentityGovernance {
         }
         /// <summary>
         /// Get identityGovernance
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.IdentityGovernance> GetAsync(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -121,10 +121,10 @@ namespace Microsoft.Graph.IdentityGovernance {
         }
         /// <summary>
         /// Update identityGovernance
+        /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<Microsoft.Graph.Models.IdentityGovernance> PatchAsync(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);

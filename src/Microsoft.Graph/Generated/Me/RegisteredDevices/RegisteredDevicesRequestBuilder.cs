@@ -16,19 +16,19 @@ using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.RegisteredDevices {
     /// <summary>Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.</summary>
     public class RegisteredDevicesRequestBuilder {
-        /// <summary>The appRoleAssignment property</summary>
+        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
         public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
             new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The Count property</summary>
+        /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The device property</summary>
+        /// <summary>Casts the previous resource to device.</summary>
         public DeviceRequestBuilder Device { get =>
             new DeviceRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The endpoint property</summary>
+        /// <summary>Casts the previous resource to endpoint.</summary>
         public EndpointRequestBuilder Endpoint { get =>
             new EndpointRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the Microsoft.Graph.me.registeredDevices.item collection</summary>
+        /// <summary>Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("directoryObject%2Did", position);
@@ -46,9 +46,9 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         } }
         /// <summary>
         /// Instantiates a new RegisteredDevicesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public RegisteredDevicesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -59,9 +59,9 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         }
         /// <summary>
         /// Instantiates a new RegisteredDevicesRequestBuilder and sets the default values.
+        /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        /// </summary>
         public RegisteredDevicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
@@ -73,8 +73,8 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         }
         /// <summary>
         /// Devices that are registered for the user. Read-only. Nullable. Supports $expand.
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<RegisteredDevicesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -93,9 +93,9 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         }
         /// <summary>
         /// Devices that are registered for the user. Read-only. Nullable. Supports $expand.
+        /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// </summary>
         public async Task<DirectoryObjectCollectionResponse> GetAsync(Action<RegisteredDevicesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {

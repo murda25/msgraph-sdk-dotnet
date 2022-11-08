@@ -155,7 +155,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("mailEnabled"); }
             set { BackingStore?.Set("mailEnabled", value); }
         }
-        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : . &lt;&gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
+        /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : &lt;&gt; , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
         public string MailNickname {
             get { return BackingStore?.Get<string>("mailNickname"); }
             set { BackingStore?.Set("mailNickname", value); }
@@ -331,15 +331,15 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("visibility", value); }
         }
         /// <summary>
-        /// Instantiates a new group and sets the default values.
+        /// Instantiates a new Group and sets the default values.
         /// </summary>
         public Group() : base() {
             OdataType = "#microsoft.graph.group";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new Group CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new Group();
@@ -418,8 +418,8 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);

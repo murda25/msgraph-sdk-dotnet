@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
-    /// <summary>Provides operations to manage the collection of externalConnection entities.</summary>
     public class ExternalConnection : Entity, IParsable {
         /// <summary>Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.</summary>
         public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration {
@@ -47,15 +46,15 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             set { BackingStore?.Set("state", value); }
         }
         /// <summary>
-        /// Instantiates a new externalConnection and sets the default values.
+        /// Instantiates a new ExternalConnection and sets the default values.
         /// </summary>
         public ExternalConnection() : base() {
             OdataType = "#microsoft.graph.externalConnectors.externalConnection";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
-        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         /// </summary>
+        /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new ExternalConnection CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             return new ExternalConnection();
@@ -77,8 +76,8 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         }
         /// <summary>
         /// Serializes information the current object
-        /// <param name="writer">Serialization writer to use to serialize this model</param>
         /// </summary>
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
