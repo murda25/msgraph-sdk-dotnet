@@ -38,6 +38,12 @@ namespace Microsoft.Graph
         IDeviceManagementTermsAndConditionsCollectionRequestBuilder TermsAndConditions { get; }
 
         /// <summary>
+        /// Gets the request builder for AuditEvents.
+        /// </summary>
+        /// <returns>The <see cref="IDeviceManagementAuditEventsCollectionRequestBuilder"/>.</returns>
+        IDeviceManagementAuditEventsCollectionRequestBuilder AuditEvents { get; }
+
+        /// <summary>
         /// Gets the request builder for DeviceCompliancePolicies.
         /// </summary>
         /// <returns>The <see cref="IDeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder"/>.</returns>

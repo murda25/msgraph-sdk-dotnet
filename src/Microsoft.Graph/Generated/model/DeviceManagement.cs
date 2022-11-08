@@ -64,6 +64,20 @@ namespace Microsoft.Graph
         public string TermsAndConditionsNextLink { get; set; }
     
         /// <summary>
+        /// Gets or sets audit events.
+        /// The Audit Events
+        /// </summary>
+        [JsonPropertyName("auditEvents")]
+        public IDeviceManagementAuditEventsCollectionPage AuditEvents { get; set; }
+
+        /// <summary>
+        /// Gets or sets auditEventsNextLink.
+        /// </summary>
+        [JsonPropertyName("auditEvents@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string AuditEventsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets device compliance policies.
         /// The device compliance policies.
         /// </summary>

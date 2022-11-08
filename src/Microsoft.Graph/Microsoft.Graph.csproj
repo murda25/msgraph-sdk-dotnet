@@ -21,14 +21,13 @@
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <VersionPrefix>4.46.0</VersionPrefix>
+    <VersionPrefix>4.47.0</VersionPrefix>
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix></VersionSuffix>
     <PackageReleaseNotes>
-- Latest metadata updates from 1st November 2022 snapshot
-- Fix for broken Odata function that incorrectly return graph.report rather a stream (https://github.com/microsoftgraph/msgraph-metadata/issues/140)
+- Latest metadata updates from 8th November 2022 snapshot
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
