@@ -63,6 +63,18 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for AuditEvents.
+        /// </summary>
+        /// <returns>The <see cref="IDeviceManagementAuditEventsCollectionRequestBuilder"/>.</returns>
+        public IDeviceManagementAuditEventsCollectionRequestBuilder AuditEvents
+        {
+            get
+            {
+                return new DeviceManagementAuditEventsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("auditEvents"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for DeviceCompliancePolicies.
         /// </summary>
         /// <returns>The <see cref="IDeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder"/>.</returns>
