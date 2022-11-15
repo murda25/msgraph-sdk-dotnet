@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ChannelMembersNotificationRecipient : TeamworkNotificationRecipient, IParsable {
-        /// <summary>The channelId property</summary>
+        /// <summary>The unique identifier for the channel whose members should receive the notification.</summary>
         public string ChannelId {
             get { return BackingStore?.Get<string>("channelId"); }
             set { BackingStore?.Set("channelId", value); }
         }
-        /// <summary>The teamId property</summary>
+        /// <summary>The unique identifier for the team under which the channel resides.</summary>
         public string TeamId {
             get { return BackingStore?.Get<string>("teamId"); }
             set { BackingStore?.Set("teamId", value); }

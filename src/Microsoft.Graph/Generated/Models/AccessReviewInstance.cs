@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class AccessReviewInstance : Entity, IParsable {
         /// <summary>Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only.</summary>
         public List<AccessReviewReviewer> ContactedReviewers {
@@ -51,7 +52,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("status", value); }
         }
         /// <summary>
-        /// Instantiates a new AccessReviewInstance and sets the default values.
+        /// Instantiates a new accessReviewInstance and sets the default values.
         /// </summary>
         public AccessReviewInstance() : base() {
             OdataType = "#microsoft.graph.accessReviewInstance";

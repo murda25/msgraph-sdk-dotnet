@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models.Security {
     public class EdiscoveryIndexOperation : CaseOperation, IParsable {
         /// <summary>
-        /// Instantiates a new ediscoveryIndexOperation and sets the default values.
+        /// Instantiates a new EdiscoveryIndexOperation and sets the default values.
         /// </summary>
         public EdiscoveryIndexOperation() : base() {
             OdataType = "#microsoft.graph.security.ediscoveryIndexOperation";

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class Group : DirectoryObject, IParsable {
         /// <summary>The list of users or groups that are allowed to create post&apos;s or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.</summary>
         public List<DirectoryObject> AcceptedSenders {
@@ -331,7 +332,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("visibility", value); }
         }
         /// <summary>
-        /// Instantiates a new Group and sets the default values.
+        /// Instantiates a new group and sets the default values.
         /// </summary>
         public Group() : base() {
             OdataType = "#microsoft.graph.group";

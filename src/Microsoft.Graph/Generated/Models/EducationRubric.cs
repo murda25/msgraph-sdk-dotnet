@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("qualities", value); }
         }
         /// <summary>
-        /// Instantiates a new educationRubric and sets the default values.
+        /// Instantiates a new EducationRubric and sets the default values.
         /// </summary>
         public EducationRubric() : base() {
             OdataType = "#microsoft.graph.educationRubric";
