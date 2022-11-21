@@ -1,5 +1,7 @@
-﻿namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
+﻿
+namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Microsoft.Graph.Models;
     using System.Threading.Tasks;
     using Xunit;
 
@@ -14,7 +16,7 @@
             try
             {
                 // Get a groups collection. We'll use the first entry to add the team. Results in a call to the service.
-                IGraphServiceGroupsCollectionPage groupPage = await graphClient.Groups.Request().GetAsync();
+                var groupPage = await graphClient.Groups.GetAsync();
 
                 // Create a team with settings.
                 Team team = new Team()
@@ -26,7 +28,8 @@
                 };
 
                 // Add a team to the group.  Results in a call to the service.
-                await graphClient.Groups[groupPage[8].Id].Team.Request().PutAsync(team);
+                //TODO should be PUT
+                await graphClient.Groups[groupPage.Value[8].Id].Team.PatchAsync(team);
             }
             catch (ServiceException e)
             {

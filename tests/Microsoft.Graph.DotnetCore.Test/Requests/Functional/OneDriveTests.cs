@@ -4,91 +4,38 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
-    using Microsoft.Graph.DotnetCore.Test.Requests.Functional.Resources;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
     using System.Threading.Tasks;
     using Xunit;
+    using Microsoft.Graph.Drive.Items.Item.CreateLink;
+    using Microsoft.Graph.Drive.Items.Item.Invite;
+    using Microsoft.Graph.Drives.Item.Items.Item.Permissions;
+    using Microsoft.Graph.Drives.Item.Root.Children;
+    using Microsoft.Graph.Models;
+    
     public class OneDriveTests : GraphTestBase
     {
         [Fact(Skip = "No CI set up for functional tests")]
         public async Task OneDriveSharedWithMe()
         {
 
-            var sharedDriveItems = await graphClient.Me.Drive.SharedWithMe().Request().GetAsync();
-            var permissionsPage = await graphClient.Me.Drive.Items[sharedDriveItems[0].Id].Permissions.Request().GetAsync();
+            var sharedDriveItems = await graphClient.Drives["driveId"].SharedWithMe().GetAsync();
+            var permissionsPage = await graphClient.Drives["driveId"].Items[sharedDriveItems.Value[0].Id].Permissions.GetAsync();
             var permissions = new List<Permission>();
-            permissions.AddRange(permissionsPage.CurrentPage);
+            permissions.AddRange(permissionsPage.Value);
 
-            while (permissionsPage.NextPageRequest != null)
+            while (permissionsPage.OdataNextLink != null)
             {
-                permissionsPage = await permissionsPage.NextPageRequest.GetAsync();
-                permissions.AddRange(permissionsPage.CurrentPage);
+                permissionsPage = await new PermissionsRequestBuilder(permissionsPage.OdataNextLink,graphClient.RequestAdapter).GetAsync();
+                permissions.AddRange(permissionsPage.Value);
             }
             foreach (var permission in permissions)
             {
                 Assert.NotNull(permission.Id);
                 Assert.NotNull(permission.Roles);
-            }
-        }
-
-        // https://github.com/OneDrive/onedrive-sdk-csharp/blob/master/docs/chunked-uploads.md
-        // https://dev.onedrive.com/items/upload_large_files.htm
-        [Fact(Skip = "incomplete")]
-        public async Task OneDriveUploadLargeFile()
-        {
-            try
-            {
-                using (Stream stream = ResourceHelper.GetResourceAsStream(ResourceHelper.Hamilton))
-                {
-                    // Describe the file to upload. Pass into CreateUploadSession, when the service works as expected.
-                    //var props = new DriveItemUploadableProperties();
-                    //props.Name = "_hamilton.png";
-                    //props.Description = "This is a pictureof Mr. Hamilton.";
-                    //props.FileSystemInfo = new FileSystemInfo();
-                    //props.FileSystemInfo.CreatedDateTime = System.DateTimeOffset.Now;
-                    //props.FileSystemInfo.LastModifiedDateTime = System.DateTimeOffset.Now;
-
-                    // Get the provider. 
-                    // POST /v1.0/drive/items/01KGPRHTV6Y2GOVW7725BZO354PWSELRRZ:/_hamiltion.png:/microsoft.graph.createUploadSession
-                    // The CreateUploadSesssion action doesn't seem to support the options stated in the metadata.
-                    var uploadSession = await graphClient.Drive.Items["01KGPRHTV6Y2GOVW7725BZO354PWSELRRZ"].ItemWithPath("_hamilton.png").CreateUploadSession().Request().PostAsync();
-
-                    var maxChunkSize = 320 * 1024; // 320 KB - Change this to your chunk size. 5MB is the default.
-                    var provider = new ChunkedUploadProvider(uploadSession, graphClient, stream, maxChunkSize);
-
-                    // Setup the chunk request necessities
-                    var chunkRequests = provider.GetUploadChunkRequests();
-                    var trackedExceptions = new List<Exception>();
-                    DriveItem itemResult = null;
-
-                    //upload the chunks
-                    foreach (var request in chunkRequests)
-                    {
-                        // Do your updates here: update progress bar, etc.
-                        // ...
-                        // Send chunk request
-                        var result = await provider.GetChunkRequestResponseAsync(request, trackedExceptions);
-
-                        if (result.UploadSucceeded)
-                        {
-                            itemResult = result.ItemResponse;
-                        }
-                    }
-
-                    // Check that upload succeeded
-                    if (itemResult == null)
-                    {
-                        // Retry the upload
-                        // ...
-                    }
-                }
-            }
-            catch (Microsoft.Graph.ServiceException e)
-            {
-                Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
         }
 
@@ -110,16 +57,16 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // Get the collection of drive items. We'll only use one.
-                IDriveItemChildrenCollectionPage driveItems = await graphClient.Me.Drive.Root.Children.Request().GetAsync();
+                var driveItems = await graphClient.Drives["driveId"].Root.Children.GetAsync();
 
-                foreach (var item in driveItems)
+                foreach (var item in driveItems.Value)
                 {
                     // Let's download the first file we get in the response.
-                    if (item.File != null)
+                    if (item.FileObject != null)
                     {
                         // We'll use the file metadata to determine size and the name of the downloaded file
                         // and to get the download URL.
-                        var driveItemInfo = await graphClient.Me.Drive.Items[item.Id].Request().GetAsync();
+                        var driveItemInfo = await graphClient.Drives["driveId"].Items[item.Id].GetAsync();
 
                         // Get the download URL. This URL is preauthenticated and has a short TTL.
                         object downloadUrl;
@@ -127,17 +74,18 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 
                         // Get the number of bytes to download. calculate the number of chunks and determine
                         // the last chunk size.
-                        long size = (long)driveItemInfo.Size;
-                        int numberOfChunks = Convert.ToInt32(size / DefaultChunkSize);
-                        // We are incrementing the offset cursor after writing the response stream to a file after each chunk. 
-                        // Subtracting one since the size is 1 based, and the range is 0 base. There should be a better way to do
-                        // this but I haven't spent the time on that.
-                        int lastChunkSize = Convert.ToInt32(size % DefaultChunkSize) - numberOfChunks - 1;
-                        if (lastChunkSize > 0) { numberOfChunks++; }
-
-                        // Create a file stream to contain the downloaded file.
-                        using (FileStream fileStream = System.IO.File.Create((driveItemInfo.Name)))
+                        if (driveItemInfo.Size != null)
                         {
+                            long size = driveItemInfo.Size.Value;
+                            int numberOfChunks = Convert.ToInt32(size / DefaultChunkSize);
+                            // We are incrementing the offset cursor after writing the response stream to a file after each chunk. 
+                            // Subtracting one since the size is 1 based, and the range is 0 base. There should be a better way to do
+                            // this but I haven't spent the time on that.
+                            int lastChunkSize = Convert.ToInt32(size % DefaultChunkSize) - numberOfChunks - 1;
+                            if (lastChunkSize > 0) { numberOfChunks++; }
+
+                            // Create a file stream to contain the downloaded file.
+                            await using FileStream fileStream = System.IO.File.Create((driveItemInfo.Name));
                             for (int i = 0; i < numberOfChunks; i++)
                             {
                                 // Setup the last chunk to request. This will be called at the end of this loop.
@@ -157,7 +105,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                                 var client = new HttpClient();
                                 HttpResponseMessage response = await client.SendAsync(req);
 
-                                using (Stream responseStream = await response.Content.ReadAsStreamAsync())
+                                await using (Stream responseStream = await response.Content.ReadAsStreamAsync())
                                 {
                                     bytesInStream = new byte[ChunkSize];
                                     int read;
@@ -172,6 +120,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                                 offset += ChunkSize + 1; // Move the offset cursor to the next chunk.
                             }
                         }
+
                         return;
                     }
                 }
@@ -189,16 +138,16 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             {
                 var driveItems = new List<DriveItem>();
 
-                var driveItemsPage = await graphClient.Me.Drive.Root.Children.Request().Top(4).GetAsync();
+                var driveItemsPage = await graphClient.Drives["driveId"].Root.Children.GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Top = 4);
 
                 Assert.NotNull(driveItemsPage);
 
-                driveItems.AddRange(driveItemsPage.CurrentPage);
+                driveItems.AddRange(driveItemsPage.Value);
 
-                while (driveItemsPage.NextPageRequest != null)
+                while (driveItemsPage.OdataNextLink != null)
                 {
-                    driveItemsPage = await driveItemsPage.NextPageRequest.GetAsync();
-                    driveItems.AddRange(driveItemsPage.CurrentPage);
+                    driveItemsPage = await new ChildrenRequestBuilder(driveItemsPage.OdataNextLink,graphClient.RequestAdapter).GetAsync();
+                    driveItems.AddRange(driveItemsPage.Value);
                 }
             }
             catch (Microsoft.Graph.ServiceException e)
@@ -213,14 +162,14 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var driveItems = await graphClient.Me.Drive.Root.Children.Request().GetAsync();
+                var driveItems = await graphClient.Drives["driveId"].Root.Children.GetAsync();
 
-                foreach (var item in driveItems)
+                foreach (var item in driveItems.Value)
                 {
                     // Let's download the first file we get in the response.
-                    if (item.File != null)
+                    if (item.FileObject != null)
                     {
-                        var driveItemContent = await graphClient.Me.Drive.Items[item.Id].Content.Request().GetAsync();
+                        var driveItemContent = await graphClient.Drives["driveId"].Items[item.Id].Content.GetAsync();
                         Assert.NotNull(driveItemContent);
                         Assert.IsType<MemoryStream>(driveItemContent);
                         return;
@@ -238,23 +187,20 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var driveItems = await graphClient.Me.Drive
+                var driveItems = await graphClient.Drives["driveId"]
                                                      .Root
                                                      .Children
-                                                     .Request()
                                                      .GetAsync();
 
-                foreach (var item in driveItems)
+                foreach (var item in driveItems.Value)
                 {
                     // Let's get the first file in the response and expand the permissions set on it.
-                    if (item.File != null)
+                    if (item.FileObject != null)
                     {
                         // Get the permissions on the first file in the response.
-                        var driveItem = await graphClient.Me.Drive
+                        var driveItem = await graphClient.Drives["driveId"]
                                                             .Items[item.Id]
-                                                            .Request()
-                                                            .Expand("permissions")
-                                                            .GetAsync();
+                                                            .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Expand = new []{"permissions"});
                         Assert.NotNull(driveItem);
 
                         // Set permissions
@@ -262,16 +208,10 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                         perm.Roles = new List<string>() { "write" };
                         if (driveItem.Permissions.Count > 0)
                         {
-                            var headerOptions = new List<HeaderOption>()
-                            {
-                                new HeaderOption("if-match", driveItem.CTag)
-                            };
-
-                            var permission = await graphClient.Me.Drive
+                            var permission = await graphClient.Drives["driveId"]
                                                                  .Items[driveItem.Id]
                                                                  .Permissions[driveItem.Permissions[0].Id]
-                                                                 .Request(headerOptions)
-                                                                 .UpdateAsync(perm);
+                                                                 .PatchAsync(perm, requestConfiguration => requestConfiguration.Headers.Add("if-match",driveItem.CTag));
                         }
                         break;
                     }
@@ -291,10 +231,10 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/item_search
-                var driveItems = await graphClient.Me.Drive.Search("employee services").Request().GetAsync();
+                var driveItems = await graphClient.Drives["driveId"].SearchWithQ("employee services").GetAsync();
 
                 // Expecting two results.
-                Assert.Equal(2, driveItems.Count);
+                Assert.Equal(2, driveItems.Value.Count);
 
             }
             catch (Microsoft.Graph.ServiceException e)
@@ -309,19 +249,17 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var itemToShare = await graphClient.Me.Drive.Root
+                var itemToShare = await graphClient.Drives["driveId"].Root
                                                             .Children
-                                                            .Request()
-                                                            .Filter("startswith(name,'Timesheet')")
-                                                            .GetAsync();
+                                                            .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Filter = "startswith(name,'Timesheet')");
                 
-                Assert.StartsWith("Timesheet", itemToShare[0].Name);
+                Assert.StartsWith("Timesheet", itemToShare.Value[0].Name);
 
-                var permission = await graphClient.Me.Drive.Root
-                                                           .ItemWithPath(itemToShare[0].Name)
-                                                           .CreateLink("edit", "organization")
-                                                           .Request()
-                                                           .PostAsync();
+                var requestBody = new CreateLinkPostRequestBody { Type = "edit", Scope = "organization" };
+                var permission = await graphClient.Drives["driveId"].Root
+                                                           .ItemWithPath(itemToShare.Value[0].Name)
+                                                           .CreateLink
+                                                           .PostAsync(requestBody);
 
                 Assert.Equal("organization", permission.Link.Scope);
                 Assert.Equal("edit", permission.Link.Type);
@@ -342,14 +280,12 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // Get the item to share with another user.
-                var itemToShare = await graphClient.Me.Drive.Root
+                var itemToShare = await graphClient.Drives["driveId"].Root
                                                             .Children
-                                                            .Request()
-                                                            .Filter("startswith(name,'Timesheet')")
-                                                            .GetAsync();
-                Assert.StartsWith("Timesheet", itemToShare[0].Name);
+                                                            .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Filter = "startswith(name,'Timesheet')");
+                Assert.StartsWith("Timesheet", itemToShare.Value[0].Name);
 
-                var me = await graphClient.Me.Request().GetAsync();
+                var me = await graphClient.Me.GetAsync();
                 var domain = me.Mail.Split('@')[1];
 
                 var recipients = new List<DriveRecipient>()
@@ -364,15 +300,21 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 {
                     "write"
                 };
-
-                var inviteCollection = await graphClient.Me.Drive
+                var invitePostBody = new InvitePostRequestBody
+                {
+                    Recipients = recipients,
+                    Message = "Checkout the Invite feature!",
+                    Roles = roles,
+                    SendInvitation = true,
+                    RequireSignIn = true
+                };
+                var inviteCollection = await graphClient.Drives["driveId"]
                                                            .Root
-                                                           .ItemWithPath(itemToShare[0].Name)
-                                                           .Invite(recipients, true, roles, true, "Checkout the Invite feature!")
-                                                           .Request()
-                                                           .PostAsync();
+                                                           .ItemWithPath(itemToShare.Value[0].Name)
+                                                           .Invite
+                                                           .PostAsync(invitePostBody);
 
-                Assert.Equal("Alex Wilber", inviteCollection[0].GrantedTo.User.DisplayName);
+                Assert.Equal("Alex Wilber", inviteCollection.Value[0].GrantedTo.User.DisplayName);
             }
             catch (Microsoft.Graph.ServiceException e)
             {

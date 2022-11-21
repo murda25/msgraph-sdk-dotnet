@@ -4,6 +4,7 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Microsoft.Graph.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Xunit;
@@ -14,12 +15,13 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var openTypeExtension = new OpenTypeExtension();
-                openTypeExtension.ExtensionName = "com.contoso.mysettings2";
-                openTypeExtension.AdditionalData = new Dictionary<string, object>();
+                var openTypeExtension = new OpenTypeExtension
+                {
+                    ExtensionName = "com.contoso.mysettings2", AdditionalData = new Dictionary<string, object>()
+                };
                 openTypeExtension.AdditionalData.Add("theme", "dark");
 
-                var e = await graphClient.Me.Extensions.Request().AddAsync(openTypeExtension);
+                var e = await graphClient.Me.Extensions.PostAsync(openTypeExtension);
 
                 Assert.NotNull(e);
                 Assert.Equal(openTypeExtension.ExtensionName, e.Id); // The extension name and identifier should match.

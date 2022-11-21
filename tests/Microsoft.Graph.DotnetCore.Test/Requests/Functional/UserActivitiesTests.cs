@@ -8,6 +8,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using System.Linq;
     using System.Threading.Tasks;
     using Xunit;
+    using Microsoft.Graph.Models;
 
     public class UserActivitiesTests : GraphTestBase
     {
@@ -57,16 +58,16 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var activity = CreateUserActivity("graphSdkTestCreateActivity");
 
                 // Create the user activity
-                var createResponse = await graphClient.Me.Activities.Request().AddUserActivityAsync(activity);
+                var createResponse = await graphClient.Me.Activities.PostAsync(activity);
 
                 Assert.NotNull(createResponse);
 
                 // Get activities
-                var getResponse = await graphClient.Me.Activities.Request().GetAsync();
+                var getResponse = await graphClient.Me.Activities.GetAsync();
 
                 Assert.NotNull(getResponse);
 
-                if (getResponse.First().Id != createResponse.Id)
+                if (getResponse.Value.First().Id != createResponse.Id)
                 {
                     Assert.True(false, "Ids not equal in create and get responses");
                 }
@@ -85,7 +86,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var activity = CreateUserActivity("graphSdkTestCreateHistory");
 
                 // Create the user activity
-                var createActivityResponse = await graphClient.Me.Activities.Request().AddUserActivityAsync(activity);
+                var createActivityResponse = await graphClient.Me.Activities.PostAsync(activity);
 
                 Assert.NotNull(createActivityResponse);
 
@@ -94,22 +95,22 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var history = CreateHistory();
 
                 // Create the history item on the created activity
-                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.Request().AddActivityHistoryAsync(history);
+                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.PostAsync(history);
 
                 Assert.NotNull(createHistoryResponse);
 
                 // Get activities with expand historyItems
-                var getResponse = await graphClient.Me.Activities.Request().Expand("historyItems").GetAsync();
+                var getResponse = await graphClient.Me.Activities.GetAsync( requestConfiguration => requestConfiguration.QueryParameters.Expand = new string[] { "historyItems" });
 
                 Assert.NotNull(getResponse);
 
-                if (getResponse.First().Id != createActivityResponse.Id)
+                if (getResponse.Value.First().Id != createActivityResponse.Id)
                 {
                     Assert.False(true, "Activity ids not equal in create and get responses");
                 }
 
-                if (getResponse.First().HistoryItems.FirstOrDefault() == null ||
-                    !getResponse.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
+                if (getResponse.Value.First().HistoryItems.FirstOrDefault() == null ||
+                    !getResponse.Value.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
                 {
                     Assert.False(true, "History ids not equal in create and get responses");
                 }
@@ -128,7 +129,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var activity = CreateUserActivity("graphSdkTestGetRecent");
 
                 // Create the user activity
-                var createActivityResponse = await graphClient.Me.Activities.Request().AddUserActivityAsync(activity);
+                var createActivityResponse = await graphClient.Me.Activities.PostAsync(activity);
 
                 Assert.NotNull(createActivityResponse);
 
@@ -137,22 +138,23 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var history = CreateHistory();
 
                 // Create the history item on the user activity
-                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.Request().AddActivityHistoryAsync(history);
+                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.PostAsync(history);
 
                 Assert.NotNull(createHistoryResponse);
 
                 // Get recent user activities
-                var getRecentResponse = await graphClient.Me.Activities.Recent().Request().Expand("historyItems").GetAsync();
+                //var getRecentResponse = await graphClient.Me.Activities.Recent().GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Expand = new string[] { "historyItems" });
+                var getRecentResponse = await graphClient.Me.Activities.Recent().GetAsync();
 
                 Assert.NotNull(getRecentResponse);
 
-                if (getRecentResponse.First().Id != createActivityResponse.Id)
+                if (getRecentResponse.Value.First().Id != createActivityResponse.Id)
                 {
                     Assert.False(true, "Activity ids not equal in create and get responses");
                 }
 
-                if (getRecentResponse.First().HistoryItems.FirstOrDefault() == null ||
-                    !getRecentResponse.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
+                if (getRecentResponse.Value.First().HistoryItems.FirstOrDefault() == null ||
+                    !getRecentResponse.Value.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
                 {
                     Assert.False(true, "History ids not equal in create and get responses");
                 }
@@ -171,21 +173,21 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var activity = CreateUserActivity("graphSdkTestDeleteActivity");
 
                 // Create the user activity
-                var createResponse = await graphClient.Me.Activities.Request().AddUserActivityAsync(activity);
+                var createResponse = await graphClient.Me.Activities.PostAsync(activity);
 
                 Assert.NotNull(createResponse);
 
                 var activityId = createResponse.Id;
 
                 // Delete the user activity
-                await graphClient.Me.Activities[activityId].Request().DeleteAsync();
+                await graphClient.Me.Activities[activityId].DeleteAsync();
 
                 // Get activities
-                var getResponse = await graphClient.Me.Activities.Request().GetAsync();
+                var getResponse = await graphClient.Me.Activities.GetAsync();
 
                 Assert.NotNull(getResponse);
 
-                if (getResponse.Any(x => x.Id == createResponse.Id))
+                if (getResponse.Value.Any(x => x.Id == createResponse.Id))
                 {
                     Assert.False(true, "Activity has not been deleted");
                 }
@@ -204,7 +206,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var activity = CreateUserActivity("graphSdkTestDeleteHistory");
 
                 // Create the user activity
-                var createActivityResponse = await graphClient.Me.Activities.Request().AddUserActivityAsync(activity);
+                var createActivityResponse = await graphClient.Me.Activities.PostAsync(activity);
 
                 Assert.NotNull(createActivityResponse);
 
@@ -213,26 +215,26 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var history = CreateHistory();
 
                 // Create the history item on the created activity
-                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.Request().AddActivityHistoryAsync(history);
+                var createHistoryResponse = await graphClient.Me.Activities[activityId].HistoryItems.PostAsync(history);
 
                 Assert.NotNull(createHistoryResponse);
 
                 var historyId = createHistoryResponse.Id;
 
-                await graphClient.Me.Activities[activityId].HistoryItems[historyId].Request().DeleteAsync();
+                await graphClient.Me.Activities[activityId].HistoryItems[historyId].DeleteAsync();
 
                 // Get activities with expand historyItems
-                var getResponse = await graphClient.Me.Activities.Request().Expand("historyItems").GetAsync();
+                var getResponse = await graphClient.Me.Activities.GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Expand = new string[] { "historyItems" });
 
                 Assert.NotNull(getResponse);
 
-                if (getResponse.First().Id != createActivityResponse.Id)
+                if (getResponse.Value.First().Id != createActivityResponse.Id)
                 {
                     Assert.True(false, "Activity ids not equal in create and get responses");
                 }
 
-                if (getResponse.First().HistoryItems?.FirstOrDefault() != null &&
-                    getResponse.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
+                if (getResponse.Value.First().HistoryItems?.FirstOrDefault() != null &&
+                    getResponse.Value.First().HistoryItems.Any(x => x.Id == createHistoryResponse.Id))
                 {
                     Assert.True(false, "History ids not equal in create and get responses");
                 }

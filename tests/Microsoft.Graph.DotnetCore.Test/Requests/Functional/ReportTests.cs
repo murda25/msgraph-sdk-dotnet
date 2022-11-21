@@ -4,7 +4,7 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
-    using System.Net.Http;
+    using System.IO;
     using System.Threading.Tasks;
     using Xunit;
     /// <summary>
@@ -20,16 +20,14 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // Create the request message.
-                string getOffice365ActiveUserCountsRequestUrl = graphClient.Reports.GetOffice365ActiveUserCounts("D7").Request().RequestUrl;
-                HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Get, getOffice365ActiveUserCountsRequestUrl);
-
-                await graphClient.AuthenticationProvider.AuthenticateRequestAsync(hrm);
+                var getOffice365ActiveUserCountsRequest = graphClient.Reports.GetOffice365ActiveUserCountsWithPeriod("D7").CreateGetRequestInformation();
 
                 // Send the request and get the response. It will automatically follow the redirect to get the Report file.
-                HttpResponseMessage response = await graphClient.HttpProvider.SendAsync(hrm);
+                var responseStream = await graphClient.RequestAdapter.SendPrimitiveAsync<Stream>(getOffice365ActiveUserCountsRequest);
 
                 // Get the csv report file
-                string csvReportFile = await response.Content.ReadAsStringAsync();
+                var streamReader = new StreamReader(responseStream);
+                string csvReportFile = await streamReader.ReadToEndAsync();
 
                 Assert.Contains("Report", csvReportFile);
                 Assert.Contains("Office 365", csvReportFile);

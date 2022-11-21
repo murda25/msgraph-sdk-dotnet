@@ -13,6 +13,7 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 - Adds baseUrl parameter to GraphServiceClient constructor to allow for easier updating of target endpoint
 - Latest metadata updates from 1st November 2022 snapshot
+- Adds ItemWithPath for request builder to enable path retrieval of drive items
 
 ## [5.0.0-preview.13] - 2022-10-18
 

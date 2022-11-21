@@ -4,11 +4,14 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Microsoft.Graph.Me.GetMailTips;
+    using Microsoft.Graph.Me.GetMemberGroups;
+    using AssignLicensePostRequestBody = Microsoft.Graph.Me.AssignLicense.AssignLicensePostRequestBody;
     using Microsoft.Graph.DotnetCore.Test.Requests.Functional.Resources;
+    using Microsoft.Graph.Models;
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Reflection;
     using System.Threading.Tasks;
     using Xunit;
     public class UserTests : GraphTestBase
@@ -18,16 +21,22 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var emailAddresses = new List<string>();
-                emailAddresses.Add("katiej@MOD810997.onmicrosoft.com");
-                emailAddresses.Add("garretv@MOD810997.onmicrosoft.com");
-                emailAddresses.Add("annew@MOD810997.onmicrosoft.com");
+                var emailAddresses = new List<string>
+                {
+                    "katiej@MOD810997.onmicrosoft.com", 
+                    "garretv@MOD810997.onmicrosoft.com",
+                    "annew@MOD810997.onmicrosoft.com"
+                };
 
                 var mailTipsOptions = MailTipsType.AutomaticReplies | MailTipsType.MailboxFullStatus;
 
-                var mailTipsCollectionPage = await graphClient.Me.GetMailTips(emailAddresses, mailTipsOptions).Request().PostAsync();
+                var requestBody = new GetMailTipsPostRequestBody()
+                {
+                    EmailAddresses = emailAddresses, MailTipsOptions = mailTipsOptions
+                };
+                var mailTipsCollectionPage = await graphClient.Me.GetMailTips.PostAsync(requestBody);
 
-                foreach (var mt in mailTipsCollectionPage)
+                foreach (var mt in mailTipsCollectionPage.Value)
                 {
                     // All of the supplied users should have an email address.
                     Assert.NotNull(mt.EmailAddress);
@@ -44,14 +53,9 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         [Fact(Skip = "No CI set up for functional tests. The service doesn't yet support PATCH on entity with mailboxsettings")]
         public async Task UserGetSetAutomaticReply()
         {
-            var query = new List<Option>()
-            {
-                new QueryOption("$select", "mailboxsettings")
-            };
+            var user = await graphClient.Me.GetAsync( requestConfiguration => requestConfiguration.QueryParameters.Select = new []{"mailboxsettings"});
 
-            var user = await graphClient.Me.Request(query).GetAsync();
-
-            await graphClient.Me.Request().UpdateAsync(user);
+            await graphClient.Me.PatchAsync(user);
 
             /* Notes
              * 
@@ -172,8 +176,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var usersQuery = await graphClient.Users.Request().Filter("startswith(displayName,'A')").GetAsync();
-                foreach (User u in usersQuery)
+                var usersQuery = await graphClient.Users.GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Filter = "startswith(displayName,'A')");
+                foreach (User u in usersQuery.Value)
                 {
                     Assert.StartsWith("A", u.DisplayName, StringComparison.OrdinalIgnoreCase);
                 }
@@ -193,7 +197,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 // Gets the user's photo.
                 // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/profilephoto_get
                 // GET https://graph.microsoft.com/v1.0/me/photo/$value
-                var originalPhoto = await graphClient.Me.Photo.Content.Request().GetAsync();
+                var originalPhoto = await graphClient.Me.Photo.Content.GetAsync();
 
                 Assert.NotNull(originalPhoto);
             }
@@ -221,7 +225,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     // Sets the user's photo.
                     // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/profilephoto_update
                     // PUT https://graph.microsoft.com/v1.0/me/photo/$value
-                    await graphClient.Me.Photo.Content.Request().PutAsync(ms);
+                    await graphClient.Me.Photo.Content.PutAsync(ms);
                 }
             }
             catch (Microsoft.Graph.ServiceException e)
@@ -236,7 +240,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var user = await graphClient.Me.Request().GetAsync();
+                var user = await graphClient.Me.GetAsync();
                 Assert.NotNull(user.UserPrincipalName);
             }
             catch (Microsoft.Graph.ServiceException e)
@@ -250,7 +254,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var managerDirObj = (User)await graphClient.Me.Manager.Request().GetAsync();
+                var managerDirObj = (User)await graphClient.Me.Manager.GetAsync();
 
                 Assert.NotNull(managerDirObj);
                 Assert.False(managerDirObj.DisplayName == "", "The display name of the user's manager is not set.");
@@ -271,9 +275,13 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var managerDirObj = (User)await graphClient.Me.Manager.Request().GetAsync();
+                var managerDirObj = (User)await graphClient.Me.Manager.GetAsync();
 
-                await graphClient.Me.Manager.Reference.Request().PutAsync(managerDirObj.Id);
+                var reference = new ReferenceUpdate
+                {
+                    OdataId = managerDirObj.Id
+                };
+                await graphClient.Me.Manager.Ref.PutAsync(reference);
                 Assert.NotNull(managerDirObj);
             }
             catch (Microsoft.Graph.ServiceException e)
@@ -288,7 +296,12 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // This is expected to fail since we aren't providing licenses.
-                var user = await graphClient.Me.AssignLicense(new List<AssignedLicense>(), new List<System.Guid>()).Request().PostAsync();
+                var requestBody = new AssignLicensePostRequestBody
+                {
+                    AddLicenses = new List<AssignedLicense>(),
+                    RemoveLicenses = new List<string>()
+                };
+                var user = await graphClient.Me.AssignLicense.PostAsync(requestBody);
                 Assert.Null(user);
 
             }
@@ -307,15 +320,16 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var getMemberGroupsRequest = graphClient.Me
-                                                        .GetMemberGroups(true)
-                                                        .Request() as DirectoryObjectGetMemberGroupsRequest;
-
-                var directoryObjectGetMemberGroupsCollectionPage = await getMemberGroupsRequest.PostAsync();
+                var getMemberGroupsRequest = graphClient.Me.GetMemberGroups;
+                var requestBody = new GetMemberGroupsPostRequestBody
+                {
+                    SecurityEnabledOnly = true
+                };
+                var directoryObjectGetMemberGroupsCollectionPage = await getMemberGroupsRequest.PostAsync(requestBody);
 
                 Assert.NotNull(directoryObjectGetMemberGroupsCollectionPage);
-                Assert.Equal("POST", getMemberGroupsRequest.Method.ToString());
-                Assert.True(getMemberGroupsRequest.RequestBody.SecurityEnabledOnly.Value);
+                Assert.Equal("POST", getMemberGroupsRequest.CreatePostRequestInformation(requestBody).HttpMethod.ToString());
+                Assert.True(requestBody.SecurityEnabledOnly.Value);
             }
             catch (Microsoft.Graph.ServiceException e)
             {
@@ -332,11 +346,9 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var getMemberGroupsRequest = graphClient.Me
-                                                        .GetMemberGroups()
-                                                        .Request() as DirectoryObjectGetMemberGroupsRequest;
-
-                var directoryObjectGetMemberGroupsCollectionPage = await getMemberGroupsRequest.PostAsync();
+                var getMemberGroupsRequest = graphClient.Me.GetMemberGroups;
+                var requestBody = new GetMemberGroupsPostRequestBody();
+                var directoryObjectGetMemberGroupsCollectionPage = await getMemberGroupsRequest.PostAsync(requestBody);
             }
             catch (Microsoft.Graph.ServiceException e)
             {
@@ -351,7 +363,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var me = await graphClient.Me.Request().GetAsync();
+                var me = await graphClient.Me.GetAsync();
 
                 var oldMe = new User()
                 {
@@ -364,10 +376,10 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 };
 
                 // Update the user to Beth
-                await graphClient.Users[me.UserPrincipalName].Request().UpdateAsync(betterMe);
+                await graphClient.Users[me.UserPrincipalName].PatchAsync(betterMe);
 
                 // Update the user back to me.
-                await graphClient.Users[me.UserPrincipalName].Request().UpdateAsync(oldMe);
+                await graphClient.Users[me.UserPrincipalName].PatchAsync(oldMe);
             }
             catch (Microsoft.Graph.ServiceException e)
             {
