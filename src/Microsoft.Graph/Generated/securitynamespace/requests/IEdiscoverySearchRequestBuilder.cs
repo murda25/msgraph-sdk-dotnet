@@ -66,6 +66,14 @@ namespace Microsoft.Graph.SecurityNamespace
         /// </summary>
         /// <returns>The <see cref="IEdiscoverySearchEstimateStatisticsRequestBuilder"/>.</returns>
         IEdiscoverySearchEstimateStatisticsRequestBuilder EstimateStatistics();
+
+        /// <summary>
+        /// Gets the request builder for EdiscoverySearchPurgeData.
+        /// </summary>
+        /// <returns>The <see cref="IEdiscoverySearchPurgeDataRequestBuilder"/>.</returns>
+        IEdiscoverySearchPurgeDataRequestBuilder PurgeData(
+            PurgeType? purgeType = null,
+            PurgeAreas? purgeAreas = null);
     
     }
 }
