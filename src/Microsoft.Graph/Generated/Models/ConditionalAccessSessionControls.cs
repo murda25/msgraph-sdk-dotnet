@@ -49,7 +49,6 @@ namespace Microsoft.Graph.Models {
         public ConditionalAccessSessionControls() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.conditionalAccessSessionControls";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

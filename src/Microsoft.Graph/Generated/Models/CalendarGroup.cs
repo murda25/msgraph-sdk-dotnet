@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class CalendarGroup : Entity, IParsable {
         /// <summary>The calendars in the calendar group. Navigation property. Read-only. Nullable.</summary>
         public List<Calendar> Calendars {
@@ -25,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
-        }
-        /// <summary>
-        /// Instantiates a new calendarGroup and sets the default values.
-        /// </summary>
-        public CalendarGroup() : base() {
-            OdataType = "#microsoft.graph.calendarGroup";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class AppRoleAssignment : DirectoryObject, IParsable {
         /// <summary>The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application&apos;s service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create.</summary>
         public string AppRoleId {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("principalDisplayName"); }
             set { BackingStore?.Set("principalDisplayName", value); }
         }
-        /// <summary>The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.</summary>
+        /// <summary>The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.</summary>
         public string PrincipalId {
             get { return BackingStore?.Get<string>("principalId"); }
             set { BackingStore?.Set("principalId", value); }

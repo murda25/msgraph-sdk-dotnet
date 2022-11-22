@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class SignIn : Entity, IParsable {
         /// <summary>App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
         public string AppDisplayName {
@@ -120,12 +120,6 @@ namespace Microsoft.Graph.Models {
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
-        }
-        /// <summary>
-        /// Instantiates a new signIn and sets the default values.
-        /// </summary>
-        public SignIn() : base() {
-            OdataType = "#microsoft.graph.signIn";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

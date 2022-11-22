@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PlannerPlan : Entity, IParsable {
         /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public List<PlannerBucket> Buckets {
@@ -45,12 +45,6 @@ namespace Microsoft.Graph.Models {
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
-        }
-        /// <summary>
-        /// Instantiates a new plannerPlan and sets the default values.
-        /// </summary>
-        public PlannerPlan() : base() {
-            OdataType = "#microsoft.graph.plannerPlan";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

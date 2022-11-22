@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class TodoTask : Entity, IParsable {
         /// <summary>The attachments property</summary>
         public List<AttachmentBase> Attachments {
@@ -105,12 +105,6 @@ namespace Microsoft.Graph.Models {
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
-        }
-        /// <summary>
-        /// Instantiates a new todoTask and sets the default values.
-        /// </summary>
-        public TodoTask() : base() {
-            OdataType = "#microsoft.graph.todoTask";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

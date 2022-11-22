@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Search : Entity, IParsable {
         /// <summary>The contentQuery property</summary>
         public string ContentQuery {
@@ -41,12 +41,6 @@ namespace Microsoft.Graph.Models.Security {
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
-        }
-        /// <summary>
-        /// Instantiates a new search and sets the default values.
-        /// </summary>
-        public Search() : base() {
-            OdataType = "#microsoft.graph.security.search";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -109,7 +109,6 @@ namespace Microsoft.Graph.Models {
         public PrinterDefaults() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.printerDefaults";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

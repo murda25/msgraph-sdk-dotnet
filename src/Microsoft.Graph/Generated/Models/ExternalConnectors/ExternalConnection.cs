@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ExternalConnection : Entity, IParsable {
         /// <summary>Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.</summary>
         public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration {
@@ -45,12 +44,6 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         public ConnectionState? State {
             get { return BackingStore?.Get<ConnectionState?>("state"); }
             set { BackingStore?.Set("state", value); }
-        }
-        /// <summary>
-        /// Instantiates a new externalConnection and sets the default values.
-        /// </summary>
-        public ExternalConnection() : base() {
-            OdataType = "#microsoft.graph.externalConnectors.externalConnection";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

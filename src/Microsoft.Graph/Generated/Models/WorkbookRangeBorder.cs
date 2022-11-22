@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class WorkbookRangeBorder : Entity, IParsable {
         /// <summary>HTML color code representing the color of the border line, of the form #RRGGBB (e.g. &apos;FFA500&apos;) or as a named HTML color (e.g. &apos;orange&apos;).</summary>
         public string Color {
@@ -25,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public string Weight {
             get { return BackingStore?.Get<string>("weight"); }
             set { BackingStore?.Set("weight", value); }
-        }
-        /// <summary>
-        /// Instantiates a new workbookRangeBorder and sets the default values.
-        /// </summary>
-        public WorkbookRangeBorder() : base() {
-            OdataType = "#microsoft.graph.workbookRangeBorder";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

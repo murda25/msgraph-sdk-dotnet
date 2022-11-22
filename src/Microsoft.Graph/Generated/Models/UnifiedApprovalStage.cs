@@ -54,7 +54,6 @@ namespace Microsoft.Graph.Models {
         public UnifiedApprovalStage() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.unifiedApprovalStage";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

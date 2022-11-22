@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
         public string AppDisplayName {
@@ -25,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public List<UserConsentRequest> UserConsentRequests {
             get { return BackingStore?.Get<List<UserConsentRequest>>("userConsentRequests"); }
             set { BackingStore?.Set("userConsentRequests", value); }
-        }
-        /// <summary>
-        /// Instantiates a new appConsentRequest and sets the default values.
-        /// </summary>
-        public AppConsentRequest() : base() {
-            OdataType = "#microsoft.graph.appConsentRequest";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

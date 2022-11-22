@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class WorkbookCommentReply : Entity, IParsable {
         /// <summary>The content of a comment reply.</summary>
         public string Content {
@@ -15,12 +15,6 @@ namespace Microsoft.Graph.Models {
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
-        }
-        /// <summary>
-        /// Instantiates a new workbookCommentReply and sets the default values.
-        /// </summary>
-        public WorkbookCommentReply() : base() {
-            OdataType = "#microsoft.graph.workbookCommentReply";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

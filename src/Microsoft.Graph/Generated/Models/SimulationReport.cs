@@ -34,7 +34,6 @@ namespace Microsoft.Graph.Models {
         public SimulationReport() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.simulationReport";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

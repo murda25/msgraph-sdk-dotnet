@@ -42,12 +42,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("status", value); }
         }
         /// <summary>
-        /// Instantiates a new caseOperation and sets the default values.
-        /// </summary>
-        public CaseOperation() : base() {
-            OdataType = "#microsoft.graph.security.caseOperation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
@@ -59,6 +53,7 @@ namespace Microsoft.Graph.Models.Security {
                 "#microsoft.graph.security.ediscoveryEstimateOperation" => new EdiscoveryEstimateOperation(),
                 "#microsoft.graph.security.ediscoveryHoldOperation" => new EdiscoveryHoldOperation(),
                 "#microsoft.graph.security.ediscoveryIndexOperation" => new EdiscoveryIndexOperation(),
+                "#microsoft.graph.security.ediscoveryPurgeDataOperation" => new EdiscoveryPurgeDataOperation(),
                 "#microsoft.graph.security.ediscoveryTagOperation" => new EdiscoveryTagOperation(),
                 _ => new CaseOperation(),
             };

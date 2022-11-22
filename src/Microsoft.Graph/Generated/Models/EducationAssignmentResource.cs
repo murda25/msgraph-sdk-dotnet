@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationAssignmentResource : Entity, IParsable {
         /// <summary>Indicates whether this resource should be copied to each student submission for modification and submission. Required</summary>
         public bool? DistributeForStudentWork {
@@ -15,12 +15,6 @@ namespace Microsoft.Graph.Models {
         public EducationResource Resource {
             get { return BackingStore?.Get<EducationResource>("resource"); }
             set { BackingStore?.Set("resource", value); }
-        }
-        /// <summary>
-        /// Instantiates a new educationAssignmentResource and sets the default values.
-        /// </summary>
-        public EducationAssignmentResource() : base() {
-            OdataType = "#microsoft.graph.educationAssignmentResource";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

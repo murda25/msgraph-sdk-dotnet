@@ -41,12 +41,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("subjectType", value); }
         }
         /// <summary>
-        /// Instantiates a new accessPackageSubject and sets the default values.
-        /// </summary>
-        public AccessPackageSubject() : base() {
-            OdataType = "#microsoft.graph.accessPackageSubject";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class WorkbookRangeView : Entity, IParsable {
         /// <summary>Represents the cell addresses</summary>
         public Json CellAddresses {
@@ -65,12 +64,6 @@ namespace Microsoft.Graph.Models {
         public Json ValueTypes {
             get { return BackingStore?.Get<Json>("valueTypes"); }
             set { BackingStore?.Set("valueTypes", value); }
-        }
-        /// <summary>
-        /// Instantiates a new workbookRangeView and sets the default values.
-        /// </summary>
-        public WorkbookRangeView() : base() {
-            OdataType = "#microsoft.graph.workbookRangeView";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

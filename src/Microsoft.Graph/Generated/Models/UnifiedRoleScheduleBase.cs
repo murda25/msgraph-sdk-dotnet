@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class UnifiedRoleScheduleBase : Entity, IParsable {
         /// <summary>Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable.</summary>
         public Microsoft.Graph.Models.AppScope AppScope {
@@ -66,12 +65,6 @@ namespace Microsoft.Graph.Models {
         public string Status {
             get { return BackingStore?.Get<string>("status"); }
             set { BackingStore?.Set("status", value); }
-        }
-        /// <summary>
-        /// Instantiates a new unifiedRoleScheduleBase and sets the default values.
-        /// </summary>
-        public UnifiedRoleScheduleBase() : base() {
-            OdataType = "#microsoft.graph.unifiedRoleScheduleBase";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

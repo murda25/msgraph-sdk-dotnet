@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ContactFolder : Entity, IParsable {
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
         public List<ContactFolder> ChildFolders {
@@ -35,12 +35,6 @@ namespace Microsoft.Graph.Models {
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>>("singleValueExtendedProperties"); }
             set { BackingStore?.Set("singleValueExtendedProperties", value); }
-        }
-        /// <summary>
-        /// Instantiates a new contactFolder and sets the default values.
-        /// </summary>
-        public ContactFolder() : base() {
-            OdataType = "#microsoft.graph.contactFolder";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

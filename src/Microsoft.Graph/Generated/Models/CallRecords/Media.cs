@@ -54,7 +54,6 @@ namespace Microsoft.Graph.Models.CallRecords {
         public Media() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.callRecords.media";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

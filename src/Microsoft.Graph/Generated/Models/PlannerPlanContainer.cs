@@ -23,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The type property</summary>
+        /// <summary>The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.</summary>
         public PlannerContainerType? Type {
             get { return BackingStore?.Get<PlannerContainerType?>("type"); }
             set { BackingStore?.Set("type", value); }
@@ -39,7 +39,6 @@ namespace Microsoft.Graph.Models {
         public PlannerPlanContainer() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.plannerPlanContainer";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
         public ParticipantInfo Info {
@@ -35,12 +35,6 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.RecordingInfo RecordingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RecordingInfo>("recordingInfo"); }
             set { BackingStore?.Set("recordingInfo", value); }
-        }
-        /// <summary>
-        /// Instantiates a new participant and sets the default values.
-        /// </summary>
-        public Participant() : base() {
-            OdataType = "#microsoft.graph.participant";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

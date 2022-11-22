@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class DirectoryAudit : Entity, IParsable {
         /// <summary>Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ActivityDateTime {
@@ -60,12 +60,6 @@ namespace Microsoft.Graph.Models {
         public List<TargetResource> TargetResources {
             get { return BackingStore?.Get<List<TargetResource>>("targetResources"); }
             set { BackingStore?.Set("targetResources", value); }
-        }
-        /// <summary>
-        /// Instantiates a new directoryAudit and sets the default values.
-        /// </summary>
-        public DirectoryAudit() : base() {
-            OdataType = "#microsoft.graph.directoryAudit";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

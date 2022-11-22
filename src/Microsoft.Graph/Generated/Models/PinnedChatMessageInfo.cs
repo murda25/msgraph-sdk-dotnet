@@ -4,18 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PinnedChatMessageInfo : Entity, IParsable {
         /// <summary>Represents details about the chat message that is pinned.</summary>
         public ChatMessage Message {
             get { return BackingStore?.Get<ChatMessage>("message"); }
             set { BackingStore?.Set("message", value); }
-        }
-        /// <summary>
-        /// Instantiates a new pinnedChatMessageInfo and sets the default values.
-        /// </summary>
-        public PinnedChatMessageInfo() : base() {
-            OdataType = "#microsoft.graph.pinnedChatMessageInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

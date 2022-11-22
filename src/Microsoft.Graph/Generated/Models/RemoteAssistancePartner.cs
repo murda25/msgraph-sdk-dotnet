@@ -27,12 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("onboardingUrl", value); }
         }
         /// <summary>
-        /// Instantiates a new remoteAssistancePartner and sets the default values.
-        /// </summary>
-        public RemoteAssistancePartner() : base() {
-            OdataType = "#microsoft.graph.remoteAssistancePartner";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

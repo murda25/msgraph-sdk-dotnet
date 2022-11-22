@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class EducationAssignment : Entity, IParsable {
         /// <summary>Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.</summary>
         public EducationAddedStudentAction? AddedStudentAction {
@@ -135,12 +134,6 @@ namespace Microsoft.Graph.Models {
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
-        }
-        /// <summary>
-        /// Instantiates a new educationAssignment and sets the default values.
-        /// </summary>
-        public EducationAssignment() : base() {
-            OdataType = "#microsoft.graph.educationAssignment";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -12,12 +12,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("endpoints", value); }
         }
         /// <summary>
-        /// Instantiates a new printService and sets the default values.
-        /// </summary>
-        public PrintService() : base() {
-            OdataType = "#microsoft.graph.printService";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

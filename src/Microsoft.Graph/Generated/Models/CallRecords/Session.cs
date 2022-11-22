@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.CallRecords {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class Session : Entity, IParsable {
         /// <summary>Endpoint that answered the session.</summary>
         public Endpoint Callee {
@@ -40,12 +40,6 @@ namespace Microsoft.Graph.Models.CallRecords {
         public DateTimeOffset? StartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
-        }
-        /// <summary>
-        /// Instantiates a new session and sets the default values.
-        /// </summary>
-        public Session() : base() {
-            OdataType = "#microsoft.graph.callRecords.session";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

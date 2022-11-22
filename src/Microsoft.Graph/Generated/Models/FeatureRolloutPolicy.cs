@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class FeatureRolloutPolicy : Entity, IParsable {
         /// <summary>Nullable. Specifies a list of directoryObjects that feature is enabled for.</summary>
         public List<DirectoryObject> AppliesTo {
@@ -35,12 +35,6 @@ namespace Microsoft.Graph.Models {
         public bool? IsEnabled {
             get { return BackingStore?.Get<bool?>("isEnabled"); }
             set { BackingStore?.Set("isEnabled", value); }
-        }
-        /// <summary>
-        /// Instantiates a new featureRolloutPolicy and sets the default values.
-        /// </summary>
-        public FeatureRolloutPolicy() : base() {
-            OdataType = "#microsoft.graph.featureRolloutPolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

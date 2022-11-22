@@ -67,12 +67,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("worksheet", value); }
         }
         /// <summary>
-        /// Instantiates a new workbookChart and sets the default values.
-        /// </summary>
-        public WorkbookChart() : base() {
-            OdataType = "#microsoft.graph.workbookChart";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

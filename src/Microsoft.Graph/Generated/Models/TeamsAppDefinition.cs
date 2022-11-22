@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public class TeamsAppDefinition : Entity, IParsable {
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
         public TeamworkBot Bot {
@@ -50,12 +50,6 @@ namespace Microsoft.Graph.Models {
         public string Version {
             get { return BackingStore?.Get<string>("version"); }
             set { BackingStore?.Set("version", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamsAppDefinition and sets the default values.
-        /// </summary>
-        public TeamsAppDefinition() : base() {
-            OdataType = "#microsoft.graph.teamsAppDefinition";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

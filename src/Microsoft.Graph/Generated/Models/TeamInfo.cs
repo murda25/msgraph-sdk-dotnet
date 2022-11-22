@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamInfo : Entity, IParsable {
         /// <summary>The name of the team.</summary>
         public string DisplayName {
@@ -21,12 +21,6 @@ namespace Microsoft.Graph.Models {
         public string TenantId {
             get { return BackingStore?.Get<string>("tenantId"); }
             set { BackingStore?.Set("tenantId", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamInfo and sets the default values.
-        /// </summary>
-        public TeamInfo() : base() {
-            OdataType = "#microsoft.graph.teamInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

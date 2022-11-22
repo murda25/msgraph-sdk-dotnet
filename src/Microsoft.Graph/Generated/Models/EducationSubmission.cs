@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationSubmission : Entity, IParsable {
         /// <summary>The outcomes property</summary>
         public List<EducationOutcome> Outcomes {
@@ -74,12 +75,6 @@ namespace Microsoft.Graph.Models {
         public DateTimeOffset? UnsubmittedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("unsubmittedDateTime"); }
             set { BackingStore?.Set("unsubmittedDateTime", value); }
-        }
-        /// <summary>
-        /// Instantiates a new EducationSubmission and sets the default values.
-        /// </summary>
-        public EducationSubmission() : base() {
-            OdataType = "#microsoft.graph.educationSubmission";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
