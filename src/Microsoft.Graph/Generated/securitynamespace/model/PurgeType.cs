@@ -13,56 +13,26 @@ namespace Microsoft.Graph.SecurityNamespace
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The enum CaseAction.
+    /// The enum PurgeType.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum CaseAction
+    public enum PurgeType
     {
     
         /// <summary>
-        /// Content Export
+        /// Recoverable
         /// </summary>
-        ContentExport = 0,
+        Recoverable = 0,
 	
         /// <summary>
-        /// Apply Tags
+        /// Permanently Deleted
         /// </summary>
-        ApplyTags = 1,
-	
-        /// <summary>
-        /// Convert To Pdf
-        /// </summary>
-        ConvertToPdf = 2,
-	
-        /// <summary>
-        /// Index
-        /// </summary>
-        Index = 3,
-	
-        /// <summary>
-        /// Estimate Statistics
-        /// </summary>
-        EstimateStatistics = 4,
-	
-        /// <summary>
-        /// Add To Review Set
-        /// </summary>
-        AddToReviewSet = 5,
-	
-        /// <summary>
-        /// Hold Update
-        /// </summary>
-        HoldUpdate = 6,
+        PermanentlyDeleted = 1,
 	
         /// <summary>
         /// Unknown Future Value
         /// </summary>
-        UnknownFutureValue = 7,
-	
-        /// <summary>
-        /// Purge Data
-        /// </summary>
-        PurgeData = 8,
+        UnknownFutureValue = 2,
 	
     }
 }

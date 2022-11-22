@@ -29,6 +29,12 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets or sets allowed cloud endpoints.
+        /// </summary>
+        [JsonPropertyName("allowedCloudEndpoints")]
+        public IEnumerable<string> AllowedCloudEndpoints { get; set; }
+    
+        /// <summary>
         /// Gets or sets default.
         /// Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
         /// </summary>
