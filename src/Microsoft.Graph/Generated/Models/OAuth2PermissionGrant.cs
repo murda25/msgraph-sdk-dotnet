@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class OAuth2PermissionGrant : Entity, IParsable {
         /// <summary>The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).</summary>
         public string ClientId {
@@ -30,12 +30,6 @@ namespace Microsoft.Graph.Models {
         public string Scope {
             get { return BackingStore?.Get<string>("scope"); }
             set { BackingStore?.Set("scope", value); }
-        }
-        /// <summary>
-        /// Instantiates a new oAuth2PermissionGrant and sets the default values.
-        /// </summary>
-        public OAuth2PermissionGrant() : base() {
-            OdataType = "#microsoft.graph.oAuth2PermissionGrant";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

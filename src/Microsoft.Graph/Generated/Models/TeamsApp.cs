@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public class TeamsApp : Entity, IParsable {
         /// <summary>The details for each version of the app.</summary>
         public List<TeamsAppDefinition> AppDefinitions {
@@ -24,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public string ExternalId {
             get { return BackingStore?.Get<string>("externalId"); }
             set { BackingStore?.Set("externalId", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamsApp and sets the default values.
-        /// </summary>
-        public TeamsApp() : base() {
-            OdataType = "#microsoft.graph.teamsApp";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -27,12 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("values", value); }
         }
         /// <summary>
-        /// Instantiates a new workbookTableColumn and sets the default values.
-        /// </summary>
-        public WorkbookTableColumn() : base() {
-            OdataType = "#microsoft.graph.workbookTableColumn";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class AccessReviewInstanceDecisionItem : Entity, IParsable {
         /// <summary>The identifier of the accessReviewInstance parent. Supports $select. Read-only.</summary>
         public string AccessReviewId {
@@ -70,12 +70,6 @@ namespace Microsoft.Graph.Models {
         public DateTimeOffset? ReviewedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("reviewedDateTime"); }
             set { BackingStore?.Set("reviewedDateTime", value); }
-        }
-        /// <summary>
-        /// Instantiates a new accessReviewInstanceDecisionItem and sets the default values.
-        /// </summary>
-        public AccessReviewInstanceDecisionItem() : base() {
-            OdataType = "#microsoft.graph.accessReviewInstanceDecisionItem";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,14 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class AgreementFileVersion : AgreementFileProperties, IParsable {
-        /// <summary>
-        /// Instantiates a new agreementFileVersion and sets the default values.
-        /// </summary>
-        public AgreementFileVersion() : base() {
-            OdataType = "#microsoft.graph.agreementFileVersion";
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

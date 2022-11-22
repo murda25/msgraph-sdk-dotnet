@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models.Security {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public enum CaseAction {
         ContentExport,
         ApplyTags,
@@ -9,5 +9,6 @@ namespace Microsoft.Graph.Models.Security {
         AddToReviewSet,
         HoldUpdate,
         UnknownFutureValue,
+        PurgeData,
     }
 }

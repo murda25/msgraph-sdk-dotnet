@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class TodoTaskList : Entity, IParsable {
         /// <summary>The name of the task list.</summary>
         public string DisplayName {
@@ -35,12 +35,6 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.WellknownListName? WellknownListName {
             get { return BackingStore?.Get<Microsoft.Graph.Models.WellknownListName?>("wellknownListName"); }
             set { BackingStore?.Set("wellknownListName", value); }
-        }
-        /// <summary>
-        /// Instantiates a new todoTaskList and sets the default values.
-        /// </summary>
-        public TodoTaskList() : base() {
-            OdataType = "#microsoft.graph.todoTaskList";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

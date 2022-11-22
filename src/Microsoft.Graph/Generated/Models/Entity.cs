@@ -34,7 +34,6 @@ namespace Microsoft.Graph.Models {
         public Entity() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.entity";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -81,6 +80,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.androidWorkProfileCompliancePolicy" => new AndroidWorkProfileCompliancePolicy(),
                 "#microsoft.graph.androidWorkProfileCustomConfiguration" => new AndroidWorkProfileCustomConfiguration(),
                 "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration" => new AndroidWorkProfileGeneralDeviceConfiguration(),
+                "#microsoft.graph.anonymousGuestConversationMember" => new AnonymousGuestConversationMember(),
                 "#microsoft.graph.appCatalogs" => new AppCatalogs(),
                 "#microsoft.graph.appConsentApprovalRoute" => new AppConsentApprovalRoute(),
                 "#microsoft.graph.appConsentRequest" => new AppConsentRequest(),
@@ -357,6 +357,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.meetingAttendanceReport" => new MeetingAttendanceReport(),
                 "#microsoft.graph.message" => new Message(),
                 "#microsoft.graph.messageRule" => new MessageRule(),
+                "#microsoft.graph.microsoftAccountUserConversationMember" => new MicrosoftAccountUserConversationMember(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod" => new MicrosoftAuthenticatorAuthenticationMethod(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration" => new MicrosoftAuthenticatorAuthenticationMethodConfiguration(),
                 "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget" => new MicrosoftAuthenticatorAuthenticationMethodTarget(),
@@ -485,6 +486,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.security.ediscoveryHoldOperation" => new EdiscoveryHoldOperation(),
                 "#microsoft.graph.security.ediscoveryIndexOperation" => new EdiscoveryIndexOperation(),
                 "#microsoft.graph.security.ediscoveryNoncustodialDataSource" => new EdiscoveryNoncustodialDataSource(),
+                "#microsoft.graph.security.ediscoveryPurgeDataOperation" => new EdiscoveryPurgeDataOperation(),
                 "#microsoft.graph.security.ediscoveryReviewSet" => new EdiscoveryReviewSet(),
                 "#microsoft.graph.security.ediscoveryReviewSetQuery" => new EdiscoveryReviewSetQuery(),
                 "#microsoft.graph.security.ediscoveryReviewTag" => new EdiscoveryReviewTag(),
@@ -516,6 +518,8 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.simulationAutomationRun" => new SimulationAutomationRun(),
                 "#microsoft.graph.singleValueLegacyExtendedProperty" => new SingleValueLegacyExtendedProperty(),
                 "#microsoft.graph.site" => new Site(),
+                "#microsoft.graph.skypeForBusinessUserConversationMember" => new SkypeForBusinessUserConversationMember(),
+                "#microsoft.graph.skypeUserConversationMember" => new SkypeUserConversationMember(),
                 "#microsoft.graph.socialIdentityProvider" => new SocialIdentityProvider(),
                 "#microsoft.graph.softwareOathAuthenticationMethod" => new SoftwareOathAuthenticationMethod(),
                 "#microsoft.graph.softwareUpdateStatusSummary" => new SoftwareUpdateStatusSummary(),

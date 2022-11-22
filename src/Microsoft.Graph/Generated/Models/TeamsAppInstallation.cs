@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamsAppInstallation : Entity, IParsable {
         /// <summary>The app that is installed.</summary>
         public Microsoft.Graph.Models.TeamsApp TeamsApp {
@@ -16,12 +16,6 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.TeamsAppDefinition TeamsAppDefinition {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TeamsAppDefinition>("teamsAppDefinition"); }
             set { BackingStore?.Set("teamsAppDefinition", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamsAppInstallation and sets the default values.
-        /// </summary>
-        public TeamsAppInstallation() : base() {
-            OdataType = "#microsoft.graph.teamsAppInstallation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

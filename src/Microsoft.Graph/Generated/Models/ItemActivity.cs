@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ItemActivity : Entity, IParsable {
         /// <summary>An item was accessed.</summary>
         public AccessAction Access {
@@ -25,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.DriveItem DriveItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DriveItem>("driveItem"); }
             set { BackingStore?.Set("driveItem", value); }
-        }
-        /// <summary>
-        /// Instantiates a new itemActivity and sets the default values.
-        /// </summary>
-        public ItemActivity() : base() {
-            OdataType = "#microsoft.graph.itemActivity";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

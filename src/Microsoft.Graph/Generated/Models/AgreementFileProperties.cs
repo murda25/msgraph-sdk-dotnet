@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class AgreementFileProperties : Entity, IParsable {
         /// <summary>The date time representing when the file was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -41,12 +40,6 @@ namespace Microsoft.Graph.Models {
         public string Language {
             get { return BackingStore?.Get<string>("language"); }
             set { BackingStore?.Set("language", value); }
-        }
-        /// <summary>
-        /// Instantiates a new agreementFileProperties and sets the default values.
-        /// </summary>
-        public AgreementFileProperties() : base() {
-            OdataType = "#microsoft.graph.agreementFileProperties";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

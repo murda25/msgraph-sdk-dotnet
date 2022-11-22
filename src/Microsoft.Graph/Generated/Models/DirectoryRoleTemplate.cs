@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class DirectoryRoleTemplate : DirectoryObject, IParsable {
         /// <summary>The description to set for the directory role. Read-only.</summary>
         public string Description {
@@ -17,7 +16,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
         /// <summary>
-        /// Instantiates a new directoryRoleTemplate and sets the default values.
+        /// Instantiates a new DirectoryRoleTemplate and sets the default values.
         /// </summary>
         public DirectoryRoleTemplate() : base() {
             OdataType = "#microsoft.graph.directoryRoleTemplate";

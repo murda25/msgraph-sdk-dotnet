@@ -64,7 +64,6 @@ namespace Microsoft.Graph.Models {
         public ResourceVisualization() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.resourceVisualization";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

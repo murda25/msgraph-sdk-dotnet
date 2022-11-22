@@ -83,12 +83,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publishingState", value); }
         }
         /// <summary>
-        /// Instantiates a new mobileApp and sets the default values.
-        /// </summary>
-        public MobileApp() : base() {
-            OdataType = "#microsoft.graph.mobileApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

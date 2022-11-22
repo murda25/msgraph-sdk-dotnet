@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class Trending : Entity, IParsable {
         /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime {
@@ -30,12 +30,6 @@ namespace Microsoft.Graph.Models {
         public double? Weight {
             get { return BackingStore?.Get<double?>("weight"); }
             set { BackingStore?.Set("weight", value); }
-        }
-        /// <summary>
-        /// Instantiates a new trending and sets the default values.
-        /// </summary>
-        public Trending() : base() {
-            OdataType = "#microsoft.graph.trending";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

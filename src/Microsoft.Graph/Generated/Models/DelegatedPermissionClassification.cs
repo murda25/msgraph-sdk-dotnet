@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class DelegatedPermissionClassification : Entity, IParsable {
         /// <summary>The classification value being given. Possible value: low. Does not support $filter.</summary>
         public PermissionClassificationType? Classification {
@@ -20,12 +20,6 @@ namespace Microsoft.Graph.Models {
         public string PermissionName {
             get { return BackingStore?.Get<string>("permissionName"); }
             set { BackingStore?.Set("permissionName", value); }
-        }
-        /// <summary>
-        /// Instantiates a new delegatedPermissionClassification and sets the default values.
-        /// </summary>
-        public DelegatedPermissionClassification() : base() {
-            OdataType = "#microsoft.graph.delegatedPermissionClassification";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

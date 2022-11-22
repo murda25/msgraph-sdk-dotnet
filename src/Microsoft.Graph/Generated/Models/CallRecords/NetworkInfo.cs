@@ -154,7 +154,6 @@ namespace Microsoft.Graph.Models.CallRecords {
         public NetworkInfo() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.callRecords.networkInfo";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class RiskDetection : Entity, IParsable {
         /// <summary>Indicates the activity type the detected risk is linked to. Possible values are: signin, user, unknownFutureValue.</summary>
         public ActivityType? Activity {
@@ -99,12 +100,6 @@ namespace Microsoft.Graph.Models {
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
-        }
-        /// <summary>
-        /// Instantiates a new RiskDetection and sets the default values.
-        /// </summary>
-        public RiskDetection() : base() {
-            OdataType = "#microsoft.graph.riskDetection";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ColumnDefinition : Entity, IParsable {
         /// <summary>This column stores boolean values.</summary>
         public BooleanColumn Boolean {
@@ -165,12 +165,6 @@ namespace Microsoft.Graph.Models {
         public ColumnValidation Validation {
             get { return BackingStore?.Get<ColumnValidation>("validation"); }
             set { BackingStore?.Set("validation", value); }
-        }
-        /// <summary>
-        /// Instantiates a new columnDefinition and sets the default values.
-        /// </summary>
-        public ColumnDefinition() : base() {
-            OdataType = "#microsoft.graph.columnDefinition";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ChatMessage : Entity, IParsable {
         /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
         public List<ChatMessageAttachment> Attachments {
@@ -119,12 +120,6 @@ namespace Microsoft.Graph.Models {
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
-        }
-        /// <summary>
-        /// Instantiates a new chatMessage and sets the default values.
-        /// </summary>
-        public ChatMessage() : base() {
-            OdataType = "#microsoft.graph.chatMessage";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

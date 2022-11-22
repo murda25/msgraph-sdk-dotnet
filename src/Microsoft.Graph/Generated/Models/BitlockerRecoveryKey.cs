@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class BitlockerRecoveryKey : Entity, IParsable {
         /// <summary>The date and time when the key was originally backed up to Azure Active Directory. Not nullable.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -25,12 +25,6 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.VolumeType? VolumeType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.VolumeType?>("volumeType"); }
             set { BackingStore?.Set("volumeType", value); }
-        }
-        /// <summary>
-        /// Instantiates a new bitlockerRecoveryKey and sets the default values.
-        /// </summary>
-        public BitlockerRecoveryKey() : base() {
-            OdataType = "#microsoft.graph.bitlockerRecoveryKey";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

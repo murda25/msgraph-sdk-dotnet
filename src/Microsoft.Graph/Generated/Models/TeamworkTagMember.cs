@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamworkTagMember : Entity, IParsable {
         /// <summary>The member&apos;s display name.</summary>
         public string DisplayName {
@@ -20,12 +20,6 @@ namespace Microsoft.Graph.Models {
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamworkTagMember and sets the default values.
-        /// </summary>
-        public TeamworkTagMember() : base() {
-            OdataType = "#microsoft.graph.teamworkTagMember";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

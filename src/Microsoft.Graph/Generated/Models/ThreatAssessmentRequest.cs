@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ThreatAssessmentRequest : Entity, IParsable {
         /// <summary>The category property</summary>
         public ThreatCategory? Category {
@@ -46,12 +46,6 @@ namespace Microsoft.Graph.Models {
         public ThreatAssessmentStatus? Status {
             get { return BackingStore?.Get<ThreatAssessmentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
-        }
-        /// <summary>
-        /// Instantiates a new threatAssessmentRequest and sets the default values.
-        /// </summary>
-        public ThreatAssessmentRequest() : base() {
-            OdataType = "#microsoft.graph.threatAssessmentRequest";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

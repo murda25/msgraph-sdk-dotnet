@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ExternalGroup : Entity, IParsable {
         /// <summary>The description of the external group. Optional.</summary>
         public string Description {
@@ -20,12 +20,6 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         public List<Identity> Members {
             get { return BackingStore?.Get<List<Identity>>("members"); }
             set { BackingStore?.Set("members", value); }
-        }
-        /// <summary>
-        /// Instantiates a new externalGroup and sets the default values.
-        /// </summary>
-        public ExternalGroup() : base() {
-            OdataType = "#microsoft.graph.externalConnectors.externalGroup";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

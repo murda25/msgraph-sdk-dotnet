@@ -4,14 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class ContentSharingSession : Entity, IParsable {
-        /// <summary>
-        /// Instantiates a new contentSharingSession and sets the default values.
-        /// </summary>
-        public ContentSharingSession() : base() {
-            OdataType = "#microsoft.graph.contentSharingSession";
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

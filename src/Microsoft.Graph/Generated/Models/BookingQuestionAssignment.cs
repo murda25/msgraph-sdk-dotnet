@@ -34,7 +34,6 @@ namespace Microsoft.Graph.Models {
         public BookingQuestionAssignment() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.bookingQuestionAssignment";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamworkHostedContent : Entity, IParsable {
         /// <summary>Write only. Bytes for the hosted content (such as images).</summary>
         public byte[] ContentBytes {
@@ -16,12 +16,6 @@ namespace Microsoft.Graph.Models {
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamworkHostedContent and sets the default values.
-        /// </summary>
-        public TeamworkHostedContent() : base() {
-            OdataType = "#microsoft.graph.teamworkHostedContent";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

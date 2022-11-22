@@ -6,6 +6,7 @@ using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.Custodia
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.EstimateStatistics;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.LastEstimateStatisticsOperation;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.NoncustodialSources;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item.PurgeData;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -43,6 +44,10 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the purgeData method.</summary>
+        public PurgeDataRequestBuilder PurgeData { get =>
+            new PurgeDataRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>

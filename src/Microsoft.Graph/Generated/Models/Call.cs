@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
@@ -125,12 +125,6 @@ namespace Microsoft.Graph.Models {
         public CallTranscriptionInfo Transcription {
             get { return BackingStore?.Get<CallTranscriptionInfo>("transcription"); }
             set { BackingStore?.Set("transcription", value); }
-        }
-        /// <summary>
-        /// Instantiates a new call and sets the default values.
-        /// </summary>
-        public Call() : base() {
-            OdataType = "#microsoft.graph.call";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

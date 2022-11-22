@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Tag : Entity, IParsable {
         /// <summary>The createdBy property</summary>
         public Microsoft.Graph.Models.IdentitySet CreatedBy {
@@ -26,12 +26,6 @@ namespace Microsoft.Graph.Models.Security {
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
-        }
-        /// <summary>
-        /// Instantiates a new tag and sets the default values.
-        /// </summary>
-        public Tag() : base() {
-            OdataType = "#microsoft.graph.security.tag";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

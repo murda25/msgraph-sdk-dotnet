@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class ConversationMember : Entity, IParsable {
         /// <summary>The display name of the user.</summary>
         public string DisplayName {
@@ -23,12 +23,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("visibleHistoryStartDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new conversationMember and sets the default values.
-        /// </summary>
-        public ConversationMember() : base() {
-            OdataType = "#microsoft.graph.conversationMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
@@ -37,6 +31,10 @@ namespace Microsoft.Graph.Models {
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.aadUserConversationMember" => new AadUserConversationMember(),
+                "#microsoft.graph.anonymousGuestConversationMember" => new AnonymousGuestConversationMember(),
+                "#microsoft.graph.microsoftAccountUserConversationMember" => new MicrosoftAccountUserConversationMember(),
+                "#microsoft.graph.skypeForBusinessUserConversationMember" => new SkypeForBusinessUserConversationMember(),
+                "#microsoft.graph.skypeUserConversationMember" => new SkypeUserConversationMember(),
                 _ => new ConversationMember(),
             };
         }

@@ -155,7 +155,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("publisherDomain"); }
             set { BackingStore?.Set("publisherDomain", value); }
         }
-        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).</summary>
+        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<Microsoft.Graph.Models.RequiredResourceAccess> RequiredResourceAccess {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.RequiredResourceAccess>>("requiredResourceAccess"); }
             set { BackingStore?.Set("requiredResourceAccess", value); }
@@ -170,7 +170,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("serviceManagementReference"); }
             set { BackingStore?.Set("serviceManagementReference", value); }
         }
-        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).</summary>
+        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. Supports $filter (eq, ne, not).</summary>
         public string SignInAudience {
             get { return BackingStore?.Get<string>("signInAudience"); }
             set { BackingStore?.Set("signInAudience", value); }

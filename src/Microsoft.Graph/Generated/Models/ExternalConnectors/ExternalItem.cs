@@ -22,12 +22,6 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             set { BackingStore?.Set("properties", value); }
         }
         /// <summary>
-        /// Instantiates a new externalItem and sets the default values.
-        /// </summary>
-        public ExternalItem() : base() {
-            OdataType = "#microsoft.graph.externalConnectors.externalItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

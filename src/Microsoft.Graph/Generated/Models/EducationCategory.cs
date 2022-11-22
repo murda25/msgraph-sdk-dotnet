@@ -4,18 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class EducationCategory : Entity, IParsable {
         /// <summary>Unique identifier for the category.</summary>
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
-        }
-        /// <summary>
-        /// Instantiates a new educationCategory and sets the default values.
-        /// </summary>
-        public EducationCategory() : base() {
-            OdataType = "#microsoft.graph.educationCategory";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

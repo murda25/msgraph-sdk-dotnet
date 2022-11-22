@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Alert : Entity, IParsable {
         /// <summary>Name or alias of the activity group (attacker) this alert is attributed to.</summary>
         public string ActivityGroupName {
@@ -200,12 +200,6 @@ namespace Microsoft.Graph.Models {
         public List<VulnerabilityState> VulnerabilityStates {
             get { return BackingStore?.Get<List<VulnerabilityState>>("vulnerabilityStates"); }
             set { BackingStore?.Set("vulnerabilityStates", value); }
-        }
-        /// <summary>
-        /// Instantiates a new alert and sets the default values.
-        /// </summary>
-        public Alert() : base() {
-            OdataType = "#microsoft.graph.alert";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -39,7 +39,6 @@ namespace Microsoft.Graph.Models {
         public ChatMessageReaction() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.chatMessageReaction";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

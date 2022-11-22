@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class BaseItemVersion : Entity, IParsable {
         /// <summary>Identity of the user which last modified the version. Read-only.</summary>
         public IdentitySet LastModifiedBy {
@@ -21,12 +21,6 @@ namespace Microsoft.Graph.Models {
         public PublicationFacet Publication {
             get { return BackingStore?.Get<PublicationFacet>("publication"); }
             set { BackingStore?.Set("publication", value); }
-        }
-        /// <summary>
-        /// Instantiates a new baseItemVersion and sets the default values.
-        /// </summary>
-        public BaseItemVersion() : base() {
-            OdataType = "#microsoft.graph.baseItemVersion";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

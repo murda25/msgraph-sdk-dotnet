@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PlannerTask : Entity, IParsable {
         /// <summary>Number of checklist items with value set to false, representing incomplete items.</summary>
         public int? ActiveChecklistItemCount {
@@ -130,12 +130,6 @@ namespace Microsoft.Graph.Models {
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
-        }
-        /// <summary>
-        /// Instantiates a new plannerTask and sets the default values.
-        /// </summary>
-        public PlannerTask() : base() {
-            OdataType = "#microsoft.graph.plannerTask";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

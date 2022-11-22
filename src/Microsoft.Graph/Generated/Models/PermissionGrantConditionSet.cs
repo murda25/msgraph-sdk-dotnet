@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class PermissionGrantConditionSet : Entity, IParsable {
         /// <summary>A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.</summary>
         public List<string> ClientApplicationIds {
@@ -45,12 +45,6 @@ namespace Microsoft.Graph.Models {
         public string ResourceApplication {
             get { return BackingStore?.Get<string>("resourceApplication"); }
             set { BackingStore?.Set("resourceApplication", value); }
-        }
-        /// <summary>
-        /// Instantiates a new permissionGrantConditionSet and sets the default values.
-        /// </summary>
-        public PermissionGrantConditionSet() : base() {
-            OdataType = "#microsoft.graph.permissionGrantConditionSet";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

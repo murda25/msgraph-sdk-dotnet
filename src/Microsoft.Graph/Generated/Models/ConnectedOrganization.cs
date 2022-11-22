@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ConnectedOrganization : Entity, IParsable {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
@@ -45,12 +44,6 @@ namespace Microsoft.Graph.Models {
         public ConnectedOrganizationState? State {
             get { return BackingStore?.Get<ConnectedOrganizationState?>("state"); }
             set { BackingStore?.Set("state", value); }
-        }
-        /// <summary>
-        /// Instantiates a new connectedOrganization and sets the default values.
-        /// </summary>
-        public ConnectedOrganization() : base() {
-            OdataType = "#microsoft.graph.connectedOrganization";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

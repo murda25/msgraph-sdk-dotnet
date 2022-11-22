@@ -24,7 +24,6 @@ namespace Microsoft.Graph.Models {
         public PlannerChecklistItems() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.plannerChecklistItems";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

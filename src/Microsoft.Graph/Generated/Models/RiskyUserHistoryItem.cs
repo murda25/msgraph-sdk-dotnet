@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class RiskyUserHistoryItem : RiskyUser, IParsable {
         /// <summary>The activity related to user risk level change.</summary>
         public RiskUserActivity Activity {
@@ -20,12 +20,6 @@ namespace Microsoft.Graph.Models {
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }
-        }
-        /// <summary>
-        /// Instantiates a new riskyUserHistoryItem and sets the default values.
-        /// </summary>
-        public RiskyUserHistoryItem() : base() {
-            OdataType = "#microsoft.graph.riskyUserHistoryItem";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -47,12 +47,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userReacceptRequiredFrequency", value); }
         }
         /// <summary>
-        /// Instantiates a new agreement and sets the default values.
-        /// </summary>
-        public Agreement() : base() {
-            OdataType = "#microsoft.graph.agreement";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>

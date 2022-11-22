@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class Request : Entity, IParsable {
         /// <summary>The identifier of the approval of the request.</summary>
         public string ApprovalId {
@@ -36,12 +36,6 @@ namespace Microsoft.Graph.Models {
         public string Status {
             get { return BackingStore?.Get<string>("status"); }
             set { BackingStore?.Set("status", value); }
-        }
-        /// <summary>
-        /// Instantiates a new request and sets the default values.
-        /// </summary>
-        public Request() : base() {
-            OdataType = "#microsoft.graph.request";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

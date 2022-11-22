@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
     public class Team : Entity, IParsable {
         /// <summary>List of channels either hosted in or shared with the team (incoming channels).</summary>
         public List<Channel> AllChannels {
@@ -140,12 +139,6 @@ namespace Microsoft.Graph.Models {
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
-        }
-        /// <summary>
-        /// Instantiates a new team and sets the default values.
-        /// </summary>
-        public Team() : base() {
-            OdataType = "#microsoft.graph.team";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

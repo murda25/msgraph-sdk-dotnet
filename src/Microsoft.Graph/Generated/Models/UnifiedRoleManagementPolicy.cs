@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class UnifiedRoleManagementPolicy : Entity, IParsable {
         /// <summary>Description for the policy.</summary>
         public string Description {
@@ -50,12 +50,6 @@ namespace Microsoft.Graph.Models {
         public string ScopeType {
             get { return BackingStore?.Get<string>("scopeType"); }
             set { BackingStore?.Set("scopeType", value); }
-        }
-        /// <summary>
-        /// Instantiates a new unifiedRoleManagementPolicy and sets the default values.
-        /// </summary>
-        public UnifiedRoleManagementPolicy() : base() {
-            OdataType = "#microsoft.graph.unifiedRoleManagementPolicy";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

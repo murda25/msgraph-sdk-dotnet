@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class MailFolder : Entity, IParsable {
         /// <summary>The number of immediate child mailFolders in the current mailFolder.</summary>
         public int? ChildFolderCount {
@@ -61,12 +61,6 @@ namespace Microsoft.Graph.Models {
         public int? UnreadItemCount {
             get { return BackingStore?.Get<int?>("unreadItemCount"); }
             set { BackingStore?.Set("unreadItemCount", value); }
-        }
-        /// <summary>
-        /// Instantiates a new mailFolder and sets the default values.
-        /// </summary>
-        public MailFolder() : base() {
-            OdataType = "#microsoft.graph.mailFolder";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

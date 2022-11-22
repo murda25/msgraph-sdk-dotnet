@@ -5,6 +5,11 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class CrossTenantAccessPolicy : PolicyBase, IParsable {
+        /// <summary>The allowedCloudEndpoints property</summary>
+        public List<string> AllowedCloudEndpoints {
+            get { return BackingStore?.Get<List<string>>("allowedCloudEndpoints"); }
+            set { BackingStore?.Set("allowedCloudEndpoints", value); }
+        }
         /// <summary>Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.</summary>
         public CrossTenantAccessPolicyConfigurationDefault Default {
             get { return BackingStore?.Get<CrossTenantAccessPolicyConfigurationDefault>("default"); }
@@ -34,6 +39,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"allowedCloudEndpoints", n => { AllowedCloudEndpoints = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"default", n => { Default = n.GetObjectValue<CrossTenantAccessPolicyConfigurationDefault>(CrossTenantAccessPolicyConfigurationDefault.CreateFromDiscriminatorValue); } },
                 {"partners", n => { Partners = n.GetCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>(CrossTenantAccessPolicyConfigurationPartner.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -45,6 +51,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfPrimitiveValues<string>("allowedCloudEndpoints", AllowedCloudEndpoints);
             writer.WriteObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", Default);
             writer.WriteCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("partners", Partners);
         }

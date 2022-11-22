@@ -35,7 +35,6 @@ namespace Microsoft.Graph.Models {
         public Win32LobAppReturnCode() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
-            OdataType = "#microsoft.graph.win32LobAppReturnCode";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

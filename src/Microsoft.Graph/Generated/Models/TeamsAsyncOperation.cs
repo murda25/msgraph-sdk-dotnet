@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
+    /// <summary>Provides operations to manage the admin singleton.</summary>
     public class TeamsAsyncOperation : Entity, IParsable {
         /// <summary>Number of times the operation was attempted before being marked successful or failed.</summary>
         public int? AttemptsCount {
@@ -45,12 +45,6 @@ namespace Microsoft.Graph.Models {
         public string TargetResourceLocation {
             get { return BackingStore?.Get<string>("targetResourceLocation"); }
             set { BackingStore?.Set("targetResourceLocation", value); }
-        }
-        /// <summary>
-        /// Instantiates a new teamsAsyncOperation and sets the default values.
-        /// </summary>
-        public TeamsAsyncOperation() : base() {
-            OdataType = "#microsoft.graph.teamsAsyncOperation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
