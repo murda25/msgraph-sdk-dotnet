@@ -57,7 +57,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+        /// Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials {
             return requestInfo;
         }
         /// <summary>
-        /// Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+        /// Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials {
             };
             return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).</summary>
+        /// <summary>Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).</summary>
         public class FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
