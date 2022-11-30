@@ -77,7 +77,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new custom unifiedRoleDefinition object.
+        /// Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
         /// </summary>
         /// <param name="body"></param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions {
             return await RequestAdapter.SendAsync<UnifiedRoleDefinitionCollectionResponse>(requestInfo, UnifiedRoleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new custom unifiedRoleDefinition object.
+        /// Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
         /// </summary>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

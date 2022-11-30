@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("operatingSystemVersion"); }
             set { BackingStore?.Set("operatingSystemVersion", value); }
         }
-        /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).</summary>
+        /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).</summary>
         public List<string> PhysicalIds {
             get { return BackingStore?.Get<List<string>>("physicalIds"); }
             set { BackingStore?.Set("physicalIds", value); }
@@ -110,7 +110,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<DirectoryObject>>("registeredUsers"); }
             set { BackingStore?.Set("registeredUsers", value); }
         }
-        /// <summary>List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).</summary>
+        /// <summary>List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).</summary>
         public List<string> SystemLabels {
             get { return BackingStore?.Get<List<string>>("systemLabels"); }
             set { BackingStore?.Set("systemLabels", value); }
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("trustType", value); }
         }
         /// <summary>
-        /// Instantiates a new Device and sets the default values.
+        /// Instantiates a new device and sets the default values.
         /// </summary>
         public Device() : base() {
             OdataType = "#microsoft.graph.device";

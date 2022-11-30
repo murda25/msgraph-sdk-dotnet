@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class PrintService : Entity, IParsable {
         /// <summary>Endpoints that can be used to access the service. Read-only. Nullable.</summary>
         public List<PrintServiceEndpoint> Endpoints {
