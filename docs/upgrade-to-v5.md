@@ -9,6 +9,16 @@ V5 of the Microsoft Graph .NET SDK moves to the new code generator [Kiota](https
 
 The following section lists out the breaking changes requiring code changes from SDK users.
 
+### Namespaces/Usings changes
+
+The types in the sdk are now organized into namespaces reflecting their usage as compared to all types being present in the single `Microsoft.Graph` namespace and therefore makes it easier to consume multiple libraries(e.g v1.0 and beta) in the same application.
+
+This therefore comes with the following changes, 
+- The beta v1.0 service library uses `Microsoft.Graph` as its root namespace. 
+- The beta service library uses `Microsoft.Graph.Beta` as its root namespace.
+- Model types are now in the  `Microsoft.Graph.Models`/`Microsoft.Graph.Beta.Models` namespaces.
+- RequestBuilder and RequestBody types reside in namespaces relative to the path they are calling. e.g. The `SendMailPostRequestBody` type will reside in the `Microsoft.Graph.Beta.Me.SendMail/Microsoft.Graph.Me.SendMail` namespace if you are sending a mail via the `client.Me.SendMail.PostAsync(sendMailPostRequestBody)` path using the request builders
+
 ### Authentication
 
 The `GraphServiceClient` constructor accepts instances of `TokenCredential` from Azure.Identity similar to previous library version as follows
@@ -155,6 +165,43 @@ catch (ODataError odataError)
     Console.WriteLine(odataError.Error.Message);
     throw;
 }
+```
+
+### Drive Item paths
+
+The current CSDL to OpenAPI conversion process avoids generation of redundant paths which impacts request builders for driveItems. To mitigate this 
+paths should be available through alternative paths as documented in the reference documentation as seen [here](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http#http-request). 
+
+Examples of using alternative paths are as shown below.
+
+1. List children from a user's drive.
+
+```cs
+// Get the user's driveId
+var driveItem = await graphServiceClient.Me.Drive.GetAsync();
+var userDriveId = driveItem.Id;
+// List children in the drive
+var children = await graphServiceClient.Drives[userDriveId].Root.Children.GetAsync();
+```
+
+2. List children from a site's drive.
+
+```cs
+// Get the site's driveId
+var driveItem = await graphServiceClient.Sites["site-id"].Drive.GetAsync();
+var siteDriveId = driveItem.Id;
+// List children in the drive
+var children = await graphServiceClient.Drives[siteDriveId].Root.Children.GetAsync();
+```
+
+3. List children from a groups's drive.
+
+```cs
+// Get the group's driveId
+var driveItem = await graphServiceClient.Groups["group-id"].Drive.GetAsync();
+var groupDriveId = driveItem.Id;
+// List children in the drive
+var children = await graphServiceClient.Drives[groupDriveId].Root.Children.GetAsync();
 ```
 
 ## New Features
