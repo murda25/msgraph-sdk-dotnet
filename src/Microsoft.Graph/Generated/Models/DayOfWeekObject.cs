@@ -1,6 +1,6 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreement entities.</summary>
-    public enum DayOfWeek {
+    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    public enum DayOfWeekObject {
         Sunday,
         Monday,
         Tuesday,

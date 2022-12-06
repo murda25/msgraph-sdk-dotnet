@@ -14,7 +14,7 @@ namespace Microsoft.Graph.RoleManagement {
     /// <summary>Provides operations to manage the roleManagement singleton.</summary>
     public class RoleManagementRequestBuilder {
         /// <summary>Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.</summary>
-        public DirectoryRequestBuilder DirectoryObject { get =>
+        public DirectoryRequestBuilder Directory { get =>
             new DirectoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.</summary>
