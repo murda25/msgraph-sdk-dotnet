@@ -532,7 +532,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 
                 // Create the patch command to update thebody of the OneNote page.
                 OnenotePatchContentCommand updateBodyCommand = new OnenotePatchContentCommand() {
-                    Action = OnenotePatchActionType.Append,
+                    //Action = OnenotePatchActionType.Append,
                     Target = "body",
                     Content = @"<table><tr><td><p><b>Brazil</b></p></td><td><p>Germany</p></td></tr>
                                    <tr><td><p>France</p></td><td><p><b>Italy</b></p></td></tr>
