@@ -163,7 +163,7 @@ namespace Microsoft.Graph {
             new DevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the directory singleton.</summary>
-        public DirectoryRequestBuilder DirectoryObject { get =>
+        public DirectoryRequestBuilder Directory { get =>
             new DirectoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of directoryObject entities.</summary>

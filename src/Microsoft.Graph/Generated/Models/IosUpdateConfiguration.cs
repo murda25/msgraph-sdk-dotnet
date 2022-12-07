@@ -17,8 +17,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("activeHoursStart", value); }
         }
         /// <summary>Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.</summary>
-        public List<DayOfWeek?> ScheduledInstallDays {
-            get { return BackingStore?.Get<List<DayOfWeek?>>("scheduledInstallDays"); }
+        public List<DayOfWeekObject?> ScheduledInstallDays {
+            get { return BackingStore?.Get<List<DayOfWeekObject?>>("scheduledInstallDays"); }
             set { BackingStore?.Set("scheduledInstallDays", value); }
         }
         /// <summary>UTC Time Offset indicated in minutes</summary>
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"activeHoursEnd", n => { ActiveHoursEnd = n.GetTimeValue(); } },
                 {"activeHoursStart", n => { ActiveHoursStart = n.GetTimeValue(); } },
-                {"scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfEnumValues<DayOfWeek>()?.ToList(); } },
+                {"scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfEnumValues<DayOfWeekObject>()?.ToList(); } },
                 {"utcTimeOffsetInMinutes", n => { UtcTimeOffsetInMinutes = n.GetIntValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteTimeValue("activeHoursEnd", ActiveHoursEnd);
             writer.WriteTimeValue("activeHoursStart", ActiveHoursStart);
-            writer.WriteCollectionOfEnumValues<DayOfWeek>("scheduledInstallDays", ScheduledInstallDays);
+            writer.WriteCollectionOfEnumValues<DayOfWeekObject>("scheduledInstallDays", ScheduledInstallDays);
             writer.WriteIntValue("utcTimeOffsetInMinutes", UtcTimeOffsetInMinutes);
         }
     }

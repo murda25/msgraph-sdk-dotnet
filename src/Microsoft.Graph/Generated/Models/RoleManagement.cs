@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The directory property</summary>
-        public RbacApplication DirectoryObject {
+        public RbacApplication Directory {
             get { return BackingStore?.Get<RbacApplication>("directory"); }
             set { BackingStore?.Set("directory", value); }
         }
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"directory", n => { DirectoryObject = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
+                {"directory", n => { Directory = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
                 {"entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<RbacApplication>(RbacApplication.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<RbacApplication>("directory", DirectoryObject);
+            writer.WriteObjectValue<RbacApplication>("directory", Directory);
             writer.WriteObjectValue<RbacApplication>("entitlementManagement", EntitlementManagement);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
