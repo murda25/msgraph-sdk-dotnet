@@ -38,6 +38,18 @@ namespace Microsoft.Graph
         Microsoft.Graph.SecurityNamespace.ICasesRootRequestBuilder Cases { get; }
 
         /// <summary>
+        /// Gets the request builder for Alerts_v2.
+        /// </summary>
+        /// <returns>The <see cref="ISecurityAlerts_v2CollectionRequestBuilder"/>.</returns>
+        ISecurityAlerts_v2CollectionRequestBuilder Alerts_v2 { get; }
+
+        /// <summary>
+        /// Gets the request builder for Incidents.
+        /// </summary>
+        /// <returns>The <see cref="ISecurityIncidentsCollectionRequestBuilder"/>.</returns>
+        ISecurityIncidentsCollectionRequestBuilder Incidents { get; }
+
+        /// <summary>
         /// Gets the request builder for AttackSimulation.
         /// </summary>
         /// <returns>The <see cref="IAttackSimulationRootRequestBuilder"/>.</returns>
@@ -60,6 +72,13 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="ISecuritySecureScoresCollectionRequestBuilder"/>.</returns>
         ISecuritySecureScoresCollectionRequestBuilder SecureScores { get; }
+    
+        /// <summary>
+        /// Gets the request builder for SecurityRunHuntingQuery.
+        /// </summary>
+        /// <returns>The <see cref="ISecurityRunHuntingQueryRequestBuilder"/>.</returns>
+        ISecurityRunHuntingQueryRequestBuilder RunHuntingQuery(
+            string query = null);
     
     }
 }

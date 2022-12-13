@@ -80,6 +80,16 @@ namespace Microsoft.Graph
         UnknownFutureValue = 11,
 	
         /// <summary>
+        /// Admin Confirmed Service Principal Compromised
+        /// </summary>
+        AdminConfirmedServicePrincipalCompromised = 13,
+	
+        /// <summary>
+        /// Admin Dismissed All Risk For Service Principal
+        /// </summary>
+        AdminDismissedAllRiskForServicePrincipal = 14,
+	
+        /// <summary>
         /// M365DAdmin Dismissed Detection
         /// </summary>
         M365DAdminDismissedDetection = 12,
