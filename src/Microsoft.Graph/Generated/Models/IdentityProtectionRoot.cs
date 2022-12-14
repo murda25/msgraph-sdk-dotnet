@@ -23,10 +23,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<RiskDetection>>("riskDetections"); }
             set { BackingStore?.Set("riskDetections", value); }
         }
+        /// <summary>Azure AD service principals that are at risk.</summary>
+        public List<RiskyServicePrincipal> RiskyServicePrincipals {
+            get { return BackingStore?.Get<List<RiskyServicePrincipal>>("riskyServicePrincipals"); }
+            set { BackingStore?.Set("riskyServicePrincipals", value); }
+        }
         /// <summary>Users that are flagged as at-risk by Azure AD Identity Protection.</summary>
         public List<RiskyUser> RiskyUsers {
             get { return BackingStore?.Get<List<RiskyUser>>("riskyUsers"); }
             set { BackingStore?.Set("riskyUsers", value); }
+        }
+        /// <summary>Represents information about detected at-risk service principals in an Azure AD tenant.</summary>
+        public List<ServicePrincipalRiskDetection> ServicePrincipalRiskDetections {
+            get { return BackingStore?.Get<List<ServicePrincipalRiskDetection>>("servicePrincipalRiskDetections"); }
+            set { BackingStore?.Set("servicePrincipalRiskDetections", value); }
         }
         /// <summary>
         /// Instantiates a new IdentityProtectionRoot and sets the default values.
@@ -50,7 +60,9 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"riskDetections", n => { RiskDetections = n.GetCollectionOfObjectValues<RiskDetection>(RiskDetection.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"riskyServicePrincipals", n => { RiskyServicePrincipals = n.GetCollectionOfObjectValues<RiskyServicePrincipal>(RiskyServicePrincipal.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"riskyUsers", n => { RiskyUsers = n.GetCollectionOfObjectValues<RiskyUser>(RiskyUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"servicePrincipalRiskDetections", n => { ServicePrincipalRiskDetections = n.GetCollectionOfObjectValues<ServicePrincipalRiskDetection>(ServicePrincipalRiskDetection.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -61,7 +73,9 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<RiskDetection>("riskDetections", RiskDetections);
+            writer.WriteCollectionOfObjectValues<RiskyServicePrincipal>("riskyServicePrincipals", RiskyServicePrincipals);
             writer.WriteCollectionOfObjectValues<RiskyUser>("riskyUsers", RiskyUsers);
+            writer.WriteCollectionOfObjectValues<ServicePrincipalRiskDetection>("servicePrincipalRiskDetections", ServicePrincipalRiskDetections);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

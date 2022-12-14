@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
     public class CloudCommunications : Entity, IParsable {
         /// <summary>The callRecords property</summary>
         public List<CallRecord> CallRecords {

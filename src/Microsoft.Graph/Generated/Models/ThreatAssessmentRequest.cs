@@ -1,11 +1,9 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
     public class ThreatAssessmentRequest : Entity, IParsable {
         /// <summary>The category property</summary>
         public ThreatCategory? Category {

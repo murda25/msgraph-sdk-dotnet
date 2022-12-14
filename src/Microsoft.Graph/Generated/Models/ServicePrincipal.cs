@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Casts the previous resource to servicePrincipal.</summary>
+    /// <summary>
+    /// Casts the previous resource to servicePrincipal.
+    /// </summary>
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled {
@@ -42,8 +44,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationTemplateId", value); }
         }
         /// <summary>Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).</summary>
-        public string AppOwnerOrganizationId {
-            get { return BackingStore?.Get<string>("appOwnerOrganizationId"); }
+        public Guid? AppOwnerOrganizationId {
+            get { return BackingStore?.Get<Guid?>("appOwnerOrganizationId"); }
             set { BackingStore?.Set("appOwnerOrganizationId", value); }
         }
         /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
@@ -222,8 +224,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("tags", value); }
         }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
-        public string TokenEncryptionKeyId {
-            get { return BackingStore?.Get<string>("tokenEncryptionKeyId"); }
+        public Guid? TokenEncryptionKeyId {
+            get { return BackingStore?.Get<Guid?>("tokenEncryptionKeyId"); }
             set { BackingStore?.Set("tokenEncryptionKeyId", value); }
         }
         /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
@@ -272,7 +274,7 @@ namespace Microsoft.Graph.Models {
                 {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 {"appId", n => { AppId = n.GetStringValue(); } },
                 {"applicationTemplateId", n => { ApplicationTemplateId = n.GetStringValue(); } },
-                {"appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetStringValue(); } },
+                {"appOwnerOrganizationId", n => { AppOwnerOrganizationId = n.GetGuidValue(); } },
                 {"appRoleAssignedTo", n => { AppRoleAssignedTo = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"appRoleAssignmentRequired", n => { AppRoleAssignmentRequired = n.GetBoolValue(); } },
                 {"appRoleAssignments", n => { AppRoleAssignments = n.GetCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -308,7 +310,7 @@ namespace Microsoft.Graph.Models {
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetStringValue(); } },
+                {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -329,7 +331,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("appDisplayName", AppDisplayName);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("applicationTemplateId", ApplicationTemplateId);
-            writer.WriteStringValue("appOwnerOrganizationId", AppOwnerOrganizationId);
+            writer.WriteGuidValue("appOwnerOrganizationId", AppOwnerOrganizationId);
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", AppRoleAssignedTo);
             writer.WriteBoolValue("appRoleAssignmentRequired", AppRoleAssignmentRequired);
             writer.WriteCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", AppRoleAssignments);
@@ -365,7 +367,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);
             writer.WriteStringValue("signInAudience", SignInAudience);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteStringValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
+            writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
             writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);

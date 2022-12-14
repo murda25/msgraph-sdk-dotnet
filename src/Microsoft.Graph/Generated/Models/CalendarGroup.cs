@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the appCatalogs singleton.
+    /// </summary>
     public class CalendarGroup : Entity, IParsable {
         /// <summary>The calendars in the calendar group. Navigation property. Read-only. Nullable.</summary>
         public List<Calendar> Calendars {
@@ -17,8 +19,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("changeKey", value); }
         }
         /// <summary>The class identifier. Read-only.</summary>
-        public string ClassId {
-            get { return BackingStore?.Get<string>("classId"); }
+        public Guid? ClassId {
+            get { return BackingStore?.Get<Guid?>("classId"); }
             set { BackingStore?.Set("classId", value); }
         }
         /// <summary>The group name.</summary>
@@ -41,7 +43,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<Calendar>(Calendar.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"changeKey", n => { ChangeKey = n.GetStringValue(); } },
-                {"classId", n => { ClassId = n.GetStringValue(); } },
+                {"classId", n => { ClassId = n.GetGuidValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -54,7 +56,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Calendar>("calendars", Calendars);
             writer.WriteStringValue("changeKey", ChangeKey);
-            writer.WriteStringValue("classId", ClassId);
+            writer.WriteGuidValue("classId", ClassId);
             writer.WriteStringValue("name", Name);
         }
     }

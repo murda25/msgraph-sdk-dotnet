@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>
+    /// Provides operations to manage the collection of agreement entities.
+    /// </summary>
     public class Group : DirectoryObject, IParsable {
         /// <summary>The list of users or groups that are allowed to create post&apos;s or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.</summary>
         public List<DirectoryObject> AcceptedSenders {
@@ -20,7 +23,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<AppRoleAssignment>>("appRoleAssignments"); }
             set { BackingStore?.Set("appRoleAssignments", value); }
         }
-        /// <summary>The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.</summary>
+        /// <summary>The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.</summary>
         public List<AssignedLabel> AssignedLabels {
             get { return BackingStore?.Get<List<AssignedLabel>>("assignedLabels"); }
             set { BackingStore?.Set("assignedLabels", value); }

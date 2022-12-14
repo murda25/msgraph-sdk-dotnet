@@ -1,8 +1,11 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
+using Microsoft.Graph.Security.Alerts_v2;
 using Microsoft.Graph.Security.Alerts;
 using Microsoft.Graph.Security.AttackSimulation;
 using Microsoft.Graph.Security.Cases;
+using Microsoft.Graph.Security.Incidents;
+using Microsoft.Graph.Security.RunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
 using Microsoft.Kiota.Abstractions;
@@ -14,11 +17,17 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Security {
-    /// <summary>Provides operations to manage the security singleton.</summary>
+    /// <summary>
+    /// Provides operations to manage the security singleton.
+    /// </summary>
     public class SecurityRequestBuilder {
         /// <summary>Provides operations to manage the alerts property of the microsoft.graph.security entity.</summary>
         public AlertsRequestBuilder Alerts { get =>
             new AlertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.</summary>
+        public Alerts_v2RequestBuilder Alerts_v2 { get =>
+            new Alerts_v2RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.</summary>
         public AttackSimulationRequestBuilder AttackSimulation { get =>
@@ -28,10 +37,18 @@ namespace Microsoft.Graph.Security {
         public CasesRequestBuilder Cases { get =>
             new CasesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the incidents property of the microsoft.graph.security entity.</summary>
+        public IncidentsRequestBuilder Incidents { get =>
+            new IncidentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
+        public RunHuntingQueryRequestBuilder RunHuntingQuery { get =>
+            new RunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.</summary>
         public SecureScoreControlProfilesRequestBuilder SecureScoreControlProfiles { get =>
             new SecureScoreControlProfilesRequestBuilder(PathParameters, RequestAdapter);
@@ -92,7 +109,7 @@ namespace Microsoft.Graph.Security {
         /// <summary>
         /// Update security
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.Security.Security body, Action<SecurityRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -127,7 +144,7 @@ namespace Microsoft.Graph.Security {
         /// <summary>
         /// Update security
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.Security.Security> PatchAsync(Microsoft.Graph.Models.Security.Security body, Action<SecurityRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -139,7 +156,9 @@ namespace Microsoft.Graph.Security {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.Security>(requestInfo, Microsoft.Graph.Models.Security.Security.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get security</summary>
+        /// <summary>
+        /// Get security
+        /// </summary>
         public class SecurityRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -148,10 +167,12 @@ namespace Microsoft.Graph.Security {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SecurityRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -161,13 +182,15 @@ namespace Microsoft.Graph.Security {
             /// </summary>
             public SecurityRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SecurityRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -175,7 +198,7 @@ namespace Microsoft.Graph.Security {
             /// </summary>
             public SecurityRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -13,7 +13,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Identity.ConditionalAccess {
-    /// <summary>Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+    /// </summary>
     public class ConditionalAccessRequestBuilder {
         /// <summary>Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.</summary>
         public AuthenticationContextClassReferencesRequestBuilder AuthenticationContextClassReferences { get =>
@@ -105,7 +107,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
         /// <summary>
         /// Update the navigation property conditionalAccess in identity
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(ConditionalAccessRoot body, Action<ConditionalAccessRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -153,7 +155,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
         /// <summary>
         /// Update the navigation property conditionalAccess in identity
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<ConditionalAccessRoot> PatchAsync(ConditionalAccessRoot body, Action<ConditionalAccessRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -165,10 +167,12 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
             };
             return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ConditionalAccessRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -176,10 +180,12 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
             /// </summary>
             public ConditionalAccessRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>the entry point for the Conditional Access (CA) object model.</summary>
+        /// <summary>
+        /// the entry point for the Conditional Access (CA) object model.
+        /// </summary>
         public class ConditionalAccessRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -188,10 +194,12 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ConditionalAccessRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -201,13 +209,15 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
             /// </summary>
             public ConditionalAccessRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ConditionalAccessRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -215,7 +225,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
             /// </summary>
             public ConditionalAccessRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

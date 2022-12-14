@@ -13,7 +13,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Education {
-    /// <summary>Provides operations to manage the educationRoot singleton.</summary>
+    /// <summary>
+    /// Provides operations to manage the educationRoot singleton.
+    /// </summary>
     public class EducationRequestBuilder {
         /// <summary>Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.</summary>
         public ClassesRequestBuilder Classes { get =>
@@ -87,7 +89,7 @@ namespace Microsoft.Graph.Education {
         /// <summary>
         /// Update education
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(EducationRoot body, Action<EducationRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -122,7 +124,7 @@ namespace Microsoft.Graph.Education {
         /// <summary>
         /// Update education
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<EducationRoot> PatchAsync(EducationRoot body, Action<EducationRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -134,7 +136,9 @@ namespace Microsoft.Graph.Education {
             };
             return await RequestAdapter.SendAsync<EducationRoot>(requestInfo, EducationRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get education</summary>
+        /// <summary>
+        /// Get education
+        /// </summary>
         public class EducationRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -143,10 +147,12 @@ namespace Microsoft.Graph.Education {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class EducationRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -156,13 +162,15 @@ namespace Microsoft.Graph.Education {
             /// </summary>
             public EducationRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class EducationRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -170,7 +178,7 @@ namespace Microsoft.Graph.Education {
             /// </summary>
             public EducationRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

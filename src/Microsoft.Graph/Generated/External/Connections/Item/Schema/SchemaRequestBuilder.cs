@@ -9,7 +9,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.External.Connections.Item.Schema {
-    /// <summary>Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.
+    /// </summary>
     public class SchemaRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -85,7 +87,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
         /// <summary>
         /// Update the navigation property schema in external
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.ExternalConnectors.Schema body, Action<SchemaRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -119,6 +121,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
         }
         /// <summary>
         /// Read the properties and relationships of a schema object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -133,7 +136,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
         /// <summary>
         /// Update the navigation property schema in external
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.ExternalConnectors.Schema> PatchAsync(Microsoft.Graph.Models.ExternalConnectors.Schema body, Action<SchemaRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -145,10 +148,12 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.Schema>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.Schema.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SchemaRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -156,10 +161,12 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             /// </summary>
             public SchemaRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Read the properties and relationships of a schema object.</summary>
+        /// <summary>
+        /// Read the properties and relationships of a schema object.
+        /// </summary>
         public class SchemaRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -168,10 +175,12 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SchemaRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -181,13 +190,15 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             /// </summary>
             public SchemaRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SchemaRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -195,7 +206,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             /// </summary>
             public SchemaRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

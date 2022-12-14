@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public enum RiskDetail {
         None,
         AdminGeneratedTemporaryPassword,
@@ -13,6 +13,8 @@ namespace Microsoft.Graph.Models {
         Hidden,
         AdminConfirmedUserCompromised,
         UnknownFutureValue,
+        AdminConfirmedServicePrincipalCompromised,
+        AdminDismissedAllRiskForServicePrincipal,
         M365DAdminDismissedDetection,
     }
 }

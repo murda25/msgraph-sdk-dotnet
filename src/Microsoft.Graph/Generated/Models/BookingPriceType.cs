@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public enum BookingPriceType {
         /// <summary>The price of the service is not defined.</summary>
         Undefined,

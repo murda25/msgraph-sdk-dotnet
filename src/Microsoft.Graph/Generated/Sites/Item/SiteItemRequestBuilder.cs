@@ -27,7 +27,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Sites.Item {
-    /// <summary>Provides operations to manage the collection of site entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of site entities.
+    /// </summary>
     public class SiteItemRequestBuilder {
         /// <summary>Provides operations to manage the analytics property of the microsoft.graph.site entity.</summary>
         public AnalyticsRequestBuilder Analytics { get =>
@@ -141,7 +143,7 @@ namespace Microsoft.Graph.Sites.Item {
         /// <summary>
         /// Update entity in sites
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.Site body, Action<SiteItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -188,6 +190,7 @@ namespace Microsoft.Graph.Sites.Item {
         }
         /// <summary>
         /// Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +213,7 @@ namespace Microsoft.Graph.Sites.Item {
         /// <summary>
         /// Update entity in sites
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.Site> PatchAsync(Microsoft.Graph.Models.Site body, Action<SiteItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -222,7 +225,9 @@ namespace Microsoft.Graph.Sites.Item {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Site>(requestInfo, Microsoft.Graph.Models.Site.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.</summary>
+        /// <summary>
+        /// Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
+        /// </summary>
         public class SiteItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -231,10 +236,12 @@ namespace Microsoft.Graph.Sites.Item {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SiteItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -244,13 +251,15 @@ namespace Microsoft.Graph.Sites.Item {
             /// </summary>
             public SiteItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class SiteItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -258,7 +267,7 @@ namespace Microsoft.Graph.Sites.Item {
             /// </summary>
             public SiteItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

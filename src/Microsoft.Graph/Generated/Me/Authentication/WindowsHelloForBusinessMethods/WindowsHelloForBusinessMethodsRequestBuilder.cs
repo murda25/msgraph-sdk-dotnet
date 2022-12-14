@@ -11,7 +11,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods {
-    /// <summary>Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
+    /// </summary>
     public class WindowsHelloForBusinessMethodsRequestBuilder {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
@@ -77,29 +79,8 @@ namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to windowsHelloForBusinessMethods for me
-        /// </summary>
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public RequestInformation CreatePostRequestInformation(WindowsHelloForBusinessAuthenticationMethod body, Action<WindowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.Headers.Add("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            if (requestConfiguration != null) {
-                var requestConfig = new WindowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
-            return requestInfo;
-        }
-        /// <summary>
         /// Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,21 +93,8 @@ namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods {
             return await RequestAdapter.SendAsync<WindowsHelloForBusinessAuthenticationMethodCollectionResponse>(requestInfo, WindowsHelloForBusinessAuthenticationMethodCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to windowsHelloForBusinessMethods for me
+        /// Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public async Task<WindowsHelloForBusinessAuthenticationMethod> PostAsync(WindowsHelloForBusinessAuthenticationMethod body, Action<WindowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<WindowsHelloForBusinessAuthenticationMethod>(requestInfo, WindowsHelloForBusinessAuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.</summary>
         public class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
@@ -153,10 +121,12 @@ namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods {
             [QueryParameter("%24top")]
             public int? Top { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -166,21 +136,7 @@ namespace Microsoft.Graph.Me.Authentication.WindowsHelloForBusinessMethods {
             /// </summary>
             public WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
-            }
-        }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
-        public class WindowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new windowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration and sets the default values.
-            /// </summary>
-            public WindowsHelloForBusinessMethodsRequestBuilderPostRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

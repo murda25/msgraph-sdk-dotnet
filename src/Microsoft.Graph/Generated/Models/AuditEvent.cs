@@ -46,8 +46,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("componentName", value); }
         }
         /// <summary>The client request Id that is used to correlate activity within the system.</summary>
-        public string CorrelationId {
-            get { return BackingStore?.Get<string>("correlationId"); }
+        public Guid? CorrelationId {
+            get { return BackingStore?.Get<Guid?>("correlationId"); }
             set { BackingStore?.Set("correlationId", value); }
         }
         /// <summary>Event display name.</summary>
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
                 {"actor", n => { Actor = n.GetObjectValue<AuditActor>(AuditActor.CreateFromDiscriminatorValue); } },
                 {"category", n => { Category = n.GetStringValue(); } },
                 {"componentName", n => { ComponentName = n.GetStringValue(); } },
-                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                {"correlationId", n => { CorrelationId = n.GetGuidValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"resources", n => { Resources = n.GetCollectionOfObjectValues<AuditResource>(AuditResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -101,7 +101,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<AuditActor>("actor", Actor);
             writer.WriteStringValue("category", Category);
             writer.WriteStringValue("componentName", ComponentName);
-            writer.WriteStringValue("correlationId", CorrelationId);
+            writer.WriteGuidValue("correlationId", CorrelationId);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<AuditResource>("resources", Resources);
         }

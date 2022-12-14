@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the cloudCommunications singleton.</summary>
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public enum Tone {
         Tone0,
         Tone1,

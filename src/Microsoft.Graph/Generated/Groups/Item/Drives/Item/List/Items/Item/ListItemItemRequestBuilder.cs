@@ -16,7 +16,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
-    /// <summary>Provides operations to manage the items property of the microsoft.graph.list entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the items property of the microsoft.graph.list entity.
+    /// </summary>
     public class ListItemItemRequestBuilder {
         /// <summary>Provides operations to manage the analytics property of the microsoft.graph.listItem entity.</summary>
         public AnalyticsRequestBuilder Analytics { get =>
@@ -112,7 +114,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
         /// <summary>
         /// Update the navigation property items in groups
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.ListItem body, Action<ListItemItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -178,7 +180,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
         /// <summary>
         /// Update the navigation property items in groups
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.ListItem> PatchAsync(Microsoft.Graph.Models.ListItem body, Action<ListItemItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -190,10 +192,12 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ListItem>(requestInfo, Microsoft.Graph.Models.ListItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListItemItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -201,10 +205,12 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// </summary>
             public ListItemItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>All items contained in the list.</summary>
+        /// <summary>
+        /// All items contained in the list.
+        /// </summary>
         public class ListItemItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -213,10 +219,12 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListItemItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -226,13 +234,15 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// </summary>
             public ListItemItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListItemItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -240,7 +250,7 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.List.Items.Item {
             /// </summary>
             public ListItemItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

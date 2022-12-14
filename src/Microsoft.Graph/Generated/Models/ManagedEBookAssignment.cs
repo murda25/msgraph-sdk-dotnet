@@ -1,11 +1,12 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Contains properties used to assign a eBook to a group.</summary>
+    /// <summary>
+    /// Contains properties used to assign a eBook to a group.
+    /// </summary>
     public class ManagedEBookAssignment : Entity, IParsable {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
         public Microsoft.Graph.Models.InstallIntent? InstallIntent {

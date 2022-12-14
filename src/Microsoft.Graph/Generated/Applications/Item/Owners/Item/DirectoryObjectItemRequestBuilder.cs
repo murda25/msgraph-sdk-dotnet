@@ -10,7 +10,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Applications.Item.Owners.Item {
-    /// <summary>Builds and executes requests for operations under \applications\{application-id}\owners\{directoryObject-id}</summary>
+    /// <summary>
+    /// Builds and executes requests for operations under \applications\{application-id}\owners\{directoryObject-id}
+    /// </summary>
     public class DirectoryObjectItemRequestBuilder {
         /// <summary>Casts the previous resource to appRoleAssignment.</summary>
         public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>

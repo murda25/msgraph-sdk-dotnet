@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId {
-    /// <summary>Provides operations to call the additionalAccess method.</summary>
+    /// <summary>
+    /// Provides operations to call the additionalAccess method.
+    /// </summary>
     public class AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -80,7 +82,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.A
             };
             return await RequestAdapter.SendAsync<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse>(requestInfo, AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Invoke function additionalAccess</summary>
+        /// <summary>
+        /// Invoke function additionalAccess
+        /// </summary>
         public class AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
@@ -104,10 +108,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.A
             [QueryParameter("%24top")]
             public int? Top { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -117,7 +123,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.A
             /// </summary>
             public AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

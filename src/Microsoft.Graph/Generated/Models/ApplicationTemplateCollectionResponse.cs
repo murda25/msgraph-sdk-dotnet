@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of applicationTemplate entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of applicationTemplate entities.
+    /// </summary>
     public class ApplicationTemplateCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<ApplicationTemplate> Value {

@@ -16,7 +16,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
-    /// <summary>Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+    /// </summary>
     public class PostItemRequestBuilder {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.post entity.</summary>
         public AttachmentsRequestBuilder Attachments { get =>
@@ -112,7 +114,9 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
             };
             return await RequestAdapter.SendAsync<Post>(requestInfo, Post.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get posts from groups</summary>
+        /// <summary>
+        /// Get posts from groups
+        /// </summary>
         public class PostItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -121,10 +125,12 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class PostItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -134,7 +140,7 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
             /// </summary>
             public PostItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -16,7 +16,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.MailFolders.Item {
-    /// <summary>Provides operations to manage the mailFolders property of the microsoft.graph.user entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
+    /// </summary>
     public class MailFolderItemRequestBuilder {
         /// <summary>Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.</summary>
         public ChildFoldersRequestBuilder ChildFolders { get =>
@@ -120,7 +122,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         /// <summary>
         /// Update the navigation property mailFolders in users
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(MailFolder body, Action<MailFolderItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -168,7 +170,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         /// <summary>
         /// Update the navigation property mailFolders in users
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<MailFolder> PatchAsync(MailFolder body, Action<MailFolderItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -180,10 +182,12 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             };
             return await RequestAdapter.SendAsync<MailFolder>(requestInfo, MailFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MailFolderItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -191,19 +195,23 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             /// </summary>
             public MailFolderItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>The user&apos;s mail folders. Read-only. Nullable.</summary>
+        /// <summary>
+        /// The user&apos;s mail folders. Read-only. Nullable.
+        /// </summary>
         public class MailFolderItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MailFolderItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -213,13 +221,15 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             /// </summary>
             public MailFolderItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MailFolderItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -227,7 +237,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             /// </summary>
             public MailFolderItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }
