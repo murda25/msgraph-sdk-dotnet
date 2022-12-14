@@ -17,7 +17,8 @@ namespace Microsoft.Graph
     /// <summary>
     /// The type Information Protection.
     /// </summary>
-    public partial class InformationProtection : Entity
+    [JsonConverter(typeof(DerivedTypeConverter<InformationProtection>))]
+    public partial class InformationProtection
     {
     
         /// <summary>
@@ -38,6 +39,18 @@ namespace Microsoft.Graph
         [JsonPropertyName("threatAssessmentRequests@odata.nextLink")]
         [JsonConverter(typeof(NextLinkConverter))]
         public string ThreatAssessmentRequestsNextLink { get; set; }
+    
+        /// <summary>
+        /// Gets or sets @odata.type.
+        /// </summary>
+        [JsonPropertyName("@odata.type")]
+        public string ODataType { get; set; }
+
+        /// <summary>
+        /// Gets or sets additional data.
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; }
     
     }
 }
