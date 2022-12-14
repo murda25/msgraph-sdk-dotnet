@@ -1,11 +1,12 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of authenticationMethodConfiguration entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of authenticationMethodConfiguration entities.
+    /// </summary>
     public class AuthenticationMethodTarget : Entity, IParsable {
         /// <summary>Determines if the user is enforced to register the authentication method.</summary>
         public bool? IsRegistrationRequired {

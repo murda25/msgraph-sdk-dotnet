@@ -1,11 +1,12 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the appCatalogs singleton.
+    /// </summary>
     public class OnenoteEntityBaseModel : Entity, IParsable {
         /// <summary>The endpoint where you can get details about the page. Read-only.</summary>
         public string Self {

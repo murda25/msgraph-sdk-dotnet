@@ -1,6 +1,7 @@
 using Microsoft.Graph.Domains.Item.DomainNameReferences;
 using Microsoft.Graph.Domains.Item.FederationConfiguration;
 using Microsoft.Graph.Domains.Item.ForceDelete;
+using Microsoft.Graph.Domains.Item.Promote;
 using Microsoft.Graph.Domains.Item.ServiceConfigurationRecords;
 using Microsoft.Graph.Domains.Item.VerificationDnsRecords;
 using Microsoft.Graph.Domains.Item.Verify;
@@ -15,7 +16,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Domains.Item {
-    /// <summary>Provides operations to manage the collection of domain entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of domain entities.
+    /// </summary>
     public class DomainItemRequestBuilder {
         /// <summary>Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.</summary>
         public DomainNameReferencesRequestBuilder DomainNameReferences { get =>
@@ -31,6 +34,10 @@ namespace Microsoft.Graph.Domains.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the promote method.</summary>
+        public PromoteRequestBuilder Promote { get =>
+            new PromoteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.</summary>
@@ -115,7 +122,7 @@ namespace Microsoft.Graph.Domains.Item {
         /// <summary>
         /// Update the properties of domain object.
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Domain body, Action<DomainItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -136,6 +143,7 @@ namespace Microsoft.Graph.Domains.Item {
         }
         /// <summary>
         /// Deletes a domain from a tenant.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,6 +157,7 @@ namespace Microsoft.Graph.Domains.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of domain object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/domain-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -162,8 +171,9 @@ namespace Microsoft.Graph.Domains.Item {
         }
         /// <summary>
         /// Update the properties of domain object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/domain-update?view=graph-rest-1.0" />
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Domain> PatchAsync(Domain body, Action<DomainItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -175,10 +185,12 @@ namespace Microsoft.Graph.Domains.Item {
             };
             return await RequestAdapter.SendAsync<Domain>(requestInfo, Domain.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DomainItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -186,10 +198,12 @@ namespace Microsoft.Graph.Domains.Item {
             /// </summary>
             public DomainItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Retrieve the properties and relationships of domain object.</summary>
+        /// <summary>
+        /// Retrieve the properties and relationships of domain object.
+        /// </summary>
         public class DomainItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -198,10 +212,12 @@ namespace Microsoft.Graph.Domains.Item {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DomainItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -211,13 +227,15 @@ namespace Microsoft.Graph.Domains.Item {
             /// </summary>
             public DomainItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DomainItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -225,7 +243,7 @@ namespace Microsoft.Graph.Domains.Item {
             /// </summary>
             public DomainItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

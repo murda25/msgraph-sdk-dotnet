@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Workbooks.Item.DeltaWithToken {
-    /// <summary>Provides operations to call the delta method.</summary>
+    /// <summary>
+    /// Provides operations to call the delta method.
+    /// </summary>
     public class DeltaWithTokenResponse : BaseDeltaFunctionResponse, IParsable {
         /// <summary>The value property</summary>
         public List<Microsoft.Graph.Models.DriveItem> Value {

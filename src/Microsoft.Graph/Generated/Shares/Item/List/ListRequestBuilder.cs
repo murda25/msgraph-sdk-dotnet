@@ -15,7 +15,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Shares.Item.List {
-    /// <summary>Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
+    /// </summary>
     public class ListRequestBuilder {
         /// <summary>Provides operations to manage the columns property of the microsoft.graph.list entity.</summary>
         public ColumnsRequestBuilder Columns { get =>
@@ -115,7 +117,7 @@ namespace Microsoft.Graph.Shares.Item.List {
         /// <summary>
         /// Update the navigation property list in shares
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.List body, Action<ListRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -163,7 +165,7 @@ namespace Microsoft.Graph.Shares.Item.List {
         /// <summary>
         /// Update the navigation property list in shares
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.List> PatchAsync(Microsoft.Graph.Models.List body, Action<ListRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -175,10 +177,12 @@ namespace Microsoft.Graph.Shares.Item.List {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.List>(requestInfo, Microsoft.Graph.Models.List.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -186,10 +190,12 @@ namespace Microsoft.Graph.Shares.Item.List {
             /// </summary>
             public ListRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Used to access the underlying list</summary>
+        /// <summary>
+        /// Used to access the underlying list
+        /// </summary>
         public class ListRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -198,10 +204,12 @@ namespace Microsoft.Graph.Shares.Item.List {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -211,13 +219,15 @@ namespace Microsoft.Graph.Shares.Item.List {
             /// </summary>
             public ListRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ListRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -225,7 +235,7 @@ namespace Microsoft.Graph.Shares.Item.List {
             /// </summary>
             public ListRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

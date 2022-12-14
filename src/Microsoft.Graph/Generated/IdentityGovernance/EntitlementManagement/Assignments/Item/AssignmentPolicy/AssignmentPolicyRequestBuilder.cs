@@ -9,7 +9,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy {
-    /// <summary>Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
+    /// </summary>
     public class AssignmentPolicyRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -77,7 +79,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             };
             return await RequestAdapter.SendAsync<AccessPackageAssignmentPolicy>(requestInfo, AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Read-only. Supports $filter (eq) on the id property and $expand query parameters.</summary>
+        /// <summary>
+        /// Read-only. Supports $filter (eq) on the id property and $expand query parameters.
+        /// </summary>
         public class AssignmentPolicyRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -86,10 +90,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class AssignmentPolicyRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -99,7 +105,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             /// </summary>
             public AssignmentPolicyRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

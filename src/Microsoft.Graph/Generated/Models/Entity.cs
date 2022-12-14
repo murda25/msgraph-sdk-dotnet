@@ -1,4 +1,3 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.CallRecords;
 using Microsoft.Graph.Models.ExternalConnectors;
 using Microsoft.Graph.Models.Security;
@@ -287,7 +286,6 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload" => new ImportedWindowsAutopilotDeviceIdentityUpload(),
                 "#microsoft.graph.inferenceClassification" => new InferenceClassification(),
                 "#microsoft.graph.inferenceClassificationOverride" => new InferenceClassificationOverride(),
-                "#microsoft.graph.informationProtection" => new InformationProtection(),
                 "#microsoft.graph.internalDomainFederation" => new InternalDomainFederation(),
                 "#microsoft.graph.invitation" => new Invitation(),
                 "#microsoft.graph.inviteParticipantsOperation" => new InviteParticipantsOperation(),
@@ -454,6 +452,8 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.resourceSpecificPermissionGrant" => new ResourceSpecificPermissionGrant(),
                 "#microsoft.graph.richLongRunningOperation" => new RichLongRunningOperation(),
                 "#microsoft.graph.riskDetection" => new RiskDetection(),
+                "#microsoft.graph.riskyServicePrincipal" => new RiskyServicePrincipal(),
+                "#microsoft.graph.riskyServicePrincipalHistoryItem" => new RiskyServicePrincipalHistoryItem(),
                 "#microsoft.graph.riskyUser" => new RiskyUser(),
                 "#microsoft.graph.riskyUserHistoryItem" => new RiskyUserHistoryItem(),
                 "#microsoft.graph.roleAssignment" => new RoleAssignment(),
@@ -472,6 +472,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
                 "#microsoft.graph.security" => new Microsoft.Graph.Models.Security.Security(),
+                "#microsoft.graph.security.alert" => new Microsoft.Graph.Models.Security.Alert(),
                 "#microsoft.graph.security.case" => new Case(),
                 "#microsoft.graph.security.caseOperation" => new CaseOperation(),
                 "#microsoft.graph.security.casesRoot" => new CasesRoot(),
@@ -492,6 +493,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.security.ediscoveryReviewTag" => new EdiscoveryReviewTag(),
                 "#microsoft.graph.security.ediscoverySearch" => new EdiscoverySearch(),
                 "#microsoft.graph.security.ediscoveryTagOperation" => new EdiscoveryTagOperation(),
+                "#microsoft.graph.security.incident" => new Incident(),
                 "#microsoft.graph.security.search" => new Microsoft.Graph.Models.Security.Search(),
                 "#microsoft.graph.security.siteSource" => new SiteSource(),
                 "#microsoft.graph.security.tag" => new Tag(),
@@ -504,6 +506,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.serviceHealth" => new ServiceHealth(),
                 "#microsoft.graph.serviceHealthIssue" => new ServiceHealthIssue(),
                 "#microsoft.graph.servicePrincipal" => new ServicePrincipal(),
+                "#microsoft.graph.servicePrincipalRiskDetection" => new ServicePrincipalRiskDetection(),
                 "#microsoft.graph.serviceUpdateMessage" => new ServiceUpdateMessage(),
                 "#microsoft.graph.settingStateDeviceSummary" => new SettingStateDeviceSummary(),
                 "#microsoft.graph.sharedDriveItem" => new SharedDriveItem(),

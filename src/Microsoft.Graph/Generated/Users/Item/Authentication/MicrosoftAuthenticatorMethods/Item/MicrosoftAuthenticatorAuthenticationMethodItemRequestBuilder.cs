@@ -10,7 +10,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethods.Item {
-    /// <summary>Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+    /// </summary>
     public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         /// <summary>Provides operations to manage the device property of the microsoft.graph.microsoftAuthenticatorAuthenticationMethod entity.</summary>
         public DeviceRequestBuilder Device { get =>
@@ -88,28 +90,6 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property microsoftAuthenticatorMethods in users
-        /// </summary>
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public RequestInformation CreatePatchRequestInformation(MicrosoftAuthenticatorAuthenticationMethod body, Action<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.Headers.Add("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            if (requestConfiguration != null) {
-                var requestConfig = new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
-            return requestInfo;
-        }
-        /// <summary>
         /// Delete navigation property microsoftAuthenticatorMethods for users
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -136,24 +116,11 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
             return await RequestAdapter.SendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, MicrosoftAuthenticatorAuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property microsoftAuthenticatorMethods in users
+        /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public async Task<MicrosoftAuthenticatorAuthenticationMethod> PatchAsync(MicrosoftAuthenticatorAuthenticationMethod body, Action<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, MicrosoftAuthenticatorAuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
         public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -161,10 +128,12 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
             /// </summary>
             public MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>The details of the Microsoft Authenticator app registered to a user for authentication.</summary>
+        /// <summary>
+        /// The details of the Microsoft Authenticator app registered to a user for authentication.
+        /// </summary>
         public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -173,10 +142,12 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -186,21 +157,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.MicrosoftAuthenticatorMethod
             /// </summary>
             public MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
-            }
-        }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
-        public class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration and sets the default values.
-            /// </summary>
-            public MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderPatchRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

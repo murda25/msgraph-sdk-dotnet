@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityCountsWithPeriod {
-    /// <summary>Provides operations to call the getOffice365GroupsActivityCounts method.</summary>
+    /// <summary>
+    /// Provides operations to call the getOffice365GroupsActivityCounts method.
+    /// </summary>
     public class GetOffice365GroupsActivityCountsWithPeriodRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -76,10 +78,12 @@ namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityCountsWithPeriod {
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -87,7 +91,7 @@ namespace Microsoft.Graph.Reports.GetOffice365GroupsActivityCountsWithPeriod {
             /// </summary>
             public GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

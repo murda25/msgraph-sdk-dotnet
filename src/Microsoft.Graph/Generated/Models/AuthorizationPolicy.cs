@@ -36,8 +36,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("defaultUserRolePermissions", value); }
         }
         /// <summary>Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).</summary>
-        public string GuestUserRoleId {
-            get { return BackingStore?.Get<string>("guestUserRoleId"); }
+        public Guid? GuestUserRoleId {
+            get { return BackingStore?.Get<Guid?>("guestUserRoleId"); }
             set { BackingStore?.Set("guestUserRoleId", value); }
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Models {
                 {"allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<AllowInvitesFrom>(); } },
                 {"blockMsolPowerShell", n => { BlockMsolPowerShell = n.GetBoolValue(); } },
                 {"defaultUserRolePermissions", n => { DefaultUserRolePermissions = n.GetObjectValue<Microsoft.Graph.Models.DefaultUserRolePermissions>(Microsoft.Graph.Models.DefaultUserRolePermissions.CreateFromDiscriminatorValue); } },
-                {"guestUserRoleId", n => { GuestUserRoleId = n.GetStringValue(); } },
+                {"guestUserRoleId", n => { GuestUserRoleId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<AllowInvitesFrom>("allowInvitesFrom", AllowInvitesFrom);
             writer.WriteBoolValue("blockMsolPowerShell", BlockMsolPowerShell);
             writer.WriteObjectValue<Microsoft.Graph.Models.DefaultUserRolePermissions>("defaultUserRolePermissions", DefaultUserRolePermissions);
-            writer.WriteStringValue("guestUserRoleId", GuestUserRoleId);
+            writer.WriteGuidValue("guestUserRoleId", GuestUserRoleId);
         }
     }
 }

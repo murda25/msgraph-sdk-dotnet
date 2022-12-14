@@ -1,5 +1,7 @@
 using Microsoft.Graph.IdentityProtection.RiskDetections;
+using Microsoft.Graph.IdentityProtection.RiskyServicePrincipals;
 using Microsoft.Graph.IdentityProtection.RiskyUsers;
+using Microsoft.Graph.IdentityProtection.ServicePrincipalRiskDetections;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -11,7 +13,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityProtection {
-    /// <summary>Provides operations to manage the identityProtectionRoot singleton.</summary>
+    /// <summary>
+    /// Provides operations to manage the identityProtectionRoot singleton.
+    /// </summary>
     public class IdentityProtectionRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -21,9 +25,17 @@ namespace Microsoft.Graph.IdentityProtection {
         public RiskDetectionsRequestBuilder RiskDetections { get =>
             new RiskDetectionsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.</summary>
+        public RiskyServicePrincipalsRequestBuilder RiskyServicePrincipals { get =>
+            new RiskyServicePrincipalsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.</summary>
         public RiskyUsersRequestBuilder RiskyUsers { get =>
             new RiskyUsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.</summary>
+        public ServicePrincipalRiskDetectionsRequestBuilder ServicePrincipalRiskDetections { get =>
+            new ServicePrincipalRiskDetectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -77,7 +89,7 @@ namespace Microsoft.Graph.IdentityProtection {
         /// <summary>
         /// Update identityProtection
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(IdentityProtectionRoot body, Action<IdentityProtectionRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -112,7 +124,7 @@ namespace Microsoft.Graph.IdentityProtection {
         /// <summary>
         /// Update identityProtection
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<IdentityProtectionRoot> PatchAsync(IdentityProtectionRoot body, Action<IdentityProtectionRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -124,7 +136,9 @@ namespace Microsoft.Graph.IdentityProtection {
             };
             return await RequestAdapter.SendAsync<IdentityProtectionRoot>(requestInfo, IdentityProtectionRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get identityProtection</summary>
+        /// <summary>
+        /// Get identityProtection
+        /// </summary>
         public class IdentityProtectionRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -133,10 +147,12 @@ namespace Microsoft.Graph.IdentityProtection {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class IdentityProtectionRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -146,13 +162,15 @@ namespace Microsoft.Graph.IdentityProtection {
             /// </summary>
             public IdentityProtectionRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class IdentityProtectionRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -160,7 +178,7 @@ namespace Microsoft.Graph.IdentityProtection {
             /// </summary>
             public IdentityProtectionRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

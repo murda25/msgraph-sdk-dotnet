@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Devices that are managed or pre-enrolled through Intune</summary>
+    /// <summary>
+    /// Devices that are managed or pre-enrolled through Intune
+    /// </summary>
     public class ManagedDevice : Entity, IParsable {
         /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
         public string ActivationLockBypassCode {

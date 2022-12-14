@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.</summary>
+    /// <summary>
+    /// Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.
+    /// </summary>
     public class MobileAppContent : Entity, IParsable {
         /// <summary>The list of files for this app content version.</summary>
         public List<MobileAppContentFile> Files {

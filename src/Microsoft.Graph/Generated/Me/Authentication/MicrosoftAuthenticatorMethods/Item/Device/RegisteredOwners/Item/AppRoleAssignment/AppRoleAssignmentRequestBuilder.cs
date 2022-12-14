@@ -9,7 +9,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device.RegisteredOwners.Item.AppRoleAssignment {
-    /// <summary>Casts the previous resource to appRoleAssignment.</summary>
+    /// <summary>
+    /// Casts the previous resource to appRoleAssignment.
+    /// </summary>
     public class AppRoleAssignmentRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -77,7 +79,9 @@ namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.D
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AppRoleAssignment>(requestInfo, Microsoft.Graph.Models.AppRoleAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment</summary>
+        /// <summary>
+        /// Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment
+        /// </summary>
         public class AppRoleAssignmentRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -86,10 +90,12 @@ namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.D
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class AppRoleAssignmentRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -99,7 +105,7 @@ namespace Microsoft.Graph.Me.Authentication.MicrosoftAuthenticatorMethods.Item.D
             /// </summary>
             public AppRoleAssignmentRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

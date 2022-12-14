@@ -12,7 +12,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.DirectoryNamespace {
-    /// <summary>Provides operations to manage the directory singleton.</summary>
+    /// <summary>
+    /// Provides operations to manage the directory singleton.
+    /// </summary>
     public class DirectoryRequestBuilder {
         /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
         public AdministrativeUnitsRequestBuilder AdministrativeUnits { get =>
@@ -82,7 +84,7 @@ namespace Microsoft.Graph.DirectoryNamespace {
         /// <summary>
         /// Update directory
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(DirectoryObject body, Action<DirectoryRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -117,7 +119,7 @@ namespace Microsoft.Graph.DirectoryNamespace {
         /// <summary>
         /// Update directory
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<DirectoryObject> PatchAsync(DirectoryObject body, Action<DirectoryRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -129,7 +131,9 @@ namespace Microsoft.Graph.DirectoryNamespace {
             };
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Get directory</summary>
+        /// <summary>
+        /// Get directory
+        /// </summary>
         public class DirectoryRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -138,10 +142,12 @@ namespace Microsoft.Graph.DirectoryNamespace {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DirectoryRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -151,13 +157,15 @@ namespace Microsoft.Graph.DirectoryNamespace {
             /// </summary>
             public DirectoryRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DirectoryRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -165,7 +173,7 @@ namespace Microsoft.Graph.DirectoryNamespace {
             /// </summary>
             public DirectoryRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

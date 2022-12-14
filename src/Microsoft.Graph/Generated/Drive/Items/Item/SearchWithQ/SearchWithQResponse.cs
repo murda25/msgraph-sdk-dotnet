@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Drive.Items.Item.SearchWithQ {
-    /// <summary>Provides operations to call the search method.</summary>
+    /// <summary>
+    /// Provides operations to call the search method.
+    /// </summary>
     public class SearchWithQResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<Microsoft.Graph.Models.DriveItem> Value {

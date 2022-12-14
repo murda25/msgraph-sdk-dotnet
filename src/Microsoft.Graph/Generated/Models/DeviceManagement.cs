@@ -81,8 +81,8 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("importedWindowsAutopilotDeviceIdentities", value); }
         }
         /// <summary>Intune Account Id for given tenant</summary>
-        public string IntuneAccountId {
-            get { return BackingStore?.Get<string>("intuneAccountId"); }
+        public Guid? IntuneAccountId {
+            get { return BackingStore?.Get<Guid?>("intuneAccountId"); }
             set { BackingStore?.Set("intuneAccountId", value); }
         }
         /// <summary>intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.</summary>
@@ -213,7 +213,7 @@ namespace Microsoft.Graph.Models {
                 {"deviceManagementPartners", n => { DeviceManagementPartners = n.GetCollectionOfObjectValues<DeviceManagementPartner>(DeviceManagementPartner.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"exchangeConnectors", n => { ExchangeConnectors = n.GetCollectionOfObjectValues<DeviceManagementExchangeConnector>(DeviceManagementExchangeConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"importedWindowsAutopilotDeviceIdentities", n => { ImportedWindowsAutopilotDeviceIdentities = n.GetCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(ImportedWindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"intuneAccountId", n => { IntuneAccountId = n.GetStringValue(); } },
+                {"intuneAccountId", n => { IntuneAccountId = n.GetGuidValue(); } },
                 {"intuneBrand", n => { IntuneBrand = n.GetObjectValue<Microsoft.Graph.Models.IntuneBrand>(Microsoft.Graph.Models.IntuneBrand.CreateFromDiscriminatorValue); } },
                 {"iosUpdateStatuses", n => { IosUpdateStatuses = n.GetCollectionOfObjectValues<IosUpdateDeviceStatus>(IosUpdateDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDeviceOverview", n => { ManagedDeviceOverview = n.GetObjectValue<Microsoft.Graph.Models.ManagedDeviceOverview>(Microsoft.Graph.Models.ManagedDeviceOverview.CreateFromDiscriminatorValue); } },
@@ -258,7 +258,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<DeviceManagementPartner>("deviceManagementPartners", DeviceManagementPartners);
             writer.WriteCollectionOfObjectValues<DeviceManagementExchangeConnector>("exchangeConnectors", ExchangeConnectors);
             writer.WriteCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", ImportedWindowsAutopilotDeviceIdentities);
-            writer.WriteStringValue("intuneAccountId", IntuneAccountId);
+            writer.WriteGuidValue("intuneAccountId", IntuneAccountId);
             writer.WriteObjectValue<Microsoft.Graph.Models.IntuneBrand>("intuneBrand", IntuneBrand);
             writer.WriteCollectionOfObjectValues<IosUpdateDeviceStatus>("iosUpdateStatuses", IosUpdateStatuses);
             writer.WriteObjectValue<Microsoft.Graph.Models.ManagedDeviceOverview>("managedDeviceOverview", ManagedDeviceOverview);

@@ -1,4 +1,3 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
 using System;
@@ -35,6 +34,7 @@ namespace Microsoft.Graph.Models {
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
                 "#microsoft.graph.azureActiveDirectoryTenant" => new AzureActiveDirectoryTenant(),
+                "#microsoft.graph.crossCloudAzureActiveDirectoryTenant" => new CrossCloudAzureActiveDirectoryTenant(),
                 "#microsoft.graph.domainIdentitySource" => new DomainIdentitySource(),
                 "#microsoft.graph.externalDomainFederation" => new ExternalDomainFederation(),
                 _ => new IdentitySource(),

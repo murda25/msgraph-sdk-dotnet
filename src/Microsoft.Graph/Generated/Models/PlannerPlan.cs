@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of agreement entities.
+    /// </summary>
     public class PlannerPlan : Entity, IParsable {
         /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
         public List<PlannerBucket> Buckets {

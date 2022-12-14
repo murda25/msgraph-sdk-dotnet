@@ -8,7 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Localizations.Item.BannerLogo {
-    /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the media for the organizationalBrandingLocalization entity.
+    /// </summary>
     public class BannerLogoRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -110,10 +112,12 @@ namespace Microsoft.Graph.Localizations.Item.BannerLogo {
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class BannerLogoRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -121,13 +125,15 @@ namespace Microsoft.Graph.Localizations.Item.BannerLogo {
             /// </summary>
             public BannerLogoRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class BannerLogoRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -135,7 +141,7 @@ namespace Microsoft.Graph.Localizations.Item.BannerLogo {
             /// </summary>
             public BannerLogoRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -1,11 +1,12 @@
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Event representing an general failure.</summary>
+    /// <summary>
+    /// Event representing an general failure.
+    /// </summary>
     public class DeviceManagementTroubleshootingEvent : Entity, IParsable {
         /// <summary>Id used for tracing the failure in the service.</summary>
         public string CorrelationId {

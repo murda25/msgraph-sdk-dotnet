@@ -34,7 +34,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.ServicePrincipals.Item {
-    /// <summary>Provides operations to manage the collection of servicePrincipal entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of servicePrincipal entities.
+    /// </summary>
     public class ServicePrincipalItemRequestBuilder {
         /// <summary>Provides operations to call the addKey method.</summary>
         public AddKeyRequestBuilder AddKey { get =>
@@ -210,7 +212,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         /// <summary>
         /// Update entity in servicePrincipals
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.ServicePrincipal body, Action<ServicePrincipalItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -231,6 +233,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         }
         /// <summary>
         /// Delete a servicePrincipal object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,6 +247,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of a servicePrincipal object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         /// <summary>
         /// Update entity in servicePrincipals
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.ServicePrincipal> PatchAsync(Microsoft.Graph.Models.ServicePrincipal body, Action<ServicePrincipalItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -270,10 +274,12 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ServicePrincipal>(requestInfo, Microsoft.Graph.Models.ServicePrincipal.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ServicePrincipalItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -281,10 +287,12 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             /// </summary>
             public ServicePrincipalItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Retrieve the properties and relationships of a servicePrincipal object.</summary>
+        /// <summary>
+        /// Retrieve the properties and relationships of a servicePrincipal object.
+        /// </summary>
         public class ServicePrincipalItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -293,10 +301,12 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ServicePrincipalItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -306,13 +316,15 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             /// </summary>
             public ServicePrincipalItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class ServicePrincipalItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -320,7 +332,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             /// </summary>
             public ServicePrincipalItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

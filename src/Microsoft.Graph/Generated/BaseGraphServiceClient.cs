@@ -76,7 +76,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace Microsoft.Graph {
-    /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
+    /// <summary>
+    /// The main entry point of the SDK, exposes the configuration and the fluent API.
+    /// </summary>
     public class BaseGraphServiceClient {
         /// <summary>Provides operations to manage the admin singleton.</summary>
         public AdminRequestBuilder Admin { get =>

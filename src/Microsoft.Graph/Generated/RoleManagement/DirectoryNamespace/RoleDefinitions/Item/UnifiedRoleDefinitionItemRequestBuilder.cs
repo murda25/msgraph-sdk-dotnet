@@ -10,7 +10,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item {
-    /// <summary>Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
+    /// </summary>
     public class UnifiedRoleDefinitionItemRequestBuilder {
         /// <summary>Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.</summary>
         public InheritsPermissionsFromRequestBuilder InheritsPermissionsFrom { get =>
@@ -90,7 +92,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
         /// <summary>
         /// Update the navigation property roleDefinitions in roleManagement
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(UnifiedRoleDefinition body, Action<UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -138,7 +140,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
         /// <summary>
         /// Update the navigation property roleDefinitions in roleManagement
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<UnifiedRoleDefinition> PatchAsync(UnifiedRoleDefinition body, Action<UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -150,10 +152,12 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
             };
             return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, UnifiedRoleDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -161,10 +165,12 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
             /// </summary>
             public UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.</summary>
+        /// <summary>
+        /// Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+        /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -173,10 +179,12 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -186,13 +194,15 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
             /// </summary>
             public UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -200,7 +210,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleDefinitions.Item
             /// </summary>
             public UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

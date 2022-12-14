@@ -11,7 +11,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
-    /// <summary>Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+    /// </summary>
     public class Fido2MethodsRequestBuilder {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
@@ -77,28 +79,6 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to fido2Methods for users
-        /// </summary>
-        /// <param name="body"></param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public RequestInformation CreatePostRequestInformation(Fido2AuthenticationMethod body, Action<Fido2MethodsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.Headers.Add("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            if (requestConfiguration != null) {
-                var requestConfig = new Fido2MethodsRequestBuilderPostRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
-            return requestInfo;
-        }
-        /// <summary>
         /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -112,21 +92,8 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             return await RequestAdapter.SendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, Fido2AuthenticationMethodCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to fido2Methods for users
+        /// Represents the FIDO2 security keys registered to a user for authentication.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        public async Task<Fido2AuthenticationMethod> PostAsync(Fido2AuthenticationMethod body, Action<Fido2MethodsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<Fido2AuthenticationMethod>(requestInfo, Fido2AuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>Represents the FIDO2 security keys registered to a user for authentication.</summary>
         public class Fido2MethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
@@ -153,10 +120,12 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             [QueryParameter("%24top")]
             public int? Top { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class Fido2MethodsRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -166,21 +135,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             /// </summary>
             public Fido2MethodsRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
-            }
-        }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
-        public class Fido2MethodsRequestBuilderPostRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new fido2MethodsRequestBuilderPostRequestConfiguration and sets the default values.
-            /// </summary>
-            public Fido2MethodsRequestBuilderPostRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>The type for deployment of groups or apps.</summary>
+    /// <summary>
+    /// The type for deployment of groups or apps.
+    /// </summary>
     public class TargetedManagedAppPolicyAssignment : Entity, IParsable {
         /// <summary>Identifier for deployment to a group or app</summary>
         public DeviceAndAppManagementAssignmentTarget Target {

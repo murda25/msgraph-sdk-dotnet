@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Sites.Item.ContentTypes.GetCompatibleHubContentTypes {
-    /// <summary>Provides operations to call the getCompatibleHubContentTypes method.</summary>
+    /// <summary>
+    /// Provides operations to call the getCompatibleHubContentTypes method.
+    /// </summary>
     public class GetCompatibleHubContentTypesResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<ContentType> Value {

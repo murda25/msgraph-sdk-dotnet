@@ -43,7 +43,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.DeviceManagement {
-    /// <summary>Provides operations to manage the deviceManagement singleton.</summary>
+    /// <summary>
+    /// Provides operations to manage the deviceManagement singleton.
+    /// </summary>
     public class DeviceManagementRequestBuilder {
         /// <summary>Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.</summary>
         public ApplePushNotificationCertificateRequestBuilder ApplePushNotificationCertificate { get =>
@@ -229,7 +231,7 @@ namespace Microsoft.Graph.DeviceManagement {
         /// <summary>
         /// Update deviceManagement
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.DeviceManagement body, Action<DeviceManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -272,7 +274,7 @@ namespace Microsoft.Graph.DeviceManagement {
         /// <summary>
         /// Update deviceManagement
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.DeviceManagement> PatchAsync(Microsoft.Graph.Models.DeviceManagement body, Action<DeviceManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -292,7 +294,9 @@ namespace Microsoft.Graph.DeviceManagement {
             if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
             return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
         }
-        /// <summary>Get deviceManagement</summary>
+        /// <summary>
+        /// Get deviceManagement
+        /// </summary>
         public class DeviceManagementRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -301,10 +305,12 @@ namespace Microsoft.Graph.DeviceManagement {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DeviceManagementRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -314,13 +320,15 @@ namespace Microsoft.Graph.DeviceManagement {
             /// </summary>
             public DeviceManagementRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class DeviceManagementRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -328,7 +336,7 @@ namespace Microsoft.Graph.DeviceManagement {
             /// </summary>
             public DeviceManagementRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+    /// </summary>
     public class DirectoryAuditCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<DirectoryAudit> Value {

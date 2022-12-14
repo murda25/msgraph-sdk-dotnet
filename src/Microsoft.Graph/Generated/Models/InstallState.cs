@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceAppManagement singleton.</summary>
+    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
     public enum InstallState {
         /// <summary>Not Applicable.</summary>
         NotApplicable,

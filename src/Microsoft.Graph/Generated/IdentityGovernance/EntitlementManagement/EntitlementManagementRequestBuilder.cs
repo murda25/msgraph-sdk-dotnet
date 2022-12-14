@@ -17,7 +17,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
-    /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.</summary>
+    /// <summary>
+    /// Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
+    /// </summary>
     public class EntitlementManagementRequestBuilder {
         /// <summary>Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.</summary>
         public AccessPackageAssignmentApprovalsRequestBuilder AccessPackageAssignmentApprovals { get =>
@@ -125,7 +127,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         /// <summary>
         /// Update the navigation property entitlementManagement in identityGovernance
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePatchRequestInformation(Microsoft.Graph.Models.EntitlementManagement body, Action<EntitlementManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -173,7 +175,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
         /// <summary>
         /// Update the navigation property entitlementManagement in identityGovernance
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<Microsoft.Graph.Models.EntitlementManagement> PatchAsync(Microsoft.Graph.Models.EntitlementManagement body, Action<EntitlementManagementRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -185,10 +187,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.EntitlementManagement>(requestInfo, Microsoft.Graph.Models.EntitlementManagement.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class EntitlementManagementRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -196,10 +200,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
             /// </summary>
             public EntitlementManagementRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Get entitlementManagement from identityGovernance</summary>
+        /// <summary>
+        /// Get entitlementManagement from identityGovernance
+        /// </summary>
         public class EntitlementManagementRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
             [QueryParameter("%24expand")]
@@ -208,10 +214,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class EntitlementManagementRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -221,13 +229,15 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
             /// </summary>
             public EntitlementManagementRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class EntitlementManagementRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -235,7 +245,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement {
             /// </summary>
             public EntitlementManagementRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }

@@ -14,7 +14,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Microsoft.Graph.GroupSettingTemplates {
-    /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
+    /// <summary>
+    /// Provides operations to manage the collection of groupSettingTemplate entities.
+    /// </summary>
     public class GroupSettingTemplatesRequestBuilder {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
@@ -94,7 +96,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
         /// <summary>
         /// Add new entity to groupSettingTemplates
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreatePostRequestInformation(GroupSettingTemplate body, Action<GroupSettingTemplatesRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -115,6 +117,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
         }
         /// <summary>
         /// Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/groupsettingtemplate-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -129,7 +132,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
         /// <summary>
         /// Add new entity to groupSettingTemplates
         /// </summary>
-        /// <param name="body"></param>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<GroupSettingTemplate> PostAsync(GroupSettingTemplate body, Action<GroupSettingTemplatesRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -141,7 +144,9 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             };
             return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, GroupSettingTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
-        /// <summary>Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.</summary>
+        /// <summary>
+        /// Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
+        /// </summary>
         public class GroupSettingTemplatesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
             [QueryParameter("%24count")]
@@ -168,10 +173,12 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             [QueryParameter("%24top")]
             public int? Top { get; set; }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class GroupSettingTemplatesRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
@@ -181,13 +188,15 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             /// </summary>
             public GroupSettingTemplatesRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
-        /// <summary>Configuration for the request such as headers, query parameters, and middleware options.</summary>
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
         public class GroupSettingTemplatesRequestBuilderPostRequestConfiguration {
             /// <summary>Request headers</summary>
-            public IDictionary<string, string> Headers { get; set; }
+            public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
@@ -195,7 +204,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             /// </summary>
             public GroupSettingTemplatesRequestBuilderPostRequestConfiguration() {
                 Options = new List<IRequestOption>();
-                Headers = new Dictionary<string, string>();
+                Headers = new RequestHeaders();
             }
         }
     }
