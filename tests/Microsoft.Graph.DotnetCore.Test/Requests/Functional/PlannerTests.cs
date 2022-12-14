@@ -46,7 +46,7 @@
             return syncdGroup;
         }
 
-        public Task DeleteGroup(Group group)
+        internal Task DeleteGroup(Group group)
         {
             return graphClient.Groups[group.Id].DeleteAsync();
         }

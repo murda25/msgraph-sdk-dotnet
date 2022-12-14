@@ -32,7 +32,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             firstSectionID = sectionPage.Value[0].Id;
         }
         
-        public async void TestPageCleanUp()
+        internal async Task TestPageCleanUp()
         {
             await graphClient.Me.Onenote.Pages[testPage.Id].DeleteAsync();
         }

@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Graph.DotnetCore.Test.Mocks;
 using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
 using Microsoft.Graph.Me.AssignLicense;
 using Microsoft.Graph.Me.CheckMemberGroups;
@@ -37,12 +36,11 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             ).Returns(new JsonSerializationWriter());
             
             var addLicenses = new List<AssignedLicense> { new AssignedLicense() };
-            var removeLicenses = new List<string> { new Guid().ToString() };
 
             var requestBody = new AssignLicensePostRequestBody
             {
                 AddLicenses = addLicenses,
-                RemoveLicenses = removeLicenses
+                RemoveLicenses = new ()
             };
             
             var requestInformation = graphServiceClient.Me.AssignLicense.CreatePostRequestInformation(requestBody);
