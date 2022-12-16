@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>
+    /// Provides operations to manage the collection of agreement entities.
+    /// </summary>
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
         public List<ApprovalStage> Stages {

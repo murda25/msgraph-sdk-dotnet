@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Casts the previous resource to endpoint.
+    /// Provides operations to manage the appCatalogs singleton.
     /// </summary>
     public class Endpoint : DirectoryObject, IParsable {
         /// <summary>The capability property</summary>

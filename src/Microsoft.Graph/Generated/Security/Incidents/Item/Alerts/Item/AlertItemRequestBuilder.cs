@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<AlertItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts.Item {
             return await RequestAdapter.SendAsync<Alert>(requestInfo, Alert.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         public class AlertItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

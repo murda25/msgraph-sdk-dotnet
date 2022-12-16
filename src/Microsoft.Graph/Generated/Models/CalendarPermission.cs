@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
+    /// Provides operations to manage the collection of agreement entities.
     /// </summary>
     public class CalendarPermission : Entity, IParsable {
         /// <summary>List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.</summary>
