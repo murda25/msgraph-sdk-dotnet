@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Security.Alerts_v2 {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get alerts_v2 from security
+        /// Get a list of alert resources that have been created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<Alerts_v2RequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -101,7 +101,8 @@ namespace Microsoft.Graph.Security.Alerts_v2 {
             return requestInfo;
         }
         /// <summary>
-        /// Get alerts_v2 from security
+        /// Get a list of alert resources that have been created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-list-alerts_v2?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -129,7 +130,7 @@ namespace Microsoft.Graph.Security.Alerts_v2 {
             return await RequestAdapter.SendAsync<Alert>(requestInfo, Alert.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get alerts_v2 from security
+        /// Get a list of alert resources that have been created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
         /// </summary>
         public class Alerts_v2RequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

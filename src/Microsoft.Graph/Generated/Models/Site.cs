@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
-    /// </summary>
     public class Site : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place in this site.</summary>
         public ItemAnalytics Analytics {
@@ -105,7 +102,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("termStores", value); }
         }
         /// <summary>
-        /// Instantiates a new site and sets the default values.
+        /// Instantiates a new Site and sets the default values.
         /// </summary>
         public Site() : base() {
             OdataType = "#microsoft.graph.site";

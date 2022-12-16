@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Alert>>("alerts"); }
             set { BackingStore?.Set("alerts", value); }
         }
-        /// <summary>The alerts_v2 property</summary>
+        /// <summary>A collection of alerts in Microsoft 365 Defender.</summary>
         public List<Alert> Alerts_v2 {
             get { return BackingStore?.Get<List<Alert>>("alerts_v2"); }
             set { BackingStore?.Set("alerts_v2", value); }
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<CasesRoot>("cases"); }
             set { BackingStore?.Set("cases", value); }
         }
-        /// <summary>The incidents property</summary>
+        /// <summary>A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.</summary>
         public List<Incident> Incidents {
             get { return BackingStore?.Get<List<Incident>>("incidents"); }
             set { BackingStore?.Set("incidents", value); }

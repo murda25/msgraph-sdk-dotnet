@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
-        /// <summary>The isAnonymousJoinEnabled property</summary>
+        /// <summary>True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.</summary>
         public bool? IsAnonymousJoinEnabled {
             get { return BackingStore?.Get<bool?>("isAnonymousJoinEnabled"); }
             set { BackingStore?.Set("isAnonymousJoinEnabled", value); }
@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isLocationOnline"); }
             set { BackingStore?.Set("isLocationOnline", value); }
         }
-        /// <summary>The languageTag property</summary>
+        /// <summary>The language of the self-service booking page.</summary>
         public string LanguageTag {
             get { return BackingStore?.Get<string>("languageTag"); }
             set { BackingStore?.Set("languageTag", value); }

@@ -10,12 +10,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("additionalInformation"); }
             set { BackingStore?.Set("additionalInformation", value); }
         }
-        /// <summary>The anonymousJoinWebUrl property</summary>
+        /// <summary>The URL of the meeting to join anonymously.</summary>
         public string AnonymousJoinWebUrl {
             get { return BackingStore?.Get<string>("anonymousJoinWebUrl"); }
             set { BackingStore?.Set("anonymousJoinWebUrl", value); }
         }
-        /// <summary>It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
+        /// <summary>A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
         public List<BookingCustomerInformationBase> Customers {
             get { return BackingStore?.Get<List<BookingCustomerInformationBase>>("customers"); }
             set { BackingStore?.Set("customers", value); }

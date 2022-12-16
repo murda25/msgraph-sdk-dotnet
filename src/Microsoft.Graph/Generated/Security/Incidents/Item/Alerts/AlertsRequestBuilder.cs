@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation CreateGetRequestInformation(Action<AlertsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts {
             return requestInfo;
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.Security.Incidents.Item.Alerts {
             return await RequestAdapter.SendAsync<AlertCollectionResponse>(requestInfo, AlertCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get alerts from security
+        /// The list of related alerts. Supports $expand.
         /// </summary>
         public class AlertsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

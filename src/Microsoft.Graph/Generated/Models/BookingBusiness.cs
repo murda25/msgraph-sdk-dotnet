@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isPublished"); }
             set { BackingStore?.Set("isPublished", value); }
         }
-        /// <summary>The languageTag property</summary>
+        /// <summary>The language of the self-service booking page.</summary>
         public string LanguageTag {
             get { return BackingStore?.Get<string>("languageTag"); }
             set { BackingStore?.Set("languageTag", value); }

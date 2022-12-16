@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.Security {
     public class IpEvidence : AlertEvidence, IParsable {
-        /// <summary>The countryLetterCode property</summary>
+        /// <summary>The two-letter country code according to ISO 3166 format, for example: US, UK, CA, etc..).</summary>
         public string CountryLetterCode {
             get { return BackingStore?.Get<string>("countryLetterCode"); }
             set { BackingStore?.Set("countryLetterCode", value); }
         }
-        /// <summary>The ipAddress property</summary>
+        /// <summary>The value of the IP Address, can be either in V4 address or V6 address format.</summary>
         public string IpAddress {
             get { return BackingStore?.Get<string>("ipAddress"); }
             set { BackingStore?.Set("ipAddress", value); }
