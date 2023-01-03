@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the appCatalogs singleton.</summary>
+    /// <summary>Provides operations to manage the deviceAppManagement singleton.</summary>
     public enum VppTokenSyncStatus {
         /// <summary>Default status.</summary>
         None,
