@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
+    /// <summary>
+    /// Provides operations to manage the collection of application entities.
+    /// </summary>
     public class StsPolicy : PolicyBase, IParsable {
         /// <summary>The appliesTo property</summary>
         public List<DirectoryObject> AppliesTo {
@@ -21,7 +24,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isOrganizationDefault", value); }
         }
         /// <summary>
-        /// Instantiates a new StsPolicy and sets the default values.
+        /// Instantiates a new stsPolicy and sets the default values.
         /// </summary>
         public StsPolicy() : base() {
             OdataType = "#microsoft.graph.stsPolicy";

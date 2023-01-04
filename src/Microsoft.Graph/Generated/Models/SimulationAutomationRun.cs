@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
+    /// Provides operations to manage the collection of agreementAcceptance entities.
     /// </summary>
     public class SimulationAutomationRun : Entity, IParsable {
         /// <summary>Date and time when the run ends in an attack simulation automation.</summary>

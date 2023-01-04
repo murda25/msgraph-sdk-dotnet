@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
+    /// Provides operations to manage the collection of agreementAcceptance entities.
     /// </summary>
     public class UnifiedRoleAssignment : Entity, IParsable {
         /// <summary>Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.</summary>

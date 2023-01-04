@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
+    /// Provides operations to manage the collection of agreementAcceptance entities.
     /// </summary>
     public class GroupLifecyclePolicy : Entity, IParsable {
         /// <summary>List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.</summary>

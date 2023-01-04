@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
     /// <summary>
-    /// Provides operations to manage the collection of agreement entities.
+    /// Provides operations to manage the collection of externalConnection entities.
     /// </summary>
     public class ExternalItem : Entity, IParsable {
         /// <summary>An array of access control entries. Each entry specifies the access granted to a user or group. Required.</summary>

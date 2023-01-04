@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Provides operations to manage the collection of agreement entities.
+    /// Provides operations to manage the collection of agreementAcceptance entities.
     /// </summary>
     public class PrintUsage : Entity, IParsable {
         /// <summary>The completedBlackAndWhiteJobCount property</summary>
