@@ -63,17 +63,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<PrintMargin>("margin"); }
             set { BackingStore?.Set("margin", value); }
         }
-        /// <summary>The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.</summary>
+        /// <summary>The media size to use when printing. Supports standard size names for ISO and ANSI media sizes.</summary>
         public string MediaSize {
             get { return BackingStore?.Get<string>("mediaSize"); }
             set { BackingStore?.Set("mediaSize", value); }
         }
-        /// <summary>The default media (such as paper) type to print the document on.</summary>
+        /// <summary>The mediaType property</summary>
         public string MediaType {
             get { return BackingStore?.Get<string>("mediaType"); }
             set { BackingStore?.Set("mediaType", value); }
         }
-        /// <summary>The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.</summary>
+        /// <summary>The multipageLayout property</summary>
         public PrintMultipageLayout? MultipageLayout {
             get { return BackingStore?.Get<PrintMultipageLayout?>("multipageLayout"); }
             set { BackingStore?.Set("multipageLayout", value); }
@@ -83,32 +83,32 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
-        /// <summary>The orientation setting the printer should use when printing the job. Valid values are described in the following table.</summary>
+        /// <summary>The orientation property</summary>
         public PrintOrientation? Orientation {
             get { return BackingStore?.Get<PrintOrientation?>("orientation"); }
             set { BackingStore?.Set("orientation", value); }
         }
-        /// <summary>The output bin to place completed prints into. See the printer&apos;s capabilities for a list of supported output bins.</summary>
+        /// <summary>The outputBin property</summary>
         public string OutputBin {
             get { return BackingStore?.Get<string>("outputBin"); }
             set { BackingStore?.Set("outputBin", value); }
         }
-        /// <summary>The page ranges to print. Read-only.</summary>
+        /// <summary>The pageRanges property</summary>
         public List<IntegerRange> PageRanges {
             get { return BackingStore?.Get<List<IntegerRange>>("pageRanges"); }
             set { BackingStore?.Set("pageRanges", value); }
         }
-        /// <summary>The number of document pages to print on each sheet.</summary>
+        /// <summary>The pagesPerSheet property</summary>
         public int? PagesPerSheet {
             get { return BackingStore?.Get<int?>("pagesPerSheet"); }
             set { BackingStore?.Set("pagesPerSheet", value); }
         }
-        /// <summary>The print quality to use when printing the job. Valid values are described in the table below. Read-only.</summary>
+        /// <summary>The quality property</summary>
         public PrintQuality? Quality {
             get { return BackingStore?.Get<PrintQuality?>("quality"); }
             set { BackingStore?.Set("quality", value); }
         }
-        /// <summary>Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.</summary>
+        /// <summary>The scaling property</summary>
         public PrintScaling? Scaling {
             get { return BackingStore?.Get<PrintScaling?>("scaling"); }
             set { BackingStore?.Set("scaling", value); }

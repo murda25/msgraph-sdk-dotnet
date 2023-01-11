@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Search.Query {
-    /// <summary>
-    /// Provides operations to call the query method.
-    /// </summary>
     public class QueryResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<SearchResponse> Value {

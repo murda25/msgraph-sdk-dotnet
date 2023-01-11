@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Type of start menu app list visibility.</summary>
     public enum WindowsStartMenuAppListVisibilityType {
         /// <summary>User defined. Default value.</summary>
         UserDefined,

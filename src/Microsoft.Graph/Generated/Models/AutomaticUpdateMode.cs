@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Possible values for automatic update mode.</summary>
     public enum AutomaticUpdateMode {
         /// <summary>User Defined, default value, no intent.</summary>
         UserDefined,

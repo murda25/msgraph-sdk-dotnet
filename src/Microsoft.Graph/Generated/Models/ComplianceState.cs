@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Compliance state.</summary>
     public enum ComplianceState {
         /// <summary>Unknown.</summary>
         Unknown,

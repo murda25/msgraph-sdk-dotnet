@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Edition Upgrade License type</summary>
     public enum EditionUpgradeLicenseType {
         /// <summary>Product Key Type</summary>
         ProductKey,

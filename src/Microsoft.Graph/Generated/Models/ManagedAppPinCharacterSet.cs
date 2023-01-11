@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Character set which is to be used for a user&apos;s app PIN</summary>
     public enum ManagedAppPinCharacterSet {
         /// <summary>Numeric characters</summary>
         Numeric,

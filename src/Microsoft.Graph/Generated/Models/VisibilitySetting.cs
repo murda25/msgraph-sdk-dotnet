@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Generic visibility state.</summary>
     public enum VisibilitySetting {
         /// <summary>Not configured.</summary>
         NotConfigured,

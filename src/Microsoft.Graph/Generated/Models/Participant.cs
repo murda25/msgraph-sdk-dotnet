@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the cloudCommunications singleton.
-    /// </summary>
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
         public ParticipantInfo Info {

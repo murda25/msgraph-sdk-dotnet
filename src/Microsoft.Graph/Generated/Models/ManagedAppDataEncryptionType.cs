@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Represents the level to which app data is encrypted for managed apps</summary>
     public enum ManagedAppDataEncryptionType {
         /// <summary>App data is encrypted based on the default settings on the device.</summary>
         UseDeviceSettings,

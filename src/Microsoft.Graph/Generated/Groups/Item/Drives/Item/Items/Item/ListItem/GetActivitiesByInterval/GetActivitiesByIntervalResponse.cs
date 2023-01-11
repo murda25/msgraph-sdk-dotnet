@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Groups.Item.Drives.Item.Items.Item.ListItem.GetActivitiesByInterval {
-    /// <summary>
-    /// Provides operations to call the getActivitiesByInterval method.
-    /// </summary>
     public class GetActivitiesByIntervalResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<ItemActivityStat> Value {

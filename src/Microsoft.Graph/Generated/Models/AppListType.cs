@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Possible values of the compliance app list.</summary>
     public enum AppListType {
         /// <summary>Default value, no intent.</summary>
         None,

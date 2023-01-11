@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>TV content rating labels in Germany</summary>
     public enum RatingGermanyTelevisionType {
         /// <summary>Default value, allow all TV shows content</summary>
         AllAllowed,

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the collection of agreementAcceptance entities.
-    /// </summary>
     public class SecureScoreControlProfile : Entity, IParsable {
         /// <summary>Control action type (Config, Review, Behavior).</summary>
         public string ActionType {
@@ -23,7 +20,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("azureTenantId"); }
             set { BackingStore?.Set("azureTenantId", value); }
         }
-        /// <summary>The complianceInformation property</summary>
+        /// <summary>The collection of compliance information associated with secure score control</summary>
         public List<Microsoft.Graph.Models.ComplianceInformation> ComplianceInformation {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ComplianceInformation>>("complianceInformation"); }
             set { BackingStore?.Set("complianceInformation", value); }
@@ -33,7 +30,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("controlCategory"); }
             set { BackingStore?.Set("controlCategory", value); }
         }
-        /// <summary>The controlStateUpdates property</summary>
+        /// <summary>Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).</summary>
         public List<SecureScoreControlStateUpdate> ControlStateUpdates {
             get { return BackingStore?.Get<List<SecureScoreControlStateUpdate>>("controlStateUpdates"); }
             set { BackingStore?.Set("controlStateUpdates", value); }
@@ -88,7 +85,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<string>("tier"); }
             set { BackingStore?.Set("tier", value); }
         }
-        /// <summary>Title of the control.</summary>
+        /// <summary>The title property</summary>
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }

@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Movies rating labels in Ireland</summary>
     public enum RatingIrelandMoviesType {
         /// <summary>Default value, allow all movies content</summary>
         AllAllowed,

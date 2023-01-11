@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Windows Hello for Business pin usage options</summary>
     public enum WindowsHelloForBusinessPinUsage {
         /// <summary>Allowed the usage of certain pin rule</summary>
         Allowed,

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the cloudCommunications singleton.
-    /// </summary>
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
         public List<AudioRoutingGroup> AudioRoutingGroups {
@@ -63,7 +60,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CallMediaState>("mediaState"); }
             set { BackingStore?.Set("mediaState", value); }
         }
-        /// <summary>The meeting information that&apos;s required for joining a meeting.</summary>
+        /// <summary>The meeting information. Required information for meeting scenarios.</summary>
         public Microsoft.Graph.Models.MeetingInfo MeetingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MeetingInfo>("meetingInfo"); }
             set { BackingStore?.Set("meetingInfo", value); }

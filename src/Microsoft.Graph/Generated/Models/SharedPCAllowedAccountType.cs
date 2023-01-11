@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Type of accounts that are allowed to share the PC.</summary>
     public enum SharedPCAllowedAccountType {
         /// <summary>Only guest accounts.</summary>
         Guest,
