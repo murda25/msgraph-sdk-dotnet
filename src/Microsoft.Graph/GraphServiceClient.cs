@@ -24,7 +24,7 @@ namespace Microsoft.Graph
         private static readonly GraphClientOptions graphClientOptions = new GraphClientOptions
         {
             GraphServiceLibraryClientVersion = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Build}",
-            GraphServiceTargetVersion = "v1.0",
+            GraphServiceTargetVersion = string.Empty,
         };
 
         /// <summary>
@@ -70,10 +70,13 @@ namespace Microsoft.Graph
         /// Constructs a new <see cref="GraphServiceClient"/>.
         /// </summary>
         /// <param name="httpClient">The customized <see cref="HttpClient"/> to be used for making requests</param>
+        /// <param name="authenticationProvider">The <see cref="IAuthenticationProvider"/> for authenticating request messages.
+        /// Defaults to <see cref="AnonymousAuthenticationProvider"/> so that authentication is handled by custom middleware in the httpClient</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
         public GraphServiceClient(
             HttpClient httpClient,
-            string baseUrl = null):this(new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), graphClientOptions, httpClient: httpClient),baseUrl)
+            IAuthenticationProvider authenticationProvider = null,
+            string baseUrl = null):this(new BaseGraphRequestAdapter(authenticationProvider ?? new AnonymousAuthenticationProvider(), graphClientOptions, httpClient: httpClient),baseUrl)
         {
         }
 

@@ -59,12 +59,12 @@ The `RequestInformation` class is now used to represent requests in the SDK and 
 // Get the requestInfomation to make a GET request
 var requestInformation = graphServiceClient
                          .DirectoryObjects
-                         .CreateGetRequestInformation();
+                         .ToGetRequestInformation();
 
 // Get the requestInfomation to make a POST request
 var requestInformation = graphServiceClient
                          .DirectoryObjects
-                         .CreatePostRequestInformation();
+                         .ToPostRequestInformation();
 ```
 
 ### Removal of `Request()` from the fluent API
@@ -262,12 +262,12 @@ Apart from passing instances of `HttpRequestMessage`, batch requests support the
 ```cs
 var requestInformation = graphServiceClient
                          .Users
-                         .CreateGetRequestInformation();
+                         .ToGetRequestInformation();
 
 // create the content
 var batchRequestContent = new BatchRequestContent(graphServiceClient);
 // add steps
-var requestStepId = batchRequestContent.AddBatchRequestStep(requestInformation);
+var requestStepId = await batchRequestContent.AddBatchRequestStepAsync(requestInformation);
 
 // send and get back response
 var batchResponseContent = await graphServiceClient.Batch.PostAsync(batchRequestContent);
