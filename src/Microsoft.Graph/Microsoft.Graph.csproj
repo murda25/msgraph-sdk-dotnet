@@ -25,12 +25,12 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>rc.1</VersionSuffix>
+    <VersionSuffix>rc.2</VersionSuffix>
     <PackageReleaseNotes>
-- Release candidate 1
-- Adds support for multi-value headers
-- Fixes Guid types represented as strings
-- Latest metadata updates from 14th December 2022 snapshot
+- Release candidate 2
+- [Breaking] Renames `CreateXXXRequestInformation` methods to `ToXXXRequestInformation
+- Adds `IAuthenticationProvider` parameter to GraphServiceClient constructor taking a httpClient instance.
+- Latest metadata updates from 12th January 2023 snapshot
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
