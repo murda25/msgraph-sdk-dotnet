@@ -17,7 +17,6 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/items/id");
             var itemRequestInformation = graphServiceClient.Drives["driveId"].Items["id"].ToGetRequestInformation();
-            itemRequestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
@@ -29,7 +28,6 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/root:/item/with/path:");
             var itemRequestInformation = graphServiceClient.Drives["driveId"].Root.ItemWithPath("item/with/path").ToGetRequestInformation();
-            itemRequestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
@@ -41,7 +39,6 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/items/itemId:/item/with/path:");
             var itemRequestInformation = graphServiceClient.Drives["driveId"].Items["itemId"].ItemWithPath("item/with/path").ToGetRequestInformation();
-            itemRequestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
@@ -53,7 +50,6 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/root:/item/with/path:");
             var itemRequestInformation = graphServiceClient.Drives["driveId"].Root.ItemWithPath("/item/with/path").ToGetRequestInformation();
-            itemRequestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
@@ -74,7 +70,6 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/root:/" + expectedEncodedPath + ":");
             var itemRequestInformation = graphServiceClient.Drives["driveId"].Root.ItemWithPath(pathInput).ToGetRequestInformation();
-            itemRequestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);

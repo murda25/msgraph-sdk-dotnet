@@ -11,6 +11,7 @@ using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Serialization.Json;
 using Xunit;
+using Microsoft.Graph.DotnetCore.Test.Mocks;
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
 {
@@ -22,11 +23,9 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
         [Fact]
         public void BuildRequest()
         {            
-            var mockRequestAdapter = new Mock<IRequestAdapter>();
-            var graphServiceClient = new GraphServiceClient(mockRequestAdapter.Object);
+            var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/me/manager");
             var requestInformation = graphServiceClient.Me.Manager.ToGetRequestInformation();
-            requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
             Assert.Equal(expectedRequestUri, requestInformation.URI);
