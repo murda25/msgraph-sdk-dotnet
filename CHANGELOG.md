@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.0.0-rc.2] - 2023-01-11
+
+### Changed
+
 - [Breaking] Renames `CreateXXXRequestInformation` methods to `ToXXXRequestInformation
 - Adds `IAuthenticationProvider` parameter to GraphServiceClient constructor taking a httpClient instance.
 - Latest metadata updates from 12th January 2023 snapshot
