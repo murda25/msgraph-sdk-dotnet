@@ -25,7 +25,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
         {
             var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/groups/groupId/members");
-            var requestInformation = graphServiceClient.Groups["groupId"].Members.CreateGetRequestInformation();
+            var requestInformation = graphServiceClient.Groups["groupId"].Members.ToGetRequestInformation();
             requestInformation.PathParameters.Add("baseurl", graphServiceClient.RequestAdapter.BaseUrl);
             
             Assert.NotNull(requestInformation);
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             var graphServiceClient = new GraphServiceClient(mockRequestAdapter.Object);
             var expectedRequestUrl = string.Format("{0}/groups/groupId/members?%24top=1", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
 
-            var requestInformation = graphServiceClient.Groups["groupId"].Members.CreateGetRequestInformation( requestConfiguration => requestConfiguration.QueryParameters.Top = 1);
+            var requestInformation = graphServiceClient.Groups["groupId"].Members.ToGetRequestInformation( requestConfiguration => requestConfiguration.QueryParameters.Top = 1);
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);

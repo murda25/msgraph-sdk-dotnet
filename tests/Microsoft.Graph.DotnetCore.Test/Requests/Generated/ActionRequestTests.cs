@@ -43,7 +43,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
                 RemoveLicenses = new ()
             };
             
-            var requestInformation = graphServiceClient.Me.AssignLicense.CreatePostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.AssignLicense.ToPostRequestInformation(requestBody);
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             ).Returns(new JsonSerializationWriter());
             
             var requestBody = new GetMemberGroupsPostRequestBody { };
-            var requestInformation = graphServiceClient.Me.GetMemberGroups.CreatePostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.GetMemberGroups.ToPostRequestInformation(requestBody);
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             ).Returns(new JsonSerializationWriter());
             
             var requestBody = new GetMemberGroupsPostRequestBody { SecurityEnabledOnly = true};
-            var requestInformation = graphServiceClient.Me.GetMemberGroups.CreatePostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.GetMemberGroups.ToPostRequestInformation(requestBody);
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
@@ -107,7 +107,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             var messageId = "messageId";
             var expectedRequestUrl = string.Format("{0}/me/mailFolders/Drafts/messages/{1}/microsoft.graph.send", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"), messageId);
 
-            var requestInformation = graphServiceClient.Me.MailFolders["Drafts"].Messages[messageId].Send.CreatePostRequestInformation();
+            var requestInformation = graphServiceClient.Me.MailFolders["Drafts"].Messages[messageId].Send.ToPostRequestInformation();
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);

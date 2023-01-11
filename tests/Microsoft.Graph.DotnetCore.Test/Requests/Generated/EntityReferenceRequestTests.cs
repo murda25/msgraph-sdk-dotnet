@@ -24,7 +24,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             var mockRequestAdapter = new Mock<IRequestAdapter>();
             var graphServiceClient = new GraphServiceClient(mockRequestAdapter.Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/groups/groupId/members/memberId/$ref");
-            var requestInformation = graphServiceClient.Groups["groupId"].Members["memberId"].Ref.CreateDeleteRequestInformation();
+            var requestInformation = graphServiceClient.Groups["groupId"].Members["memberId"].Ref.ToDeleteRequestInformation();
             requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
