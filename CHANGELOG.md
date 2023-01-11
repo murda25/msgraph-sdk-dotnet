@@ -7,8 +7,9 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-- Latest metadata updates from 3rd January 2023 snapshot
-- 
+- [Breaking] Renames `CreateXXXRequestInformation` methods to `ToXXXRequestInformation`
+- Latest metadata updates from 12th January 2023 snapshot
+
 ## [5.0.0-rc.1] - 2022-12-16
 
 ### Added

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Xunit;
+using Microsoft.Graph.DotnetCore.Test.Mocks;
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
 {
@@ -21,11 +22,9 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
         [Fact]
         public void BuildRequest()
         {
-            var mockRequestAdapter = new Mock<IRequestAdapter>();
-            var graphServiceClient = new GraphServiceClient(mockRequestAdapter.Object);
+            var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
             var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/groups/groupId/members/memberId/$ref");
             var requestInformation = graphServiceClient.Groups["groupId"].Members["memberId"].Ref.ToDeleteRequestInformation();
-            requestInformation.PathParameters.Add("baseurl", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"));
             
             Assert.NotNull(requestInformation);
             Assert.Equal(expectedRequestUri, requestInformation.URI);

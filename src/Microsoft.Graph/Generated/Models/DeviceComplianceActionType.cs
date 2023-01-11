@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Scheduled Action Type Enum</summary>
     public enum DeviceComplianceActionType {
         /// <summary>No Action</summary>
         NoAction,

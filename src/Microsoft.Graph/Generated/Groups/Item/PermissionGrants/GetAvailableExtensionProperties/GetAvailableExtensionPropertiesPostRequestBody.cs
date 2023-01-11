@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Groups.Item.PermissionGrants.GetAvailableExtensionProperties {
-    /// <summary>
-    /// Provides operations to call the getAvailableExtensionProperties method.
-    /// </summary>
     public class GetAvailableExtensionPropertiesPostRequestBody : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData {

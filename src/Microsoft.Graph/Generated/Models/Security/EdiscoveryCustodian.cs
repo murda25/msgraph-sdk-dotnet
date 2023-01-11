@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("userSources", value); }
         }
         /// <summary>
-        /// Instantiates a new EdiscoveryCustodian and sets the default values.
+        /// Instantiates a new ediscoveryCustodian and sets the default values.
         /// </summary>
         public EdiscoveryCustodian() : base() {
             OdataType = "#microsoft.graph.security.ediscoveryCustodian";

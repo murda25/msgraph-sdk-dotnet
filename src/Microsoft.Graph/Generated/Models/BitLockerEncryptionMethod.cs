@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>BitLockerEncryptionMethod types</summary>
     public enum BitLockerEncryptionMethod {
         /// <summary>AES-CBC 128-bit.</summary>
         AesCbc128,

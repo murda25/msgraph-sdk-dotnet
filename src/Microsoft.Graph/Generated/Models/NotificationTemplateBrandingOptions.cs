@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
     public enum NotificationTemplateBrandingOptions {
         /// <summary>No Branding.</summary>
         None,

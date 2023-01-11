@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Groups.Item.PermissionGrants.GetAvailableExtensionProperties {
-    /// <summary>
-    /// Provides operations to call the getAvailableExtensionProperties method.
-    /// </summary>
     public class GetAvailableExtensionPropertiesResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<ExtensionProperty> Value {

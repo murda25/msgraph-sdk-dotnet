@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the deviceAppManagement singleton.</summary>
+    /// <summary>Contains properties for Windows architecture.</summary>
     public enum WindowsArchitecture {
         /// <summary>No flags set.</summary>
         None,

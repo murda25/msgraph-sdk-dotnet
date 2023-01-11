@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Device Exchange Access State Reason.</summary>
     public enum DeviceManagementExchangeAccessStateReason {
         /// <summary>No access state reason discovered from Exchange</summary>
         None,

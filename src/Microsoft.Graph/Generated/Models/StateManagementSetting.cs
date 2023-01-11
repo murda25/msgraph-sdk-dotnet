@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>State Management Setting.</summary>
     public enum StateManagementSetting {
         /// <summary>Not configured.</summary>
         NotConfigured,

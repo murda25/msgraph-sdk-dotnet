@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to call the instantiate method.
-    /// </summary>
     public class ExtensionProperty : DirectoryObject, IParsable {
         /// <summary>Display name of the application object on which this extension property is defined. Read-only.</summary>
         public string AppDisplayName {

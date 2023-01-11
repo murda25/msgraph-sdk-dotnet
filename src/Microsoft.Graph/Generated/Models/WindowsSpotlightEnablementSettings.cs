@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Allows IT admind to set a predefined default search engine for MDM-Controlled devices</summary>
     public enum WindowsSpotlightEnablementSettings {
         /// <summary>Spotlight on lock screen is not configured</summary>
         NotConfigured,

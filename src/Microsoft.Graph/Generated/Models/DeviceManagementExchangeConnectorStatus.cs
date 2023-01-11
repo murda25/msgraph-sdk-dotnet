@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>The current status of the Exchange Connector.</summary>
     public enum DeviceManagementExchangeConnectorStatus {
         /// <summary>No Connector exists.</summary>
         None,

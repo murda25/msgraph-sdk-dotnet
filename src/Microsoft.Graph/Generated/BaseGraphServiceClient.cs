@@ -67,6 +67,7 @@ using Microsoft.Graph.Teamwork;
 using Microsoft.Graph.Users;
 using Microsoft.Graph.Workbooks;
 using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Store;
 using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
@@ -378,6 +379,7 @@ namespace Microsoft.Graph {
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) {
                 RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
             }
+            PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
             RequestAdapter.EnableBackingStore(backingStore);
         }
     }

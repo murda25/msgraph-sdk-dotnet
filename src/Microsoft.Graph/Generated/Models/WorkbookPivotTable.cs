@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the collection of agreementAcceptance entities.
-    /// </summary>
     public class WorkbookPivotTable : Entity, IParsable {
         /// <summary>Name of the PivotTable.</summary>
         public string Name {

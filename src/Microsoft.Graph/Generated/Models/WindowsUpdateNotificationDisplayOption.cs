@@ -1,5 +1,5 @@
 namespace Microsoft.Graph.Models {
-    /// <summary>Provides operations to manage the collection of agreementAcceptance entities.</summary>
+    /// <summary>Windows Update Notification Display Options</summary>
     public enum WindowsUpdateNotificationDisplayOption {
         /// <summary>Not configured</summary>
         NotConfigured,

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the collection of agreementAcceptance entities.
-    /// </summary>
     public class GroupSetting : Entity, IParsable {
         /// <summary>Display name of this group of settings, which comes from the associated template.</summary>
         public string DisplayName {

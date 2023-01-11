@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the appCatalogs singleton.
-    /// </summary>
     public class AppCatalogs : Entity, IParsable {
         /// <summary>The teamsApps property</summary>
         public List<TeamsApp> TeamsApps {

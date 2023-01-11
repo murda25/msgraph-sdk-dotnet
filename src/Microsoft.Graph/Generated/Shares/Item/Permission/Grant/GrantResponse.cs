@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Shares.Item.Permission.Grant {
-    /// <summary>
-    /// Provides operations to call the grant method.
-    /// </summary>
     public class GrantResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
         public List<Microsoft.Graph.Models.Permission> Value {

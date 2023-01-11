@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<List<RichLongRunningOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
-        /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
+        /// <summary>The sharepointIds property</summary>
         public Microsoft.Graph.Models.SharepointIds SharepointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds>("sharepointIds"); }
             set { BackingStore?.Set("sharepointIds", value); }

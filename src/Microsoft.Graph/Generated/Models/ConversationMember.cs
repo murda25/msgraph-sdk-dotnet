@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the members property of the microsoft.graph.chat entity.
-    /// </summary>
     public class ConversationMember : Entity, IParsable {
         /// <summary>The display name of the user.</summary>
         public string DisplayName {

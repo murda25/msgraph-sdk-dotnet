@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the collection of agreementAcceptance entities.
-    /// </summary>
     public class Alert : Entity, IParsable {
         /// <summary>Name or alias of the activity group (attacker) this alert is attributed to.</summary>
         public string ActivityGroupName {

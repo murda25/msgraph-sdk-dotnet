@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Provides operations to manage the collection of agreementAcceptance entities.
-    /// </summary>
     public class RiskyUserHistoryItem : RiskyUser, IParsable {
         /// <summary>The activity related to user risk level change.</summary>
         public RiskUserActivity Activity {
