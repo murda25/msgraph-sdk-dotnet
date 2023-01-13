@@ -48,20 +48,23 @@ public class TokenProvider : IAccessTokenProvider
 Then create the `GraphServiceClient` as follows
 
 ```cs
-var accessTokenProvider = new BaseBearerTokenAuthenticationProvider(new TokenProvider());
-var graphServiceClient = new GraphServiceClient(accessTokenProvider);
+var authenticationProvider = new BaseBearerTokenAuthenticationProvider(new TokenProvider());
+var graphServiceClient = new GraphServiceClient(authenticationProvider);
 ```
+
+> Authentication using the graph client is no longer handled in the HttpClient middleware pipeline. Therefore, using the `GraphServiceClient(httpClient)` constructor will assume that the passed httpClient has already been configured to handle authentication in its pipeline. 
+Otherwise, passing an instance of `IAuthenticationProvider` to the constructor (`GraphServiceClient(httpClient, authenticationProvider)`) will make authenticated requests if the passed HttpClient is not already configured.
 
 ### Use of `RequestInformation` from Kiota in place of `IBaseRequest`
 The `RequestInformation` class is now used to represent requests in the SDK and the `IBaseRequest` is dropped. Using the fluent API, you can always get an instance of the `RequestInformation` as follows.
 
 ```cs
-// Get the requestInfomation to make a GET request
+// Get the requestInformation to make a GET request
 var requestInformation = graphServiceClient
                          .DirectoryObjects
                          .ToGetRequestInformation();
 
-// Get the requestInfomation to make a POST request
+// Get the requestInformation to make a POST request
 var requestInformation = graphServiceClient
                          .DirectoryObjects
                          .ToPostRequestInformation();
