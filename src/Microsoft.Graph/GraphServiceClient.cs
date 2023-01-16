@@ -32,12 +32,9 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="requestAdapter">The custom <see cref="IRequestAdapter"/> to be used for making requests</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public GraphServiceClient(IRequestAdapter requestAdapter, string baseUrl = null): base(requestAdapter)
+        public GraphServiceClient(IRequestAdapter requestAdapter, string baseUrl = null): base(InitializeRequestAdapterWithBaseUrl(requestAdapter,baseUrl))
         {
             this.RequestAdapter = requestAdapter;
-            if (!string.IsNullOrEmpty(baseUrl)) {
-                this.RequestAdapter.BaseUrl = baseUrl;
-            }
         }
 
         /// <summary>
@@ -94,6 +91,16 @@ namespace Microsoft.Graph
             {
                 return new BatchRequestBuilder(this.RequestAdapter);
             }
+        }
+        
+        private static IRequestAdapter InitializeRequestAdapterWithBaseUrl(IRequestAdapter requestAdapter, string baseUrl)
+        {
+            if (!string.IsNullOrEmpty(baseUrl))
+            {
+                requestAdapter.BaseUrl = baseUrl;
+            }
+
+            return requestAdapter;
         }
     }
 }
