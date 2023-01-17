@@ -8,7 +8,7 @@ namespace Microsoft.Graph.Models {
     /// Devices that are managed or pre-enrolled through Intune
     /// </summary>
     public class ManagedDevice : Entity, IParsable {
-        /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
+        /// <summary>The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string ActivationLockBypassCode {
             get { return BackingStore?.Get<string>("activationLockBypassCode"); }
             set { BackingStore?.Set("activationLockBypassCode", value); }
@@ -113,7 +113,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("enrolledDateTime"); }
             set { BackingStore?.Set("enrolledDateTime", value); }
         }
-        /// <summary>Ethernet MAC. This property is read-only.</summary>
+        /// <summary>Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
         public string EthernetMacAddress {
             get { return BackingStore?.Get<string>("ethernetMacAddress"); }
             set { BackingStore?.Set("ethernetMacAddress", value); }

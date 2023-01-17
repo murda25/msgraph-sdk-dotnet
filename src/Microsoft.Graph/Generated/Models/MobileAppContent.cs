@@ -8,6 +8,11 @@ namespace Microsoft.Graph.Models {
     /// Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.
     /// </summary>
     public class MobileAppContent : Entity, IParsable {
+        /// <summary>The collection of contained apps in a MobileLobApp acting as a package.</summary>
+        public List<MobileContainedApp> ContainedApps {
+            get { return BackingStore?.Get<List<MobileContainedApp>>("containedApps"); }
+            set { BackingStore?.Set("containedApps", value); }
+        }
         /// <summary>The list of files for this app content version.</summary>
         public List<MobileAppContentFile> Files {
             get { return BackingStore?.Get<List<MobileAppContentFile>>("files"); }
@@ -26,6 +31,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"containedApps", n => { ContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"files", n => { Files = n.GetCollectionOfObjectValues<MobileAppContentFile>(MobileAppContentFile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -36,6 +42,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<MobileContainedApp>("containedApps", ContainedApps);
             writer.WriteCollectionOfObjectValues<MobileAppContentFile>("files", Files);
         }
     }

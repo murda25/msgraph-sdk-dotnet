@@ -12,6 +12,7 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 ### Changed
 
 - Fixed a regression where passing custom base url would not be reflected in the requests.
+- Latest metadata updates from 17th January 2023 snapshot
 
 ## [5.0.0-rc.2] - 2023-01-11
 

@@ -33,6 +33,7 @@ namespace Microsoft.Graph.Models {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.joinMeetingIdMeetingInfo" => new JoinMeetingIdMeetingInfo(),
                 "#microsoft.graph.organizerMeetingInfo" => new OrganizerMeetingInfo(),
                 "#microsoft.graph.tokenMeetingInfo" => new TokenMeetingInfo(),
                 _ => new MeetingInfo(),

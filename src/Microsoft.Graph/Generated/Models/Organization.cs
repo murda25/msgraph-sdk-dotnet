@@ -75,6 +75,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
         }
+        /// <summary>The partnerTenantType property</summary>
+        public Microsoft.Graph.Models.PartnerTenantType? PartnerTenantType {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.PartnerTenantType?>("partnerTenantType"); }
+            set { BackingStore?.Set("partnerTenantType", value); }
+        }
         /// <summary>Postal code of the address for the organization.</summary>
         public string PostalCode {
             get { return BackingStore?.Get<string>("postalCode"); }
@@ -163,6 +168,7 @@ namespace Microsoft.Graph.Models {
                 {"mobileDeviceManagementAuthority", n => { MobileDeviceManagementAuthority = n.GetEnumValue<MdmAuthority>(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
+                {"partnerTenantType", n => { PartnerTenantType = n.GetEnumValue<PartnerTenantType>(); } },
                 {"postalCode", n => { PostalCode = n.GetStringValue(); } },
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 {"privacyProfile", n => { PrivacyProfile = n.GetObjectValue<Microsoft.Graph.Models.PrivacyProfile>(Microsoft.Graph.Models.PrivacyProfile.CreateFromDiscriminatorValue); } },
@@ -197,6 +203,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", MobileDeviceManagementAuthority);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);
+            writer.WriteEnumValue<PartnerTenantType>("partnerTenantType", PartnerTenantType);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteObjectValue<Microsoft.Graph.Models.PrivacyProfile>("privacyProfile", PrivacyProfile);

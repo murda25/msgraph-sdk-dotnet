@@ -85,6 +85,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<ItemBody>("joinInformation"); }
             set { BackingStore?.Set("joinInformation", value); }
         }
+        /// <summary>Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.</summary>
+        public Microsoft.Graph.Models.JoinMeetingIdSettings JoinMeetingIdSettings {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.JoinMeetingIdSettings>("joinMeetingIdSettings"); }
+            set { BackingStore?.Set("joinMeetingIdSettings", value); }
+        }
         /// <summary>The join URL of the online meeting. Read-only.</summary>
         public string JoinWebUrl {
             get { return BackingStore?.Get<string>("joinWebUrl"); }
@@ -149,6 +154,7 @@ namespace Microsoft.Graph.Models {
                 {"isBroadcast", n => { IsBroadcast = n.GetBoolValue(); } },
                 {"isEntryExitAnnounced", n => { IsEntryExitAnnounced = n.GetBoolValue(); } },
                 {"joinInformation", n => { JoinInformation = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                {"joinMeetingIdSettings", n => { JoinMeetingIdSettings = n.GetObjectValue<Microsoft.Graph.Models.JoinMeetingIdSettings>(Microsoft.Graph.Models.JoinMeetingIdSettings.CreateFromDiscriminatorValue); } },
                 {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
                 {"lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<Microsoft.Graph.Models.LobbyBypassSettings>(Microsoft.Graph.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
                 {"participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
@@ -181,6 +187,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("isBroadcast", IsBroadcast);
             writer.WriteBoolValue("isEntryExitAnnounced", IsEntryExitAnnounced);
             writer.WriteObjectValue<ItemBody>("joinInformation", JoinInformation);
+            writer.WriteObjectValue<Microsoft.Graph.Models.JoinMeetingIdSettings>("joinMeetingIdSettings", JoinMeetingIdSettings);
             writer.WriteStringValue("joinWebUrl", JoinWebUrl);
             writer.WriteObjectValue<Microsoft.Graph.Models.LobbyBypassSettings>("lobbyBypassSettings", LobbyBypassSettings);
             writer.WriteObjectValue<MeetingParticipants>("participants", Participants);
