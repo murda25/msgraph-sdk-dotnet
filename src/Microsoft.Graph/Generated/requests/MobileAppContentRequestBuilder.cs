@@ -51,6 +51,18 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the request builder for ContainedApps.
+        /// </summary>
+        /// <returns>The <see cref="IMobileAppContentContainedAppsCollectionRequestBuilder"/>.</returns>
+        public IMobileAppContentContainedAppsCollectionRequestBuilder ContainedApps
+        {
+            get
+            {
+                return new MobileAppContentContainedAppsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("containedApps"), this.Client);
+            }
+        }
+
+        /// <summary>
         /// Gets the request builder for Files.
         /// </summary>
         /// <returns>The <see cref="IMobileAppContentFilesCollectionRequestBuilder"/>.</returns>

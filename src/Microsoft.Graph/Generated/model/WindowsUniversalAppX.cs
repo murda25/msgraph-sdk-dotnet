@@ -85,6 +85,20 @@ namespace Microsoft.Graph
         [JsonPropertyName("minimumSupportedOperatingSystem")]
         public WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
     
+        /// <summary>
+        /// Gets or sets committed contained apps.
+        /// The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+        /// </summary>
+        [JsonPropertyName("committedContainedApps")]
+        public IWindowsUniversalAppXCommittedContainedAppsCollectionPage CommittedContainedApps { get; set; }
+
+        /// <summary>
+        /// Gets or sets committedContainedAppsNextLink.
+        /// </summary>
+        [JsonPropertyName("committedContainedApps@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string CommittedContainedAppsNextLink { get; set; }
+    
     }
 }
 

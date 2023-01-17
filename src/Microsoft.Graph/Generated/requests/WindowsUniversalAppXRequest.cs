@@ -244,6 +244,18 @@ namespace Microsoft.Graph
         private void InitializeCollectionProperties(WindowsUniversalAppX windowsUniversalAppXToInitialize)
         {
 
+            if (windowsUniversalAppXToInitialize != null)
+            {
+                if (windowsUniversalAppXToInitialize.CommittedContainedApps != null && windowsUniversalAppXToInitialize.CommittedContainedApps.CurrentPage != null)
+                {
+                    windowsUniversalAppXToInitialize.CommittedContainedApps.InitializeNextPageRequest(this.Client, windowsUniversalAppXToInitialize.CommittedContainedAppsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    windowsUniversalAppXToInitialize.CommittedContainedApps.AdditionalData = windowsUniversalAppXToInitialize.AdditionalData;
+                }
+
+            }
+
+
         }
     }
 }

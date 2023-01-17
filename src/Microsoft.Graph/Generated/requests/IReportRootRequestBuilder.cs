@@ -16,20 +16,20 @@ namespace Microsoft.Graph
     /// <summary>
     /// The interface IReportRootRequestBuilder.
     /// </summary>
-    public partial interface IReportRootRequestBuilder : IEntityRequestBuilder
+    public partial interface IReportRootRequestBuilder : IBaseRequestBuilder
     {
         /// <summary>
         /// Builds the request.
         /// </summary>
         /// <returns>The built request.</returns>
-        new IReportRootRequest Request();
+        IReportRootRequest Request();
 
         /// <summary>
         /// Builds the request.
         /// </summary>
         /// <param name="options">The query and header options for the request.</param>
         /// <returns>The built request.</returns>
-        new IReportRootRequest Request(IEnumerable<Option> options);
+        IReportRootRequest Request(IEnumerable<Option> options);
     
         /// <summary>
         /// Gets the request builder for DailyPrintUsageByPrinter.

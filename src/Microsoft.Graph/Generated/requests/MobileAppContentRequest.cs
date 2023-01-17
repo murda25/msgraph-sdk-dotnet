@@ -246,6 +246,12 @@ namespace Microsoft.Graph
 
             if (mobileAppContentToInitialize != null)
             {
+                if (mobileAppContentToInitialize.ContainedApps != null && mobileAppContentToInitialize.ContainedApps.CurrentPage != null)
+                {
+                    mobileAppContentToInitialize.ContainedApps.InitializeNextPageRequest(this.Client, mobileAppContentToInitialize.ContainedAppsNextLink);
+                    // Copy the additional data collection to the page itself so that information is not lost
+                    mobileAppContentToInitialize.ContainedApps.AdditionalData = mobileAppContentToInitialize.AdditionalData;
+                }
                 if (mobileAppContentToInitialize.Files != null && mobileAppContentToInitialize.Files.CurrentPage != null)
                 {
                     mobileAppContentToInitialize.Files.InitializeNextPageRequest(this.Client, mobileAppContentToInitialize.FilesNextLink);

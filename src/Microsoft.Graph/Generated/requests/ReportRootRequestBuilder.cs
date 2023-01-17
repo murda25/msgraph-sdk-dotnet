@@ -16,7 +16,7 @@ namespace Microsoft.Graph
     /// <summary>
     /// The type ReportRootRequestBuilder.
     /// </summary>
-    public partial class ReportRootRequestBuilder : EntityRequestBuilder, IReportRootRequestBuilder
+    public partial class ReportRootRequestBuilder : BaseRequestBuilder, IReportRootRequestBuilder
     {
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Microsoft.Graph
         /// Builds the request.
         /// </summary>
         /// <returns>The built request.</returns>
-        public new IReportRootRequest Request()
+        public IReportRootRequest Request()
         {
             return this.Request(null);
         }
@@ -45,7 +45,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="options">The query and header options for the request.</param>
         /// <returns>The built request.</returns>
-        public new IReportRootRequest Request(IEnumerable<Option> options)
+        public IReportRootRequest Request(IEnumerable<Option> options)
         {
             return new ReportRootRequest(this.RequestUrl, this.Client, options);
         }
