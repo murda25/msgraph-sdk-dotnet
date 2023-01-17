@@ -59,8 +59,8 @@ namespace Microsoft.Graph.IdentityProtection.RiskyUsers.Item.History {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get the riskyUserHistoryItems from the history navigation property.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0" />
+        /// Read the properties and relationships of a riskyUserHistoryItem object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.IdentityProtection.RiskyUsers.Item.History {
             return await RequestAdapter.SendAsync<RiskyUserHistoryItem>(requestInfo, RiskyUserHistoryItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get the riskyUserHistoryItems from the history navigation property.
+        /// Read the properties and relationships of a riskyUserHistoryItem object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation ToGetRequestInformation(Action<HistoryRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
@@ -130,7 +130,7 @@ namespace Microsoft.Graph.IdentityProtection.RiskyUsers.Item.History {
             return requestInfo;
         }
         /// <summary>
-        /// Get the riskyUserHistoryItems from the history navigation property.
+        /// Read the properties and relationships of a riskyUserHistoryItem object.
         /// </summary>
         public class HistoryRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

@@ -955,7 +955,7 @@ namespace Microsoft.Graph.Reports {
         /// <summary>
         /// Update reports
         /// </summary>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The resource that represents an instance of Enrollment Failure Reports.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public async Task<ReportRoot> PatchAsync(ReportRoot body, Action<ReportsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -990,7 +990,7 @@ namespace Microsoft.Graph.Reports {
         /// <summary>
         /// Update reports
         /// </summary>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The resource that represents an instance of Enrollment Failure Reports.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         public RequestInformation ToPatchRequestInformation(ReportRoot body, Action<ReportsRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));

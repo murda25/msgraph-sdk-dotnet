@@ -9,6 +9,7 @@ using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationSettingNonComplia
 using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingContributingProfiles;
 using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDevicesWithoutCompliancePolicyReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetHistoricalReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetNoncompliantDevicesAndSettingsReport;
 using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceMetadata;
@@ -74,6 +75,10 @@ namespace Microsoft.Graph.DeviceManagement.Reports {
         /// <summary>Provides operations to call the getDeviceNonComplianceReport method.</summary>
         public GetDeviceNonComplianceReportRequestBuilder GetDeviceNonComplianceReport { get =>
             new GetDeviceNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getDevicesWithoutCompliancePolicyReport method.</summary>
+        public GetDevicesWithoutCompliancePolicyReportRequestBuilder GetDevicesWithoutCompliancePolicyReport { get =>
+            new GetDevicesWithoutCompliancePolicyReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getHistoricalReport method.</summary>
         public GetHistoricalReportRequestBuilder GetHistoricalReport { get =>

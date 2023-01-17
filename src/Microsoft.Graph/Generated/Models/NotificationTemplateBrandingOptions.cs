@@ -9,6 +9,8 @@ namespace Microsoft.Graph.Models {
         IncludeCompanyName,
         /// <summary>Include Contact Info.</summary>
         IncludeContactInformation,
+        /// <summary>Include Company Portal Link.</summary>
+        IncludeCompanyPortalLink,
         /// <summary>Include Device Details.</summary>
         IncludeDeviceDetails,
     }

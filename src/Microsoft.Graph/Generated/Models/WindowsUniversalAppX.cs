@@ -15,6 +15,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WindowsDeviceType?>("applicableDeviceTypes"); }
             set { BackingStore?.Set("applicableDeviceTypes", value); }
         }
+        /// <summary>The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.</summary>
+        public List<MobileContainedApp> CommittedContainedApps {
+            get { return BackingStore?.Get<List<MobileContainedApp>>("committedContainedApps"); }
+            set { BackingStore?.Set("committedContainedApps", value); }
+        }
         /// <summary>The Identity Name.</summary>
         public string IdentityName {
             get { return BackingStore?.Get<string>("identityName"); }
@@ -66,6 +71,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
                 {"applicableDeviceTypes", n => { ApplicableDeviceTypes = n.GetEnumValue<WindowsDeviceType>(); } },
+                {"committedContainedApps", n => { CommittedContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"identityName", n => { IdentityName = n.GetStringValue(); } },
                 {"identityPublisherHash", n => { IdentityPublisherHash = n.GetStringValue(); } },
                 {"identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
@@ -83,6 +89,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteEnumValue<WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);
             writer.WriteEnumValue<WindowsDeviceType>("applicableDeviceTypes", ApplicableDeviceTypes);
+            writer.WriteCollectionOfObjectValues<MobileContainedApp>("committedContainedApps", CommittedContainedApps);
             writer.WriteStringValue("identityName", IdentityName);
             writer.WriteStringValue("identityPublisherHash", IdentityPublisherHash);
             writer.WriteStringValue("identityResourceIdentifier", IdentityResourceIdentifier);
