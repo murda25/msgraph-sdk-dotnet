@@ -32,6 +32,12 @@ namespace Microsoft.Graph
         new IMobileAppContentRequest Request(IEnumerable<Option> options);
     
         /// <summary>
+        /// Gets the request builder for ContainedApps.
+        /// </summary>
+        /// <returns>The <see cref="IMobileAppContentContainedAppsCollectionRequestBuilder"/>.</returns>
+        IMobileAppContentContainedAppsCollectionRequestBuilder ContainedApps { get; }
+
+        /// <summary>
         /// Gets the request builder for Files.
         /// </summary>
         /// <returns>The <see cref="IMobileAppContentFilesCollectionRequestBuilder"/>.</returns>

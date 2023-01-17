@@ -21,6 +21,20 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets contained apps.
+        /// The collection of contained apps in a MobileLobApp acting as a package.
+        /// </summary>
+        [JsonPropertyName("containedApps")]
+        public IMobileAppContentContainedAppsCollectionPage ContainedApps { get; set; }
+
+        /// <summary>
+        /// Gets or sets containedAppsNextLink.
+        /// </summary>
+        [JsonPropertyName("containedApps@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string ContainedAppsNextLink { get; set; }
+    
+        /// <summary>
         /// Gets or sets files.
         /// The list of files for this app content version.
         /// </summary>

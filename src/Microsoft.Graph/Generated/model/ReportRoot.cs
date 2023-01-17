@@ -17,7 +17,8 @@ namespace Microsoft.Graph
     /// <summary>
     /// The type Report Root.
     /// </summary>
-    public partial class ReportRoot : Entity
+    [JsonConverter(typeof(DerivedTypeConverter<ReportRoot>))]
+    public partial class ReportRoot
     {
     
         /// <summary>
@@ -77,6 +78,18 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("security")]
         public SecurityReportsRoot Security { get; set; }
+    
+        /// <summary>
+        /// Gets or sets @odata.type.
+        /// </summary>
+        [JsonPropertyName("@odata.type")]
+        public string ODataType { get; set; }
+
+        /// <summary>
+        /// Gets or sets additional data.
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; }
     
     }
 }

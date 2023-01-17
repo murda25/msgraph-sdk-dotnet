@@ -126,6 +126,13 @@ namespace Microsoft.Graph
         public ItemBody JoinInformation { get; set; }
     
         /// <summary>
+        /// Gets or sets join meeting id settings.
+        /// Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
+        /// </summary>
+        [JsonPropertyName("joinMeetingIdSettings")]
+        public JoinMeetingIdSettings JoinMeetingIdSettings { get; set; }
+    
+        /// <summary>
         /// Gets or sets join web url.
         /// The join URL of the online meeting. Read-only.
         /// </summary>
