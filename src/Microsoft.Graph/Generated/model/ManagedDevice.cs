@@ -23,7 +23,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets activation lock bypass code.
-        /// Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+        /// The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("activationLockBypassCode")]
         public string ActivationLockBypassCode { get; set; }
@@ -149,7 +149,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets ethernet mac address.
-        /// Ethernet MAC. This property is read-only.
+        /// Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
         /// </summary>
         [JsonPropertyName("ethernetMacAddress")]
         public string EthernetMacAddress { get; set; }

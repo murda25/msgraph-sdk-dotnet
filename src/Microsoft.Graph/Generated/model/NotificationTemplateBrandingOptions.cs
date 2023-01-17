@@ -41,6 +41,11 @@ namespace Microsoft.Graph
         IncludeContactInformation = 4,
 	
         /// <summary>
+        /// Include Company Portal Link
+        /// </summary>
+        IncludeCompanyPortalLink = 8,
+	
+        /// <summary>
         /// Include Device Details
         /// </summary>
         IncludeDeviceDetails = 16,
