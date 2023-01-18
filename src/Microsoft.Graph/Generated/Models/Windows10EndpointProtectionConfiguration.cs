@@ -76,35 +76,77 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("bitLockerEncryptDevice", value); }
         }
         /// <summary>BitLocker Removable Drive Policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.BitLockerRemovableDrivePolicy? BitLockerRemovableDrivePolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.BitLockerRemovableDrivePolicy?>("bitLockerRemovableDrivePolicy"); }
+            set { BackingStore?.Set("bitLockerRemovableDrivePolicy", value); }
+        }
+#else
         public Microsoft.Graph.Models.BitLockerRemovableDrivePolicy BitLockerRemovableDrivePolicy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy"); }
             set { BackingStore?.Set("bitLockerRemovableDrivePolicy", value); }
         }
+#endif
         /// <summary>List of folder paths to be added to the list of protected folders</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? DefenderAdditionalGuardedFolders {
+            get { return BackingStore?.Get<List<string>?>("defenderAdditionalGuardedFolders"); }
+            set { BackingStore?.Set("defenderAdditionalGuardedFolders", value); }
+        }
+#else
         public List<string> DefenderAdditionalGuardedFolders {
             get { return BackingStore?.Get<List<string>>("defenderAdditionalGuardedFolders"); }
             set { BackingStore?.Set("defenderAdditionalGuardedFolders", value); }
         }
+#endif
         /// <summary>List of exe files and folders to be excluded from attack surface reduction rules</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? DefenderAttackSurfaceReductionExcludedPaths {
+            get { return BackingStore?.Get<List<string>?>("defenderAttackSurfaceReductionExcludedPaths"); }
+            set { BackingStore?.Set("defenderAttackSurfaceReductionExcludedPaths", value); }
+        }
+#else
         public List<string> DefenderAttackSurfaceReductionExcludedPaths {
             get { return BackingStore?.Get<List<string>>("defenderAttackSurfaceReductionExcludedPaths"); }
             set { BackingStore?.Set("defenderAttackSurfaceReductionExcludedPaths", value); }
         }
+#endif
         /// <summary>Xml content containing information regarding exploit protection details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public byte[]? DefenderExploitProtectionXml {
+            get { return BackingStore?.Get<byte[]?>("defenderExploitProtectionXml"); }
+            set { BackingStore?.Set("defenderExploitProtectionXml", value); }
+        }
+#else
         public byte[] DefenderExploitProtectionXml {
             get { return BackingStore?.Get<byte[]>("defenderExploitProtectionXml"); }
             set { BackingStore?.Set("defenderExploitProtectionXml", value); }
         }
+#endif
         /// <summary>Name of the file from which DefenderExploitProtectionXml was obtained.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DefenderExploitProtectionXmlFileName {
+            get { return BackingStore?.Get<string?>("defenderExploitProtectionXmlFileName"); }
+            set { BackingStore?.Set("defenderExploitProtectionXmlFileName", value); }
+        }
+#else
         public string DefenderExploitProtectionXmlFileName {
             get { return BackingStore?.Get<string>("defenderExploitProtectionXmlFileName"); }
             set { BackingStore?.Set("defenderExploitProtectionXmlFileName", value); }
         }
+#endif
         /// <summary>List of paths to exe that are allowed to access protected folders</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? DefenderGuardedFoldersAllowedAppPaths {
+            get { return BackingStore?.Get<List<string>?>("defenderGuardedFoldersAllowedAppPaths"); }
+            set { BackingStore?.Set("defenderGuardedFoldersAllowedAppPaths", value); }
+        }
+#else
         public List<string> DefenderGuardedFoldersAllowedAppPaths {
             get { return BackingStore?.Get<List<string>>("defenderGuardedFoldersAllowedAppPaths"); }
             set { BackingStore?.Set("defenderGuardedFoldersAllowedAppPaths", value); }
         }
+#endif
         /// <summary>Indicates whether or not to block user from overriding Exploit Protection settings.</summary>
         public bool? DefenderSecurityCenterBlockExploitProtectionOverride {
             get { return BackingStore?.Get<bool?>("defenderSecurityCenterBlockExploitProtectionOverride"); }
@@ -161,20 +203,41 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("firewallPreSharedKeyEncodingMethod", value); }
         }
         /// <summary>Configures the firewall profile settings for domain networks</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public WindowsFirewallNetworkProfile? FirewallProfileDomain {
+            get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfileDomain"); }
+            set { BackingStore?.Set("firewallProfileDomain", value); }
+        }
+#else
         public WindowsFirewallNetworkProfile FirewallProfileDomain {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfileDomain"); }
             set { BackingStore?.Set("firewallProfileDomain", value); }
         }
+#endif
         /// <summary>Configures the firewall profile settings for private networks</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public WindowsFirewallNetworkProfile? FirewallProfilePrivate {
+            get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfilePrivate"); }
+            set { BackingStore?.Set("firewallProfilePrivate", value); }
+        }
+#else
         public WindowsFirewallNetworkProfile FirewallProfilePrivate {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfilePrivate"); }
             set { BackingStore?.Set("firewallProfilePrivate", value); }
         }
+#endif
         /// <summary>Configures the firewall profile settings for public networks</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public WindowsFirewallNetworkProfile? FirewallProfilePublic {
+            get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfilePublic"); }
+            set { BackingStore?.Set("firewallProfilePublic", value); }
+        }
+#else
         public WindowsFirewallNetworkProfile FirewallProfilePublic {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfilePublic"); }
             set { BackingStore?.Set("firewallProfilePublic", value); }
         }
+#endif
         /// <summary>Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.</summary>
         public bool? SmartScreenBlockOverrideForFiles {
             get { return BackingStore?.Get<bool?>("smartScreenBlockOverrideForFiles"); }

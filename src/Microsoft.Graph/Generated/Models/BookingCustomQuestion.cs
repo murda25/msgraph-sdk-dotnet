@@ -14,15 +14,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("answerInputType", value); }
         }
         /// <summary>List of possible answer values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? AnswerOptions {
+            get { return BackingStore?.Get<List<string>?>("answerOptions"); }
+            set { BackingStore?.Set("answerOptions", value); }
+        }
+#else
         public List<string> AnswerOptions {
             get { return BackingStore?.Get<List<string>>("answerOptions"); }
             set { BackingStore?.Set("answerOptions", value); }
         }
+#endif
         /// <summary>The question.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

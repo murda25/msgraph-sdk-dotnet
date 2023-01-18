@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AppCatalogs : Entity, IParsable {
         /// <summary>The teamsApps property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<TeamsApp>? TeamsApps {
+            get { return BackingStore?.Get<List<TeamsApp>?>("teamsApps"); }
+            set { BackingStore?.Set("teamsApps", value); }
+        }
+#else
         public List<TeamsApp> TeamsApps {
             get { return BackingStore?.Get<List<TeamsApp>>("teamsApps"); }
             set { BackingStore?.Set("teamsApps", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

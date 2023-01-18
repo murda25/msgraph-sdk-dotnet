@@ -14,15 +14,29 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>A container for service communications resources. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ServiceAnnouncement? ServiceAnnouncement {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ServiceAnnouncement?>("serviceAnnouncement"); }
+            set { BackingStore?.Set("serviceAnnouncement", value); }
+        }
+#else
         public Microsoft.Graph.Models.ServiceAnnouncement ServiceAnnouncement {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ServiceAnnouncement>("serviceAnnouncement"); }
             set { BackingStore?.Set("serviceAnnouncement", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new Admin and sets the default values.
         /// </summary>

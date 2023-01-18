@@ -6,25 +6,53 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppDisplayName {
+            get { return BackingStore?.Get<string?>("appDisplayName"); }
+            set { BackingStore?.Set("appDisplayName", value); }
+        }
+#else
         public string AppDisplayName {
             get { return BackingStore?.Get<string>("appDisplayName"); }
             set { BackingStore?.Set("appDisplayName", value); }
         }
+#endif
         /// <summary>The identifier of the application. Required. Supports $filter (eq only) and $orderby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppId {
+            get { return BackingStore?.Get<string?>("appId"); }
+            set { BackingStore?.Set("appId", value); }
+        }
+#else
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
+#endif
         /// <summary>A list of pending scopes waiting for approval. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AppConsentRequestScope>? PendingScopes {
+            get { return BackingStore?.Get<List<AppConsentRequestScope>?>("pendingScopes"); }
+            set { BackingStore?.Set("pendingScopes", value); }
+        }
+#else
         public List<AppConsentRequestScope> PendingScopes {
             get { return BackingStore?.Get<List<AppConsentRequestScope>>("pendingScopes"); }
             set { BackingStore?.Set("pendingScopes", value); }
         }
+#endif
         /// <summary>A list of pending user consent requests. Supports $filter (eq).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UserConsentRequest>? UserConsentRequests {
+            get { return BackingStore?.Get<List<UserConsentRequest>?>("userConsentRequests"); }
+            set { BackingStore?.Set("userConsentRequests", value); }
+        }
+#else
         public List<UserConsentRequest> UserConsentRequests {
             get { return BackingStore?.Get<List<UserConsentRequest>>("userConsentRequests"); }
             set { BackingStore?.Set("userConsentRequests", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

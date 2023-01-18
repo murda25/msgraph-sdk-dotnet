@@ -19,15 +19,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>The content of the service issue post. The supported value for the contentType property is html.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ItemBody? Description {
+            get { return BackingStore?.Get<ItemBody?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public ItemBody Description {
             get { return BackingStore?.Get<ItemBody>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.PostType? PostType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PostType?>("postType"); }

@@ -6,30 +6,58 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RoleDefinition : Entity, IParsable {
         /// <summary>Description of the Role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>Display Name of the Role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.</summary>
         public bool? IsBuiltIn {
             get { return BackingStore?.Get<bool?>("isBuiltIn"); }
             set { BackingStore?.Set("isBuiltIn", value); }
         }
         /// <summary>List of Role assignments for this role definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<RoleAssignment>? RoleAssignments {
+            get { return BackingStore?.Get<List<RoleAssignment>?>("roleAssignments"); }
+            set { BackingStore?.Set("roleAssignments", value); }
+        }
+#else
         public List<RoleAssignment> RoleAssignments {
             get { return BackingStore?.Get<List<RoleAssignment>>("roleAssignments"); }
             set { BackingStore?.Set("roleAssignments", value); }
         }
+#endif
         /// <summary>List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<RolePermission>? RolePermissions {
+            get { return BackingStore?.Get<List<RolePermission>?>("rolePermissions"); }
+            set { BackingStore?.Set("rolePermissions", value); }
+        }
+#else
         public List<RolePermission> RolePermissions {
             get { return BackingStore?.Get<List<RolePermission>>("rolePermissions"); }
             set { BackingStore?.Set("rolePermissions", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

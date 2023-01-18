@@ -6,30 +6,65 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Endpoint : DirectoryObject, IParsable {
         /// <summary>The capability property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Capability {
+            get { return BackingStore?.Get<string?>("capability"); }
+            set { BackingStore?.Set("capability", value); }
+        }
+#else
         public string Capability {
             get { return BackingStore?.Get<string>("capability"); }
             set { BackingStore?.Set("capability", value); }
         }
+#endif
         /// <summary>The providerId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProviderId {
+            get { return BackingStore?.Get<string?>("providerId"); }
+            set { BackingStore?.Set("providerId", value); }
+        }
+#else
         public string ProviderId {
             get { return BackingStore?.Get<string>("providerId"); }
             set { BackingStore?.Set("providerId", value); }
         }
+#endif
         /// <summary>The providerName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProviderName {
+            get { return BackingStore?.Get<string?>("providerName"); }
+            set { BackingStore?.Set("providerName", value); }
+        }
+#else
         public string ProviderName {
             get { return BackingStore?.Get<string>("providerName"); }
             set { BackingStore?.Set("providerName", value); }
         }
+#endif
         /// <summary>The providerResourceId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProviderResourceId {
+            get { return BackingStore?.Get<string?>("providerResourceId"); }
+            set { BackingStore?.Set("providerResourceId", value); }
+        }
+#else
         public string ProviderResourceId {
             get { return BackingStore?.Get<string>("providerResourceId"); }
             set { BackingStore?.Set("providerResourceId", value); }
         }
+#endif
         /// <summary>The uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Uri {
+            get { return BackingStore?.Get<string?>("uri"); }
+            set { BackingStore?.Set("uri", value); }
+        }
+#else
         public string Uri {
             get { return BackingStore?.Get<string>("uri"); }
             set { BackingStore?.Set("uri", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new endpoint and sets the default values.
         /// </summary>

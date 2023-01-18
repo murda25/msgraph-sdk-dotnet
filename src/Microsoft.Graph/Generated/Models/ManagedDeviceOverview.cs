@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ManagedDeviceOverview : Entity, IParsable {
         /// <summary>Distribution of Exchange Access State in Intune</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.DeviceExchangeAccessStateSummary? DeviceExchangeAccessStateSummary {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceExchangeAccessStateSummary?>("deviceExchangeAccessStateSummary"); }
+            set { BackingStore?.Set("deviceExchangeAccessStateSummary", value); }
+        }
+#else
         public Microsoft.Graph.Models.DeviceExchangeAccessStateSummary DeviceExchangeAccessStateSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceExchangeAccessStateSummary>("deviceExchangeAccessStateSummary"); }
             set { BackingStore?.Set("deviceExchangeAccessStateSummary", value); }
         }
+#endif
         /// <summary>Device operating system summary.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.DeviceOperatingSystemSummary? DeviceOperatingSystemSummary {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceOperatingSystemSummary?>("deviceOperatingSystemSummary"); }
+            set { BackingStore?.Set("deviceOperatingSystemSummary", value); }
+        }
+#else
         public Microsoft.Graph.Models.DeviceOperatingSystemSummary DeviceOperatingSystemSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceOperatingSystemSummary>("deviceOperatingSystemSummary"); }
             set { BackingStore?.Set("deviceOperatingSystemSummary", value); }
         }
+#endif
         /// <summary>The number of devices enrolled in both MDM and EAS</summary>
         public int? DualEnrolledDeviceCount {
             get { return BackingStore?.Get<int?>("dualEnrolledDeviceCount"); }

@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Teamwork : Entity, IParsable {
         /// <summary>The workforceIntegrations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<WorkforceIntegration>? WorkforceIntegrations {
+            get { return BackingStore?.Get<List<WorkforceIntegration>?>("workforceIntegrations"); }
+            set { BackingStore?.Set("workforceIntegrations", value); }
+        }
+#else
         public List<WorkforceIntegration> WorkforceIntegrations {
             get { return BackingStore?.Get<List<WorkforceIntegration>>("workforceIntegrations"); }
             set { BackingStore?.Set("workforceIntegrations", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

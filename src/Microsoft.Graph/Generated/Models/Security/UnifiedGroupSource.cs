@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models.Security {
     public class UnifiedGroupSource : DataSource, IParsable {
         /// <summary>The group property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.Group? Group {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Group?>("group"); }
+            set { BackingStore?.Set("group", value); }
+        }
+#else
         public Microsoft.Graph.Models.Group Group {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Group>("group"); }
             set { BackingStore?.Set("group", value); }
         }
+#endif
         /// <summary>Specifies which sources are included in this group. Possible values are: mailbox, site.</summary>
         public SourceType? IncludedSources {
             get { return BackingStore?.Get<SourceType?>("includedSources"); }

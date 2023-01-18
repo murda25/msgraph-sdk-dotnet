@@ -15,10 +15,17 @@ namespace Microsoft.Graph.DeviceManagement.ManagedDevices.Item.UpdateWindowsDevi
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The updateWindowsDeviceAccountActionParameter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter? UpdateWindowsDeviceAccountActionParameter {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter?>("updateWindowsDeviceAccountActionParameter"); }
+            set { BackingStore?.Set("updateWindowsDeviceAccountActionParameter", value); }
+        }
+#else
         public Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter UpdateWindowsDeviceAccountActionParameter {
             get { return BackingStore?.Get<Microsoft.Graph.Models.UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter"); }
             set { BackingStore?.Set("updateWindowsDeviceAccountActionParameter", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new updateWindowsDeviceAccountPostRequestBody and sets the default values.
         /// </summary>

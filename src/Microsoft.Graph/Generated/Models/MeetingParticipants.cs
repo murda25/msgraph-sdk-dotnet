@@ -12,22 +12,43 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The attendees property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MeetingParticipantInfo>? Attendees {
+            get { return BackingStore?.Get<List<MeetingParticipantInfo>?>("attendees"); }
+            set { BackingStore?.Set("attendees", value); }
+        }
+#else
         public List<MeetingParticipantInfo> Attendees {
             get { return BackingStore?.Get<List<MeetingParticipantInfo>>("attendees"); }
             set { BackingStore?.Set("attendees", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The organizer property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public MeetingParticipantInfo? Organizer {
+            get { return BackingStore?.Get<MeetingParticipantInfo?>("organizer"); }
+            set { BackingStore?.Set("organizer", value); }
+        }
+#else
         public MeetingParticipantInfo Organizer {
             get { return BackingStore?.Get<MeetingParticipantInfo>("organizer"); }
             set { BackingStore?.Set("organizer", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new meetingParticipants and sets the default values.
         /// </summary>

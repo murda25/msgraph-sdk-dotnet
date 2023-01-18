@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ParticipantJoiningNotification : Entity, IParsable {
         /// <summary>The call property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.Call? Call {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Call?>("call"); }
+            set { BackingStore?.Set("call", value); }
+        }
+#else
         public Microsoft.Graph.Models.Call Call {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Call>("call"); }
             set { BackingStore?.Set("call", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

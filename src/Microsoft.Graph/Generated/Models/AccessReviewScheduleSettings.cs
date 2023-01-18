@@ -12,10 +12,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AccessReviewApplyAction>? ApplyActions {
+            get { return BackingStore?.Get<List<AccessReviewApplyAction>?>("applyActions"); }
+            set { BackingStore?.Set("applyActions", value); }
+        }
+#else
         public List<AccessReviewApplyAction> ApplyActions {
             get { return BackingStore?.Get<List<AccessReviewApplyAction>>("applyActions"); }
             set { BackingStore?.Set("applyActions", value); }
         }
+#endif
         /// <summary>Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</summary>
         public bool? AutoApplyDecisionsEnabled {
             get { return BackingStore?.Get<bool?>("autoApplyDecisionsEnabled"); }
@@ -29,10 +36,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("decisionHistoriesForReviewersEnabled", value); }
         }
         /// <summary>Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DefaultDecision {
+            get { return BackingStore?.Get<string?>("defaultDecision"); }
+            set { BackingStore?.Set("defaultDecision", value); }
+        }
+#else
         public string DefaultDecision {
             get { return BackingStore?.Get<string>("defaultDecision"); }
             set { BackingStore?.Set("defaultDecision", value); }
         }
+#endif
         /// <summary>Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.</summary>
         public bool? DefaultDecisionEnabled {
             get { return BackingStore?.Get<bool?>("defaultDecisionEnabled"); }
@@ -54,20 +68,34 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mailNotificationsEnabled", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.</summary>
         public bool? RecommendationsEnabled {
             get { return BackingStore?.Get<bool?>("recommendationsEnabled"); }
             set { BackingStore?.Set("recommendationsEnabled", value); }
         }
         /// <summary>Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PatternedRecurrence? Recurrence {
+            get { return BackingStore?.Get<PatternedRecurrence?>("recurrence"); }
+            set { BackingStore?.Set("recurrence", value); }
+        }
+#else
         public PatternedRecurrence Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence>("recurrence"); }
             set { BackingStore?.Set("recurrence", value); }
         }
+#endif
         /// <summary>Indicates whether reminders are enabled or disabled. Default value is false.</summary>
         public bool? ReminderNotificationsEnabled {
             get { return BackingStore?.Get<bool?>("reminderNotificationsEnabled"); }

@@ -11,15 +11,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("licenseType", value); }
         }
         /// <summary>The app package identifier</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? PackageIdentityName {
+            get { return BackingStore?.Get<string?>("packageIdentityName"); }
+            set { BackingStore?.Set("packageIdentityName", value); }
+        }
+#else
         public string PackageIdentityName {
             get { return BackingStore?.Get<string>("packageIdentityName"); }
             set { BackingStore?.Set("packageIdentityName", value); }
         }
+#endif
         /// <summary>The app product key</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProductKey {
+            get { return BackingStore?.Get<string?>("productKey"); }
+            set { BackingStore?.Set("productKey", value); }
+        }
+#else
         public string ProductKey {
             get { return BackingStore?.Get<string>("productKey"); }
             set { BackingStore?.Set("productKey", value); }
         }
+#endif
         /// <summary>The total number of Microsoft Store for Business licenses.</summary>
         public int? TotalLicenseCount {
             get { return BackingStore?.Get<int?>("totalLicenseCount"); }

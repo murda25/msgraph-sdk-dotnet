@@ -102,10 +102,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("featureUpdatesWillBeRolledBack", value); }
         }
         /// <summary>The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public WindowsUpdateInstallScheduleType? InstallationSchedule {
+            get { return BackingStore?.Get<WindowsUpdateInstallScheduleType?>("installationSchedule"); }
+            set { BackingStore?.Set("installationSchedule", value); }
+        }
+#else
         public WindowsUpdateInstallScheduleType InstallationSchedule {
             get { return BackingStore?.Get<WindowsUpdateInstallScheduleType>("installationSchedule"); }
             set { BackingStore?.Set("installationSchedule", value); }
         }
+#endif
         /// <summary>When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.</summary>
         public bool? MicrosoftUpdateServiceAllowed {
             get { return BackingStore?.Get<bool?>("microsoftUpdateServiceAllowed"); }

@@ -12,22 +12,43 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The email address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Address {
+            get { return BackingStore?.Get<string?>("address"); }
+            set { BackingStore?.Set("address", value); }
+        }
+#else
         public string Address {
             get { return BackingStore?.Get<string>("address"); }
             set { BackingStore?.Set("address", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The itemId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ItemId {
+            get { return BackingStore?.Get<string?>("itemId"); }
+            set { BackingStore?.Set("itemId", value); }
+        }
+#else
         public string ItemId {
             get { return BackingStore?.Get<string>("itemId"); }
             set { BackingStore?.Set("itemId", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.</summary>
         public double? RelevanceScore {
             get { return BackingStore?.Get<double?>("relevanceScore"); }

@@ -6,30 +6,65 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class IdentityContainer : Entity, IParsable {
         /// <summary>Represents entry point for API connectors.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IdentityApiConnector>? ApiConnectors {
+            get { return BackingStore?.Get<List<IdentityApiConnector>?>("apiConnectors"); }
+            set { BackingStore?.Set("apiConnectors", value); }
+        }
+#else
         public List<IdentityApiConnector> ApiConnectors {
             get { return BackingStore?.Get<List<IdentityApiConnector>>("apiConnectors"); }
             set { BackingStore?.Set("apiConnectors", value); }
         }
+#endif
         /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<B2xIdentityUserFlow>? B2xUserFlows {
+            get { return BackingStore?.Get<List<B2xIdentityUserFlow>?>("b2xUserFlows"); }
+            set { BackingStore?.Set("b2xUserFlows", value); }
+        }
+#else
         public List<B2xIdentityUserFlow> B2xUserFlows {
             get { return BackingStore?.Get<List<B2xIdentityUserFlow>>("b2xUserFlows"); }
             set { BackingStore?.Set("b2xUserFlows", value); }
         }
+#endif
         /// <summary>the entry point for the Conditional Access (CA) object model.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ConditionalAccessRoot? ConditionalAccess {
+            get { return BackingStore?.Get<ConditionalAccessRoot?>("conditionalAccess"); }
+            set { BackingStore?.Set("conditionalAccess", value); }
+        }
+#else
         public ConditionalAccessRoot ConditionalAccess {
             get { return BackingStore?.Get<ConditionalAccessRoot>("conditionalAccess"); }
             set { BackingStore?.Set("conditionalAccess", value); }
         }
+#endif
         /// <summary>The identityProviders property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IdentityProviderBase>? IdentityProviders {
+            get { return BackingStore?.Get<List<IdentityProviderBase>?>("identityProviders"); }
+            set { BackingStore?.Set("identityProviders", value); }
+        }
+#else
         public List<IdentityProviderBase> IdentityProviders {
             get { return BackingStore?.Get<List<IdentityProviderBase>>("identityProviders"); }
             set { BackingStore?.Set("identityProviders", value); }
         }
+#endif
         /// <summary>Represents entry point for identity userflow attributes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IdentityUserFlowAttribute>? UserFlowAttributes {
+            get { return BackingStore?.Get<List<IdentityUserFlowAttribute>?>("userFlowAttributes"); }
+            set { BackingStore?.Set("userFlowAttributes", value); }
+        }
+#else
         public List<IdentityUserFlowAttribute> UserFlowAttributes {
             get { return BackingStore?.Get<List<IdentityUserFlowAttribute>>("userFlowAttributes"); }
             set { BackingStore?.Set("userFlowAttributes", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

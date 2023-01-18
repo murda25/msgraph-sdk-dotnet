@@ -11,15 +11,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>Identifier of the device the BitLocker key is originally backed up from. Supports $filter (eq).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DeviceId {
+            get { return BackingStore?.Get<string?>("deviceId"); }
+            set { BackingStore?.Set("deviceId", value); }
+        }
+#else
         public string DeviceId {
             get { return BackingStore?.Get<string>("deviceId"); }
             set { BackingStore?.Set("deviceId", value); }
         }
+#endif
         /// <summary>The BitLocker recovery key. Returned only on $select. Not nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Key {
+            get { return BackingStore?.Get<string?>("key"); }
+            set { BackingStore?.Set("key", value); }
+        }
+#else
         public string Key {
             get { return BackingStore?.Get<string>("key"); }
             set { BackingStore?.Set("key", value); }
         }
+#endif
         /// <summary>Indicates the type of volume the BitLocker key is associated with. The possible values are: 1 (for operatingSystemVolume), 2 (for fixedDataVolume), 3 (for removableDataVolume), and 4 (for unknownFutureValue).</summary>
         public Microsoft.Graph.Models.VolumeType? VolumeType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.VolumeType?>("volumeType"); }

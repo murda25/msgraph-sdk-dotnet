@@ -6,7 +6,7 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class OrganizationalBrandingLocalization : OrganizationalBrandingProperties, IParsable {
         /// <summary>
-        /// Instantiates a new organizationalBrandingLocalization and sets the default values.
+        /// Instantiates a new OrganizationalBrandingLocalization and sets the default values.
         /// </summary>
         public OrganizationalBrandingLocalization() : base() {
             OdataType = "#microsoft.graph.organizationalBrandingLocalization";

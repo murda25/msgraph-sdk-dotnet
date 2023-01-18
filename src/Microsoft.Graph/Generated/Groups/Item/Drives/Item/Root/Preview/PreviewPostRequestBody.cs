@@ -14,10 +14,17 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.Root.Preview {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The page property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Page {
+            get { return BackingStore?.Get<string?>("page"); }
+            set { BackingStore?.Set("page", value); }
+        }
+#else
         public string Page {
             get { return BackingStore?.Get<string>("page"); }
             set { BackingStore?.Set("page", value); }
         }
+#endif
         /// <summary>The zoom property</summary>
         public double? Zoom {
             get { return BackingStore?.Get<double?>("zoom"); }

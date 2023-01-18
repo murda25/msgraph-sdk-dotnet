@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models.Security {
     public class EdiscoveryReviewSet : DataSet, IParsable {
         /// <summary>Represents queries within the review set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<EdiscoveryReviewSetQuery>? Queries {
+            get { return BackingStore?.Get<List<EdiscoveryReviewSetQuery>?>("queries"); }
+            set { BackingStore?.Set("queries", value); }
+        }
+#else
         public List<EdiscoveryReviewSetQuery> Queries {
             get { return BackingStore?.Get<List<EdiscoveryReviewSetQuery>>("queries"); }
             set { BackingStore?.Set("queries", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new EdiscoveryReviewSet and sets the default values.
         /// </summary>

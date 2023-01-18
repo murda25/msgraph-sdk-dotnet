@@ -6,50 +6,106 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class PrinterBase : Entity, IParsable {
         /// <summary>The capabilities of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrinterCapabilities? Capabilities {
+            get { return BackingStore?.Get<PrinterCapabilities?>("capabilities"); }
+            set { BackingStore?.Set("capabilities", value); }
+        }
+#else
         public PrinterCapabilities Capabilities {
             get { return BackingStore?.Get<PrinterCapabilities>("capabilities"); }
             set { BackingStore?.Set("capabilities", value); }
         }
+#endif
         /// <summary>The default print settings of printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrinterDefaults? Defaults {
+            get { return BackingStore?.Get<PrinterDefaults?>("defaults"); }
+            set { BackingStore?.Set("defaults", value); }
+        }
+#else
         public PrinterDefaults Defaults {
             get { return BackingStore?.Get<PrinterDefaults>("defaults"); }
             set { BackingStore?.Set("defaults", value); }
         }
+#endif
         /// <summary>The name of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Whether the printer/printerShare is currently accepting new print jobs.</summary>
         public bool? IsAcceptingJobs {
             get { return BackingStore?.Get<bool?>("isAcceptingJobs"); }
             set { BackingStore?.Set("isAcceptingJobs", value); }
         }
         /// <summary>The list of jobs that are queued for printing by the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintJob>? Jobs {
+            get { return BackingStore?.Get<List<PrintJob>?>("jobs"); }
+            set { BackingStore?.Set("jobs", value); }
+        }
+#else
         public List<PrintJob> Jobs {
             get { return BackingStore?.Get<List<PrintJob>>("jobs"); }
             set { BackingStore?.Set("jobs", value); }
         }
+#endif
         /// <summary>The physical and/or organizational location of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrinterLocation? Location {
+            get { return BackingStore?.Get<PrinterLocation?>("location"); }
+            set { BackingStore?.Set("location", value); }
+        }
+#else
         public PrinterLocation Location {
             get { return BackingStore?.Get<PrinterLocation>("location"); }
             set { BackingStore?.Set("location", value); }
         }
+#endif
         /// <summary>The manufacturer of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Manufacturer {
+            get { return BackingStore?.Get<string?>("manufacturer"); }
+            set { BackingStore?.Set("manufacturer", value); }
+        }
+#else
         public string Manufacturer {
             get { return BackingStore?.Get<string>("manufacturer"); }
             set { BackingStore?.Set("manufacturer", value); }
         }
+#endif
         /// <summary>The model name of the printer/printerShare.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Model {
+            get { return BackingStore?.Get<string?>("model"); }
+            set { BackingStore?.Set("model", value); }
+        }
+#else
         public string Model {
             get { return BackingStore?.Get<string>("model"); }
             set { BackingStore?.Set("model", value); }
         }
+#endif
         /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrinterStatus? Status {
+            get { return BackingStore?.Get<PrinterStatus?>("status"); }
+            set { BackingStore?.Set("status", value); }
+        }
+#else
         public PrinterStatus Status {
             get { return BackingStore?.Get<PrinterStatus>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

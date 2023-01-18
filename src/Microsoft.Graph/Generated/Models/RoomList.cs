@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RoomList : Place, IParsable {
         /// <summary>The email address of the room list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? EmailAddress {
+            get { return BackingStore?.Get<string?>("emailAddress"); }
+            set { BackingStore?.Set("emailAddress", value); }
+        }
+#else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#endif
         /// <summary>The rooms property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Room>? Rooms {
+            get { return BackingStore?.Get<List<Room>?>("rooms"); }
+            set { BackingStore?.Set("rooms", value); }
+        }
+#else
         public List<Room> Rooms {
             get { return BackingStore?.Get<List<Room>>("rooms"); }
             set { BackingStore?.Set("rooms", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new RoomList and sets the default values.
         /// </summary>

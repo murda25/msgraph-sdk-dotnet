@@ -6,95 +6,179 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SubjectRightsRequest : Entity, IParsable {
         /// <summary>Identity that the request is assigned to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Identity? AssignedTo {
+            get { return BackingStore?.Get<Identity?>("assignedTo"); }
+            set { BackingStore?.Set("assignedTo", value); }
+        }
+#else
         public Identity AssignedTo {
             get { return BackingStore?.Get<Identity>("assignedTo"); }
             set { BackingStore?.Set("assignedTo", value); }
         }
+#endif
         /// <summary>The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ClosedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("closedDateTime"); }
             set { BackingStore?.Set("closedDateTime", value); }
         }
         /// <summary>Identity information for the entity that created the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public IdentitySet? CreatedBy {
+            get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
+            set { BackingStore?.Set("createdBy", value); }
+        }
+#else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#endif
         /// <summary>The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>Information about the data subject.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.DataSubject? DataSubject {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DataSubject?>("dataSubject"); }
+            set { BackingStore?.Set("dataSubject", value); }
+        }
+#else
         public Microsoft.Graph.Models.DataSubject DataSubject {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DataSubject>("dataSubject"); }
             set { BackingStore?.Set("dataSubject", value); }
         }
+#endif
         /// <summary>The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.DataSubjectType? DataSubjectType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DataSubjectType?>("dataSubjectType"); }
             set { BackingStore?.Set("dataSubjectType", value); }
         }
         /// <summary>Description for the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The name of the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Collection of history change events.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectRightsRequestHistory>? History {
+            get { return BackingStore?.Get<List<SubjectRightsRequestHistory>?>("history"); }
+            set { BackingStore?.Set("history", value); }
+        }
+#else
         public List<SubjectRightsRequestHistory> History {
             get { return BackingStore?.Get<List<SubjectRightsRequestHistory>>("history"); }
             set { BackingStore?.Set("history", value); }
         }
+#endif
         /// <summary>Insight about the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SubjectRightsRequestDetail? Insight {
+            get { return BackingStore?.Get<SubjectRightsRequestDetail?>("insight"); }
+            set { BackingStore?.Set("insight", value); }
+        }
+#else
         public SubjectRightsRequestDetail Insight {
             get { return BackingStore?.Get<SubjectRightsRequestDetail>("insight"); }
             set { BackingStore?.Set("insight", value); }
         }
+#endif
         /// <summary>The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? InternalDueDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("internalDueDateTime"); }
             set { BackingStore?.Set("internalDueDateTime", value); }
         }
         /// <summary>Identity information for the entity that last modified the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public IdentitySet? LastModifiedBy {
+            get { return BackingStore?.Get<IdentitySet?>("lastModifiedBy"); }
+            set { BackingStore?.Set("lastModifiedBy", value); }
+        }
+#else
         public IdentitySet LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
+#endif
         /// <summary>The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
         /// <summary>List of notes associcated with the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AuthoredNote>? Notes {
+            get { return BackingStore?.Get<List<AuthoredNote>?>("notes"); }
+            set { BackingStore?.Set("notes", value); }
+        }
+#else
         public List<AuthoredNote> Notes {
             get { return BackingStore?.Get<List<AuthoredNote>>("notes"); }
             set { BackingStore?.Set("notes", value); }
         }
+#endif
         /// <summary>List of regulations that this request will fulfill.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? Regulations {
+            get { return BackingStore?.Get<List<string>?>("regulations"); }
+            set { BackingStore?.Set("regulations", value); }
+        }
+#else
         public List<string> Regulations {
             get { return BackingStore?.Get<List<string>>("regulations"); }
             set { BackingStore?.Set("regulations", value); }
         }
+#endif
         /// <summary>Information about the different stages for the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectRightsRequestStageDetail>? Stages {
+            get { return BackingStore?.Get<List<SubjectRightsRequestStageDetail>?>("stages"); }
+            set { BackingStore?.Set("stages", value); }
+        }
+#else
         public List<SubjectRightsRequestStageDetail> Stages {
             get { return BackingStore?.Get<List<SubjectRightsRequestStageDetail>>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
+#endif
         /// <summary>The status of the request.. Possible values are: active, closed, unknownFutureValue.</summary>
         public SubjectRightsRequestStatus? Status {
             get { return BackingStore?.Get<SubjectRightsRequestStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
         /// <summary>Information about the Microsoft Teams team that was created for the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.Team? Team {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Team?>("team"); }
+            set { BackingStore?.Set("team", value); }
+        }
+#else
         public Microsoft.Graph.Models.Team Team {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Team>("team"); }
             set { BackingStore?.Set("team", value); }
         }
+#endif
         /// <summary>The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.</summary>
         public SubjectRightsRequestType? Type {
             get { return BackingStore?.Get<SubjectRightsRequestType?>("type"); }

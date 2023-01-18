@@ -12,32 +12,67 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>Assigns the control to the user who will take the action.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AssignedTo {
+            get { return BackingStore?.Get<string?>("assignedTo"); }
+            set { BackingStore?.Set("assignedTo", value); }
+        }
+#else
         public string AssignedTo {
             get { return BackingStore?.Get<string>("assignedTo"); }
             set { BackingStore?.Set("assignedTo", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Provides optional comment about the control.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Comment {
+            get { return BackingStore?.Get<string?>("comment"); }
+            set { BackingStore?.Set("comment", value); }
+        }
+#else
         public string Comment {
             get { return BackingStore?.Get<string>("comment"); }
             set { BackingStore?.Set("comment", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? State {
+            get { return BackingStore?.Get<string?>("state"); }
+            set { BackingStore?.Set("state", value); }
+        }
+#else
         public string State {
             get { return BackingStore?.Get<string>("state"); }
             set { BackingStore?.Set("state", value); }
         }
+#endif
         /// <summary>ID of the user who updated tenant state.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? UpdatedBy {
+            get { return BackingStore?.Get<string?>("updatedBy"); }
+            set { BackingStore?.Set("updatedBy", value); }
+        }
+#else
         public string UpdatedBy {
             get { return BackingStore?.Get<string>("updatedBy"); }
             set { BackingStore?.Set("updatedBy", value); }
         }
+#endif
         /// <summary>Time at which the control state was updated.</summary>
         public DateTimeOffset? UpdatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("updatedDateTime"); }

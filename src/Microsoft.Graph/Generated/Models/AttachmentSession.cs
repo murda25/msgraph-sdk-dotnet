@@ -6,20 +6,34 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AttachmentSession : Entity, IParsable {
         /// <summary>The content property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public byte[]? Content {
+            get { return BackingStore?.Get<byte[]?>("content"); }
+            set { BackingStore?.Set("content", value); }
+        }
+#else
         public byte[] Content {
             get { return BackingStore?.Get<byte[]>("content"); }
             set { BackingStore?.Set("content", value); }
         }
+#endif
         /// <summary>The expirationDateTime property</summary>
         public DateTimeOffset? ExpirationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("expirationDateTime"); }
             set { BackingStore?.Set("expirationDateTime", value); }
         }
         /// <summary>The nextExpectedRanges property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? NextExpectedRanges {
+            get { return BackingStore?.Get<List<string>?>("nextExpectedRanges"); }
+            set { BackingStore?.Set("nextExpectedRanges", value); }
+        }
+#else
         public List<string> NextExpectedRanges {
             get { return BackingStore?.Get<List<string>>("nextExpectedRanges"); }
             set { BackingStore?.Set("nextExpectedRanges", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

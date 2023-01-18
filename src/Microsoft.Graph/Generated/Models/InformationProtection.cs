@@ -14,20 +14,41 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The bitlocker property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.Bitlocker? Bitlocker {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Bitlocker?>("bitlocker"); }
+            set { BackingStore?.Set("bitlocker", value); }
+        }
+#else
         public Microsoft.Graph.Models.Bitlocker Bitlocker {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Bitlocker>("bitlocker"); }
             set { BackingStore?.Set("bitlocker", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The threatAssessmentRequests property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ThreatAssessmentRequest>? ThreatAssessmentRequests {
+            get { return BackingStore?.Get<List<ThreatAssessmentRequest>?>("threatAssessmentRequests"); }
+            set { BackingStore?.Set("threatAssessmentRequests", value); }
+        }
+#else
         public List<ThreatAssessmentRequest> ThreatAssessmentRequests {
             get { return BackingStore?.Get<List<ThreatAssessmentRequest>>("threatAssessmentRequests"); }
             set { BackingStore?.Set("threatAssessmentRequests", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new InformationProtection and sets the default values.
         /// </summary>

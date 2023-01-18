@@ -11,15 +11,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("compliantAppListType", value); }
         }
         /// <summary>List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AppListItem>? CompliantAppsList {
+            get { return BackingStore?.Get<List<AppListItem>?>("compliantAppsList"); }
+            set { BackingStore?.Set("compliantAppsList", value); }
+        }
+#else
         public List<AppListItem> CompliantAppsList {
             get { return BackingStore?.Get<List<AppListItem>>("compliantAppsList"); }
             set { BackingStore?.Set("compliantAppsList", value); }
         }
+#endif
         /// <summary>An email address lacking a suffix that matches any of these strings will be considered out-of-domain.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? EmailInDomainSuffixes {
+            get { return BackingStore?.Get<List<string>?>("emailInDomainSuffixes"); }
+            set { BackingStore?.Set("emailInDomainSuffixes", value); }
+        }
+#else
         public List<string> EmailInDomainSuffixes {
             get { return BackingStore?.Get<List<string>>("emailInDomainSuffixes"); }
             set { BackingStore?.Set("emailInDomainSuffixes", value); }
         }
+#endif
         /// <summary>Block simple passwords.</summary>
         public bool? PasswordBlockSimple {
             get { return BackingStore?.Get<bool?>("passwordBlockSimple"); }

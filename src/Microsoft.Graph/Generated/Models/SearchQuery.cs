@@ -14,15 +14,29 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The search query containing the search terms. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? QueryString {
+            get { return BackingStore?.Get<string?>("queryString"); }
+            set { BackingStore?.Set("queryString", value); }
+        }
+#else
         public string QueryString {
             get { return BackingStore?.Get<string>("queryString"); }
             set { BackingStore?.Set("queryString", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new searchQuery and sets the default values.
         /// </summary>

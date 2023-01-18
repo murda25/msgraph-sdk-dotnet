@@ -13,10 +13,17 @@ namespace Microsoft.Graph.Users.Item.Calendars.Item.Events.Item.Instances.Item.A
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The AttachmentItem property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.AttachmentItem? AttachmentItem {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentItem?>("attachmentItem"); }
+            set { BackingStore?.Set("attachmentItem", value); }
+        }
+#else
         public Microsoft.Graph.Models.AttachmentItem AttachmentItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentItem>("attachmentItem"); }
             set { BackingStore?.Set("attachmentItem", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>

@@ -16,10 +16,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("contributionToContentDiscoveryDisabled", value); }
         }
         /// <summary>The shiftPreferences property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ShiftPreferences? ShiftPreferences {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ShiftPreferences?>("shiftPreferences"); }
+            set { BackingStore?.Set("shiftPreferences", value); }
+        }
+#else
         public Microsoft.Graph.Models.ShiftPreferences ShiftPreferences {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ShiftPreferences>("shiftPreferences"); }
             set { BackingStore?.Set("shiftPreferences", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

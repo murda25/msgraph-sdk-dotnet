@@ -19,10 +19,17 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The escalation approvers for this stage when the primary approvers don&apos;t respond.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? EscalationApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("escalationApprovers"); }
+            set { BackingStore?.Set("escalationApprovers", value); }
+        }
+#else
         public List<SubjectSet> EscalationApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("escalationApprovers"); }
             set { BackingStore?.Set("escalationApprovers", value); }
         }
+#endif
         /// <summary>The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers.</summary>
         public int? EscalationTimeInMinutes {
             get { return BackingStore?.Get<int?>("escalationTimeInMinutes"); }
@@ -39,15 +46,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isEscalationEnabled", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The primary approvers of this stage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? PrimaryApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("primaryApprovers"); }
+            set { BackingStore?.Set("primaryApprovers", value); }
+        }
+#else
         public List<SubjectSet> PrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryApprovers"); }
             set { BackingStore?.Set("primaryApprovers", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new unifiedApprovalStage and sets the default values.
         /// </summary>

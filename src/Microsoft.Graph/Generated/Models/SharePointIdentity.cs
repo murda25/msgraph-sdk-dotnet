@@ -6,12 +6,19 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SharePointIdentity : Identity, IParsable {
         /// <summary>The sign in name of the SharePoint identity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? LoginName {
+            get { return BackingStore?.Get<string?>("loginName"); }
+            set { BackingStore?.Set("loginName", value); }
+        }
+#else
         public string LoginName {
             get { return BackingStore?.Get<string>("loginName"); }
             set { BackingStore?.Set("loginName", value); }
         }
+#endif
         /// <summary>
-        /// Instantiates a new SharePointIdentity and sets the default values.
+        /// Instantiates a new sharePointIdentity and sets the default values.
         /// </summary>
         public SharePointIdentity() : base() {
             OdataType = "#microsoft.graph.sharePointIdentity";

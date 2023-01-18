@@ -14,20 +14,41 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Collection of the certification controls associated with certification</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<CertificationControl>? CertificationControls {
+            get { return BackingStore?.Get<List<CertificationControl>?>("certificationControls"); }
+            set { BackingStore?.Set("certificationControls", value); }
+        }
+#else
         public List<CertificationControl> CertificationControls {
             get { return BackingStore?.Get<List<CertificationControl>>("certificationControls"); }
             set { BackingStore?.Set("certificationControls", value); }
         }
+#endif
         /// <summary>Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CertificationName {
+            get { return BackingStore?.Get<string?>("certificationName"); }
+            set { BackingStore?.Set("certificationName", value); }
+        }
+#else
         public string CertificationName {
             get { return BackingStore?.Get<string>("certificationName"); }
             set { BackingStore?.Set("certificationName", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new complianceInformation and sets the default values.
         /// </summary>

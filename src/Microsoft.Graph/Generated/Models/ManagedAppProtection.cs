@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ManagedAppProtection : ManagedAppPolicy, IParsable {
         /// <summary>Data storage locations where a user may store managed data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedAppDataStorageLocation?>? AllowedDataStorageLocations {
+            get { return BackingStore?.Get<List<ManagedAppDataStorageLocation?>?>("allowedDataStorageLocations"); }
+            set { BackingStore?.Set("allowedDataStorageLocations", value); }
+        }
+#else
         public List<ManagedAppDataStorageLocation?> AllowedDataStorageLocations {
             get { return BackingStore?.Get<List<ManagedAppDataStorageLocation?>>("allowedDataStorageLocations"); }
             set { BackingStore?.Set("allowedDataStorageLocations", value); }
         }
+#endif
         /// <summary>Data can be transferred from/to these classes of apps</summary>
         public ManagedAppDataTransferLevel? AllowedInboundDataTransferSources {
             get { return BackingStore?.Get<ManagedAppDataTransferLevel?>("allowedInboundDataTransferSources"); }
@@ -71,25 +78,53 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("minimumPinLength", value); }
         }
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumRequiredAppVersion {
+            get { return BackingStore?.Get<string?>("minimumRequiredAppVersion"); }
+            set { BackingStore?.Set("minimumRequiredAppVersion", value); }
+        }
+#else
         public string MinimumRequiredAppVersion {
             get { return BackingStore?.Get<string>("minimumRequiredAppVersion"); }
             set { BackingStore?.Set("minimumRequiredAppVersion", value); }
         }
+#endif
         /// <summary>Versions less than the specified version will block the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumRequiredOsVersion {
+            get { return BackingStore?.Get<string?>("minimumRequiredOsVersion"); }
+            set { BackingStore?.Set("minimumRequiredOsVersion", value); }
+        }
+#else
         public string MinimumRequiredOsVersion {
             get { return BackingStore?.Get<string>("minimumRequiredOsVersion"); }
             set { BackingStore?.Set("minimumRequiredOsVersion", value); }
         }
+#endif
         /// <summary>Versions less than the specified version will result in warning message on the managed app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumWarningAppVersion {
+            get { return BackingStore?.Get<string?>("minimumWarningAppVersion"); }
+            set { BackingStore?.Set("minimumWarningAppVersion", value); }
+        }
+#else
         public string MinimumWarningAppVersion {
             get { return BackingStore?.Get<string>("minimumWarningAppVersion"); }
             set { BackingStore?.Set("minimumWarningAppVersion", value); }
         }
+#endif
         /// <summary>Versions less than the specified version will result in warning message on the managed app from accessing company data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumWarningOsVersion {
+            get { return BackingStore?.Get<string?>("minimumWarningOsVersion"); }
+            set { BackingStore?.Set("minimumWarningOsVersion", value); }
+        }
+#else
         public string MinimumWarningOsVersion {
             get { return BackingStore?.Get<string>("minimumWarningOsVersion"); }
             set { BackingStore?.Set("minimumWarningOsVersion", value); }
         }
+#endif
         /// <summary>Indicates whether organizational credentials are required for app use.</summary>
         public bool? OrganizationalCredentialsRequired {
             get { return BackingStore?.Get<bool?>("organizationalCredentialsRequired"); }

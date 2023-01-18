@@ -6,35 +6,70 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class BookingAppointment : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AdditionalInformation {
+            get { return BackingStore?.Get<string?>("additionalInformation"); }
+            set { BackingStore?.Set("additionalInformation", value); }
+        }
+#else
         public string AdditionalInformation {
             get { return BackingStore?.Get<string>("additionalInformation"); }
             set { BackingStore?.Set("additionalInformation", value); }
         }
+#endif
         /// <summary>The URL of the meeting to join anonymously.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AnonymousJoinWebUrl {
+            get { return BackingStore?.Get<string?>("anonymousJoinWebUrl"); }
+            set { BackingStore?.Set("anonymousJoinWebUrl", value); }
+        }
+#else
         public string AnonymousJoinWebUrl {
             get { return BackingStore?.Get<string>("anonymousJoinWebUrl"); }
             set { BackingStore?.Set("anonymousJoinWebUrl", value); }
         }
+#endif
         /// <summary>A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<BookingCustomerInformationBase>? Customers {
+            get { return BackingStore?.Get<List<BookingCustomerInformationBase>?>("customers"); }
+            set { BackingStore?.Set("customers", value); }
+        }
+#else
         public List<BookingCustomerInformationBase> Customers {
             get { return BackingStore?.Get<List<BookingCustomerInformationBase>>("customers"); }
             set { BackingStore?.Set("customers", value); }
         }
+#endif
         /// <summary>The time zone of the customer. For a list of possible values, see dateTimeTimeZone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CustomerTimeZone {
+            get { return BackingStore?.Get<string?>("customerTimeZone"); }
+            set { BackingStore?.Set("customerTimeZone", value); }
+        }
+#else
         public string CustomerTimeZone {
             get { return BackingStore?.Get<string>("customerTimeZone"); }
             set { BackingStore?.Set("customerTimeZone", value); }
         }
+#endif
         /// <summary>The length of the appointment, denoted in ISO8601 format.</summary>
         public TimeSpan? Duration {
             get { return BackingStore?.Get<TimeSpan?>("duration"); }
             set { BackingStore?.Set("duration", value); }
         }
         /// <summary>The endDateTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public DateTimeTimeZone? EndDateTime {
+            get { return BackingStore?.Get<DateTimeTimeZone?>("endDateTime"); }
+            set { BackingStore?.Set("endDateTime", value); }
+        }
+#else
         public DateTimeTimeZone EndDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
+#endif
         /// <summary>The current number of customers in the appointment</summary>
         public int? FilledAttendeesCount {
             get { return BackingStore?.Get<int?>("filledAttendeesCount"); }
@@ -46,10 +81,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isLocationOnline", value); }
         }
         /// <summary>The URL of the online meeting for the appointment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? JoinWebUrl {
+            get { return BackingStore?.Get<string?>("joinWebUrl"); }
+            set { BackingStore?.Set("joinWebUrl", value); }
+        }
+#else
         public string JoinWebUrl {
             get { return BackingStore?.Get<string>("joinWebUrl"); }
             set { BackingStore?.Set("joinWebUrl", value); }
         }
+#endif
         /// <summary>The maximum number of customers allowed in an appointment. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.</summary>
         public int? MaximumAttendeesCount {
             get { return BackingStore?.Get<int?>("maximumAttendeesCount"); }
@@ -81,50 +123,106 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("priceType", value); }
         }
         /// <summary>The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<BookingReminder>? Reminders {
+            get { return BackingStore?.Get<List<BookingReminder>?>("reminders"); }
+            set { BackingStore?.Set("reminders", value); }
+        }
+#else
         public List<BookingReminder> Reminders {
             get { return BackingStore?.Get<List<BookingReminder>>("reminders"); }
             set { BackingStore?.Set("reminders", value); }
         }
+#endif
         /// <summary>An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. Only supported for appointment if maxAttendeeCount is 1.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? SelfServiceAppointmentId {
+            get { return BackingStore?.Get<string?>("selfServiceAppointmentId"); }
+            set { BackingStore?.Set("selfServiceAppointmentId", value); }
+        }
+#else
         public string SelfServiceAppointmentId {
             get { return BackingStore?.Get<string>("selfServiceAppointmentId"); }
             set { BackingStore?.Set("selfServiceAppointmentId", value); }
         }
+#endif
         /// <summary>The ID of the bookingService associated with this appointment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ServiceId {
+            get { return BackingStore?.Get<string?>("serviceId"); }
+            set { BackingStore?.Set("serviceId", value); }
+        }
+#else
         public string ServiceId {
             get { return BackingStore?.Get<string>("serviceId"); }
             set { BackingStore?.Set("serviceId", value); }
         }
+#endif
         /// <summary>The location where the service is delivered.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Location? ServiceLocation {
+            get { return BackingStore?.Get<Location?>("serviceLocation"); }
+            set { BackingStore?.Set("serviceLocation", value); }
+        }
+#else
         public Location ServiceLocation {
             get { return BackingStore?.Get<Location>("serviceLocation"); }
             set { BackingStore?.Set("serviceLocation", value); }
         }
+#endif
         /// <summary>The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ServiceName {
+            get { return BackingStore?.Get<string?>("serviceName"); }
+            set { BackingStore?.Set("serviceName", value); }
+        }
+#else
         public string ServiceName {
             get { return BackingStore?.Get<string>("serviceName"); }
             set { BackingStore?.Set("serviceName", value); }
         }
+#endif
         /// <summary>Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ServiceNotes {
+            get { return BackingStore?.Get<string?>("serviceNotes"); }
+            set { BackingStore?.Set("serviceNotes", value); }
+        }
+#else
         public string ServiceNotes {
             get { return BackingStore?.Get<string>("serviceNotes"); }
             set { BackingStore?.Set("serviceNotes", value); }
         }
+#endif
         /// <summary>If true, indicates SMS notifications will be sent to the customers for the appointment. Default value is false.</summary>
         public bool? SmsNotificationsEnabled {
             get { return BackingStore?.Get<bool?>("smsNotificationsEnabled"); }
             set { BackingStore?.Set("smsNotificationsEnabled", value); }
         }
         /// <summary>The ID of each bookingStaffMember who is scheduled in this appointment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? StaffMemberIds {
+            get { return BackingStore?.Get<List<string>?>("staffMemberIds"); }
+            set { BackingStore?.Set("staffMemberIds", value); }
+        }
+#else
         public List<string> StaffMemberIds {
             get { return BackingStore?.Get<List<string>>("staffMemberIds"); }
             set { BackingStore?.Set("staffMemberIds", value); }
         }
+#endif
         /// <summary>The startDateTime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public DateTimeTimeZone? StartDateTime {
+            get { return BackingStore?.Get<DateTimeTimeZone?>("startDateTime"); }
+            set { BackingStore?.Set("startDateTime", value); }
+        }
+#else
         public DateTimeTimeZone StartDateTime {
             get { return BackingStore?.Get<DateTimeTimeZone>("startDateTime"); }
             set { BackingStore?.Set("startDateTime", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -11,15 +11,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("availabilityIsAffectedByPersonalCalendar", value); }
         }
         /// <summary>The name of the staff member, as displayed to customers. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? EmailAddress {
+            get { return BackingStore?.Get<string?>("emailAddress"); }
+            set { BackingStore?.Set("emailAddress", value); }
+        }
+#else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#endif
         /// <summary>True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.</summary>
         public bool? IsEmailNotificationEnabled {
             get { return BackingStore?.Get<bool?>("isEmailNotificationEnabled"); }
@@ -31,20 +45,34 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("role", value); }
         }
         /// <summary>The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? TimeZone {
+            get { return BackingStore?.Get<string?>("timeZone"); }
+            set { BackingStore?.Set("timeZone", value); }
+        }
+#else
         public string TimeZone {
             get { return BackingStore?.Get<string>("timeZone"); }
             set { BackingStore?.Set("timeZone", value); }
         }
+#endif
         /// <summary>True means the staff member&apos;s availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member&apos;s workingHours property setting.</summary>
         public bool? UseBusinessHours {
             get { return BackingStore?.Get<bool?>("useBusinessHours"); }
             set { BackingStore?.Set("useBusinessHours", value); }
         }
         /// <summary>The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<BookingWorkHours>? WorkingHours {
+            get { return BackingStore?.Get<List<BookingWorkHours>?>("workingHours"); }
+            set { BackingStore?.Set("workingHours", value); }
+        }
+#else
         public List<BookingWorkHours> WorkingHours {
             get { return BackingStore?.Get<List<BookingWorkHours>>("workingHours"); }
             set { BackingStore?.Set("workingHours", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new BookingStaffMember and sets the default values.
         /// </summary>

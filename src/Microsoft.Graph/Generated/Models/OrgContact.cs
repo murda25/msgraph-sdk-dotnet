@@ -6,95 +6,207 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class OrgContact : DirectoryObject, IParsable {
         /// <summary>The addresses property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PhysicalOfficeAddress>? Addresses {
+            get { return BackingStore?.Get<List<PhysicalOfficeAddress>?>("addresses"); }
+            set { BackingStore?.Set("addresses", value); }
+        }
+#else
         public List<PhysicalOfficeAddress> Addresses {
             get { return BackingStore?.Get<List<PhysicalOfficeAddress>>("addresses"); }
             set { BackingStore?.Set("addresses", value); }
         }
+#endif
         /// <summary>The companyName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CompanyName {
+            get { return BackingStore?.Get<string?>("companyName"); }
+            set { BackingStore?.Set("companyName", value); }
+        }
+#else
         public string CompanyName {
             get { return BackingStore?.Get<string>("companyName"); }
             set { BackingStore?.Set("companyName", value); }
         }
+#endif
         /// <summary>The department property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Department {
+            get { return BackingStore?.Get<string?>("department"); }
+            set { BackingStore?.Set("department", value); }
+        }
+#else
         public string Department {
             get { return BackingStore?.Get<string>("department"); }
             set { BackingStore?.Set("department", value); }
         }
+#endif
         /// <summary>The directReports property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DirectoryObject>? DirectReports {
+            get { return BackingStore?.Get<List<DirectoryObject>?>("directReports"); }
+            set { BackingStore?.Set("directReports", value); }
+        }
+#else
         public List<DirectoryObject> DirectReports {
             get { return BackingStore?.Get<List<DirectoryObject>>("directReports"); }
             set { BackingStore?.Set("directReports", value); }
         }
+#endif
         /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>The givenName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? GivenName {
+            get { return BackingStore?.Get<string?>("givenName"); }
+            set { BackingStore?.Set("givenName", value); }
+        }
+#else
         public string GivenName {
             get { return BackingStore?.Get<string>("givenName"); }
             set { BackingStore?.Set("givenName", value); }
         }
+#endif
         /// <summary>The jobTitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? JobTitle {
+            get { return BackingStore?.Get<string?>("jobTitle"); }
+            set { BackingStore?.Set("jobTitle", value); }
+        }
+#else
         public string JobTitle {
             get { return BackingStore?.Get<string>("jobTitle"); }
             set { BackingStore?.Set("jobTitle", value); }
         }
+#endif
         /// <summary>The mail property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Mail {
+            get { return BackingStore?.Get<string?>("mail"); }
+            set { BackingStore?.Set("mail", value); }
+        }
+#else
         public string Mail {
             get { return BackingStore?.Get<string>("mail"); }
             set { BackingStore?.Set("mail", value); }
         }
+#endif
         /// <summary>The mailNickname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MailNickname {
+            get { return BackingStore?.Get<string?>("mailNickname"); }
+            set { BackingStore?.Set("mailNickname", value); }
+        }
+#else
         public string MailNickname {
             get { return BackingStore?.Get<string>("mailNickname"); }
             set { BackingStore?.Set("mailNickname", value); }
         }
+#endif
         /// <summary>The manager property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public DirectoryObject? Manager {
+            get { return BackingStore?.Get<DirectoryObject?>("manager"); }
+            set { BackingStore?.Set("manager", value); }
+        }
+#else
         public DirectoryObject Manager {
             get { return BackingStore?.Get<DirectoryObject>("manager"); }
             set { BackingStore?.Set("manager", value); }
         }
+#endif
         /// <summary>The memberOf property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DirectoryObject>? MemberOf {
+            get { return BackingStore?.Get<List<DirectoryObject>?>("memberOf"); }
+            set { BackingStore?.Set("memberOf", value); }
+        }
+#else
         public List<DirectoryObject> MemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("memberOf"); }
             set { BackingStore?.Set("memberOf", value); }
         }
+#endif
         /// <summary>The onPremisesLastSyncDateTime property</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("onPremisesLastSyncDateTime"); }
             set { BackingStore?.Set("onPremisesLastSyncDateTime", value); }
         }
         /// <summary>The onPremisesProvisioningErrors property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<OnPremisesProvisioningError>? OnPremisesProvisioningErrors {
+            get { return BackingStore?.Get<List<OnPremisesProvisioningError>?>("onPremisesProvisioningErrors"); }
+            set { BackingStore?.Set("onPremisesProvisioningErrors", value); }
+        }
+#else
         public List<OnPremisesProvisioningError> OnPremisesProvisioningErrors {
             get { return BackingStore?.Get<List<OnPremisesProvisioningError>>("onPremisesProvisioningErrors"); }
             set { BackingStore?.Set("onPremisesProvisioningErrors", value); }
         }
+#endif
         /// <summary>The onPremisesSyncEnabled property</summary>
         public bool? OnPremisesSyncEnabled {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
         }
         /// <summary>The phones property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Phone>? Phones {
+            get { return BackingStore?.Get<List<Phone>?>("phones"); }
+            set { BackingStore?.Set("phones", value); }
+        }
+#else
         public List<Phone> Phones {
             get { return BackingStore?.Get<List<Phone>>("phones"); }
             set { BackingStore?.Set("phones", value); }
         }
+#endif
         /// <summary>The proxyAddresses property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? ProxyAddresses {
+            get { return BackingStore?.Get<List<string>?>("proxyAddresses"); }
+            set { BackingStore?.Set("proxyAddresses", value); }
+        }
+#else
         public List<string> ProxyAddresses {
             get { return BackingStore?.Get<List<string>>("proxyAddresses"); }
             set { BackingStore?.Set("proxyAddresses", value); }
         }
+#endif
         /// <summary>The surname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Surname {
+            get { return BackingStore?.Get<string?>("surname"); }
+            set { BackingStore?.Set("surname", value); }
+        }
+#else
         public string Surname {
             get { return BackingStore?.Get<string>("surname"); }
             set { BackingStore?.Set("surname", value); }
         }
+#endif
         /// <summary>The transitiveMemberOf property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DirectoryObject>? TransitiveMemberOf {
+            get { return BackingStore?.Get<List<DirectoryObject>?>("transitiveMemberOf"); }
+            set { BackingStore?.Set("transitiveMemberOf", value); }
+        }
+#else
         public List<DirectoryObject> TransitiveMemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("transitiveMemberOf"); }
             set { BackingStore?.Set("transitiveMemberOf", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new OrgContact and sets the default values.
         /// </summary>

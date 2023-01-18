@@ -14,40 +14,82 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The name of the content source that the externalItem is part of.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ContentSource {
+            get { return BackingStore?.Get<string?>("contentSource"); }
+            set { BackingStore?.Set("contentSource", value); }
+        }
+#else
         public string ContentSource {
             get { return BackingStore?.Get<string>("contentSource"); }
             set { BackingStore?.Set("contentSource", value); }
         }
+#endif
         /// <summary>The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? HitId {
+            get { return BackingStore?.Get<string?>("hitId"); }
+            set { BackingStore?.Set("hitId", value); }
+        }
+#else
         public string HitId {
             get { return BackingStore?.Get<string>("hitId"); }
             set { BackingStore?.Set("hitId", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The rank or the order of the result.</summary>
         public int? Rank {
             get { return BackingStore?.Get<int?>("rank"); }
             set { BackingStore?.Set("rank", value); }
         }
         /// <summary>The resource property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Entity? Resource {
+            get { return BackingStore?.Get<Entity?>("resource"); }
+            set { BackingStore?.Set("resource", value); }
+        }
+#else
         public Entity Resource {
             get { return BackingStore?.Get<Entity>("resource"); }
             set { BackingStore?.Set("resource", value); }
         }
+#endif
         /// <summary>ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ResultTemplateId {
+            get { return BackingStore?.Get<string?>("resultTemplateId"); }
+            set { BackingStore?.Set("resultTemplateId", value); }
+        }
+#else
         public string ResultTemplateId {
             get { return BackingStore?.Get<string>("resultTemplateId"); }
             set { BackingStore?.Set("resultTemplateId", value); }
         }
+#endif
         /// <summary>A summary of the result, if a summary is available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Summary {
+            get { return BackingStore?.Get<string?>("summary"); }
+            set { BackingStore?.Set("summary", value); }
+        }
+#else
         public string Summary {
             get { return BackingStore?.Get<string>("summary"); }
             set { BackingStore?.Set("summary", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new searchHit and sets the default values.
         /// </summary>

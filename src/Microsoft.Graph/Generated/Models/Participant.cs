@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ParticipantInfo? Info {
+            get { return BackingStore?.Get<ParticipantInfo?>("info"); }
+            set { BackingStore?.Set("info", value); }
+        }
+#else
         public ParticipantInfo Info {
             get { return BackingStore?.Get<ParticipantInfo>("info"); }
             set { BackingStore?.Set("info", value); }
         }
+#endif
         /// <summary>true if the participant is in lobby.</summary>
         public bool? IsInLobby {
             get { return BackingStore?.Get<bool?>("isInLobby"); }
@@ -21,20 +28,41 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isMuted", value); }
         }
         /// <summary>The list of media streams.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MediaStream>? MediaStreams {
+            get { return BackingStore?.Get<List<MediaStream>?>("mediaStreams"); }
+            set { BackingStore?.Set("mediaStreams", value); }
+        }
+#else
         public List<MediaStream> MediaStreams {
             get { return BackingStore?.Get<List<MediaStream>>("mediaStreams"); }
             set { BackingStore?.Set("mediaStreams", value); }
         }
+#endif
         /// <summary>A blob of data provided by the participant in the roster.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Metadata {
+            get { return BackingStore?.Get<string?>("metadata"); }
+            set { BackingStore?.Set("metadata", value); }
+        }
+#else
         public string Metadata {
             get { return BackingStore?.Get<string>("metadata"); }
             set { BackingStore?.Set("metadata", value); }
         }
+#endif
         /// <summary>Information about whether the participant has recording capability.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.RecordingInfo? RecordingInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RecordingInfo?>("recordingInfo"); }
+            set { BackingStore?.Set("recordingInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.RecordingInfo RecordingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RecordingInfo>("recordingInfo"); }
             set { BackingStore?.Set("recordingInfo", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

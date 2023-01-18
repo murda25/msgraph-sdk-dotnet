@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class IosStoreAppAssignmentSettings : MobileAppAssignmentSettings, IParsable {
         /// <summary>The VPN Configuration Id to apply for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? VpnConfigurationId {
+            get { return BackingStore?.Get<string?>("vpnConfigurationId"); }
+            set { BackingStore?.Set("vpnConfigurationId", value); }
+        }
+#else
         public string VpnConfigurationId {
             get { return BackingStore?.Get<string>("vpnConfigurationId"); }
             set { BackingStore?.Set("vpnConfigurationId", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new IosStoreAppAssignmentSettings and sets the default values.
         /// </summary>

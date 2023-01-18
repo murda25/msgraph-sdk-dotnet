@@ -6,20 +6,41 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AuditLogRoot : Entity, IParsable {
         /// <summary>The directoryAudits property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DirectoryAudit>? DirectoryAudits {
+            get { return BackingStore?.Get<List<DirectoryAudit>?>("directoryAudits"); }
+            set { BackingStore?.Set("directoryAudits", value); }
+        }
+#else
         public List<DirectoryAudit> DirectoryAudits {
             get { return BackingStore?.Get<List<DirectoryAudit>>("directoryAudits"); }
             set { BackingStore?.Set("directoryAudits", value); }
         }
+#endif
         /// <summary>The provisioning property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ProvisioningObjectSummary>? Provisioning {
+            get { return BackingStore?.Get<List<ProvisioningObjectSummary>?>("provisioning"); }
+            set { BackingStore?.Set("provisioning", value); }
+        }
+#else
         public List<ProvisioningObjectSummary> Provisioning {
             get { return BackingStore?.Get<List<ProvisioningObjectSummary>>("provisioning"); }
             set { BackingStore?.Set("provisioning", value); }
         }
+#endif
         /// <summary>The signIns property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SignIn>? SignIns {
+            get { return BackingStore?.Get<List<SignIn>?>("signIns"); }
+            set { BackingStore?.Set("signIns", value); }
+        }
+#else
         public List<SignIn> SignIns {
             get { return BackingStore?.Get<List<SignIn>>("signIns"); }
             set { BackingStore?.Set("signIns", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

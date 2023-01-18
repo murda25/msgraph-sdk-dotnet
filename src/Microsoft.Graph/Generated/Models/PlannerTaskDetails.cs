@@ -6,25 +6,46 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class PlannerTaskDetails : Entity, IParsable {
         /// <summary>The collection of checklist items on the task.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PlannerChecklistItems? Checklist {
+            get { return BackingStore?.Get<PlannerChecklistItems?>("checklist"); }
+            set { BackingStore?.Set("checklist", value); }
+        }
+#else
         public PlannerChecklistItems Checklist {
             get { return BackingStore?.Get<PlannerChecklistItems>("checklist"); }
             set { BackingStore?.Set("checklist", value); }
         }
+#endif
         /// <summary>Description of the task.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.</summary>
         public PlannerPreviewType? PreviewType {
             get { return BackingStore?.Get<PlannerPreviewType?>("previewType"); }
             set { BackingStore?.Set("previewType", value); }
         }
         /// <summary>The collection of references on the task.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PlannerExternalReferences? References {
+            get { return BackingStore?.Get<PlannerExternalReferences?>("references"); }
+            set { BackingStore?.Set("references", value); }
+        }
+#else
         public PlannerExternalReferences References {
             get { return BackingStore?.Get<PlannerExternalReferences>("references"); }
             set { BackingStore?.Set("references", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

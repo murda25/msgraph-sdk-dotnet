@@ -11,15 +11,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicableArchitectures", value); }
         }
         /// <summary>The command line to install this app</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? InstallCommandLine {
+            get { return BackingStore?.Get<string?>("installCommandLine"); }
+            set { BackingStore?.Set("installCommandLine", value); }
+        }
+#else
         public string InstallCommandLine {
             get { return BackingStore?.Get<string>("installCommandLine"); }
             set { BackingStore?.Set("installCommandLine", value); }
         }
+#endif
         /// <summary>The install experience for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Win32LobAppInstallExperience? InstallExperience {
+            get { return BackingStore?.Get<Win32LobAppInstallExperience?>("installExperience"); }
+            set { BackingStore?.Set("installExperience", value); }
+        }
+#else
         public Win32LobAppInstallExperience InstallExperience {
             get { return BackingStore?.Get<Win32LobAppInstallExperience>("installExperience"); }
             set { BackingStore?.Set("installExperience", value); }
         }
+#endif
         /// <summary>The value for the minimum CPU speed which is required to install this app.</summary>
         public int? MinimumCpuSpeedInMHz {
             get { return BackingStore?.Get<int?>("minimumCpuSpeedInMHz"); }
@@ -41,35 +55,77 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("minimumNumberOfProcessors", value); }
         }
         /// <summary>The value for the minimum supported windows release.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumSupportedWindowsRelease {
+            get { return BackingStore?.Get<string?>("minimumSupportedWindowsRelease"); }
+            set { BackingStore?.Set("minimumSupportedWindowsRelease", value); }
+        }
+#else
         public string MinimumSupportedWindowsRelease {
             get { return BackingStore?.Get<string>("minimumSupportedWindowsRelease"); }
             set { BackingStore?.Set("minimumSupportedWindowsRelease", value); }
         }
+#endif
         /// <summary>The MSI details if this Win32 app is an MSI app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Win32LobAppMsiInformation? MsiInformation {
+            get { return BackingStore?.Get<Win32LobAppMsiInformation?>("msiInformation"); }
+            set { BackingStore?.Set("msiInformation", value); }
+        }
+#else
         public Win32LobAppMsiInformation MsiInformation {
             get { return BackingStore?.Get<Win32LobAppMsiInformation>("msiInformation"); }
             set { BackingStore?.Set("msiInformation", value); }
         }
+#endif
         /// <summary>The return codes for post installation behavior.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Win32LobAppReturnCode>? ReturnCodes {
+            get { return BackingStore?.Get<List<Win32LobAppReturnCode>?>("returnCodes"); }
+            set { BackingStore?.Set("returnCodes", value); }
+        }
+#else
         public List<Win32LobAppReturnCode> ReturnCodes {
             get { return BackingStore?.Get<List<Win32LobAppReturnCode>>("returnCodes"); }
             set { BackingStore?.Set("returnCodes", value); }
         }
+#endif
         /// <summary>The detection and requirement rules for this app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Win32LobAppRule>? Rules {
+            get { return BackingStore?.Get<List<Win32LobAppRule>?>("rules"); }
+            set { BackingStore?.Set("rules", value); }
+        }
+#else
         public List<Win32LobAppRule> Rules {
             get { return BackingStore?.Get<List<Win32LobAppRule>>("rules"); }
             set { BackingStore?.Set("rules", value); }
         }
+#endif
         /// <summary>The relative path of the setup file in the encrypted Win32LobApp package.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? SetupFilePath {
+            get { return BackingStore?.Get<string?>("setupFilePath"); }
+            set { BackingStore?.Set("setupFilePath", value); }
+        }
+#else
         public string SetupFilePath {
             get { return BackingStore?.Get<string>("setupFilePath"); }
             set { BackingStore?.Set("setupFilePath", value); }
         }
+#endif
         /// <summary>The command line to uninstall this app</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? UninstallCommandLine {
+            get { return BackingStore?.Get<string?>("uninstallCommandLine"); }
+            set { BackingStore?.Set("uninstallCommandLine", value); }
+        }
+#else
         public string UninstallCommandLine {
             get { return BackingStore?.Get<string>("uninstallCommandLine"); }
             set { BackingStore?.Set("uninstallCommandLine", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new Win32LobApp and sets the default values.
         /// </summary>

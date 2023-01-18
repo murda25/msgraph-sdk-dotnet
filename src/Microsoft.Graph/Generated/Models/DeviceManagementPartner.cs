@@ -9,10 +9,17 @@ namespace Microsoft.Graph.Models {
     /// </summary>
     public class DeviceManagementPartner : Entity, IParsable {
         /// <summary>Partner display name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Whether device management partner is configured or not</summary>
         public bool? IsConfigured {
             get { return BackingStore?.Get<bool?>("isConfigured"); }
@@ -34,10 +41,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("partnerState", value); }
         }
         /// <summary>Partner Single tenant App id</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? SingleTenantAppId {
+            get { return BackingStore?.Get<string?>("singleTenantAppId"); }
+            set { BackingStore?.Set("singleTenantAppId", value); }
+        }
+#else
         public string SingleTenantAppId {
             get { return BackingStore?.Get<string>("singleTenantAppId"); }
             set { BackingStore?.Set("singleTenantAppId", value); }
         }
+#endif
         /// <summary>DateTime in UTC when PartnerDevices will be marked as NonCompliant</summary>
         public DateTimeOffset? WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime"); }

@@ -12,32 +12,60 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The appId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppId {
+            get { return BackingStore?.Get<string?>("appId"); }
+            set { BackingStore?.Set("appId", value); }
+        }
+#else
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
+#endif
         /// <summary>The assignedTo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AssignedTo {
+            get { return BackingStore?.Get<string?>("assignedTo"); }
+            set { BackingStore?.Set("assignedTo", value); }
+        }
+#else
         public string AssignedTo {
             get { return BackingStore?.Get<string>("assignedTo"); }
             set { BackingStore?.Set("assignedTo", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The comments property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? Comments {
+            get { return BackingStore?.Get<List<string>?>("comments"); }
+            set { BackingStore?.Set("comments", value); }
+        }
+#else
         public List<string> Comments {
             get { return BackingStore?.Get<List<string>>("comments"); }
             set { BackingStore?.Set("comments", value); }
         }
+#endif
         /// <summary>The feedback property</summary>
         public AlertFeedback? Feedback {
             get { return BackingStore?.Get<AlertFeedback?>("feedback"); }
             set { BackingStore?.Set("feedback", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The status property</summary>
         public AlertStatus? Status {
             get { return BackingStore?.Get<AlertStatus?>("status"); }
@@ -49,10 +77,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("updatedDateTime", value); }
         }
         /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? User {
+            get { return BackingStore?.Get<string?>("user"); }
+            set { BackingStore?.Set("user", value); }
+        }
+#else
         public string User {
             get { return BackingStore?.Get<string>("user"); }
             set { BackingStore?.Set("user", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new alertHistoryState and sets the default values.
         /// </summary>

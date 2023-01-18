@@ -17,10 +17,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("activeHoursStart", value); }
         }
         /// <summary>Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DayOfWeekObject?>? ScheduledInstallDays {
+            get { return BackingStore?.Get<List<DayOfWeekObject?>?>("scheduledInstallDays"); }
+            set { BackingStore?.Set("scheduledInstallDays", value); }
+        }
+#else
         public List<DayOfWeekObject?> ScheduledInstallDays {
             get { return BackingStore?.Get<List<DayOfWeekObject?>>("scheduledInstallDays"); }
             set { BackingStore?.Set("scheduledInstallDays", value); }
         }
+#endif
         /// <summary>UTC Time Offset indicated in minutes</summary>
         public int? UtcTimeOffsetInMinutes {
             get { return BackingStore?.Get<int?>("utcTimeOffsetInMinutes"); }

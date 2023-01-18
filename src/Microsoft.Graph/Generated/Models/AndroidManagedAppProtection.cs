@@ -6,30 +6,58 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AndroidManagedAppProtection : TargetedManagedAppProtection, IParsable {
         /// <summary>List of apps to which the policy is deployed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedMobileApp>? Apps {
+            get { return BackingStore?.Get<List<ManagedMobileApp>?>("apps"); }
+            set { BackingStore?.Set("apps", value); }
+        }
+#else
         public List<ManagedMobileApp> Apps {
             get { return BackingStore?.Get<List<ManagedMobileApp>>("apps"); }
             set { BackingStore?.Set("apps", value); }
         }
+#endif
         /// <summary>Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CustomBrowserDisplayName {
+            get { return BackingStore?.Get<string?>("customBrowserDisplayName"); }
+            set { BackingStore?.Set("customBrowserDisplayName", value); }
+        }
+#else
         public string CustomBrowserDisplayName {
             get { return BackingStore?.Get<string>("customBrowserDisplayName"); }
             set { BackingStore?.Set("customBrowserDisplayName", value); }
         }
+#endif
         /// <summary>Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CustomBrowserPackageId {
+            get { return BackingStore?.Get<string?>("customBrowserPackageId"); }
+            set { BackingStore?.Set("customBrowserPackageId", value); }
+        }
+#else
         public string CustomBrowserPackageId {
             get { return BackingStore?.Get<string>("customBrowserPackageId"); }
             set { BackingStore?.Set("customBrowserPackageId", value); }
         }
+#endif
         /// <summary>Count of apps to which the current policy is deployed.</summary>
         public int? DeployedAppCount {
             get { return BackingStore?.Get<int?>("deployedAppCount"); }
             set { BackingStore?.Set("deployedAppCount", value); }
         }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ManagedAppPolicyDeploymentSummary? DeploymentSummary {
+            get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary?>("deploymentSummary"); }
+            set { BackingStore?.Set("deploymentSummary", value); }
+        }
+#else
         public ManagedAppPolicyDeploymentSummary DeploymentSummary {
             get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary>("deploymentSummary"); }
             set { BackingStore?.Set("deploymentSummary", value); }
         }
+#endif
         /// <summary>When this setting is enabled, app level encryption is disabled if device level encryption is enabled</summary>
         public bool? DisableAppEncryptionIfDeviceEncryptionIsEnabled {
             get { return BackingStore?.Get<bool?>("disableAppEncryptionIfDeviceEncryptionIsEnabled"); }
@@ -41,15 +69,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("encryptAppData", value); }
         }
         /// <summary>Define the oldest required Android security patch level a user can have to gain secure access to the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumRequiredPatchVersion {
+            get { return BackingStore?.Get<string?>("minimumRequiredPatchVersion"); }
+            set { BackingStore?.Set("minimumRequiredPatchVersion", value); }
+        }
+#else
         public string MinimumRequiredPatchVersion {
             get { return BackingStore?.Get<string>("minimumRequiredPatchVersion"); }
             set { BackingStore?.Set("minimumRequiredPatchVersion", value); }
         }
+#endif
         /// <summary>Define the oldest recommended Android security patch level a user can have for secure access to the app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MinimumWarningPatchVersion {
+            get { return BackingStore?.Get<string?>("minimumWarningPatchVersion"); }
+            set { BackingStore?.Set("minimumWarningPatchVersion", value); }
+        }
+#else
         public string MinimumWarningPatchVersion {
             get { return BackingStore?.Get<string>("minimumWarningPatchVersion"); }
             set { BackingStore?.Set("minimumWarningPatchVersion", value); }
         }
+#endif
         /// <summary>Indicates whether a managed user can take screen captures of managed apps</summary>
         public bool? ScreenCaptureBlocked {
             get { return BackingStore?.Get<bool?>("screenCaptureBlocked"); }

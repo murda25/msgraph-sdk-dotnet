@@ -21,25 +21,53 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("earlyLaunchAntiMalwareDriverEnabled", value); }
         }
         /// <summary>Maximum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MobileOsMaximumVersion {
+            get { return BackingStore?.Get<string?>("mobileOsMaximumVersion"); }
+            set { BackingStore?.Set("mobileOsMaximumVersion", value); }
+        }
+#else
         public string MobileOsMaximumVersion {
             get { return BackingStore?.Get<string>("mobileOsMaximumVersion"); }
             set { BackingStore?.Set("mobileOsMaximumVersion", value); }
         }
+#endif
         /// <summary>Minimum Windows Phone version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MobileOsMinimumVersion {
+            get { return BackingStore?.Get<string?>("mobileOsMinimumVersion"); }
+            set { BackingStore?.Set("mobileOsMinimumVersion", value); }
+        }
+#else
         public string MobileOsMinimumVersion {
             get { return BackingStore?.Get<string>("mobileOsMinimumVersion"); }
             set { BackingStore?.Set("mobileOsMinimumVersion", value); }
         }
+#endif
         /// <summary>Maximum Windows 10 version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OsMaximumVersion {
+            get { return BackingStore?.Get<string?>("osMaximumVersion"); }
+            set { BackingStore?.Set("osMaximumVersion", value); }
+        }
+#else
         public string OsMaximumVersion {
             get { return BackingStore?.Get<string>("osMaximumVersion"); }
             set { BackingStore?.Set("osMaximumVersion", value); }
         }
+#endif
         /// <summary>Minimum Windows 10 version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OsMinimumVersion {
+            get { return BackingStore?.Get<string?>("osMinimumVersion"); }
+            set { BackingStore?.Set("osMinimumVersion", value); }
+        }
+#else
         public string OsMinimumVersion {
             get { return BackingStore?.Get<string>("osMinimumVersion"); }
             set { BackingStore?.Set("osMinimumVersion", value); }
         }
+#endif
         /// <summary>Indicates whether or not to block simple password.</summary>
         public bool? PasswordBlockSimple {
             get { return BackingStore?.Get<bool?>("passwordBlockSimple"); }

@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SingleServicePrincipal : SubjectSet, IParsable {
         /// <summary>Description of this service principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>ID of the servicePrincipal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ServicePrincipalId {
+            get { return BackingStore?.Get<string?>("servicePrincipalId"); }
+            set { BackingStore?.Set("servicePrincipalId", value); }
+        }
+#else
         public string ServicePrincipalId {
             get { return BackingStore?.Get<string>("servicePrincipalId"); }
             set { BackingStore?.Set("servicePrincipalId", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new SingleServicePrincipal and sets the default values.
         /// </summary>

@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class OutlookUser : Entity, IParsable {
         /// <summary>A list of categories defined for the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<OutlookCategory>? MasterCategories {
+            get { return BackingStore?.Get<List<OutlookCategory>?>("masterCategories"); }
+            set { BackingStore?.Set("masterCategories", value); }
+        }
+#else
         public List<OutlookCategory> MasterCategories {
             get { return BackingStore?.Get<List<OutlookCategory>>("masterCategories"); }
             set { BackingStore?.Set("masterCategories", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
