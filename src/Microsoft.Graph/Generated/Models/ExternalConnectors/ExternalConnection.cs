@@ -6,40 +6,89 @@ using System.Linq;
 namespace Microsoft.Graph.Models.ExternalConnectors {
     public class ExternalConnection : Entity, IParsable {
         /// <summary>Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ExternalConnectors.Configuration? Configuration {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Configuration?>("configuration"); }
+            set { BackingStore?.Set("configuration", value); }
+        }
+#else
         public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Configuration>("configuration"); }
             set { BackingStore?.Set("configuration", value); }
         }
+#endif
         /// <summary>Description of the connection displayed in the Microsoft 365 admin center. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The groups property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ExternalGroup>? Groups {
+            get { return BackingStore?.Get<List<ExternalGroup>?>("groups"); }
+            set { BackingStore?.Set("groups", value); }
+        }
+#else
         public List<ExternalGroup> Groups {
             get { return BackingStore?.Get<List<ExternalGroup>>("groups"); }
             set { BackingStore?.Set("groups", value); }
         }
+#endif
         /// <summary>The items property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ExternalItem>? Items {
+            get { return BackingStore?.Get<List<ExternalItem>?>("items"); }
+            set { BackingStore?.Set("items", value); }
+        }
+#else
         public List<ExternalItem> Items {
             get { return BackingStore?.Get<List<ExternalItem>>("items"); }
             set { BackingStore?.Set("items", value); }
         }
+#endif
         /// <summary>The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Name {
+            get { return BackingStore?.Get<string?>("name"); }
+            set { BackingStore?.Set("name", value); }
+        }
+#else
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+#endif
         /// <summary>The operations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ConnectionOperation>? Operations {
+            get { return BackingStore?.Get<List<ConnectionOperation>?>("operations"); }
+            set { BackingStore?.Set("operations", value); }
+        }
+#else
         public List<ConnectionOperation> Operations {
             get { return BackingStore?.Get<List<ConnectionOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
+#endif
         /// <summary>The schema property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ExternalConnectors.Schema? Schema {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema?>("schema"); }
+            set { BackingStore?.Set("schema", value); }
+        }
+#else
         public Microsoft.Graph.Models.ExternalConnectors.Schema Schema {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema>("schema"); }
             set { BackingStore?.Set("schema", value); }
         }
+#endif
         /// <summary>Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.</summary>
         public ConnectionState? State {
             get { return BackingStore?.Get<ConnectionState?>("state"); }

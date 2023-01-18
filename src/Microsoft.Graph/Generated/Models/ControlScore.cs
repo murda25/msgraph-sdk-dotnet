@@ -14,25 +14,53 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Control action category (Identity, Data, Device, Apps, Infrastructure).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ControlCategory {
+            get { return BackingStore?.Get<string?>("controlCategory"); }
+            set { BackingStore?.Set("controlCategory", value); }
+        }
+#else
         public string ControlCategory {
             get { return BackingStore?.Get<string>("controlCategory"); }
             set { BackingStore?.Set("controlCategory", value); }
         }
+#endif
         /// <summary>Control unique name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ControlName {
+            get { return BackingStore?.Get<string?>("controlName"); }
+            set { BackingStore?.Set("controlName", value); }
+        }
+#else
         public string ControlName {
             get { return BackingStore?.Get<string>("controlName"); }
             set { BackingStore?.Set("controlName", value); }
         }
+#endif
         /// <summary>Description of the control.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).</summary>
         public double? Score {
             get { return BackingStore?.Get<double?>("score"); }

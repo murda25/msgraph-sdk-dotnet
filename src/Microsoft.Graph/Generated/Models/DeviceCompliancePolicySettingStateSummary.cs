@@ -19,10 +19,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("conflictDeviceCount", value); }
         }
         /// <summary>Not yet documented</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DeviceComplianceSettingState>? DeviceComplianceSettingStates {
+            get { return BackingStore?.Get<List<DeviceComplianceSettingState>?>("deviceComplianceSettingStates"); }
+            set { BackingStore?.Set("deviceComplianceSettingStates", value); }
+        }
+#else
         public List<DeviceComplianceSettingState> DeviceComplianceSettingStates {
             get { return BackingStore?.Get<List<DeviceComplianceSettingState>>("deviceComplianceSettingStates"); }
             set { BackingStore?.Set("deviceComplianceSettingStates", value); }
         }
+#endif
         /// <summary>Number of error devices</summary>
         public int? ErrorDeviceCount {
             get { return BackingStore?.Get<int?>("errorDeviceCount"); }
@@ -49,15 +56,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("remediatedDeviceCount", value); }
         }
         /// <summary>The setting class name and property name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Setting {
+            get { return BackingStore?.Get<string?>("setting"); }
+            set { BackingStore?.Set("setting", value); }
+        }
+#else
         public string Setting {
             get { return BackingStore?.Get<string>("setting"); }
             set { BackingStore?.Set("setting", value); }
         }
+#endif
         /// <summary>Name of the setting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? SettingName {
+            get { return BackingStore?.Get<string?>("settingName"); }
+            set { BackingStore?.Set("settingName", value); }
+        }
+#else
         public string SettingName {
             get { return BackingStore?.Get<string>("settingName"); }
             set { BackingStore?.Set("settingName", value); }
         }
+#endif
         /// <summary>Number of unknown devices</summary>
         public int? UnknownDeviceCount {
             get { return BackingStore?.Get<int?>("unknownDeviceCount"); }

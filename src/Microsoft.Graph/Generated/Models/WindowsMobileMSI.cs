@@ -6,25 +6,46 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class WindowsMobileMSI : MobileLobApp, IParsable {
         /// <summary>The command line.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CommandLine {
+            get { return BackingStore?.Get<string?>("commandLine"); }
+            set { BackingStore?.Set("commandLine", value); }
+        }
+#else
         public string CommandLine {
             get { return BackingStore?.Get<string>("commandLine"); }
             set { BackingStore?.Set("commandLine", value); }
         }
+#endif
         /// <summary>A boolean to control whether the app&apos;s version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.</summary>
         public bool? IgnoreVersionDetection {
             get { return BackingStore?.Get<bool?>("ignoreVersionDetection"); }
             set { BackingStore?.Set("ignoreVersionDetection", value); }
         }
         /// <summary>The product code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProductCode {
+            get { return BackingStore?.Get<string?>("productCode"); }
+            set { BackingStore?.Set("productCode", value); }
+        }
+#else
         public string ProductCode {
             get { return BackingStore?.Get<string>("productCode"); }
             set { BackingStore?.Set("productCode", value); }
         }
+#endif
         /// <summary>The product version of Windows Mobile MSI Line of Business (LoB) app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ProductVersion {
+            get { return BackingStore?.Get<string?>("productVersion"); }
+            set { BackingStore?.Set("productVersion", value); }
+        }
+#else
         public string ProductVersion {
             get { return BackingStore?.Get<string>("productVersion"); }
             set { BackingStore?.Set("productVersion", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new WindowsMobileMSI and sets the default values.
         /// </summary>

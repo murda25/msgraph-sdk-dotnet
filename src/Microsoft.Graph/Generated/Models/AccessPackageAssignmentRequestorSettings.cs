@@ -49,15 +49,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("enableTargetsToSelfUpdateAccess", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The principals who can request on-behalf-of others.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? OnBehalfRequestors {
+            get { return BackingStore?.Get<List<SubjectSet>?>("onBehalfRequestors"); }
+            set { BackingStore?.Set("onBehalfRequestors", value); }
+        }
+#else
         public List<SubjectSet> OnBehalfRequestors {
             get { return BackingStore?.Get<List<SubjectSet>>("onBehalfRequestors"); }
             set { BackingStore?.Set("onBehalfRequestors", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentRequestorSettings and sets the default values.
         /// </summary>

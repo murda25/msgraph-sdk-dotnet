@@ -19,10 +19,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("expirationBehavior", value); }
         }
         /// <summary>This collection specifies the users who will be the fallback reviewers when the primary reviewers don&apos;t respond.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? FallbackReviewers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("fallbackReviewers"); }
+            set { BackingStore?.Set("fallbackReviewers", value); }
+        }
+#else
         public List<SubjectSet> FallbackReviewers {
             get { return BackingStore?.Get<List<SubjectSet>>("fallbackReviewers"); }
             set { BackingStore?.Set("fallbackReviewers", value); }
         }
+#endif
         /// <summary>If true, access reviews are required for assignments through this policy.</summary>
         public bool? IsEnabled {
             get { return BackingStore?.Get<bool?>("isEnabled"); }
@@ -44,20 +51,41 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isSelfReview", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>This collection specifies the users or group of users who will review the access package assignments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? PrimaryReviewers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("primaryReviewers"); }
+            set { BackingStore?.Set("primaryReviewers", value); }
+        }
+#else
         public List<SubjectSet> PrimaryReviewers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryReviewers"); }
             set { BackingStore?.Set("primaryReviewers", value); }
         }
+#endif
         /// <summary>When the first review should start and how often it should recur.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public EntitlementManagementSchedule? Schedule {
+            get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
+            set { BackingStore?.Set("schedule", value); }
+        }
+#else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentReviewSettings and sets the default values.
         /// </summary>

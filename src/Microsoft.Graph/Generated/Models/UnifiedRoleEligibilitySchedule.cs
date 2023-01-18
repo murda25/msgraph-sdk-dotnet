@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class UnifiedRoleEligibilitySchedule : UnifiedRoleScheduleBase, IParsable {
         /// <summary>How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MemberType {
+            get { return BackingStore?.Get<string?>("memberType"); }
+            set { BackingStore?.Set("memberType", value); }
+        }
+#else
         public string MemberType {
             get { return BackingStore?.Get<string>("memberType"); }
             set { BackingStore?.Set("memberType", value); }
         }
+#endif
         /// <summary>The period of the role eligibility.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public RequestSchedule? ScheduleInfo {
+            get { return BackingStore?.Get<RequestSchedule?>("scheduleInfo"); }
+            set { BackingStore?.Set("scheduleInfo", value); }
+        }
+#else
         public RequestSchedule ScheduleInfo {
             get { return BackingStore?.Get<RequestSchedule>("scheduleInfo"); }
             set { BackingStore?.Set("scheduleInfo", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

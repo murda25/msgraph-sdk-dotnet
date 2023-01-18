@@ -14,30 +14,65 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Refers to the Name of the conditional access policy (example: &apos;Require MFA for Salesforce&apos;).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Refers to the grant controls enforced by the conditional access policy (example: &apos;Require multi-factor authentication&apos;).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? EnforcedGrantControls {
+            get { return BackingStore?.Get<List<string>?>("enforcedGrantControls"); }
+            set { BackingStore?.Set("enforcedGrantControls", value); }
+        }
+#else
         public List<string> EnforcedGrantControls {
             get { return BackingStore?.Get<List<string>>("enforcedGrantControls"); }
             set { BackingStore?.Set("enforcedGrantControls", value); }
         }
+#endif
         /// <summary>Refers to the session controls enforced by the conditional access policy (example: &apos;Require app enforced controls&apos;).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? EnforcedSessionControls {
+            get { return BackingStore?.Get<List<string>?>("enforcedSessionControls"); }
+            set { BackingStore?.Set("enforcedSessionControls", value); }
+        }
+#else
         public List<string> EnforcedSessionControls {
             get { return BackingStore?.Get<List<string>>("enforcedSessionControls"); }
             set { BackingStore?.Set("enforcedSessionControls", value); }
         }
+#endif
         /// <summary>An identifier of the conditional access policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Id {
+            get { return BackingStore?.Get<string?>("id"); }
+            set { BackingStore?.Set("id", value); }
+        }
+#else
         public string Id {
             get { return BackingStore?.Get<string>("id"); }
             set { BackingStore?.Set("id", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn&apos;t applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.</summary>
         public AppliedConditionalAccessPolicyResult? Result {
             get { return BackingStore?.Get<AppliedConditionalAccessPolicyResult?>("result"); }

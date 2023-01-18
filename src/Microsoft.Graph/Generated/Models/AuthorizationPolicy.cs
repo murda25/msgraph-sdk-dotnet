@@ -31,10 +31,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("blockMsolPowerShell", value); }
         }
         /// <summary>The defaultUserRolePermissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.DefaultUserRolePermissions? DefaultUserRolePermissions {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DefaultUserRolePermissions?>("defaultUserRolePermissions"); }
+            set { BackingStore?.Set("defaultUserRolePermissions", value); }
+        }
+#else
         public Microsoft.Graph.Models.DefaultUserRolePermissions DefaultUserRolePermissions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DefaultUserRolePermissions>("defaultUserRolePermissions"); }
             set { BackingStore?.Set("defaultUserRolePermissions", value); }
         }
+#endif
         /// <summary>Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).</summary>
         public Guid? GuestUserRoleId {
             get { return BackingStore?.Get<Guid?>("guestUserRoleId"); }

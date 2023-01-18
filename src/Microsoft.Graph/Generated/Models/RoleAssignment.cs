@@ -9,25 +9,53 @@ namespace Microsoft.Graph.Models {
     /// </summary>
     public class RoleAssignment : Entity, IParsable {
         /// <summary>Description of the Role Assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The display or friendly name of the role Assignment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>List of ids of role scope member security groups.  These are IDs from Azure Active Directory.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? ResourceScopes {
+            get { return BackingStore?.Get<List<string>?>("resourceScopes"); }
+            set { BackingStore?.Set("resourceScopes", value); }
+        }
+#else
         public List<string> ResourceScopes {
             get { return BackingStore?.Get<List<string>>("resourceScopes"); }
             set { BackingStore?.Set("resourceScopes", value); }
         }
+#endif
         /// <summary>Role definition this assignment is part of.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.RoleDefinition? RoleDefinition {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RoleDefinition?>("roleDefinition"); }
+            set { BackingStore?.Set("roleDefinition", value); }
+        }
+#else
         public Microsoft.Graph.Models.RoleDefinition RoleDefinition {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RoleDefinition>("roleDefinition"); }
             set { BackingStore?.Set("roleDefinition", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -19,15 +19,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("index", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Uri {
+            get { return BackingStore?.Get<string?>("uri"); }
+            set { BackingStore?.Set("uri", value); }
+        }
+#else
         public string Uri {
             get { return BackingStore?.Get<string>("uri"); }
             set { BackingStore?.Set("uri", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new redirectUriSettings and sets the default values.
         /// </summary>

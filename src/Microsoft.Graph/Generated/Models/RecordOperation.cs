@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RecordOperation : CommsOperation, IParsable {
         /// <summary>The access token required to retrieve the recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? RecordingAccessToken {
+            get { return BackingStore?.Get<string?>("recordingAccessToken"); }
+            set { BackingStore?.Set("recordingAccessToken", value); }
+        }
+#else
         public string RecordingAccessToken {
             get { return BackingStore?.Get<string>("recordingAccessToken"); }
             set { BackingStore?.Set("recordingAccessToken", value); }
         }
+#endif
         /// <summary>The location where the recording is located.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? RecordingLocation {
+            get { return BackingStore?.Get<string?>("recordingLocation"); }
+            set { BackingStore?.Set("recordingLocation", value); }
+        }
+#else
         public string RecordingLocation {
             get { return BackingStore?.Get<string>("recordingLocation"); }
             set { BackingStore?.Set("recordingLocation", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

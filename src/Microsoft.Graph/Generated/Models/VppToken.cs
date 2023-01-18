@@ -9,20 +9,34 @@ namespace Microsoft.Graph.Models {
     /// </summary>
     public class VppToken : Entity, IParsable {
         /// <summary>The apple Id associated with the given Apple Volume Purchase Program Token.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppleId {
+            get { return BackingStore?.Get<string?>("appleId"); }
+            set { BackingStore?.Set("appleId", value); }
+        }
+#else
         public string AppleId {
             get { return BackingStore?.Get<string>("appleId"); }
             set { BackingStore?.Set("appleId", value); }
         }
+#endif
         /// <summary>Whether or not apps for the VPP token will be automatically updated.</summary>
         public bool? AutomaticallyUpdateApps {
             get { return BackingStore?.Get<bool?>("automaticallyUpdateApps"); }
             set { BackingStore?.Set("automaticallyUpdateApps", value); }
         }
         /// <summary>Whether or not apps for the VPP token will be automatically updated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CountryOrRegion {
+            get { return BackingStore?.Get<string?>("countryOrRegion"); }
+            set { BackingStore?.Set("countryOrRegion", value); }
+        }
+#else
         public string CountryOrRegion {
             get { return BackingStore?.Get<string>("countryOrRegion"); }
             set { BackingStore?.Set("countryOrRegion", value); }
         }
+#endif
         /// <summary>The expiration date time of the Apple Volume Purchase Program Token.</summary>
         public DateTimeOffset? ExpirationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("expirationDateTime"); }
@@ -44,20 +58,34 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastSyncStatus", value); }
         }
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OrganizationName {
+            get { return BackingStore?.Get<string?>("organizationName"); }
+            set { BackingStore?.Set("organizationName", value); }
+        }
+#else
         public string OrganizationName {
             get { return BackingStore?.Get<string>("organizationName"); }
             set { BackingStore?.Set("organizationName", value); }
         }
+#endif
         /// <summary>Possible states associated with an Apple Volume Purchase Program token.</summary>
         public VppTokenState? State {
             get { return BackingStore?.Get<VppTokenState?>("state"); }
             set { BackingStore?.Set("state", value); }
         }
         /// <summary>The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Token {
+            get { return BackingStore?.Get<string?>("token"); }
+            set { BackingStore?.Set("token", value); }
+        }
+#else
         public string Token {
             get { return BackingStore?.Get<string>("token"); }
             set { BackingStore?.Set("token", value); }
         }
+#endif
         /// <summary>Possible types of an Apple Volume Purchase Program token.</summary>
         public Microsoft.Graph.Models.VppTokenAccountType? VppTokenAccountType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.VppTokenAccountType?>("vppTokenAccountType"); }

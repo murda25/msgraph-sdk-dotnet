@@ -14,20 +14,41 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The type of data source, such as Person.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Class {
+            get { return BackingStore?.Get<string?>("class"); }
+            set { BackingStore?.Set("class", value); }
+        }
+#else
         public string Class {
             get { return BackingStore?.Get<string>("class"); }
             set { BackingStore?.Set("class", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The secondary type of data source, such as OrganizationUser.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Subclass {
+            get { return BackingStore?.Get<string?>("subclass"); }
+            set { BackingStore?.Set("subclass", value); }
+        }
+#else
         public string Subclass {
             get { return BackingStore?.Get<string>("subclass"); }
             set { BackingStore?.Set("subclass", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new personType and sets the default values.
         /// </summary>

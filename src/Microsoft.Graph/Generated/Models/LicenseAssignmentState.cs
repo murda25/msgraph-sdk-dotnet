@@ -12,42 +12,77 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The assignedByGroup property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AssignedByGroup {
+            get { return BackingStore?.Get<string?>("assignedByGroup"); }
+            set { BackingStore?.Set("assignedByGroup", value); }
+        }
+#else
         public string AssignedByGroup {
             get { return BackingStore?.Get<string>("assignedByGroup"); }
             set { BackingStore?.Set("assignedByGroup", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The disabledPlans property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Guid?>? DisabledPlans {
+            get { return BackingStore?.Get<List<Guid?>?>("disabledPlans"); }
+            set { BackingStore?.Set("disabledPlans", value); }
+        }
+#else
         public List<Guid?> DisabledPlans {
             get { return BackingStore?.Get<List<Guid?>>("disabledPlans"); }
             set { BackingStore?.Set("disabledPlans", value); }
         }
+#endif
         /// <summary>The error property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Error {
+            get { return BackingStore?.Get<string?>("error"); }
+            set { BackingStore?.Set("error", value); }
+        }
+#else
         public string Error {
             get { return BackingStore?.Get<string>("error"); }
             set { BackingStore?.Set("error", value); }
         }
+#endif
         /// <summary>The lastUpdatedDateTime property</summary>
         public DateTimeOffset? LastUpdatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastUpdatedDateTime"); }
             set { BackingStore?.Set("lastUpdatedDateTime", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The skuId property</summary>
         public Guid? SkuId {
             get { return BackingStore?.Get<Guid?>("skuId"); }
             set { BackingStore?.Set("skuId", value); }
         }
         /// <summary>The state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? State {
+            get { return BackingStore?.Get<string?>("state"); }
+            set { BackingStore?.Set("state", value); }
+        }
+#else
         public string State {
             get { return BackingStore?.Get<string>("state"); }
             set { BackingStore?.Set("state", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new licenseAssignmentState and sets the default values.
         /// </summary>

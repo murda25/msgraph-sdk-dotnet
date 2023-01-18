@@ -6,30 +6,65 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class IosDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable {
         /// <summary>Asset tag information for the device, displayed on the login window and lock screen.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AssetTagTemplate {
+            get { return BackingStore?.Get<string?>("assetTagTemplate"); }
+            set { BackingStore?.Set("assetTagTemplate", value); }
+        }
+#else
         public string AssetTagTemplate {
             get { return BackingStore?.Get<string>("assetTagTemplate"); }
             set { BackingStore?.Set("assetTagTemplate", value); }
         }
+#endif
         /// <summary>A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IosHomeScreenItem>? HomeScreenDockIcons {
+            get { return BackingStore?.Get<List<IosHomeScreenItem>?>("homeScreenDockIcons"); }
+            set { BackingStore?.Set("homeScreenDockIcons", value); }
+        }
+#else
         public List<IosHomeScreenItem> HomeScreenDockIcons {
             get { return BackingStore?.Get<List<IosHomeScreenItem>>("homeScreenDockIcons"); }
             set { BackingStore?.Set("homeScreenDockIcons", value); }
         }
+#endif
         /// <summary>A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IosHomeScreenPage>? HomeScreenPages {
+            get { return BackingStore?.Get<List<IosHomeScreenPage>?>("homeScreenPages"); }
+            set { BackingStore?.Set("homeScreenPages", value); }
+        }
+#else
         public List<IosHomeScreenPage> HomeScreenPages {
             get { return BackingStore?.Get<List<IosHomeScreenPage>>("homeScreenPages"); }
             set { BackingStore?.Set("homeScreenPages", value); }
         }
+#endif
         /// <summary>A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? LockScreenFootnote {
+            get { return BackingStore?.Get<string?>("lockScreenFootnote"); }
+            set { BackingStore?.Set("lockScreenFootnote", value); }
+        }
+#else
         public string LockScreenFootnote {
             get { return BackingStore?.Get<string>("lockScreenFootnote"); }
             set { BackingStore?.Set("lockScreenFootnote", value); }
         }
+#endif
         /// <summary>Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IosNotificationSettings>? NotificationSettings {
+            get { return BackingStore?.Get<List<IosNotificationSettings>?>("notificationSettings"); }
+            set { BackingStore?.Set("notificationSettings", value); }
+        }
+#else
         public List<IosNotificationSettings> NotificationSettings {
             get { return BackingStore?.Get<List<IosNotificationSettings>>("notificationSettings"); }
             set { BackingStore?.Set("notificationSettings", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new IosDeviceFeaturesConfiguration and sets the default values.
         /// </summary>

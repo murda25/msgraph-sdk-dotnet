@@ -15,15 +15,29 @@ namespace Microsoft.Graph.Communications.Calls.Item.PlayPrompt {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The clientContext property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ClientContext {
+            get { return BackingStore?.Get<string?>("clientContext"); }
+            set { BackingStore?.Set("clientContext", value); }
+        }
+#else
         public string ClientContext {
             get { return BackingStore?.Get<string>("clientContext"); }
             set { BackingStore?.Set("clientContext", value); }
         }
+#endif
         /// <summary>The prompts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Prompt>? Prompts {
+            get { return BackingStore?.Get<List<Prompt>?>("prompts"); }
+            set { BackingStore?.Set("prompts", value); }
+        }
+#else
         public List<Prompt> Prompts {
             get { return BackingStore?.Get<List<Prompt>>("prompts"); }
             set { BackingStore?.Set("prompts", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new playPromptPostRequestBody and sets the default values.
         /// </summary>

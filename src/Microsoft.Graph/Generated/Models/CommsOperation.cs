@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class CommsOperation : Entity, IParsable {
         /// <summary>Unique Client Context string. Max limit is 256 chars.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ClientContext {
+            get { return BackingStore?.Get<string?>("clientContext"); }
+            set { BackingStore?.Set("clientContext", value); }
+        }
+#else
         public string ClientContext {
             get { return BackingStore?.Get<string>("clientContext"); }
             set { BackingStore?.Set("clientContext", value); }
         }
+#endif
         /// <summary>The result information. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ResultInfo? ResultInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo?>("resultInfo"); }
+            set { BackingStore?.Set("resultInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.ResultInfo ResultInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo>("resultInfo"); }
             set { BackingStore?.Set("resultInfo", value); }
         }
+#endif
         /// <summary>The status property</summary>
         public OperationStatus? Status {
             get { return BackingStore?.Get<OperationStatus?>("status"); }

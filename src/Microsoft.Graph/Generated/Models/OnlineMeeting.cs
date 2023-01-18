@@ -31,30 +31,65 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("allowTeamworkReactions", value); }
         }
         /// <summary>The attendance reports of an online meeting. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MeetingAttendanceReport>? AttendanceReports {
+            get { return BackingStore?.Get<List<MeetingAttendanceReport>?>("attendanceReports"); }
+            set { BackingStore?.Set("attendanceReports", value); }
+        }
+#else
         public List<MeetingAttendanceReport> AttendanceReports {
             get { return BackingStore?.Get<List<MeetingAttendanceReport>>("attendanceReports"); }
             set { BackingStore?.Set("attendanceReports", value); }
         }
+#endif
         /// <summary>The content stream of the attendee report of a Microsoft Teams live event. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public byte[]? AttendeeReport {
+            get { return BackingStore?.Get<byte[]?>("attendeeReport"); }
+            set { BackingStore?.Set("attendeeReport", value); }
+        }
+#else
         public byte[] AttendeeReport {
             get { return BackingStore?.Get<byte[]>("attendeeReport"); }
             set { BackingStore?.Set("attendeeReport", value); }
         }
+#endif
         /// <summary>The phone access (dial-in) information for an online meeting. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.AudioConferencing? AudioConferencing {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AudioConferencing?>("audioConferencing"); }
+            set { BackingStore?.Set("audioConferencing", value); }
+        }
+#else
         public Microsoft.Graph.Models.AudioConferencing AudioConferencing {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AudioConferencing>("audioConferencing"); }
             set { BackingStore?.Set("audioConferencing", value); }
         }
+#endif
         /// <summary>Settings related to a live event.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public BroadcastMeetingSettings? BroadcastSettings {
+            get { return BackingStore?.Get<BroadcastMeetingSettings?>("broadcastSettings"); }
+            set { BackingStore?.Set("broadcastSettings", value); }
+        }
+#else
         public BroadcastMeetingSettings BroadcastSettings {
             get { return BackingStore?.Get<BroadcastMeetingSettings>("broadcastSettings"); }
             set { BackingStore?.Set("broadcastSettings", value); }
         }
+#endif
         /// <summary>The chat information associated with this online meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ChatInfo? ChatInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo?>("chatInfo"); }
+            set { BackingStore?.Set("chatInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.ChatInfo ChatInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo>("chatInfo"); }
             set { BackingStore?.Set("chatInfo", value); }
         }
+#endif
         /// <summary>The meeting creation time in UTC. Read-only.</summary>
         public DateTimeOffset? CreationDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("creationDateTime"); }
@@ -66,10 +101,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("endDateTime", value); }
         }
         /// <summary>The externalId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ExternalId {
+            get { return BackingStore?.Get<string?>("externalId"); }
+            set { BackingStore?.Set("externalId", value); }
+        }
+#else
         public string ExternalId {
             get { return BackingStore?.Get<string>("externalId"); }
             set { BackingStore?.Set("externalId", value); }
         }
+#endif
         /// <summary>Indicates if this is a Teams live event.</summary>
         public bool? IsBroadcast {
             get { return BackingStore?.Get<bool?>("isBroadcast"); }
@@ -81,30 +123,65 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isEntryExitAnnounced", value); }
         }
         /// <summary>The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ItemBody? JoinInformation {
+            get { return BackingStore?.Get<ItemBody?>("joinInformation"); }
+            set { BackingStore?.Set("joinInformation", value); }
+        }
+#else
         public ItemBody JoinInformation {
             get { return BackingStore?.Get<ItemBody>("joinInformation"); }
             set { BackingStore?.Set("joinInformation", value); }
         }
+#endif
         /// <summary>Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.JoinMeetingIdSettings? JoinMeetingIdSettings {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.JoinMeetingIdSettings?>("joinMeetingIdSettings"); }
+            set { BackingStore?.Set("joinMeetingIdSettings", value); }
+        }
+#else
         public Microsoft.Graph.Models.JoinMeetingIdSettings JoinMeetingIdSettings {
             get { return BackingStore?.Get<Microsoft.Graph.Models.JoinMeetingIdSettings>("joinMeetingIdSettings"); }
             set { BackingStore?.Set("joinMeetingIdSettings", value); }
         }
+#endif
         /// <summary>The join URL of the online meeting. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? JoinWebUrl {
+            get { return BackingStore?.Get<string?>("joinWebUrl"); }
+            set { BackingStore?.Set("joinWebUrl", value); }
+        }
+#else
         public string JoinWebUrl {
             get { return BackingStore?.Get<string>("joinWebUrl"); }
             set { BackingStore?.Set("joinWebUrl", value); }
         }
+#endif
         /// <summary>Specifies which participants can bypass the meeting   lobby.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.LobbyBypassSettings? LobbyBypassSettings {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.LobbyBypassSettings?>("lobbyBypassSettings"); }
+            set { BackingStore?.Set("lobbyBypassSettings", value); }
+        }
+#else
         public Microsoft.Graph.Models.LobbyBypassSettings LobbyBypassSettings {
             get { return BackingStore?.Get<Microsoft.Graph.Models.LobbyBypassSettings>("lobbyBypassSettings"); }
             set { BackingStore?.Set("lobbyBypassSettings", value); }
         }
+#endif
         /// <summary>The participants associated with the online meeting.  This includes the organizer and the attendees.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public MeetingParticipants? Participants {
+            get { return BackingStore?.Get<MeetingParticipants?>("participants"); }
+            set { BackingStore?.Set("participants", value); }
+        }
+#else
         public MeetingParticipants Participants {
             get { return BackingStore?.Get<MeetingParticipants>("participants"); }
             set { BackingStore?.Set("participants", value); }
         }
+#endif
         /// <summary>Indicates whether to record the meeting automatically.</summary>
         public bool? RecordAutomatically {
             get { return BackingStore?.Get<bool?>("recordAutomatically"); }
@@ -116,15 +193,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("startDateTime", value); }
         }
         /// <summary>The subject of the online meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Subject {
+            get { return BackingStore?.Get<string?>("subject"); }
+            set { BackingStore?.Set("subject", value); }
+        }
+#else
         public string Subject {
             get { return BackingStore?.Get<string>("subject"); }
             set { BackingStore?.Set("subject", value); }
         }
+#endif
         /// <summary>The video teleconferencing ID. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? VideoTeleconferenceId {
+            get { return BackingStore?.Get<string?>("videoTeleconferenceId"); }
+            set { BackingStore?.Set("videoTeleconferenceId", value); }
+        }
+#else
         public string VideoTeleconferenceId {
             get { return BackingStore?.Get<string>("videoTeleconferenceId"); }
             set { BackingStore?.Set("videoTeleconferenceId", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

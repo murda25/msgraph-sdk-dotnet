@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class WorkbookFilter : Entity, IParsable {
         /// <summary>The currently applied filter on the given column. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public WorkbookFilterCriteria? Criteria {
+            get { return BackingStore?.Get<WorkbookFilterCriteria?>("criteria"); }
+            set { BackingStore?.Set("criteria", value); }
+        }
+#else
         public WorkbookFilterCriteria Criteria {
             get { return BackingStore?.Get<WorkbookFilterCriteria>("criteria"); }
             set { BackingStore?.Set("criteria", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

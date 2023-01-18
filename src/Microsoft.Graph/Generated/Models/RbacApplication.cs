@@ -6,45 +6,101 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RbacApplication : Entity, IParsable {
         /// <summary>Resource to grant access to users or groups.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleAssignment>? RoleAssignments {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignment>?>("roleAssignments"); }
+            set { BackingStore?.Set("roleAssignments", value); }
+        }
+#else
         public List<UnifiedRoleAssignment> RoleAssignments {
             get { return BackingStore?.Get<List<UnifiedRoleAssignment>>("roleAssignments"); }
             set { BackingStore?.Set("roleAssignments", value); }
         }
+#endif
         /// <summary>Instances for active role assignments.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleAssignmentScheduleInstance>? RoleAssignmentScheduleInstances {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleInstance>?>("roleAssignmentScheduleInstances"); }
+            set { BackingStore?.Set("roleAssignmentScheduleInstances", value); }
+        }
+#else
         public List<UnifiedRoleAssignmentScheduleInstance> RoleAssignmentScheduleInstances {
             get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleInstance>>("roleAssignmentScheduleInstances"); }
             set { BackingStore?.Set("roleAssignmentScheduleInstances", value); }
         }
+#endif
         /// <summary>Requests for active role assignments to principals through PIM.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleAssignmentScheduleRequest>? RoleAssignmentScheduleRequests {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleRequest>?>("roleAssignmentScheduleRequests"); }
+            set { BackingStore?.Set("roleAssignmentScheduleRequests", value); }
+        }
+#else
         public List<UnifiedRoleAssignmentScheduleRequest> RoleAssignmentScheduleRequests {
             get { return BackingStore?.Get<List<UnifiedRoleAssignmentScheduleRequest>>("roleAssignmentScheduleRequests"); }
             set { BackingStore?.Set("roleAssignmentScheduleRequests", value); }
         }
+#endif
         /// <summary>Schedules for active role assignment operations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleAssignmentSchedule>? RoleAssignmentSchedules {
+            get { return BackingStore?.Get<List<UnifiedRoleAssignmentSchedule>?>("roleAssignmentSchedules"); }
+            set { BackingStore?.Set("roleAssignmentSchedules", value); }
+        }
+#else
         public List<UnifiedRoleAssignmentSchedule> RoleAssignmentSchedules {
             get { return BackingStore?.Get<List<UnifiedRoleAssignmentSchedule>>("roleAssignmentSchedules"); }
             set { BackingStore?.Set("roleAssignmentSchedules", value); }
         }
+#endif
         /// <summary>Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleDefinition>? RoleDefinitions {
+            get { return BackingStore?.Get<List<UnifiedRoleDefinition>?>("roleDefinitions"); }
+            set { BackingStore?.Set("roleDefinitions", value); }
+        }
+#else
         public List<UnifiedRoleDefinition> RoleDefinitions {
             get { return BackingStore?.Get<List<UnifiedRoleDefinition>>("roleDefinitions"); }
             set { BackingStore?.Set("roleDefinitions", value); }
         }
+#endif
         /// <summary>Instances for role eligibility requests.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleEligibilityScheduleInstance>? RoleEligibilityScheduleInstances {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleInstance>?>("roleEligibilityScheduleInstances"); }
+            set { BackingStore?.Set("roleEligibilityScheduleInstances", value); }
+        }
+#else
         public List<UnifiedRoleEligibilityScheduleInstance> RoleEligibilityScheduleInstances {
             get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleInstance>>("roleEligibilityScheduleInstances"); }
             set { BackingStore?.Set("roleEligibilityScheduleInstances", value); }
         }
+#endif
         /// <summary>Requests for role eligibilities for principals through PIM.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleEligibilityScheduleRequest>? RoleEligibilityScheduleRequests {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleRequest>?>("roleEligibilityScheduleRequests"); }
+            set { BackingStore?.Set("roleEligibilityScheduleRequests", value); }
+        }
+#else
         public List<UnifiedRoleEligibilityScheduleRequest> RoleEligibilityScheduleRequests {
             get { return BackingStore?.Get<List<UnifiedRoleEligibilityScheduleRequest>>("roleEligibilityScheduleRequests"); }
             set { BackingStore?.Set("roleEligibilityScheduleRequests", value); }
         }
+#endif
         /// <summary>Schedules for role eligibility operations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<UnifiedRoleEligibilitySchedule>? RoleEligibilitySchedules {
+            get { return BackingStore?.Get<List<UnifiedRoleEligibilitySchedule>?>("roleEligibilitySchedules"); }
+            set { BackingStore?.Set("roleEligibilitySchedules", value); }
+        }
+#else
         public List<UnifiedRoleEligibilitySchedule> RoleEligibilitySchedules {
             get { return BackingStore?.Get<List<UnifiedRoleEligibilitySchedule>>("roleEligibilitySchedules"); }
             set { BackingStore?.Set("roleEligibilitySchedules", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

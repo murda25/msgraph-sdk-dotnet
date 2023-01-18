@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Pkcs12Certificate : ApiAuthenticationConfigurationBase, IParsable {
         /// <summary>The password for the pfx file. Required. If no password is used, you must still provide a value of &apos;&apos;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Password {
+            get { return BackingStore?.Get<string?>("password"); }
+            set { BackingStore?.Set("password", value); }
+        }
+#else
         public string Password {
             get { return BackingStore?.Get<string>("password"); }
             set { BackingStore?.Set("password", value); }
         }
+#endif
         /// <summary>Represents the pfx content that is sent. The value should be a base-64 encoded version of the actual certificate content. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Pkcs12Value {
+            get { return BackingStore?.Get<string?>("pkcs12Value"); }
+            set { BackingStore?.Set("pkcs12Value", value); }
+        }
+#else
         public string Pkcs12Value {
             get { return BackingStore?.Get<string>("pkcs12Value"); }
             set { BackingStore?.Set("pkcs12Value", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new Pkcs12Certificate and sets the default values.
         /// </summary>

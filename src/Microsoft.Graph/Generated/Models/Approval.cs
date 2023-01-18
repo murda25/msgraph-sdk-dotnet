@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ApprovalStage>? Stages {
+            get { return BackingStore?.Get<List<ApprovalStage>?>("stages"); }
+            set { BackingStore?.Set("stages", value); }
+        }
+#else
         public List<ApprovalStage> Stages {
             get { return BackingStore?.Get<List<ApprovalStage>>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

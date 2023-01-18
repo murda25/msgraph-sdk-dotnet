@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class ConnectedOrganizationMembers : SubjectSet, IParsable {
         /// <summary>The ID of the connected organization in entitlement management.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ConnectedOrganizationId {
+            get { return BackingStore?.Get<string?>("connectedOrganizationId"); }
+            set { BackingStore?.Set("connectedOrganizationId", value); }
+        }
+#else
         public string ConnectedOrganizationId {
             get { return BackingStore?.Get<string>("connectedOrganizationId"); }
             set { BackingStore?.Set("connectedOrganizationId", value); }
         }
+#endif
         /// <summary>The name of the connected organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new ConnectedOrganizationMembers and sets the default values.
         /// </summary>

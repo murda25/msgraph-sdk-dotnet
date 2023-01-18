@@ -12,72 +12,142 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The aggregationFilters property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? AggregationFilters {
+            get { return BackingStore?.Get<List<string>?>("aggregationFilters"); }
+            set { BackingStore?.Set("aggregationFilters", value); }
+        }
+#else
         public List<string> AggregationFilters {
             get { return BackingStore?.Get<List<string>>("aggregationFilters"); }
             set { BackingStore?.Set("aggregationFilters", value); }
         }
+#endif
         /// <summary>The aggregations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AggregationOption>? Aggregations {
+            get { return BackingStore?.Get<List<AggregationOption>?>("aggregations"); }
+            set { BackingStore?.Set("aggregations", value); }
+        }
+#else
         public List<AggregationOption> Aggregations {
             get { return BackingStore?.Get<List<AggregationOption>>("aggregations"); }
             set { BackingStore?.Set("aggregations", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The contentSources property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? ContentSources {
+            get { return BackingStore?.Get<List<string>?>("contentSources"); }
+            set { BackingStore?.Set("contentSources", value); }
+        }
+#else
         public List<string> ContentSources {
             get { return BackingStore?.Get<List<string>>("contentSources"); }
             set { BackingStore?.Set("contentSources", value); }
         }
+#endif
         /// <summary>The enableTopResults property</summary>
         public bool? EnableTopResults {
             get { return BackingStore?.Get<bool?>("enableTopResults"); }
             set { BackingStore?.Set("enableTopResults", value); }
         }
         /// <summary>The entityTypes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<EntityType?>? EntityTypes {
+            get { return BackingStore?.Get<List<EntityType?>?>("entityTypes"); }
+            set { BackingStore?.Set("entityTypes", value); }
+        }
+#else
         public List<EntityType?> EntityTypes {
             get { return BackingStore?.Get<List<EntityType?>>("entityTypes"); }
             set { BackingStore?.Set("entityTypes", value); }
         }
+#endif
         /// <summary>The fields property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? Fields {
+            get { return BackingStore?.Get<List<string>?>("fields"); }
+            set { BackingStore?.Set("fields", value); }
+        }
+#else
         public List<string> Fields {
             get { return BackingStore?.Get<List<string>>("fields"); }
             set { BackingStore?.Set("fields", value); }
         }
+#endif
         /// <summary>The from property</summary>
         public int? From {
             get { return BackingStore?.Get<int?>("from"); }
             set { BackingStore?.Set("from", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The query property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SearchQuery? Query {
+            get { return BackingStore?.Get<SearchQuery?>("query"); }
+            set { BackingStore?.Set("query", value); }
+        }
+#else
         public SearchQuery Query {
             get { return BackingStore?.Get<SearchQuery>("query"); }
             set { BackingStore?.Set("query", value); }
         }
+#endif
         /// <summary>The queryAlterationOptions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SearchAlterationOptions? QueryAlterationOptions {
+            get { return BackingStore?.Get<SearchAlterationOptions?>("queryAlterationOptions"); }
+            set { BackingStore?.Set("queryAlterationOptions", value); }
+        }
+#else
         public SearchAlterationOptions QueryAlterationOptions {
             get { return BackingStore?.Get<SearchAlterationOptions>("queryAlterationOptions"); }
             set { BackingStore?.Set("queryAlterationOptions", value); }
         }
+#endif
         /// <summary>The resultTemplateOptions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ResultTemplateOption? ResultTemplateOptions {
+            get { return BackingStore?.Get<ResultTemplateOption?>("resultTemplateOptions"); }
+            set { BackingStore?.Set("resultTemplateOptions", value); }
+        }
+#else
         public ResultTemplateOption ResultTemplateOptions {
             get { return BackingStore?.Get<ResultTemplateOption>("resultTemplateOptions"); }
             set { BackingStore?.Set("resultTemplateOptions", value); }
         }
+#endif
         /// <summary>The size property</summary>
         public int? Size {
             get { return BackingStore?.Get<int?>("size"); }
             set { BackingStore?.Set("size", value); }
         }
         /// <summary>The sortProperties property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SortProperty>? SortProperties {
+            get { return BackingStore?.Get<List<SortProperty>?>("sortProperties"); }
+            set { BackingStore?.Set("sortProperties", value); }
+        }
+#else
         public List<SortProperty> SortProperties {
             get { return BackingStore?.Get<List<SortProperty>>("sortProperties"); }
             set { BackingStore?.Set("sortProperties", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new searchRequest and sets the default values.
         /// </summary>

@@ -13,10 +13,17 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.Attachments.Crea
             set { BackingStore?.Set("additionalData", value); }
         }
         /// <summary>The attachmentInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.AttachmentInfo? AttachmentInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentInfo?>("attachmentInfo"); }
+            set { BackingStore?.Set("attachmentInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.AttachmentInfo AttachmentInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentInfo>("attachmentInfo"); }
             set { BackingStore?.Set("attachmentInfo", value); }
         }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>

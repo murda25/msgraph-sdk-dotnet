@@ -6,55 +6,118 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class DeviceAppManagement : Entity, IParsable {
         /// <summary>Android managed app policies.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AndroidManagedAppProtection>? AndroidManagedAppProtections {
+            get { return BackingStore?.Get<List<AndroidManagedAppProtection>?>("androidManagedAppProtections"); }
+            set { BackingStore?.Set("androidManagedAppProtections", value); }
+        }
+#else
         public List<AndroidManagedAppProtection> AndroidManagedAppProtections {
             get { return BackingStore?.Get<List<AndroidManagedAppProtection>>("androidManagedAppProtections"); }
             set { BackingStore?.Set("androidManagedAppProtections", value); }
         }
+#endif
         /// <summary>Default managed app policies.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<DefaultManagedAppProtection>? DefaultManagedAppProtections {
+            get { return BackingStore?.Get<List<DefaultManagedAppProtection>?>("defaultManagedAppProtections"); }
+            set { BackingStore?.Set("defaultManagedAppProtections", value); }
+        }
+#else
         public List<DefaultManagedAppProtection> DefaultManagedAppProtections {
             get { return BackingStore?.Get<List<DefaultManagedAppProtection>>("defaultManagedAppProtections"); }
             set { BackingStore?.Set("defaultManagedAppProtections", value); }
         }
+#endif
         /// <summary>iOS managed app policies.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<IosManagedAppProtection>? IosManagedAppProtections {
+            get { return BackingStore?.Get<List<IosManagedAppProtection>?>("iosManagedAppProtections"); }
+            set { BackingStore?.Set("iosManagedAppProtections", value); }
+        }
+#else
         public List<IosManagedAppProtection> IosManagedAppProtections {
             get { return BackingStore?.Get<List<IosManagedAppProtection>>("iosManagedAppProtections"); }
             set { BackingStore?.Set("iosManagedAppProtections", value); }
         }
+#endif
         /// <summary>Whether the account is enabled for syncing applications from the Microsoft Store for Business.</summary>
         public bool? IsEnabledForMicrosoftStoreForBusiness {
             get { return BackingStore?.Get<bool?>("isEnabledForMicrosoftStoreForBusiness"); }
             set { BackingStore?.Set("isEnabledForMicrosoftStoreForBusiness", value); }
         }
         /// <summary>Managed app policies.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedAppPolicy>? ManagedAppPolicies {
+            get { return BackingStore?.Get<List<ManagedAppPolicy>?>("managedAppPolicies"); }
+            set { BackingStore?.Set("managedAppPolicies", value); }
+        }
+#else
         public List<ManagedAppPolicy> ManagedAppPolicies {
             get { return BackingStore?.Get<List<ManagedAppPolicy>>("managedAppPolicies"); }
             set { BackingStore?.Set("managedAppPolicies", value); }
         }
+#endif
         /// <summary>The managed app registrations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedAppRegistration>? ManagedAppRegistrations {
+            get { return BackingStore?.Get<List<ManagedAppRegistration>?>("managedAppRegistrations"); }
+            set { BackingStore?.Set("managedAppRegistrations", value); }
+        }
+#else
         public List<ManagedAppRegistration> ManagedAppRegistrations {
             get { return BackingStore?.Get<List<ManagedAppRegistration>>("managedAppRegistrations"); }
             set { BackingStore?.Set("managedAppRegistrations", value); }
         }
+#endif
         /// <summary>The managed app statuses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedAppStatus>? ManagedAppStatuses {
+            get { return BackingStore?.Get<List<ManagedAppStatus>?>("managedAppStatuses"); }
+            set { BackingStore?.Set("managedAppStatuses", value); }
+        }
+#else
         public List<ManagedAppStatus> ManagedAppStatuses {
             get { return BackingStore?.Get<List<ManagedAppStatus>>("managedAppStatuses"); }
             set { BackingStore?.Set("managedAppStatuses", value); }
         }
+#endif
         /// <summary>The Managed eBook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedEBook>? ManagedEBooks {
+            get { return BackingStore?.Get<List<ManagedEBook>?>("managedEBooks"); }
+            set { BackingStore?.Set("managedEBooks", value); }
+        }
+#else
         public List<ManagedEBook> ManagedEBooks {
             get { return BackingStore?.Get<List<ManagedEBook>>("managedEBooks"); }
             set { BackingStore?.Set("managedEBooks", value); }
         }
+#endif
         /// <summary>Windows information protection for apps running on devices which are MDM enrolled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MdmWindowsInformationProtectionPolicy>? MdmWindowsInformationProtectionPolicies {
+            get { return BackingStore?.Get<List<MdmWindowsInformationProtectionPolicy>?>("mdmWindowsInformationProtectionPolicies"); }
+            set { BackingStore?.Set("mdmWindowsInformationProtectionPolicies", value); }
+        }
+#else
         public List<MdmWindowsInformationProtectionPolicy> MdmWindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<MdmWindowsInformationProtectionPolicy>>("mdmWindowsInformationProtectionPolicies"); }
             set { BackingStore?.Set("mdmWindowsInformationProtectionPolicies", value); }
         }
+#endif
         /// <summary>The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -&lt;country/regioncode2&gt;, where  is a lowercase two-letter code derived from ISO 639-1 and &lt;country/regioncode2&gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MicrosoftStoreForBusinessLanguage {
+            get { return BackingStore?.Get<string?>("microsoftStoreForBusinessLanguage"); }
+            set { BackingStore?.Set("microsoftStoreForBusinessLanguage", value); }
+        }
+#else
         public string MicrosoftStoreForBusinessLanguage {
             get { return BackingStore?.Get<string>("microsoftStoreForBusinessLanguage"); }
             set { BackingStore?.Set("microsoftStoreForBusinessLanguage", value); }
         }
+#endif
         /// <summary>The last time an application sync from the Microsoft Store for Business was completed.</summary>
         public DateTimeOffset? MicrosoftStoreForBusinessLastCompletedApplicationSyncTime {
             get { return BackingStore?.Get<DateTimeOffset?>("microsoftStoreForBusinessLastCompletedApplicationSyncTime"); }
@@ -66,35 +129,77 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("microsoftStoreForBusinessLastSuccessfulSyncDateTime", value); }
         }
         /// <summary>The mobile app categories.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MobileAppCategory>? MobileAppCategories {
+            get { return BackingStore?.Get<List<MobileAppCategory>?>("mobileAppCategories"); }
+            set { BackingStore?.Set("mobileAppCategories", value); }
+        }
+#else
         public List<MobileAppCategory> MobileAppCategories {
             get { return BackingStore?.Get<List<MobileAppCategory>>("mobileAppCategories"); }
             set { BackingStore?.Set("mobileAppCategories", value); }
         }
+#endif
         /// <summary>The Managed Device Mobile Application Configurations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ManagedDeviceMobileAppConfiguration>? MobileAppConfigurations {
+            get { return BackingStore?.Get<List<ManagedDeviceMobileAppConfiguration>?>("mobileAppConfigurations"); }
+            set { BackingStore?.Set("mobileAppConfigurations", value); }
+        }
+#else
         public List<ManagedDeviceMobileAppConfiguration> MobileAppConfigurations {
             get { return BackingStore?.Get<List<ManagedDeviceMobileAppConfiguration>>("mobileAppConfigurations"); }
             set { BackingStore?.Set("mobileAppConfigurations", value); }
         }
+#endif
         /// <summary>The mobile apps.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MobileApp>? MobileApps {
+            get { return BackingStore?.Get<List<MobileApp>?>("mobileApps"); }
+            set { BackingStore?.Set("mobileApps", value); }
+        }
+#else
         public List<MobileApp> MobileApps {
             get { return BackingStore?.Get<List<MobileApp>>("mobileApps"); }
             set { BackingStore?.Set("mobileApps", value); }
         }
+#endif
         /// <summary>Targeted managed app configurations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<TargetedManagedAppConfiguration>? TargetedManagedAppConfigurations {
+            get { return BackingStore?.Get<List<TargetedManagedAppConfiguration>?>("targetedManagedAppConfigurations"); }
+            set { BackingStore?.Set("targetedManagedAppConfigurations", value); }
+        }
+#else
         public List<TargetedManagedAppConfiguration> TargetedManagedAppConfigurations {
             get { return BackingStore?.Get<List<TargetedManagedAppConfiguration>>("targetedManagedAppConfigurations"); }
             set { BackingStore?.Set("targetedManagedAppConfigurations", value); }
         }
+#endif
         /// <summary>List of Vpp tokens for this organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<VppToken>? VppTokens {
+            get { return BackingStore?.Get<List<VppToken>?>("vppTokens"); }
+            set { BackingStore?.Set("vppTokens", value); }
+        }
+#else
         public List<VppToken> VppTokens {
             get { return BackingStore?.Get<List<VppToken>>("vppTokens"); }
             set { BackingStore?.Set("vppTokens", value); }
         }
+#endif
         /// <summary>Windows information protection for apps running on devices which are not MDM enrolled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<WindowsInformationProtectionPolicy>? WindowsInformationProtectionPolicies {
+            get { return BackingStore?.Get<List<WindowsInformationProtectionPolicy>?>("windowsInformationProtectionPolicies"); }
+            set { BackingStore?.Set("windowsInformationProtectionPolicies", value); }
+        }
+#else
         public List<WindowsInformationProtectionPolicy> WindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<WindowsInformationProtectionPolicy>>("windowsInformationProtectionPolicies"); }
             set { BackingStore?.Set("windowsInformationProtectionPolicies", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

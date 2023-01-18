@@ -15,10 +15,17 @@ namespace Microsoft.Graph.Groups.Item.Sites.Remove {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The value property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Microsoft.Graph.Models.Site>? Value {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.Site>?>("value"); }
+            set { BackingStore?.Set("value", value); }
+        }
+#else
         public List<Microsoft.Graph.Models.Site> Value {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Site>>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new removePostRequestBody and sets the default values.
         /// </summary>

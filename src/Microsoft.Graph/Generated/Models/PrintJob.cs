@@ -6,50 +6,99 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class PrintJob : Entity, IParsable {
         /// <summary>The configuration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrintJobConfiguration? Configuration {
+            get { return BackingStore?.Get<PrintJobConfiguration?>("configuration"); }
+            set { BackingStore?.Set("configuration", value); }
+        }
+#else
         public PrintJobConfiguration Configuration {
             get { return BackingStore?.Get<PrintJobConfiguration>("configuration"); }
             set { BackingStore?.Set("configuration", value); }
         }
+#endif
         /// <summary>The createdBy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public UserIdentity? CreatedBy {
+            get { return BackingStore?.Get<UserIdentity?>("createdBy"); }
+            set { BackingStore?.Set("createdBy", value); }
+        }
+#else
         public UserIdentity CreatedBy {
             get { return BackingStore?.Get<UserIdentity>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#endif
         /// <summary>The DateTimeOffset when the job was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>The documents property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintDocument>? Documents {
+            get { return BackingStore?.Get<List<PrintDocument>?>("documents"); }
+            set { BackingStore?.Set("documents", value); }
+        }
+#else
         public List<PrintDocument> Documents {
             get { return BackingStore?.Get<List<PrintDocument>>("documents"); }
             set { BackingStore?.Set("documents", value); }
         }
+#endif
         /// <summary>If true, document can be fetched by printer.</summary>
         public bool? IsFetchable {
             get { return BackingStore?.Get<bool?>("isFetchable"); }
             set { BackingStore?.Set("isFetchable", value); }
         }
         /// <summary>Contains the source job URL, if the job has been redirected from another printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? RedirectedFrom {
+            get { return BackingStore?.Get<string?>("redirectedFrom"); }
+            set { BackingStore?.Set("redirectedFrom", value); }
+        }
+#else
         public string RedirectedFrom {
             get { return BackingStore?.Get<string>("redirectedFrom"); }
             set { BackingStore?.Set("redirectedFrom", value); }
         }
+#endif
         /// <summary>Contains the destination job URL, if the job has been redirected to another printer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? RedirectedTo {
+            get { return BackingStore?.Get<string?>("redirectedTo"); }
+            set { BackingStore?.Set("redirectedTo", value); }
+        }
+#else
         public string RedirectedTo {
             get { return BackingStore?.Get<string>("redirectedTo"); }
             set { BackingStore?.Set("redirectedTo", value); }
         }
+#endif
         /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PrintJobStatus? Status {
+            get { return BackingStore?.Get<PrintJobStatus?>("status"); }
+            set { BackingStore?.Set("status", value); }
+        }
+#else
         public PrintJobStatus Status {
             get { return BackingStore?.Get<PrintJobStatus>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#endif
         /// <summary>A list of printTasks that were triggered by this print job.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintTask>? Tasks {
+            get { return BackingStore?.Get<List<PrintTask>?>("tasks"); }
+            set { BackingStore?.Set("tasks", value); }
+        }
+#else
         public List<PrintTask> Tasks {
             get { return BackingStore?.Get<List<PrintTask>>("tasks"); }
             set { BackingStore?.Set("tasks", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

@@ -24,15 +24,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isApprovalRequiredForUpdate", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AccessPackageApprovalStage>? Stages {
+            get { return BackingStore?.Get<List<AccessPackageApprovalStage>?>("stages"); }
+            set { BackingStore?.Set("stages", value); }
+        }
+#else
         public List<AccessPackageApprovalStage> Stages {
             get { return BackingStore?.Get<List<AccessPackageApprovalStage>>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentApprovalSettings and sets the default values.
         /// </summary>

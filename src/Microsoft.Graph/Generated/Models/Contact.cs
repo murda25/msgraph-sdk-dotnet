@@ -6,192 +6,444 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Contact : OutlookItem, IParsable {
         /// <summary>The name of the contact&apos;s assistant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AssistantName {
+            get { return BackingStore?.Get<string?>("assistantName"); }
+            set { BackingStore?.Set("assistantName", value); }
+        }
+#else
         public string AssistantName {
             get { return BackingStore?.Get<string>("assistantName"); }
             set { BackingStore?.Set("assistantName", value); }
         }
+#endif
         /// <summary>The contact&apos;s birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? Birthday {
             get { return BackingStore?.Get<DateTimeOffset?>("birthday"); }
             set { BackingStore?.Set("birthday", value); }
         }
         /// <summary>The contact&apos;s business address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PhysicalAddress? BusinessAddress {
+            get { return BackingStore?.Get<PhysicalAddress?>("businessAddress"); }
+            set { BackingStore?.Set("businessAddress", value); }
+        }
+#else
         public PhysicalAddress BusinessAddress {
             get { return BackingStore?.Get<PhysicalAddress>("businessAddress"); }
             set { BackingStore?.Set("businessAddress", value); }
         }
+#endif
         /// <summary>The business home page of the contact.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? BusinessHomePage {
+            get { return BackingStore?.Get<string?>("businessHomePage"); }
+            set { BackingStore?.Set("businessHomePage", value); }
+        }
+#else
         public string BusinessHomePage {
             get { return BackingStore?.Get<string>("businessHomePage"); }
             set { BackingStore?.Set("businessHomePage", value); }
         }
+#endif
         /// <summary>The contact&apos;s business phone numbers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? BusinessPhones {
+            get { return BackingStore?.Get<List<string>?>("businessPhones"); }
+            set { BackingStore?.Set("businessPhones", value); }
+        }
+#else
         public List<string> BusinessPhones {
             get { return BackingStore?.Get<List<string>>("businessPhones"); }
             set { BackingStore?.Set("businessPhones", value); }
         }
+#endif
         /// <summary>The names of the contact&apos;s children.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? Children {
+            get { return BackingStore?.Get<List<string>?>("children"); }
+            set { BackingStore?.Set("children", value); }
+        }
+#else
         public List<string> Children {
             get { return BackingStore?.Get<List<string>>("children"); }
             set { BackingStore?.Set("children", value); }
         }
+#endif
         /// <summary>The name of the contact&apos;s company.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CompanyName {
+            get { return BackingStore?.Get<string?>("companyName"); }
+            set { BackingStore?.Set("companyName", value); }
+        }
+#else
         public string CompanyName {
             get { return BackingStore?.Get<string>("companyName"); }
             set { BackingStore?.Set("companyName", value); }
         }
+#endif
         /// <summary>The contact&apos;s department.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Department {
+            get { return BackingStore?.Get<string?>("department"); }
+            set { BackingStore?.Set("department", value); }
+        }
+#else
         public string Department {
             get { return BackingStore?.Get<string>("department"); }
             set { BackingStore?.Set("department", value); }
         }
+#endif
         /// <summary>The contact&apos;s display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>The contact&apos;s email addresses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<EmailAddress>? EmailAddresses {
+            get { return BackingStore?.Get<List<EmailAddress>?>("emailAddresses"); }
+            set { BackingStore?.Set("emailAddresses", value); }
+        }
+#else
         public List<EmailAddress> EmailAddresses {
             get { return BackingStore?.Get<List<EmailAddress>>("emailAddresses"); }
             set { BackingStore?.Set("emailAddresses", value); }
         }
+#endif
         /// <summary>The collection of open extensions defined for the contact. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Extension>? Extensions {
+            get { return BackingStore?.Get<List<Extension>?>("extensions"); }
+            set { BackingStore?.Set("extensions", value); }
+        }
+#else
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
+#endif
         /// <summary>The name the contact is filed under.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? FileAs {
+            get { return BackingStore?.Get<string?>("fileAs"); }
+            set { BackingStore?.Set("fileAs", value); }
+        }
+#else
         public string FileAs {
             get { return BackingStore?.Get<string>("fileAs"); }
             set { BackingStore?.Set("fileAs", value); }
         }
+#endif
         /// <summary>The contact&apos;s generation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Generation {
+            get { return BackingStore?.Get<string?>("generation"); }
+            set { BackingStore?.Set("generation", value); }
+        }
+#else
         public string Generation {
             get { return BackingStore?.Get<string>("generation"); }
             set { BackingStore?.Set("generation", value); }
         }
+#endif
         /// <summary>The contact&apos;s given name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? GivenName {
+            get { return BackingStore?.Get<string?>("givenName"); }
+            set { BackingStore?.Set("givenName", value); }
+        }
+#else
         public string GivenName {
             get { return BackingStore?.Get<string>("givenName"); }
             set { BackingStore?.Set("givenName", value); }
         }
+#endif
         /// <summary>The contact&apos;s home address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PhysicalAddress? HomeAddress {
+            get { return BackingStore?.Get<PhysicalAddress?>("homeAddress"); }
+            set { BackingStore?.Set("homeAddress", value); }
+        }
+#else
         public PhysicalAddress HomeAddress {
             get { return BackingStore?.Get<PhysicalAddress>("homeAddress"); }
             set { BackingStore?.Set("homeAddress", value); }
         }
+#endif
         /// <summary>The contact&apos;s home phone numbers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? HomePhones {
+            get { return BackingStore?.Get<List<string>?>("homePhones"); }
+            set { BackingStore?.Set("homePhones", value); }
+        }
+#else
         public List<string> HomePhones {
             get { return BackingStore?.Get<List<string>>("homePhones"); }
             set { BackingStore?.Set("homePhones", value); }
         }
+#endif
         /// <summary>The imAddresses property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? ImAddresses {
+            get { return BackingStore?.Get<List<string>?>("imAddresses"); }
+            set { BackingStore?.Set("imAddresses", value); }
+        }
+#else
         public List<string> ImAddresses {
             get { return BackingStore?.Get<List<string>>("imAddresses"); }
             set { BackingStore?.Set("imAddresses", value); }
         }
+#endif
         /// <summary>The initials property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Initials {
+            get { return BackingStore?.Get<string?>("initials"); }
+            set { BackingStore?.Set("initials", value); }
+        }
+#else
         public string Initials {
             get { return BackingStore?.Get<string>("initials"); }
             set { BackingStore?.Set("initials", value); }
         }
+#endif
         /// <summary>The jobTitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? JobTitle {
+            get { return BackingStore?.Get<string?>("jobTitle"); }
+            set { BackingStore?.Set("jobTitle", value); }
+        }
+#else
         public string JobTitle {
             get { return BackingStore?.Get<string>("jobTitle"); }
             set { BackingStore?.Set("jobTitle", value); }
         }
+#endif
         /// <summary>The manager property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Manager {
+            get { return BackingStore?.Get<string?>("manager"); }
+            set { BackingStore?.Set("manager", value); }
+        }
+#else
         public string Manager {
             get { return BackingStore?.Get<string>("manager"); }
             set { BackingStore?.Set("manager", value); }
         }
+#endif
         /// <summary>The middleName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MiddleName {
+            get { return BackingStore?.Get<string?>("middleName"); }
+            set { BackingStore?.Set("middleName", value); }
+        }
+#else
         public string MiddleName {
             get { return BackingStore?.Get<string>("middleName"); }
             set { BackingStore?.Set("middleName", value); }
         }
+#endif
         /// <summary>The mobilePhone property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MobilePhone {
+            get { return BackingStore?.Get<string?>("mobilePhone"); }
+            set { BackingStore?.Set("mobilePhone", value); }
+        }
+#else
         public string MobilePhone {
             get { return BackingStore?.Get<string>("mobilePhone"); }
             set { BackingStore?.Set("mobilePhone", value); }
         }
+#endif
         /// <summary>The collection of multi-value extended properties defined for the contact. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties {
+            get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>?>("multiValueExtendedProperties"); }
+            set { BackingStore?.Set("multiValueExtendedProperties", value); }
+        }
+#else
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties {
             get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>>("multiValueExtendedProperties"); }
             set { BackingStore?.Set("multiValueExtendedProperties", value); }
         }
+#endif
         /// <summary>The nickName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? NickName {
+            get { return BackingStore?.Get<string?>("nickName"); }
+            set { BackingStore?.Set("nickName", value); }
+        }
+#else
         public string NickName {
             get { return BackingStore?.Get<string>("nickName"); }
             set { BackingStore?.Set("nickName", value); }
         }
+#endif
         /// <summary>The officeLocation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OfficeLocation {
+            get { return BackingStore?.Get<string?>("officeLocation"); }
+            set { BackingStore?.Set("officeLocation", value); }
+        }
+#else
         public string OfficeLocation {
             get { return BackingStore?.Get<string>("officeLocation"); }
             set { BackingStore?.Set("officeLocation", value); }
         }
+#endif
         /// <summary>The otherAddress property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public PhysicalAddress? OtherAddress {
+            get { return BackingStore?.Get<PhysicalAddress?>("otherAddress"); }
+            set { BackingStore?.Set("otherAddress", value); }
+        }
+#else
         public PhysicalAddress OtherAddress {
             get { return BackingStore?.Get<PhysicalAddress>("otherAddress"); }
             set { BackingStore?.Set("otherAddress", value); }
         }
+#endif
         /// <summary>The parentFolderId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ParentFolderId {
+            get { return BackingStore?.Get<string?>("parentFolderId"); }
+            set { BackingStore?.Set("parentFolderId", value); }
+        }
+#else
         public string ParentFolderId {
             get { return BackingStore?.Get<string>("parentFolderId"); }
             set { BackingStore?.Set("parentFolderId", value); }
         }
+#endif
         /// <summary>The personalNotes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? PersonalNotes {
+            get { return BackingStore?.Get<string?>("personalNotes"); }
+            set { BackingStore?.Set("personalNotes", value); }
+        }
+#else
         public string PersonalNotes {
             get { return BackingStore?.Get<string>("personalNotes"); }
             set { BackingStore?.Set("personalNotes", value); }
         }
+#endif
         /// <summary>Optional contact picture. You can get or set a photo for a contact.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ProfilePhoto? Photo {
+            get { return BackingStore?.Get<ProfilePhoto?>("photo"); }
+            set { BackingStore?.Set("photo", value); }
+        }
+#else
         public ProfilePhoto Photo {
             get { return BackingStore?.Get<ProfilePhoto>("photo"); }
             set { BackingStore?.Set("photo", value); }
         }
+#endif
         /// <summary>The profession property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Profession {
+            get { return BackingStore?.Get<string?>("profession"); }
+            set { BackingStore?.Set("profession", value); }
+        }
+#else
         public string Profession {
             get { return BackingStore?.Get<string>("profession"); }
             set { BackingStore?.Set("profession", value); }
         }
+#endif
         /// <summary>The collection of single-value extended properties defined for the contact. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties {
+            get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>?>("singleValueExtendedProperties"); }
+            set { BackingStore?.Set("singleValueExtendedProperties", value); }
+        }
+#else
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>>("singleValueExtendedProperties"); }
             set { BackingStore?.Set("singleValueExtendedProperties", value); }
         }
+#endif
         /// <summary>The spouseName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? SpouseName {
+            get { return BackingStore?.Get<string?>("spouseName"); }
+            set { BackingStore?.Set("spouseName", value); }
+        }
+#else
         public string SpouseName {
             get { return BackingStore?.Get<string>("spouseName"); }
             set { BackingStore?.Set("spouseName", value); }
         }
+#endif
         /// <summary>The surname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Surname {
+            get { return BackingStore?.Get<string?>("surname"); }
+            set { BackingStore?.Set("surname", value); }
+        }
+#else
         public string Surname {
             get { return BackingStore?.Get<string>("surname"); }
             set { BackingStore?.Set("surname", value); }
         }
+#endif
         /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Title {
+            get { return BackingStore?.Get<string?>("title"); }
+            set { BackingStore?.Set("title", value); }
+        }
+#else
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
             set { BackingStore?.Set("title", value); }
         }
+#endif
         /// <summary>The yomiCompanyName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? YomiCompanyName {
+            get { return BackingStore?.Get<string?>("yomiCompanyName"); }
+            set { BackingStore?.Set("yomiCompanyName", value); }
+        }
+#else
         public string YomiCompanyName {
             get { return BackingStore?.Get<string>("yomiCompanyName"); }
             set { BackingStore?.Set("yomiCompanyName", value); }
         }
+#endif
         /// <summary>The yomiGivenName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? YomiGivenName {
+            get { return BackingStore?.Get<string?>("yomiGivenName"); }
+            set { BackingStore?.Set("yomiGivenName", value); }
+        }
+#else
         public string YomiGivenName {
             get { return BackingStore?.Get<string>("yomiGivenName"); }
             set { BackingStore?.Set("yomiGivenName", value); }
         }
+#endif
         /// <summary>The yomiSurname property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? YomiSurname {
+            get { return BackingStore?.Get<string?>("yomiSurname"); }
+            set { BackingStore?.Set("yomiSurname", value); }
+        }
+#else
         public string YomiSurname {
             get { return BackingStore?.Get<string>("yomiSurname"); }
             set { BackingStore?.Set("yomiSurname", value); }
         }
+#endif
         /// <summary>
-        /// Instantiates a new Contact and sets the default values.
+        /// Instantiates a new contact and sets the default values.
         /// </summary>
         public Contact() : base() {
             OdataType = "#microsoft.graph.contact";

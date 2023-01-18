@@ -24,20 +24,41 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("durationBeforeEscalation", value); }
         }
         /// <summary>If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? EscalationApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("escalationApprovers"); }
+            set { BackingStore?.Set("escalationApprovers", value); }
+        }
+#else
         public List<SubjectSet> EscalationApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("escalationApprovers"); }
             set { BackingStore?.Set("escalationApprovers", value); }
         }
+#endif
         /// <summary>The subjects, typically users, who are the fallback escalation approvers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? FallbackEscalationApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("fallbackEscalationApprovers"); }
+            set { BackingStore?.Set("fallbackEscalationApprovers", value); }
+        }
+#else
         public List<SubjectSet> FallbackEscalationApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("fallbackEscalationApprovers"); }
             set { BackingStore?.Set("fallbackEscalationApprovers", value); }
         }
+#endif
         /// <summary>The subjects, typically users, who are the fallback primary approvers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? FallbackPrimaryApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("fallbackPrimaryApprovers"); }
+            set { BackingStore?.Set("fallbackPrimaryApprovers", value); }
+        }
+#else
         public List<SubjectSet> FallbackPrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("fallbackPrimaryApprovers"); }
             set { BackingStore?.Set("fallbackPrimaryApprovers", value); }
         }
+#endif
         /// <summary>Indicates whether the approver is required to provide a justification for approving a request.</summary>
         public bool? IsApproverJustificationRequired {
             get { return BackingStore?.Get<bool?>("isApproverJustificationRequired"); }
@@ -49,15 +70,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isEscalationEnabled", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<SubjectSet>? PrimaryApprovers {
+            get { return BackingStore?.Get<List<SubjectSet>?>("primaryApprovers"); }
+            set { BackingStore?.Set("primaryApprovers", value); }
+        }
+#else
         public List<SubjectSet> PrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryApprovers"); }
             set { BackingStore?.Set("primaryApprovers", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageApprovalStage and sets the default values.
         /// </summary>

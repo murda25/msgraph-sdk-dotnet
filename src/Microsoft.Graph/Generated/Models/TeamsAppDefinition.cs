@@ -6,25 +6,53 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TeamsAppDefinition : Entity, IParsable {
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public TeamworkBot? Bot {
+            get { return BackingStore?.Get<TeamworkBot?>("bot"); }
+            set { BackingStore?.Set("bot", value); }
+        }
+#else
         public TeamworkBot Bot {
             get { return BackingStore?.Get<TeamworkBot>("bot"); }
             set { BackingStore?.Set("bot", value); }
         }
+#endif
         /// <summary>The createdBy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public IdentitySet? CreatedBy {
+            get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
+            set { BackingStore?.Set("createdBy", value); }
+        }
+#else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#endif
         /// <summary>Verbose description of the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The name of the app provided by the app developer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
@@ -36,20 +64,41 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publishingState", value); }
         }
         /// <summary>Short description of the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ShortDescription {
+            get { return BackingStore?.Get<string?>("shortDescription"); }
+            set { BackingStore?.Set("shortDescription", value); }
+        }
+#else
         public string ShortDescription {
             get { return BackingStore?.Get<string>("shortDescription"); }
             set { BackingStore?.Set("shortDescription", value); }
         }
+#endif
         /// <summary>The ID from the Teams app manifest.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? TeamsAppId {
+            get { return BackingStore?.Get<string?>("teamsAppId"); }
+            set { BackingStore?.Set("teamsAppId", value); }
+        }
+#else
         public string TeamsAppId {
             get { return BackingStore?.Get<string>("teamsAppId"); }
             set { BackingStore?.Set("teamsAppId", value); }
         }
+#endif
         /// <summary>The version number of the application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Version {
+            get { return BackingStore?.Get<string?>("version"); }
+            set { BackingStore?.Set("version", value); }
+        }
+#else
         public string Version {
             get { return BackingStore?.Get<string>("version"); }
             set { BackingStore?.Set("version", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

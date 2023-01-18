@@ -6,125 +6,279 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class Call : Entity, IParsable {
         /// <summary>The audioRoutingGroups property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AudioRoutingGroup>? AudioRoutingGroups {
+            get { return BackingStore?.Get<List<AudioRoutingGroup>?>("audioRoutingGroups"); }
+            set { BackingStore?.Set("audioRoutingGroups", value); }
+        }
+#else
         public List<AudioRoutingGroup> AudioRoutingGroups {
             get { return BackingStore?.Get<List<AudioRoutingGroup>>("audioRoutingGroups"); }
             set { BackingStore?.Set("audioRoutingGroups", value); }
         }
+#endif
         /// <summary>The callback URL on which callbacks will be delivered. Must be https.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CallbackUri {
+            get { return BackingStore?.Get<string?>("callbackUri"); }
+            set { BackingStore?.Set("callbackUri", value); }
+        }
+#else
         public string CallbackUri {
             get { return BackingStore?.Get<string>("callbackUri"); }
             set { BackingStore?.Set("callbackUri", value); }
         }
+#endif
         /// <summary>A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CallChainId {
+            get { return BackingStore?.Get<string?>("callChainId"); }
+            set { BackingStore?.Set("callChainId", value); }
+        }
+#else
         public string CallChainId {
             get { return BackingStore?.Get<string>("callChainId"); }
             set { BackingStore?.Set("callChainId", value); }
         }
+#endif
         /// <summary>Contains the optional features for the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.CallOptions? CallOptions {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.CallOptions?>("callOptions"); }
+            set { BackingStore?.Set("callOptions", value); }
+        }
+#else
         public Microsoft.Graph.Models.CallOptions CallOptions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.CallOptions>("callOptions"); }
             set { BackingStore?.Set("callOptions", value); }
         }
+#endif
         /// <summary>The routing information on how the call was retargeted. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<CallRoute>? CallRoutes {
+            get { return BackingStore?.Get<List<CallRoute>?>("callRoutes"); }
+            set { BackingStore?.Set("callRoutes", value); }
+        }
+#else
         public List<CallRoute> CallRoutes {
             get { return BackingStore?.Get<List<CallRoute>>("callRoutes"); }
             set { BackingStore?.Set("callRoutes", value); }
         }
+#endif
         /// <summary>The chat information. Required information for joining a meeting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ChatInfo? ChatInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo?>("chatInfo"); }
+            set { BackingStore?.Set("chatInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.ChatInfo ChatInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ChatInfo>("chatInfo"); }
             set { BackingStore?.Set("chatInfo", value); }
         }
+#endif
         /// <summary>The contentSharingSessions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<ContentSharingSession>? ContentSharingSessions {
+            get { return BackingStore?.Get<List<ContentSharingSession>?>("contentSharingSessions"); }
+            set { BackingStore?.Set("contentSharingSessions", value); }
+        }
+#else
         public List<ContentSharingSession> ContentSharingSessions {
             get { return BackingStore?.Get<List<ContentSharingSession>>("contentSharingSessions"); }
             set { BackingStore?.Set("contentSharingSessions", value); }
         }
+#endif
         /// <summary>The direction of the call. The possible value are incoming or outgoing. Read-only.</summary>
         public CallDirection? Direction {
             get { return BackingStore?.Get<CallDirection?>("direction"); }
             set { BackingStore?.Set("direction", value); }
         }
         /// <summary>Call context associated with an incoming call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.IncomingContext? IncomingContext {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.IncomingContext?>("incomingContext"); }
+            set { BackingStore?.Set("incomingContext", value); }
+        }
+#else
         public Microsoft.Graph.Models.IncomingContext IncomingContext {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IncomingContext>("incomingContext"); }
             set { BackingStore?.Set("incomingContext", value); }
         }
+#endif
         /// <summary>The media configuration. Required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.MediaConfig? MediaConfig {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.MediaConfig?>("mediaConfig"); }
+            set { BackingStore?.Set("mediaConfig", value); }
+        }
+#else
         public Microsoft.Graph.Models.MediaConfig MediaConfig {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaConfig>("mediaConfig"); }
             set { BackingStore?.Set("mediaConfig", value); }
         }
+#endif
         /// <summary>Read-only. The call media state.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public CallMediaState? MediaState {
+            get { return BackingStore?.Get<CallMediaState?>("mediaState"); }
+            set { BackingStore?.Set("mediaState", value); }
+        }
+#else
         public CallMediaState MediaState {
             get { return BackingStore?.Get<CallMediaState>("mediaState"); }
             set { BackingStore?.Set("mediaState", value); }
         }
+#endif
         /// <summary>The meeting information. Required information for meeting scenarios.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.MeetingInfo? MeetingInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.MeetingInfo?>("meetingInfo"); }
+            set { BackingStore?.Set("meetingInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.MeetingInfo MeetingInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MeetingInfo>("meetingInfo"); }
             set { BackingStore?.Set("meetingInfo", value); }
         }
+#endif
         /// <summary>The myParticipantId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MyParticipantId {
+            get { return BackingStore?.Get<string?>("myParticipantId"); }
+            set { BackingStore?.Set("myParticipantId", value); }
+        }
+#else
         public string MyParticipantId {
             get { return BackingStore?.Get<string>("myParticipantId"); }
             set { BackingStore?.Set("myParticipantId", value); }
         }
+#endif
         /// <summary>The operations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<CommsOperation>? Operations {
+            get { return BackingStore?.Get<List<CommsOperation>?>("operations"); }
+            set { BackingStore?.Set("operations", value); }
+        }
+#else
         public List<CommsOperation> Operations {
             get { return BackingStore?.Get<List<CommsOperation>>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
+#endif
         /// <summary>The participants property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Participant>? Participants {
+            get { return BackingStore?.Get<List<Participant>?>("participants"); }
+            set { BackingStore?.Set("participants", value); }
+        }
+#else
         public List<Participant> Participants {
             get { return BackingStore?.Get<List<Participant>>("participants"); }
             set { BackingStore?.Set("participants", value); }
         }
+#endif
         /// <summary>The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Modality?>? RequestedModalities {
+            get { return BackingStore?.Get<List<Modality?>?>("requestedModalities"); }
+            set { BackingStore?.Set("requestedModalities", value); }
+        }
+#else
         public List<Modality?> RequestedModalities {
             get { return BackingStore?.Get<List<Modality?>>("requestedModalities"); }
             set { BackingStore?.Set("requestedModalities", value); }
         }
+#endif
         /// <summary>The result information. For example can hold termination reason. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ResultInfo? ResultInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo?>("resultInfo"); }
+            set { BackingStore?.Set("resultInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.ResultInfo ResultInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo>("resultInfo"); }
             set { BackingStore?.Set("resultInfo", value); }
         }
+#endif
         /// <summary>The originator of the call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public ParticipantInfo? Source {
+            get { return BackingStore?.Get<ParticipantInfo?>("source"); }
+            set { BackingStore?.Set("source", value); }
+        }
+#else
         public ParticipantInfo Source {
             get { return BackingStore?.Get<ParticipantInfo>("source"); }
             set { BackingStore?.Set("source", value); }
         }
+#endif
         /// <summary>The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.</summary>
         public CallState? State {
             get { return BackingStore?.Get<CallState?>("state"); }
             set { BackingStore?.Set("state", value); }
         }
         /// <summary>The subject of the conversation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Subject {
+            get { return BackingStore?.Get<string?>("subject"); }
+            set { BackingStore?.Set("subject", value); }
+        }
+#else
         public string Subject {
             get { return BackingStore?.Get<string>("subject"); }
             set { BackingStore?.Set("subject", value); }
         }
+#endif
         /// <summary>The targets of the call. Required information for creating peer to peer call.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<InvitationParticipantInfo>? Targets {
+            get { return BackingStore?.Get<List<InvitationParticipantInfo>?>("targets"); }
+            set { BackingStore?.Set("targets", value); }
+        }
+#else
         public List<InvitationParticipantInfo> Targets {
             get { return BackingStore?.Get<List<InvitationParticipantInfo>>("targets"); }
             set { BackingStore?.Set("targets", value); }
         }
+#endif
         /// <summary>The tenantId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? TenantId {
+            get { return BackingStore?.Get<string?>("tenantId"); }
+            set { BackingStore?.Set("tenantId", value); }
+        }
+#else
         public string TenantId {
             get { return BackingStore?.Get<string>("tenantId"); }
             set { BackingStore?.Set("tenantId", value); }
         }
+#endif
         /// <summary>The toneInfo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.ToneInfo? ToneInfo {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.ToneInfo?>("toneInfo"); }
+            set { BackingStore?.Set("toneInfo", value); }
+        }
+#else
         public Microsoft.Graph.Models.ToneInfo ToneInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ToneInfo>("toneInfo"); }
             set { BackingStore?.Set("toneInfo", value); }
         }
+#endif
         /// <summary>The transcription information for the call. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public CallTranscriptionInfo? Transcription {
+            get { return BackingStore?.Get<CallTranscriptionInfo?>("transcription"); }
+            set { BackingStore?.Set("transcription", value); }
+        }
+#else
         public CallTranscriptionInfo Transcription {
             get { return BackingStore?.Get<CallTranscriptionInfo>("transcription"); }
             set { BackingStore?.Set("transcription", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

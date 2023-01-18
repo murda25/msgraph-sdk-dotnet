@@ -6,10 +6,17 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AccessPackageCatalog : Entity, IParsable {
         /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AccessPackage>? AccessPackages {
+            get { return BackingStore?.Get<List<AccessPackage>?>("accessPackages"); }
+            set { BackingStore?.Set("accessPackages", value); }
+        }
+#else
         public List<AccessPackage> AccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>>("accessPackages"); }
             set { BackingStore?.Set("accessPackages", value); }
         }
+#endif
         /// <summary>Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.</summary>
         public AccessPackageCatalogType? CatalogType {
             get { return BackingStore?.Get<AccessPackageCatalogType?>("catalogType"); }
@@ -21,15 +28,29 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>The description of the access package catalog.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>The display name of the access package catalog.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Whether the access packages in this catalog can be requested by users outside of the tenant.</summary>
         public bool? IsExternallyVisible {
             get { return BackingStore?.Get<bool?>("isExternallyVisible"); }

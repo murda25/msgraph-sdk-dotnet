@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RiskyServicePrincipalHistoryItem : RiskyServicePrincipal, IParsable {
         /// <summary>The activity related to service principal risk level change.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public RiskServicePrincipalActivity? Activity {
+            get { return BackingStore?.Get<RiskServicePrincipalActivity?>("activity"); }
+            set { BackingStore?.Set("activity", value); }
+        }
+#else
         public RiskServicePrincipalActivity Activity {
             get { return BackingStore?.Get<RiskServicePrincipalActivity>("activity"); }
             set { BackingStore?.Set("activity", value); }
         }
+#endif
         /// <summary>The identifier of the actor of the operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? InitiatedBy {
+            get { return BackingStore?.Get<string?>("initiatedBy"); }
+            set { BackingStore?.Set("initiatedBy", value); }
+        }
+#else
         public string InitiatedBy {
             get { return BackingStore?.Get<string>("initiatedBy"); }
             set { BackingStore?.Set("initiatedBy", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

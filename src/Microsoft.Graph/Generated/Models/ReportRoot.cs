@@ -17,35 +17,77 @@ namespace Microsoft.Graph.Models {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The dailyPrintUsageByPrinter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintUsageByPrinter>? DailyPrintUsageByPrinter {
+            get { return BackingStore?.Get<List<PrintUsageByPrinter>?>("dailyPrintUsageByPrinter"); }
+            set { BackingStore?.Set("dailyPrintUsageByPrinter", value); }
+        }
+#else
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>>("dailyPrintUsageByPrinter"); }
             set { BackingStore?.Set("dailyPrintUsageByPrinter", value); }
         }
+#endif
         /// <summary>The dailyPrintUsageByUser property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintUsageByUser>? DailyPrintUsageByUser {
+            get { return BackingStore?.Get<List<PrintUsageByUser>?>("dailyPrintUsageByUser"); }
+            set { BackingStore?.Set("dailyPrintUsageByUser", value); }
+        }
+#else
         public List<PrintUsageByUser> DailyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>>("dailyPrintUsageByUser"); }
             set { BackingStore?.Set("dailyPrintUsageByUser", value); }
         }
+#endif
         /// <summary>The monthlyPrintUsageByPrinter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintUsageByPrinter>? MonthlyPrintUsageByPrinter {
+            get { return BackingStore?.Get<List<PrintUsageByPrinter>?>("monthlyPrintUsageByPrinter"); }
+            set { BackingStore?.Set("monthlyPrintUsageByPrinter", value); }
+        }
+#else
         public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>>("monthlyPrintUsageByPrinter"); }
             set { BackingStore?.Set("monthlyPrintUsageByPrinter", value); }
         }
+#endif
         /// <summary>The monthlyPrintUsageByUser property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PrintUsageByUser>? MonthlyPrintUsageByUser {
+            get { return BackingStore?.Get<List<PrintUsageByUser>?>("monthlyPrintUsageByUser"); }
+            set { BackingStore?.Set("monthlyPrintUsageByUser", value); }
+        }
+#else
         public List<PrintUsageByUser> MonthlyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>>("monthlyPrintUsageByUser"); }
             set { BackingStore?.Set("monthlyPrintUsageByUser", value); }
         }
+#endif
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The security property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SecurityReportsRoot? Security {
+            get { return BackingStore?.Get<SecurityReportsRoot?>("security"); }
+            set { BackingStore?.Set("security", value); }
+        }
+#else
         public SecurityReportsRoot Security {
             get { return BackingStore?.Get<SecurityReportsRoot>("security"); }
             set { BackingStore?.Set("security", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new ReportRoot and sets the default values.
         /// </summary>

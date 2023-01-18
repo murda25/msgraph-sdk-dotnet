@@ -6,20 +6,41 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class RiskyServicePrincipal : Entity, IParsable {
         /// <summary>The globally unique identifier for the associated application (its appId property), if any.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppId {
+            get { return BackingStore?.Get<string?>("appId"); }
+            set { BackingStore?.Set("appId", value); }
+        }
+#else
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
+#endif
         /// <summary>The display name for the service principal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>Represents the risk history of Azure AD service principals.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<RiskyServicePrincipalHistoryItem>? History {
+            get { return BackingStore?.Get<List<RiskyServicePrincipalHistoryItem>?>("history"); }
+            set { BackingStore?.Set("history", value); }
+        }
+#else
         public List<RiskyServicePrincipalHistoryItem> History {
             get { return BackingStore?.Get<List<RiskyServicePrincipalHistoryItem>>("history"); }
             set { BackingStore?.Set("history", value); }
         }
+#endif
         /// <summary>true if the service principal account is enabled; otherwise, false.</summary>
         public bool? IsEnabled {
             get { return BackingStore?.Get<bool?>("isEnabled"); }
@@ -51,10 +72,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("riskState", value); }
         }
         /// <summary>Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Azure AD internally and is inherited from servicePrincipal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ServicePrincipalType {
+            get { return BackingStore?.Get<string?>("servicePrincipalType"); }
+            set { BackingStore?.Set("servicePrincipalType", value); }
+        }
+#else
         public string ServicePrincipalType {
             get { return BackingStore?.Get<string>("servicePrincipalType"); }
             set { BackingStore?.Set("servicePrincipalType", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

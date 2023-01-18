@@ -29,30 +29,65 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isApprovalRequiredForUpdate", value); }
         }
         /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? OdataType {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#endif
         /// <summary>The description of the policy that the user is trying to request access using.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? PolicyDescription {
+            get { return BackingStore?.Get<string?>("policyDescription"); }
+            set { BackingStore?.Set("policyDescription", value); }
+        }
+#else
         public string PolicyDescription {
             get { return BackingStore?.Get<string>("policyDescription"); }
             set { BackingStore?.Set("policyDescription", value); }
         }
+#endif
         /// <summary>The display name of the policy that the user is trying to request access using.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? PolicyDisplayName {
+            get { return BackingStore?.Get<string?>("policyDisplayName"); }
+            set { BackingStore?.Set("policyDisplayName", value); }
+        }
+#else
         public string PolicyDisplayName {
             get { return BackingStore?.Get<string>("policyDisplayName"); }
             set { BackingStore?.Set("policyDisplayName", value); }
         }
+#endif
         /// <summary>The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? PolicyId {
+            get { return BackingStore?.Get<string?>("policyId"); }
+            set { BackingStore?.Set("policyId", value); }
+        }
+#else
         public string PolicyId {
             get { return BackingStore?.Get<string>("policyId"); }
             set { BackingStore?.Set("policyId", value); }
         }
+#endif
         /// <summary>Schedule restrictions enforced, if any.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public EntitlementManagementSchedule? Schedule {
+            get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
+            set { BackingStore?.Set("schedule", value); }
+        }
+#else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new accessPackageAssignmentRequestRequirements and sets the default values.
         /// </summary>

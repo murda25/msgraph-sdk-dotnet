@@ -6,25 +6,53 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class BookingCustomer : BookingCustomerBase, IParsable {
         /// <summary>Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<PhysicalAddress>? Addresses {
+            get { return BackingStore?.Get<List<PhysicalAddress>?>("addresses"); }
+            set { BackingStore?.Set("addresses", value); }
+        }
+#else
         public List<PhysicalAddress> Addresses {
             get { return BackingStore?.Get<List<PhysicalAddress>>("addresses"); }
             set { BackingStore?.Set("addresses", value); }
         }
+#endif
         /// <summary>The name of the customer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? DisplayName {
+            get { return BackingStore?.Get<string?>("displayName"); }
+            set { BackingStore?.Set("displayName", value); }
+        }
+#else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#endif
         /// <summary>The SMTP address of the customer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? EmailAddress {
+            get { return BackingStore?.Get<string?>("emailAddress"); }
+            set { BackingStore?.Set("emailAddress", value); }
+        }
+#else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#endif
         /// <summary>Phone numbers associated with the customer, including home, business and mobile numbers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<Phone>? Phones {
+            get { return BackingStore?.Get<List<Phone>?>("phones"); }
+            set { BackingStore?.Set("phones", value); }
+        }
+#else
         public List<Phone> Phones {
             get { return BackingStore?.Get<List<Phone>>("phones"); }
             set { BackingStore?.Set("phones", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new BookingCustomer and sets the default values.
         /// </summary>

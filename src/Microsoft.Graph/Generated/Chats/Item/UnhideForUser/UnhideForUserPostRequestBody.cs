@@ -15,10 +15,17 @@ namespace Microsoft.Graph.Chats.Item.UnhideForUser {
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public TeamworkUserIdentity? User {
+            get { return BackingStore?.Get<TeamworkUserIdentity?>("user"); }
+            set { BackingStore?.Set("user", value); }
+        }
+#else
         public TeamworkUserIdentity User {
             get { return BackingStore?.Get<TeamworkUserIdentity>("user"); }
             set { BackingStore?.Set("user", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new unhideForUserPostRequestBody and sets the default values.
         /// </summary>

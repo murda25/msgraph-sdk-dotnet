@@ -6,15 +6,29 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AttributeRuleMembers : SubjectSet, IParsable {
         /// <summary>A description of the membership rule.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? Description {
+            get { return BackingStore?.Get<string?>("description"); }
+            set { BackingStore?.Set("description", value); }
+        }
+#else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#endif
         /// <summary>Determines the allowed target users for this policy. For more information about the syntax of the membership rule, see Membership Rules syntax.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? MembershipRule {
+            get { return BackingStore?.Get<string?>("membershipRule"); }
+            set { BackingStore?.Set("membershipRule", value); }
+        }
+#else
         public string MembershipRule {
             get { return BackingStore?.Get<string>("membershipRule"); }
             set { BackingStore?.Set("membershipRule", value); }
         }
+#endif
         /// <summary>
         /// Instantiates a new AttributeRuleMembers and sets the default values.
         /// </summary>

@@ -6,85 +6,169 @@ using System.Linq;
 namespace Microsoft.Graph.Models {
     public class SignIn : Entity, IParsable {
         /// <summary>App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppDisplayName {
+            get { return BackingStore?.Get<string?>("appDisplayName"); }
+            set { BackingStore?.Set("appDisplayName", value); }
+        }
+#else
         public string AppDisplayName {
             get { return BackingStore?.Get<string>("appDisplayName"); }
             set { BackingStore?.Set("appDisplayName", value); }
         }
+#endif
         /// <summary>Unique GUID representing the app ID in the Azure Active Directory. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? AppId {
+            get { return BackingStore?.Get<string?>("appId"); }
+            set { BackingStore?.Set("appId", value); }
+        }
+#else
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
+#endif
         /// <summary>The appliedConditionalAccessPolicies property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<AppliedConditionalAccessPolicy>? AppliedConditionalAccessPolicies {
+            get { return BackingStore?.Get<List<AppliedConditionalAccessPolicy>?>("appliedConditionalAccessPolicies"); }
+            set { BackingStore?.Set("appliedConditionalAccessPolicies", value); }
+        }
+#else
         public List<AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies {
             get { return BackingStore?.Get<List<AppliedConditionalAccessPolicy>>("appliedConditionalAccessPolicies"); }
             set { BackingStore?.Set("appliedConditionalAccessPolicies", value); }
         }
+#endif
         /// <summary>Identifies the client used for the sign-in activity. Modern authentication clients include Browser and modern clients. Legacy authentication clients include Exchange ActiveSync, IMAP, MAPI, SMTP, POP, and other clients. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ClientAppUsed {
+            get { return BackingStore?.Get<string?>("clientAppUsed"); }
+            set { BackingStore?.Set("clientAppUsed", value); }
+        }
+#else
         public string ClientAppUsed {
             get { return BackingStore?.Get<string>("clientAppUsed"); }
             set { BackingStore?.Set("clientAppUsed", value); }
         }
+#endif
         /// <summary>Reports status of an activated conditional access policy. Possible values are: success, failure, notApplied, and unknownFutureValue. Supports $filter (eq operator only).</summary>
         public Microsoft.Graph.Models.ConditionalAccessStatus? ConditionalAccessStatus {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ConditionalAccessStatus?>("conditionalAccessStatus"); }
             set { BackingStore?.Set("conditionalAccessStatus", value); }
         }
         /// <summary>The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? CorrelationId {
+            get { return BackingStore?.Get<string?>("correlationId"); }
+            set { BackingStore?.Set("correlationId", value); }
+        }
+#else
         public string CorrelationId {
             get { return BackingStore?.Get<string>("correlationId"); }
             set { BackingStore?.Set("correlationId", value); }
         }
+#endif
         /// <summary>Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only).</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>Device information from where the sign-in occurred; includes device ID, operating system, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSytem properties.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public Microsoft.Graph.Models.DeviceDetail? DeviceDetail {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceDetail?>("deviceDetail"); }
+            set { BackingStore?.Set("deviceDetail", value); }
+        }
+#else
         public Microsoft.Graph.Models.DeviceDetail DeviceDetail {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceDetail>("deviceDetail"); }
             set { BackingStore?.Set("deviceDetail", value); }
         }
+#endif
         /// <summary>IP address of the client used to sign in. Supports $filter (eq and startsWith operators only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? IpAddress {
+            get { return BackingStore?.Get<string?>("ipAddress"); }
+            set { BackingStore?.Set("ipAddress", value); }
+        }
+#else
         public string IpAddress {
             get { return BackingStore?.Get<string>("ipAddress"); }
             set { BackingStore?.Set("ipAddress", value); }
         }
+#endif
         /// <summary>Indicates if a sign-in is interactive or not.</summary>
         public bool? IsInteractive {
             get { return BackingStore?.Get<bool?>("isInteractive"); }
             set { BackingStore?.Set("isInteractive", value); }
         }
         /// <summary>Provides the city, state, and country code where the sign-in originated. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SignInLocation? Location {
+            get { return BackingStore?.Get<SignInLocation?>("location"); }
+            set { BackingStore?.Set("location", value); }
+        }
+#else
         public SignInLocation Location {
             get { return BackingStore?.Get<SignInLocation>("location"); }
             set { BackingStore?.Set("location", value); }
         }
+#endif
         /// <summary>Name of the resource the user signed into. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ResourceDisplayName {
+            get { return BackingStore?.Get<string?>("resourceDisplayName"); }
+            set { BackingStore?.Set("resourceDisplayName", value); }
+        }
+#else
         public string ResourceDisplayName {
             get { return BackingStore?.Get<string>("resourceDisplayName"); }
             set { BackingStore?.Set("resourceDisplayName", value); }
         }
+#endif
         /// <summary>ID of the resource that the user signed into. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? ResourceId {
+            get { return BackingStore?.Get<string?>("resourceId"); }
+            set { BackingStore?.Set("resourceId", value); }
+        }
+#else
         public string ResourceId {
             get { return BackingStore?.Get<string>("resourceId"); }
             set { BackingStore?.Set("resourceId", value); }
         }
+#endif
         /// <summary>Provides the &apos;reason&apos; behind a specific state of a risky user, sign-in or a risk event. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far.  Supports $filter (eq operator only).Note: Details for this property require an Azure AD Premium P2 license. Other licenses return the value hidden.</summary>
         public Microsoft.Graph.Models.RiskDetail? RiskDetail {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RiskDetail?>("riskDetail"); }
             set { BackingStore?.Set("riskDetail", value); }
         }
         /// <summary>Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<RiskEventType?>? RiskEventTypes {
+            get { return BackingStore?.Get<List<RiskEventType?>?>("riskEventTypes"); }
+            set { BackingStore?.Set("riskEventTypes", value); }
+        }
+#else
         public List<RiskEventType?> RiskEventTypes {
             get { return BackingStore?.Get<List<RiskEventType?>>("riskEventTypes"); }
             set { BackingStore?.Set("riskEventTypes", value); }
         }
+#endif
         /// <summary>The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public List<string>? RiskEventTypes_v2 {
+            get { return BackingStore?.Get<List<string>?>("riskEventTypes_v2"); }
+            set { BackingStore?.Set("riskEventTypes_v2", value); }
+        }
+#else
         public List<string> RiskEventTypes_v2 {
             get { return BackingStore?.Get<List<string>>("riskEventTypes_v2"); }
             set { BackingStore?.Set("riskEventTypes_v2", value); }
         }
+#endif
         /// <summary>Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.</summary>
         public RiskLevel? RiskLevelAggregated {
             get { return BackingStore?.Get<RiskLevel?>("riskLevelAggregated"); }
@@ -101,25 +185,53 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("riskState", value); }
         }
         /// <summary>Sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public SignInStatus? Status {
+            get { return BackingStore?.Get<SignInStatus?>("status"); }
+            set { BackingStore?.Set("status", value); }
+        }
+#else
         public SignInStatus Status {
             get { return BackingStore?.Get<SignInStatus>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#endif
         /// <summary>Display name of the user that initiated the sign-in. Supports $filter (eq and startsWith operators only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? UserDisplayName {
+            get { return BackingStore?.Get<string?>("userDisplayName"); }
+            set { BackingStore?.Set("userDisplayName", value); }
+        }
+#else
         public string UserDisplayName {
             get { return BackingStore?.Get<string>("userDisplayName"); }
             set { BackingStore?.Set("userDisplayName", value); }
         }
+#endif
         /// <summary>ID of the user that initiated the sign-in. Supports $filter (eq operator only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? UserId {
+            get { return BackingStore?.Get<string?>("userId"); }
+            set { BackingStore?.Set("userId", value); }
+        }
+#else
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
             set { BackingStore?.Set("userId", value); }
         }
+#endif
         /// <summary>User principal name of the user that initiated the sign-in. Supports $filter (eq and startsWith operators only).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+        public string? UserPrincipalName {
+            get { return BackingStore?.Get<string?>("userPrincipalName"); }
+            set { BackingStore?.Set("userPrincipalName", value); }
+        }
+#else
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
         }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
