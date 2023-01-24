@@ -37,6 +37,7 @@ namespace Microsoft.Graph
     
         /// <summary>
         /// Gets or sets applied conditional access policies.
+        /// Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
         /// </summary>
         [JsonPropertyName("appliedConditionalAccessPolicies")]
         public IEnumerable<AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies { get; set; }

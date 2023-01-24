@@ -72,6 +72,13 @@ namespace Microsoft.Graph
         public DateTimeOffset? CreatedDateTime { get; set; }
     
         /// <summary>
+        /// Gets or sets default usage location.
+        /// Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+        /// </summary>
+        [JsonPropertyName("defaultUsageLocation")]
+        public string DefaultUsageLocation { get; set; }
+    
+        /// <summary>
         /// Gets or sets display name.
         /// The display name for the tenant.
         /// </summary>
