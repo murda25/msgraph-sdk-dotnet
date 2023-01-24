@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AttackSimulationRoot : Entity, IParsable {
         /// <summary>Represents simulation automation created to run on a tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SimulationAutomation>? SimulationAutomations {
             get { return BackingStore?.Get<List<SimulationAutomation>?>("simulationAutomations"); }
             set { BackingStore?.Set("simulationAutomations", value); }
         }
+#nullable restore
 #else
         public List<SimulationAutomation> SimulationAutomations {
             get { return BackingStore?.Get<List<SimulationAutomation>>("simulationAutomations"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Represents an attack simulation training campaign in a tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Simulation>? Simulations {
             get { return BackingStore?.Get<List<Simulation>?>("simulations"); }
             set { BackingStore?.Set("simulations", value); }
         }
+#nullable restore
 #else
         public List<Simulation> Simulations {
             get { return BackingStore?.Get<List<Simulation>>("simulations"); }

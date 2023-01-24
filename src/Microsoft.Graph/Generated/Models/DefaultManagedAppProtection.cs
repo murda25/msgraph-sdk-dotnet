@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of apps to which the policy is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedMobileApp>? Apps {
             get { return BackingStore?.Get<List<ManagedMobileApp>?>("apps"); }
             set { BackingStore?.Set("apps", value); }
         }
+#nullable restore
 #else
         public List<ManagedMobileApp> Apps {
             get { return BackingStore?.Get<List<ManagedMobileApp>>("apps"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A set of string key and string value pairs to be sent to the affected users, unalterned by this service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<KeyValuePair>? CustomSettings {
             get { return BackingStore?.Get<List<KeyValuePair>?>("customSettings"); }
             set { BackingStore?.Set("customSettings", value); }
         }
+#nullable restore
 #else
         public List<KeyValuePair> CustomSettings {
             get { return BackingStore?.Get<List<KeyValuePair>>("customSettings"); }
@@ -41,10 +45,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ManagedAppPolicyDeploymentSummary? DeploymentSummary {
             get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary?>("deploymentSummary"); }
             set { BackingStore?.Set("deploymentSummary", value); }
         }
+#nullable restore
 #else
         public ManagedAppPolicyDeploymentSummary DeploymentSummary {
             get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary>("deploymentSummary"); }
@@ -68,10 +74,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Define the oldest required Android security patch level a user can have to gain secure access to the app. (Android only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumRequiredPatchVersion {
             get { return BackingStore?.Get<string?>("minimumRequiredPatchVersion"); }
             set { BackingStore?.Set("minimumRequiredPatchVersion", value); }
         }
+#nullable restore
 #else
         public string MinimumRequiredPatchVersion {
             get { return BackingStore?.Get<string>("minimumRequiredPatchVersion"); }
@@ -80,10 +88,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Versions less than the specified version will block the managed app from accessing company data. (iOS Only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumRequiredSdkVersion {
             get { return BackingStore?.Get<string?>("minimumRequiredSdkVersion"); }
             set { BackingStore?.Set("minimumRequiredSdkVersion", value); }
         }
+#nullable restore
 #else
         public string MinimumRequiredSdkVersion {
             get { return BackingStore?.Get<string>("minimumRequiredSdkVersion"); }
@@ -92,10 +102,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumWarningPatchVersion {
             get { return BackingStore?.Get<string?>("minimumWarningPatchVersion"); }
             set { BackingStore?.Set("minimumWarningPatchVersion", value); }
         }
+#nullable restore
 #else
         public string MinimumWarningPatchVersion {
             get { return BackingStore?.Get<string>("minimumWarningPatchVersion"); }

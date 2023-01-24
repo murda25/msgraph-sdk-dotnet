@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class MediaPrompt : Prompt, IParsable {
         /// <summary>The mediaInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaInfo? MediaInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaInfo?>("mediaInfo"); }
             set { BackingStore?.Set("mediaInfo", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaInfo MediaInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaInfo>("mediaInfo"); }

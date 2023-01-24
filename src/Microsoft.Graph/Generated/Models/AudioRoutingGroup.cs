@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AudioRoutingGroup : Entity, IParsable {
         /// <summary>The receivers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Receivers {
             get { return BackingStore?.Get<List<string>?>("receivers"); }
             set { BackingStore?.Set("receivers", value); }
         }
+#nullable restore
 #else
         public List<string> Receivers {
             get { return BackingStore?.Get<List<string>>("receivers"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Sources {
             get { return BackingStore?.Get<List<string>?>("sources"); }
             set { BackingStore?.Set("sources", value); }
         }
+#nullable restore
 #else
         public List<string> Sources {
             get { return BackingStore?.Get<List<string>>("sources"); }

@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.Security {
     public class DataSource : Entity, IParsable {
         /// <summary>The user who created the dataSource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.IdentitySet? CreatedBy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.IdentitySet CreatedBy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IdentitySet>("createdBy"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models.Security {
         }
         /// <summary>The display name of the dataSource. This will be the name of the SharePoint site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }

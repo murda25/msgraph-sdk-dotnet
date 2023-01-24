@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class SubjectRightsRequest : Entity, IParsable {
         /// <summary>Identity that the request is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Identity? AssignedTo {
             get { return BackingStore?.Get<Identity?>("assignedTo"); }
             set { BackingStore?.Set("assignedTo", value); }
         }
+#nullable restore
 #else
         public Identity AssignedTo {
             get { return BackingStore?.Get<Identity>("assignedTo"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Identity information for the entity that created the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? CreatedBy {
             get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
@@ -41,10 +45,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Information about the data subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DataSubject? DataSubject {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DataSubject?>("dataSubject"); }
             set { BackingStore?.Set("dataSubject", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DataSubject DataSubject {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DataSubject>("dataSubject"); }
@@ -58,10 +64,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Description for the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -70,10 +78,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -82,10 +92,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Collection of history change events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectRightsRequestHistory>? History {
             get { return BackingStore?.Get<List<SubjectRightsRequestHistory>?>("history"); }
             set { BackingStore?.Set("history", value); }
         }
+#nullable restore
 #else
         public List<SubjectRightsRequestHistory> History {
             get { return BackingStore?.Get<List<SubjectRightsRequestHistory>>("history"); }
@@ -94,10 +106,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Insight about the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public SubjectRightsRequestDetail? Insight {
             get { return BackingStore?.Get<SubjectRightsRequestDetail?>("insight"); }
             set { BackingStore?.Set("insight", value); }
         }
+#nullable restore
 #else
         public SubjectRightsRequestDetail Insight {
             get { return BackingStore?.Get<SubjectRightsRequestDetail>("insight"); }
@@ -111,10 +125,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Identity information for the entity that last modified the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet?>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet>("lastModifiedBy"); }
@@ -128,10 +144,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of notes associcated with the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AuthoredNote>? Notes {
             get { return BackingStore?.Get<List<AuthoredNote>?>("notes"); }
             set { BackingStore?.Set("notes", value); }
         }
+#nullable restore
 #else
         public List<AuthoredNote> Notes {
             get { return BackingStore?.Get<List<AuthoredNote>>("notes"); }
@@ -140,10 +158,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of regulations that this request will fulfill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Regulations {
             get { return BackingStore?.Get<List<string>?>("regulations"); }
             set { BackingStore?.Set("regulations", value); }
         }
+#nullable restore
 #else
         public List<string> Regulations {
             get { return BackingStore?.Get<List<string>>("regulations"); }
@@ -152,10 +172,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Information about the different stages for the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectRightsRequestStageDetail>? Stages {
             get { return BackingStore?.Get<List<SubjectRightsRequestStageDetail>?>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
+#nullable restore
 #else
         public List<SubjectRightsRequestStageDetail> Stages {
             get { return BackingStore?.Get<List<SubjectRightsRequestStageDetail>>("stages"); }
@@ -169,10 +191,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Information about the Microsoft Teams team that was created for the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Team? Team {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Team?>("team"); }
             set { BackingStore?.Set("team", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Team Team {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Team>("team"); }

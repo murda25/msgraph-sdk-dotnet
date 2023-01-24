@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Contract : DirectoryObject, IParsable {
         /// <summary>Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContractType {
             get { return BackingStore?.Get<string?>("contractType"); }
             set { BackingStore?.Set("contractType", value); }
         }
+#nullable restore
 #else
         public string ContractType {
             get { return BackingStore?.Get<string>("contractType"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>A copy of the customer tenant&apos;s default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant&apos;s default domain name changes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DefaultDomainName {
             get { return BackingStore?.Get<string?>("defaultDomainName"); }
             set { BackingStore?.Set("defaultDomainName", value); }
         }
+#nullable restore
 #else
         public string DefaultDomainName {
             get { return BackingStore?.Get<string>("defaultDomainName"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A copy of the customer tenant&apos;s display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant&apos;s display name changes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -47,7 +53,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new contract and sets the default values.
+        /// Instantiates a new Contract and sets the default values.
         /// </summary>
         public Contract() : base() {
             OdataType = "#microsoft.graph.contract";

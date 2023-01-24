@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class GroupMembers : SubjectSet, IParsable {
         /// <summary>The name of the group in Azure AD. Read only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The ID of the group in Azure AD.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? GroupId {
             get { return BackingStore?.Get<string?>("groupId"); }
             set { BackingStore?.Set("groupId", value); }
         }
+#nullable restore
 #else
         public string GroupId {
             get { return BackingStore?.Get<string>("groupId"); }

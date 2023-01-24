@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class WorkbookCommentReply : Entity, IParsable {
         /// <summary>The content of a comment reply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Content {
             get { return BackingStore?.Get<string?>("content"); }
             set { BackingStore?.Set("content", value); }
         }
+#nullable restore
 #else
         public string Content {
             get { return BackingStore?.Get<string>("content"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates the type for the comment reply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContentType {
             get { return BackingStore?.Get<string?>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
+#nullable restore
 #else
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }

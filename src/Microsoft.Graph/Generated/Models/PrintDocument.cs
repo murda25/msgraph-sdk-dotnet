@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PrintDocument : Entity, IParsable {
         /// <summary>The document&apos;s content (MIME) type. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContentType {
             get { return BackingStore?.Get<string?>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
+#nullable restore
 #else
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The document&apos;s name. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }

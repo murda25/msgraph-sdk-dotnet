@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Endpoint : DirectoryObject, IParsable {
         /// <summary>The capability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Capability {
             get { return BackingStore?.Get<string?>("capability"); }
             set { BackingStore?.Set("capability", value); }
         }
+#nullable restore
 #else
         public string Capability {
             get { return BackingStore?.Get<string>("capability"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The providerId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProviderId {
             get { return BackingStore?.Get<string?>("providerId"); }
             set { BackingStore?.Set("providerId", value); }
         }
+#nullable restore
 #else
         public string ProviderId {
             get { return BackingStore?.Get<string>("providerId"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The providerName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProviderName {
             get { return BackingStore?.Get<string?>("providerName"); }
             set { BackingStore?.Set("providerName", value); }
         }
+#nullable restore
 #else
         public string ProviderName {
             get { return BackingStore?.Get<string>("providerName"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The providerResourceId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProviderResourceId {
             get { return BackingStore?.Get<string?>("providerResourceId"); }
             set { BackingStore?.Set("providerResourceId", value); }
         }
+#nullable restore
 #else
         public string ProviderResourceId {
             get { return BackingStore?.Get<string>("providerResourceId"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Uri {
             get { return BackingStore?.Get<string?>("uri"); }
             set { BackingStore?.Set("uri", value); }
         }
+#nullable restore
 #else
         public string Uri {
             get { return BackingStore?.Get<string>("uri"); }

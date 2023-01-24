@@ -72,7 +72,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task DeleteAsync(Action<ExternalConnectionItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task DeleteAsync(Action<ExternalConnectionItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -89,7 +91,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task<ExternalConnection?> GetAsync(Action<ExternalConnectionItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task<ExternalConnection> GetAsync(Action<ExternalConnectionItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -107,7 +111,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task<ExternalConnection?> PatchAsync(ExternalConnection body, Action<ExternalConnectionItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task<ExternalConnection> PatchAsync(ExternalConnection body, Action<ExternalConnectionItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -124,7 +130,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<ExternalConnectionItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToDeleteRequestInformation(Action<ExternalConnectionItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -146,7 +154,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToGetRequestInformation(Action<ExternalConnectionItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToGetRequestInformation(Action<ExternalConnectionItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -171,7 +181,9 @@ namespace Microsoft.Graph.Connections.Item {
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToPatchRequestInformation(ExternalConnection body, Action<ExternalConnectionItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToPatchRequestInformation(ExternalConnection body, Action<ExternalConnectionItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -213,16 +225,20 @@ namespace Microsoft.Graph.Connections.Item {
         public class ExternalConnectionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24expand")]
             public string[]? Expand { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24expand")]
             public string[] Expand { get; set; }
 #endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24select")]
             public string[]? Select { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24select")]
             public string[] Select { get; set; }

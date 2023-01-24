@@ -32,10 +32,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The defaultUserRolePermissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DefaultUserRolePermissions? DefaultUserRolePermissions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DefaultUserRolePermissions?>("defaultUserRolePermissions"); }
             set { BackingStore?.Set("defaultUserRolePermissions", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DefaultUserRolePermissions DefaultUserRolePermissions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DefaultUserRolePermissions>("defaultUserRolePermissions"); }

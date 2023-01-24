@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PlannerTaskDetails : Entity, IParsable {
         /// <summary>The collection of checklist items on the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PlannerChecklistItems? Checklist {
             get { return BackingStore?.Get<PlannerChecklistItems?>("checklist"); }
             set { BackingStore?.Set("checklist", value); }
         }
+#nullable restore
 #else
         public PlannerChecklistItems Checklist {
             get { return BackingStore?.Get<PlannerChecklistItems>("checklist"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Description of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The collection of references on the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PlannerExternalReferences? References {
             get { return BackingStore?.Get<PlannerExternalReferences?>("references"); }
             set { BackingStore?.Set("references", value); }
         }
+#nullable restore
 #else
         public PlannerExternalReferences References {
             get { return BackingStore?.Get<PlannerExternalReferences>("references"); }

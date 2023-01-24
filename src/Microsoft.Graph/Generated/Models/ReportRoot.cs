@@ -18,10 +18,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The dailyPrintUsageByPrinter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintUsageByPrinter>? DailyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>?>("dailyPrintUsageByPrinter"); }
             set { BackingStore?.Set("dailyPrintUsageByPrinter", value); }
         }
+#nullable restore
 #else
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>>("dailyPrintUsageByPrinter"); }
@@ -30,10 +32,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The dailyPrintUsageByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintUsageByUser>? DailyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>?>("dailyPrintUsageByUser"); }
             set { BackingStore?.Set("dailyPrintUsageByUser", value); }
         }
+#nullable restore
 #else
         public List<PrintUsageByUser> DailyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>>("dailyPrintUsageByUser"); }
@@ -42,10 +46,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The monthlyPrintUsageByPrinter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintUsageByPrinter>? MonthlyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>?>("monthlyPrintUsageByPrinter"); }
             set { BackingStore?.Set("monthlyPrintUsageByPrinter", value); }
         }
+#nullable restore
 #else
         public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter {
             get { return BackingStore?.Get<List<PrintUsageByPrinter>>("monthlyPrintUsageByPrinter"); }
@@ -54,10 +60,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The monthlyPrintUsageByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintUsageByUser>? MonthlyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>?>("monthlyPrintUsageByUser"); }
             set { BackingStore?.Set("monthlyPrintUsageByUser", value); }
         }
+#nullable restore
 #else
         public List<PrintUsageByUser> MonthlyPrintUsageByUser {
             get { return BackingStore?.Get<List<PrintUsageByUser>>("monthlyPrintUsageByUser"); }
@@ -66,10 +74,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -78,10 +88,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The security property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public SecurityReportsRoot? Security {
             get { return BackingStore?.Get<SecurityReportsRoot?>("security"); }
             set { BackingStore?.Set("security", value); }
         }
+#nullable restore
 #else
         public SecurityReportsRoot Security {
             get { return BackingStore?.Get<SecurityReportsRoot>("security"); }

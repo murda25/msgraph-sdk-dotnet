@@ -13,10 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessReviewApplyAction>? ApplyActions {
             get { return BackingStore?.Get<List<AccessReviewApplyAction>?>("applyActions"); }
             set { BackingStore?.Set("applyActions", value); }
         }
+#nullable restore
 #else
         public List<AccessReviewApplyAction> ApplyActions {
             get { return BackingStore?.Get<List<AccessReviewApplyAction>>("applyActions"); }
@@ -37,10 +39,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DefaultDecision {
             get { return BackingStore?.Get<string?>("defaultDecision"); }
             set { BackingStore?.Set("defaultDecision", value); }
         }
+#nullable restore
 #else
         public string DefaultDecision {
             get { return BackingStore?.Get<string>("defaultDecision"); }
@@ -69,10 +73,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -86,10 +92,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PatternedRecurrence? Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence?>("recurrence"); }
             set { BackingStore?.Set("recurrence", value); }
         }
+#nullable restore
 #else
         public PatternedRecurrence Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence>("recurrence"); }

@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageCatalog : Entity, IParsable {
         /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessPackage>? AccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>?>("accessPackages"); }
             set { BackingStore?.Set("accessPackages", value); }
         }
+#nullable restore
 #else
         public List<AccessPackage> AccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>>("accessPackages"); }
@@ -29,10 +31,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The description of the access package catalog.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -41,10 +45,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the access package catalog.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }

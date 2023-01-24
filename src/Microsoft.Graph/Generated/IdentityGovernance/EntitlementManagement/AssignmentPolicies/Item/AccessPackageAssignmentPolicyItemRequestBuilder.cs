@@ -62,7 +62,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task DeleteAsync(Action<AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task DeleteAsync(Action<AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -79,7 +81,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task<AccessPackageAssignmentPolicy?> GetAsync(Action<AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task<AccessPackageAssignmentPolicy> GetAsync(Action<AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -97,7 +101,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task<AccessPackageAssignmentPolicy?> PutAsync(AccessPackageAssignmentPolicy body, Action<AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task<AccessPackageAssignmentPolicy> PutAsync(AccessPackageAssignmentPolicy body, Action<AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -114,7 +120,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToDeleteRequestInformation(Action<AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -136,7 +144,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToGetRequestInformation(Action<AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToGetRequestInformation(Action<AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -161,7 +171,9 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToPutRequestInformation(AccessPackageAssignmentPolicy body, Action<AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToPutRequestInformation(AccessPackageAssignmentPolicy body, Action<AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -203,16 +215,20 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
         public class AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24expand")]
             public string[]? Expand { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24expand")]
             public string[] Expand { get; set; }
 #endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24select")]
             public string[]? Select { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24select")]
             public string[] Select { get; set; }

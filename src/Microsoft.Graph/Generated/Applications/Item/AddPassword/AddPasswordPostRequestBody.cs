@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Applications.Item.AddPassword {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The passwordCredential property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.PasswordCredential? PasswordCredential {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PasswordCredential?>("passwordCredential"); }
             set { BackingStore?.Set("passwordCredential", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.PasswordCredential PasswordCredential {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PasswordCredential>("passwordCredential"); }

@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.Security {
     public class Security : Entity, IParsable {
         /// <summary>The alerts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.Alert>? Alerts {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Alert>?>("alerts"); }
             set { BackingStore?.Set("alerts", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.Alert> Alerts {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Alert>>("alerts"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>A collection of alerts in Microsoft 365 Defender.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Alert>? Alerts_v2 {
             get { return BackingStore?.Get<List<Alert>?>("alerts_v2"); }
             set { BackingStore?.Set("alerts_v2", value); }
         }
+#nullable restore
 #else
         public List<Alert> Alerts_v2 {
             get { return BackingStore?.Get<List<Alert>>("alerts_v2"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>The attackSimulation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AttackSimulationRoot? AttackSimulation {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttackSimulationRoot?>("attackSimulation"); }
             set { BackingStore?.Set("attackSimulation", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AttackSimulationRoot AttackSimulation {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttackSimulationRoot>("attackSimulation"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>The cases property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public CasesRoot? Cases {
             get { return BackingStore?.Get<CasesRoot?>("cases"); }
             set { BackingStore?.Set("cases", value); }
         }
+#nullable restore
 #else
         public CasesRoot Cases {
             get { return BackingStore?.Get<CasesRoot>("cases"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Incident>? Incidents {
             get { return BackingStore?.Get<List<Incident>?>("incidents"); }
             set { BackingStore?.Set("incidents", value); }
         }
+#nullable restore
 #else
         public List<Incident> Incidents {
             get { return BackingStore?.Get<List<Incident>>("incidents"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>The secureScoreControlProfiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.SecureScoreControlProfile>? SecureScoreControlProfiles {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.SecureScoreControlProfile>?>("secureScoreControlProfiles"); }
             set { BackingStore?.Set("secureScoreControlProfiles", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.SecureScoreControlProfile> SecureScoreControlProfiles {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.SecureScoreControlProfile>>("secureScoreControlProfiles"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models.Security {
 #endif
         /// <summary>The secureScores property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.SecureScore>? SecureScores {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.SecureScore>?>("secureScores"); }
             set { BackingStore?.Set("secureScores", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.SecureScore> SecureScores {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.SecureScore>>("secureScores"); }

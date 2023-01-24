@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PlannerUser : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PlannerPlan>? Plans {
             get { return BackingStore?.Get<List<PlannerPlan>?>("plans"); }
             set { BackingStore?.Set("plans", value); }
         }
+#nullable restore
 #else
         public List<PlannerPlan> Plans {
             get { return BackingStore?.Get<List<PlannerPlan>>("plans"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Read-only. Nullable. Returns the plannerPlans shared with the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PlannerTask>? Tasks {
             get { return BackingStore?.Get<List<PlannerTask>?>("tasks"); }
             set { BackingStore?.Set("tasks", value); }
         }
+#nullable restore
 #else
         public List<PlannerTask> Tasks {
             get { return BackingStore?.Get<List<PlannerTask>>("tasks"); }

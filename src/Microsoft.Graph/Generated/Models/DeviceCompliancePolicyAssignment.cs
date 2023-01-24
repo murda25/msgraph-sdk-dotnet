@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceCompliancePolicyAssignment : Entity, IParsable {
         /// <summary>Target for the compliance policy assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceAndAppManagementAssignmentTarget? Target {
             get { return BackingStore?.Get<DeviceAndAppManagementAssignmentTarget?>("target"); }
             set { BackingStore?.Set("target", value); }
         }
+#nullable restore
 #else
         public DeviceAndAppManagementAssignmentTarget Target {
             get { return BackingStore?.Get<DeviceAndAppManagementAssignmentTarget>("target"); }

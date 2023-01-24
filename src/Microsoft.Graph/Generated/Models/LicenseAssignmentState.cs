@@ -13,10 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The assignedByGroup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AssignedByGroup {
             get { return BackingStore?.Get<string?>("assignedByGroup"); }
             set { BackingStore?.Set("assignedByGroup", value); }
         }
+#nullable restore
 #else
         public string AssignedByGroup {
             get { return BackingStore?.Get<string>("assignedByGroup"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The disabledPlans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Guid?>? DisabledPlans {
             get { return BackingStore?.Get<List<Guid?>?>("disabledPlans"); }
             set { BackingStore?.Set("disabledPlans", value); }
         }
+#nullable restore
 #else
         public List<Guid?> DisabledPlans {
             get { return BackingStore?.Get<List<Guid?>>("disabledPlans"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Error {
             get { return BackingStore?.Get<string?>("error"); }
             set { BackingStore?.Set("error", value); }
         }
+#nullable restore
 #else
         public string Error {
             get { return BackingStore?.Get<string>("error"); }
@@ -56,10 +62,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -73,10 +81,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? State {
             get { return BackingStore?.Get<string?>("state"); }
             set { BackingStore?.Set("state", value); }
         }
+#nullable restore
 #else
         public string State {
             get { return BackingStore?.Get<string>("state"); }

@@ -18,10 +18,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Email address of the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContactITEmailAddress {
             get { return BackingStore?.Get<string?>("contactITEmailAddress"); }
             set { BackingStore?.Set("contactITEmailAddress", value); }
         }
+#nullable restore
 #else
         public string ContactITEmailAddress {
             get { return BackingStore?.Get<string>("contactITEmailAddress"); }
@@ -30,10 +32,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Name of the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContactITName {
             get { return BackingStore?.Get<string?>("contactITName"); }
             set { BackingStore?.Set("contactITName", value); }
         }
+#nullable restore
 #else
         public string ContactITName {
             get { return BackingStore?.Get<string>("contactITName"); }
@@ -42,10 +46,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Text comments regarding the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContactITNotes {
             get { return BackingStore?.Get<string?>("contactITNotes"); }
             set { BackingStore?.Set("contactITNotes", value); }
         }
+#nullable restore
 #else
         public string ContactITNotes {
             get { return BackingStore?.Get<string>("contactITNotes"); }
@@ -54,10 +60,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Phone number of the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContactITPhoneNumber {
             get { return BackingStore?.Get<string?>("contactITPhoneNumber"); }
             set { BackingStore?.Set("contactITPhoneNumber", value); }
         }
+#nullable restore
 #else
         public string ContactITPhoneNumber {
             get { return BackingStore?.Get<string>("contactITPhoneNumber"); }
@@ -66,10 +74,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Logo image displayed in Company Portal apps which have a dark background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public MimeContent? DarkBackgroundLogo {
             get { return BackingStore?.Get<MimeContent?>("darkBackgroundLogo"); }
             set { BackingStore?.Set("darkBackgroundLogo", value); }
         }
+#nullable restore
 #else
         public MimeContent DarkBackgroundLogo {
             get { return BackingStore?.Get<MimeContent>("darkBackgroundLogo"); }
@@ -78,10 +88,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Company/organization name that is displayed to end users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -90,10 +102,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Logo image displayed in Company Portal apps which have a light background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public MimeContent? LightBackgroundLogo {
             get { return BackingStore?.Get<MimeContent?>("lightBackgroundLogo"); }
             set { BackingStore?.Set("lightBackgroundLogo", value); }
         }
+#nullable restore
 #else
         public MimeContent LightBackgroundLogo {
             get { return BackingStore?.Get<MimeContent>("lightBackgroundLogo"); }
@@ -102,10 +116,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -114,10 +130,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Display name of the company/organization’s IT helpdesk site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OnlineSupportSiteName {
             get { return BackingStore?.Get<string?>("onlineSupportSiteName"); }
             set { BackingStore?.Set("onlineSupportSiteName", value); }
         }
+#nullable restore
 #else
         public string OnlineSupportSiteName {
             get { return BackingStore?.Get<string>("onlineSupportSiteName"); }
@@ -126,10 +144,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>URL to the company/organization’s IT helpdesk site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OnlineSupportSiteUrl {
             get { return BackingStore?.Get<string?>("onlineSupportSiteUrl"); }
             set { BackingStore?.Set("onlineSupportSiteUrl", value); }
         }
+#nullable restore
 #else
         public string OnlineSupportSiteUrl {
             get { return BackingStore?.Get<string>("onlineSupportSiteUrl"); }
@@ -138,10 +158,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>URL to the company/organization’s privacy policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrivacyUrl {
             get { return BackingStore?.Get<string?>("privacyUrl"); }
             set { BackingStore?.Set("privacyUrl", value); }
         }
+#nullable restore
 #else
         public string PrivacyUrl {
             get { return BackingStore?.Get<string>("privacyUrl"); }
@@ -165,10 +187,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Primary theme color used in the Company Portal applications and web portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RgbColor? ThemeColor {
             get { return BackingStore?.Get<RgbColor?>("themeColor"); }
             set { BackingStore?.Set("themeColor", value); }
         }
+#nullable restore
 #else
         public RgbColor ThemeColor {
             get { return BackingStore?.Get<RgbColor>("themeColor"); }

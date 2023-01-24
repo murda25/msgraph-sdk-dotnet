@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The name of the content source that the externalItem is part of.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContentSource {
             get { return BackingStore?.Get<string?>("contentSource"); }
             set { BackingStore?.Set("contentSource", value); }
         }
+#nullable restore
 #else
         public string ContentSource {
             get { return BackingStore?.Get<string>("contentSource"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? HitId {
             get { return BackingStore?.Get<string?>("hitId"); }
             set { BackingStore?.Set("hitId", value); }
         }
+#nullable restore
 #else
         public string HitId {
             get { return BackingStore?.Get<string>("hitId"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -56,10 +62,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The resource property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Entity? Resource {
             get { return BackingStore?.Get<Entity?>("resource"); }
             set { BackingStore?.Set("resource", value); }
         }
+#nullable restore
 #else
         public Entity Resource {
             get { return BackingStore?.Get<Entity>("resource"); }
@@ -68,10 +76,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ResultTemplateId {
             get { return BackingStore?.Get<string?>("resultTemplateId"); }
             set { BackingStore?.Set("resultTemplateId", value); }
         }
+#nullable restore
 #else
         public string ResultTemplateId {
             get { return BackingStore?.Get<string>("resultTemplateId"); }
@@ -80,10 +90,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A summary of the result, if a summary is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Summary {
             get { return BackingStore?.Get<string?>("summary"); }
             set { BackingStore?.Set("summary", value); }
         }
+#nullable restore
 #else
         public string Summary {
             get { return BackingStore?.Get<string>("summary"); }

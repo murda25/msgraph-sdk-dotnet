@@ -13,29 +13,31 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The guestsCount property</summary>
+        /// <summary>Count of guests in a team.</summary>
         public int? GuestsCount {
             get { return BackingStore?.Get<int?>("guestsCount"); }
             set { BackingStore?.Set("guestsCount", value); }
         }
-        /// <summary>The membersCount property</summary>
+        /// <summary>Count of members in a team.</summary>
         public int? MembersCount {
             get { return BackingStore?.Get<int?>("membersCount"); }
             set { BackingStore?.Set("membersCount", value); }
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The ownersCount property</summary>
+        /// <summary>Count of owners in a team.</summary>
         public int? OwnersCount {
             get { return BackingStore?.Get<int?>("ownersCount"); }
             set { BackingStore?.Set("ownersCount", value); }

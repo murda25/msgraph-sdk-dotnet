@@ -47,10 +47,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Gets or sets the list of iOS apps allowed to autonomously enter Single App Mode. Supervised only. iOS 7.0 and later. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AppListItem>? AppsSingleAppModeList {
             get { return BackingStore?.Get<List<AppListItem>?>("appsSingleAppModeList"); }
             set { BackingStore?.Set("appsSingleAppModeList", value); }
         }
+#nullable restore
 #else
         public List<AppListItem> AppsSingleAppModeList {
             get { return BackingStore?.Get<List<AppListItem>>("appsSingleAppModeList"); }
@@ -84,10 +86,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of apps in the visibility list (either visible/launchable apps list or hidden/unlaunchable apps list, controlled by AppsVisibilityListType) (iOS 9.3 and later). This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AppListItem>? AppsVisibilityList {
             get { return BackingStore?.Get<List<AppListItem>?>("appsVisibilityList"); }
             set { BackingStore?.Set("appsVisibilityList", value); }
         }
+#nullable restore
 #else
         public List<AppListItem> AppsVisibilityList {
             get { return BackingStore?.Get<List<AppListItem>>("appsVisibilityList"); }
@@ -156,10 +160,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AppListItem>? CompliantAppsList {
             get { return BackingStore?.Get<List<AppListItem>?>("compliantAppsList"); }
             set { BackingStore?.Set("compliantAppsList", value); }
         }
+#nullable restore
 #else
         public List<AppListItem> CompliantAppsList {
             get { return BackingStore?.Get<List<AppListItem>>("compliantAppsList"); }
@@ -213,10 +219,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>An email address lacking a suffix that matches any of these strings will be considered out-of-domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? EmailInDomainSuffixes {
             get { return BackingStore?.Get<List<string>?>("emailInDomainSuffixes"); }
             set { BackingStore?.Set("emailInDomainSuffixes", value); }
         }
+#nullable restore
 #else
         public List<string> EmailInDomainSuffixes {
             get { return BackingStore?.Get<List<string>>("emailInDomainSuffixes"); }
@@ -410,10 +418,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>URL in the app store to the app to use for kiosk mode. Use if KioskModeManagedAppId is not known.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? KioskModeAppStoreUrl {
             get { return BackingStore?.Get<string?>("kioskModeAppStoreUrl"); }
             set { BackingStore?.Set("kioskModeAppStoreUrl", value); }
         }
+#nullable restore
 #else
         public string KioskModeAppStoreUrl {
             get { return BackingStore?.Get<string>("kioskModeAppStoreUrl"); }
@@ -422,10 +432,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>ID for built-in apps to use for kiosk mode. Used when KioskModeManagedAppId and KioskModeAppStoreUrl are not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? KioskModeBuiltInAppId {
             get { return BackingStore?.Get<string?>("kioskModeBuiltInAppId"); }
             set { BackingStore?.Set("kioskModeBuiltInAppId", value); }
         }
+#nullable restore
 #else
         public string KioskModeBuiltInAppId {
             get { return BackingStore?.Get<string>("kioskModeBuiltInAppId"); }
@@ -434,10 +446,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Managed app id of the app to use for kiosk mode. If KioskModeManagedAppId is specified then KioskModeAppStoreUrl will be ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? KioskModeManagedAppId {
             get { return BackingStore?.Get<string?>("kioskModeManagedAppId"); }
             set { BackingStore?.Set("kioskModeManagedAppId", value); }
         }
+#nullable restore
 #else
         public string KioskModeManagedAppId {
             get { return BackingStore?.Get<string>("kioskModeManagedAppId"); }
@@ -496,10 +510,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Media content rating settings for Australia</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingAustralia? MediaContentRatingAustralia {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingAustralia?>("mediaContentRatingAustralia"); }
             set { BackingStore?.Set("mediaContentRatingAustralia", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingAustralia MediaContentRatingAustralia {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingAustralia>("mediaContentRatingAustralia"); }
@@ -508,10 +524,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for Canada</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingCanada? MediaContentRatingCanada {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingCanada?>("mediaContentRatingCanada"); }
             set { BackingStore?.Set("mediaContentRatingCanada", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingCanada MediaContentRatingCanada {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingCanada>("mediaContentRatingCanada"); }
@@ -520,10 +538,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for France</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingFrance? MediaContentRatingFrance {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingFrance?>("mediaContentRatingFrance"); }
             set { BackingStore?.Set("mediaContentRatingFrance", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingFrance MediaContentRatingFrance {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingFrance>("mediaContentRatingFrance"); }
@@ -532,10 +552,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for Germany</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingGermany? MediaContentRatingGermany {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingGermany?>("mediaContentRatingGermany"); }
             set { BackingStore?.Set("mediaContentRatingGermany", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingGermany MediaContentRatingGermany {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingGermany>("mediaContentRatingGermany"); }
@@ -544,10 +566,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for Ireland</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingIreland? MediaContentRatingIreland {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingIreland?>("mediaContentRatingIreland"); }
             set { BackingStore?.Set("mediaContentRatingIreland", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingIreland MediaContentRatingIreland {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingIreland>("mediaContentRatingIreland"); }
@@ -556,10 +580,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for Japan</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingJapan? MediaContentRatingJapan {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingJapan?>("mediaContentRatingJapan"); }
             set { BackingStore?.Set("mediaContentRatingJapan", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingJapan MediaContentRatingJapan {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingJapan>("mediaContentRatingJapan"); }
@@ -568,10 +594,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for New Zealand</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingNewZealand? MediaContentRatingNewZealand {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingNewZealand?>("mediaContentRatingNewZealand"); }
             set { BackingStore?.Set("mediaContentRatingNewZealand", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingNewZealand MediaContentRatingNewZealand {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingNewZealand>("mediaContentRatingNewZealand"); }
@@ -580,10 +608,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for United Kingdom</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingUnitedKingdom? MediaContentRatingUnitedKingdom {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingUnitedKingdom?>("mediaContentRatingUnitedKingdom"); }
             set { BackingStore?.Set("mediaContentRatingUnitedKingdom", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingUnitedKingdom MediaContentRatingUnitedKingdom {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingUnitedKingdom>("mediaContentRatingUnitedKingdom"); }
@@ -592,10 +622,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Media content rating settings for United States</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.MediaContentRatingUnitedStates? MediaContentRatingUnitedStates {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingUnitedStates?>("mediaContentRatingUnitedStates"); }
             set { BackingStore?.Set("mediaContentRatingUnitedStates", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.MediaContentRatingUnitedStates MediaContentRatingUnitedStates {
             get { return BackingStore?.Get<Microsoft.Graph.Models.MediaContentRatingUnitedStates>("mediaContentRatingUnitedStates"); }
@@ -609,10 +641,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<IosNetworkUsageRule>? NetworkUsageRules {
             get { return BackingStore?.Get<List<IosNetworkUsageRule>?>("networkUsageRules"); }
             set { BackingStore?.Set("networkUsageRules", value); }
         }
+#nullable restore
 #else
         public List<IosNetworkUsageRule> NetworkUsageRules {
             get { return BackingStore?.Get<List<IosNetworkUsageRule>>("networkUsageRules"); }
@@ -721,10 +755,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>URLs matching the patterns listed here will be considered managed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? SafariManagedDomains {
             get { return BackingStore?.Get<List<string>?>("safariManagedDomains"); }
             set { BackingStore?.Set("safariManagedDomains", value); }
         }
+#nullable restore
 #else
         public List<string> SafariManagedDomains {
             get { return BackingStore?.Get<List<string>>("safariManagedDomains"); }
@@ -733,10 +769,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Users can save passwords in Safari only from URLs matching the patterns listed here. Applies to devices in supervised mode (iOS 9.3 and later).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? SafariPasswordAutoFillDomains {
             get { return BackingStore?.Get<List<string>?>("safariPasswordAutoFillDomains"); }
             set { BackingStore?.Set("safariPasswordAutoFillDomains", value); }
         }
+#nullable restore
 #else
         public List<string> SafariPasswordAutoFillDomains {
             get { return BackingStore?.Get<List<string>>("safariPasswordAutoFillDomains"); }

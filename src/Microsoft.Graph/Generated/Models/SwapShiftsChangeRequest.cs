@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class SwapShiftsChangeRequest : OfferShiftRequest, IParsable {
         /// <summary>ShiftId for the recipient user with whom the request is to swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RecipientShiftId {
             get { return BackingStore?.Get<string?>("recipientShiftId"); }
             set { BackingStore?.Set("recipientShiftId", value); }
         }
+#nullable restore
 #else
         public string RecipientShiftId {
             get { return BackingStore?.Get<string>("recipientShiftId"); }

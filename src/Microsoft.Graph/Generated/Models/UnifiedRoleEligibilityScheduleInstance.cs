@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MemberType {
             get { return BackingStore?.Get<string?>("memberType"); }
             set { BackingStore?.Set("memberType", value); }
         }
+#nullable restore
 #else
         public string MemberType {
             get { return BackingStore?.Get<string>("memberType"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RoleEligibilityScheduleId {
             get { return BackingStore?.Get<string?>("roleEligibilityScheduleId"); }
             set { BackingStore?.Set("roleEligibilityScheduleId", value); }
         }
+#nullable restore
 #else
         public string RoleEligibilityScheduleId {
             get { return BackingStore?.Get<string>("roleEligibilityScheduleId"); }

@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Communications.Calls.Item.Redirect {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The callbackUri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CallbackUri {
             get { return BackingStore?.Get<string?>("callbackUri"); }
             set { BackingStore?.Set("callbackUri", value); }
         }
+#nullable restore
 #else
         public string CallbackUri {
             get { return BackingStore?.Get<string>("callbackUri"); }
@@ -28,10 +30,12 @@ namespace Microsoft.Graph.Communications.Calls.Item.Redirect {
 #endif
         /// <summary>The targets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<InvitationParticipantInfo>? Targets {
             get { return BackingStore?.Get<List<InvitationParticipantInfo>?>("targets"); }
             set { BackingStore?.Set("targets", value); }
         }
+#nullable restore
 #else
         public List<InvitationParticipantInfo> Targets {
             get { return BackingStore?.Get<List<InvitationParticipantInfo>>("targets"); }

@@ -28,10 +28,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Specify a list of allowed Bluetooth services and profiles in hex formatted strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? BluetoothAllowedServices {
             get { return BackingStore?.Get<List<string>?>("bluetoothAllowedServices"); }
             set { BackingStore?.Set("bluetoothAllowedServices", value); }
         }
+#nullable restore
 #else
         public List<string> BluetoothAllowedServices {
             get { return BackingStore?.Get<List<string>>("bluetoothAllowedServices"); }
@@ -115,10 +117,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Gets or sets Defender’s actions to take on detected Malware per threat level.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DefenderDetectedMalwareActions? DefenderDetectedMalwareActions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DefenderDetectedMalwareActions?>("defenderDetectedMalwareActions"); }
             set { BackingStore?.Set("defenderDetectedMalwareActions", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DefenderDetectedMalwareActions DefenderDetectedMalwareActions {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DefenderDetectedMalwareActions>("defenderDetectedMalwareActions"); }
@@ -127,10 +131,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>File extensions to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderFileExtensionsToExclude {
             get { return BackingStore?.Get<List<string>?>("defenderFileExtensionsToExclude"); }
             set { BackingStore?.Set("defenderFileExtensionsToExclude", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderFileExtensionsToExclude {
             get { return BackingStore?.Get<List<string>>("defenderFileExtensionsToExclude"); }
@@ -139,10 +145,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Files and folder to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderFilesAndFoldersToExclude {
             get { return BackingStore?.Get<List<string>?>("defenderFilesAndFoldersToExclude"); }
             set { BackingStore?.Set("defenderFilesAndFoldersToExclude", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderFilesAndFoldersToExclude {
             get { return BackingStore?.Get<List<string>>("defenderFilesAndFoldersToExclude"); }
@@ -156,10 +164,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Processes to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderProcessesToExclude {
             get { return BackingStore?.Get<List<string>?>("defenderProcessesToExclude"); }
             set { BackingStore?.Set("defenderProcessesToExclude", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderProcessesToExclude {
             get { return BackingStore?.Get<List<string>>("defenderProcessesToExclude"); }
@@ -373,10 +383,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Indicates the enterprise mode site list location. Could be a local file, local network or http location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EdgeEnterpriseModeSiteListLocation {
             get { return BackingStore?.Get<string?>("edgeEnterpriseModeSiteListLocation"); }
             set { BackingStore?.Set("edgeEnterpriseModeSiteListLocation", value); }
         }
+#nullable restore
 #else
         public string EdgeEnterpriseModeSiteListLocation {
             get { return BackingStore?.Get<string>("edgeEnterpriseModeSiteListLocation"); }
@@ -385,10 +397,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The first run URL for when Edge browser is opened for the first time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EdgeFirstRunUrl {
             get { return BackingStore?.Get<string?>("edgeFirstRunUrl"); }
             set { BackingStore?.Set("edgeFirstRunUrl", value); }
         }
+#nullable restore
 #else
         public string EdgeFirstRunUrl {
             get { return BackingStore?.Get<string>("edgeFirstRunUrl"); }
@@ -397,10 +411,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? EdgeHomepageUrls {
             get { return BackingStore?.Get<List<string>?>("edgeHomepageUrls"); }
             set { BackingStore?.Set("edgeHomepageUrls", value); }
         }
+#nullable restore
 #else
         public List<string> EdgeHomepageUrls {
             get { return BackingStore?.Get<List<string>>("edgeHomepageUrls"); }
@@ -414,10 +430,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public EdgeSearchEngineBase? EdgeSearchEngine {
             get { return BackingStore?.Get<EdgeSearchEngineBase?>("edgeSearchEngine"); }
             set { BackingStore?.Set("edgeSearchEngine", value); }
         }
+#nullable restore
 #else
         public EdgeSearchEngineBase EdgeSearchEngine {
             get { return BackingStore?.Get<EdgeSearchEngineBase>("edgeSearchEngine"); }
@@ -436,10 +454,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Endpoint for discovering cloud printers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EnterpriseCloudPrintDiscoveryEndPoint {
             get { return BackingStore?.Get<string?>("enterpriseCloudPrintDiscoveryEndPoint"); }
             set { BackingStore?.Set("enterpriseCloudPrintDiscoveryEndPoint", value); }
         }
+#nullable restore
 #else
         public string EnterpriseCloudPrintDiscoveryEndPoint {
             get { return BackingStore?.Get<string>("enterpriseCloudPrintDiscoveryEndPoint"); }
@@ -453,10 +473,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>OAuth resource URI for printer discovery service as configured in Azure portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EnterpriseCloudPrintMopriaDiscoveryResourceIdentifier {
             get { return BackingStore?.Get<string?>("enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"); }
             set { BackingStore?.Set("enterpriseCloudPrintMopriaDiscoveryResourceIdentifier", value); }
         }
+#nullable restore
 #else
         public string EnterpriseCloudPrintMopriaDiscoveryResourceIdentifier {
             get { return BackingStore?.Get<string>("enterpriseCloudPrintMopriaDiscoveryResourceIdentifier"); }
@@ -465,10 +487,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Authentication endpoint for acquiring OAuth tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EnterpriseCloudPrintOAuthAuthority {
             get { return BackingStore?.Get<string?>("enterpriseCloudPrintOAuthAuthority"); }
             set { BackingStore?.Set("enterpriseCloudPrintOAuthAuthority", value); }
         }
+#nullable restore
 #else
         public string EnterpriseCloudPrintOAuthAuthority {
             get { return BackingStore?.Get<string>("enterpriseCloudPrintOAuthAuthority"); }
@@ -477,10 +501,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EnterpriseCloudPrintOAuthClientIdentifier {
             get { return BackingStore?.Get<string?>("enterpriseCloudPrintOAuthClientIdentifier"); }
             set { BackingStore?.Set("enterpriseCloudPrintOAuthClientIdentifier", value); }
         }
+#nullable restore
 #else
         public string EnterpriseCloudPrintOAuthClientIdentifier {
             get { return BackingStore?.Get<string>("enterpriseCloudPrintOAuthClientIdentifier"); }
@@ -489,10 +515,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>OAuth resource URI for print service as configured in the Azure portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EnterpriseCloudPrintResourceIdentifier {
             get { return BackingStore?.Get<string?>("enterpriseCloudPrintResourceIdentifier"); }
             set { BackingStore?.Set("enterpriseCloudPrintResourceIdentifier", value); }
         }
+#nullable restore
 #else
         public string EnterpriseCloudPrintResourceIdentifier {
             get { return BackingStore?.Get<string>("enterpriseCloudPrintResourceIdentifier"); }
@@ -576,10 +604,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Address to the proxy auto-config (PAC) script you want to use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? NetworkProxyAutomaticConfigurationUrl {
             get { return BackingStore?.Get<string?>("networkProxyAutomaticConfigurationUrl"); }
             set { BackingStore?.Set("networkProxyAutomaticConfigurationUrl", value); }
         }
+#nullable restore
 #else
         public string NetworkProxyAutomaticConfigurationUrl {
             get { return BackingStore?.Get<string>("networkProxyAutomaticConfigurationUrl"); }
@@ -593,10 +623,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Specifies manual proxy server settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Windows10NetworkProxyServer? NetworkProxyServer {
             get { return BackingStore?.Get<Windows10NetworkProxyServer?>("networkProxyServer"); }
             set { BackingStore?.Set("networkProxyServer", value); }
         }
+#nullable restore
 #else
         public Windows10NetworkProxyServer NetworkProxyServer {
             get { return BackingStore?.Get<Windows10NetworkProxyServer>("networkProxyServer"); }
@@ -665,10 +697,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PersonalizationDesktopImageUrl {
             get { return BackingStore?.Get<string?>("personalizationDesktopImageUrl"); }
             set { BackingStore?.Set("personalizationDesktopImageUrl", value); }
         }
+#nullable restore
 #else
         public string PersonalizationDesktopImageUrl {
             get { return BackingStore?.Get<string>("personalizationDesktopImageUrl"); }
@@ -677,10 +711,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PersonalizationLockScreenImageUrl {
             get { return BackingStore?.Get<string?>("personalizationLockScreenImageUrl"); }
             set { BackingStore?.Set("personalizationLockScreenImageUrl", value); }
         }
+#nullable restore
 #else
         public string PersonalizationLockScreenImageUrl {
             get { return BackingStore?.Get<string>("personalizationLockScreenImageUrl"); }
@@ -944,10 +980,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public byte[]? StartMenuLayoutEdgeAssetsXml {
             get { return BackingStore?.Get<byte[]?>("startMenuLayoutEdgeAssetsXml"); }
             set { BackingStore?.Set("startMenuLayoutEdgeAssetsXml", value); }
         }
+#nullable restore
 #else
         public byte[] StartMenuLayoutEdgeAssetsXml {
             get { return BackingStore?.Get<byte[]>("startMenuLayoutEdgeAssetsXml"); }
@@ -956,10 +994,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public byte[]? StartMenuLayoutXml {
             get { return BackingStore?.Get<byte[]?>("startMenuLayoutXml"); }
             set { BackingStore?.Set("startMenuLayoutXml", value); }
         }
+#nullable restore
 #else
         public byte[] StartMenuLayoutXml {
             get { return BackingStore?.Get<byte[]>("startMenuLayoutXml"); }

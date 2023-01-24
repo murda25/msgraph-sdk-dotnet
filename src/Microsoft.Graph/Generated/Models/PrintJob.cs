@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PrintJob : Entity, IParsable {
         /// <summary>The configuration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PrintJobConfiguration? Configuration {
             get { return BackingStore?.Get<PrintJobConfiguration?>("configuration"); }
             set { BackingStore?.Set("configuration", value); }
         }
+#nullable restore
 #else
         public PrintJobConfiguration Configuration {
             get { return BackingStore?.Get<PrintJobConfiguration>("configuration"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The createdBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UserIdentity? CreatedBy {
             get { return BackingStore?.Get<UserIdentity?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public UserIdentity CreatedBy {
             get { return BackingStore?.Get<UserIdentity>("createdBy"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The documents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintDocument>? Documents {
             get { return BackingStore?.Get<List<PrintDocument>?>("documents"); }
             set { BackingStore?.Set("documents", value); }
         }
+#nullable restore
 #else
         public List<PrintDocument> Documents {
             get { return BackingStore?.Get<List<PrintDocument>>("documents"); }
@@ -53,10 +59,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Contains the source job URL, if the job has been redirected from another printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RedirectedFrom {
             get { return BackingStore?.Get<string?>("redirectedFrom"); }
             set { BackingStore?.Set("redirectedFrom", value); }
         }
+#nullable restore
 #else
         public string RedirectedFrom {
             get { return BackingStore?.Get<string>("redirectedFrom"); }
@@ -65,10 +73,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Contains the destination job URL, if the job has been redirected to another printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RedirectedTo {
             get { return BackingStore?.Get<string?>("redirectedTo"); }
             set { BackingStore?.Set("redirectedTo", value); }
         }
+#nullable restore
 #else
         public string RedirectedTo {
             get { return BackingStore?.Get<string>("redirectedTo"); }
@@ -77,10 +87,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PrintJobStatus? Status {
             get { return BackingStore?.Get<PrintJobStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#nullable restore
 #else
         public PrintJobStatus Status {
             get { return BackingStore?.Get<PrintJobStatus>("status"); }
@@ -89,10 +101,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A list of printTasks that were triggered by this print job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PrintTask>? Tasks {
             get { return BackingStore?.Get<List<PrintTask>?>("tasks"); }
             set { BackingStore?.Set("tasks", value); }
         }
+#nullable restore
 #else
         public List<PrintTask> Tasks {
             get { return BackingStore?.Get<List<PrintTask>>("tasks"); }

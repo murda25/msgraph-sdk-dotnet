@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Contact : OutlookItem, IParsable {
         /// <summary>The name of the contact&apos;s assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AssistantName {
             get { return BackingStore?.Get<string?>("assistantName"); }
             set { BackingStore?.Set("assistantName", value); }
         }
+#nullable restore
 #else
         public string AssistantName {
             get { return BackingStore?.Get<string>("assistantName"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The contact&apos;s business address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PhysicalAddress? BusinessAddress {
             get { return BackingStore?.Get<PhysicalAddress?>("businessAddress"); }
             set { BackingStore?.Set("businessAddress", value); }
         }
+#nullable restore
 #else
         public PhysicalAddress BusinessAddress {
             get { return BackingStore?.Get<PhysicalAddress>("businessAddress"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The business home page of the contact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? BusinessHomePage {
             get { return BackingStore?.Get<string?>("businessHomePage"); }
             set { BackingStore?.Set("businessHomePage", value); }
         }
+#nullable restore
 #else
         public string BusinessHomePage {
             get { return BackingStore?.Get<string>("businessHomePage"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s business phone numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? BusinessPhones {
             get { return BackingStore?.Get<List<string>?>("businessPhones"); }
             set { BackingStore?.Set("businessPhones", value); }
         }
+#nullable restore
 #else
         public List<string> BusinessPhones {
             get { return BackingStore?.Get<List<string>>("businessPhones"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The names of the contact&apos;s children.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Children {
             get { return BackingStore?.Get<List<string>?>("children"); }
             set { BackingStore?.Set("children", value); }
         }
+#nullable restore
 #else
         public List<string> Children {
             get { return BackingStore?.Get<List<string>>("children"); }
@@ -72,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the contact&apos;s company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CompanyName {
             get { return BackingStore?.Get<string?>("companyName"); }
             set { BackingStore?.Set("companyName", value); }
         }
+#nullable restore
 #else
         public string CompanyName {
             get { return BackingStore?.Get<string>("companyName"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s department.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Department {
             get { return BackingStore?.Get<string?>("department"); }
             set { BackingStore?.Set("department", value); }
         }
+#nullable restore
 #else
         public string Department {
             get { return BackingStore?.Get<string>("department"); }
@@ -96,10 +110,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -108,10 +124,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s email addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<EmailAddress>? EmailAddresses {
             get { return BackingStore?.Get<List<EmailAddress>?>("emailAddresses"); }
             set { BackingStore?.Set("emailAddresses", value); }
         }
+#nullable restore
 #else
         public List<EmailAddress> EmailAddresses {
             get { return BackingStore?.Get<List<EmailAddress>>("emailAddresses"); }
@@ -120,10 +138,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of open extensions defined for the contact. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Extension>? Extensions {
             get { return BackingStore?.Get<List<Extension>?>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
+#nullable restore
 #else
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
@@ -132,10 +152,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name the contact is filed under.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? FileAs {
             get { return BackingStore?.Get<string?>("fileAs"); }
             set { BackingStore?.Set("fileAs", value); }
         }
+#nullable restore
 #else
         public string FileAs {
             get { return BackingStore?.Get<string>("fileAs"); }
@@ -144,10 +166,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Generation {
             get { return BackingStore?.Get<string?>("generation"); }
             set { BackingStore?.Set("generation", value); }
         }
+#nullable restore
 #else
         public string Generation {
             get { return BackingStore?.Get<string>("generation"); }
@@ -156,10 +180,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s given name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? GivenName {
             get { return BackingStore?.Get<string?>("givenName"); }
             set { BackingStore?.Set("givenName", value); }
         }
+#nullable restore
 #else
         public string GivenName {
             get { return BackingStore?.Get<string>("givenName"); }
@@ -168,10 +194,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s home address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PhysicalAddress? HomeAddress {
             get { return BackingStore?.Get<PhysicalAddress?>("homeAddress"); }
             set { BackingStore?.Set("homeAddress", value); }
         }
+#nullable restore
 #else
         public PhysicalAddress HomeAddress {
             get { return BackingStore?.Get<PhysicalAddress>("homeAddress"); }
@@ -180,10 +208,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contact&apos;s home phone numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? HomePhones {
             get { return BackingStore?.Get<List<string>?>("homePhones"); }
             set { BackingStore?.Set("homePhones", value); }
         }
+#nullable restore
 #else
         public List<string> HomePhones {
             get { return BackingStore?.Get<List<string>>("homePhones"); }
@@ -192,10 +222,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The imAddresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? ImAddresses {
             get { return BackingStore?.Get<List<string>?>("imAddresses"); }
             set { BackingStore?.Set("imAddresses", value); }
         }
+#nullable restore
 #else
         public List<string> ImAddresses {
             get { return BackingStore?.Get<List<string>>("imAddresses"); }
@@ -204,10 +236,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The initials property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Initials {
             get { return BackingStore?.Get<string?>("initials"); }
             set { BackingStore?.Set("initials", value); }
         }
+#nullable restore
 #else
         public string Initials {
             get { return BackingStore?.Get<string>("initials"); }
@@ -216,10 +250,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The jobTitle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? JobTitle {
             get { return BackingStore?.Get<string?>("jobTitle"); }
             set { BackingStore?.Set("jobTitle", value); }
         }
+#nullable restore
 #else
         public string JobTitle {
             get { return BackingStore?.Get<string>("jobTitle"); }
@@ -228,10 +264,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The manager property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Manager {
             get { return BackingStore?.Get<string?>("manager"); }
             set { BackingStore?.Set("manager", value); }
         }
+#nullable restore
 #else
         public string Manager {
             get { return BackingStore?.Get<string>("manager"); }
@@ -240,10 +278,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The middleName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MiddleName {
             get { return BackingStore?.Get<string?>("middleName"); }
             set { BackingStore?.Set("middleName", value); }
         }
+#nullable restore
 #else
         public string MiddleName {
             get { return BackingStore?.Get<string>("middleName"); }
@@ -252,10 +292,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The mobilePhone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MobilePhone {
             get { return BackingStore?.Get<string?>("mobilePhone"); }
             set { BackingStore?.Set("mobilePhone", value); }
         }
+#nullable restore
 #else
         public string MobilePhone {
             get { return BackingStore?.Get<string>("mobilePhone"); }
@@ -264,10 +306,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of multi-value extended properties defined for the contact. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties {
             get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>?>("multiValueExtendedProperties"); }
             set { BackingStore?.Set("multiValueExtendedProperties", value); }
         }
+#nullable restore
 #else
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties {
             get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>>("multiValueExtendedProperties"); }
@@ -276,10 +320,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The nickName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? NickName {
             get { return BackingStore?.Get<string?>("nickName"); }
             set { BackingStore?.Set("nickName", value); }
         }
+#nullable restore
 #else
         public string NickName {
             get { return BackingStore?.Get<string>("nickName"); }
@@ -288,10 +334,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The officeLocation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OfficeLocation {
             get { return BackingStore?.Get<string?>("officeLocation"); }
             set { BackingStore?.Set("officeLocation", value); }
         }
+#nullable restore
 #else
         public string OfficeLocation {
             get { return BackingStore?.Get<string>("officeLocation"); }
@@ -300,10 +348,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The otherAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PhysicalAddress? OtherAddress {
             get { return BackingStore?.Get<PhysicalAddress?>("otherAddress"); }
             set { BackingStore?.Set("otherAddress", value); }
         }
+#nullable restore
 #else
         public PhysicalAddress OtherAddress {
             get { return BackingStore?.Get<PhysicalAddress>("otherAddress"); }
@@ -312,10 +362,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The parentFolderId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ParentFolderId {
             get { return BackingStore?.Get<string?>("parentFolderId"); }
             set { BackingStore?.Set("parentFolderId", value); }
         }
+#nullable restore
 #else
         public string ParentFolderId {
             get { return BackingStore?.Get<string>("parentFolderId"); }
@@ -324,10 +376,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The personalNotes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PersonalNotes {
             get { return BackingStore?.Get<string?>("personalNotes"); }
             set { BackingStore?.Set("personalNotes", value); }
         }
+#nullable restore
 #else
         public string PersonalNotes {
             get { return BackingStore?.Get<string>("personalNotes"); }
@@ -336,10 +390,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Optional contact picture. You can get or set a photo for a contact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ProfilePhoto? Photo {
             get { return BackingStore?.Get<ProfilePhoto?>("photo"); }
             set { BackingStore?.Set("photo", value); }
         }
+#nullable restore
 #else
         public ProfilePhoto Photo {
             get { return BackingStore?.Get<ProfilePhoto>("photo"); }
@@ -348,10 +404,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The profession property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Profession {
             get { return BackingStore?.Get<string?>("profession"); }
             set { BackingStore?.Set("profession", value); }
         }
+#nullable restore
 #else
         public string Profession {
             get { return BackingStore?.Get<string>("profession"); }
@@ -360,10 +418,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of single-value extended properties defined for the contact. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>?>("singleValueExtendedProperties"); }
             set { BackingStore?.Set("singleValueExtendedProperties", value); }
         }
+#nullable restore
 #else
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>>("singleValueExtendedProperties"); }
@@ -372,10 +432,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The spouseName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SpouseName {
             get { return BackingStore?.Get<string?>("spouseName"); }
             set { BackingStore?.Set("spouseName", value); }
         }
+#nullable restore
 #else
         public string SpouseName {
             get { return BackingStore?.Get<string>("spouseName"); }
@@ -384,10 +446,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The surname property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Surname {
             get { return BackingStore?.Get<string?>("surname"); }
             set { BackingStore?.Set("surname", value); }
         }
+#nullable restore
 #else
         public string Surname {
             get { return BackingStore?.Get<string>("surname"); }
@@ -396,10 +460,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Title {
             get { return BackingStore?.Get<string?>("title"); }
             set { BackingStore?.Set("title", value); }
         }
+#nullable restore
 #else
         public string Title {
             get { return BackingStore?.Get<string>("title"); }
@@ -408,10 +474,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The yomiCompanyName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? YomiCompanyName {
             get { return BackingStore?.Get<string?>("yomiCompanyName"); }
             set { BackingStore?.Set("yomiCompanyName", value); }
         }
+#nullable restore
 #else
         public string YomiCompanyName {
             get { return BackingStore?.Get<string>("yomiCompanyName"); }
@@ -420,10 +488,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The yomiGivenName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? YomiGivenName {
             get { return BackingStore?.Get<string?>("yomiGivenName"); }
             set { BackingStore?.Set("yomiGivenName", value); }
         }
+#nullable restore
 #else
         public string YomiGivenName {
             get { return BackingStore?.Get<string>("yomiGivenName"); }
@@ -432,10 +502,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The yomiSurname property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? YomiSurname {
             get { return BackingStore?.Get<string?>("yomiSurname"); }
             set { BackingStore?.Set("yomiSurname", value); }
         }
+#nullable restore
 #else
         public string YomiSurname {
             get { return BackingStore?.Get<string>("yomiSurname"); }
@@ -443,7 +515,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new contact and sets the default values.
+        /// Instantiates a new Contact and sets the default values.
         /// </summary>
         public Contact() : base() {
             OdataType = "#microsoft.graph.contact";

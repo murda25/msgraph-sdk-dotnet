@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AuthenticationMethodsPolicy : Entity, IParsable {
         /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AuthenticationMethodConfiguration>? AuthenticationMethodConfigurations {
             get { return BackingStore?.Get<List<AuthenticationMethodConfiguration>?>("authenticationMethodConfigurations"); }
             set { BackingStore?.Set("authenticationMethodConfigurations", value); }
         }
+#nullable restore
 #else
         public List<AuthenticationMethodConfiguration> AuthenticationMethodConfigurations {
             get { return BackingStore?.Get<List<AuthenticationMethodConfiguration>>("authenticationMethodConfigurations"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A description of the policy. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the policy. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The version of the policy in use. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PolicyVersion {
             get { return BackingStore?.Get<string?>("policyVersion"); }
             set { BackingStore?.Set("policyVersion", value); }
         }
+#nullable restore
 #else
         public string PolicyVersion {
             get { return BackingStore?.Get<string>("policyVersion"); }
@@ -65,10 +73,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.RegistrationEnforcement? RegistrationEnforcement {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RegistrationEnforcement?>("registrationEnforcement"); }
             set { BackingStore?.Set("registrationEnforcement", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.RegistrationEnforcement RegistrationEnforcement {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RegistrationEnforcement>("registrationEnforcement"); }

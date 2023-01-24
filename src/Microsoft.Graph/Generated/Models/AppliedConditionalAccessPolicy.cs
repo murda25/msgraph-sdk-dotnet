@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Refers to the Name of the conditional access policy (example: &apos;Require MFA for Salesforce&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Refers to the grant controls enforced by the conditional access policy (example: &apos;Require multi-factor authentication&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? EnforcedGrantControls {
             get { return BackingStore?.Get<List<string>?>("enforcedGrantControls"); }
             set { BackingStore?.Set("enforcedGrantControls", value); }
         }
+#nullable restore
 #else
         public List<string> EnforcedGrantControls {
             get { return BackingStore?.Get<List<string>>("enforcedGrantControls"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Refers to the session controls enforced by the conditional access policy (example: &apos;Require app enforced controls&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? EnforcedSessionControls {
             get { return BackingStore?.Get<List<string>?>("enforcedSessionControls"); }
             set { BackingStore?.Set("enforcedSessionControls", value); }
         }
+#nullable restore
 #else
         public List<string> EnforcedSessionControls {
             get { return BackingStore?.Get<List<string>>("enforcedSessionControls"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>An identifier of the conditional access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Id {
             get { return BackingStore?.Get<string?>("id"); }
             set { BackingStore?.Set("id", value); }
         }
+#nullable restore
 #else
         public string Id {
             get { return BackingStore?.Get<string>("id"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

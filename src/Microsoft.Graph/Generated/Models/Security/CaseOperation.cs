@@ -17,10 +17,12 @@ namespace Microsoft.Graph.Models.Security {
         }
         /// <summary>The user that created the operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.IdentitySet? CreatedBy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.IdentitySet CreatedBy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IdentitySet>("createdBy"); }
@@ -39,10 +41,12 @@ namespace Microsoft.Graph.Models.Security {
         }
         /// <summary>Contains success and failure-specific result information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ResultInfo? ResultInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo?>("resultInfo"); }
             set { BackingStore?.Set("resultInfo", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ResultInfo ResultInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ResultInfo>("resultInfo"); }

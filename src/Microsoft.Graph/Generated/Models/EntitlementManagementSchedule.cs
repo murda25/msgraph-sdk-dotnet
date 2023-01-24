@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>When the access should expire.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ExpirationPattern? Expiration {
             get { return BackingStore?.Get<ExpirationPattern?>("expiration"); }
             set { BackingStore?.Set("expiration", value); }
         }
+#nullable restore
 #else
         public ExpirationPattern Expiration {
             get { return BackingStore?.Get<ExpirationPattern>("expiration"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>For recurring access reviews.  Not used in access requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PatternedRecurrence? Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence?>("recurrence"); }
             set { BackingStore?.Set("recurrence", value); }
         }
+#nullable restore
 #else
         public PatternedRecurrence Recurrence {
             get { return BackingStore?.Get<PatternedRecurrence>("recurrence"); }

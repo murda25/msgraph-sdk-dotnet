@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessReviewInstanceDecisionItem : Entity, IParsable {
         /// <summary>The identifier of the accessReviewInstance parent. Supports $select. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AccessReviewId {
             get { return BackingStore?.Get<string?>("accessReviewId"); }
             set { BackingStore?.Set("accessReviewId", value); }
         }
+#nullable restore
 #else
         public string AccessReviewId {
             get { return BackingStore?.Get<string>("accessReviewId"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The identifier of the user who applied the decision. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UserIdentity? AppliedBy {
             get { return BackingStore?.Get<UserIdentity?>("appliedBy"); }
             set { BackingStore?.Set("appliedBy", value); }
         }
+#nullable restore
 #else
         public UserIdentity AppliedBy {
             get { return BackingStore?.Get<UserIdentity>("appliedBy"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ApplyResult {
             get { return BackingStore?.Get<string?>("applyResult"); }
             set { BackingStore?.Set("applyResult", value); }
         }
+#nullable restore
 #else
         public string ApplyResult {
             get { return BackingStore?.Get<string>("applyResult"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Result of the review. Possible values: Approve, Deny, NotReviewed, or DontKnow. Supports $select, $orderby, and $filter (eq only).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Decision {
             get { return BackingStore?.Get<string?>("decision"); }
             set { BackingStore?.Set("decision", value); }
         }
+#nullable restore
 #else
         public string Decision {
             get { return BackingStore?.Get<string>("decision"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Justification left by the reviewer when they made the decision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Justification {
             get { return BackingStore?.Get<string?>("justification"); }
             set { BackingStore?.Set("justification", value); }
         }
+#nullable restore
 #else
         public string Justification {
             get { return BackingStore?.Get<string>("justification"); }
@@ -72,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Every decision item in an access review represents a principal&apos;s access to a resource. This property represents details of the principal. For example, if a decision item represents access of User &apos;Bob&apos; to Group &apos;Sales&apos; - The principal is &apos;Bob&apos; and the resource is &apos;Sales&apos;. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Identity? Principal {
             get { return BackingStore?.Get<Identity?>("principal"); }
             set { BackingStore?.Set("principal", value); }
         }
+#nullable restore
 #else
         public Identity Principal {
             get { return BackingStore?.Get<Identity>("principal"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A link to the principal object. For example, https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrincipalLink {
             get { return BackingStore?.Get<string?>("principalLink"); }
             set { BackingStore?.Set("principalLink", value); }
         }
+#nullable restore
 #else
         public string PrincipalLink {
             get { return BackingStore?.Get<string>("principalLink"); }
@@ -96,10 +110,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A system-generated recommendation for the approval decision based off last interactive sign-in to tenant. Recommend approve if sign-in is within thirty days of start of review. Recommend deny if sign-in is greater than thirty days of start of review. Recommendation not available otherwise. Possible values: Approve, Deny, or NoInfoAvailable. Supports $select, $orderby, and $filter (eq only). Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Recommendation {
             get { return BackingStore?.Get<string?>("recommendation"); }
             set { BackingStore?.Set("recommendation", value); }
         }
+#nullable restore
 #else
         public string Recommendation {
             get { return BackingStore?.Get<string>("recommendation"); }
@@ -108,10 +124,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Every decision item in an access review represents a principal&apos;s access to a resource. This property represents details of the resource. For example, if a decision item represents access of User &apos;Bob&apos; to Group &apos;Sales&apos; - The principal is Bob and the resource is &apos;Sales&apos;. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessReviewInstanceDecisionItemResource? Resource {
             get { return BackingStore?.Get<AccessReviewInstanceDecisionItemResource?>("resource"); }
             set { BackingStore?.Set("resource", value); }
         }
+#nullable restore
 #else
         public AccessReviewInstanceDecisionItemResource Resource {
             get { return BackingStore?.Get<AccessReviewInstanceDecisionItemResource>("resource"); }
@@ -120,10 +138,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ResourceLink {
             get { return BackingStore?.Get<string?>("resourceLink"); }
             set { BackingStore?.Set("resourceLink", value); }
         }
+#nullable restore
 #else
         public string ResourceLink {
             get { return BackingStore?.Get<string>("resourceLink"); }
@@ -132,10 +152,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The identifier of the reviewer.00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn&apos;t reviewed. Supports $select. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UserIdentity? ReviewedBy {
             get { return BackingStore?.Get<UserIdentity?>("reviewedBy"); }
             set { BackingStore?.Set("reviewedBy", value); }
         }
+#nullable restore
 #else
         public UserIdentity ReviewedBy {
             get { return BackingStore?.Get<UserIdentity>("reviewedBy"); }

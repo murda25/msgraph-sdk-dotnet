@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The bookingBusinesses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BookingBusiness>? BookingBusinesses {
             get { return BackingStore?.Get<List<BookingBusiness>?>("bookingBusinesses"); }
             set { BackingStore?.Set("bookingBusinesses", value); }
         }
+#nullable restore
 #else
         public List<BookingBusiness> BookingBusinesses {
             get { return BackingStore?.Get<List<BookingBusiness>>("bookingBusinesses"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The bookingCurrencies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BookingCurrency>? BookingCurrencies {
             get { return BackingStore?.Get<List<BookingCurrency>?>("bookingCurrencies"); }
             set { BackingStore?.Set("bookingCurrencies", value); }
         }
+#nullable restore
 #else
         public List<BookingCurrency> BookingCurrencies {
             get { return BackingStore?.Get<List<BookingCurrency>>("bookingCurrencies"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Identity of the user, device, and application which created the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? CreatedBy {
             get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
@@ -32,10 +34,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Indicates that the remote item is a file. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.FileObject? FileObject {
             get { return BackingStore?.Get<Microsoft.Graph.Models.FileObject?>("file"); }
             set { BackingStore?.Set("file", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.FileObject FileObject {
             get { return BackingStore?.Get<Microsoft.Graph.Models.FileObject>("file"); }
@@ -44,10 +48,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Information about the remote item from the local file system. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.FileSystemInfo? FileSystemInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.FileSystemInfo?>("fileSystemInfo"); }
             set { BackingStore?.Set("fileSystemInfo", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.FileSystemInfo FileSystemInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.FileSystemInfo>("fileSystemInfo"); }
@@ -56,10 +62,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates that the remote item is a folder. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Folder? Folder {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Folder?>("folder"); }
             set { BackingStore?.Set("folder", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Folder Folder {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Folder>("folder"); }
@@ -68,10 +76,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Unique identifier for the remote item in its drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Id {
             get { return BackingStore?.Get<string?>("id"); }
             set { BackingStore?.Set("id", value); }
         }
+#nullable restore
 #else
         public string Id {
             get { return BackingStore?.Get<string>("id"); }
@@ -80,10 +90,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Image metadata, if the item is an image. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Image? Image {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Image?>("image"); }
             set { BackingStore?.Set("image", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Image Image {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Image>("image"); }
@@ -92,10 +104,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identity of the user, device, and application which last modified the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet?>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet>("lastModifiedBy"); }
@@ -109,10 +123,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Optional. Filename of the remote item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Name {
             get { return BackingStore?.Get<string?>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+#nullable restore
 #else
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
@@ -121,10 +137,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -133,10 +151,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Package? Package {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Package?>("package"); }
             set { BackingStore?.Set("package", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Package Package {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Package>("package"); }
@@ -145,10 +165,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Properties of the parent of the remote item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ItemReference? ParentReference {
             get { return BackingStore?.Get<ItemReference?>("parentReference"); }
             set { BackingStore?.Set("parentReference", value); }
         }
+#nullable restore
 #else
         public ItemReference ParentReference {
             get { return BackingStore?.Get<ItemReference>("parentReference"); }
@@ -157,10 +179,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Shared? Shared {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Shared?>("shared"); }
             set { BackingStore?.Set("shared", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Shared Shared {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Shared>("shared"); }
@@ -169,10 +193,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SharepointIds? SharepointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds?>("sharepointIds"); }
             set { BackingStore?.Set("sharepointIds", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SharepointIds SharepointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds>("sharepointIds"); }
@@ -186,10 +212,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>If the current item is also available as a special folder, this facet is returned. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SpecialFolder? SpecialFolder {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SpecialFolder?>("specialFolder"); }
             set { BackingStore?.Set("specialFolder", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SpecialFolder SpecialFolder {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SpecialFolder>("specialFolder"); }
@@ -198,10 +226,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Video metadata, if the item is a video. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Video? Video {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Video?>("video"); }
             set { BackingStore?.Set("video", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Video Video {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Video>("video"); }
@@ -210,10 +240,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>DAV compatible URL for the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? WebDavUrl {
             get { return BackingStore?.Get<string?>("webDavUrl"); }
             set { BackingStore?.Set("webDavUrl", value); }
         }
+#nullable restore
 #else
         public string WebDavUrl {
             get { return BackingStore?.Get<string>("webDavUrl"); }
@@ -222,10 +254,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>URL that displays the resource in the browser. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? WebUrl {
             get { return BackingStore?.Get<string?>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
         }
+#nullable restore
 #else
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }

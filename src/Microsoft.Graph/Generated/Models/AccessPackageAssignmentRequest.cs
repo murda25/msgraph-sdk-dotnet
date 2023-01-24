@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentRequest : Entity, IParsable {
         /// <summary>The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AccessPackage? AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage?>("accessPackage"); }
             set { BackingStore?.Set("accessPackage", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AccessPackage AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>("accessPackage"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAssignment? Assignment {
             get { return BackingStore?.Get<AccessPackageAssignment?>("assignment"); }
             set { BackingStore?.Set("assignment", value); }
         }
+#nullable restore
 #else
         public AccessPackageAssignment Assignment {
             get { return BackingStore?.Get<AccessPackageAssignment>("assignment"); }
@@ -41,10 +45,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageSubject? Requestor {
             get { return BackingStore?.Get<AccessPackageSubject?>("requestor"); }
             set { BackingStore?.Set("requestor", value); }
         }
+#nullable restore
 #else
         public AccessPackageSubject Requestor {
             get { return BackingStore?.Get<AccessPackageSubject>("requestor"); }
@@ -58,10 +64,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public EntitlementManagementSchedule? Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#nullable restore
 #else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }
@@ -75,10 +83,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>More information on the request processing status. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Status {
             get { return BackingStore?.Get<string?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#nullable restore
 #else
         public string Status {
             get { return BackingStore?.Get<string>("status"); }

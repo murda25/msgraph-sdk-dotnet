@@ -30,10 +30,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -42,10 +44,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The description of the policy that the user is trying to request access using.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PolicyDescription {
             get { return BackingStore?.Get<string?>("policyDescription"); }
             set { BackingStore?.Set("policyDescription", value); }
         }
+#nullable restore
 #else
         public string PolicyDescription {
             get { return BackingStore?.Get<string>("policyDescription"); }
@@ -54,10 +58,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the policy that the user is trying to request access using.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PolicyDisplayName {
             get { return BackingStore?.Get<string?>("policyDisplayName"); }
             set { BackingStore?.Set("policyDisplayName", value); }
         }
+#nullable restore
 #else
         public string PolicyDisplayName {
             get { return BackingStore?.Get<string>("policyDisplayName"); }
@@ -66,10 +72,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PolicyId {
             get { return BackingStore?.Get<string?>("policyId"); }
             set { BackingStore?.Set("policyId", value); }
         }
+#nullable restore
 #else
         public string PolicyId {
             get { return BackingStore?.Get<string>("policyId"); }
@@ -78,10 +86,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Schedule restrictions enforced, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public EntitlementManagementSchedule? Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#nullable restore
 #else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }

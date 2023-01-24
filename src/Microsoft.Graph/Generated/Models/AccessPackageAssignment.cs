@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageAssignment : Entity, IParsable {
         /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AccessPackage? AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage?>("accessPackage"); }
             set { BackingStore?.Set("accessPackage", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AccessPackage AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>("accessPackage"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Read-only. Supports $filter (eq) on the id property and $expand query parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAssignmentPolicy? AssignmentPolicy {
             get { return BackingStore?.Get<AccessPackageAssignmentPolicy?>("assignmentPolicy"); }
             set { BackingStore?.Set("assignmentPolicy", value); }
         }
+#nullable restore
 #else
         public AccessPackageAssignmentPolicy AssignmentPolicy {
             get { return BackingStore?.Get<AccessPackageAssignmentPolicy>("assignmentPolicy"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>When the access assignment is to be in place. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public EntitlementManagementSchedule? Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#nullable restore
 #else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }
@@ -53,10 +59,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Status {
             get { return BackingStore?.Get<string?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+#nullable restore
 #else
         public string Status {
             get { return BackingStore?.Get<string>("status"); }
@@ -65,10 +73,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageSubject? Target {
             get { return BackingStore?.Get<AccessPackageSubject?>("target"); }
             set { BackingStore?.Set("target", value); }
         }
+#nullable restore
 #else
         public AccessPackageSubject Target {
             get { return BackingStore?.Get<AccessPackageSubject>("target"); }

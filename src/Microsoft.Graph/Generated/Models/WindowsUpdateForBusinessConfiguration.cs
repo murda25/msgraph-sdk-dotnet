@@ -103,10 +103,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public WindowsUpdateInstallScheduleType? InstallationSchedule {
             get { return BackingStore?.Get<WindowsUpdateInstallScheduleType?>("installationSchedule"); }
             set { BackingStore?.Set("installationSchedule", value); }
         }
+#nullable restore
 #else
         public WindowsUpdateInstallScheduleType InstallationSchedule {
             get { return BackingStore?.Get<WindowsUpdateInstallScheduleType>("installationSchedule"); }

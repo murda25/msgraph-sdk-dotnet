@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class ComplianceManagementPartner : Entity, IParsable {
         /// <summary>User groups which enroll Android devices through partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ComplianceManagementPartnerAssignment>? AndroidEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>?>("androidEnrollmentAssignments"); }
             set { BackingStore?.Set("androidEnrollmentAssignments", value); }
         }
+#nullable restore
 #else
         public List<ComplianceManagementPartnerAssignment> AndroidEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>>("androidEnrollmentAssignments"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Partner display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>User groups which enroll ios devices through partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ComplianceManagementPartnerAssignment>? IosEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>?>("iosEnrollmentAssignments"); }
             set { BackingStore?.Set("iosEnrollmentAssignments", value); }
         }
+#nullable restore
 #else
         public List<ComplianceManagementPartnerAssignment> IosEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>>("iosEnrollmentAssignments"); }
@@ -61,10 +67,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>User groups which enroll Mac devices through partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ComplianceManagementPartnerAssignment>? MacOsEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>?>("macOsEnrollmentAssignments"); }
             set { BackingStore?.Set("macOsEnrollmentAssignments", value); }
         }
+#nullable restore
 #else
         public List<ComplianceManagementPartnerAssignment> MacOsEnrollmentAssignments {
             get { return BackingStore?.Get<List<ComplianceManagementPartnerAssignment>>("macOsEnrollmentAssignments"); }

@@ -8,10 +8,12 @@ namespace Microsoft.Graph.Models {
     public class IdentityGovernance : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>The accessReviews property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessReviewSet? AccessReviews {
             get { return BackingStore?.Get<AccessReviewSet?>("accessReviews"); }
             set { BackingStore?.Set("accessReviews", value); }
         }
+#nullable restore
 #else
         public AccessReviewSet AccessReviews {
             get { return BackingStore?.Get<AccessReviewSet>("accessReviews"); }
@@ -25,10 +27,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The appConsent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AppConsentApprovalRoute? AppConsent {
             get { return BackingStore?.Get<AppConsentApprovalRoute?>("appConsent"); }
             set { BackingStore?.Set("appConsent", value); }
         }
+#nullable restore
 #else
         public AppConsentApprovalRoute AppConsent {
             get { return BackingStore?.Get<AppConsentApprovalRoute>("appConsent"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The entitlementManagement property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.EntitlementManagement? EntitlementManagement {
             get { return BackingStore?.Get<Microsoft.Graph.Models.EntitlementManagement?>("entitlementManagement"); }
             set { BackingStore?.Set("entitlementManagement", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.EntitlementManagement EntitlementManagement {
             get { return BackingStore?.Get<Microsoft.Graph.Models.EntitlementManagement>("entitlementManagement"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The termsOfUse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public TermsOfUseContainer? TermsOfUse {
             get { return BackingStore?.Get<TermsOfUseContainer?>("termsOfUse"); }
             set { BackingStore?.Set("termsOfUse", value); }
         }
+#nullable restore
 #else
         public TermsOfUseContainer TermsOfUse {
             get { return BackingStore?.Get<TermsOfUseContainer>("termsOfUse"); }

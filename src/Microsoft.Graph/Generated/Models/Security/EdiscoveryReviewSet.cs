@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.Security {
     public class EdiscoveryReviewSet : DataSet, IParsable {
         /// <summary>Represents queries within the review set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<EdiscoveryReviewSetQuery>? Queries {
             get { return BackingStore?.Get<List<EdiscoveryReviewSetQuery>?>("queries"); }
             set { BackingStore?.Set("queries", value); }
         }
+#nullable restore
 #else
         public List<EdiscoveryReviewSetQuery> Queries {
             get { return BackingStore?.Get<List<EdiscoveryReviewSetQuery>>("queries"); }

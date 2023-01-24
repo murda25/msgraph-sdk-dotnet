@@ -30,10 +30,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -42,10 +44,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? PermissionGrantPoliciesAssigned {
             get { return BackingStore?.Get<List<string>?>("permissionGrantPoliciesAssigned"); }
             set { BackingStore?.Set("permissionGrantPoliciesAssigned", value); }
         }
+#nullable restore
 #else
         public List<string> PermissionGrantPoliciesAssigned {
             get { return BackingStore?.Get<List<string>>("permissionGrantPoliciesAssigned"); }

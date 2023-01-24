@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceConfigurationState : Entity, IParsable {
         /// <summary>The name of the policy for this policyBase</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -32,10 +34,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The settingStates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfigurationSettingState>? SettingStates {
             get { return BackingStore?.Get<List<DeviceConfigurationSettingState>?>("settingStates"); }
             set { BackingStore?.Set("settingStates", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfigurationSettingState> SettingStates {
             get { return BackingStore?.Get<List<DeviceConfigurationSettingState>>("settingStates"); }

@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? ExcludeApplications {
             get { return BackingStore?.Get<List<string>?>("excludeApplications"); }
             set { BackingStore?.Set("excludeApplications", value); }
         }
+#nullable restore
 #else
         public List<string> ExcludeApplications {
             get { return BackingStore?.Get<List<string>>("excludeApplications"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? IncludeApplications {
             get { return BackingStore?.Get<List<string>?>("includeApplications"); }
             set { BackingStore?.Set("includeApplications", value); }
         }
+#nullable restore
 #else
         public List<string> IncludeApplications {
             get { return BackingStore?.Get<List<string>>("includeApplications"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The includeAuthenticationContextClassReferences property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? IncludeAuthenticationContextClassReferences {
             get { return BackingStore?.Get<List<string>?>("includeAuthenticationContextClassReferences"); }
             set { BackingStore?.Set("includeAuthenticationContextClassReferences", value); }
         }
+#nullable restore
 #else
         public List<string> IncludeAuthenticationContextClassReferences {
             get { return BackingStore?.Get<List<string>>("includeAuthenticationContextClassReferences"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? IncludeUserActions {
             get { return BackingStore?.Get<List<string>?>("includeUserActions"); }
             set { BackingStore?.Set("includeUserActions", value); }
         }
+#nullable restore
 #else
         public List<string> IncludeUserActions {
             get { return BackingStore?.Get<List<string>>("includeUserActions"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

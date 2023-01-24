@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class ChatMessageMentionedIdentitySet : IdentitySet, IParsable {
         /// <summary>If present, represents a conversation (for example, team or channel) @mentioned in a message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public TeamworkConversationIdentity? Conversation {
             get { return BackingStore?.Get<TeamworkConversationIdentity?>("conversation"); }
             set { BackingStore?.Set("conversation", value); }
         }
+#nullable restore
 #else
         public TeamworkConversationIdentity Conversation {
             get { return BackingStore?.Get<TeamworkConversationIdentity>("conversation"); }

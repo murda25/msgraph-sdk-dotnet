@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceConfiguration : Entity, IParsable {
         /// <summary>The list of assignments for the device configuration profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfigurationAssignment>? Assignments {
             get { return BackingStore?.Get<List<DeviceConfigurationAssignment>?>("assignments"); }
             set { BackingStore?.Set("assignments", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfigurationAssignment> Assignments {
             get { return BackingStore?.Get<List<DeviceConfigurationAssignment>>("assignments"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Admin provided description of the Device Configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device Configuration Setting State Device Summary</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SettingStateDeviceSummary>? DeviceSettingStateSummaries {
             get { return BackingStore?.Get<List<SettingStateDeviceSummary>?>("deviceSettingStateSummaries"); }
             set { BackingStore?.Set("deviceSettingStateSummaries", value); }
         }
+#nullable restore
 #else
         public List<SettingStateDeviceSummary> DeviceSettingStateSummaries {
             get { return BackingStore?.Get<List<SettingStateDeviceSummary>>("deviceSettingStateSummaries"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device configuration installation status by device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfigurationDeviceStatus>? DeviceStatuses {
             get { return BackingStore?.Get<List<DeviceConfigurationDeviceStatus>?>("deviceStatuses"); }
             set { BackingStore?.Set("deviceStatuses", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfigurationDeviceStatus> DeviceStatuses {
             get { return BackingStore?.Get<List<DeviceConfigurationDeviceStatus>>("deviceStatuses"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device Configuration devices status overview</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceConfigurationDeviceOverview? DeviceStatusOverview {
             get { return BackingStore?.Get<DeviceConfigurationDeviceOverview?>("deviceStatusOverview"); }
             set { BackingStore?.Set("deviceStatusOverview", value); }
         }
+#nullable restore
 #else
         public DeviceConfigurationDeviceOverview DeviceStatusOverview {
             get { return BackingStore?.Get<DeviceConfigurationDeviceOverview>("deviceStatusOverview"); }
@@ -75,10 +85,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Admin provided name of the device configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -92,10 +104,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Device configuration installation status by user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfigurationUserStatus>? UserStatuses {
             get { return BackingStore?.Get<List<DeviceConfigurationUserStatus>?>("userStatuses"); }
             set { BackingStore?.Set("userStatuses", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfigurationUserStatus> UserStatuses {
             get { return BackingStore?.Get<List<DeviceConfigurationUserStatus>>("userStatuses"); }
@@ -104,10 +118,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device Configuration users status overview</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceConfigurationUserOverview? UserStatusOverview {
             get { return BackingStore?.Get<DeviceConfigurationUserOverview?>("userStatusOverview"); }
             set { BackingStore?.Set("userStatusOverview", value); }
         }
+#nullable restore
 #else
         public DeviceConfigurationUserOverview UserStatusOverview {
             get { return BackingStore?.Get<DeviceConfigurationUserOverview>("userStatusOverview"); }

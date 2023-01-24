@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class BookingService : Entity, IParsable {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AdditionalInformation {
             get { return BackingStore?.Get<string?>("additionalInformation"); }
             set { BackingStore?.Set("additionalInformation", value); }
         }
+#nullable restore
 #else
         public string AdditionalInformation {
             get { return BackingStore?.Get<string>("additionalInformation"); }
@@ -22,10 +24,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Contains the set of custom questions associated with a particular service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BookingQuestionAssignment>? CustomQuestions {
             get { return BackingStore?.Get<List<BookingQuestionAssignment>?>("customQuestions"); }
             set { BackingStore?.Set("customQuestions", value); }
         }
+#nullable restore
 #else
         public List<BookingQuestionAssignment> CustomQuestions {
             get { return BackingStore?.Get<List<BookingQuestionAssignment>>("customQuestions"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The default physical location for the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Location? DefaultLocation {
             get { return BackingStore?.Get<Location?>("defaultLocation"); }
             set { BackingStore?.Set("defaultLocation", value); }
         }
+#nullable restore
 #else
         public Location DefaultLocation {
             get { return BackingStore?.Get<Location>("defaultLocation"); }
@@ -61,10 +67,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BookingReminder>? DefaultReminders {
             get { return BackingStore?.Get<List<BookingReminder>?>("defaultReminders"); }
             set { BackingStore?.Set("defaultReminders", value); }
         }
+#nullable restore
 #else
         public List<BookingReminder> DefaultReminders {
             get { return BackingStore?.Get<List<BookingReminder>>("defaultReminders"); }
@@ -73,10 +81,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A text description for the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -85,10 +95,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A service name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -112,10 +124,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The language of the self-service booking page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? LanguageTag {
             get { return BackingStore?.Get<string?>("languageTag"); }
             set { BackingStore?.Set("languageTag", value); }
         }
+#nullable restore
 #else
         public string LanguageTag {
             get { return BackingStore?.Get<string>("languageTag"); }
@@ -129,10 +143,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Additional information about this service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Notes {
             get { return BackingStore?.Get<string?>("notes"); }
             set { BackingStore?.Set("notes", value); }
         }
+#nullable restore
 #else
         public string Notes {
             get { return BackingStore?.Get<string>("notes"); }
@@ -151,10 +167,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The set of policies that determine how appointments for this type of service should be created and managed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public BookingSchedulingPolicy? SchedulingPolicy {
             get { return BackingStore?.Get<BookingSchedulingPolicy?>("schedulingPolicy"); }
             set { BackingStore?.Set("schedulingPolicy", value); }
         }
+#nullable restore
 #else
         public BookingSchedulingPolicy SchedulingPolicy {
             get { return BackingStore?.Get<BookingSchedulingPolicy>("schedulingPolicy"); }
@@ -168,10 +186,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Represents those staff members who provide this service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? StaffMemberIds {
             get { return BackingStore?.Get<List<string>?>("staffMemberIds"); }
             set { BackingStore?.Set("staffMemberIds", value); }
         }
+#nullable restore
 #else
         public List<string> StaffMemberIds {
             get { return BackingStore?.Get<List<string>>("staffMemberIds"); }
@@ -180,10 +200,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The URL a customer uses to access the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? WebUrl {
             get { return BackingStore?.Get<string?>("webUrl"); }
             set { BackingStore?.Set("webUrl", value); }
         }
+#nullable restore
 #else
         public string WebUrl {
             get { return BackingStore?.Get<string>("webUrl"); }

@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AndroidManagedAppProtection : TargetedManagedAppProtection, IParsable {
         /// <summary>List of apps to which the policy is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedMobileApp>? Apps {
             get { return BackingStore?.Get<List<ManagedMobileApp>?>("apps"); }
             set { BackingStore?.Set("apps", value); }
         }
+#nullable restore
 #else
         public List<ManagedMobileApp> Apps {
             get { return BackingStore?.Get<List<ManagedMobileApp>>("apps"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CustomBrowserDisplayName {
             get { return BackingStore?.Get<string?>("customBrowserDisplayName"); }
             set { BackingStore?.Set("customBrowserDisplayName", value); }
         }
+#nullable restore
 #else
         public string CustomBrowserDisplayName {
             get { return BackingStore?.Get<string>("customBrowserDisplayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CustomBrowserPackageId {
             get { return BackingStore?.Get<string?>("customBrowserPackageId"); }
             set { BackingStore?.Set("customBrowserPackageId", value); }
         }
+#nullable restore
 #else
         public string CustomBrowserPackageId {
             get { return BackingStore?.Get<string>("customBrowserPackageId"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ManagedAppPolicyDeploymentSummary? DeploymentSummary {
             get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary?>("deploymentSummary"); }
             set { BackingStore?.Set("deploymentSummary", value); }
         }
+#nullable restore
 #else
         public ManagedAppPolicyDeploymentSummary DeploymentSummary {
             get { return BackingStore?.Get<ManagedAppPolicyDeploymentSummary>("deploymentSummary"); }
@@ -70,10 +78,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Define the oldest required Android security patch level a user can have to gain secure access to the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumRequiredPatchVersion {
             get { return BackingStore?.Get<string?>("minimumRequiredPatchVersion"); }
             set { BackingStore?.Set("minimumRequiredPatchVersion", value); }
         }
+#nullable restore
 #else
         public string MinimumRequiredPatchVersion {
             get { return BackingStore?.Get<string>("minimumRequiredPatchVersion"); }
@@ -82,10 +92,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Define the oldest recommended Android security patch level a user can have for secure access to the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumWarningPatchVersion {
             get { return BackingStore?.Get<string?>("minimumWarningPatchVersion"); }
             set { BackingStore?.Set("minimumWarningPatchVersion", value); }
         }
+#nullable restore
 #else
         public string MinimumWarningPatchVersion {
             get { return BackingStore?.Get<string>("minimumWarningPatchVersion"); }
