@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Users.Item.SendMail {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The Message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Message? Message {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Message?>("message"); }
             set { BackingStore?.Set("message", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Message Message {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Message>("message"); }

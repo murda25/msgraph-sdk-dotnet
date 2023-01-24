@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AlternativeSecurityId>? AlternativeSecurityIds {
             get { return BackingStore?.Get<List<AlternativeSecurityId>?>("alternativeSecurityIds"); }
             set { BackingStore?.Set("alternativeSecurityIds", value); }
         }
+#nullable restore
 #else
         public List<AlternativeSecurityId> AlternativeSecurityIds {
             get { return BackingStore?.Get<List<AlternativeSecurityId>>("alternativeSecurityIds"); }
@@ -34,10 +36,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DeviceId {
             get { return BackingStore?.Get<string?>("deviceId"); }
             set { BackingStore?.Set("deviceId", value); }
         }
+#nullable restore
 #else
         public string DeviceId {
             get { return BackingStore?.Get<string>("deviceId"); }
@@ -46,10 +50,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>For internal use only. Set to null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DeviceMetadata {
             get { return BackingStore?.Get<string?>("deviceMetadata"); }
             set { BackingStore?.Set("deviceMetadata", value); }
         }
+#nullable restore
 #else
         public string DeviceMetadata {
             get { return BackingStore?.Get<string>("deviceMetadata"); }
@@ -63,10 +69,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -75,10 +83,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of open extensions defined for the device. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Extension>? Extensions {
             get { return BackingStore?.Get<List<Extension>?>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
+#nullable restore
 #else
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
@@ -97,10 +107,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MdmAppId {
             get { return BackingStore?.Get<string?>("mdmAppId"); }
             set { BackingStore?.Set("mdmAppId", value); }
         }
+#nullable restore
 #else
         public string MdmAppId {
             get { return BackingStore?.Get<string>("mdmAppId"); }
@@ -109,10 +121,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? MemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>?>("memberOf"); }
             set { BackingStore?.Set("memberOf", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> MemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("memberOf"); }
@@ -131,10 +145,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OperatingSystem {
             get { return BackingStore?.Get<string?>("operatingSystem"); }
             set { BackingStore?.Set("operatingSystem", value); }
         }
+#nullable restore
 #else
         public string OperatingSystem {
             get { return BackingStore?.Get<string>("operatingSystem"); }
@@ -143,10 +159,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OperatingSystemVersion {
             get { return BackingStore?.Get<string?>("operatingSystemVersion"); }
             set { BackingStore?.Set("operatingSystemVersion", value); }
         }
+#nullable restore
 #else
         public string OperatingSystemVersion {
             get { return BackingStore?.Get<string>("operatingSystemVersion"); }
@@ -155,10 +173,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? PhysicalIds {
             get { return BackingStore?.Get<List<string>?>("physicalIds"); }
             set { BackingStore?.Set("physicalIds", value); }
         }
+#nullable restore
 #else
         public List<string> PhysicalIds {
             get { return BackingStore?.Get<List<string>>("physicalIds"); }
@@ -167,10 +187,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProfileType {
             get { return BackingStore?.Get<string?>("profileType"); }
             set { BackingStore?.Set("profileType", value); }
         }
+#nullable restore
 #else
         public string ProfileType {
             get { return BackingStore?.Get<string>("profileType"); }
@@ -179,10 +201,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? RegisteredOwners {
             get { return BackingStore?.Get<List<DirectoryObject>?>("registeredOwners"); }
             set { BackingStore?.Set("registeredOwners", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> RegisteredOwners {
             get { return BackingStore?.Get<List<DirectoryObject>>("registeredOwners"); }
@@ -191,10 +215,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? RegisteredUsers {
             get { return BackingStore?.Get<List<DirectoryObject>?>("registeredUsers"); }
             set { BackingStore?.Set("registeredUsers", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> RegisteredUsers {
             get { return BackingStore?.Get<List<DirectoryObject>>("registeredUsers"); }
@@ -203,10 +229,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? SystemLabels {
             get { return BackingStore?.Get<List<string>?>("systemLabels"); }
             set { BackingStore?.Set("systemLabels", value); }
         }
+#nullable restore
 #else
         public List<string> SystemLabels {
             get { return BackingStore?.Get<List<string>>("systemLabels"); }
@@ -215,10 +243,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? TransitiveMemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>?>("transitiveMemberOf"); }
             set { BackingStore?.Set("transitiveMemberOf", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> TransitiveMemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("transitiveMemberOf"); }
@@ -227,10 +257,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TrustType {
             get { return BackingStore?.Get<string?>("trustType"); }
             set { BackingStore?.Set("trustType", value); }
         }
+#nullable restore
 #else
         public string TrustType {
             get { return BackingStore?.Get<string>("trustType"); }
@@ -238,7 +270,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new device and sets the default values.
+        /// Instantiates a new Device and sets the default values.
         /// </summary>
         public Device() : base() {
             OdataType = "#microsoft.graph.device";

@@ -20,10 +20,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -37,10 +39,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         }
         /// <summary>The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Value {
             get { return BackingStore?.Get<string?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#nullable restore
 #else
         public string Value {
             get { return BackingStore?.Get<string>("value"); }

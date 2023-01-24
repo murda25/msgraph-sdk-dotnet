@@ -18,10 +18,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -30,10 +32,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Resource Actions each containing a set of allowed and not allowed permissions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ResourceAction>? ResourceActions {
             get { return BackingStore?.Get<List<ResourceAction>?>("resourceActions"); }
             set { BackingStore?.Set("resourceActions", value); }
         }
+#nullable restore
 #else
         public List<ResourceAction> ResourceActions {
             get { return BackingStore?.Get<List<ResourceAction>>("resourceActions"); }

@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it&apos;s null. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UnifiedRoleEligibilitySchedule? ActivatedUsing {
             get { return BackingStore?.Get<UnifiedRoleEligibilitySchedule?>("activatedUsing"); }
             set { BackingStore?.Set("activatedUsing", value); }
         }
+#nullable restore
 #else
         public UnifiedRoleEligibilitySchedule ActivatedUsing {
             get { return BackingStore?.Get<UnifiedRoleEligibilitySchedule>("activatedUsing"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AppScope? AppScope {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AppScope?>("appScope"); }
             set { BackingStore?.Set("appScope", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AppScope AppScope {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AppScope>("appScope"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the app-specific scope when the assignment is scoped to an app. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppScopeId {
             get { return BackingStore?.Get<string?>("appScopeId"); }
             set { BackingStore?.Set("appScopeId", value); }
         }
+#nullable restore
 #else
         public string AppScopeId {
             get { return BackingStore?.Get<string>("appScopeId"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The directory object that is the scope of the assignment. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DirectoryObject? DirectoryScope {
             get { return BackingStore?.Get<DirectoryObject?>("directoryScope"); }
             set { BackingStore?.Set("directoryScope", value); }
         }
+#nullable restore
 #else
         public DirectoryObject DirectoryScope {
             get { return BackingStore?.Get<DirectoryObject>("directoryScope"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. Supports $filter (eq, ne, and on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DirectoryScopeId {
             get { return BackingStore?.Get<string?>("directoryScopeId"); }
             set { BackingStore?.Set("directoryScopeId", value); }
         }
+#nullable restore
 #else
         public string DirectoryScopeId {
             get { return BackingStore?.Get<string>("directoryScopeId"); }
@@ -77,10 +87,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>A message provided by users and administrators when create they create the unifiedRoleAssignmentScheduleRequest object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Justification {
             get { return BackingStore?.Get<string?>("justification"); }
             set { BackingStore?.Set("justification", value); }
         }
+#nullable restore
 #else
         public string Justification {
             get { return BackingStore?.Get<string>("justification"); }
@@ -89,10 +101,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The principal that&apos;s getting a role assignment through the request. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DirectoryObject? Principal {
             get { return BackingStore?.Get<DirectoryObject?>("principal"); }
             set { BackingStore?.Set("principal", value); }
         }
+#nullable restore
 #else
         public DirectoryObject Principal {
             get { return BackingStore?.Get<DirectoryObject>("principal"); }
@@ -101,10 +115,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the principal that has been granted the assignment. Can be a user, role-assignable group, or a service principal. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrincipalId {
             get { return BackingStore?.Get<string?>("principalId"); }
             set { BackingStore?.Set("principalId", value); }
         }
+#nullable restore
 #else
         public string PrincipalId {
             get { return BackingStore?.Get<string>("principalId"); }
@@ -113,10 +129,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UnifiedRoleDefinition? RoleDefinition {
             get { return BackingStore?.Get<UnifiedRoleDefinition?>("roleDefinition"); }
             set { BackingStore?.Set("roleDefinition", value); }
         }
+#nullable restore
 #else
         public UnifiedRoleDefinition RoleDefinition {
             get { return BackingStore?.Get<UnifiedRoleDefinition>("roleDefinition"); }
@@ -125,10 +143,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the unifiedRoleDefinition object that is being assigned to the principal. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RoleDefinitionId {
             get { return BackingStore?.Get<string?>("roleDefinitionId"); }
             set { BackingStore?.Set("roleDefinitionId", value); }
         }
+#nullable restore
 #else
         public string RoleDefinitionId {
             get { return BackingStore?.Get<string>("roleDefinitionId"); }
@@ -137,10 +157,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The period of the role assignment. Recurring schedules are currently unsupported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestSchedule? ScheduleInfo {
             get { return BackingStore?.Get<RequestSchedule?>("scheduleInfo"); }
             set { BackingStore?.Set("scheduleInfo", value); }
         }
+#nullable restore
 #else
         public RequestSchedule ScheduleInfo {
             get { return BackingStore?.Get<RequestSchedule>("scheduleInfo"); }
@@ -149,10 +171,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UnifiedRoleAssignmentSchedule? TargetSchedule {
             get { return BackingStore?.Get<UnifiedRoleAssignmentSchedule?>("targetSchedule"); }
             set { BackingStore?.Set("targetSchedule", value); }
         }
+#nullable restore
 #else
         public UnifiedRoleAssignmentSchedule TargetSchedule {
             get { return BackingStore?.Get<UnifiedRoleAssignmentSchedule>("targetSchedule"); }
@@ -161,10 +185,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the schedule object that&apos;s linked to the assignment request. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TargetScheduleId {
             get { return BackingStore?.Get<string?>("targetScheduleId"); }
             set { BackingStore?.Set("targetScheduleId", value); }
         }
+#nullable restore
 #else
         public string TargetScheduleId {
             get { return BackingStore?.Get<string>("targetScheduleId"); }
@@ -173,10 +199,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Ticket details linked to the role assignment request including details of the ticket number and ticket system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.TicketInfo? TicketInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TicketInfo?>("ticketInfo"); }
             set { BackingStore?.Set("ticketInfo", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.TicketInfo TicketInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TicketInfo>("ticketInfo"); }

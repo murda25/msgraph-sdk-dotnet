@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The directory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RbacApplication? Directory {
             get { return BackingStore?.Get<RbacApplication?>("directory"); }
             set { BackingStore?.Set("directory", value); }
         }
+#nullable restore
 #else
         public RbacApplication Directory {
             get { return BackingStore?.Get<RbacApplication>("directory"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Container for roles and assignments for entitlement management resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RbacApplication? EntitlementManagement {
             get { return BackingStore?.Get<RbacApplication?>("entitlementManagement"); }
             set { BackingStore?.Set("entitlementManagement", value); }
         }
+#nullable restore
 #else
         public RbacApplication EntitlementManagement {
             get { return BackingStore?.Get<RbacApplication>("entitlementManagement"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

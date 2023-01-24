@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Language {
             get { return BackingStore?.Get<string?>("language"); }
             set { BackingStore?.Set("language", value); }
         }
+#nullable restore
 #else
         public string Language {
             get { return BackingStore?.Get<string>("language"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Number {
             get { return BackingStore?.Get<string?>("number"); }
             set { BackingStore?.Set("number", value); }
         }
+#nullable restore
 #else
         public string Number {
             get { return BackingStore?.Get<string>("number"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Region {
             get { return BackingStore?.Get<string?>("region"); }
             set { BackingStore?.Set("region", value); }
         }
+#nullable restore
 #else
         public string Region {
             get { return BackingStore?.Get<string>("region"); }

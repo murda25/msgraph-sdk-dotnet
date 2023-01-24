@@ -20,10 +20,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The escalation approvers for this stage when the primary approvers don&apos;t respond.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectSet>? EscalationApprovers {
             get { return BackingStore?.Get<List<SubjectSet>?>("escalationApprovers"); }
             set { BackingStore?.Set("escalationApprovers", value); }
         }
+#nullable restore
 #else
         public List<SubjectSet> EscalationApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("escalationApprovers"); }
@@ -47,10 +49,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -59,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The primary approvers of this stage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectSet>? PrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>?>("primaryApprovers"); }
             set { BackingStore?.Set("primaryApprovers", value); }
         }
+#nullable restore
 #else
         public List<SubjectSet> PrimaryApprovers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryApprovers"); }

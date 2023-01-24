@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.Security {
     public class UnifiedGroupSource : DataSource, IParsable {
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Group? Group {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Group?>("group"); }
             set { BackingStore?.Set("group", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Group Group {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Group>("group"); }

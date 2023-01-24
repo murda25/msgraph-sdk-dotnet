@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class BookingCustomer : BookingCustomerBase, IParsable {
         /// <summary>Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PhysicalAddress>? Addresses {
             get { return BackingStore?.Get<List<PhysicalAddress>?>("addresses"); }
             set { BackingStore?.Set("addresses", value); }
         }
+#nullable restore
 #else
         public List<PhysicalAddress> Addresses {
             get { return BackingStore?.Get<List<PhysicalAddress>>("addresses"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The SMTP address of the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EmailAddress {
             get { return BackingStore?.Get<string?>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#nullable restore
 #else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Phone numbers associated with the customer, including home, business and mobile numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Phone>? Phones {
             get { return BackingStore?.Get<List<Phone>?>("phones"); }
             set { BackingStore?.Set("phones", value); }
         }
+#nullable restore
 #else
         public List<Phone> Phones {
             get { return BackingStore?.Get<List<Phone>>("phones"); }

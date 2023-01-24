@@ -20,10 +20,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>This collection specifies the users who will be the fallback reviewers when the primary reviewers don&apos;t respond.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectSet>? FallbackReviewers {
             get { return BackingStore?.Get<List<SubjectSet>?>("fallbackReviewers"); }
             set { BackingStore?.Set("fallbackReviewers", value); }
         }
+#nullable restore
 #else
         public List<SubjectSet> FallbackReviewers {
             get { return BackingStore?.Get<List<SubjectSet>>("fallbackReviewers"); }
@@ -52,10 +54,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -64,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>This collection specifies the users or group of users who will review the access package assignments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectSet>? PrimaryReviewers {
             get { return BackingStore?.Get<List<SubjectSet>?>("primaryReviewers"); }
             set { BackingStore?.Set("primaryReviewers", value); }
         }
+#nullable restore
 #else
         public List<SubjectSet> PrimaryReviewers {
             get { return BackingStore?.Get<List<SubjectSet>>("primaryReviewers"); }
@@ -76,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>When the first review should start and how often it should recur.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public EntitlementManagementSchedule? Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule?>("schedule"); }
             set { BackingStore?.Set("schedule", value); }
         }
+#nullable restore
 #else
         public EntitlementManagementSchedule Schedule {
             get { return BackingStore?.Get<EntitlementManagementSchedule>("schedule"); }

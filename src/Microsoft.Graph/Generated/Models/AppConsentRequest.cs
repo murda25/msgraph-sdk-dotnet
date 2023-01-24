@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppDisplayName {
             get { return BackingStore?.Get<string?>("appDisplayName"); }
             set { BackingStore?.Set("appDisplayName", value); }
         }
+#nullable restore
 #else
         public string AppDisplayName {
             get { return BackingStore?.Get<string>("appDisplayName"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The identifier of the application. Required. Supports $filter (eq only) and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppId {
             get { return BackingStore?.Get<string?>("appId"); }
             set { BackingStore?.Set("appId", value); }
         }
+#nullable restore
 #else
         public string AppId {
             get { return BackingStore?.Get<string>("appId"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A list of pending scopes waiting for approval. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AppConsentRequestScope>? PendingScopes {
             get { return BackingStore?.Get<List<AppConsentRequestScope>?>("pendingScopes"); }
             set { BackingStore?.Set("pendingScopes", value); }
         }
+#nullable restore
 #else
         public List<AppConsentRequestScope> PendingScopes {
             get { return BackingStore?.Get<List<AppConsentRequestScope>>("pendingScopes"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A list of pending user consent requests. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<UserConsentRequest>? UserConsentRequests {
             get { return BackingStore?.Get<List<UserConsentRequest>?>("userConsentRequests"); }
             set { BackingStore?.Set("userConsentRequests", value); }
         }
+#nullable restore
 #else
         public List<UserConsentRequest> UserConsentRequests {
             get { return BackingStore?.Get<List<UserConsentRequest>>("userConsentRequests"); }

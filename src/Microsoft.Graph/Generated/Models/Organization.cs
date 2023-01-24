@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Organization : DirectoryObject, IParsable {
         /// <summary>The collection of service plans associated with the tenant. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AssignedPlan>? AssignedPlans {
             get { return BackingStore?.Get<List<AssignedPlan>?>("assignedPlans"); }
             set { BackingStore?.Set("assignedPlans", value); }
         }
+#nullable restore
 #else
         public List<AssignedPlan> AssignedPlans {
             get { return BackingStore?.Get<List<AssignedPlan>>("assignedPlans"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Branding for the organization. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public OrganizationalBranding? Branding {
             get { return BackingStore?.Get<OrganizationalBranding?>("branding"); }
             set { BackingStore?.Set("branding", value); }
         }
+#nullable restore
 #else
         public OrganizationalBranding Branding {
             get { return BackingStore?.Get<OrganizationalBranding>("branding"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Telephone number for the organization. Although this is a string collection, only one number can be set for this property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? BusinessPhones {
             get { return BackingStore?.Get<List<string>?>("businessPhones"); }
             set { BackingStore?.Set("businessPhones", value); }
         }
+#nullable restore
 #else
         public List<string> BusinessPhones {
             get { return BackingStore?.Get<List<string>>("businessPhones"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>? CertificateBasedAuthConfiguration {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>?>("certificateBasedAuthConfiguration"); }
             set { BackingStore?.Set("certificateBasedAuthConfiguration", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>>("certificateBasedAuthConfiguration"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>City name of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? City {
             get { return BackingStore?.Get<string?>("city"); }
             set { BackingStore?.Set("city", value); }
         }
+#nullable restore
 #else
         public string City {
             get { return BackingStore?.Get<string>("city"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Country/region name of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Country {
             get { return BackingStore?.Get<string?>("country"); }
             set { BackingStore?.Set("country", value); }
         }
+#nullable restore
 #else
         public string Country {
             get { return BackingStore?.Get<string>("country"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Country or region abbreviation for the organization in ISO 3166-2 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CountryLetterCode {
             get { return BackingStore?.Get<string?>("countryLetterCode"); }
             set { BackingStore?.Set("countryLetterCode", value); }
         }
+#nullable restore
 #else
         public string CountryLetterCode {
             get { return BackingStore?.Get<string>("countryLetterCode"); }
@@ -94,12 +108,28 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
+        /// <summary>Two-letter ISO 3166 country code indicating the default service usage location of an organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DefaultUsageLocation {
+            get { return BackingStore?.Get<string?>("defaultUsageLocation"); }
+            set { BackingStore?.Set("defaultUsageLocation", value); }
+        }
+#nullable restore
+#else
+        public string DefaultUsageLocation {
+            get { return BackingStore?.Get<string>("defaultUsageLocation"); }
+            set { BackingStore?.Set("defaultUsageLocation", value); }
+        }
+#endif
         /// <summary>The display name for the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -108,10 +138,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Extension>? Extensions {
             get { return BackingStore?.Get<List<Extension>?>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
+#nullable restore
 #else
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
@@ -120,10 +152,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? MarketingNotificationEmails {
             get { return BackingStore?.Get<List<string>?>("marketingNotificationEmails"); }
             set { BackingStore?.Set("marketingNotificationEmails", value); }
         }
+#nullable restore
 #else
         public List<string> MarketingNotificationEmails {
             get { return BackingStore?.Get<List<string>>("marketingNotificationEmails"); }
@@ -152,10 +186,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Postal code of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PostalCode {
             get { return BackingStore?.Get<string?>("postalCode"); }
             set { BackingStore?.Set("postalCode", value); }
         }
+#nullable restore
 #else
         public string PostalCode {
             get { return BackingStore?.Get<string>("postalCode"); }
@@ -164,10 +200,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PreferredLanguage {
             get { return BackingStore?.Get<string?>("preferredLanguage"); }
             set { BackingStore?.Set("preferredLanguage", value); }
         }
+#nullable restore
 #else
         public string PreferredLanguage {
             get { return BackingStore?.Get<string>("preferredLanguage"); }
@@ -176,10 +214,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The privacy profile of an organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.PrivacyProfile? PrivacyProfile {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PrivacyProfile?>("privacyProfile"); }
             set { BackingStore?.Set("privacyProfile", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.PrivacyProfile PrivacyProfile {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PrivacyProfile>("privacyProfile"); }
@@ -188,10 +228,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ProvisionedPlan>? ProvisionedPlans {
             get { return BackingStore?.Get<List<ProvisionedPlan>?>("provisionedPlans"); }
             set { BackingStore?.Set("provisionedPlans", value); }
         }
+#nullable restore
 #else
         public List<ProvisionedPlan> ProvisionedPlans {
             get { return BackingStore?.Get<List<ProvisionedPlan>>("provisionedPlans"); }
@@ -200,10 +242,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The securityComplianceNotificationMails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? SecurityComplianceNotificationMails {
             get { return BackingStore?.Get<List<string>?>("securityComplianceNotificationMails"); }
             set { BackingStore?.Set("securityComplianceNotificationMails", value); }
         }
+#nullable restore
 #else
         public List<string> SecurityComplianceNotificationMails {
             get { return BackingStore?.Get<List<string>>("securityComplianceNotificationMails"); }
@@ -212,10 +256,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The securityComplianceNotificationPhones property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? SecurityComplianceNotificationPhones {
             get { return BackingStore?.Get<List<string>?>("securityComplianceNotificationPhones"); }
             set { BackingStore?.Set("securityComplianceNotificationPhones", value); }
         }
+#nullable restore
 #else
         public List<string> SecurityComplianceNotificationPhones {
             get { return BackingStore?.Get<List<string>>("securityComplianceNotificationPhones"); }
@@ -224,10 +270,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>State name of the address for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? State {
             get { return BackingStore?.Get<string?>("state"); }
             set { BackingStore?.Set("state", value); }
         }
+#nullable restore
 #else
         public string State {
             get { return BackingStore?.Get<string>("state"); }
@@ -236,10 +284,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Street name of the address for organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Street {
             get { return BackingStore?.Get<string?>("street"); }
             set { BackingStore?.Set("street", value); }
         }
+#nullable restore
 #else
         public string Street {
             get { return BackingStore?.Get<string>("street"); }
@@ -248,10 +298,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? TechnicalNotificationMails {
             get { return BackingStore?.Get<List<string>?>("technicalNotificationMails"); }
             set { BackingStore?.Set("technicalNotificationMails", value); }
         }
+#nullable restore
 #else
         public List<string> TechnicalNotificationMails {
             get { return BackingStore?.Get<List<string>>("technicalNotificationMails"); }
@@ -260,10 +312,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The tenantType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TenantType {
             get { return BackingStore?.Get<string?>("tenantType"); }
             set { BackingStore?.Set("tenantType", value); }
         }
+#nullable restore
 #else
         public string TenantType {
             get { return BackingStore?.Get<string>("tenantType"); }
@@ -272,10 +326,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of domains associated with this tenant. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<VerifiedDomain>? VerifiedDomains {
             get { return BackingStore?.Get<List<VerifiedDomain>?>("verifiedDomains"); }
             set { BackingStore?.Set("verifiedDomains", value); }
         }
+#nullable restore
 #else
         public List<VerifiedDomain> VerifiedDomains {
             get { return BackingStore?.Get<List<VerifiedDomain>>("verifiedDomains"); }
@@ -309,6 +365,7 @@ namespace Microsoft.Graph.Models {
                 {"country", n => { Country = n.GetStringValue(); } },
                 {"countryLetterCode", n => { CountryLetterCode = n.GetStringValue(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"defaultUsageLocation", n => { DefaultUsageLocation = n.GetStringValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"marketingNotificationEmails", n => { MarketingNotificationEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -344,6 +401,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("countryLetterCode", CountryLetterCode);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteStringValue("defaultUsageLocation", DefaultUsageLocation);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteCollectionOfPrimitiveValues<string>("marketingNotificationEmails", MarketingNotificationEmails);

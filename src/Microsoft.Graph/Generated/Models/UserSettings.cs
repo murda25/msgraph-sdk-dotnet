@@ -17,10 +17,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The shiftPreferences property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ShiftPreferences? ShiftPreferences {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ShiftPreferences?>("shiftPreferences"); }
             set { BackingStore?.Set("shiftPreferences", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ShiftPreferences ShiftPreferences {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ShiftPreferences>("shiftPreferences"); }

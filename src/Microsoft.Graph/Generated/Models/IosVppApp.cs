@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class IosVppApp : MobileApp, IParsable {
         /// <summary>The applicable iOS Device Type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IosDeviceType? ApplicableDeviceType {
             get { return BackingStore?.Get<IosDeviceType?>("applicableDeviceType"); }
             set { BackingStore?.Set("applicableDeviceType", value); }
         }
+#nullable restore
 #else
         public IosDeviceType ApplicableDeviceType {
             get { return BackingStore?.Get<IosDeviceType>("applicableDeviceType"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The store URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppStoreUrl {
             get { return BackingStore?.Get<string?>("appStoreUrl"); }
             set { BackingStore?.Set("appStoreUrl", value); }
         }
+#nullable restore
 #else
         public string AppStoreUrl {
             get { return BackingStore?.Get<string>("appStoreUrl"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? BundleId {
             get { return BackingStore?.Get<string?>("bundleId"); }
             set { BackingStore?.Set("bundleId", value); }
         }
+#nullable restore
 #else
         public string BundleId {
             get { return BackingStore?.Get<string>("bundleId"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The supported License Type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public VppLicensingType? LicensingType {
             get { return BackingStore?.Get<VppLicensingType?>("licensingType"); }
             set { BackingStore?.Set("licensingType", value); }
         }
+#nullable restore
 #else
         public VppLicensingType LicensingType {
             get { return BackingStore?.Get<VppLicensingType>("licensingType"); }
@@ -75,10 +83,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The Apple Id associated with the given Apple Volume Purchase Program Token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? VppTokenAppleId {
             get { return BackingStore?.Get<string?>("vppTokenAppleId"); }
             set { BackingStore?.Set("vppTokenAppleId", value); }
         }
+#nullable restore
 #else
         public string VppTokenAppleId {
             get { return BackingStore?.Get<string>("vppTokenAppleId"); }
@@ -87,10 +97,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? VppTokenOrganizationName {
             get { return BackingStore?.Get<string?>("vppTokenOrganizationName"); }
             set { BackingStore?.Set("vppTokenOrganizationName", value); }
         }
+#nullable restore
 #else
         public string VppTokenOrganizationName {
             get { return BackingStore?.Get<string>("vppTokenOrganizationName"); }

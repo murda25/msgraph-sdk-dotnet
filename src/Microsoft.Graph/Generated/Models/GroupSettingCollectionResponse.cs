@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class GroupSettingCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<GroupSetting>? Value {
             get { return BackingStore?.Get<List<GroupSetting>?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#nullable restore
 #else
         public List<GroupSetting> Value {
             get { return BackingStore?.Get<List<GroupSetting>>("value"); }

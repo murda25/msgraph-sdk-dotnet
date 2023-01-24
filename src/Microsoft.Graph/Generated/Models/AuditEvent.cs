@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AuditEvent : Entity, IParsable {
         /// <summary>Friendly name of the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Activity {
             get { return BackingStore?.Get<string?>("activity"); }
             set { BackingStore?.Set("activity", value); }
         }
+#nullable restore
 #else
         public string Activity {
             get { return BackingStore?.Get<string>("activity"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The HTTP operation type of the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ActivityOperationType {
             get { return BackingStore?.Get<string?>("activityOperationType"); }
             set { BackingStore?.Set("activityOperationType", value); }
         }
+#nullable restore
 #else
         public string ActivityOperationType {
             get { return BackingStore?.Get<string>("activityOperationType"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The result of the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ActivityResult {
             get { return BackingStore?.Get<string?>("activityResult"); }
             set { BackingStore?.Set("activityResult", value); }
         }
+#nullable restore
 #else
         public string ActivityResult {
             get { return BackingStore?.Get<string>("activityResult"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The type of activity that was being performed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ActivityType {
             get { return BackingStore?.Get<string?>("activityType"); }
             set { BackingStore?.Set("activityType", value); }
         }
+#nullable restore
 #else
         public string ActivityType {
             get { return BackingStore?.Get<string>("activityType"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>AAD user and application that are associated with the audit event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AuditActor? Actor {
             get { return BackingStore?.Get<AuditActor?>("actor"); }
             set { BackingStore?.Set("actor", value); }
         }
+#nullable restore
 #else
         public AuditActor Actor {
             get { return BackingStore?.Get<AuditActor>("actor"); }
@@ -72,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Audit category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Category {
             get { return BackingStore?.Get<string?>("category"); }
             set { BackingStore?.Set("category", value); }
         }
+#nullable restore
 #else
         public string Category {
             get { return BackingStore?.Get<string>("category"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Component name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ComponentName {
             get { return BackingStore?.Get<string?>("componentName"); }
             set { BackingStore?.Set("componentName", value); }
         }
+#nullable restore
 #else
         public string ComponentName {
             get { return BackingStore?.Get<string>("componentName"); }
@@ -101,10 +115,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Event display name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -113,10 +129,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Resources being modified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AuditResource>? Resources {
             get { return BackingStore?.Get<List<AuditResource>?>("resources"); }
             set { BackingStore?.Set("resources", value); }
         }
+#nullable restore
 #else
         public List<AuditResource> Resources {
             get { return BackingStore?.Get<List<AuditResource>>("resources"); }

@@ -65,7 +65,6 @@ using Microsoft.Graph.Teams;
 using Microsoft.Graph.TeamsTemplates;
 using Microsoft.Graph.Teamwork;
 using Microsoft.Graph.Users;
-using Microsoft.Graph.Workbooks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Store;
@@ -355,10 +354,6 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the collection of user entities.</summary>
         public UsersRequestBuilder Users { get =>
             new UsersRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the collection of driveItem entities.</summary>
-        public WorkbooksRequestBuilder Workbooks { get =>
-            new WorkbooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new BaseGraphServiceClient and sets the default values.

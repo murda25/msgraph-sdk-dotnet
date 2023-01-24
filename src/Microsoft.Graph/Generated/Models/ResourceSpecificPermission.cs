@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Describes the level of access that the resource-specific permission represents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name for the resource-specific permission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -49,10 +53,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -61,10 +67,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The value of the permission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Value {
             get { return BackingStore?.Get<string?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#nullable restore
 #else
         public string Value {
             get { return BackingStore?.Get<string>("value"); }

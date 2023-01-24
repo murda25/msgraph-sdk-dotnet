@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AndroidStoreApp : MobileApp, IParsable {
         /// <summary>The Android app store URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppStoreUrl {
             get { return BackingStore?.Get<string?>("appStoreUrl"); }
             set { BackingStore?.Set("appStoreUrl", value); }
         }
+#nullable restore
 #else
         public string AppStoreUrl {
             get { return BackingStore?.Get<string>("appStoreUrl"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The value for the minimum applicable operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AndroidMinimumOperatingSystem? MinimumSupportedOperatingSystem {
             get { return BackingStore?.Get<AndroidMinimumOperatingSystem?>("minimumSupportedOperatingSystem"); }
             set { BackingStore?.Set("minimumSupportedOperatingSystem", value); }
         }
+#nullable restore
 #else
         public AndroidMinimumOperatingSystem MinimumSupportedOperatingSystem {
             get { return BackingStore?.Get<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The package identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PackageId {
             get { return BackingStore?.Get<string?>("packageId"); }
             set { BackingStore?.Set("packageId", value); }
         }
+#nullable restore
 #else
         public string PackageId {
             get { return BackingStore?.Get<string>("packageId"); }

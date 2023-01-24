@@ -22,10 +22,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Maximum Windows Phone version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OsMaximumVersion {
             get { return BackingStore?.Get<string?>("osMaximumVersion"); }
             set { BackingStore?.Set("osMaximumVersion", value); }
         }
+#nullable restore
 #else
         public string OsMaximumVersion {
             get { return BackingStore?.Get<string>("osMaximumVersion"); }
@@ -34,10 +36,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Minimum Windows Phone version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OsMinimumVersion {
             get { return BackingStore?.Get<string?>("osMinimumVersion"); }
             set { BackingStore?.Set("osMinimumVersion", value); }
         }
+#nullable restore
 #else
         public string OsMinimumVersion {
             get { return BackingStore?.Get<string>("osMinimumVersion"); }

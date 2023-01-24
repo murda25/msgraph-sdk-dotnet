@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AnonymousGuestConversationMember : ConversationMember, IParsable {
         /// <summary>The anonymousGuestId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AnonymousGuestId {
             get { return BackingStore?.Get<string?>("anonymousGuestId"); }
             set { BackingStore?.Set("anonymousGuestId", value); }
         }
+#nullable restore
 #else
         public string AnonymousGuestId {
             get { return BackingStore?.Get<string>("anonymousGuestId"); }

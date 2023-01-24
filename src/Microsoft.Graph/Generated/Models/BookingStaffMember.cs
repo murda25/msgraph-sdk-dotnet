@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The name of the staff member, as displayed to customers. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EmailAddress {
             get { return BackingStore?.Get<string?>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#nullable restore
 #else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
@@ -46,10 +50,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TimeZone {
             get { return BackingStore?.Get<string?>("timeZone"); }
             set { BackingStore?.Set("timeZone", value); }
         }
+#nullable restore
 #else
         public string TimeZone {
             get { return BackingStore?.Get<string>("timeZone"); }
@@ -63,10 +69,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BookingWorkHours>? WorkingHours {
             get { return BackingStore?.Get<List<BookingWorkHours>?>("workingHours"); }
             set { BackingStore?.Set("workingHours", value); }
         }
+#nullable restore
 #else
         public List<BookingWorkHours> WorkingHours {
             get { return BackingStore?.Get<List<BookingWorkHours>>("workingHours"); }

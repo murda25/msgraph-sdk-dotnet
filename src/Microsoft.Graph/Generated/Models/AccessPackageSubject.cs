@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageSubject : Entity, IParsable {
         /// <summary>The connected organization of the subject. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ConnectedOrganization? ConnectedOrganization {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ConnectedOrganization?>("connectedOrganization"); }
             set { BackingStore?.Set("connectedOrganization", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ConnectedOrganization ConnectedOrganization {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ConnectedOrganization>("connectedOrganization"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The email address of the subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Email {
             get { return BackingStore?.Get<string?>("email"); }
             set { BackingStore?.Set("email", value); }
         }
+#nullable restore
 #else
         public string Email {
             get { return BackingStore?.Get<string>("email"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The object identifier of the subject. null if the subject is not yet a user in the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ObjectId {
             get { return BackingStore?.Get<string?>("objectId"); }
             set { BackingStore?.Set("objectId", value); }
         }
+#nullable restore
 #else
         public string ObjectId {
             get { return BackingStore?.Get<string>("objectId"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A string representation of the principal&apos;s security identifier, if known, or null if the subject does not have a security identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OnPremisesSecurityIdentifier {
             get { return BackingStore?.Get<string?>("onPremisesSecurityIdentifier"); }
             set { BackingStore?.Set("onPremisesSecurityIdentifier", value); }
         }
+#nullable restore
 #else
         public string OnPremisesSecurityIdentifier {
             get { return BackingStore?.Get<string>("onPremisesSecurityIdentifier"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The principal name, if known, of the subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrincipalName {
             get { return BackingStore?.Get<string?>("principalName"); }
             set { BackingStore?.Set("principalName", value); }
         }
+#nullable restore
 #else
         public string PrincipalName {
             get { return BackingStore?.Get<string>("principalName"); }

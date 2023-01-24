@@ -77,10 +77,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>BitLocker Removable Drive Policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.BitLockerRemovableDrivePolicy? BitLockerRemovableDrivePolicy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.BitLockerRemovableDrivePolicy?>("bitLockerRemovableDrivePolicy"); }
             set { BackingStore?.Set("bitLockerRemovableDrivePolicy", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.BitLockerRemovableDrivePolicy BitLockerRemovableDrivePolicy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy"); }
@@ -89,10 +91,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of folder paths to be added to the list of protected folders</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderAdditionalGuardedFolders {
             get { return BackingStore?.Get<List<string>?>("defenderAdditionalGuardedFolders"); }
             set { BackingStore?.Set("defenderAdditionalGuardedFolders", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderAdditionalGuardedFolders {
             get { return BackingStore?.Get<List<string>>("defenderAdditionalGuardedFolders"); }
@@ -101,10 +105,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of exe files and folders to be excluded from attack surface reduction rules</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderAttackSurfaceReductionExcludedPaths {
             get { return BackingStore?.Get<List<string>?>("defenderAttackSurfaceReductionExcludedPaths"); }
             set { BackingStore?.Set("defenderAttackSurfaceReductionExcludedPaths", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderAttackSurfaceReductionExcludedPaths {
             get { return BackingStore?.Get<List<string>>("defenderAttackSurfaceReductionExcludedPaths"); }
@@ -113,10 +119,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Xml content containing information regarding exploit protection details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public byte[]? DefenderExploitProtectionXml {
             get { return BackingStore?.Get<byte[]?>("defenderExploitProtectionXml"); }
             set { BackingStore?.Set("defenderExploitProtectionXml", value); }
         }
+#nullable restore
 #else
         public byte[] DefenderExploitProtectionXml {
             get { return BackingStore?.Get<byte[]>("defenderExploitProtectionXml"); }
@@ -125,10 +133,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Name of the file from which DefenderExploitProtectionXml was obtained.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DefenderExploitProtectionXmlFileName {
             get { return BackingStore?.Get<string?>("defenderExploitProtectionXmlFileName"); }
             set { BackingStore?.Set("defenderExploitProtectionXmlFileName", value); }
         }
+#nullable restore
 #else
         public string DefenderExploitProtectionXmlFileName {
             get { return BackingStore?.Get<string>("defenderExploitProtectionXmlFileName"); }
@@ -137,10 +147,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of paths to exe that are allowed to access protected folders</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? DefenderGuardedFoldersAllowedAppPaths {
             get { return BackingStore?.Get<List<string>?>("defenderGuardedFoldersAllowedAppPaths"); }
             set { BackingStore?.Set("defenderGuardedFoldersAllowedAppPaths", value); }
         }
+#nullable restore
 #else
         public List<string> DefenderGuardedFoldersAllowedAppPaths {
             get { return BackingStore?.Get<List<string>>("defenderGuardedFoldersAllowedAppPaths"); }
@@ -204,10 +216,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Configures the firewall profile settings for domain networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public WindowsFirewallNetworkProfile? FirewallProfileDomain {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfileDomain"); }
             set { BackingStore?.Set("firewallProfileDomain", value); }
         }
+#nullable restore
 #else
         public WindowsFirewallNetworkProfile FirewallProfileDomain {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfileDomain"); }
@@ -216,10 +230,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Configures the firewall profile settings for private networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public WindowsFirewallNetworkProfile? FirewallProfilePrivate {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfilePrivate"); }
             set { BackingStore?.Set("firewallProfilePrivate", value); }
         }
+#nullable restore
 #else
         public WindowsFirewallNetworkProfile FirewallProfilePrivate {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfilePrivate"); }
@@ -228,10 +244,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Configures the firewall profile settings for public networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public WindowsFirewallNetworkProfile? FirewallProfilePublic {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile?>("firewallProfilePublic"); }
             set { BackingStore?.Set("firewallProfilePublic", value); }
         }
+#nullable restore
 #else
         public WindowsFirewallNetworkProfile FirewallProfilePublic {
             get { return BackingStore?.Get<WindowsFirewallNetworkProfile>("firewallProfilePublic"); }

@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class TeamworkTag : Entity, IParsable {
         /// <summary>The description of the tag as it will appear to the user in Microsoft Teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the tag as it will appear to the user in Microsoft Teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Users assigned to the tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<TeamworkTagMember>? Members {
             get { return BackingStore?.Get<List<TeamworkTagMember>?>("members"); }
             set { BackingStore?.Set("members", value); }
         }
+#nullable restore
 #else
         public List<TeamworkTagMember> Members {
             get { return BackingStore?.Get<List<TeamworkTagMember>>("members"); }
@@ -53,10 +59,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>ID of the team in which the tag is defined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TeamId {
             get { return BackingStore?.Get<string?>("teamId"); }
             set { BackingStore?.Set("teamId", value); }
         }
+#nullable restore
 #else
         public string TeamId {
             get { return BackingStore?.Get<string>("teamId"); }

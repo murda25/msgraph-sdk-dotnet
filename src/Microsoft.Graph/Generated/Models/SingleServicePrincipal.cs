@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class SingleServicePrincipal : SubjectSet, IParsable {
         /// <summary>Description of this service principal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>ID of the servicePrincipal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ServicePrincipalId {
             get { return BackingStore?.Get<string?>("servicePrincipalId"); }
             set { BackingStore?.Set("servicePrincipalId", value); }
         }
+#nullable restore
 #else
         public string ServicePrincipalId {
             get { return BackingStore?.Get<string>("servicePrincipalId"); }

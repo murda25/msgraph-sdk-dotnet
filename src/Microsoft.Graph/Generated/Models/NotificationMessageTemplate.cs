@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The default locale to fallback onto when the requested locale is not available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DefaultLocale {
             get { return BackingStore?.Get<string?>("defaultLocale"); }
             set { BackingStore?.Set("defaultLocale", value); }
         }
+#nullable restore
 #else
         public string DefaultLocale {
             get { return BackingStore?.Get<string>("defaultLocale"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Display name for the Notification Message Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -44,10 +48,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The list of localized messages for this Notification Message Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<LocalizedNotificationMessage>? LocalizedNotificationMessages {
             get { return BackingStore?.Get<List<LocalizedNotificationMessage>?>("localizedNotificationMessages"); }
             set { BackingStore?.Set("localizedNotificationMessages", value); }
         }
+#nullable restore
 #else
         public List<LocalizedNotificationMessage> LocalizedNotificationMessages {
             get { return BackingStore?.Get<List<LocalizedNotificationMessage>>("localizedNotificationMessages"); }

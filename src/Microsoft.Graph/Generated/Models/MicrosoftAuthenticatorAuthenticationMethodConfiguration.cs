@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class MicrosoftAuthenticatorAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
         /// <summary>A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public MicrosoftAuthenticatorFeatureSettings? FeatureSettings {
             get { return BackingStore?.Get<MicrosoftAuthenticatorFeatureSettings?>("featureSettings"); }
             set { BackingStore?.Set("featureSettings", value); }
         }
+#nullable restore
 #else
         public MicrosoftAuthenticatorFeatureSettings FeatureSettings {
             get { return BackingStore?.Get<MicrosoftAuthenticatorFeatureSettings>("featureSettings"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>A collection of groups that are enabled to use the authentication method. Expanded by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MicrosoftAuthenticatorAuthenticationMethodTarget>? IncludeTargets {
             get { return BackingStore?.Get<List<MicrosoftAuthenticatorAuthenticationMethodTarget>?>("includeTargets"); }
             set { BackingStore?.Set("includeTargets", value); }
         }
+#nullable restore
 #else
         public List<MicrosoftAuthenticatorAuthenticationMethodTarget> IncludeTargets {
             get { return BackingStore?.Get<List<MicrosoftAuthenticatorAuthenticationMethodTarget>>("includeTargets"); }

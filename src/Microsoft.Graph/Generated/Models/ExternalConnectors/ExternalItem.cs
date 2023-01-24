@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
     public class ExternalItem : Entity, IParsable {
         /// <summary>An array of access control entries. Each entry specifies the access granted to a user or group. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.ExternalConnectors.Acl>? Acl {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ExternalConnectors.Acl>?>("acl"); }
             set { BackingStore?.Set("acl", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.ExternalConnectors.Acl> Acl {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ExternalConnectors.Acl>>("acl"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ExternalItemContent? Content {
             get { return BackingStore?.Get<ExternalItemContent?>("content"); }
             set { BackingStore?.Set("content", value); }
         }
+#nullable restore
 #else
         public ExternalItemContent Content {
             get { return BackingStore?.Get<ExternalItemContent>("content"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ExternalConnectors.Properties? Properties {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Properties?>("properties"); }
             set { BackingStore?.Set("properties", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ExternalConnectors.Properties Properties {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Properties>("properties"); }

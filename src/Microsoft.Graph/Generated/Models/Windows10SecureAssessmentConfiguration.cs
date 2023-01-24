@@ -22,10 +22,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ConfigurationAccount {
             get { return BackingStore?.Get<string?>("configurationAccount"); }
             set { BackingStore?.Set("configurationAccount", value); }
         }
+#nullable restore
 #else
         public string ConfigurationAccount {
             get { return BackingStore?.Get<string>("configurationAccount"); }
@@ -34,10 +36,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Url link to an assessment that&apos;s automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? LaunchUri {
             get { return BackingStore?.Get<string?>("launchUri"); }
             set { BackingStore?.Set("launchUri", value); }
         }
+#nullable restore
 #else
         public string LaunchUri {
             get { return BackingStore?.Get<string>("launchUri"); }

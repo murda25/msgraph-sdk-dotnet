@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.UserAttributeAssignments.Se
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The newAssignmentOrder property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AssignmentOrder? NewAssignmentOrder {
             get { return BackingStore?.Get<AssignmentOrder?>("newAssignmentOrder"); }
             set { BackingStore?.Set("newAssignmentOrder", value); }
         }
+#nullable restore
 #else
         public AssignmentOrder NewAssignmentOrder {
             get { return BackingStore?.Get<AssignmentOrder>("newAssignmentOrder"); }

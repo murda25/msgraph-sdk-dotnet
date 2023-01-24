@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackage : Entity, IParsable {
         /// <summary>The access packages that are incompatible with this package. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessPackage>? AccessPackagesIncompatibleWith {
             get { return BackingStore?.Get<List<AccessPackage>?>("accessPackagesIncompatibleWith"); }
             set { BackingStore?.Set("accessPackagesIncompatibleWith", value); }
         }
+#nullable restore
 #else
         public List<AccessPackage> AccessPackagesIncompatibleWith {
             get { return BackingStore?.Get<List<AccessPackage>>("accessPackagesIncompatibleWith"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The assignmentPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessPackageAssignmentPolicy>? AssignmentPolicies {
             get { return BackingStore?.Get<List<AccessPackageAssignmentPolicy>?>("assignmentPolicies"); }
             set { BackingStore?.Set("assignmentPolicies", value); }
         }
+#nullable restore
 #else
         public List<AccessPackageAssignmentPolicy> AssignmentPolicies {
             get { return BackingStore?.Get<List<AccessPackageAssignmentPolicy>>("assignmentPolicies"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The catalog property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageCatalog? Catalog {
             get { return BackingStore?.Get<AccessPackageCatalog?>("catalog"); }
             set { BackingStore?.Set("catalog", value); }
         }
+#nullable restore
 #else
         public AccessPackageCatalog Catalog {
             get { return BackingStore?.Get<AccessPackageCatalog>("catalog"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The description of the access package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the access package. Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -72,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The access packages whose assigned users are ineligible to be assigned this access package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessPackage>? IncompatibleAccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>?>("incompatibleAccessPackages"); }
             set { BackingStore?.Set("incompatibleAccessPackages", value); }
         }
+#nullable restore
 #else
         public List<AccessPackage> IncompatibleAccessPackages {
             get { return BackingStore?.Get<List<AccessPackage>>("incompatibleAccessPackages"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The groups whose members are ineligible to be assigned this access package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Group>? IncompatibleGroups {
             get { return BackingStore?.Get<List<Group>?>("incompatibleGroups"); }
             set { BackingStore?.Set("incompatibleGroups", value); }
         }
+#nullable restore
 #else
         public List<Group> IncompatibleGroups {
             get { return BackingStore?.Get<List<Group>>("incompatibleGroups"); }

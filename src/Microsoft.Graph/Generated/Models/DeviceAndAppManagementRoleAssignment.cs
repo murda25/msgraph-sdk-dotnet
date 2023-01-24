@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceAndAppManagementRoleAssignment : RoleAssignment, IParsable {
         /// <summary>The list of ids of role member security groups. These are IDs from Azure Active Directory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Members {
             get { return BackingStore?.Get<List<string>?>("members"); }
             set { BackingStore?.Set("members", value); }
         }
+#nullable restore
 #else
         public List<string> Members {
             get { return BackingStore?.Get<List<string>>("members"); }

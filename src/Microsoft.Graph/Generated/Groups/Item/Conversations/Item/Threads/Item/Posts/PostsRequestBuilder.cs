@@ -59,13 +59,15 @@ namespace Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the **post** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **post** instance.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/post-get?view=graph-rest-1.0" />
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public async Task<PostCollectionResponse?> GetAsync(Action<PostsRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
 #else
         public async Task<PostCollectionResponse> GetAsync(Action<PostsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
@@ -77,11 +79,13 @@ namespace Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts {
             return await RequestAdapter.SendAsync<PostCollectionResponse>(requestInfo, PostCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the **post** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **post** instance.
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public RequestInformation ToGetRequestInformation(Action<PostsRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
 #else
         public RequestInformation ToGetRequestInformation(Action<PostsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
 #endif
@@ -101,7 +105,7 @@ namespace Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts {
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the **post** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **post** instance.
+        /// Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
         /// </summary>
         public class PostsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
@@ -109,32 +113,40 @@ namespace Microsoft.Graph.Groups.Item.Conversations.Item.Threads.Item.Posts {
             public bool? Count { get; set; }
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24expand")]
             public string[]? Expand { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24expand")]
             public string[] Expand { get; set; }
 #endif
             /// <summary>Filter items by property values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24filter")]
             public string? Filter { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24filter")]
             public string Filter { get; set; }
 #endif
             /// <summary>Order items by property values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24orderby")]
             public string[]? Orderby { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24orderby")]
             public string[] Orderby { get; set; }
 #endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("%24select")]
             public string[]? Select { get; set; }
+#nullable restore
 #else
             [QueryParameter("%24select")]
             public string[] Select { get; set; }

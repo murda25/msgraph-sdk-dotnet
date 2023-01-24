@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DateTime {
             get { return BackingStore?.Get<string?>("dateTime"); }
             set { BackingStore?.Set("dateTime", value); }
         }
+#nullable restore
 #else
         public string DateTime {
             get { return BackingStore?.Get<string>("dateTime"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Represents a time zone, for example, &apos;Pacific Standard Time&apos;. See below for more possible values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TimeZone {
             get { return BackingStore?.Get<string?>("timeZone"); }
             set { BackingStore?.Set("timeZone", value); }
         }
+#nullable restore
 #else
         public string TimeZone {
             get { return BackingStore?.Get<string>("timeZone"); }

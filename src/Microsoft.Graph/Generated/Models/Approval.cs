@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Approval : Entity, IParsable {
         /// <summary>A collection of stages in the approval decision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ApprovalStage>? Stages {
             get { return BackingStore?.Get<List<ApprovalStage>?>("stages"); }
             set { BackingStore?.Set("stages", value); }
         }
+#nullable restore
 #else
         public List<ApprovalStage> Stages {
             get { return BackingStore?.Get<List<ApprovalStage>>("stages"); }

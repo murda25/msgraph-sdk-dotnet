@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class TimeOff : ChangeTrackedEntity, IParsable {
         /// <summary>The draft version of this timeOff that is viewable by managers. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public TimeOffItem? DraftTimeOff {
             get { return BackingStore?.Get<TimeOffItem?>("draftTimeOff"); }
             set { BackingStore?.Set("draftTimeOff", value); }
         }
+#nullable restore
 #else
         public TimeOffItem DraftTimeOff {
             get { return BackingStore?.Get<TimeOffItem>("draftTimeOff"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The shared version of this timeOff that is viewable by both employees and managers. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public TimeOffItem? SharedTimeOff {
             get { return BackingStore?.Get<TimeOffItem?>("sharedTimeOff"); }
             set { BackingStore?.Set("sharedTimeOff", value); }
         }
+#nullable restore
 #else
         public TimeOffItem SharedTimeOff {
             get { return BackingStore?.Get<TimeOffItem>("sharedTimeOff"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>ID of the user assigned to the timeOff. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserId {
             get { return BackingStore?.Get<string?>("userId"); }
             set { BackingStore?.Set("userId", value); }
         }
+#nullable restore
 #else
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }

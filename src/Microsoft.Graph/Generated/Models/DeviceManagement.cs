@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceManagement : Entity, IParsable {
         /// <summary>Apple push notification certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ApplePushNotificationCertificate? ApplePushNotificationCertificate {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ApplePushNotificationCertificate?>("applePushNotificationCertificate"); }
             set { BackingStore?.Set("applePushNotificationCertificate", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ApplePushNotificationCertificate ApplePushNotificationCertificate {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ApplePushNotificationCertificate>("applePushNotificationCertificate"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Audit Events</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AuditEvent>? AuditEvents {
             get { return BackingStore?.Get<List<AuditEvent>?>("auditEvents"); }
             set { BackingStore?.Set("auditEvents", value); }
         }
+#nullable restore
 #else
         public List<AuditEvent> AuditEvents {
             get { return BackingStore?.Get<List<AuditEvent>>("auditEvents"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of Compliance Management Partners configured by the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ComplianceManagementPartner>? ComplianceManagementPartners {
             get { return BackingStore?.Get<List<ComplianceManagementPartner>?>("complianceManagementPartners"); }
             set { BackingStore?.Set("complianceManagementPartners", value); }
         }
+#nullable restore
 #else
         public List<ComplianceManagementPartner> ComplianceManagementPartners {
             get { return BackingStore?.Get<List<ComplianceManagementPartner>>("complianceManagementPartners"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public OnPremisesConditionalAccessSettings? ConditionalAccessSettings {
             get { return BackingStore?.Get<OnPremisesConditionalAccessSettings?>("conditionalAccessSettings"); }
             set { BackingStore?.Set("conditionalAccessSettings", value); }
         }
+#nullable restore
 #else
         public OnPremisesConditionalAccessSettings ConditionalAccessSettings {
             get { return BackingStore?.Get<OnPremisesConditionalAccessSettings>("conditionalAccessSettings"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of detected apps associated with a device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DetectedApp>? DetectedApps {
             get { return BackingStore?.Get<List<DetectedApp>?>("detectedApps"); }
             set { BackingStore?.Set("detectedApps", value); }
         }
+#nullable restore
 #else
         public List<DetectedApp> DetectedApps {
             get { return BackingStore?.Get<List<DetectedApp>>("detectedApps"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of device categories with the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceCategory>? DeviceCategories {
             get { return BackingStore?.Get<List<DeviceCategory>?>("deviceCategories"); }
             set { BackingStore?.Set("deviceCategories", value); }
         }
+#nullable restore
 #else
         public List<DeviceCategory> DeviceCategories {
             get { return BackingStore?.Get<List<DeviceCategory>>("deviceCategories"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The device compliance policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceCompliancePolicy>? DeviceCompliancePolicies {
             get { return BackingStore?.Get<List<DeviceCompliancePolicy>?>("deviceCompliancePolicies"); }
             set { BackingStore?.Set("deviceCompliancePolicies", value); }
         }
+#nullable restore
 #else
         public List<DeviceCompliancePolicy> DeviceCompliancePolicies {
             get { return BackingStore?.Get<List<DeviceCompliancePolicy>>("deviceCompliancePolicies"); }
@@ -91,10 +105,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The device compliance state summary for this account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DeviceCompliancePolicyDeviceStateSummary? DeviceCompliancePolicyDeviceStateSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceCompliancePolicyDeviceStateSummary?>("deviceCompliancePolicyDeviceStateSummary"); }
             set { BackingStore?.Set("deviceCompliancePolicyDeviceStateSummary", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DeviceCompliancePolicyDeviceStateSummary DeviceCompliancePolicyDeviceStateSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceCompliancePolicyDeviceStateSummary>("deviceCompliancePolicyDeviceStateSummary"); }
@@ -103,10 +119,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The summary states of compliance policy settings for this account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceCompliancePolicySettingStateSummary>? DeviceCompliancePolicySettingStateSummaries {
             get { return BackingStore?.Get<List<DeviceCompliancePolicySettingStateSummary>?>("deviceCompliancePolicySettingStateSummaries"); }
             set { BackingStore?.Set("deviceCompliancePolicySettingStateSummaries", value); }
         }
+#nullable restore
 #else
         public List<DeviceCompliancePolicySettingStateSummary> DeviceCompliancePolicySettingStateSummaries {
             get { return BackingStore?.Get<List<DeviceCompliancePolicySettingStateSummary>>("deviceCompliancePolicySettingStateSummaries"); }
@@ -115,10 +133,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The device configuration device state summary for this account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceConfigurationDeviceStateSummary? DeviceConfigurationDeviceStateSummaries {
             get { return BackingStore?.Get<DeviceConfigurationDeviceStateSummary?>("deviceConfigurationDeviceStateSummaries"); }
             set { BackingStore?.Set("deviceConfigurationDeviceStateSummaries", value); }
         }
+#nullable restore
 #else
         public DeviceConfigurationDeviceStateSummary DeviceConfigurationDeviceStateSummaries {
             get { return BackingStore?.Get<DeviceConfigurationDeviceStateSummary>("deviceConfigurationDeviceStateSummaries"); }
@@ -127,10 +147,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The device configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfiguration>? DeviceConfigurations {
             get { return BackingStore?.Get<List<DeviceConfiguration>?>("deviceConfigurations"); }
             set { BackingStore?.Set("deviceConfigurations", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfiguration> DeviceConfigurations {
             get { return BackingStore?.Get<List<DeviceConfiguration>>("deviceConfigurations"); }
@@ -139,10 +161,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of device enrollment configurations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceEnrollmentConfiguration>? DeviceEnrollmentConfigurations {
             get { return BackingStore?.Get<List<DeviceEnrollmentConfiguration>?>("deviceEnrollmentConfigurations"); }
             set { BackingStore?.Set("deviceEnrollmentConfigurations", value); }
         }
+#nullable restore
 #else
         public List<DeviceEnrollmentConfiguration> DeviceEnrollmentConfigurations {
             get { return BackingStore?.Get<List<DeviceEnrollmentConfiguration>>("deviceEnrollmentConfigurations"); }
@@ -151,10 +175,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of Device Management Partners configured by the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceManagementPartner>? DeviceManagementPartners {
             get { return BackingStore?.Get<List<DeviceManagementPartner>?>("deviceManagementPartners"); }
             set { BackingStore?.Set("deviceManagementPartners", value); }
         }
+#nullable restore
 #else
         public List<DeviceManagementPartner> DeviceManagementPartners {
             get { return BackingStore?.Get<List<DeviceManagementPartner>>("deviceManagementPartners"); }
@@ -163,10 +189,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of Exchange Connectors configured by the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceManagementExchangeConnector>? ExchangeConnectors {
             get { return BackingStore?.Get<List<DeviceManagementExchangeConnector>?>("exchangeConnectors"); }
             set { BackingStore?.Set("exchangeConnectors", value); }
         }
+#nullable restore
 #else
         public List<DeviceManagementExchangeConnector> ExchangeConnectors {
             get { return BackingStore?.Get<List<DeviceManagementExchangeConnector>>("exchangeConnectors"); }
@@ -175,10 +203,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Collection of imported Windows autopilot devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ImportedWindowsAutopilotDeviceIdentity>? ImportedWindowsAutopilotDeviceIdentities {
             get { return BackingStore?.Get<List<ImportedWindowsAutopilotDeviceIdentity>?>("importedWindowsAutopilotDeviceIdentities"); }
             set { BackingStore?.Set("importedWindowsAutopilotDeviceIdentities", value); }
         }
+#nullable restore
 #else
         public List<ImportedWindowsAutopilotDeviceIdentity> ImportedWindowsAutopilotDeviceIdentities {
             get { return BackingStore?.Get<List<ImportedWindowsAutopilotDeviceIdentity>>("importedWindowsAutopilotDeviceIdentities"); }
@@ -192,10 +222,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.IntuneBrand? IntuneBrand {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IntuneBrand?>("intuneBrand"); }
             set { BackingStore?.Set("intuneBrand", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.IntuneBrand IntuneBrand {
             get { return BackingStore?.Get<Microsoft.Graph.Models.IntuneBrand>("intuneBrand"); }
@@ -204,10 +236,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The IOS software update installation statuses for this account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<IosUpdateDeviceStatus>? IosUpdateStatuses {
             get { return BackingStore?.Get<List<IosUpdateDeviceStatus>?>("iosUpdateStatuses"); }
             set { BackingStore?.Set("iosUpdateStatuses", value); }
         }
+#nullable restore
 #else
         public List<IosUpdateDeviceStatus> IosUpdateStatuses {
             get { return BackingStore?.Get<List<IosUpdateDeviceStatus>>("iosUpdateStatuses"); }
@@ -216,10 +250,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device overview</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ManagedDeviceOverview? ManagedDeviceOverview {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ManagedDeviceOverview?>("managedDeviceOverview"); }
             set { BackingStore?.Set("managedDeviceOverview", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ManagedDeviceOverview ManagedDeviceOverview {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ManagedDeviceOverview>("managedDeviceOverview"); }
@@ -228,10 +264,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of managed devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedDevice>? ManagedDevices {
             get { return BackingStore?.Get<List<ManagedDevice>?>("managedDevices"); }
             set { BackingStore?.Set("managedDevices", value); }
         }
+#nullable restore
 #else
         public List<ManagedDevice> ManagedDevices {
             get { return BackingStore?.Get<List<ManagedDevice>>("managedDevices"); }
@@ -240,10 +278,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of Mobile threat Defense connectors configured by the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MobileThreatDefenseConnector>? MobileThreatDefenseConnectors {
             get { return BackingStore?.Get<List<MobileThreatDefenseConnector>?>("mobileThreatDefenseConnectors"); }
             set { BackingStore?.Set("mobileThreatDefenseConnectors", value); }
         }
+#nullable restore
 #else
         public List<MobileThreatDefenseConnector> MobileThreatDefenseConnectors {
             get { return BackingStore?.Get<List<MobileThreatDefenseConnector>>("mobileThreatDefenseConnectors"); }
@@ -252,10 +292,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Notification Message Templates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<NotificationMessageTemplate>? NotificationMessageTemplates {
             get { return BackingStore?.Get<List<NotificationMessageTemplate>?>("notificationMessageTemplates"); }
             set { BackingStore?.Set("notificationMessageTemplates", value); }
         }
+#nullable restore
 #else
         public List<NotificationMessageTemplate> NotificationMessageTemplates {
             get { return BackingStore?.Get<List<NotificationMessageTemplate>>("notificationMessageTemplates"); }
@@ -264,10 +306,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The remote assist partners.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<RemoteAssistancePartner>? RemoteAssistancePartners {
             get { return BackingStore?.Get<List<RemoteAssistancePartner>?>("remoteAssistancePartners"); }
             set { BackingStore?.Set("remoteAssistancePartners", value); }
         }
+#nullable restore
 #else
         public List<RemoteAssistancePartner> RemoteAssistancePartners {
             get { return BackingStore?.Get<List<RemoteAssistancePartner>>("remoteAssistancePartners"); }
@@ -276,10 +320,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Reports singleton</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceManagementReports? Reports {
             get { return BackingStore?.Get<DeviceManagementReports?>("reports"); }
             set { BackingStore?.Set("reports", value); }
         }
+#nullable restore
 #else
         public DeviceManagementReports Reports {
             get { return BackingStore?.Get<DeviceManagementReports>("reports"); }
@@ -288,10 +334,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Resource Operations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ResourceOperation>? ResourceOperations {
             get { return BackingStore?.Get<List<ResourceOperation>?>("resourceOperations"); }
             set { BackingStore?.Set("resourceOperations", value); }
         }
+#nullable restore
 #else
         public List<ResourceOperation> ResourceOperations {
             get { return BackingStore?.Get<List<ResourceOperation>>("resourceOperations"); }
@@ -300,10 +348,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Role Assignments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceAndAppManagementRoleAssignment>? RoleAssignments {
             get { return BackingStore?.Get<List<DeviceAndAppManagementRoleAssignment>?>("roleAssignments"); }
             set { BackingStore?.Set("roleAssignments", value); }
         }
+#nullable restore
 #else
         public List<DeviceAndAppManagementRoleAssignment> RoleAssignments {
             get { return BackingStore?.Get<List<DeviceAndAppManagementRoleAssignment>>("roleAssignments"); }
@@ -312,10 +362,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Role Definitions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<RoleDefinition>? RoleDefinitions {
             get { return BackingStore?.Get<List<RoleDefinition>?>("roleDefinitions"); }
             set { BackingStore?.Set("roleDefinitions", value); }
         }
+#nullable restore
 #else
         public List<RoleDefinition> RoleDefinitions {
             get { return BackingStore?.Get<List<RoleDefinition>>("roleDefinitions"); }
@@ -324,10 +376,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Account level settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceManagementSettings? Settings {
             get { return BackingStore?.Get<DeviceManagementSettings?>("settings"); }
             set { BackingStore?.Set("settings", value); }
         }
+#nullable restore
 #else
         public DeviceManagementSettings Settings {
             get { return BackingStore?.Get<DeviceManagementSettings>("settings"); }
@@ -336,10 +390,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The software update status summary.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SoftwareUpdateStatusSummary? SoftwareUpdateStatusSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SoftwareUpdateStatusSummary?>("softwareUpdateStatusSummary"); }
             set { BackingStore?.Set("softwareUpdateStatusSummary", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SoftwareUpdateStatusSummary SoftwareUpdateStatusSummary {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SoftwareUpdateStatusSummary>("softwareUpdateStatusSummary"); }
@@ -353,10 +409,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The telecom expense management partners.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<TelecomExpenseManagementPartner>? TelecomExpenseManagementPartners {
             get { return BackingStore?.Get<List<TelecomExpenseManagementPartner>?>("telecomExpenseManagementPartners"); }
             set { BackingStore?.Set("telecomExpenseManagementPartners", value); }
         }
+#nullable restore
 #else
         public List<TelecomExpenseManagementPartner> TelecomExpenseManagementPartners {
             get { return BackingStore?.Get<List<TelecomExpenseManagementPartner>>("telecomExpenseManagementPartners"); }
@@ -365,10 +423,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The terms and conditions associated with device management of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.TermsAndConditions>? TermsAndConditions {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.TermsAndConditions>?>("termsAndConditions"); }
             set { BackingStore?.Set("termsAndConditions", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.TermsAndConditions> TermsAndConditions {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.TermsAndConditions>>("termsAndConditions"); }
@@ -377,10 +437,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of troubleshooting events for the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceManagementTroubleshootingEvent>? TroubleshootingEvents {
             get { return BackingStore?.Get<List<DeviceManagementTroubleshootingEvent>?>("troubleshootingEvents"); }
             set { BackingStore?.Set("troubleshootingEvents", value); }
         }
+#nullable restore
 #else
         public List<DeviceManagementTroubleshootingEvent> TroubleshootingEvents {
             get { return BackingStore?.Get<List<DeviceManagementTroubleshootingEvent>>("troubleshootingEvents"); }
@@ -389,10 +451,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Windows autopilot device identities contained collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<WindowsAutopilotDeviceIdentity>? WindowsAutopilotDeviceIdentities {
             get { return BackingStore?.Get<List<WindowsAutopilotDeviceIdentity>?>("windowsAutopilotDeviceIdentities"); }
             set { BackingStore?.Set("windowsAutopilotDeviceIdentities", value); }
         }
+#nullable restore
 #else
         public List<WindowsAutopilotDeviceIdentity> WindowsAutopilotDeviceIdentities {
             get { return BackingStore?.Get<List<WindowsAutopilotDeviceIdentity>>("windowsAutopilotDeviceIdentities"); }
@@ -401,10 +465,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The windows information protection app learning summaries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<WindowsInformationProtectionAppLearningSummary>? WindowsInformationProtectionAppLearningSummaries {
             get { return BackingStore?.Get<List<WindowsInformationProtectionAppLearningSummary>?>("windowsInformationProtectionAppLearningSummaries"); }
             set { BackingStore?.Set("windowsInformationProtectionAppLearningSummaries", value); }
         }
+#nullable restore
 #else
         public List<WindowsInformationProtectionAppLearningSummary> WindowsInformationProtectionAppLearningSummaries {
             get { return BackingStore?.Get<List<WindowsInformationProtectionAppLearningSummary>>("windowsInformationProtectionAppLearningSummaries"); }
@@ -413,10 +479,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The windows information protection network learning summaries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<WindowsInformationProtectionNetworkLearningSummary>? WindowsInformationProtectionNetworkLearningSummaries {
             get { return BackingStore?.Get<List<WindowsInformationProtectionNetworkLearningSummary>?>("windowsInformationProtectionNetworkLearningSummaries"); }
             set { BackingStore?.Set("windowsInformationProtectionNetworkLearningSummaries", value); }
         }
+#nullable restore
 #else
         public List<WindowsInformationProtectionNetworkLearningSummary> WindowsInformationProtectionNetworkLearningSummaries {
             get { return BackingStore?.Get<List<WindowsInformationProtectionNetworkLearningSummary>>("windowsInformationProtectionNetworkLearningSummaries"); }

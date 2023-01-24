@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceAppManagement : Entity, IParsable {
         /// <summary>Android managed app policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AndroidManagedAppProtection>? AndroidManagedAppProtections {
             get { return BackingStore?.Get<List<AndroidManagedAppProtection>?>("androidManagedAppProtections"); }
             set { BackingStore?.Set("androidManagedAppProtections", value); }
         }
+#nullable restore
 #else
         public List<AndroidManagedAppProtection> AndroidManagedAppProtections {
             get { return BackingStore?.Get<List<AndroidManagedAppProtection>>("androidManagedAppProtections"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Default managed app policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DefaultManagedAppProtection>? DefaultManagedAppProtections {
             get { return BackingStore?.Get<List<DefaultManagedAppProtection>?>("defaultManagedAppProtections"); }
             set { BackingStore?.Set("defaultManagedAppProtections", value); }
         }
+#nullable restore
 #else
         public List<DefaultManagedAppProtection> DefaultManagedAppProtections {
             get { return BackingStore?.Get<List<DefaultManagedAppProtection>>("defaultManagedAppProtections"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>iOS managed app policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<IosManagedAppProtection>? IosManagedAppProtections {
             get { return BackingStore?.Get<List<IosManagedAppProtection>?>("iosManagedAppProtections"); }
             set { BackingStore?.Set("iosManagedAppProtections", value); }
         }
+#nullable restore
 #else
         public List<IosManagedAppProtection> IosManagedAppProtections {
             get { return BackingStore?.Get<List<IosManagedAppProtection>>("iosManagedAppProtections"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Managed app policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedAppPolicy>? ManagedAppPolicies {
             get { return BackingStore?.Get<List<ManagedAppPolicy>?>("managedAppPolicies"); }
             set { BackingStore?.Set("managedAppPolicies", value); }
         }
+#nullable restore
 #else
         public List<ManagedAppPolicy> ManagedAppPolicies {
             get { return BackingStore?.Get<List<ManagedAppPolicy>>("managedAppPolicies"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The managed app registrations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedAppRegistration>? ManagedAppRegistrations {
             get { return BackingStore?.Get<List<ManagedAppRegistration>?>("managedAppRegistrations"); }
             set { BackingStore?.Set("managedAppRegistrations", value); }
         }
+#nullable restore
 #else
         public List<ManagedAppRegistration> ManagedAppRegistrations {
             get { return BackingStore?.Get<List<ManagedAppRegistration>>("managedAppRegistrations"); }
@@ -72,10 +82,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The managed app statuses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedAppStatus>? ManagedAppStatuses {
             get { return BackingStore?.Get<List<ManagedAppStatus>?>("managedAppStatuses"); }
             set { BackingStore?.Set("managedAppStatuses", value); }
         }
+#nullable restore
 #else
         public List<ManagedAppStatus> ManagedAppStatuses {
             get { return BackingStore?.Get<List<ManagedAppStatus>>("managedAppStatuses"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Managed eBook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedEBook>? ManagedEBooks {
             get { return BackingStore?.Get<List<ManagedEBook>?>("managedEBooks"); }
             set { BackingStore?.Set("managedEBooks", value); }
         }
+#nullable restore
 #else
         public List<ManagedEBook> ManagedEBooks {
             get { return BackingStore?.Get<List<ManagedEBook>>("managedEBooks"); }
@@ -96,10 +110,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Windows information protection for apps running on devices which are MDM enrolled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MdmWindowsInformationProtectionPolicy>? MdmWindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<MdmWindowsInformationProtectionPolicy>?>("mdmWindowsInformationProtectionPolicies"); }
             set { BackingStore?.Set("mdmWindowsInformationProtectionPolicies", value); }
         }
+#nullable restore
 #else
         public List<MdmWindowsInformationProtectionPolicy> MdmWindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<MdmWindowsInformationProtectionPolicy>>("mdmWindowsInformationProtectionPolicies"); }
@@ -108,10 +124,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -&lt;country/regioncode2&gt;, where  is a lowercase two-letter code derived from ISO 639-1 and &lt;country/regioncode2&gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MicrosoftStoreForBusinessLanguage {
             get { return BackingStore?.Get<string?>("microsoftStoreForBusinessLanguage"); }
             set { BackingStore?.Set("microsoftStoreForBusinessLanguage", value); }
         }
+#nullable restore
 #else
         public string MicrosoftStoreForBusinessLanguage {
             get { return BackingStore?.Get<string>("microsoftStoreForBusinessLanguage"); }
@@ -130,10 +148,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The mobile app categories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MobileAppCategory>? MobileAppCategories {
             get { return BackingStore?.Get<List<MobileAppCategory>?>("mobileAppCategories"); }
             set { BackingStore?.Set("mobileAppCategories", value); }
         }
+#nullable restore
 #else
         public List<MobileAppCategory> MobileAppCategories {
             get { return BackingStore?.Get<List<MobileAppCategory>>("mobileAppCategories"); }
@@ -142,10 +162,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The Managed Device Mobile Application Configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ManagedDeviceMobileAppConfiguration>? MobileAppConfigurations {
             get { return BackingStore?.Get<List<ManagedDeviceMobileAppConfiguration>?>("mobileAppConfigurations"); }
             set { BackingStore?.Set("mobileAppConfigurations", value); }
         }
+#nullable restore
 #else
         public List<ManagedDeviceMobileAppConfiguration> MobileAppConfigurations {
             get { return BackingStore?.Get<List<ManagedDeviceMobileAppConfiguration>>("mobileAppConfigurations"); }
@@ -154,10 +176,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The mobile apps.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MobileApp>? MobileApps {
             get { return BackingStore?.Get<List<MobileApp>?>("mobileApps"); }
             set { BackingStore?.Set("mobileApps", value); }
         }
+#nullable restore
 #else
         public List<MobileApp> MobileApps {
             get { return BackingStore?.Get<List<MobileApp>>("mobileApps"); }
@@ -166,10 +190,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Targeted managed app configurations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<TargetedManagedAppConfiguration>? TargetedManagedAppConfigurations {
             get { return BackingStore?.Get<List<TargetedManagedAppConfiguration>?>("targetedManagedAppConfigurations"); }
             set { BackingStore?.Set("targetedManagedAppConfigurations", value); }
         }
+#nullable restore
 #else
         public List<TargetedManagedAppConfiguration> TargetedManagedAppConfigurations {
             get { return BackingStore?.Get<List<TargetedManagedAppConfiguration>>("targetedManagedAppConfigurations"); }
@@ -178,10 +204,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of Vpp tokens for this organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<VppToken>? VppTokens {
             get { return BackingStore?.Get<List<VppToken>?>("vppTokens"); }
             set { BackingStore?.Set("vppTokens", value); }
         }
+#nullable restore
 #else
         public List<VppToken> VppTokens {
             get { return BackingStore?.Get<List<VppToken>>("vppTokens"); }
@@ -190,10 +218,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Windows information protection for apps running on devices which are not MDM enrolled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<WindowsInformationProtectionPolicy>? WindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<WindowsInformationProtectionPolicy>?>("windowsInformationProtectionPolicies"); }
             set { BackingStore?.Set("windowsInformationProtectionPolicies", value); }
         }
+#nullable restore
 #else
         public List<WindowsInformationProtectionPolicy> WindowsInformationProtectionPolicies {
             get { return BackingStore?.Get<List<WindowsInformationProtectionPolicy>>("windowsInformationProtectionPolicies"); }

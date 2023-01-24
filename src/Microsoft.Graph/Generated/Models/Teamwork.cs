@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Teamwork : Entity, IParsable {
         /// <summary>The workforceIntegrations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<WorkforceIntegration>? WorkforceIntegrations {
             get { return BackingStore?.Get<List<WorkforceIntegration>?>("workforceIntegrations"); }
             set { BackingStore?.Set("workforceIntegrations", value); }
         }
+#nullable restore
 #else
         public List<WorkforceIntegration> WorkforceIntegrations {
             get { return BackingStore?.Get<List<WorkforceIntegration>>("workforceIntegrations"); }

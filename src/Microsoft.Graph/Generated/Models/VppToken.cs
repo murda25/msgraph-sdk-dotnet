@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class VppToken : Entity, IParsable {
         /// <summary>The apple Id associated with the given Apple Volume Purchase Program Token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppleId {
             get { return BackingStore?.Get<string?>("appleId"); }
             set { BackingStore?.Set("appleId", value); }
         }
+#nullable restore
 #else
         public string AppleId {
             get { return BackingStore?.Get<string>("appleId"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Whether or not apps for the VPP token will be automatically updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CountryOrRegion {
             get { return BackingStore?.Get<string?>("countryOrRegion"); }
             set { BackingStore?.Set("countryOrRegion", value); }
         }
+#nullable restore
 #else
         public string CountryOrRegion {
             get { return BackingStore?.Get<string>("countryOrRegion"); }
@@ -59,10 +63,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The organization associated with the Apple Volume Purchase Program Token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OrganizationName {
             get { return BackingStore?.Get<string?>("organizationName"); }
             set { BackingStore?.Set("organizationName", value); }
         }
+#nullable restore
 #else
         public string OrganizationName {
             get { return BackingStore?.Get<string>("organizationName"); }
@@ -76,10 +82,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Token {
             get { return BackingStore?.Get<string?>("token"); }
             set { BackingStore?.Set("token", value); }
         }
+#nullable restore
 #else
         public string Token {
             get { return BackingStore?.Get<string>("token"); }

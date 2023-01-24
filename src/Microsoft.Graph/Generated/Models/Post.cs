@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Post : OutlookItem, IParsable {
         /// <summary>Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Attachment>? Attachments {
             get { return BackingStore?.Get<List<Attachment>?>("attachments"); }
             set { BackingStore?.Set("attachments", value); }
         }
+#nullable restore
 #else
         public List<Attachment> Attachments {
             get { return BackingStore?.Get<List<Attachment>>("attachments"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The contents of the post. This is a default property. This property can be null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ItemBody? Body {
             get { return BackingStore?.Get<ItemBody?>("body"); }
             set { BackingStore?.Set("body", value); }
         }
+#nullable restore
 #else
         public ItemBody Body {
             get { return BackingStore?.Get<ItemBody>("body"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Unique ID of the conversation. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ConversationId {
             get { return BackingStore?.Get<string?>("conversationId"); }
             set { BackingStore?.Set("conversationId", value); }
         }
+#nullable restore
 #else
         public string ConversationId {
             get { return BackingStore?.Get<string>("conversationId"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Unique ID of the conversation thread. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ConversationThreadId {
             get { return BackingStore?.Get<string?>("conversationThreadId"); }
             set { BackingStore?.Set("conversationThreadId", value); }
         }
+#nullable restore
 #else
         public string ConversationThreadId {
             get { return BackingStore?.Get<string>("conversationThreadId"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Extension>? Extensions {
             get { return BackingStore?.Get<List<Extension>?>("extensions"); }
             set { BackingStore?.Set("extensions", value); }
         }
+#nullable restore
 #else
         public List<Extension> Extensions {
             get { return BackingStore?.Get<List<Extension>>("extensions"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Recipient? From {
             get { return BackingStore?.Get<Recipient?>("from"); }
             set { BackingStore?.Set("from", value); }
         }
+#nullable restore
 #else
         public Recipient From {
             get { return BackingStore?.Get<Recipient>("from"); }
@@ -84,10 +96,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Post? InReplyTo {
             get { return BackingStore?.Get<Post?>("inReplyTo"); }
             set { BackingStore?.Set("inReplyTo", value); }
         }
+#nullable restore
 #else
         public Post InReplyTo {
             get { return BackingStore?.Get<Post>("inReplyTo"); }
@@ -96,10 +110,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of multi-value extended properties defined for the post. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties {
             get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>?>("multiValueExtendedProperties"); }
             set { BackingStore?.Set("multiValueExtendedProperties", value); }
         }
+#nullable restore
 #else
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties {
             get { return BackingStore?.Get<List<MultiValueLegacyExtendedProperty>>("multiValueExtendedProperties"); }
@@ -108,10 +124,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Conversation participants that were added to the thread as part of this post.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Recipient>? NewParticipants {
             get { return BackingStore?.Get<List<Recipient>?>("newParticipants"); }
             set { BackingStore?.Set("newParticipants", value); }
         }
+#nullable restore
 #else
         public List<Recipient> NewParticipants {
             get { return BackingStore?.Get<List<Recipient>>("newParticipants"); }
@@ -125,10 +143,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Recipient? Sender {
             get { return BackingStore?.Get<Recipient?>("sender"); }
             set { BackingStore?.Set("sender", value); }
         }
+#nullable restore
 #else
         public Recipient Sender {
             get { return BackingStore?.Get<Recipient>("sender"); }
@@ -137,10 +157,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of single-value extended properties defined for the post. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>?>("singleValueExtendedProperties"); }
             set { BackingStore?.Set("singleValueExtendedProperties", value); }
         }
+#nullable restore
 #else
         public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties {
             get { return BackingStore?.Get<List<SingleValueLegacyExtendedProperty>>("singleValueExtendedProperties"); }

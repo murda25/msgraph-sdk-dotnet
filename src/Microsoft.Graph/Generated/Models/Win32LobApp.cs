@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The command line to install this app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? InstallCommandLine {
             get { return BackingStore?.Get<string?>("installCommandLine"); }
             set { BackingStore?.Set("installCommandLine", value); }
         }
+#nullable restore
 #else
         public string InstallCommandLine {
             get { return BackingStore?.Get<string>("installCommandLine"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The install experience for this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Win32LobAppInstallExperience? InstallExperience {
             get { return BackingStore?.Get<Win32LobAppInstallExperience?>("installExperience"); }
             set { BackingStore?.Set("installExperience", value); }
         }
+#nullable restore
 #else
         public Win32LobAppInstallExperience InstallExperience {
             get { return BackingStore?.Get<Win32LobAppInstallExperience>("installExperience"); }
@@ -56,10 +60,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The value for the minimum supported windows release.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? MinimumSupportedWindowsRelease {
             get { return BackingStore?.Get<string?>("minimumSupportedWindowsRelease"); }
             set { BackingStore?.Set("minimumSupportedWindowsRelease", value); }
         }
+#nullable restore
 #else
         public string MinimumSupportedWindowsRelease {
             get { return BackingStore?.Get<string>("minimumSupportedWindowsRelease"); }
@@ -68,10 +74,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The MSI details if this Win32 app is an MSI app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Win32LobAppMsiInformation? MsiInformation {
             get { return BackingStore?.Get<Win32LobAppMsiInformation?>("msiInformation"); }
             set { BackingStore?.Set("msiInformation", value); }
         }
+#nullable restore
 #else
         public Win32LobAppMsiInformation MsiInformation {
             get { return BackingStore?.Get<Win32LobAppMsiInformation>("msiInformation"); }
@@ -80,10 +88,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The return codes for post installation behavior.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Win32LobAppReturnCode>? ReturnCodes {
             get { return BackingStore?.Get<List<Win32LobAppReturnCode>?>("returnCodes"); }
             set { BackingStore?.Set("returnCodes", value); }
         }
+#nullable restore
 #else
         public List<Win32LobAppReturnCode> ReturnCodes {
             get { return BackingStore?.Get<List<Win32LobAppReturnCode>>("returnCodes"); }
@@ -92,10 +102,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The detection and requirement rules for this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Win32LobAppRule>? Rules {
             get { return BackingStore?.Get<List<Win32LobAppRule>?>("rules"); }
             set { BackingStore?.Set("rules", value); }
         }
+#nullable restore
 #else
         public List<Win32LobAppRule> Rules {
             get { return BackingStore?.Get<List<Win32LobAppRule>>("rules"); }
@@ -104,10 +116,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The relative path of the setup file in the encrypted Win32LobApp package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SetupFilePath {
             get { return BackingStore?.Get<string?>("setupFilePath"); }
             set { BackingStore?.Set("setupFilePath", value); }
         }
+#nullable restore
 #else
         public string SetupFilePath {
             get { return BackingStore?.Get<string>("setupFilePath"); }
@@ -116,10 +130,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The command line to uninstall this app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UninstallCommandLine {
             get { return BackingStore?.Get<string?>("uninstallCommandLine"); }
             set { BackingStore?.Set("uninstallCommandLine", value); }
         }
+#nullable restore
 #else
         public string UninstallCommandLine {
             get { return BackingStore?.Get<string>("uninstallCommandLine"); }

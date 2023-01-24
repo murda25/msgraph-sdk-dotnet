@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Service principal IDs excluded from the policy scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? ExcludeServicePrincipals {
             get { return BackingStore?.Get<List<string>?>("excludeServicePrincipals"); }
             set { BackingStore?.Set("excludeServicePrincipals", value); }
         }
+#nullable restore
 #else
         public List<string> ExcludeServicePrincipals {
             get { return BackingStore?.Get<List<string>>("excludeServicePrincipals"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? IncludeServicePrincipals {
             get { return BackingStore?.Get<List<string>?>("includeServicePrincipals"); }
             set { BackingStore?.Set("includeServicePrincipals", value); }
         }
+#nullable restore
 #else
         public List<string> IncludeServicePrincipals {
             get { return BackingStore?.Get<List<string>>("includeServicePrincipals"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

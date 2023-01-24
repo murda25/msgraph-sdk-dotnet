@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class UnifiedApprovalStageCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<UnifiedApprovalStage>? Value {
             get { return BackingStore?.Get<List<UnifiedApprovalStage>?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#nullable restore
 #else
         public List<UnifiedApprovalStage> Value {
             get { return BackingStore?.Get<List<UnifiedApprovalStage>>("value"); }

@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Groups.Item.Sites.Add {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.Site>? Value {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Site>?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.Site> Value {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Site>>("value"); }

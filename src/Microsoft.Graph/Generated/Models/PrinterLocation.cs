@@ -20,10 +20,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The building that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Building {
             get { return BackingStore?.Get<string?>("building"); }
             set { BackingStore?.Set("building", value); }
         }
+#nullable restore
 #else
         public string Building {
             get { return BackingStore?.Get<string>("building"); }
@@ -32,10 +34,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The city that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? City {
             get { return BackingStore?.Get<string?>("city"); }
             set { BackingStore?.Set("city", value); }
         }
+#nullable restore
 #else
         public string City {
             get { return BackingStore?.Get<string>("city"); }
@@ -44,10 +48,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The country or region that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CountryOrRegion {
             get { return BackingStore?.Get<string?>("countryOrRegion"); }
             set { BackingStore?.Set("countryOrRegion", value); }
         }
+#nullable restore
 #else
         public string CountryOrRegion {
             get { return BackingStore?.Get<string>("countryOrRegion"); }
@@ -56,10 +62,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The floor that the printer is located on. Only numerical values are supported right now.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Floor {
             get { return BackingStore?.Get<string?>("floor"); }
             set { BackingStore?.Set("floor", value); }
         }
+#nullable restore
 #else
         public string Floor {
             get { return BackingStore?.Get<string>("floor"); }
@@ -68,10 +76,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The description of the floor that the printer is located on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? FloorDescription {
             get { return BackingStore?.Get<string?>("floorDescription"); }
             set { BackingStore?.Set("floorDescription", value); }
         }
+#nullable restore
 #else
         public string FloorDescription {
             get { return BackingStore?.Get<string>("floorDescription"); }
@@ -90,10 +100,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -102,10 +114,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Organization {
             get { return BackingStore?.Get<List<string>?>("organization"); }
             set { BackingStore?.Set("organization", value); }
         }
+#nullable restore
 #else
         public List<string> Organization {
             get { return BackingStore?.Get<List<string>>("organization"); }
@@ -114,10 +128,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The postal code that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PostalCode {
             get { return BackingStore?.Get<string?>("postalCode"); }
             set { BackingStore?.Set("postalCode", value); }
         }
+#nullable restore
 #else
         public string PostalCode {
             get { return BackingStore?.Get<string>("postalCode"); }
@@ -126,10 +142,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The description of the room that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RoomDescription {
             get { return BackingStore?.Get<string?>("roomDescription"); }
             set { BackingStore?.Set("roomDescription", value); }
         }
+#nullable restore
 #else
         public string RoomDescription {
             get { return BackingStore?.Get<string>("roomDescription"); }
@@ -138,10 +156,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The room that the printer is located in. Only numerical values are supported right now.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RoomName {
             get { return BackingStore?.Get<string?>("roomName"); }
             set { BackingStore?.Set("roomName", value); }
         }
+#nullable restore
 #else
         public string RoomName {
             get { return BackingStore?.Get<string>("roomName"); }
@@ -150,10 +170,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The site that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Site {
             get { return BackingStore?.Get<string?>("site"); }
             set { BackingStore?.Set("site", value); }
         }
+#nullable restore
 #else
         public string Site {
             get { return BackingStore?.Get<string>("site"); }
@@ -162,10 +184,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The state or province that the printer is located in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? StateOrProvince {
             get { return BackingStore?.Get<string?>("stateOrProvince"); }
             set { BackingStore?.Set("stateOrProvince", value); }
         }
+#nullable restore
 #else
         public string StateOrProvince {
             get { return BackingStore?.Get<string>("stateOrProvince"); }
@@ -174,10 +198,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The street address where the printer is located.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? StreetAddress {
             get { return BackingStore?.Get<string?>("streetAddress"); }
             set { BackingStore?.Set("streetAddress", value); }
         }
+#nullable restore
 #else
         public string StreetAddress {
             get { return BackingStore?.Get<string>("streetAddress"); }
@@ -186,10 +212,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The subdivision that the printer is located in. The elements should be in hierarchical order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Subdivision {
             get { return BackingStore?.Get<List<string>?>("subdivision"); }
             set { BackingStore?.Set("subdivision", value); }
         }
+#nullable restore
 #else
         public List<string> Subdivision {
             get { return BackingStore?.Get<List<string>>("subdivision"); }
@@ -198,10 +226,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The subunit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Subunit {
             get { return BackingStore?.Get<List<string>?>("subunit"); }
             set { BackingStore?.Set("subunit", value); }
         }
+#nullable restore
 #else
         public List<string> Subunit {
             get { return BackingStore?.Get<List<string>>("subunit"); }

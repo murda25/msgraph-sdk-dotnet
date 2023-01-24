@@ -16,10 +16,12 @@ namespace Microsoft.Graph.Communications.Calls.Item.PlayPrompt {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The clientContext property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ClientContext {
             get { return BackingStore?.Get<string?>("clientContext"); }
             set { BackingStore?.Set("clientContext", value); }
         }
+#nullable restore
 #else
         public string ClientContext {
             get { return BackingStore?.Get<string>("clientContext"); }
@@ -28,10 +30,12 @@ namespace Microsoft.Graph.Communications.Calls.Item.PlayPrompt {
 #endif
         /// <summary>The prompts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Prompt>? Prompts {
             get { return BackingStore?.Get<List<Prompt>?>("prompts"); }
             set { BackingStore?.Set("prompts", value); }
         }
+#nullable restore
 #else
         public List<Prompt> Prompts {
             get { return BackingStore?.Get<List<Prompt>>("prompts"); }

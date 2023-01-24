@@ -13,10 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AppIdentity? App {
             get { return BackingStore?.Get<AppIdentity?>("app"); }
             set { BackingStore?.Set("app", value); }
         }
+#nullable restore
 #else
         public AppIdentity App {
             get { return BackingStore?.Get<AppIdentity>("app"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UserIdentity? User {
             get { return BackingStore?.Get<UserIdentity?>("user"); }
             set { BackingStore?.Set("user", value); }
         }
+#nullable restore
 #else
         public UserIdentity User {
             get { return BackingStore?.Get<UserIdentity>("user"); }

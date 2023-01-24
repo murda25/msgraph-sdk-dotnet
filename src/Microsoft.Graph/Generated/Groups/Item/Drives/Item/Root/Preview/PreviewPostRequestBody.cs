@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Groups.Item.Drives.Item.Root.Preview {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Page {
             get { return BackingStore?.Get<string?>("page"); }
             set { BackingStore?.Set("page", value); }
         }
+#nullable restore
 #else
         public string Page {
             get { return BackingStore?.Get<string>("page"); }

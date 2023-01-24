@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
     public class ExternalConnection : Entity, IParsable {
         /// <summary>Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ExternalConnectors.Configuration? Configuration {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Configuration?>("configuration"); }
             set { BackingStore?.Set("configuration", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ExternalConnectors.Configuration Configuration {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Configuration>("configuration"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>Description of the connection displayed in the Microsoft 365 admin center. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>The groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ExternalGroup>? Groups {
             get { return BackingStore?.Get<List<ExternalGroup>?>("groups"); }
             set { BackingStore?.Set("groups", value); }
         }
+#nullable restore
 #else
         public List<ExternalGroup> Groups {
             get { return BackingStore?.Get<List<ExternalGroup>>("groups"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ExternalItem>? Items {
             get { return BackingStore?.Get<List<ExternalItem>?>("items"); }
             set { BackingStore?.Set("items", value); }
         }
+#nullable restore
 #else
         public List<ExternalItem> Items {
             get { return BackingStore?.Get<List<ExternalItem>>("items"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Name {
             get { return BackingStore?.Get<string?>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+#nullable restore
 #else
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>The operations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ConnectionOperation>? Operations {
             get { return BackingStore?.Get<List<ConnectionOperation>?>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
+#nullable restore
 #else
         public List<ConnectionOperation> Operations {
             get { return BackingStore?.Get<List<ConnectionOperation>>("operations"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
 #endif
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ExternalConnectors.Schema? Schema {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema?>("schema"); }
             set { BackingStore?.Set("schema", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ExternalConnectors.Schema Schema {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ExternalConnectors.Schema>("schema"); }

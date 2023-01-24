@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class EducationAssignmentIndividualRecipient : EducationAssignmentRecipient, IParsable {
         /// <summary>A collection of IDs of the recipients.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Recipients {
             get { return BackingStore?.Get<List<string>?>("recipients"); }
             set { BackingStore?.Set("recipients", value); }
         }
+#nullable restore
 #else
         public List<string> Recipients {
             get { return BackingStore?.Get<List<string>>("recipients"); }

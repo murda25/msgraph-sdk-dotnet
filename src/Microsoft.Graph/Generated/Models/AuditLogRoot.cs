@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AuditLogRoot : Entity, IParsable {
         /// <summary>The directoryAudits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryAudit>? DirectoryAudits {
             get { return BackingStore?.Get<List<DirectoryAudit>?>("directoryAudits"); }
             set { BackingStore?.Set("directoryAudits", value); }
         }
+#nullable restore
 #else
         public List<DirectoryAudit> DirectoryAudits {
             get { return BackingStore?.Get<List<DirectoryAudit>>("directoryAudits"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The provisioning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ProvisioningObjectSummary>? Provisioning {
             get { return BackingStore?.Get<List<ProvisioningObjectSummary>?>("provisioning"); }
             set { BackingStore?.Set("provisioning", value); }
         }
+#nullable restore
 #else
         public List<ProvisioningObjectSummary> Provisioning {
             get { return BackingStore?.Get<List<ProvisioningObjectSummary>>("provisioning"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The signIns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SignIn>? SignIns {
             get { return BackingStore?.Get<List<SignIn>?>("signIns"); }
             set { BackingStore?.Set("signIns", value); }
         }
+#nullable restore
 #else
         public List<SignIn> SignIns {
             get { return BackingStore?.Get<List<SignIn>>("signIns"); }

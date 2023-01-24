@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessReviewSet : Entity, IParsable {
         /// <summary>Represents the template and scheduling for an access review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessReviewScheduleDefinition>? Definitions {
             get { return BackingStore?.Get<List<AccessReviewScheduleDefinition>?>("definitions"); }
             set { BackingStore?.Set("definitions", value); }
         }
+#nullable restore
 #else
         public List<AccessReviewScheduleDefinition> Definitions {
             get { return BackingStore?.Get<List<AccessReviewScheduleDefinition>>("definitions"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Represents a collection of access review history data and the scopes used to collect that data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AccessReviewHistoryDefinition>? HistoryDefinitions {
             get { return BackingStore?.Get<List<AccessReviewHistoryDefinition>?>("historyDefinitions"); }
             set { BackingStore?.Set("historyDefinitions", value); }
         }
+#nullable restore
 #else
         public List<AccessReviewHistoryDefinition> HistoryDefinitions {
             get { return BackingStore?.Get<List<AccessReviewHistoryDefinition>>("historyDefinitions"); }

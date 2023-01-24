@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class ItemActivity : Entity, IParsable {
         /// <summary>An item was accessed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessAction? Access {
             get { return BackingStore?.Get<AccessAction?>("access"); }
             set { BackingStore?.Set("access", value); }
         }
+#nullable restore
 #else
         public AccessAction Access {
             get { return BackingStore?.Get<AccessAction>("access"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Identity of who performed the action. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? Actor {
             get { return BackingStore?.Get<IdentitySet?>("actor"); }
             set { BackingStore?.Set("actor", value); }
         }
+#nullable restore
 #else
         public IdentitySet Actor {
             get { return BackingStore?.Get<IdentitySet>("actor"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Exposes the driveItem that was the target of this activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DriveItem? DriveItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DriveItem?>("driveItem"); }
             set { BackingStore?.Set("driveItem", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DriveItem DriveItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DriveItem>("driveItem"); }

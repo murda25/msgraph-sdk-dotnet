@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class MobileApp : Entity, IParsable {
         /// <summary>The list of group assignments for this mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MobileAppAssignment>? Assignments {
             get { return BackingStore?.Get<List<MobileAppAssignment>?>("assignments"); }
             set { BackingStore?.Set("assignments", value); }
         }
+#nullable restore
 #else
         public List<MobileAppAssignment> Assignments {
             get { return BackingStore?.Get<List<MobileAppAssignment>>("assignments"); }
@@ -22,10 +24,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of categories for this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<MobileAppCategory>? Categories {
             get { return BackingStore?.Get<List<MobileAppCategory>?>("categories"); }
             set { BackingStore?.Set("categories", value); }
         }
+#nullable restore
 #else
         public List<MobileAppCategory> Categories {
             get { return BackingStore?.Get<List<MobileAppCategory>>("categories"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The description of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The developer of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Developer {
             get { return BackingStore?.Get<string?>("developer"); }
             set { BackingStore?.Set("developer", value); }
         }
+#nullable restore
 #else
         public string Developer {
             get { return BackingStore?.Get<string>("developer"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The admin provided or imported title of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -75,10 +85,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The more information Url.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? InformationUrl {
             get { return BackingStore?.Get<string?>("informationUrl"); }
             set { BackingStore?.Set("informationUrl", value); }
         }
+#nullable restore
 #else
         public string InformationUrl {
             get { return BackingStore?.Get<string>("informationUrl"); }
@@ -92,10 +104,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The large icon, to be displayed in the app details and used for upload of the icon.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public MimeContent? LargeIcon {
             get { return BackingStore?.Get<MimeContent?>("largeIcon"); }
             set { BackingStore?.Set("largeIcon", value); }
         }
+#nullable restore
 #else
         public MimeContent LargeIcon {
             get { return BackingStore?.Get<MimeContent>("largeIcon"); }
@@ -109,10 +123,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Notes for the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Notes {
             get { return BackingStore?.Get<string?>("notes"); }
             set { BackingStore?.Set("notes", value); }
         }
+#nullable restore
 #else
         public string Notes {
             get { return BackingStore?.Get<string>("notes"); }
@@ -121,10 +137,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The owner of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Owner {
             get { return BackingStore?.Get<string?>("owner"); }
             set { BackingStore?.Set("owner", value); }
         }
+#nullable restore
 #else
         public string Owner {
             get { return BackingStore?.Get<string>("owner"); }
@@ -133,10 +151,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The privacy statement Url.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrivacyInformationUrl {
             get { return BackingStore?.Get<string?>("privacyInformationUrl"); }
             set { BackingStore?.Set("privacyInformationUrl", value); }
         }
+#nullable restore
 #else
         public string PrivacyInformationUrl {
             get { return BackingStore?.Get<string>("privacyInformationUrl"); }
@@ -145,10 +165,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The publisher of the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Publisher {
             get { return BackingStore?.Get<string?>("publisher"); }
             set { BackingStore?.Set("publisher", value); }
         }
+#nullable restore
 #else
         public string Publisher {
             get { return BackingStore?.Get<string>("publisher"); }

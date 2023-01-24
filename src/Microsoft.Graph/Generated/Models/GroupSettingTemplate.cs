@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class GroupSettingTemplate : DirectoryObject, IParsable {
         /// <summary>Description of the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SettingTemplateValue>? Values {
             get { return BackingStore?.Get<List<SettingTemplateValue>?>("values"); }
             set { BackingStore?.Set("values", value); }
         }
+#nullable restore
 #else
         public List<SettingTemplateValue> Values {
             get { return BackingStore?.Get<List<SettingTemplateValue>>("values"); }

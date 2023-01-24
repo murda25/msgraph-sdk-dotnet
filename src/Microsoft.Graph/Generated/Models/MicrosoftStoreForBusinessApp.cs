@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The app package identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PackageIdentityName {
             get { return BackingStore?.Get<string?>("packageIdentityName"); }
             set { BackingStore?.Set("packageIdentityName", value); }
         }
+#nullable restore
 #else
         public string PackageIdentityName {
             get { return BackingStore?.Get<string>("packageIdentityName"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The app product key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProductKey {
             get { return BackingStore?.Get<string?>("productKey"); }
             set { BackingStore?.Set("productKey", value); }
         }
+#nullable restore
 #else
         public string ProductKey {
             get { return BackingStore?.Get<string>("productKey"); }

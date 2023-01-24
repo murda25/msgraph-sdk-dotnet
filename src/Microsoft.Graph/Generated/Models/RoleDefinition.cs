@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class RoleDefinition : Entity, IParsable {
         /// <summary>Description of the Role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Display Name of the Role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>List of Role assignments for this role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<RoleAssignment>? RoleAssignments {
             get { return BackingStore?.Get<List<RoleAssignment>?>("roleAssignments"); }
             set { BackingStore?.Set("roleAssignments", value); }
         }
+#nullable restore
 #else
         public List<RoleAssignment> RoleAssignments {
             get { return BackingStore?.Get<List<RoleAssignment>>("roleAssignments"); }
@@ -48,10 +54,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<RolePermission>? RolePermissions {
             get { return BackingStore?.Get<List<RolePermission>?>("rolePermissions"); }
             set { BackingStore?.Set("rolePermissions", value); }
         }
+#nullable restore
 #else
         public List<RolePermission> RolePermissions {
             get { return BackingStore?.Get<List<RolePermission>>("rolePermissions"); }

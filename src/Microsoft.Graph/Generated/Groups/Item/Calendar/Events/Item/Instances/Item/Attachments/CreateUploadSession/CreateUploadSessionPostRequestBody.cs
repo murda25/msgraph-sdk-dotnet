@@ -14,10 +14,12 @@ namespace Microsoft.Graph.Groups.Item.Calendar.Events.Item.Instances.Item.Attach
         }
         /// <summary>The AttachmentItem property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AttachmentItem? AttachmentItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentItem?>("attachmentItem"); }
             set { BackingStore?.Set("attachmentItem", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AttachmentItem AttachmentItem {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AttachmentItem>("attachmentItem"); }

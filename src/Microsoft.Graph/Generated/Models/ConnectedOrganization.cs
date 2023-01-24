@@ -12,10 +12,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The description of the connected organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the connected organization. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -36,22 +40,26 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The externalSponsors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? ExternalSponsors {
             get { return BackingStore?.Get<List<DirectoryObject>?>("externalSponsors"); }
             set { BackingStore?.Set("externalSponsors", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> ExternalSponsors {
             get { return BackingStore?.Get<List<DirectoryObject>>("externalSponsors"); }
             set { BackingStore?.Set("externalSponsors", value); }
         }
 #endif
-        /// <summary>The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.</summary>
+        /// <summary>The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<IdentitySource>? IdentitySources {
             get { return BackingStore?.Get<List<IdentitySource>?>("identitySources"); }
             set { BackingStore?.Set("identitySources", value); }
         }
+#nullable restore
 #else
         public List<IdentitySource> IdentitySources {
             get { return BackingStore?.Get<List<IdentitySource>>("identitySources"); }
@@ -60,10 +68,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The internalSponsors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DirectoryObject>? InternalSponsors {
             get { return BackingStore?.Get<List<DirectoryObject>?>("internalSponsors"); }
             set { BackingStore?.Set("internalSponsors", value); }
         }
+#nullable restore
 #else
         public List<DirectoryObject> InternalSponsors {
             get { return BackingStore?.Get<List<DirectoryObject>>("internalSponsors"); }

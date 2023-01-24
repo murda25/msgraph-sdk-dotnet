@@ -8,10 +8,12 @@ namespace Microsoft.Graph.Models {
     public class Site : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place in this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ItemAnalytics? Analytics {
             get { return BackingStore?.Get<ItemAnalytics?>("analytics"); }
             set { BackingStore?.Set("analytics", value); }
         }
+#nullable restore
 #else
         public ItemAnalytics Analytics {
             get { return BackingStore?.Get<ItemAnalytics>("analytics"); }
@@ -20,10 +22,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of column definitions reusable across lists under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ColumnDefinition>? Columns {
             get { return BackingStore?.Get<List<ColumnDefinition>?>("columns"); }
             set { BackingStore?.Set("columns", value); }
         }
+#nullable restore
 #else
         public List<ColumnDefinition> Columns {
             get { return BackingStore?.Get<List<ColumnDefinition>>("columns"); }
@@ -32,10 +36,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of content types defined for this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ContentType>? ContentTypes {
             get { return BackingStore?.Get<List<ContentType>?>("contentTypes"); }
             set { BackingStore?.Set("contentTypes", value); }
         }
+#nullable restore
 #else
         public List<ContentType> ContentTypes {
             get { return BackingStore?.Get<List<ContentType>>("contentTypes"); }
@@ -44,10 +50,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The full title for the site. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -56,10 +64,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The default drive (document library) for this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Drive? Drive {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Drive?>("drive"); }
             set { BackingStore?.Set("drive", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Drive Drive {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Drive>("drive"); }
@@ -68,10 +78,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of drives (document libraries) under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Microsoft.Graph.Models.Drive>? Drives {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Drive>?>("drives"); }
             set { BackingStore?.Set("drives", value); }
         }
+#nullable restore
 #else
         public List<Microsoft.Graph.Models.Drive> Drives {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.Drive>>("drives"); }
@@ -80,10 +92,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PublicError? Error {
             get { return BackingStore?.Get<PublicError?>("error"); }
             set { BackingStore?.Set("error", value); }
         }
+#nullable restore
 #else
         public PublicError Error {
             get { return BackingStore?.Get<PublicError>("error"); }
@@ -92,10 +106,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The externalColumns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<ColumnDefinition>? ExternalColumns {
             get { return BackingStore?.Get<List<ColumnDefinition>?>("externalColumns"); }
             set { BackingStore?.Set("externalColumns", value); }
         }
+#nullable restore
 #else
         public List<ColumnDefinition> ExternalColumns {
             get { return BackingStore?.Get<List<ColumnDefinition>>("externalColumns"); }
@@ -104,10 +120,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<BaseItem>? Items {
             get { return BackingStore?.Get<List<BaseItem>?>("items"); }
             set { BackingStore?.Set("items", value); }
         }
+#nullable restore
 #else
         public List<BaseItem> Items {
             get { return BackingStore?.Get<List<BaseItem>>("items"); }
@@ -116,10 +134,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of lists under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<List>? Lists {
             get { return BackingStore?.Get<List<List>?>("lists"); }
             set { BackingStore?.Set("lists", value); }
         }
+#nullable restore
 #else
         public List<List> Lists {
             get { return BackingStore?.Get<List<List>>("lists"); }
@@ -128,10 +148,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Calls the OneNote service for notebook related operations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Onenote? Onenote {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote?>("onenote"); }
             set { BackingStore?.Set("onenote", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Onenote Onenote {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Onenote>("onenote"); }
@@ -140,10 +162,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of long-running operations on the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<RichLongRunningOperation>? Operations {
             get { return BackingStore?.Get<List<RichLongRunningOperation>?>("operations"); }
             set { BackingStore?.Set("operations", value); }
         }
+#nullable restore
 #else
         public List<RichLongRunningOperation> Operations {
             get { return BackingStore?.Get<List<RichLongRunningOperation>>("operations"); }
@@ -152,10 +176,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The permissions associated with the site. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Permission>? Permissions {
             get { return BackingStore?.Get<List<Permission>?>("permissions"); }
             set { BackingStore?.Set("permissions", value); }
         }
+#nullable restore
 #else
         public List<Permission> Permissions {
             get { return BackingStore?.Get<List<Permission>>("permissions"); }
@@ -164,10 +190,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Root? Root {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Root?>("root"); }
             set { BackingStore?.Set("root", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Root Root {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Root>("root"); }
@@ -176,10 +204,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SharepointIds? SharepointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds?>("sharepointIds"); }
             set { BackingStore?.Set("sharepointIds", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SharepointIds SharepointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds>("sharepointIds"); }
@@ -188,10 +218,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Provides details about the site&apos;s site collection. Available only on the root site. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SiteCollection? SiteCollection {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SiteCollection?>("siteCollection"); }
             set { BackingStore?.Set("siteCollection", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SiteCollection SiteCollection {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SiteCollection>("siteCollection"); }
@@ -200,10 +232,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of the sub-sites under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Site>? Sites {
             get { return BackingStore?.Get<List<Site>?>("sites"); }
             set { BackingStore?.Set("sites", value); }
         }
+#nullable restore
 #else
         public List<Site> Sites {
             get { return BackingStore?.Get<List<Site>>("sites"); }
@@ -212,10 +246,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The default termStore under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Store? TermStore {
             get { return BackingStore?.Get<Store?>("termStore"); }
             set { BackingStore?.Set("termStore", value); }
         }
+#nullable restore
 #else
         public Store TermStore {
             get { return BackingStore?.Get<Store>("termStore"); }
@@ -224,10 +260,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The collection of termStores under this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<Store>? TermStores {
             get { return BackingStore?.Get<List<Store>?>("termStores"); }
             set { BackingStore?.Set("termStores", value); }
         }
+#nullable restore
 #else
         public List<Store> TermStores {
             get { return BackingStore?.Get<List<Store>>("termStores"); }

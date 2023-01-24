@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceManagementPartner : Entity, IParsable {
         /// <summary>Partner display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -42,10 +44,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Partner Single tenant App id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SingleTenantAppId {
             get { return BackingStore?.Get<string?>("singleTenantAppId"); }
             set { BackingStore?.Set("singleTenantAppId", value); }
         }
+#nullable restore
 #else
         public string SingleTenantAppId {
             get { return BackingStore?.Get<string>("singleTenantAppId"); }

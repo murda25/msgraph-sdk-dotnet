@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PlannerProgressTaskBoardTaskFormat : Entity, IParsable {
         /// <summary>Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OrderHint {
             get { return BackingStore?.Get<string?>("orderHint"); }
             set { BackingStore?.Set("orderHint", value); }
         }
+#nullable restore
 #else
         public string OrderHint {
             get { return BackingStore?.Get<string>("orderHint"); }

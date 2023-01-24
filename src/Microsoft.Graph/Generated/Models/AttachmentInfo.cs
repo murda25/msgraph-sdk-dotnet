@@ -20,10 +20,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The contentType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ContentType {
             get { return BackingStore?.Get<string?>("contentType"); }
             set { BackingStore?.Set("contentType", value); }
         }
+#nullable restore
 #else
         public string ContentType {
             get { return BackingStore?.Get<string>("contentType"); }
@@ -32,10 +34,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Name {
             get { return BackingStore?.Get<string?>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+#nullable restore
 #else
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
@@ -44,10 +48,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

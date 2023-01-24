@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentPolicy : Entity, IParsable {
         /// <summary>Access package containing this policy. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AccessPackage? AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage?>("accessPackage"); }
             set { BackingStore?.Set("accessPackage", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AccessPackage AccessPackage {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AccessPackage>("accessPackage"); }
@@ -24,10 +26,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>This property is only present for an auto assignment policy; if absent, this is a request-based policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAutomaticRequestSettings? AutomaticRequestSettings {
             get { return BackingStore?.Get<AccessPackageAutomaticRequestSettings?>("automaticRequestSettings"); }
             set { BackingStore?.Set("automaticRequestSettings", value); }
         }
+#nullable restore
 #else
         public AccessPackageAutomaticRequestSettings AutomaticRequestSettings {
             get { return BackingStore?.Get<AccessPackageAutomaticRequestSettings>("automaticRequestSettings"); }
@@ -36,10 +40,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Catalog of the access package containing this policy. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageCatalog? Catalog {
             get { return BackingStore?.Get<AccessPackageCatalog?>("catalog"); }
             set { BackingStore?.Set("catalog", value); }
         }
+#nullable restore
 #else
         public AccessPackageCatalog Catalog {
             get { return BackingStore?.Get<AccessPackageCatalog>("catalog"); }
@@ -53,10 +59,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The description of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -65,10 +73,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The display name of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -77,10 +87,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The expiration date for assignments created in this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ExpirationPattern? Expiration {
             get { return BackingStore?.Get<ExpirationPattern?>("expiration"); }
             set { BackingStore?.Set("expiration", value); }
         }
+#nullable restore
 #else
         public ExpirationPattern Expiration {
             get { return BackingStore?.Get<ExpirationPattern>("expiration"); }
@@ -94,10 +106,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAssignmentApprovalSettings? RequestApprovalSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentApprovalSettings?>("requestApprovalSettings"); }
             set { BackingStore?.Set("requestApprovalSettings", value); }
         }
+#nullable restore
 #else
         public AccessPackageAssignmentApprovalSettings RequestApprovalSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings"); }
@@ -106,10 +120,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAssignmentRequestorSettings? RequestorSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentRequestorSettings?>("requestorSettings"); }
             set { BackingStore?.Set("requestorSettings", value); }
         }
+#nullable restore
 #else
         public AccessPackageAssignmentRequestorSettings RequestorSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentRequestorSettings>("requestorSettings"); }
@@ -118,10 +134,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Settings for access reviews of assignments through this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public AccessPackageAssignmentReviewSettings? ReviewSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentReviewSettings?>("reviewSettings"); }
             set { BackingStore?.Set("reviewSettings", value); }
         }
+#nullable restore
 #else
         public AccessPackageAssignmentReviewSettings ReviewSettings {
             get { return BackingStore?.Get<AccessPackageAssignmentReviewSettings>("reviewSettings"); }
@@ -130,10 +148,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The principals that can be assigned access from an access package through this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SubjectSet>? SpecificAllowedTargets {
             get { return BackingStore?.Get<List<SubjectSet>?>("specificAllowedTargets"); }
             set { BackingStore?.Set("specificAllowedTargets", value); }
         }
+#nullable restore
 #else
         public List<SubjectSet> SpecificAllowedTargets {
             get { return BackingStore?.Get<List<SubjectSet>>("specificAllowedTargets"); }

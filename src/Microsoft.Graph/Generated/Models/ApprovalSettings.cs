@@ -13,10 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ApprovalMode {
             get { return BackingStore?.Get<string?>("approvalMode"); }
             set { BackingStore?.Set("approvalMode", value); }
         }
+#nullable restore
 #else
         public string ApprovalMode {
             get { return BackingStore?.Get<string>("approvalMode"); }
@@ -25,10 +27,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>If approval is required, the one or two elements of this collection define each of the stages of approval. An empty array if no approval is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<UnifiedApprovalStage>? ApprovalStages {
             get { return BackingStore?.Get<List<UnifiedApprovalStage>?>("approvalStages"); }
             set { BackingStore?.Set("approvalStages", value); }
         }
+#nullable restore
 #else
         public List<UnifiedApprovalStage> ApprovalStages {
             get { return BackingStore?.Get<List<UnifiedApprovalStage>>("approvalStages"); }
@@ -54,10 +58,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

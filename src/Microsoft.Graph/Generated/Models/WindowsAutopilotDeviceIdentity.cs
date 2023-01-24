@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class WindowsAutopilotDeviceIdentity : Entity, IParsable {
         /// <summary>Addressable user name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AddressableUserName {
             get { return BackingStore?.Get<string?>("addressableUserName"); }
             set { BackingStore?.Set("addressableUserName", value); }
         }
+#nullable restore
 #else
         public string AddressableUserName {
             get { return BackingStore?.Get<string>("addressableUserName"); }
@@ -22,10 +24,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>AAD Device ID - to be deprecated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AzureActiveDirectoryDeviceId {
             get { return BackingStore?.Get<string?>("azureActiveDirectoryDeviceId"); }
             set { BackingStore?.Set("azureActiveDirectoryDeviceId", value); }
         }
+#nullable restore
 #else
         public string AzureActiveDirectoryDeviceId {
             get { return BackingStore?.Get<string>("azureActiveDirectoryDeviceId"); }
@@ -34,10 +38,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Display Name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Group Tag of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? GroupTag {
             get { return BackingStore?.Get<string?>("groupTag"); }
             set { BackingStore?.Set("groupTag", value); }
         }
+#nullable restore
 #else
         public string GroupTag {
             get { return BackingStore?.Get<string>("groupTag"); }
@@ -68,10 +76,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Managed Device ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ManagedDeviceId {
             get { return BackingStore?.Get<string?>("managedDeviceId"); }
             set { BackingStore?.Set("managedDeviceId", value); }
         }
+#nullable restore
 #else
         public string ManagedDeviceId {
             get { return BackingStore?.Get<string>("managedDeviceId"); }
@@ -80,10 +90,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Oem manufacturer of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Manufacturer {
             get { return BackingStore?.Get<string?>("manufacturer"); }
             set { BackingStore?.Set("manufacturer", value); }
         }
+#nullable restore
 #else
         public string Manufacturer {
             get { return BackingStore?.Get<string>("manufacturer"); }
@@ -92,10 +104,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Model name of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Model {
             get { return BackingStore?.Get<string?>("model"); }
             set { BackingStore?.Set("model", value); }
         }
+#nullable restore
 #else
         public string Model {
             get { return BackingStore?.Get<string>("model"); }
@@ -104,10 +118,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Product Key of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ProductKey {
             get { return BackingStore?.Get<string?>("productKey"); }
             set { BackingStore?.Set("productKey", value); }
         }
+#nullable restore
 #else
         public string ProductKey {
             get { return BackingStore?.Get<string>("productKey"); }
@@ -116,10 +132,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Purchase Order Identifier of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PurchaseOrderIdentifier {
             get { return BackingStore?.Get<string?>("purchaseOrderIdentifier"); }
             set { BackingStore?.Set("purchaseOrderIdentifier", value); }
         }
+#nullable restore
 #else
         public string PurchaseOrderIdentifier {
             get { return BackingStore?.Get<string>("purchaseOrderIdentifier"); }
@@ -128,10 +146,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Resource Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ResourceName {
             get { return BackingStore?.Get<string?>("resourceName"); }
             set { BackingStore?.Set("resourceName", value); }
         }
+#nullable restore
 #else
         public string ResourceName {
             get { return BackingStore?.Get<string>("resourceName"); }
@@ -140,10 +160,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Serial number of the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SerialNumber {
             get { return BackingStore?.Get<string?>("serialNumber"); }
             set { BackingStore?.Set("serialNumber", value); }
         }
+#nullable restore
 #else
         public string SerialNumber {
             get { return BackingStore?.Get<string>("serialNumber"); }
@@ -152,10 +174,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>SKU Number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SkuNumber {
             get { return BackingStore?.Get<string?>("skuNumber"); }
             set { BackingStore?.Set("skuNumber", value); }
         }
+#nullable restore
 #else
         public string SkuNumber {
             get { return BackingStore?.Get<string>("skuNumber"); }
@@ -164,10 +188,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>System Family</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SystemFamily {
             get { return BackingStore?.Get<string?>("systemFamily"); }
             set { BackingStore?.Set("systemFamily", value); }
         }
+#nullable restore
 #else
         public string SystemFamily {
             get { return BackingStore?.Get<string>("systemFamily"); }
@@ -176,10 +202,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>User Principal Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserPrincipalName {
             get { return BackingStore?.Get<string?>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
         }
+#nullable restore
 #else
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }

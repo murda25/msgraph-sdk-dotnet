@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PlannerBucket : Entity, IParsable {
         /// <summary>Name of the bucket.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Name {
             get { return BackingStore?.Get<string?>("name"); }
             set { BackingStore?.Set("name", value); }
         }
+#nullable restore
 #else
         public string Name {
             get { return BackingStore?.Get<string>("name"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Hint used to order items of this type in a list view. The format is defined as outlined here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OrderHint {
             get { return BackingStore?.Get<string?>("orderHint"); }
             set { BackingStore?.Set("orderHint", value); }
         }
+#nullable restore
 #else
         public string OrderHint {
             get { return BackingStore?.Get<string>("orderHint"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Plan ID to which the bucket belongs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PlanId {
             get { return BackingStore?.Get<string?>("planId"); }
             set { BackingStore?.Set("planId", value); }
         }
+#nullable restore
 #else
         public string PlanId {
             get { return BackingStore?.Get<string>("planId"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Read-only. Nullable. The collection of tasks in the bucket.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<PlannerTask>? Tasks {
             get { return BackingStore?.Get<List<PlannerTask>?>("tasks"); }
             set { BackingStore?.Set("tasks", value); }
         }
+#nullable restore
 #else
         public List<PlannerTask> Tasks {
             get { return BackingStore?.Get<List<PlannerTask>>("tasks"); }

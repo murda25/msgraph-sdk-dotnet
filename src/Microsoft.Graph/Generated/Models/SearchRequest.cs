@@ -13,10 +13,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The aggregationFilters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? AggregationFilters {
             get { return BackingStore?.Get<List<string>?>("aggregationFilters"); }
             set { BackingStore?.Set("aggregationFilters", value); }
         }
+#nullable restore
 #else
         public List<string> AggregationFilters {
             get { return BackingStore?.Get<List<string>>("aggregationFilters"); }
@@ -25,10 +27,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The aggregations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<AggregationOption>? Aggregations {
             get { return BackingStore?.Get<List<AggregationOption>?>("aggregations"); }
             set { BackingStore?.Set("aggregations", value); }
         }
+#nullable restore
 #else
         public List<AggregationOption> Aggregations {
             get { return BackingStore?.Get<List<AggregationOption>>("aggregations"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The contentSources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? ContentSources {
             get { return BackingStore?.Get<List<string>?>("contentSources"); }
             set { BackingStore?.Set("contentSources", value); }
         }
+#nullable restore
 #else
         public List<string> ContentSources {
             get { return BackingStore?.Get<List<string>>("contentSources"); }
@@ -56,10 +62,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The entityTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<EntityType?>? EntityTypes {
             get { return BackingStore?.Get<List<EntityType?>?>("entityTypes"); }
             set { BackingStore?.Set("entityTypes", value); }
         }
+#nullable restore
 #else
         public List<EntityType?> EntityTypes {
             get { return BackingStore?.Get<List<EntityType?>>("entityTypes"); }
@@ -68,10 +76,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<string>? Fields {
             get { return BackingStore?.Get<List<string>?>("fields"); }
             set { BackingStore?.Set("fields", value); }
         }
+#nullable restore
 #else
         public List<string> Fields {
             get { return BackingStore?.Get<List<string>>("fields"); }
@@ -85,10 +95,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -97,10 +109,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public SearchQuery? Query {
             get { return BackingStore?.Get<SearchQuery?>("query"); }
             set { BackingStore?.Set("query", value); }
         }
+#nullable restore
 #else
         public SearchQuery Query {
             get { return BackingStore?.Get<SearchQuery>("query"); }
@@ -109,10 +123,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The queryAlterationOptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public SearchAlterationOptions? QueryAlterationOptions {
             get { return BackingStore?.Get<SearchAlterationOptions?>("queryAlterationOptions"); }
             set { BackingStore?.Set("queryAlterationOptions", value); }
         }
+#nullable restore
 #else
         public SearchAlterationOptions QueryAlterationOptions {
             get { return BackingStore?.Get<SearchAlterationOptions>("queryAlterationOptions"); }
@@ -121,10 +137,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The resultTemplateOptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public ResultTemplateOption? ResultTemplateOptions {
             get { return BackingStore?.Get<ResultTemplateOption?>("resultTemplateOptions"); }
             set { BackingStore?.Set("resultTemplateOptions", value); }
         }
+#nullable restore
 #else
         public ResultTemplateOption ResultTemplateOptions {
             get { return BackingStore?.Get<ResultTemplateOption>("resultTemplateOptions"); }
@@ -138,10 +156,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The sortProperties property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SortProperty>? SortProperties {
             get { return BackingStore?.Get<List<SortProperty>?>("sortProperties"); }
             set { BackingStore?.Set("sortProperties", value); }
         }
+#nullable restore
 #else
         public List<SortProperty> SortProperties {
             get { return BackingStore?.Get<List<SortProperty>>("sortProperties"); }

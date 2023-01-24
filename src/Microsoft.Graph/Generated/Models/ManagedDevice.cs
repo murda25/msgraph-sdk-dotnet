@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class ManagedDevice : Entity, IParsable {
         /// <summary>The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ActivationLockBypassCode {
             get { return BackingStore?.Get<string?>("activationLockBypassCode"); }
             set { BackingStore?.Set("activationLockBypassCode", value); }
         }
+#nullable restore
 #else
         public string ActivationLockBypassCode {
             get { return BackingStore?.Get<string>("activationLockBypassCode"); }
@@ -22,10 +24,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Android security patch level. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AndroidSecurityPatchLevel {
             get { return BackingStore?.Get<string?>("androidSecurityPatchLevel"); }
             set { BackingStore?.Set("androidSecurityPatchLevel", value); }
         }
+#nullable restore
 #else
         public string AndroidSecurityPatchLevel {
             get { return BackingStore?.Get<string>("androidSecurityPatchLevel"); }
@@ -34,10 +38,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The unique identifier for the Azure Active Directory device. Read only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AzureADDeviceId {
             get { return BackingStore?.Get<string?>("azureADDeviceId"); }
             set { BackingStore?.Set("azureADDeviceId", value); }
         }
+#nullable restore
 #else
         public string AzureADDeviceId {
             get { return BackingStore?.Get<string>("azureADDeviceId"); }
@@ -61,10 +67,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>ConfigrMgr client enabled features. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.ConfigurationManagerClientEnabledFeatures? ConfigurationManagerClientEnabledFeatures {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ConfigurationManagerClientEnabledFeatures?>("configurationManagerClientEnabledFeatures"); }
             set { BackingStore?.Set("configurationManagerClientEnabledFeatures", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.ConfigurationManagerClientEnabledFeatures ConfigurationManagerClientEnabledFeatures {
             get { return BackingStore?.Get<Microsoft.Graph.Models.ConfigurationManagerClientEnabledFeatures>("configurationManagerClientEnabledFeatures"); }
@@ -73,10 +81,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of ComplexType deviceActionResult objects. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceActionResult>? DeviceActionResults {
             get { return BackingStore?.Get<List<DeviceActionResult>?>("deviceActionResults"); }
             set { BackingStore?.Set("deviceActionResults", value); }
         }
+#nullable restore
 #else
         public List<DeviceActionResult> DeviceActionResults {
             get { return BackingStore?.Get<List<DeviceActionResult>>("deviceActionResults"); }
@@ -85,10 +95,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device category</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DeviceCategory? DeviceCategory {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceCategory?>("deviceCategory"); }
             set { BackingStore?.Set("deviceCategory", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DeviceCategory DeviceCategory {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceCategory>("deviceCategory"); }
@@ -97,10 +109,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device category display name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DeviceCategoryDisplayName {
             get { return BackingStore?.Get<string?>("deviceCategoryDisplayName"); }
             set { BackingStore?.Set("deviceCategoryDisplayName", value); }
         }
+#nullable restore
 #else
         public string DeviceCategoryDisplayName {
             get { return BackingStore?.Get<string>("deviceCategoryDisplayName"); }
@@ -109,10 +123,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device compliance policy states for this device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceCompliancePolicyState>? DeviceCompliancePolicyStates {
             get { return BackingStore?.Get<List<DeviceCompliancePolicyState>?>("deviceCompliancePolicyStates"); }
             set { BackingStore?.Set("deviceCompliancePolicyStates", value); }
         }
+#nullable restore
 #else
         public List<DeviceCompliancePolicyState> DeviceCompliancePolicyStates {
             get { return BackingStore?.Get<List<DeviceCompliancePolicyState>>("deviceCompliancePolicyStates"); }
@@ -121,10 +137,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device configuration states for this device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceConfigurationState>? DeviceConfigurationStates {
             get { return BackingStore?.Get<List<DeviceConfigurationState>?>("deviceConfigurationStates"); }
             set { BackingStore?.Set("deviceConfigurationStates", value); }
         }
+#nullable restore
 #else
         public List<DeviceConfigurationState> DeviceConfigurationStates {
             get { return BackingStore?.Get<List<DeviceConfigurationState>>("deviceConfigurationStates"); }
@@ -138,10 +156,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The device health attestation state. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.DeviceHealthAttestationState? DeviceHealthAttestationState {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceHealthAttestationState?>("deviceHealthAttestationState"); }
             set { BackingStore?.Set("deviceHealthAttestationState", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.DeviceHealthAttestationState DeviceHealthAttestationState {
             get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceHealthAttestationState>("deviceHealthAttestationState"); }
@@ -150,10 +170,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Name of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DeviceName {
             get { return BackingStore?.Get<string?>("deviceName"); }
             set { BackingStore?.Set("deviceName", value); }
         }
+#nullable restore
 #else
         public string DeviceName {
             get { return BackingStore?.Get<string>("deviceName"); }
@@ -177,10 +199,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Exchange ActiveSync Id of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EasDeviceId {
             get { return BackingStore?.Get<string?>("easDeviceId"); }
             set { BackingStore?.Set("easDeviceId", value); }
         }
+#nullable restore
 #else
         public string EasDeviceId {
             get { return BackingStore?.Get<string>("easDeviceId"); }
@@ -189,10 +213,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Email(s) for the user associated with the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EmailAddress {
             get { return BackingStore?.Get<string?>("emailAddress"); }
             set { BackingStore?.Set("emailAddress", value); }
         }
+#nullable restore
 #else
         public string EmailAddress {
             get { return BackingStore?.Get<string>("emailAddress"); }
@@ -206,10 +232,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? EthernetMacAddress {
             get { return BackingStore?.Get<string?>("ethernetMacAddress"); }
             set { BackingStore?.Set("ethernetMacAddress", value); }
         }
+#nullable restore
 #else
         public string EthernetMacAddress {
             get { return BackingStore?.Get<string>("ethernetMacAddress"); }
@@ -238,10 +266,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Integrated Circuit Card Identifier, it is A SIM card&apos;s unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Iccid {
             get { return BackingStore?.Get<string?>("iccid"); }
             set { BackingStore?.Set("iccid", value); }
         }
+#nullable restore
 #else
         public string Iccid {
             get { return BackingStore?.Get<string>("iccid"); }
@@ -250,10 +280,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>IMEI. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Imei {
             get { return BackingStore?.Get<string?>("imei"); }
             set { BackingStore?.Set("imei", value); }
         }
+#nullable restore
 #else
         public string Imei {
             get { return BackingStore?.Get<string>("imei"); }
@@ -272,10 +304,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>whether the device is jail broken or rooted. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? JailBroken {
             get { return BackingStore?.Get<string?>("jailBroken"); }
             set { BackingStore?.Set("jailBroken", value); }
         }
+#nullable restore
 #else
         public string JailBroken {
             get { return BackingStore?.Get<string>("jailBroken"); }
@@ -289,10 +323,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Automatically generated name to identify a device. Can be overwritten to a user friendly name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ManagedDeviceName {
             get { return BackingStore?.Get<string?>("managedDeviceName"); }
             set { BackingStore?.Set("managedDeviceName", value); }
         }
+#nullable restore
 #else
         public string ManagedDeviceName {
             get { return BackingStore?.Get<string>("managedDeviceName"); }
@@ -316,10 +352,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Manufacturer of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Manufacturer {
             get { return BackingStore?.Get<string?>("manufacturer"); }
             set { BackingStore?.Set("manufacturer", value); }
         }
+#nullable restore
 #else
         public string Manufacturer {
             get { return BackingStore?.Get<string>("manufacturer"); }
@@ -328,10 +366,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>MEID. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Meid {
             get { return BackingStore?.Get<string?>("meid"); }
             set { BackingStore?.Set("meid", value); }
         }
+#nullable restore
 #else
         public string Meid {
             get { return BackingStore?.Get<string>("meid"); }
@@ -340,10 +380,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Model of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Model {
             get { return BackingStore?.Get<string?>("model"); }
             set { BackingStore?.Set("model", value); }
         }
+#nullable restore
 #else
         public string Model {
             get { return BackingStore?.Get<string>("model"); }
@@ -352,10 +394,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Notes {
             get { return BackingStore?.Get<string?>("notes"); }
             set { BackingStore?.Set("notes", value); }
         }
+#nullable restore
 #else
         public string Notes {
             get { return BackingStore?.Get<string>("notes"); }
@@ -364,10 +408,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Operating system of the device. Windows, iOS, etc. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OperatingSystem {
             get { return BackingStore?.Get<string?>("operatingSystem"); }
             set { BackingStore?.Set("operatingSystem", value); }
         }
+#nullable restore
 #else
         public string OperatingSystem {
             get { return BackingStore?.Get<string>("operatingSystem"); }
@@ -376,10 +422,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Operating system version of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OsVersion {
             get { return BackingStore?.Get<string?>("osVersion"); }
             set { BackingStore?.Set("osVersion", value); }
         }
+#nullable restore
 #else
         public string OsVersion {
             get { return BackingStore?.Get<string>("osVersion"); }
@@ -393,10 +441,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Phone number of the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PhoneNumber {
             get { return BackingStore?.Get<string?>("phoneNumber"); }
             set { BackingStore?.Set("phoneNumber", value); }
         }
+#nullable restore
 #else
         public string PhoneNumber {
             get { return BackingStore?.Get<string>("phoneNumber"); }
@@ -410,10 +460,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RemoteAssistanceSessionErrorDetails {
             get { return BackingStore?.Get<string?>("remoteAssistanceSessionErrorDetails"); }
             set { BackingStore?.Set("remoteAssistanceSessionErrorDetails", value); }
         }
+#nullable restore
 #else
         public string RemoteAssistanceSessionErrorDetails {
             get { return BackingStore?.Get<string>("remoteAssistanceSessionErrorDetails"); }
@@ -422,10 +474,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Url that allows a Remote Assistance session to be established with the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RemoteAssistanceSessionUrl {
             get { return BackingStore?.Get<string?>("remoteAssistanceSessionUrl"); }
             set { BackingStore?.Set("remoteAssistanceSessionUrl", value); }
         }
+#nullable restore
 #else
         public string RemoteAssistanceSessionUrl {
             get { return BackingStore?.Get<string>("remoteAssistanceSessionUrl"); }
@@ -439,10 +493,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>SerialNumber. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SerialNumber {
             get { return BackingStore?.Get<string?>("serialNumber"); }
             set { BackingStore?.Set("serialNumber", value); }
         }
+#nullable restore
 #else
         public string SerialNumber {
             get { return BackingStore?.Get<string>("serialNumber"); }
@@ -451,10 +507,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Subscriber Carrier. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? SubscriberCarrier {
             get { return BackingStore?.Get<string?>("subscriberCarrier"); }
             set { BackingStore?.Set("subscriberCarrier", value); }
         }
+#nullable restore
 #else
         public string SubscriberCarrier {
             get { return BackingStore?.Get<string>("subscriberCarrier"); }
@@ -468,10 +526,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Udid {
             get { return BackingStore?.Get<string?>("udid"); }
             set { BackingStore?.Set("udid", value); }
         }
+#nullable restore
 #else
         public string Udid {
             get { return BackingStore?.Get<string>("udid"); }
@@ -480,10 +540,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>User display name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserDisplayName {
             get { return BackingStore?.Get<string?>("userDisplayName"); }
             set { BackingStore?.Set("userDisplayName", value); }
         }
+#nullable restore
 #else
         public string UserDisplayName {
             get { return BackingStore?.Get<string>("userDisplayName"); }
@@ -492,10 +554,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Unique Identifier for the user associated with the device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserId {
             get { return BackingStore?.Get<string?>("userId"); }
             set { BackingStore?.Set("userId", value); }
         }
+#nullable restore
 #else
         public string UserId {
             get { return BackingStore?.Get<string>("userId"); }
@@ -504,10 +568,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device user principal name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserPrincipalName {
             get { return BackingStore?.Get<string?>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
         }
+#nullable restore
 #else
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }
@@ -516,10 +582,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The primary users associated with the managed device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<User>? Users {
             get { return BackingStore?.Get<List<User>?>("users"); }
             set { BackingStore?.Set("users", value); }
         }
+#nullable restore
 #else
         public List<User> Users {
             get { return BackingStore?.Get<List<User>>("users"); }
@@ -528,10 +596,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Wi-Fi MAC. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? WiFiMacAddress {
             get { return BackingStore?.Get<string?>("wiFiMacAddress"); }
             set { BackingStore?.Set("wiFiMacAddress", value); }
         }
+#nullable restore
 #else
         public string WiFiMacAddress {
             get { return BackingStore?.Get<string>("wiFiMacAddress"); }

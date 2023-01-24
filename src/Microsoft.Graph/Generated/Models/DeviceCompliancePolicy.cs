@@ -10,10 +10,12 @@ namespace Microsoft.Graph.Models {
     public class DeviceCompliancePolicy : Entity, IParsable {
         /// <summary>The collection of assignments for this compliance policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceCompliancePolicyAssignment>? Assignments {
             get { return BackingStore?.Get<List<DeviceCompliancePolicyAssignment>?>("assignments"); }
             set { BackingStore?.Set("assignments", value); }
         }
+#nullable restore
 #else
         public List<DeviceCompliancePolicyAssignment> Assignments {
             get { return BackingStore?.Get<List<DeviceCompliancePolicyAssignment>>("assignments"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Admin provided description of the Device Configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Compliance Setting State Device Summary</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<SettingStateDeviceSummary>? DeviceSettingStateSummaries {
             get { return BackingStore?.Get<List<SettingStateDeviceSummary>?>("deviceSettingStateSummaries"); }
             set { BackingStore?.Set("deviceSettingStateSummaries", value); }
         }
+#nullable restore
 #else
         public List<SettingStateDeviceSummary> DeviceSettingStateSummaries {
             get { return BackingStore?.Get<List<SettingStateDeviceSummary>>("deviceSettingStateSummaries"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of DeviceComplianceDeviceStatus.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceComplianceDeviceStatus>? DeviceStatuses {
             get { return BackingStore?.Get<List<DeviceComplianceDeviceStatus>?>("deviceStatuses"); }
             set { BackingStore?.Set("deviceStatuses", value); }
         }
+#nullable restore
 #else
         public List<DeviceComplianceDeviceStatus> DeviceStatuses {
             get { return BackingStore?.Get<List<DeviceComplianceDeviceStatus>>("deviceStatuses"); }
@@ -63,10 +71,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device compliance devices status overview</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceComplianceDeviceOverview? DeviceStatusOverview {
             get { return BackingStore?.Get<DeviceComplianceDeviceOverview?>("deviceStatusOverview"); }
             set { BackingStore?.Set("deviceStatusOverview", value); }
         }
+#nullable restore
 #else
         public DeviceComplianceDeviceOverview DeviceStatusOverview {
             get { return BackingStore?.Get<DeviceComplianceDeviceOverview>("deviceStatusOverview"); }
@@ -75,10 +85,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Admin provided name of the device configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -92,10 +104,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceComplianceScheduledActionForRule>? ScheduledActionsForRule {
             get { return BackingStore?.Get<List<DeviceComplianceScheduledActionForRule>?>("scheduledActionsForRule"); }
             set { BackingStore?.Set("scheduledActionsForRule", value); }
         }
+#nullable restore
 #else
         public List<DeviceComplianceScheduledActionForRule> ScheduledActionsForRule {
             get { return BackingStore?.Get<List<DeviceComplianceScheduledActionForRule>>("scheduledActionsForRule"); }
@@ -104,10 +118,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>List of DeviceComplianceUserStatus.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DeviceComplianceUserStatus>? UserStatuses {
             get { return BackingStore?.Get<List<DeviceComplianceUserStatus>?>("userStatuses"); }
             set { BackingStore?.Set("userStatuses", value); }
         }
+#nullable restore
 #else
         public List<DeviceComplianceUserStatus> UserStatuses {
             get { return BackingStore?.Get<List<DeviceComplianceUserStatus>>("userStatuses"); }
@@ -116,10 +132,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Device compliance users status overview</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DeviceComplianceUserOverview? UserStatusOverview {
             get { return BackingStore?.Get<DeviceComplianceUserOverview?>("userStatusOverview"); }
             set { BackingStore?.Set("userStatusOverview", value); }
         }
+#nullable restore
 #else
         public DeviceComplianceUserOverview UserStatusOverview {
             get { return BackingStore?.Get<DeviceComplianceUserOverview>("userStatusOverview"); }

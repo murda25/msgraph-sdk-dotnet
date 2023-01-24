@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class UnifiedRoleAssignment : Entity, IParsable {
         /// <summary>Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.AppScope? AppScope {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AppScope?>("appScope"); }
             set { BackingStore?.Set("appScope", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.AppScope AppScope {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AppScope>("appScope"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the app-specific scope when the assignment scope is app-specific.  Either this property or directoryScopeId is required. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppScopeId {
             get { return BackingStore?.Get<string?>("appScopeId"); }
             set { BackingStore?.Set("appScopeId", value); }
         }
+#nullable restore
 #else
         public string AppScopeId {
             get { return BackingStore?.Get<string>("appScopeId"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The condition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Condition {
             get { return BackingStore?.Get<string?>("condition"); }
             set { BackingStore?.Set("condition", value); }
         }
+#nullable restore
 #else
         public string Condition {
             get { return BackingStore?.Get<string>("condition"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The directory object that is the scope of the assignment. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DirectoryObject? DirectoryScope {
             get { return BackingStore?.Get<DirectoryObject?>("directoryScope"); }
             set { BackingStore?.Set("directoryScope", value); }
         }
+#nullable restore
 #else
         public DirectoryObject DirectoryScope {
             get { return BackingStore?.Get<DirectoryObject>("directoryScope"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the directory object representing the scope of the assignment.  Either this property or appScopeId is required. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. Supports $filter (eq, in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DirectoryScopeId {
             get { return BackingStore?.Get<string?>("directoryScopeId"); }
             set { BackingStore?.Set("directoryScopeId", value); }
         }
+#nullable restore
 #else
         public string DirectoryScopeId {
             get { return BackingStore?.Get<string>("directoryScopeId"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Referencing the assigned principal. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DirectoryObject? Principal {
             get { return BackingStore?.Get<DirectoryObject?>("principal"); }
             set { BackingStore?.Set("principal", value); }
         }
+#nullable restore
 #else
         public DirectoryObject Principal {
             get { return BackingStore?.Get<DirectoryObject>("principal"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the principal to which the assignment is granted. Supports $filter (eq, in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? PrincipalId {
             get { return BackingStore?.Get<string?>("principalId"); }
             set { BackingStore?.Set("principalId", value); }
         }
+#nullable restore
 #else
         public string PrincipalId {
             get { return BackingStore?.Get<string>("principalId"); }
@@ -91,10 +105,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public UnifiedRoleDefinition? RoleDefinition {
             get { return BackingStore?.Get<UnifiedRoleDefinition?>("roleDefinition"); }
             set { BackingStore?.Set("roleDefinition", value); }
         }
+#nullable restore
 #else
         public UnifiedRoleDefinition RoleDefinition {
             get { return BackingStore?.Get<UnifiedRoleDefinition>("roleDefinition"); }
@@ -103,10 +119,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identifier of the role definition the assignment is for. Read only. Supports $filter (eq, in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? RoleDefinitionId {
             get { return BackingStore?.Get<string?>("roleDefinitionId"); }
             set { BackingStore?.Set("roleDefinitionId", value); }
         }
+#nullable restore
 #else
         public string RoleDefinitionId {
             get { return BackingStore?.Get<string>("roleDefinitionId"); }

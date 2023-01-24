@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models.Security {
     public class SiteSource : DataSource, IParsable {
         /// <summary>The site property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Site? Site {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Site?>("site"); }
             set { BackingStore?.Set("site", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Site Site {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Site>("site"); }

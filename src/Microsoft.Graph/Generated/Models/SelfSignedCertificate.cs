@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The customKeyIdentifier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public byte[]? CustomKeyIdentifier {
             get { return BackingStore?.Get<byte[]?>("customKeyIdentifier"); }
             set { BackingStore?.Set("customKeyIdentifier", value); }
         }
+#nullable restore
 #else
         public byte[] CustomKeyIdentifier {
             get { return BackingStore?.Get<byte[]>("customKeyIdentifier"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -44,10 +48,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public byte[]? Key {
             get { return BackingStore?.Get<byte[]?>("key"); }
             set { BackingStore?.Set("key", value); }
         }
+#nullable restore
 #else
         public byte[] Key {
             get { return BackingStore?.Get<byte[]>("key"); }
@@ -61,10 +67,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -78,10 +86,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>The thumbprint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Thumbprint {
             get { return BackingStore?.Get<string?>("thumbprint"); }
             set { BackingStore?.Set("thumbprint", value); }
         }
+#nullable restore
 #else
         public string Thumbprint {
             get { return BackingStore?.Get<string>("thumbprint"); }
@@ -90,10 +100,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Type {
             get { return BackingStore?.Get<string?>("type"); }
             set { BackingStore?.Set("type", value); }
         }
+#nullable restore
 #else
         public string Type {
             get { return BackingStore?.Get<string>("type"); }
@@ -102,10 +114,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The usage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Usage {
             get { return BackingStore?.Get<string?>("usage"); }
             set { BackingStore?.Set("usage", value); }
         }
+#nullable restore
 #else
         public string Usage {
             get { return BackingStore?.Get<string>("usage"); }

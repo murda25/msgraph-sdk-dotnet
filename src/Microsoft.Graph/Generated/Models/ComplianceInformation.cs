@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Collection of the certification controls associated with certification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<CertificationControl>? CertificationControls {
             get { return BackingStore?.Get<List<CertificationControl>?>("certificationControls"); }
             set { BackingStore?.Set("certificationControls", value); }
         }
+#nullable restore
 #else
         public List<CertificationControl> CertificationControls {
             get { return BackingStore?.Get<List<CertificationControl>>("certificationControls"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? CertificationName {
             get { return BackingStore?.Get<string?>("certificationName"); }
             set { BackingStore?.Set("certificationName", value); }
         }
+#nullable restore
 #else
         public string CertificationName {
             get { return BackingStore?.Get<string>("certificationName"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }

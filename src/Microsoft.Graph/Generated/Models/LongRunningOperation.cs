@@ -17,10 +17,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>URI of the resource that the operation is performed on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ResourceLocation {
             get { return BackingStore?.Get<string?>("resourceLocation"); }
             set { BackingStore?.Set("resourceLocation", value); }
         }
+#nullable restore
 #else
         public string ResourceLocation {
             get { return BackingStore?.Get<string>("resourceLocation"); }
@@ -34,10 +36,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Details about the status of the operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? StatusDetail {
             get { return BackingStore?.Get<string?>("statusDetail"); }
             set { BackingStore?.Set("statusDetail", value); }
         }
+#nullable restore
 #else
         public string StatusDetail {
             get { return BackingStore?.Get<string>("statusDetail"); }

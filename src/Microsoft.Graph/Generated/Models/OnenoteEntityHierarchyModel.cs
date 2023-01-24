@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class OnenoteEntityHierarchyModel : OnenoteEntitySchemaObjectModel, IParsable {
         /// <summary>Identity of the user, device, and application which created the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? CreatedBy {
             get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the notebook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Identity of the user, device, and application which created the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet?>("lastModifiedBy"); }
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet LastModifiedBy {
             get { return BackingStore?.Get<IdentitySet>("lastModifiedBy"); }

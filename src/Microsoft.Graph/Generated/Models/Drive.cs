@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class Drive : BaseItem, IParsable {
         /// <summary>Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DriveItem>? Bundles {
             get { return BackingStore?.Get<List<DriveItem>?>("bundles"); }
             set { BackingStore?.Set("bundles", value); }
         }
+#nullable restore
 #else
         public List<DriveItem> Bundles {
             get { return BackingStore?.Get<List<DriveItem>>("bundles"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DriveType {
             get { return BackingStore?.Get<string?>("driveType"); }
             set { BackingStore?.Set("driveType", value); }
         }
+#nullable restore
 #else
         public string DriveType {
             get { return BackingStore?.Get<string>("driveType"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The list of items the user is following. Only in OneDrive for Business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DriveItem>? Following {
             get { return BackingStore?.Get<List<DriveItem>?>("following"); }
             set { BackingStore?.Set("following", value); }
         }
+#nullable restore
 #else
         public List<DriveItem> Following {
             get { return BackingStore?.Get<List<DriveItem>>("following"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>All items contained in the drive. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DriveItem>? Items {
             get { return BackingStore?.Get<List<DriveItem>?>("items"); }
             set { BackingStore?.Set("items", value); }
         }
+#nullable restore
 #else
         public List<DriveItem> Items {
             get { return BackingStore?.Get<List<DriveItem>>("items"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>For drives in SharePoint, the underlying document library list. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.List? List {
             get { return BackingStore?.Get<Microsoft.Graph.Models.List?>("list"); }
             set { BackingStore?.Set("list", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.List List {
             get { return BackingStore?.Get<Microsoft.Graph.Models.List>("list"); }
@@ -67,10 +77,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Optional. The user account that owns the drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? Owner {
             get { return BackingStore?.Get<IdentitySet?>("owner"); }
             set { BackingStore?.Set("owner", value); }
         }
+#nullable restore
 #else
         public IdentitySet Owner {
             get { return BackingStore?.Get<IdentitySet>("owner"); }
@@ -79,10 +91,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Optional. Information about the drive&apos;s storage space quota. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.Quota? Quota {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Quota?>("quota"); }
             set { BackingStore?.Set("quota", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.Quota Quota {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Quota>("quota"); }
@@ -91,10 +105,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The root folder of the drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public DriveItem? Root {
             get { return BackingStore?.Get<DriveItem?>("root"); }
             set { BackingStore?.Set("root", value); }
         }
+#nullable restore
 #else
         public DriveItem Root {
             get { return BackingStore?.Get<DriveItem>("root"); }
@@ -103,10 +119,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The sharePointIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public Microsoft.Graph.Models.SharepointIds? SharePointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds?>("sharePointIds"); }
             set { BackingStore?.Set("sharePointIds", value); }
         }
+#nullable restore
 #else
         public Microsoft.Graph.Models.SharepointIds SharePointIds {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SharepointIds>("sharePointIds"); }
@@ -115,10 +133,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Collection of common folders available in OneDrive. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public List<DriveItem>? Special {
             get { return BackingStore?.Get<List<DriveItem>?>("special"); }
             set { BackingStore?.Set("special", value); }
         }
+#nullable restore
 #else
         public List<DriveItem> Special {
             get { return BackingStore?.Get<List<DriveItem>>("special"); }
@@ -127,10 +147,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>If present, indicates that this is a system-managed drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public SystemFacet? System {
             get { return BackingStore?.Get<SystemFacet?>("system"); }
             set { BackingStore?.Set("system", value); }
         }
+#nullable restore
 #else
         public SystemFacet System {
             get { return BackingStore?.Get<SystemFacet>("system"); }

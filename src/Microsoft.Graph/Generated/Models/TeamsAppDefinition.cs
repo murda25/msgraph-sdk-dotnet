@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class TeamsAppDefinition : Entity, IParsable {
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public TeamworkBot? Bot {
             get { return BackingStore?.Get<TeamworkBot?>("bot"); }
             set { BackingStore?.Set("bot", value); }
         }
+#nullable restore
 #else
         public TeamworkBot Bot {
             get { return BackingStore?.Get<TeamworkBot>("bot"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The createdBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public IdentitySet? CreatedBy {
             get { return BackingStore?.Get<IdentitySet?>("createdBy"); }
             set { BackingStore?.Set("createdBy", value); }
         }
+#nullable restore
 #else
         public IdentitySet CreatedBy {
             get { return BackingStore?.Get<IdentitySet>("createdBy"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Verbose description of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the app provided by the app developer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -65,10 +73,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Short description of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ShortDescription {
             get { return BackingStore?.Get<string?>("shortDescription"); }
             set { BackingStore?.Set("shortDescription", value); }
         }
+#nullable restore
 #else
         public string ShortDescription {
             get { return BackingStore?.Get<string>("shortDescription"); }
@@ -77,10 +87,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The ID from the Teams app manifest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? TeamsAppId {
             get { return BackingStore?.Get<string?>("teamsAppId"); }
             set { BackingStore?.Set("teamsAppId", value); }
         }
+#nullable restore
 #else
         public string TeamsAppId {
             get { return BackingStore?.Get<string>("teamsAppId"); }
@@ -89,10 +101,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The version number of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Version {
             get { return BackingStore?.Get<string?>("version"); }
             set { BackingStore?.Set("version", value); }
         }
+#nullable restore
 #else
         public string Version {
             get { return BackingStore?.Get<string>("version"); }

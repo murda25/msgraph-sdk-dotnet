@@ -13,10 +13,12 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
         }
         /// <summary>The addressableUserName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AddressableUserName {
             get { return BackingStore?.Get<string?>("addressableUserName"); }
             set { BackingStore?.Set("addressableUserName", value); }
         }
+#nullable restore
 #else
         public string AddressableUserName {
             get { return BackingStore?.Get<string>("addressableUserName"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
         public IBackingStore BackingStore { get; private set; }
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
 #endif
         /// <summary>The groupTag property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? GroupTag {
             get { return BackingStore?.Get<string?>("groupTag"); }
             set { BackingStore?.Set("groupTag", value); }
         }
+#nullable restore
 #else
         public string GroupTag {
             get { return BackingStore?.Get<string>("groupTag"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities.Item
 #endif
         /// <summary>The userPrincipalName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? UserPrincipalName {
             get { return BackingStore?.Get<string?>("userPrincipalName"); }
             set { BackingStore?.Set("userPrincipalName", value); }
         }
+#nullable restore
 #else
         public string UserPrincipalName {
             get { return BackingStore?.Get<string>("userPrincipalName"); }

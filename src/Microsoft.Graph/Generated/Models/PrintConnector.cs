@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class PrintConnector : Entity, IParsable {
         /// <summary>The connector&apos;s version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? AppVersion {
             get { return BackingStore?.Get<string?>("appVersion"); }
             set { BackingStore?.Set("appVersion", value); }
         }
+#nullable restore
 #else
         public string AppVersion {
             get { return BackingStore?.Get<string>("appVersion"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -31,10 +35,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The connector machine&apos;s hostname.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? FullyQualifiedDomainName {
             get { return BackingStore?.Get<string?>("fullyQualifiedDomainName"); }
             set { BackingStore?.Set("fullyQualifiedDomainName", value); }
         }
+#nullable restore
 #else
         public string FullyQualifiedDomainName {
             get { return BackingStore?.Get<string>("fullyQualifiedDomainName"); }
@@ -43,10 +49,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The physical and/or organizational location of the connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public PrinterLocation? Location {
             get { return BackingStore?.Get<PrinterLocation?>("location"); }
             set { BackingStore?.Set("location", value); }
         }
+#nullable restore
 #else
         public PrinterLocation Location {
             get { return BackingStore?.Get<PrinterLocation>("location"); }
@@ -55,10 +63,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The connector machine&apos;s operating system version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OperatingSystem {
             get { return BackingStore?.Get<string?>("operatingSystem"); }
             set { BackingStore?.Set("operatingSystem", value); }
         }
+#nullable restore
 #else
         public string OperatingSystem {
             get { return BackingStore?.Get<string>("operatingSystem"); }

@@ -15,10 +15,12 @@ namespace Microsoft.Graph.Models {
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Indicates the property name of the target attribute that was changed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? DisplayName {
             get { return BackingStore?.Get<string?>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
         }
+#nullable restore
 #else
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
@@ -27,10 +29,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates the updated value for the propery.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? NewValue {
             get { return BackingStore?.Get<string?>("newValue"); }
             set { BackingStore?.Set("newValue", value); }
         }
+#nullable restore
 #else
         public string NewValue {
             get { return BackingStore?.Get<string>("newValue"); }
@@ -39,10 +43,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OdataType {
             get { return BackingStore?.Get<string?>("@odata.type"); }
             set { BackingStore?.Set("@odata.type", value); }
         }
+#nullable restore
 #else
         public string OdataType {
             get { return BackingStore?.Get<string>("@odata.type"); }
@@ -51,10 +57,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Indicates the previous value (before the update) for the property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? OldValue {
             get { return BackingStore?.Get<string?>("oldValue"); }
             set { BackingStore?.Set("oldValue", value); }
         }
+#nullable restore
 #else
         public string OldValue {
             get { return BackingStore?.Get<string>("oldValue"); }

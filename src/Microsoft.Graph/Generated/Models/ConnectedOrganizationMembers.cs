@@ -7,10 +7,12 @@ namespace Microsoft.Graph.Models {
     public class ConnectedOrganizationMembers : SubjectSet, IParsable {
         /// <summary>The ID of the connected organization in entitlement management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? ConnectedOrganizationId {
             get { return BackingStore?.Get<string?>("connectedOrganizationId"); }
             set { BackingStore?.Set("connectedOrganizationId", value); }
         }
+#nullable restore
 #else
         public string ConnectedOrganizationId {
             get { return BackingStore?.Get<string>("connectedOrganizationId"); }
@@ -19,10 +21,12 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>The name of the connected organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public string? Description {
             get { return BackingStore?.Get<string?>("description"); }
             set { BackingStore?.Set("description", value); }
         }
+#nullable restore
 #else
         public string Description {
             get { return BackingStore?.Get<string>("description"); }
