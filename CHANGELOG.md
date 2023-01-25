@@ -7,7 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-- Latest metadata updates from 17th January 2023 snapshot.
+## [5.0.0-rc.4] - 2023-01-25
+
+- Adds support for nullable reference types.
+- Latest metadata updates from 24th January 2023 snapshot.
 
 ## [5.0.0-rc.3] - 2023-01-16
 
