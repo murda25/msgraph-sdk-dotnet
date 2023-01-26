@@ -64,6 +64,7 @@ using Microsoft.Graph.Subscriptions;
 using Microsoft.Graph.Teams;
 using Microsoft.Graph.TeamsTemplates;
 using Microsoft.Graph.Teamwork;
+using Microsoft.Graph.TenantRelationships;
 using Microsoft.Graph.Users;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Extensions;
@@ -348,6 +349,10 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the teamwork singleton.</summary>
         public TeamworkRequestBuilder Teamwork { get =>
             new TeamworkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the tenantRelationship singleton.</summary>
+        public TenantRelationshipsRequestBuilder TenantRelationships { get =>
+            new TenantRelationshipsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }

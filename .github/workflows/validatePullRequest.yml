@@ -13,13 +13,13 @@ jobs:
     env:
       solutionName: Microsoft.Graph.sln
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.3.0
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1.9.0
+        uses: actions/setup-dotnet@v3.0.3
         with:
           dotnet-version: 6.0.x
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@v2
         with:
           languages: csharp
       - name: Restore dependencies
@@ -29,5 +29,5 @@ jobs:
       - name: Test
         run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2
 
