@@ -27,6 +27,7 @@
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix>rc.4</VersionSuffix>
     <PackageReleaseNotes>
+        - Use concurrent dictionary for serialization registry to avoid race conditions on client initialization
         - Adds support for nullable reference types.
         - Latest metadata updates from 24th January 2023 snapshot.
     </PackageReleaseNotes>
