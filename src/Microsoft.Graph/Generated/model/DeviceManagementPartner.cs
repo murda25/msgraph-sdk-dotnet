@@ -29,6 +29,13 @@ namespace Microsoft.Graph
         public string DisplayName { get; set; }
     
         /// <summary>
+        /// Gets or sets groups requiring partner enrollment.
+        /// User groups that specifies whether enrollment is through partner.
+        /// </summary>
+        [JsonPropertyName("groupsRequiringPartnerEnrollment")]
+        public IEnumerable<DeviceManagementPartnerAssignment> GroupsRequiringPartnerEnrollment { get; set; }
+    
+        /// <summary>
         /// Gets or sets is configured.
         /// Whether device management partner is configured or not
         /// </summary>

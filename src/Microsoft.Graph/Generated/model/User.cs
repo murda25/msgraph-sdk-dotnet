@@ -140,6 +140,12 @@ namespace Microsoft.Graph
         public string EmployeeId { get; set; }
     
         /// <summary>
+        /// Gets or sets employee leave date time.
+        /// </summary>
+        [JsonPropertyName("employeeLeaveDateTime")]
+        public DateTimeOffset? EmployeeLeaveDateTime { get; set; }
+    
+        /// <summary>
         /// Gets or sets employee org data.
         /// Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
         /// </summary>
