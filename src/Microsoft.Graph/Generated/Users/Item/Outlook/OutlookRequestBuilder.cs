@@ -1,9 +1,9 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Outlook.MasterCategories;
-using Microsoft.Graph.Users.Item.Outlook.SupportedLanguages;
-using Microsoft.Graph.Users.Item.Outlook.SupportedTimeZones;
-using Microsoft.Graph.Users.Item.Outlook.SupportedTimeZonesWithTimeZoneStandard;
+using Microsoft.Graph.Users.Item.Outlook.MicrosoftGraphSupportedLanguages;
+using Microsoft.Graph.Users.Item.Outlook.MicrosoftGraphSupportedTimeZones;
+using Microsoft.Graph.Users.Item.Outlook.MicrosoftGraphSupportedTimeZonesWithTimeZoneStandard;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,6 +20,14 @@ namespace Microsoft.Graph.Users.Item.Outlook {
         /// <summary>Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.</summary>
         public MasterCategoriesRequestBuilder MasterCategories { get =>
             new MasterCategoriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the supportedLanguages method.</summary>
+        public MicrosoftGraphSupportedLanguagesRequestBuilder MicrosoftGraphSupportedLanguages { get =>
+            new MicrosoftGraphSupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the supportedTimeZones method.</summary>
+        public MicrosoftGraphSupportedTimeZonesRequestBuilder MicrosoftGraphSupportedTimeZones { get =>
+            new MicrosoftGraphSupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -50,7 +58,7 @@ namespace Microsoft.Graph.Users.Item.Outlook {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/outlook{?%24select}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -74,24 +82,12 @@ namespace Microsoft.Graph.Users.Item.Outlook {
             return await RequestAdapter.SendAsync<OutlookUser>(requestInfo, OutlookUser.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Provides operations to call the supportedLanguages method.
-        /// </summary>
-        public SupportedLanguagesRequestBuilder SupportedLanguages() {
-            return new SupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>
-        /// Provides operations to call the supportedTimeZones method.
-        /// </summary>
-        public SupportedTimeZonesRequestBuilder SupportedTimeZones() {
-            return new SupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>
         /// Provides operations to call the supportedTimeZones method.
         /// </summary>
         /// <param name="timeZoneStandard">Usage: TimeZoneStandard=&apos;{TimeZoneStandard}&apos;</param>
-        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder SupportedTimeZonesWithTimeZoneStandard(string timeZoneStandard) {
+        public MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder MicrosoftGraphSupportedTimeZonesWithTimeZoneStandard(string timeZoneStandard) {
             if(string.IsNullOrEmpty(timeZoneStandard)) throw new ArgumentNullException(nameof(timeZoneStandard));
-            return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
+            return new MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
         }
         /// <summary>
         /// Get outlook from users

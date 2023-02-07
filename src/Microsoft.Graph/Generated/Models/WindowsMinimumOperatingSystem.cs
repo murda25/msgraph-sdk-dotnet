@@ -31,17 +31,17 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>Windows version 10.0 or later.</summary>
-        public bool? V10_0 {
+        public bool? V100 {
             get { return BackingStore?.Get<bool?>("v10_0"); }
             set { BackingStore?.Set("v10_0", value); }
         }
         /// <summary>Windows version 8.0 or later.</summary>
-        public bool? V8_0 {
+        public bool? V80 {
             get { return BackingStore?.Get<bool?>("v8_0"); }
             set { BackingStore?.Set("v8_0", value); }
         }
         /// <summary>Windows version 8.1 or later.</summary>
-        public bool? V8_1 {
+        public bool? V81 {
             get { return BackingStore?.Get<bool?>("v8_1"); }
             set { BackingStore?.Set("v8_1", value); }
         }
@@ -66,9 +66,9 @@ namespace Microsoft.Graph.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"v10_0", n => { V10_0 = n.GetBoolValue(); } },
-                {"v8_0", n => { V8_0 = n.GetBoolValue(); } },
-                {"v8_1", n => { V8_1 = n.GetBoolValue(); } },
+                {"v10_0", n => { V100 = n.GetBoolValue(); } },
+                {"v8_0", n => { V80 = n.GetBoolValue(); } },
+                {"v8_1", n => { V81 = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -78,9 +78,9 @@ namespace Microsoft.Graph.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteBoolValue("v10_0", V10_0);
-            writer.WriteBoolValue("v8_0", V8_0);
-            writer.WriteBoolValue("v8_1", V8_1);
+            writer.WriteBoolValue("v10_0", V100);
+            writer.WriteBoolValue("v8_0", V80);
+            writer.WriteBoolValue("v8_1", V81);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

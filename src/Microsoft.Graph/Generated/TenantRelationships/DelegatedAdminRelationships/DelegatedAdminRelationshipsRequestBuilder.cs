@@ -28,7 +28,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
         /// <summary>Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.</summary>
         public DelegatedAdminRelationshipItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("delegatedAdminRelationship%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("delegatedAdminRelationship%2Did", position);
             return new DelegatedAdminRelationshipItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -54,12 +54,13 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// Get a list of the delegatedAdminRelationship objects and their properties.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -78,7 +79,8 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
             return await RequestAdapter.SendAsync<DelegatedAdminRelationshipCollectionResponse>(requestInfo, DelegatedAdminRelationshipCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to delegatedAdminRelationships for tenantRelationships
+        /// Create a new delegatedAdminRelationship object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/tenantrelationship-post-delegatedadminrelationships?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +101,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
             return await RequestAdapter.SendAsync<DelegatedAdminRelationship>(requestInfo, DelegatedAdminRelationship.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// Get a list of the delegatedAdminRelationship objects and their properties.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,7 +127,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to delegatedAdminRelationships for tenantRelationships
+        /// Create a new delegatedAdminRelationship object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +155,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships {
             return requestInfo;
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// Get a list of the delegatedAdminRelationship objects and their properties.
         /// </summary>
         public class DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

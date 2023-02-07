@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class TodoTask : Entity, IParsable {
-        /// <summary>The attachments property</summary>
+        /// <summary>A collection of file attachments for the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AttachmentBase>? Attachments {
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("extensions", value); }
         }
 #endif
-        /// <summary>The hasAttachments property</summary>
+        /// <summary>Indicates whether the task has attachments.</summary>
         public bool? HasAttachments {
             get { return BackingStore?.Get<bool?>("hasAttachments"); }
             set { BackingStore?.Set("hasAttachments", value); }
@@ -189,7 +189,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("reminderDateTime", value); }
         }
 #endif
-        /// <summary>The startDateTime property</summary>
+        /// <summary>The date and time in the specified time zone at which the task is scheduled to start.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DateTimeTimeZone? StartDateTime {

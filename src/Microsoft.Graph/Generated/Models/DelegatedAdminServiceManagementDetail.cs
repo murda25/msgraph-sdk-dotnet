@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class DelegatedAdminServiceManagementDetail : Entity, IParsable {
-        /// <summary>The serviceManagementUrl property</summary>
+        /// <summary>The URL of the management portal for the managed service. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServiceManagementUrl {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("serviceManagementUrl", value); }
         }
 #endif
-        /// <summary>The serviceName property</summary>
+        /// <summary>The name of a managed service. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServiceName {

@@ -1,9 +1,9 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.PermissionGrants.GetAvailableExtensionProperties;
-using Microsoft.Graph.PermissionGrants.GetByIds;
 using Microsoft.Graph.PermissionGrants.Item;
-using Microsoft.Graph.PermissionGrants.ValidateProperties;
+using Microsoft.Graph.PermissionGrants.MicrosoftGraphGetAvailableExtensionProperties;
+using Microsoft.Graph.PermissionGrants.MicrosoftGraphGetByIds;
+using Microsoft.Graph.PermissionGrants.MicrosoftGraphValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,12 +18,16 @@ namespace Microsoft.Graph.PermissionGrants {
     /// </summary>
     public class PermissionGrantsRequestBuilder {
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
-            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
+            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public GetByIdsRequestBuilder GetByIds { get =>
-            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
+            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
+            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -31,14 +35,10 @@ namespace Microsoft.Graph.PermissionGrants {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the collection of resourceSpecificPermissionGrant entities.</summary>
         public ResourceSpecificPermissionGrantItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("resourceSpecificPermissionGrant%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("resourceSpecificPermissionGrant%2Did", position);
             return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.PermissionGrants {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/permissionGrants{?%24search,%24filter,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

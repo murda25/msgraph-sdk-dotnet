@@ -1,8 +1,8 @@
-using Microsoft.Graph.Me.RegisteredDevices.AppRoleAssignment;
 using Microsoft.Graph.Me.RegisteredDevices.Count;
-using Microsoft.Graph.Me.RegisteredDevices.Device;
-using Microsoft.Graph.Me.RegisteredDevices.Endpoint;
 using Microsoft.Graph.Me.RegisteredDevices.Item;
+using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphAppRoleAssignment;
+using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphDevice;
+using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphEndpoint;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -18,21 +18,21 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
     /// Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
     /// </summary>
     public class RegisteredDevicesRequestBuilder {
-        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
-            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
+        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
+            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to device.</summary>
-        public DeviceRequestBuilder Device { get =>
-            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphDeviceRequestBuilder MicrosoftGraphDevice { get =>
+            new MicrosoftGraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public EndpointRequestBuilder Endpoint { get =>
-            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
+            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
         /// <summary>Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("directoryObject%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("directoryObject%2Did", position);
             return new DirectoryObjectItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/registeredDevices{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

@@ -1,8 +1,8 @@
 using Microsoft.Graph.Groups.Item.PermissionGrants.Count;
-using Microsoft.Graph.Groups.Item.PermissionGrants.GetAvailableExtensionProperties;
-using Microsoft.Graph.Groups.Item.PermissionGrants.GetByIds;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item;
-using Microsoft.Graph.Groups.Item.PermissionGrants.ValidateProperties;
+using Microsoft.Graph.Groups.Item.PermissionGrants.MicrosoftGraphGetAvailableExtensionProperties;
+using Microsoft.Graph.Groups.Item.PermissionGrants.MicrosoftGraphGetByIds;
+using Microsoft.Graph.Groups.Item.PermissionGrants.MicrosoftGraphValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -23,12 +23,16 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
-            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
+            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public GetByIdsRequestBuilder GetByIds { get =>
-            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
+            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
+            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -36,14 +40,10 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.</summary>
         public ResourceSpecificPermissionGrantItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("resourceSpecificPermissionGrant%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("resourceSpecificPermissionGrant%2Did", position);
             return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groups/{group%2Did}/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

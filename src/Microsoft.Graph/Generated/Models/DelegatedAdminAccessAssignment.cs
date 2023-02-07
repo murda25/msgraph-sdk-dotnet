@@ -33,17 +33,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("accessDetails", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.</summary>
         public DelegatedAdminAccessAssignmentStatus? Status {
             get { return BackingStore?.Get<DelegatedAdminAccessAssignmentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class DelegatedAdminRelationship : Entity, IParsable {
-        /// <summary>The accessAssignments property</summary>
+        /// <summary>The access assignments associated with the delegated admin relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminAccessAssignment>? AccessAssignments {
@@ -33,17 +33,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("accessDetails", value); }
         }
 #endif
-        /// <summary>The activatedDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the relationship became active. Read-only.</summary>
         public DateTimeOffset? ActivatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("activatedDateTime"); }
             set { BackingStore?.Set("activatedDateTime", value); }
         }
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The customer property</summary>
+        /// <summary>The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DelegatedAdminRelationshipCustomerParticipant? Customer {
@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("customer", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -71,22 +71,22 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The duration property</summary>
+        /// <summary>The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.</summary>
         public TimeSpan? Duration {
             get { return BackingStore?.Get<TimeSpan?>("duration"); }
             set { BackingStore?.Set("duration", value); }
         }
-        /// <summary>The endDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the status of relationship changes to either terminated or expired. Calculated as endDateTime = activatedDateTime + duration. Read-only.</summary>
         public DateTimeOffset? EndDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
             set { BackingStore?.Set("endDateTime", value); }
         }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the relationship was last modified. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The operations property</summary>
+        /// <summary>The long running operations associated with the delegated admin relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminRelationshipOperation>? Operations {
@@ -100,7 +100,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("operations", value); }
         }
 #endif
-        /// <summary>The requests property</summary>
+        /// <summary>The requests associated with the delegated admin relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminRelationshipRequest>? Requests {
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("requests", value); }
         }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderBy.</summary>
         public DelegatedAdminRelationshipStatus? Status {
             get { return BackingStore?.Get<DelegatedAdminRelationshipStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -1,9 +1,9 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Sites.Add;
 using Microsoft.Graph.Sites.Count;
 using Microsoft.Graph.Sites.Item;
-using Microsoft.Graph.Sites.Remove;
+using Microsoft.Graph.Sites.MicrosoftGraphAdd;
+using Microsoft.Graph.Sites.MicrosoftGraphRemove;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -17,20 +17,20 @@ namespace Microsoft.Graph.Sites {
     /// Provides operations to manage the collection of site entities.
     /// </summary>
     public class SitesRequestBuilder {
-        /// <summary>Provides operations to call the add method.</summary>
-        public AddRequestBuilder Add { get =>
-            new AddRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the add method.</summary>
+        public MicrosoftGraphAddRequestBuilder MicrosoftGraphAdd { get =>
+            new MicrosoftGraphAddRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the remove method.</summary>
+        public MicrosoftGraphRemoveRequestBuilder MicrosoftGraphRemove { get =>
+            new MicrosoftGraphRemoveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the remove method.</summary>
-        public RemoveRequestBuilder Remove { get =>
-            new RemoveRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Sites {
         /// <summary>Provides operations to manage the collection of site entities.</summary>
         public SiteItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("site%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("site%2Did", position);
             return new SiteItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Sites {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/sites{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

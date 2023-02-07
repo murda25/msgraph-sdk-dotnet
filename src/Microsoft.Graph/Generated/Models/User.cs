@@ -450,6 +450,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("employeeId", value); }
         }
 #endif
+        /// <summary>The employeeLeaveDateTime property</summary>
+        public DateTimeOffset? EmployeeLeaveDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>("employeeLeaveDateTime"); }
+            set { BackingStore?.Set("employeeLeaveDateTime", value); }
+        }
         /// <summary>Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1594,6 +1599,7 @@ namespace Microsoft.Graph.Models {
                 {"drives", n => { Drives = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Drive>(Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"employeeHireDate", n => { EmployeeHireDate = n.GetDateTimeOffsetValue(); } },
                 {"employeeId", n => { EmployeeId = n.GetStringValue(); } },
+                {"employeeLeaveDateTime", n => { EmployeeLeaveDateTime = n.GetDateTimeOffsetValue(); } },
                 {"employeeOrgData", n => { EmployeeOrgData = n.GetObjectValue<Microsoft.Graph.Models.EmployeeOrgData>(Microsoft.Graph.Models.EmployeeOrgData.CreateFromDiscriminatorValue); } },
                 {"employeeType", n => { EmployeeType = n.GetStringValue(); } },
                 {"events", n => { Events = n.GetCollectionOfObjectValues<Event>(Event.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1721,6 +1727,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.Drive>("drives", Drives);
             writer.WriteDateTimeOffsetValue("employeeHireDate", EmployeeHireDate);
             writer.WriteStringValue("employeeId", EmployeeId);
+            writer.WriteDateTimeOffsetValue("employeeLeaveDateTime", EmployeeLeaveDateTime);
             writer.WriteObjectValue<Microsoft.Graph.Models.EmployeeOrgData>("employeeOrgData", EmployeeOrgData);
             writer.WriteStringValue("employeeType", EmployeeType);
             writer.WriteCollectionOfObjectValues<Event>("events", Events);

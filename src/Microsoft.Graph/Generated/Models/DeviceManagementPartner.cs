@@ -22,6 +22,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
+        /// <summary>User groups that specifies whether enrollment is through partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceManagementPartnerAssignment>? GroupsRequiringPartnerEnrollment {
+            get { return BackingStore?.Get<List<DeviceManagementPartnerAssignment>?>("groupsRequiringPartnerEnrollment"); }
+            set { BackingStore?.Set("groupsRequiringPartnerEnrollment", value); }
+        }
+#nullable restore
+#else
+        public List<DeviceManagementPartnerAssignment> GroupsRequiringPartnerEnrollment {
+            get { return BackingStore?.Get<List<DeviceManagementPartnerAssignment>>("groupsRequiringPartnerEnrollment"); }
+            set { BackingStore?.Set("groupsRequiringPartnerEnrollment", value); }
+        }
+#endif
         /// <summary>Whether device management partner is configured or not</summary>
         public bool? IsConfigured {
             get { return BackingStore?.Get<bool?>("isConfigured"); }
@@ -80,6 +94,7 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"groupsRequiringPartnerEnrollment", n => { GroupsRequiringPartnerEnrollment = n.GetCollectionOfObjectValues<DeviceManagementPartnerAssignment>(DeviceManagementPartnerAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isConfigured", n => { IsConfigured = n.GetBoolValue(); } },
                 {"lastHeartbeatDateTime", n => { LastHeartbeatDateTime = n.GetDateTimeOffsetValue(); } },
                 {"partnerAppType", n => { PartnerAppType = n.GetEnumValue<DeviceManagementPartnerAppType>(); } },
@@ -97,6 +112,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", GroupsRequiringPartnerEnrollment);
             writer.WriteBoolValue("isConfigured", IsConfigured);
             writer.WriteDateTimeOffsetValue("lastHeartbeatDateTime", LastHeartbeatDateTime);
             writer.WriteEnumValue<DeviceManagementPartnerAppType>("partnerAppType", PartnerAppType);

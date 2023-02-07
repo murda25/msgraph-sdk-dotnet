@@ -1,6 +1,6 @@
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
-using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Reprocess;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.MicrosoftGraphReprocess;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -25,12 +25,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
         public AssignmentPolicyRequestBuilder AssignmentPolicy { get =>
             new AssignmentPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the reprocess method.</summary>
+        public MicrosoftGraphReprocessRequestBuilder MicrosoftGraphReprocess { get =>
+            new MicrosoftGraphReprocessRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the reprocess method.</summary>
-        public ReprocessRequestBuilder Reprocess { get =>
-            new ReprocessRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity.</summary>
@@ -62,7 +62,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

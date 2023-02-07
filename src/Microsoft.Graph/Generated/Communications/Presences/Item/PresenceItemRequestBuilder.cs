@@ -1,7 +1,7 @@
-using Microsoft.Graph.Communications.Presences.Item.ClearPresence;
-using Microsoft.Graph.Communications.Presences.Item.ClearUserPreferredPresence;
-using Microsoft.Graph.Communications.Presences.Item.SetPresence;
-using Microsoft.Graph.Communications.Presences.Item.SetUserPreferredPresence;
+using Microsoft.Graph.Communications.Presences.Item.MicrosoftGraphClearPresence;
+using Microsoft.Graph.Communications.Presences.Item.MicrosoftGraphClearUserPreferredPresence;
+using Microsoft.Graph.Communications.Presences.Item.MicrosoftGraphSetPresence;
+using Microsoft.Graph.Communications.Presences.Item.MicrosoftGraphSetUserPreferredPresence;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -18,25 +18,25 @@ namespace Microsoft.Graph.Communications.Presences.Item {
     /// </summary>
     public class PresenceItemRequestBuilder {
         /// <summary>Provides operations to call the clearPresence method.</summary>
-        public ClearPresenceRequestBuilder ClearPresence { get =>
-            new ClearPresenceRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphClearPresenceRequestBuilder MicrosoftGraphClearPresence { get =>
+            new MicrosoftGraphClearPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the clearUserPreferredPresence method.</summary>
-        public ClearUserPreferredPresenceRequestBuilder ClearUserPreferredPresence { get =>
-            new ClearUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphClearUserPreferredPresenceRequestBuilder MicrosoftGraphClearUserPreferredPresence { get =>
+            new MicrosoftGraphClearUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setPresence method.</summary>
+        public MicrosoftGraphSetPresenceRequestBuilder MicrosoftGraphSetPresence { get =>
+            new MicrosoftGraphSetPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
+        public MicrosoftGraphSetUserPreferredPresenceRequestBuilder MicrosoftGraphSetUserPreferredPresence { get =>
+            new MicrosoftGraphSetUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the setPresence method.</summary>
-        public SetPresenceRequestBuilder SetPresence { get =>
-            new SetPresenceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
-        public SetUserPreferredPresenceRequestBuilder SetUserPreferredPresence { get =>
-            new SetUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Microsoft.Graph.Communications.Presences.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

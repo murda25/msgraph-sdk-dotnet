@@ -1,10 +1,10 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Organization.Count;
-using Microsoft.Graph.Organization.GetAvailableExtensionProperties;
-using Microsoft.Graph.Organization.GetByIds;
 using Microsoft.Graph.Organization.Item;
-using Microsoft.Graph.Organization.ValidateProperties;
+using Microsoft.Graph.Organization.MicrosoftGraphGetAvailableExtensionProperties;
+using Microsoft.Graph.Organization.MicrosoftGraphGetByIds;
+using Microsoft.Graph.Organization.MicrosoftGraphValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -23,12 +23,16 @@ namespace Microsoft.Graph.Organization {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
-            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
+            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public GetByIdsRequestBuilder GetByIds { get =>
-            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
+            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
+            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -36,14 +40,10 @@ namespace Microsoft.Graph.Organization {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the collection of organization entities.</summary>
         public OrganizationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("organization%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("organization%2Did", position);
             return new OrganizationItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Organization {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/organization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

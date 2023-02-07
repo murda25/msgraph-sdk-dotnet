@@ -22,13 +22,13 @@ namespace Microsoft.Graph.Models.Security {
         /// <summary>A collection of alerts in Microsoft 365 Defender.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Alert>? Alerts_v2 {
+        public List<Alert>? AlertsV2 {
             get { return BackingStore?.Get<List<Alert>?>("alerts_v2"); }
             set { BackingStore?.Set("alerts_v2", value); }
         }
 #nullable restore
 #else
-        public List<Alert> Alerts_v2 {
+        public List<Alert> AlertsV2 {
             get { return BackingStore?.Get<List<Alert>>("alerts_v2"); }
             set { BackingStore?.Set("alerts_v2", value); }
         }
@@ -117,7 +117,7 @@ namespace Microsoft.Graph.Models.Security {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"alerts", n => { Alerts = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Alert>(Microsoft.Graph.Models.Alert.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"alerts_v2", n => { Alerts_v2 = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"alerts_v2", n => { AlertsV2 = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"attackSimulation", n => { AttackSimulation = n.GetObjectValue<Microsoft.Graph.Models.AttackSimulationRoot>(Microsoft.Graph.Models.AttackSimulationRoot.CreateFromDiscriminatorValue); } },
                 {"cases", n => { Cases = n.GetObjectValue<CasesRoot>(CasesRoot.CreateFromDiscriminatorValue); } },
                 {"incidents", n => { Incidents = n.GetCollectionOfObjectValues<Incident>(Incident.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Models.Security {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.Alert>("alerts", Alerts);
-            writer.WriteCollectionOfObjectValues<Alert>("alerts_v2", Alerts_v2);
+            writer.WriteCollectionOfObjectValues<Alert>("alerts_v2", AlertsV2);
             writer.WriteObjectValue<Microsoft.Graph.Models.AttackSimulationRoot>("attackSimulation", AttackSimulation);
             writer.WriteObjectValue<CasesRoot>("cases", Cases);
             writer.WriteCollectionOfObjectValues<Incident>("incidents", Incidents);

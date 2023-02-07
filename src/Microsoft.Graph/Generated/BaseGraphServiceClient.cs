@@ -25,7 +25,6 @@ using Microsoft.Graph.DirectoryRoles;
 using Microsoft.Graph.DirectoryRoleTemplates;
 using Microsoft.Graph.DomainDnsRecords;
 using Microsoft.Graph.Domains;
-using Microsoft.Graph.Drive;
 using Microsoft.Graph.Drives;
 using Microsoft.Graph.Education;
 using Microsoft.Graph.External;
@@ -189,10 +188,6 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the collection of domain entities.</summary>
         public DomainsRequestBuilder Domains { get =>
             new DomainsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the drive singleton.</summary>
-        public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of drive entities.</summary>
         public DrivesRequestBuilder Drives { get =>

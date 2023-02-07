@@ -1,4 +1,4 @@
-using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances.Item.GenerateDownloadUri;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances.Item.MicrosoftGraphGenerateDownloadUri;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.It
     /// </summary>
     public class AccessReviewHistoryInstanceItemRequestBuilder {
         /// <summary>Provides operations to call the generateDownloadUri method.</summary>
-        public GenerateDownloadUriRequestBuilder GenerateDownloadUri { get =>
-            new GenerateDownloadUriRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGenerateDownloadUriRequestBuilder MicrosoftGraphGenerateDownloadUri { get =>
+            new MicrosoftGraphGenerateDownloadUriRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.It
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances/{accessReviewHistoryInstance%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

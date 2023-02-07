@@ -1,10 +1,10 @@
-using Microsoft.Graph.Devices.Item.RegisteredOwners.AppRoleAssignment;
 using Microsoft.Graph.Devices.Item.RegisteredOwners.Count;
-using Microsoft.Graph.Devices.Item.RegisteredOwners.Endpoint;
 using Microsoft.Graph.Devices.Item.RegisteredOwners.Item;
+using Microsoft.Graph.Devices.Item.RegisteredOwners.MicrosoftGraphAppRoleAssignment;
+using Microsoft.Graph.Devices.Item.RegisteredOwners.MicrosoftGraphEndpoint;
+using Microsoft.Graph.Devices.Item.RegisteredOwners.MicrosoftGraphServicePrincipal;
+using Microsoft.Graph.Devices.Item.RegisteredOwners.MicrosoftGraphUser;
 using Microsoft.Graph.Devices.Item.RegisteredOwners.Ref;
-using Microsoft.Graph.Devices.Item.RegisteredOwners.ServicePrincipal;
-using Microsoft.Graph.Devices.Item.RegisteredOwners.User;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -20,17 +20,25 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
     /// Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.
     /// </summary>
     public class RegisteredOwnersRequestBuilder {
-        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
-            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
+        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
+            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public EndpointRequestBuilder Endpoint { get =>
-            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
+            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to servicePrincipal.</summary>
+        public MicrosoftGraphServicePrincipalRequestBuilder MicrosoftGraphServicePrincipal { get =>
+            new MicrosoftGraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to user.</summary>
+        public MicrosoftGraphUserRequestBuilder MicrosoftGraphUser { get =>
+            new MicrosoftGraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -40,20 +48,12 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Casts the previous resource to servicePrincipal.</summary>
-        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
-            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Casts the previous resource to user.</summary>
-        public UserRequestBuilder User { get =>
-            new UserRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Gets an item from the Microsoft.Graph.devices.item.registeredOwners.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("directoryObject%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("directoryObject%2Did", position);
             return new DirectoryObjectItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Devices.Item.RegisteredOwners {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/devices/{device%2Did}/registeredOwners{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

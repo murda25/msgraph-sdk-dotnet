@@ -1,10 +1,10 @@
 using Microsoft.Graph.Domains.Item.DomainNameReferences;
 using Microsoft.Graph.Domains.Item.FederationConfiguration;
-using Microsoft.Graph.Domains.Item.ForceDelete;
-using Microsoft.Graph.Domains.Item.Promote;
+using Microsoft.Graph.Domains.Item.MicrosoftGraphForceDelete;
+using Microsoft.Graph.Domains.Item.MicrosoftGraphPromote;
+using Microsoft.Graph.Domains.Item.MicrosoftGraphVerify;
 using Microsoft.Graph.Domains.Item.ServiceConfigurationRecords;
 using Microsoft.Graph.Domains.Item.VerificationDnsRecords;
-using Microsoft.Graph.Domains.Item.Verify;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -29,15 +29,19 @@ namespace Microsoft.Graph.Domains.Item {
             new FederationConfigurationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the forceDelete method.</summary>
-        public ForceDeleteRequestBuilder ForceDelete { get =>
-            new ForceDeleteRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphForceDeleteRequestBuilder MicrosoftGraphForceDelete { get =>
+            new MicrosoftGraphForceDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the promote method.</summary>
+        public MicrosoftGraphPromoteRequestBuilder MicrosoftGraphPromote { get =>
+            new MicrosoftGraphPromoteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the verify method.</summary>
+        public MicrosoftGraphVerifyRequestBuilder MicrosoftGraphVerify { get =>
+            new MicrosoftGraphVerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the promote method.</summary>
-        public PromoteRequestBuilder Promote { get =>
-            new PromoteRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.</summary>
@@ -49,10 +53,6 @@ namespace Microsoft.Graph.Domains.Item {
         /// <summary>Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.</summary>
         public VerificationDnsRecordsRequestBuilder VerificationDnsRecords { get =>
             new VerificationDnsRecordsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the verify method.</summary>
-        public VerifyRequestBuilder Verify { get =>
-            new VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DomainItemRequestBuilder and sets the default values.
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Domains.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/domains/{domain%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

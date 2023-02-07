@@ -1,24 +1,31 @@
 using Microsoft.Graph.Groups.Item.AcceptedSenders;
-using Microsoft.Graph.Groups.Item.AddFavorite;
 using Microsoft.Graph.Groups.Item.AppRoleAssignments;
-using Microsoft.Graph.Groups.Item.AssignLicense;
 using Microsoft.Graph.Groups.Item.Calendar;
 using Microsoft.Graph.Groups.Item.CalendarView;
-using Microsoft.Graph.Groups.Item.CheckGrantedPermissionsForApp;
-using Microsoft.Graph.Groups.Item.CheckMemberGroups;
-using Microsoft.Graph.Groups.Item.CheckMemberObjects;
 using Microsoft.Graph.Groups.Item.Conversations;
 using Microsoft.Graph.Groups.Item.CreatedOnBehalfOf;
 using Microsoft.Graph.Groups.Item.Drive;
 using Microsoft.Graph.Groups.Item.Drives;
 using Microsoft.Graph.Groups.Item.Events;
 using Microsoft.Graph.Groups.Item.Extensions;
-using Microsoft.Graph.Groups.Item.GetMemberGroups;
-using Microsoft.Graph.Groups.Item.GetMemberObjects;
 using Microsoft.Graph.Groups.Item.GroupLifecyclePolicies;
 using Microsoft.Graph.Groups.Item.MemberOf;
 using Microsoft.Graph.Groups.Item.Members;
 using Microsoft.Graph.Groups.Item.MembersWithLicenseErrors;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphAddFavorite;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphAssignLicense;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphCheckGrantedPermissionsForApp;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphCheckMemberGroups;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphCheckMemberObjects;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphGetMemberGroups;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphGetMemberObjects;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphRemoveFavorite;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphRenew;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphResetUnseenCount;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphRestore;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphSubscribeByMail;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphUnsubscribeByMail;
+using Microsoft.Graph.Groups.Item.MicrosoftGraphValidateProperties;
 using Microsoft.Graph.Groups.Item.Onenote;
 using Microsoft.Graph.Groups.Item.Owners;
 using Microsoft.Graph.Groups.Item.PermissionGrants;
@@ -26,19 +33,12 @@ using Microsoft.Graph.Groups.Item.Photo;
 using Microsoft.Graph.Groups.Item.Photos;
 using Microsoft.Graph.Groups.Item.Planner;
 using Microsoft.Graph.Groups.Item.RejectedSenders;
-using Microsoft.Graph.Groups.Item.RemoveFavorite;
-using Microsoft.Graph.Groups.Item.Renew;
-using Microsoft.Graph.Groups.Item.ResetUnseenCount;
-using Microsoft.Graph.Groups.Item.Restore;
 using Microsoft.Graph.Groups.Item.Settings;
 using Microsoft.Graph.Groups.Item.Sites;
-using Microsoft.Graph.Groups.Item.SubscribeByMail;
 using Microsoft.Graph.Groups.Item.Team;
 using Microsoft.Graph.Groups.Item.Threads;
 using Microsoft.Graph.Groups.Item.TransitiveMemberOf;
 using Microsoft.Graph.Groups.Item.TransitiveMembers;
-using Microsoft.Graph.Groups.Item.UnsubscribeByMail;
-using Microsoft.Graph.Groups.Item.ValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -58,17 +58,9 @@ namespace Microsoft.Graph.Groups.Item {
         public AcceptedSendersRequestBuilder AcceptedSenders { get =>
             new AcceptedSendersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the addFavorite method.</summary>
-        public AddFavoriteRequestBuilder AddFavorite { get =>
-            new AddFavoriteRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.</summary>
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
             new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the assignLicense method.</summary>
-        public AssignLicenseRequestBuilder AssignLicense { get =>
-            new AssignLicenseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the calendar property of the microsoft.graph.group entity.</summary>
         public CalendarRequestBuilder Calendar { get =>
@@ -77,18 +69,6 @@ namespace Microsoft.Graph.Groups.Item {
         /// <summary>Provides operations to manage the calendarView property of the microsoft.graph.group entity.</summary>
         public CalendarViewRequestBuilder CalendarView { get =>
             new CalendarViewRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkGrantedPermissionsForApp method.</summary>
-        public CheckGrantedPermissionsForAppRequestBuilder CheckGrantedPermissionsForApp { get =>
-            new CheckGrantedPermissionsForAppRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
-        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
-        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the conversations property of the microsoft.graph.group entity.</summary>
         public ConversationsRequestBuilder Conversations { get =>
@@ -114,14 +94,6 @@ namespace Microsoft.Graph.Groups.Item {
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the getMemberGroups method.</summary>
-        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the getMemberObjects method.</summary>
-        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.</summary>
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
             new GroupLifecyclePoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -137,6 +109,62 @@ namespace Microsoft.Graph.Groups.Item {
         /// <summary>Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.</summary>
         public MembersWithLicenseErrorsRequestBuilder MembersWithLicenseErrors { get =>
             new MembersWithLicenseErrorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addFavorite method.</summary>
+        public MicrosoftGraphAddFavoriteRequestBuilder MicrosoftGraphAddFavorite { get =>
+            new MicrosoftGraphAddFavoriteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the assignLicense method.</summary>
+        public MicrosoftGraphAssignLicenseRequestBuilder MicrosoftGraphAssignLicense { get =>
+            new MicrosoftGraphAssignLicenseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkGrantedPermissionsForApp method.</summary>
+        public MicrosoftGraphCheckGrantedPermissionsForAppRequestBuilder MicrosoftGraphCheckGrantedPermissionsForApp { get =>
+            new MicrosoftGraphCheckGrantedPermissionsForAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
+        public MicrosoftGraphCheckMemberGroupsRequestBuilder MicrosoftGraphCheckMemberGroups { get =>
+            new MicrosoftGraphCheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
+        public MicrosoftGraphCheckMemberObjectsRequestBuilder MicrosoftGraphCheckMemberObjects { get =>
+            new MicrosoftGraphCheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getMemberGroups method.</summary>
+        public MicrosoftGraphGetMemberGroupsRequestBuilder MicrosoftGraphGetMemberGroups { get =>
+            new MicrosoftGraphGetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getMemberObjects method.</summary>
+        public MicrosoftGraphGetMemberObjectsRequestBuilder MicrosoftGraphGetMemberObjects { get =>
+            new MicrosoftGraphGetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the removeFavorite method.</summary>
+        public MicrosoftGraphRemoveFavoriteRequestBuilder MicrosoftGraphRemoveFavorite { get =>
+            new MicrosoftGraphRemoveFavoriteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the renew method.</summary>
+        public MicrosoftGraphRenewRequestBuilder MicrosoftGraphRenew { get =>
+            new MicrosoftGraphRenewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the resetUnseenCount method.</summary>
+        public MicrosoftGraphResetUnseenCountRequestBuilder MicrosoftGraphResetUnseenCount { get =>
+            new MicrosoftGraphResetUnseenCountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the restore method.</summary>
+        public MicrosoftGraphRestoreRequestBuilder MicrosoftGraphRestore { get =>
+            new MicrosoftGraphRestoreRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the subscribeByMail method.</summary>
+        public MicrosoftGraphSubscribeByMailRequestBuilder MicrosoftGraphSubscribeByMail { get =>
+            new MicrosoftGraphSubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unsubscribeByMail method.</summary>
+        public MicrosoftGraphUnsubscribeByMailRequestBuilder MicrosoftGraphUnsubscribeByMail { get =>
+            new MicrosoftGraphUnsubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
+            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the onenote property of the microsoft.graph.group entity.</summary>
         public OnenoteRequestBuilder Onenote { get =>
@@ -168,24 +196,8 @@ namespace Microsoft.Graph.Groups.Item {
         public RejectedSendersRequestBuilder RejectedSenders { get =>
             new RejectedSendersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the removeFavorite method.</summary>
-        public RemoveFavoriteRequestBuilder RemoveFavorite { get =>
-            new RemoveFavoriteRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the renew method.</summary>
-        public RenewRequestBuilder Renew { get =>
-            new RenewRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the resetUnseenCount method.</summary>
-        public ResetUnseenCountRequestBuilder ResetUnseenCount { get =>
-            new ResetUnseenCountRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the restore method.</summary>
-        public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the settings property of the microsoft.graph.group entity.</summary>
         public SettingsRequestBuilder Settings { get =>
             new SettingsRequestBuilder(PathParameters, RequestAdapter);
@@ -193,10 +205,6 @@ namespace Microsoft.Graph.Groups.Item {
         /// <summary>Provides operations to manage the sites property of the microsoft.graph.group entity.</summary>
         public SitesRequestBuilder Sites { get =>
             new SitesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the subscribeByMail method.</summary>
-        public SubscribeByMailRequestBuilder SubscribeByMail { get =>
-            new SubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the team property of the microsoft.graph.group entity.</summary>
         public TeamRequestBuilder Team { get =>
@@ -214,16 +222,8 @@ namespace Microsoft.Graph.Groups.Item {
         public TransitiveMembersRequestBuilder TransitiveMembers { get =>
             new TransitiveMembersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the unsubscribeByMail method.</summary>
-        public UnsubscribeByMailRequestBuilder UnsubscribeByMail { get =>
-            new UnsubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new GroupItemRequestBuilder and sets the default values.
         /// </summary>
@@ -247,7 +247,7 @@ namespace Microsoft.Graph.Groups.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groups/{group%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

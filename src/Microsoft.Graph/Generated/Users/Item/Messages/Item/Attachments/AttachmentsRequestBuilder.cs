@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Messages.Item.Attachments.Count;
-using Microsoft.Graph.Users.Item.Messages.Item.Attachments.CreateUploadSession;
 using Microsoft.Graph.Users.Item.Messages.Item.Attachments.Item;
+using Microsoft.Graph.Users.Item.Messages.Item.Attachments.MicrosoftGraphCreateUploadSession;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createUploadSession method.</summary>
-        public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
-            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession { get =>
+            new MicrosoftGraphCreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.message entity.</summary>
         public AttachmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("attachment%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("attachment%2Did", position);
             return new AttachmentItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -59,13 +59,13 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Retrieve a list of attachment objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0" />
+        /// Retrieve a list of attachment objects attached to a message.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             return await RequestAdapter.SendAsync<Attachment>(requestInfo, Attachment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of attachment objects.
+        /// Retrieve a list of attachment objects attached to a message.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,7 +160,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of attachment objects.
+        /// Retrieve a list of attachment objects attached to a message.
         /// </summary>
         public class AttachmentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

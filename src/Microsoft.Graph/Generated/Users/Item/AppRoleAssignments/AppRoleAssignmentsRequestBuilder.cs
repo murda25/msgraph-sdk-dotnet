@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
         /// <summary>Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.</summary>
         public AppRoleAssignmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("appRoleAssignment%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("appRoleAssignment%2Did", position);
             return new AppRoleAssignmentItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/appRoleAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -87,10 +87,10 @@ namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Microsoft.Graph.Models.AppRoleAssignment?> PostAsync(Microsoft.Graph.Models.AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<AppRoleAssignment?> PostAsync(AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Microsoft.Graph.Models.AppRoleAssignment> PostAsync(Microsoft.Graph.Models.AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<AppRoleAssignment> PostAsync(AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
@@ -98,7 +98,7 @@ namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AppRoleAssignment>(requestInfo, Microsoft.Graph.Models.AppRoleAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, AppRoleAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Represents the app roles a user has been granted for an application. Supports $expand.
@@ -133,10 +133,10 @@ namespace Microsoft.Graph.Users.Item.AppRoleAssignments {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Microsoft.Graph.Models.AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Microsoft.Graph.Models.AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(AppRoleAssignment body, Action<AppRoleAssignmentsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {

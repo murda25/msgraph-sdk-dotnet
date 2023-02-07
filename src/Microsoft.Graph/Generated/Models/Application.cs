@@ -389,6 +389,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publisherDomain", value); }
         }
 #endif
+        /// <summary>The requestSignatureVerification property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.RequestSignatureVerification? RequestSignatureVerification {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RequestSignatureVerification?>("requestSignatureVerification"); }
+            set { BackingStore?.Set("requestSignatureVerification", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.RequestSignatureVerification RequestSignatureVerification {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.RequestSignatureVerification>("requestSignatureVerification"); }
+            set { BackingStore?.Set("requestSignatureVerification", value); }
+        }
+#endif
         /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -535,7 +549,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new Application and sets the default values.
+        /// Instantiates a new application and sets the default values.
         /// </summary>
         public Application() : base() {
             OdataType = "#microsoft.graph.application";
@@ -583,6 +597,7 @@ namespace Microsoft.Graph.Models {
                 {"passwordCredentials", n => { PasswordCredentials = n.GetCollectionOfObjectValues<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"publicClient", n => { PublicClient = n.GetObjectValue<PublicClientApplication>(PublicClientApplication.CreateFromDiscriminatorValue); } },
                 {"publisherDomain", n => { PublisherDomain = n.GetStringValue(); } },
+                {"requestSignatureVerification", n => { RequestSignatureVerification = n.GetObjectValue<Microsoft.Graph.Models.RequestSignatureVerification>(Microsoft.Graph.Models.RequestSignatureVerification.CreateFromDiscriminatorValue); } },
                 {"requiredResourceAccess", n => { RequiredResourceAccess = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.RequiredResourceAccess>(Microsoft.Graph.Models.RequiredResourceAccess.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"samlMetadataUrl", n => { SamlMetadataUrl = n.GetStringValue(); } },
                 {"serviceManagementReference", n => { ServiceManagementReference = n.GetStringValue(); } },
@@ -633,6 +648,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<PasswordCredential>("passwordCredentials", PasswordCredentials);
             writer.WriteObjectValue<PublicClientApplication>("publicClient", PublicClient);
             writer.WriteStringValue("publisherDomain", PublisherDomain);
+            writer.WriteObjectValue<Microsoft.Graph.Models.RequestSignatureVerification>("requestSignatureVerification", RequestSignatureVerification);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.RequiredResourceAccess>("requiredResourceAccess", RequiredResourceAccess);
             writer.WriteStringValue("samlMetadataUrl", SamlMetadataUrl);
             writer.WriteStringValue("serviceManagementReference", ServiceManagementReference);

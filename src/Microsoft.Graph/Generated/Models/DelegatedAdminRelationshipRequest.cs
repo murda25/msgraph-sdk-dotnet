@@ -10,17 +10,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DelegatedAdminRelationshipRequestAction?>("action"); }
             set { BackingStore?.Set("action", value); }
         }
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.</summary>
         public DelegatedAdminRelationshipRequestStatus? Status {
             get { return BackingStore?.Get<DelegatedAdminRelationshipRequestStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Chats.Count;
-using Microsoft.Graph.Users.Item.Chats.GetAllMessages;
 using Microsoft.Graph.Users.Item.Chats.Item;
+using Microsoft.Graph.Users.Item.Chats.MicrosoftGraphGetAllMessages;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,6 +20,10 @@ namespace Microsoft.Graph.Users.Item.Chats {
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the getAllMessages method.</summary>
+        public MicrosoftGraphGetAllMessagesRequestBuilder MicrosoftGraphGetAllMessages { get =>
+            new MicrosoftGraphGetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -29,7 +33,7 @@ namespace Microsoft.Graph.Users.Item.Chats {
         /// <summary>Provides operations to manage the chats property of the microsoft.graph.user entity.</summary>
         public ChatItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("chat%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("chat%2Did", position);
             return new ChatItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -55,15 +59,9 @@ namespace Microsoft.Graph.Users.Item.Chats {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/chats{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-        }
-        /// <summary>
-        /// Provides operations to call the getAllMessages method.
-        /// </summary>
-        public GetAllMessagesRequestBuilder GetAllMessages() {
-            return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.

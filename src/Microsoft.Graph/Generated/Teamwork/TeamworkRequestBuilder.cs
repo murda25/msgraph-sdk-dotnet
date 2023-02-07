@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Teamwork.SendActivityNotificationToRecipients;
+using Microsoft.Graph.Teamwork.MicrosoftGraphSendActivityNotificationToRecipients;
 using Microsoft.Graph.Teamwork.WorkforceIntegrations;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -15,14 +15,14 @@ namespace Microsoft.Graph.Teamwork {
     /// Provides operations to manage the teamwork singleton.
     /// </summary>
     public class TeamworkRequestBuilder {
+        /// <summary>Provides operations to call the sendActivityNotificationToRecipients method.</summary>
+        public MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder MicrosoftGraphSendActivityNotificationToRecipients { get =>
+            new MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the sendActivityNotificationToRecipients method.</summary>
-        public SendActivityNotificationToRecipientsRequestBuilder SendActivityNotificationToRecipients { get =>
-            new SendActivityNotificationToRecipientsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.</summary>
@@ -52,7 +52,7 @@ namespace Microsoft.Graph.Teamwork {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/teamwork{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

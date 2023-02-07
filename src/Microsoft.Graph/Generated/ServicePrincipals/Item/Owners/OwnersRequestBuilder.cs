@@ -1,12 +1,12 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.AppRoleAssignment;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Count;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.Endpoint;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Item;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphAppRoleAssignment;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphEndpoint;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphServicePrincipal;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphUser;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Ref;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.ServicePrincipal;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.User;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,17 +20,25 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
     /// Provides operations to manage the owners property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
     public class OwnersRequestBuilder {
-        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
-            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to appRoleAssignment.</summary>
+        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
+            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public EndpointRequestBuilder Endpoint { get =>
-            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
+            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to servicePrincipal.</summary>
+        public MicrosoftGraphServicePrincipalRequestBuilder MicrosoftGraphServicePrincipal { get =>
+            new MicrosoftGraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to user.</summary>
+        public MicrosoftGraphUserRequestBuilder MicrosoftGraphUser { get =>
+            new MicrosoftGraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -40,20 +48,12 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Casts the previous resource to servicePrincipal.</summary>
-        public ServicePrincipalRequestBuilder ServicePrincipal { get =>
-            new ServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Casts the previous resource to user.</summary>
-        public UserRequestBuilder User { get =>
-            new UserRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Gets an item from the Microsoft.Graph.servicePrincipals.item.owners.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("directoryObject%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("directoryObject%2Did", position);
             return new DirectoryObjectItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/owners{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

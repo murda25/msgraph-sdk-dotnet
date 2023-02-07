@@ -28,7 +28,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.O
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.</summary>
         public DelegatedAdminRelationshipOperationItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("delegatedAdminRelationshipOperation%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("delegatedAdminRelationshipOperation%2Did", position);
             return new DelegatedAdminRelationshipOperationItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -54,12 +54,13 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.O
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get operations from tenantRelationships
+        /// Get a list of the delegatedAdminRelationshipOperation objects and their properties.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +100,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.O
             return await RequestAdapter.SendAsync<DelegatedAdminRelationshipOperation>(requestInfo, DelegatedAdminRelationshipOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get operations from tenantRelationships
+        /// Get a list of the delegatedAdminRelationshipOperation objects and their properties.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,7 +154,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.O
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from tenantRelationships
+        /// Get a list of the delegatedAdminRelationshipOperation objects and their properties.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

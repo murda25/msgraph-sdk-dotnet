@@ -1,4 +1,4 @@
-using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate.DownloadApplePushNotificationCertificateSigningRequest;
+using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate.MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequest;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -14,6 +14,10 @@ namespace Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate {
     /// Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
     /// </summary>
     public class ApplePushNotificationCertificateRequestBuilder {
+        /// <summary>Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.</summary>
+        public MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequest { get =>
+            new MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -43,7 +47,7 @@ namespace Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/deviceManagement/applePushNotificationCertificate{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -65,12 +69,6 @@ namespace Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
-        /// </summary>
-        public DownloadApplePushNotificationCertificateSigningRequestRequestBuilder DownloadApplePushNotificationCertificateSigningRequest() {
-            return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Apple push notification certificate.

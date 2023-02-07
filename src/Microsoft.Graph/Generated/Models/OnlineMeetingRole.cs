@@ -4,5 +4,6 @@ namespace Microsoft.Graph.Models {
         Presenter,
         UnknownFutureValue,
         Producer,
+        Coorganizer,
     }
 }

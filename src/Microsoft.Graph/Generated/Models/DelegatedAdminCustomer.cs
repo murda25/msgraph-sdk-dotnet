@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class DelegatedAdminCustomer : Entity, IParsable {
-        /// <summary>The displayName property</summary>
+        /// <summary>The Azure AD display name of the customer tenant. Read-only. Supports $orderBy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The serviceManagementDetails property</summary>
+        /// <summary>Contains the management details of a service in the customer tenant that&apos;s managed by delegated administration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminServiceManagementDetail>? ServiceManagementDetails {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("serviceManagementDetails", value); }
         }
 #endif
-        /// <summary>The tenantId property</summary>
+        /// <summary>The Azure AD-assigned tenant ID of the customer. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantId {

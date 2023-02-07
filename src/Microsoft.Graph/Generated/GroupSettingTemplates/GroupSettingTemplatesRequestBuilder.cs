@@ -1,8 +1,8 @@
 using Microsoft.Graph.GroupSettingTemplates.Count;
-using Microsoft.Graph.GroupSettingTemplates.GetAvailableExtensionProperties;
-using Microsoft.Graph.GroupSettingTemplates.GetByIds;
 using Microsoft.Graph.GroupSettingTemplates.Item;
-using Microsoft.Graph.GroupSettingTemplates.ValidateProperties;
+using Microsoft.Graph.GroupSettingTemplates.MicrosoftGraphGetAvailableExtensionProperties;
+using Microsoft.Graph.GroupSettingTemplates.MicrosoftGraphGetByIds;
+using Microsoft.Graph.GroupSettingTemplates.MicrosoftGraphValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -23,12 +23,16 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
-            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
+            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public GetByIdsRequestBuilder GetByIds { get =>
-            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
+            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
+            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -36,14 +40,10 @@ namespace Microsoft.Graph.GroupSettingTemplates {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
         public GroupSettingTemplateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("groupSettingTemplate%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("groupSettingTemplate%2Did", position);
             return new GroupSettingTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groupSettingTemplates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

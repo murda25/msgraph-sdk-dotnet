@@ -1,12 +1,12 @@
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.AcceptRecommendations;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ApplyDecisions;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.BatchRecordDecisions;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ContactedReviewers;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ResetDecisions;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.SendReminder;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphAcceptRecommendations;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphApplyDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphBatchRecordDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphResetDecisions;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphSendReminder;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.MicrosoftGraphStop;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stages;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Stop;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -22,18 +22,6 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
     /// Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
     /// </summary>
     public class AccessReviewInstanceItemRequestBuilder {
-        /// <summary>Provides operations to call the acceptRecommendations method.</summary>
-        public AcceptRecommendationsRequestBuilder AcceptRecommendations { get =>
-            new AcceptRecommendationsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the applyDecisions method.</summary>
-        public ApplyDecisionsRequestBuilder ApplyDecisions { get =>
-            new ApplyDecisionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the batchRecordDecisions method.</summary>
-        public BatchRecordDecisionsRequestBuilder BatchRecordDecisions { get =>
-            new BatchRecordDecisionsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.</summary>
         public ContactedReviewersRequestBuilder ContactedReviewers { get =>
             new ContactedReviewersRequestBuilder(PathParameters, RequestAdapter);
@@ -42,25 +30,37 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
         public DecisionsRequestBuilder Decisions { get =>
             new DecisionsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the acceptRecommendations method.</summary>
+        public MicrosoftGraphAcceptRecommendationsRequestBuilder MicrosoftGraphAcceptRecommendations { get =>
+            new MicrosoftGraphAcceptRecommendationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the applyDecisions method.</summary>
+        public MicrosoftGraphApplyDecisionsRequestBuilder MicrosoftGraphApplyDecisions { get =>
+            new MicrosoftGraphApplyDecisionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the batchRecordDecisions method.</summary>
+        public MicrosoftGraphBatchRecordDecisionsRequestBuilder MicrosoftGraphBatchRecordDecisions { get =>
+            new MicrosoftGraphBatchRecordDecisionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the resetDecisions method.</summary>
+        public MicrosoftGraphResetDecisionsRequestBuilder MicrosoftGraphResetDecisions { get =>
+            new MicrosoftGraphResetDecisionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the sendReminder method.</summary>
+        public MicrosoftGraphSendReminderRequestBuilder MicrosoftGraphSendReminder { get =>
+            new MicrosoftGraphSendReminderRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the stop method.</summary>
+        public MicrosoftGraphStopRequestBuilder MicrosoftGraphStop { get =>
+            new MicrosoftGraphStopRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the resetDecisions method.</summary>
-        public ResetDecisionsRequestBuilder ResetDecisions { get =>
-            new ResetDecisionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the sendReminder method.</summary>
-        public SendReminderRequestBuilder SendReminder { get =>
-            new SendReminderRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.</summary>
         public StagesRequestBuilder Stages { get =>
             new StagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the stop method.</summary>
-        public StopRequestBuilder Stop { get =>
-            new StopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -87,7 +87,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

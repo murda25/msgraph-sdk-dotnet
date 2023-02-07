@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments.Count;
-using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments.CreateUploadSession;
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments.Item;
+using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments.MicrosoftGraphCreateUploadSession;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createUploadSession method.</summary>
-        public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
-            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession { get =>
+            new MicrosoftGraphCreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.</summary>
         public AttachmentBaseItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("attachmentBase%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("attachmentBase%2Did", position);
             return new AttachmentBaseItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -59,12 +59,13 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get attachments from me
+        /// Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/todotask-list-attachments?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +84,8 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             return await RequestAdapter.SendAsync<AttachmentBaseCollectionResponse>(requestInfo, AttachmentBaseCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to attachments for me
+        /// Add a new taskFileAttachment object to a todoTask. This operation limits the size of the attachment you can add to under 3 MB. If the size of the file attachments is more than 3 MB, create an upload session to upload the attachments.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/todotask-post-attachments?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -104,7 +106,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             return await RequestAdapter.SendAsync<AttachmentBase>(requestInfo, AttachmentBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get attachments from me
+        /// Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +132,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to attachments for me
+        /// Add a new taskFileAttachment object to a todoTask. This operation limits the size of the attachment you can add to under 3 MB. If the size of the file attachments is more than 3 MB, create an upload session to upload the attachments.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -158,7 +160,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments {
             return requestInfo;
         }
         /// <summary>
-        /// Get attachments from me
+        /// Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
         /// </summary>
         public class AttachmentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

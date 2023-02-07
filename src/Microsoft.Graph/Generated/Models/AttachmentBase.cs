@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
     public class AttachmentBase : Entity, IParsable {
-        /// <summary>The contentType property</summary>
+        /// <summary>The MIME type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentType {
@@ -19,12 +19,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("contentType", value); }
         }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The name property</summary>
+        /// <summary>The display name of the attachment. This does not need to be the actual file name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name {
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("name", value); }
         }
 #endif
-        /// <summary>The size property</summary>
+        /// <summary>The length of the attachment in bytes.</summary>
         public int? Size {
             get { return BackingStore?.Get<int?>("size"); }
             set { BackingStore?.Set("size", value); }

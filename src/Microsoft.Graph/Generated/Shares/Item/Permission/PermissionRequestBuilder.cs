@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Shares.Item.Permission.Grant;
+using Microsoft.Graph.Shares.Item.Permission.MicrosoftGraphGrant;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Shares.Item.Permission {
     /// </summary>
     public class PermissionRequestBuilder {
         /// <summary>Provides operations to call the grant method.</summary>
-        public GrantRequestBuilder Grant { get =>
-            new GrantRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphGrantRequestBuilder MicrosoftGraphGrant { get =>
+            new MicrosoftGraphGrantRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Shares.Item.Permission {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/permission{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

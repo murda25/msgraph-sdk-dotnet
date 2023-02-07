@@ -41,12 +41,12 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.AttachmentSessio
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachmentSessions/{attachmentSession%2Did}/content";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get content for the navigation property attachmentSessions from users
+        /// The content streams that are uploaded.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.AttachmentSessio
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update content for the navigation property attachmentSessions in users
+        /// The content streams that are uploaded.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.AttachmentSessio
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get content for the navigation property attachmentSessions from users
+        /// The content streams that are uploaded.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +110,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.AttachmentSessio
             return requestInfo;
         }
         /// <summary>
-        /// Update content for the navigation property attachmentSessions in users
+        /// The content streams that are uploaded.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Search.Query;
+using Microsoft.Graph.Search.MicrosoftGraphQuery;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,12 +14,12 @@ namespace Microsoft.Graph.Search {
     /// Provides operations to manage the searchEntity singleton.
     /// </summary>
     public class SearchRequestBuilder {
+        /// <summary>Provides operations to call the query method.</summary>
+        public MicrosoftGraphQueryRequestBuilder MicrosoftGraphQuery { get =>
+            new MicrosoftGraphQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the query method.</summary>
-        public QueryRequestBuilder Query { get =>
-            new QueryRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Search {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/search{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
