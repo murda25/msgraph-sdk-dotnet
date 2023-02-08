@@ -179,7 +179,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
         }
-        /// <summary>The partnerTenantType property</summary>
+        /// <summary>The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.</summary>
         public Microsoft.Graph.Models.PartnerTenantType? PartnerTenantType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.PartnerTenantType?>("partnerTenantType"); }
             set { BackingStore?.Set("partnerTenantType", value); }
@@ -310,7 +310,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("technicalNotificationMails", value); }
         }
 #endif
-        /// <summary>The tenantType property</summary>
+        /// <summary>Not nullable. The tenant type option that was selected when the tenant was created. The possible values are:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C A customer identity access management (CIAM) service that serves business-to-consumer (B2C) scenarios.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantType {

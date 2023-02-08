@@ -1,14 +1,14 @@
-using Microsoft.Graph.Me.Chats.Item.HideForUser;
 using Microsoft.Graph.Me.Chats.Item.InstalledApps;
 using Microsoft.Graph.Me.Chats.Item.LastMessagePreview;
-using Microsoft.Graph.Me.Chats.Item.MarkChatReadForUser;
-using Microsoft.Graph.Me.Chats.Item.MarkChatUnreadForUser;
 using Microsoft.Graph.Me.Chats.Item.Members;
 using Microsoft.Graph.Me.Chats.Item.Messages;
+using Microsoft.Graph.Me.Chats.Item.MicrosoftGraphHideForUser;
+using Microsoft.Graph.Me.Chats.Item.MicrosoftGraphMarkChatReadForUser;
+using Microsoft.Graph.Me.Chats.Item.MicrosoftGraphMarkChatUnreadForUser;
+using Microsoft.Graph.Me.Chats.Item.MicrosoftGraphSendActivityNotification;
+using Microsoft.Graph.Me.Chats.Item.MicrosoftGraphUnhideForUser;
 using Microsoft.Graph.Me.Chats.Item.PinnedMessages;
-using Microsoft.Graph.Me.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Me.Chats.Item.Tabs;
-using Microsoft.Graph.Me.Chats.Item.UnhideForUser;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -24,10 +24,6 @@ namespace Microsoft.Graph.Me.Chats.Item {
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.
     /// </summary>
     public class ChatItemRequestBuilder {
-        /// <summary>Provides operations to call the hideForUser method.</summary>
-        public HideForUserRequestBuilder HideForUser { get =>
-            new HideForUserRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the installedApps property of the microsoft.graph.chat entity.</summary>
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);
@@ -35,14 +31,6 @@ namespace Microsoft.Graph.Me.Chats.Item {
         /// <summary>Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.</summary>
         public LastMessagePreviewRequestBuilder LastMessagePreview { get =>
             new LastMessagePreviewRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the markChatReadForUser method.</summary>
-        public MarkChatReadForUserRequestBuilder MarkChatReadForUser { get =>
-            new MarkChatReadForUserRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the markChatUnreadForUser method.</summary>
-        public MarkChatUnreadForUserRequestBuilder MarkChatUnreadForUser { get =>
-            new MarkChatUnreadForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the members property of the microsoft.graph.chat entity.</summary>
         public MembersRequestBuilder Members { get =>
@@ -52,6 +40,26 @@ namespace Microsoft.Graph.Me.Chats.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the hideForUser method.</summary>
+        public MicrosoftGraphHideForUserRequestBuilder MicrosoftGraphHideForUser { get =>
+            new MicrosoftGraphHideForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the markChatReadForUser method.</summary>
+        public MicrosoftGraphMarkChatReadForUserRequestBuilder MicrosoftGraphMarkChatReadForUser { get =>
+            new MicrosoftGraphMarkChatReadForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the markChatUnreadForUser method.</summary>
+        public MicrosoftGraphMarkChatUnreadForUserRequestBuilder MicrosoftGraphMarkChatUnreadForUser { get =>
+            new MicrosoftGraphMarkChatUnreadForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
+        public MicrosoftGraphSendActivityNotificationRequestBuilder MicrosoftGraphSendActivityNotification { get =>
+            new MicrosoftGraphSendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unhideForUser method.</summary>
+        public MicrosoftGraphUnhideForUserRequestBuilder MicrosoftGraphUnhideForUser { get =>
+            new MicrosoftGraphUnhideForUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.</summary>
@@ -60,17 +68,9 @@ namespace Microsoft.Graph.Me.Chats.Item {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
-        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
-            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the tabs property of the microsoft.graph.chat entity.</summary>
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the unhideForUser method.</summary>
-        public UnhideForUserRequestBuilder UnhideForUser { get =>
-            new UnhideForUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Me.Chats.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/chats/{chat%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

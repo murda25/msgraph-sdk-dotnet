@@ -1,7 +1,7 @@
-using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.Assign;
 using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.DeviceStates;
 using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.InstallSummary;
+using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.MicrosoftGraphAssign;
 using Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -18,10 +18,6 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
     /// Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
     public class ManagedEBookItemRequestBuilder {
-        /// <summary>Provides operations to call the assign method.</summary>
-        public AssignRequestBuilder Assign { get =>
-            new AssignRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.</summary>
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -33,6 +29,10 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
         /// <summary>Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity.</summary>
         public InstallSummaryRequestBuilder InstallSummary { get =>
             new InstallSummaryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the assign method.</summary>
+        public MicrosoftGraphAssignRequestBuilder MicrosoftGraphAssign { get =>
+            new MicrosoftGraphAssignRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -67,7 +67,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

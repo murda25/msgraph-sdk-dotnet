@@ -1,25 +1,25 @@
-using Microsoft.Graph.Me.ManagedDevices.Item.BypassActivationLock;
-using Microsoft.Graph.Me.ManagedDevices.Item.CleanWindowsDevice;
-using Microsoft.Graph.Me.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
 using Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory;
 using Microsoft.Graph.Me.ManagedDevices.Item.DeviceCompliancePolicyStates;
 using Microsoft.Graph.Me.ManagedDevices.Item.DeviceConfigurationStates;
-using Microsoft.Graph.Me.ManagedDevices.Item.DisableLostMode;
-using Microsoft.Graph.Me.ManagedDevices.Item.LocateDevice;
-using Microsoft.Graph.Me.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
-using Microsoft.Graph.Me.ManagedDevices.Item.RebootNow;
-using Microsoft.Graph.Me.ManagedDevices.Item.RecoverPasscode;
-using Microsoft.Graph.Me.ManagedDevices.Item.RemoteLock;
-using Microsoft.Graph.Me.ManagedDevices.Item.RequestRemoteAssistance;
-using Microsoft.Graph.Me.ManagedDevices.Item.ResetPasscode;
-using Microsoft.Graph.Me.ManagedDevices.Item.Retire;
-using Microsoft.Graph.Me.ManagedDevices.Item.ShutDown;
-using Microsoft.Graph.Me.ManagedDevices.Item.SyncDevice;
-using Microsoft.Graph.Me.ManagedDevices.Item.UpdateWindowsDeviceAccount;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphBypassActivationLock;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphCleanWindowsDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphDeleteUserFromSharedAppleDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphDisableLostMode;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphLocateDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphLogoutSharedAppleDeviceActiveUser;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphRebootNow;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphRecoverPasscode;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphRemoteLock;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphRequestRemoteAssistance;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphResetPasscode;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphRetire;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphShutDown;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphSyncDevice;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphUpdateWindowsDeviceAccount;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphWindowsDefenderScan;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphWindowsDefenderUpdateSignatures;
+using Microsoft.Graph.Me.ManagedDevices.Item.MicrosoftGraphWipe;
 using Microsoft.Graph.Me.ManagedDevices.Item.Users;
-using Microsoft.Graph.Me.ManagedDevices.Item.WindowsDefenderScan;
-using Microsoft.Graph.Me.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
-using Microsoft.Graph.Me.ManagedDevices.Item.Wipe;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -35,18 +35,6 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item {
     /// Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
     /// </summary>
     public class ManagedDeviceItemRequestBuilder {
-        /// <summary>Provides operations to call the bypassActivationLock method.</summary>
-        public BypassActivationLockRequestBuilder BypassActivationLock { get =>
-            new BypassActivationLockRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the cleanWindowsDevice method.</summary>
-        public CleanWindowsDeviceRequestBuilder CleanWindowsDevice { get =>
-            new CleanWindowsDeviceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the deleteUserFromSharedAppleDevice method.</summary>
-        public DeleteUserFromSharedAppleDeviceRequestBuilder DeleteUserFromSharedAppleDevice { get =>
-            new DeleteUserFromSharedAppleDeviceRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the deviceCategory property of the microsoft.graph.managedDevice entity.</summary>
         public DeviceCategoryRequestBuilder DeviceCategory { get =>
             new DeviceCategoryRequestBuilder(PathParameters, RequestAdapter);
@@ -59,75 +47,87 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item {
         public DeviceConfigurationStatesRequestBuilder DeviceConfigurationStates { get =>
             new DeviceConfigurationStatesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the bypassActivationLock method.</summary>
+        public MicrosoftGraphBypassActivationLockRequestBuilder MicrosoftGraphBypassActivationLock { get =>
+            new MicrosoftGraphBypassActivationLockRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the cleanWindowsDevice method.</summary>
+        public MicrosoftGraphCleanWindowsDeviceRequestBuilder MicrosoftGraphCleanWindowsDevice { get =>
+            new MicrosoftGraphCleanWindowsDeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the deleteUserFromSharedAppleDevice method.</summary>
+        public MicrosoftGraphDeleteUserFromSharedAppleDeviceRequestBuilder MicrosoftGraphDeleteUserFromSharedAppleDevice { get =>
+            new MicrosoftGraphDeleteUserFromSharedAppleDeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the disableLostMode method.</summary>
-        public DisableLostModeRequestBuilder DisableLostMode { get =>
-            new DisableLostModeRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphDisableLostModeRequestBuilder MicrosoftGraphDisableLostMode { get =>
+            new MicrosoftGraphDisableLostModeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the locateDevice method.</summary>
-        public LocateDeviceRequestBuilder LocateDevice { get =>
-            new LocateDeviceRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphLocateDeviceRequestBuilder MicrosoftGraphLocateDevice { get =>
+            new MicrosoftGraphLocateDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the logoutSharedAppleDeviceActiveUser method.</summary>
-        public LogoutSharedAppleDeviceActiveUserRequestBuilder LogoutSharedAppleDeviceActiveUser { get =>
-            new LogoutSharedAppleDeviceActiveUserRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphLogoutSharedAppleDeviceActiveUserRequestBuilder MicrosoftGraphLogoutSharedAppleDeviceActiveUser { get =>
+            new MicrosoftGraphLogoutSharedAppleDeviceActiveUserRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the rebootNow method.</summary>
+        public MicrosoftGraphRebootNowRequestBuilder MicrosoftGraphRebootNow { get =>
+            new MicrosoftGraphRebootNowRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the recoverPasscode method.</summary>
+        public MicrosoftGraphRecoverPasscodeRequestBuilder MicrosoftGraphRecoverPasscode { get =>
+            new MicrosoftGraphRecoverPasscodeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the remoteLock method.</summary>
+        public MicrosoftGraphRemoteLockRequestBuilder MicrosoftGraphRemoteLock { get =>
+            new MicrosoftGraphRemoteLockRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the requestRemoteAssistance method.</summary>
+        public MicrosoftGraphRequestRemoteAssistanceRequestBuilder MicrosoftGraphRequestRemoteAssistance { get =>
+            new MicrosoftGraphRequestRemoteAssistanceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the resetPasscode method.</summary>
+        public MicrosoftGraphResetPasscodeRequestBuilder MicrosoftGraphResetPasscode { get =>
+            new MicrosoftGraphResetPasscodeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the retire method.</summary>
+        public MicrosoftGraphRetireRequestBuilder MicrosoftGraphRetire { get =>
+            new MicrosoftGraphRetireRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the shutDown method.</summary>
+        public MicrosoftGraphShutDownRequestBuilder MicrosoftGraphShutDown { get =>
+            new MicrosoftGraphShutDownRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the syncDevice method.</summary>
+        public MicrosoftGraphSyncDeviceRequestBuilder MicrosoftGraphSyncDevice { get =>
+            new MicrosoftGraphSyncDeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the updateWindowsDeviceAccount method.</summary>
+        public MicrosoftGraphUpdateWindowsDeviceAccountRequestBuilder MicrosoftGraphUpdateWindowsDeviceAccount { get =>
+            new MicrosoftGraphUpdateWindowsDeviceAccountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the windowsDefenderScan method.</summary>
+        public MicrosoftGraphWindowsDefenderScanRequestBuilder MicrosoftGraphWindowsDefenderScan { get =>
+            new MicrosoftGraphWindowsDefenderScanRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the windowsDefenderUpdateSignatures method.</summary>
+        public MicrosoftGraphWindowsDefenderUpdateSignaturesRequestBuilder MicrosoftGraphWindowsDefenderUpdateSignatures { get =>
+            new MicrosoftGraphWindowsDefenderUpdateSignaturesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the wipe method.</summary>
+        public MicrosoftGraphWipeRequestBuilder MicrosoftGraphWipe { get =>
+            new MicrosoftGraphWipeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the rebootNow method.</summary>
-        public RebootNowRequestBuilder RebootNow { get =>
-            new RebootNowRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the recoverPasscode method.</summary>
-        public RecoverPasscodeRequestBuilder RecoverPasscode { get =>
-            new RecoverPasscodeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the remoteLock method.</summary>
-        public RemoteLockRequestBuilder RemoteLock { get =>
-            new RemoteLockRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the requestRemoteAssistance method.</summary>
-        public RequestRemoteAssistanceRequestBuilder RequestRemoteAssistance { get =>
-            new RequestRemoteAssistanceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the resetPasscode method.</summary>
-        public ResetPasscodeRequestBuilder ResetPasscode { get =>
-            new ResetPasscodeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the retire method.</summary>
-        public RetireRequestBuilder Retire { get =>
-            new RetireRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the shutDown method.</summary>
-        public ShutDownRequestBuilder ShutDown { get =>
-            new ShutDownRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the syncDevice method.</summary>
-        public SyncDeviceRequestBuilder SyncDevice { get =>
-            new SyncDeviceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the updateWindowsDeviceAccount method.</summary>
-        public UpdateWindowsDeviceAccountRequestBuilder UpdateWindowsDeviceAccount { get =>
-            new UpdateWindowsDeviceAccountRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the users property of the microsoft.graph.managedDevice entity.</summary>
         public UsersRequestBuilder Users { get =>
             new UsersRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the windowsDefenderScan method.</summary>
-        public WindowsDefenderScanRequestBuilder WindowsDefenderScan { get =>
-            new WindowsDefenderScanRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the windowsDefenderUpdateSignatures method.</summary>
-        public WindowsDefenderUpdateSignaturesRequestBuilder WindowsDefenderUpdateSignatures { get =>
-            new WindowsDefenderUpdateSignaturesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the wipe method.</summary>
-        public WipeRequestBuilder Wipe { get =>
-            new WipeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new ManagedDeviceItemRequestBuilder and sets the default values.
@@ -152,7 +152,7 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/managedDevices/{managedDevice%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

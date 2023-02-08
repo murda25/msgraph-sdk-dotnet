@@ -5,7 +5,7 @@ using Microsoft.Graph.Security.Alerts;
 using Microsoft.Graph.Security.AttackSimulation;
 using Microsoft.Graph.Security.Cases;
 using Microsoft.Graph.Security.Incidents;
-using Microsoft.Graph.Security.RunHuntingQuery;
+using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
 using Microsoft.Kiota.Abstractions;
@@ -41,14 +41,14 @@ namespace Microsoft.Graph.Security {
         public IncidentsRequestBuilder Incidents { get =>
             new IncidentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
+        public MicrosoftGraphSecurityRunHuntingQueryRequestBuilder MicrosoftGraphSecurityRunHuntingQuery { get =>
+            new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
-        public RunHuntingQueryRequestBuilder RunHuntingQuery { get =>
-            new RunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.</summary>
         public SecureScoreControlProfilesRequestBuilder SecureScoreControlProfiles { get =>
             new SecureScoreControlProfilesRequestBuilder(PathParameters, RequestAdapter);
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.Security {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/security{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

@@ -1,9 +1,9 @@
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Attachments;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Extensions;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Forward;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.MicrosoftGraphForward;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.MicrosoftGraphReply;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Reply;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -28,13 +28,17 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the forward method.</summary>
-        public ForwardRequestBuilder Forward { get =>
-            new ForwardRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.</summary>
         public InReplyToRequestBuilder InReplyTo { get =>
             new InReplyToRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the forward method.</summary>
+        public MicrosoftGraphForwardRequestBuilder MicrosoftGraphForward { get =>
+            new MicrosoftGraphForwardRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the reply method.</summary>
+        public MicrosoftGraphReplyRequestBuilder MicrosoftGraphReply { get =>
+            new MicrosoftGraphReplyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.</summary>
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
@@ -42,10 +46,6 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>Provides operations to call the reply method.</summary>
-        public ReplyRequestBuilder Reply { get =>
-            new ReplyRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.</summary>
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

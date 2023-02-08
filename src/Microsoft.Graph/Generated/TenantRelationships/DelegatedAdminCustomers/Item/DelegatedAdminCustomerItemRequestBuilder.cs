@@ -47,7 +47,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminCustomers.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminCustomers.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get delegatedAdminCustomers from tenantRelationships
+        /// The customer who has a delegated admin relationship with a Microsoft partner.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminCustomers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get delegatedAdminCustomers from tenantRelationships
+        /// The customer who has a delegated admin relationship with a Microsoft partner.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -205,7 +205,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminCustomers.Item {
             }
         }
         /// <summary>
-        /// Get delegatedAdminCustomers from tenantRelationships
+        /// The customer who has a delegated admin relationship with a Microsoft partner.
         /// </summary>
         public class DelegatedAdminCustomerItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

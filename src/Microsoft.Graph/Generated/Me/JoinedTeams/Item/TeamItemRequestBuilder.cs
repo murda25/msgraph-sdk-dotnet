@@ -1,20 +1,20 @@
 using Microsoft.Graph.Me.JoinedTeams.Item.AllChannels;
-using Microsoft.Graph.Me.JoinedTeams.Item.Archive;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels;
-using Microsoft.Graph.Me.JoinedTeams.Item.Clone;
-using Microsoft.Graph.Me.JoinedTeams.Item.CompleteMigration;
 using Microsoft.Graph.Me.JoinedTeams.Item.Group;
 using Microsoft.Graph.Me.JoinedTeams.Item.IncomingChannels;
 using Microsoft.Graph.Me.JoinedTeams.Item.InstalledApps;
 using Microsoft.Graph.Me.JoinedTeams.Item.Members;
+using Microsoft.Graph.Me.JoinedTeams.Item.MicrosoftGraphArchive;
+using Microsoft.Graph.Me.JoinedTeams.Item.MicrosoftGraphClone;
+using Microsoft.Graph.Me.JoinedTeams.Item.MicrosoftGraphCompleteMigration;
+using Microsoft.Graph.Me.JoinedTeams.Item.MicrosoftGraphSendActivityNotification;
+using Microsoft.Graph.Me.JoinedTeams.Item.MicrosoftGraphUnarchive;
 using Microsoft.Graph.Me.JoinedTeams.Item.Operations;
 using Microsoft.Graph.Me.JoinedTeams.Item.Photo;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel;
 using Microsoft.Graph.Me.JoinedTeams.Item.Schedule;
-using Microsoft.Graph.Me.JoinedTeams.Item.SendActivityNotification;
 using Microsoft.Graph.Me.JoinedTeams.Item.Tags;
 using Microsoft.Graph.Me.JoinedTeams.Item.Template;
-using Microsoft.Graph.Me.JoinedTeams.Item.Unarchive;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -34,21 +34,9 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         public AllChannelsRequestBuilder AllChannels { get =>
             new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the archive method.</summary>
-        public ArchiveRequestBuilder Archive { get =>
-            new ArchiveRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the channels property of the microsoft.graph.team entity.</summary>
         public ChannelsRequestBuilder Channels { get =>
             new ChannelsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the clone method.</summary>
-        public CloneRequestBuilder Clone { get =>
-            new CloneRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the completeMigration method.</summary>
-        public CompleteMigrationRequestBuilder CompleteMigration { get =>
-            new CompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the group property of the microsoft.graph.team entity.</summary>
         public GroupRequestBuilder Group { get =>
@@ -65,6 +53,26 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         /// <summary>Provides operations to manage the members property of the microsoft.graph.team entity.</summary>
         public MembersRequestBuilder Members { get =>
             new MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the archive method.</summary>
+        public MicrosoftGraphArchiveRequestBuilder MicrosoftGraphArchive { get =>
+            new MicrosoftGraphArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the clone method.</summary>
+        public MicrosoftGraphCloneRequestBuilder MicrosoftGraphClone { get =>
+            new MicrosoftGraphCloneRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the completeMigration method.</summary>
+        public MicrosoftGraphCompleteMigrationRequestBuilder MicrosoftGraphCompleteMigration { get =>
+            new MicrosoftGraphCompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
+        public MicrosoftGraphSendActivityNotificationRequestBuilder MicrosoftGraphSendActivityNotification { get =>
+            new MicrosoftGraphSendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unarchive method.</summary>
+        public MicrosoftGraphUnarchiveRequestBuilder MicrosoftGraphUnarchive { get =>
+            new MicrosoftGraphUnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.team entity.</summary>
         public OperationsRequestBuilder Operations { get =>
@@ -86,10 +94,6 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
-        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
-            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the tags property of the microsoft.graph.team entity.</summary>
         public TagsRequestBuilder Tags { get =>
             new TagsRequestBuilder(PathParameters, RequestAdapter);
@@ -97,10 +101,6 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         /// <summary>Provides operations to manage the template property of the microsoft.graph.team entity.</summary>
         public TemplateRequestBuilder Template { get =>
             new TemplateRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the unarchive method.</summary>
-        public UnarchiveRequestBuilder Unarchive { get =>
-            new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

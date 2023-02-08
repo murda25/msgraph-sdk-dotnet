@@ -42,7 +42,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.R
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/requests/{delegatedAdminRelationshipRequest%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.R
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get requests from tenantRelationships
+        /// The requests associated with the delegated admin relationship.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +130,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.R
             return requestInfo;
         }
         /// <summary>
-        /// Get requests from tenantRelationships
+        /// The requests associated with the delegated admin relationship.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,7 +200,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.R
             }
         }
         /// <summary>
-        /// Get requests from tenantRelationships
+        /// The requests associated with the delegated admin relationship.
         /// </summary>
         public class DelegatedAdminRelationshipRequestItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

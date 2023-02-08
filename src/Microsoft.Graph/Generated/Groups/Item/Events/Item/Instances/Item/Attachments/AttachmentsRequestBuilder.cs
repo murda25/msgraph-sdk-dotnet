@@ -1,6 +1,6 @@
 using Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments.Count;
-using Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments.CreateUploadSession;
 using Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments.Item;
+using Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments.MicrosoftGraphCreateUploadSession;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createUploadSession method.</summary>
-        public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
-            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession { get =>
+            new MicrosoftGraphCreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.event entity.</summary>
         public AttachmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("attachment%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("attachment%2Did", position);
             return new AttachmentItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Item.Attachments {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/instances/{event%2Did1}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

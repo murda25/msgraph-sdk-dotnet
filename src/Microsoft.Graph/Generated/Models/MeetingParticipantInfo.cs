@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>Specifies the participant&apos;s role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.</summary>
+        /// <summary>Specifies the participant&apos;s role in the meeting.</summary>
         public OnlineMeetingRole? Role {
             get { return BackingStore?.Get<OnlineMeetingRole?>("role"); }
             set { BackingStore?.Set("role", value); }

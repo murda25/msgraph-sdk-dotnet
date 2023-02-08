@@ -1,7 +1,7 @@
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Count;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.ManagedMobileLobApp;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.MobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.MicrosoftGraphManagedMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.MicrosoftGraphMobileLobApp;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -22,12 +22,12 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to managedMobileLobApp.</summary>
-        public ManagedMobileLobAppRequestBuilder ManagedMobileLobApp { get =>
-            new ManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphManagedMobileLobAppRequestBuilder MicrosoftGraphManagedMobileLobApp { get =>
+            new MicrosoftGraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to mobileLobApp.</summary>
-        public MobileLobAppRequestBuilder MobileLobApp { get =>
-            new MobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphMobileLobAppRequestBuilder MicrosoftGraphMobileLobApp { get =>
+            new MicrosoftGraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -38,7 +38,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         /// <summary>Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.</summary>
         public MobileAppItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("mobileApp%2Did", position);
+            if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("mobileApp%2Did", position);
             return new MobileAppItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

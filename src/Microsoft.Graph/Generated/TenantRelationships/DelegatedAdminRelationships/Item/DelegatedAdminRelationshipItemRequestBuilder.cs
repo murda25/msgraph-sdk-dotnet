@@ -57,7 +57,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +145,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -215,7 +215,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item {
             }
         }
         /// <summary>
-        /// Get delegatedAdminRelationships from tenantRelationships
+        /// The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
         /// </summary>
         public class DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

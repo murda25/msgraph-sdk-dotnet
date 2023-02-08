@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Users.Item.OwnedDevices.Item.AppRoleAssignment;
-using Microsoft.Graph.Users.Item.OwnedDevices.Item.Device;
-using Microsoft.Graph.Users.Item.OwnedDevices.Item.Endpoint;
+using Microsoft.Graph.Users.Item.OwnedDevices.Item.MicrosoftGraphAppRoleAssignment;
+using Microsoft.Graph.Users.Item.OwnedDevices.Item.MicrosoftGraphDevice;
+using Microsoft.Graph.Users.Item.OwnedDevices.Item.MicrosoftGraphEndpoint;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -17,16 +17,16 @@ namespace Microsoft.Graph.Users.Item.OwnedDevices.Item {
     /// </summary>
     public class DirectoryObjectItemRequestBuilder {
         /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public AppRoleAssignmentRequestBuilder AppRoleAssignment { get =>
-            new AppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
+            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to device.</summary>
-        public DeviceRequestBuilder Device { get =>
-            new DeviceRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphDeviceRequestBuilder MicrosoftGraphDevice { get =>
+            new MicrosoftGraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public EndpointRequestBuilder Endpoint { get =>
-            new EndpointRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
+            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Users.Item.OwnedDevices.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

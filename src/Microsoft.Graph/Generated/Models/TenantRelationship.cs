@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The delegatedAdminCustomers property</summary>
+        /// <summary>The customer who has a delegated admin relationship with a Microsoft partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminCustomer>? DelegatedAdminCustomers {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("delegatedAdminCustomers", value); }
         }
 #endif
-        /// <summary>The delegatedAdminRelationships property</summary>
+        /// <summary>The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DelegatedAdminRelationship>? DelegatedAdminRelationships {

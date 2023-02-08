@@ -192,6 +192,7 @@ namespace Microsoft.Graph.Models {
             return mappingValue switch {
                 "#microsoft.graph.androidLobApp" => new AndroidLobApp(),
                 "#microsoft.graph.androidStoreApp" => new AndroidStoreApp(),
+                "#microsoft.graph.iosiPadOSWebClip" => new IosiPadOSWebClip(),
                 "#microsoft.graph.iosLobApp" => new IosLobApp(),
                 "#microsoft.graph.iosStoreApp" => new IosStoreApp(),
                 "#microsoft.graph.iosVppApp" => new IosVppApp(),
@@ -211,6 +212,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.windowsMicrosoftEdgeApp" => new WindowsMicrosoftEdgeApp(),
                 "#microsoft.graph.windowsMobileMSI" => new WindowsMobileMSI(),
                 "#microsoft.graph.windowsUniversalAppX" => new WindowsUniversalAppX(),
+                "#microsoft.graph.windowsWebApp" => new WindowsWebApp(),
                 _ => new MobileApp(),
             };
         }

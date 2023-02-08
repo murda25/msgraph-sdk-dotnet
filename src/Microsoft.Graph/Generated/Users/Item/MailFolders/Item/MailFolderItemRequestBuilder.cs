@@ -1,10 +1,10 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders;
-using Microsoft.Graph.Users.Item.MailFolders.Item.Copy;
 using Microsoft.Graph.Users.Item.MailFolders.Item.MessageRules;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Messages;
-using Microsoft.Graph.Users.Item.MailFolders.Item.Move;
+using Microsoft.Graph.Users.Item.MailFolders.Item.MicrosoftGraphCopy;
+using Microsoft.Graph.Users.Item.MailFolders.Item.MicrosoftGraphMove;
 using Microsoft.Graph.Users.Item.MailFolders.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Users.Item.MailFolders.Item.SingleValueExtendedProperties;
 using Microsoft.Kiota.Abstractions;
@@ -24,10 +24,6 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         public ChildFoldersRequestBuilder ChildFolders { get =>
             new ChildFoldersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the copy method.</summary>
-        public CopyRequestBuilder Copy { get =>
-            new CopyRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.</summary>
         public MessageRulesRequestBuilder MessageRules { get =>
             new MessageRulesRequestBuilder(PathParameters, RequestAdapter);
@@ -36,9 +32,13 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the copy method.</summary>
+        public MicrosoftGraphCopyRequestBuilder MicrosoftGraphCopy { get =>
+            new MicrosoftGraphCopyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the move method.</summary>
-        public MoveRequestBuilder Move { get =>
-            new MoveRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphMoveRequestBuilder MicrosoftGraphMove { get =>
+            new MicrosoftGraphMoveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.</summary>
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?%24select}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }

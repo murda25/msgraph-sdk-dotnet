@@ -1,8 +1,8 @@
+using Microsoft.Graph.Groups.Item.Team.Schedule.MicrosoftGraphShare;
 using Microsoft.Graph.Groups.Item.Team.Schedule.OfferShiftRequests;
 using Microsoft.Graph.Groups.Item.Team.Schedule.OpenShiftChangeRequests;
 using Microsoft.Graph.Groups.Item.Team.Schedule.OpenShifts;
 using Microsoft.Graph.Groups.Item.Team.Schedule.SchedulingGroups;
-using Microsoft.Graph.Groups.Item.Team.Schedule.Share;
 using Microsoft.Graph.Groups.Item.Team.Schedule.Shifts;
 using Microsoft.Graph.Groups.Item.Team.Schedule.SwapShiftsChangeRequests;
 using Microsoft.Graph.Groups.Item.Team.Schedule.TimeOffReasons;
@@ -23,6 +23,10 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule {
     /// Provides operations to manage the schedule property of the microsoft.graph.team entity.
     /// </summary>
     public class ScheduleRequestBuilder {
+        /// <summary>Provides operations to call the share method.</summary>
+        public MicrosoftGraphShareRequestBuilder MicrosoftGraphShare { get =>
+            new MicrosoftGraphShareRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.</summary>
         public OfferShiftRequestsRequestBuilder OfferShiftRequests { get =>
             new OfferShiftRequestsRequestBuilder(PathParameters, RequestAdapter);
@@ -42,10 +46,6 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule {
         /// <summary>Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.</summary>
         public SchedulingGroupsRequestBuilder SchedulingGroups { get =>
             new SchedulingGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the share method.</summary>
-        public ShareRequestBuilder Share { get =>
-            new ShareRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the shifts property of the microsoft.graph.schedule entity.</summary>
         public ShiftsRequestBuilder Shifts { get =>
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             UrlTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule{?%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
-            urlTplParams.Add("request-raw-url", rawUrl);
+            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
