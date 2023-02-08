@@ -756,6 +756,17 @@ namespace Microsoft.Graph
         }
     
         /// <summary>
+        /// Gets the GraphServiceTenantRelationships request builder.
+        /// </summary>
+        public virtual ITenantRelationshipRequestBuilder TenantRelationships
+        {
+            get
+            {
+                return new TenantRelationshipRequestBuilder(this.BaseUrl + "/tenantRelationships", this);
+            }
+        }
+    
+        /// <summary>
         /// Gets the GraphServicePrint request builder.
         /// </summary>
         public virtual IPrintRequestBuilder Print

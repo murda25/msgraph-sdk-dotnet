@@ -781,6 +781,32 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
+        /// Gets the request builder for UserExportDeviceAndAppManagementData.
+        /// </summary>
+        /// <returns>The <see cref="IUserExportDeviceAndAppManagementDataRequestBuilder"/>.</returns>
+        public IUserExportDeviceAndAppManagementDataRequestBuilder ExportDeviceAndAppManagementData()
+        {
+            return new UserExportDeviceAndAppManagementDataRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.exportDeviceAndAppManagementData"),
+                this.Client);
+        }
+
+        /// <summary>
+        /// Gets the request builder for UserExportDeviceAndAppManagementData.
+        /// </summary>
+        /// <returns>The <see cref="IUserExportDeviceAndAppManagementDataRequestBuilder"/>.</returns>
+        public IUserExportDeviceAndAppManagementDataRequestBuilder ExportDeviceAndAppManagementData(
+            Int32 skip,
+            Int32 top)
+        {
+            return new UserExportDeviceAndAppManagementDataRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.exportDeviceAndAppManagementData"),
+                this.Client,
+                skip,
+                top);
+        }
+
+        /// <summary>
         /// Gets the request builder for UserGetManagedAppDiagnosticStatuses.
         /// </summary>
         /// <returns>The <see cref="IUserGetManagedAppDiagnosticStatusesRequestBuilder"/>.</returns>
@@ -799,6 +825,17 @@ namespace Microsoft.Graph
         {
             return new UserGetManagedAppPoliciesRequestBuilder(
                 this.AppendSegmentToRequestUrl("microsoft.graph.getManagedAppPolicies"),
+                this.Client);
+        }
+
+        /// <summary>
+        /// Gets the request builder for UserGetManagedDevicesWithAppFailures.
+        /// </summary>
+        /// <returns>The <see cref="IUserGetManagedDevicesWithAppFailuresRequestBuilder"/>.</returns>
+        public IUserGetManagedDevicesWithAppFailuresRequestBuilder GetManagedDevicesWithAppFailures()
+        {
+            return new UserGetManagedDevicesWithAppFailuresRequestBuilder(
+                this.AppendSegmentToRequestUrl("microsoft.graph.getManagedDevicesWithAppFailures"),
                 this.Client);
         }
     

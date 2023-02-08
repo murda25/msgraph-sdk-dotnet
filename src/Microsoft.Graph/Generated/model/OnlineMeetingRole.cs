@@ -39,5 +39,10 @@ namespace Microsoft.Graph
         /// </summary>
         Producer = 3,
 	
+        /// <summary>
+        /// Coorganizer
+        /// </summary>
+        Coorganizer = 4,
+	
     }
 }
