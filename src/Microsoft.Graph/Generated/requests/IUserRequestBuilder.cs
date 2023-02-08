@@ -403,6 +403,20 @@ namespace Microsoft.Graph
             string EndDateTime = null);
 
         /// <summary>
+        /// Gets the request builder for UserExportDeviceAndAppManagementData.
+        /// </summary>
+        /// <returns>The <see cref="IUserExportDeviceAndAppManagementDataRequestBuilder"/>.</returns>
+        IUserExportDeviceAndAppManagementDataRequestBuilder ExportDeviceAndAppManagementData();
+
+        /// <summary>
+        /// Gets the request builder for UserExportDeviceAndAppManagementData.
+        /// </summary>
+        /// <returns>The <see cref="IUserExportDeviceAndAppManagementDataRequestBuilder"/>.</returns>
+        IUserExportDeviceAndAppManagementDataRequestBuilder ExportDeviceAndAppManagementData(
+            Int32 skip,
+            Int32 top);
+
+        /// <summary>
         /// Gets the request builder for UserGetManagedAppDiagnosticStatuses.
         /// </summary>
         /// <returns>The <see cref="IUserGetManagedAppDiagnosticStatusesRequestBuilder"/>.</returns>
@@ -413,6 +427,12 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IUserGetManagedAppPoliciesRequestBuilder"/>.</returns>
         IUserGetManagedAppPoliciesRequestBuilder GetManagedAppPolicies();
+
+        /// <summary>
+        /// Gets the request builder for UserGetManagedDevicesWithAppFailures.
+        /// </summary>
+        /// <returns>The <see cref="IUserGetManagedDevicesWithAppFailuresRequestBuilder"/>.</returns>
+        IUserGetManagedDevicesWithAppFailuresRequestBuilder GetManagedDevicesWithAppFailures();
     
     }
 }

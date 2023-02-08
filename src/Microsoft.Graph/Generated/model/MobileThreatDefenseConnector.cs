@@ -22,6 +22,20 @@ namespace Microsoft.Graph
     {
     
         /// <summary>
+        /// Gets or sets allow partner to collect iosapplication metadata.
+        /// When TRUE, indicates the data sync partner may collect metadata about installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about installed applications from Intune for IOS devices. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("allowPartnerToCollectIOSApplicationMetadata")]
+        public bool? AllowPartnerToCollectIOSApplicationMetadata { get; set; }
+    
+        /// <summary>
+        /// Gets or sets allow partner to collect iospersonal application metadata.
+        /// When TRUE, indicates the data sync partner may collect metadata about personally installed applications from Intune for IOS devices. When FALSE, indicates the data sync partner may not collect metadata about personally installed applications from Intune for IOS devices. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("allowPartnerToCollectIOSPersonalApplicationMetadata")]
+        public bool? AllowPartnerToCollectIOSPersonalApplicationMetadata { get; set; }
+    
+        /// <summary>
         /// Gets or sets android device blocked on missing partner data.
         /// For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
         /// </summary>
@@ -34,6 +48,13 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("androidEnabled")]
         public bool? AndroidEnabled { get; set; }
+    
+        /// <summary>
+        /// Gets or sets android mobile application management enabled.
+        /// When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for Android devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for Android devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("androidMobileApplicationManagementEnabled")]
+        public bool? AndroidMobileApplicationManagementEnabled { get; set; }
     
         /// <summary>
         /// Gets or sets ios device blocked on missing partner data.
@@ -50,11 +71,25 @@ namespace Microsoft.Graph
         public bool? IosEnabled { get; set; }
     
         /// <summary>
+        /// Gets or sets ios mobile application management enabled.
+        /// When TRUE, inidicates that data from the data sync partner can be used during Mobile Application Management (MAM) evaluations for IOS devices. When FALSE, inidicates that data from the data sync partner should not be used during Mobile Application Management (MAM) evaluations for IOS devices. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("iosMobileApplicationManagementEnabled")]
+        public bool? IosMobileApplicationManagementEnabled { get; set; }
+    
+        /// <summary>
         /// Gets or sets last heartbeat date time.
         /// DateTime of last Heartbeat recieved from the Data Sync Partner
         /// </summary>
         [JsonPropertyName("lastHeartbeatDateTime")]
         public DateTimeOffset? LastHeartbeatDateTime { get; set; }
+    
+        /// <summary>
+        /// Gets or sets microsoft defender for endpoint attach enabled.
+        /// When TRUE, inidicates that configuration profile management via Microsoft Defender for Endpoint is enabled. When FALSE, inidicates that configuration profile management via Microsoft Defender for Endpoint is disabled. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("microsoftDefenderForEndpointAttachEnabled")]
+        public bool? MicrosoftDefenderForEndpointAttachEnabled { get; set; }
     
         /// <summary>
         /// Gets or sets partner state.
@@ -76,6 +111,20 @@ namespace Microsoft.Graph
         /// </summary>
         [JsonPropertyName("partnerUnsupportedOsVersionBlocked")]
         public bool? PartnerUnsupportedOsVersionBlocked { get; set; }
+    
+        /// <summary>
+        /// Gets or sets windows device blocked on missing partner data.
+        /// When TRUE, inidicates that Intune must receive data from the data sync partner prior to marking a device compliant for Windows. When FALSE, inidicates that Intune may make a device compliant without receiving data from the data sync partner for Windows. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("windowsDeviceBlockedOnMissingPartnerData")]
+        public bool? WindowsDeviceBlockedOnMissingPartnerData { get; set; }
+    
+        /// <summary>
+        /// Gets or sets windows enabled.
+        /// When TRUE, inidicates that data from the data sync partner can be used during compliance evaluations for Windows. When FALSE, inidicates that data from the data sync partner should not be used during compliance evaluations for Windows. Default value is FALSE.
+        /// </summary>
+        [JsonPropertyName("windowsEnabled")]
+        public bool? WindowsEnabled { get; set; }
     
     }
 }
