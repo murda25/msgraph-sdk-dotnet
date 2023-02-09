@@ -17,7 +17,7 @@ This therefore comes with the following changes,
 - The beta v1.0 service library uses `Microsoft.Graph` as its root namespace. 
 - The beta service library uses `Microsoft.Graph.Beta` as its root namespace.
 - Model types are now in the  `Microsoft.Graph.Models`/`Microsoft.Graph.Beta.Models` namespaces.
-- RequestBuilder and RequestBody types reside in namespaces relative to the path they are calling. e.g. The `SendMailPostRequestBody` type will reside in the `Microsoft.Graph.Beta.Me.SendMail/Microsoft.Graph.Me.SendMail` namespace if you are sending a mail via the `client.Me.SendMail.PostAsync(sendMailPostRequestBody)` path using the request builders
+- RequestBuilder and RequestBody types reside in namespaces relative to the path they are calling. e.g. The `SendMailPostRequestBody` type will reside in the `Microsoft.Graph.Beta.Me.MicrosoftGraphSendMail/Microsoft.Graph.Me.MicrosoftGraphSendMail` namespace if you are sending a mail via the `client.Me.MicrosoftGraphSendMail.PostAsync(sendMailPostRequestBody)` path using the request builders
 
 ### Authentication
 
@@ -65,9 +65,13 @@ var requestInformation = graphServiceClient
                          .ToGetRequestInformation();
 
 // Get the requestInformation to make a POST request
+var directoryObject = new DirectoryObject()
+{
+    Id = Guid.NewGuid().ToString()
+};
 var requestInformation = graphServiceClient
-                         .DirectoryObjects
-                         .ToPostRequestInformation();
+                            .DirectoryObjects
+                            .ToPostRequestInformation(directoryObject);
 ```
 
 ### Removal of `Request()` from the fluent API
@@ -144,7 +148,10 @@ To iterate through page collections, use the pageIterator as follows
 ```cs
 var usersResponse = await graphServiceClient
     .Users
-    .GetAsync(requestConfiguration => { requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime" }; requestConfiguration.QueryParameters.Top = 1; });
+    .GetAsync(requestConfiguration => { 
+        requestConfiguration.QueryParameters.Select = new string[] { "id", "createdDateTime" }; 
+        requestConfiguration.QueryParameters.Top = 1; 
+        });
 
 var userList = new List<User>();
 var pageIterator = PageIterator<User,UserCollectionResponse>.CreatePageIterator(graphServiceClient,usersResponse, (user) => { userList.Add(user); return true; });
@@ -184,7 +191,7 @@ Examples of using alternative paths are as shown below.
 var driveItem = await graphServiceClient.Me.Drive.GetAsync();
 var userDriveId = driveItem.Id;
 // List children in the drive
-var children = await graphServiceClient.Drives[userDriveId].Root.Children.GetAsync();
+var children = await graphServiceClient.Drives[userDriveId].Items["itemId"].Children.GetAsync();
 ```
 
 2. List children from a site's drive.
@@ -194,7 +201,7 @@ var children = await graphServiceClient.Drives[userDriveId].Root.Children.GetAsy
 var driveItem = await graphServiceClient.Sites["site-id"].Drive.GetAsync();
 var siteDriveId = driveItem.Id;
 // List children in the drive
-var children = await graphServiceClient.Drives[siteDriveId].Root.Children.GetAsync();
+var children = await graphServiceClient.Drives[siteDriveId].Items["itemId"].Children.GetAsync();
 ```
 
 3. List children from a groups's drive.
@@ -204,7 +211,7 @@ var children = await graphServiceClient.Drives[siteDriveId].Root.Children.GetAsy
 var driveItem = await graphServiceClient.Groups["group-id"].Drive.GetAsync();
 var groupDriveId = driveItem.Id;
 // List children in the drive
-var children = await graphServiceClient.Drives[groupDriveId].Root.Children.GetAsync();
+var children = await graphServiceClient.Drives[groupDriveId].Items["itemId"].Children.GetAsync();
 ```
 
 ## New Features
@@ -248,14 +255,14 @@ This changes to
 //var message = ....
 //var saveToSentItems = ...
 
-var body = new SendMailPostRequestBody
+var body = new Microsoft.Graph.Me.MicrosoftGraphSendMail.SendMailPostRequestBody
 {
     Message = message,
     SaveToSentItems = saveToSentItems
 };
 
 await graphServiceClient.Me
-    .SendMail
+    .MicrosoftGraphSendMail
     .PostAsync(body);
 ```
 
@@ -305,11 +312,11 @@ The request builders are now enriched with segments to enable requesting a speci
 An example is fetching the members of a group who are of the type `User` which would be done as below.
 
 ```cs
-var usersInGroup = await graphServiceClient.Groups["group-id"].Members.User.GetAsync();
+var usersInGroup = await graphServiceClient.Groups["group-id"].Members.MicrosoftGraphUser.GetAsync();
 ```
 
 Similarly, members of the group of type `Application` would be done as below.
 
 ```cs
-var applicationsInGroup = await graphServiceClient.Groups["group-id"].Members.Application.GetAsync();
+var applicationsInGroup = await graphServiceClient.Groups["group-id"].Members.MicrosoftGraphApplication.GetAsync();
 ```
