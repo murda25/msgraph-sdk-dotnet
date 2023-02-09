@@ -7,10 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
-using Microsoft.Graph.Me.AssignLicense;
-using Microsoft.Graph.Me.CheckMemberGroups;
-using Microsoft.Graph.Me.GetMemberGroups;
+using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCreateLink;
+using Microsoft.Graph.Me.MicrosoftGraphAssignLicense;
+using Microsoft.Graph.Me.MicrosoftGraphCheckMemberGroups;
+using Microsoft.Graph.Me.MicrosoftGraphGetMemberGroups;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -40,7 +40,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
                 RemoveLicenses = new ()
             };
             
-            var requestInformation = graphServiceClient.Me.AssignLicense.ToPostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.MicrosoftGraphAssignLicense.ToPostRequestInformation(requestBody);
             
             Assert.NotNull(requestInformation);
             Assert.Equal(new Uri(expectedRequestUrl), requestInformation.URI);
@@ -57,7 +57,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             
             
             var requestBody = new GetMemberGroupsPostRequestBody { };
-            var requestInformation = graphServiceClient.Me.GetMemberGroups.ToPostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.MicrosoftGraphGetMemberGroups.ToPostRequestInformation(requestBody);
             
             Assert.NotNull(requestInformation);
             Assert.Equal(new Uri(expectedRequestUrl), requestInformation.URI);
@@ -75,7 +75,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
 
             
             var requestBody = new GetMemberGroupsPostRequestBody { SecurityEnabledOnly = true};
-            var requestInformation = graphServiceClient.Me.GetMemberGroups.ToPostRequestInformation(requestBody);
+            var requestInformation = graphServiceClient.Me.MicrosoftGraphGetMemberGroups.ToPostRequestInformation(requestBody);
             
             Assert.NotNull(requestInformation);
             Assert.Equal(new Uri(expectedRequestUrl), requestInformation.URI);
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             var messageId = "messageId";
             var expectedRequestUrl = string.Format("{0}/me/mailFolders/Drafts/messages/{1}/microsoft.graph.send", string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0"), messageId);
 
-            var requestInformation = graphServiceClient.Me.MailFolders["Drafts"].Messages[messageId].Send.ToPostRequestInformation();
+            var requestInformation = graphServiceClient.Me.MailFolders["Drafts"].Messages[messageId].MicrosoftGraphSend.ToPostRequestInformation();
             
             Assert.NotNull(requestInformation);
             Assert.Equal(new Uri(expectedRequestUrl), requestInformation.URI);
@@ -108,7 +108,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             var graphServiceClient = new GraphServiceClient(mockRequestAdapter.Object);
             var removeLicenses = new List<Guid> { new Guid() };
             
-            Assert.ThrowsAsync<ArgumentNullException>(() => graphServiceClient.Me.AssignLicense.PostAsync(null));
+            Assert.ThrowsAsync<ArgumentNullException>(() => graphServiceClient.Me.MicrosoftGraphAssignLicense.PostAsync(null));
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             {
                 GroupIds = new List<string>()
             };
-            var returnedCollectionPage = await graphServiceClient.Me.CheckMemberGroups.PostAsync(requestBody);
+            var returnedCollectionPage = await graphServiceClient.Me.MicrosoftGraphCheckMemberGroups.PostAsync(requestBody);
 
             Assert.NotNull(returnedCollectionPage);
             Assert.Equal(checkMemberGroupsCollectionPage, returnedCollectionPage.Value);
@@ -180,7 +180,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
                 adapter => adapter.SerializationWriterFactory.GetSerializationWriter(It.IsAny<string>())
             ).Returns(new JsonSerializationWriter());
             
-            var permission = await graphServiceClient.Drives["driveId"].Items["id"].CreateLink.PostAsync(requestBody);
+            var permission = await graphServiceClient.Drives["driveId"].Items["id"].MicrosoftGraphCreateLink.PostAsync(requestBody);
 
             Assert.NotNull(permission);
             Assert.Equal(expectedPermission, permission);
@@ -198,7 +198,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
                 adapter => adapter.SendNoContentAsync(It.IsAny<RequestInformation>(), It.IsAny<Dictionary<string, ParsableFactory<IParsable>>>(),It.IsAny<CancellationToken>() )
             ).Callback(() => {}).Returns(Task.CompletedTask);
             
-            await graphServiceClient.Me.MailFolders["Drafts"].Messages["messageId"].Send.PostAsync();
+            await graphServiceClient.Me.MailFolders["Drafts"].Messages["messageId"].MicrosoftGraphSend.PostAsync();
         }
     }
 }
