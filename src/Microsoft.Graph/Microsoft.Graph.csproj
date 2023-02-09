@@ -25,11 +25,10 @@
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
-    <VersionSuffix>rc.4</VersionSuffix>
+    <VersionSuffix>rc.5</VersionSuffix>
     <PackageReleaseNotes>
-        - Use concurrent dictionary for serialization registry to avoid race conditions on client initialization
-        - Adds support for nullable reference types.
-        - Latest metadata updates from 24th January 2023 snapshot.
+- [Breaking] Namespace and Request Builder renaming to align to paths defined in metadata (https://github.com/microsoft/kiota/issues/2209)
+- Latest metadata updates from 7th February 2023 snapshot.
     </PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
