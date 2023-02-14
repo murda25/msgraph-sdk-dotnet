@@ -112,6 +112,19 @@ namespace Microsoft.Graph
         [JsonPropertyName("catalog")]
         public AccessPackageCatalog Catalog { get; set; }
     
+        /// <summary>
+        /// Gets or sets questions.
+        /// </summary>
+        [JsonPropertyName("questions")]
+        public IAccessPackageAssignmentPolicyQuestionsCollectionPage Questions { get; set; }
+
+        /// <summary>
+        /// Gets or sets questionsNextLink.
+        /// </summary>
+        [JsonPropertyName("questions@odata.nextLink")]
+        [JsonConverter(typeof(NextLinkConverter))]
+        public string QuestionsNextLink { get; set; }
+    
     }
 }
 

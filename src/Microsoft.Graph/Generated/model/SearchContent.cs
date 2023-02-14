@@ -13,61 +13,27 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The enum EntityType.
+    /// The enum SearchContent.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum EntityType
+	[System.Flags]
+    public enum SearchContent
     {
     
         /// <summary>
-        /// Event
+        /// Shared Content
         /// </summary>
-        Event = 0,
+        SharedContent = 1,
 	
         /// <summary>
-        /// Message
+        /// Private Content
         /// </summary>
-        Message = 1,
-	
-        /// <summary>
-        /// Drive Item
-        /// </summary>
-        DriveItem = 2,
-	
-        /// <summary>
-        /// External Item
-        /// </summary>
-        ExternalItem = 4,
-	
-        /// <summary>
-        /// Site
-        /// </summary>
-        Site = 5,
-	
-        /// <summary>
-        /// List
-        /// </summary>
-        List = 6,
-	
-        /// <summary>
-        /// List Item
-        /// </summary>
-        ListItem = 7,
-	
-        /// <summary>
-        /// Drive
-        /// </summary>
-        Drive = 8,
+        PrivateContent = 2,
 	
         /// <summary>
         /// Unknown Future Value
         /// </summary>
-        UnknownFutureValue = 9,
-	
-        /// <summary>
-        /// Chat Message
-        /// </summary>
-        ChatMessage = 10,
+        UnknownFutureValue = 4,
 	
     }
 }

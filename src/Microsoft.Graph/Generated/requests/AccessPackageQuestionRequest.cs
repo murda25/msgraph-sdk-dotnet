@@ -17,17 +17,17 @@ namespace Microsoft.Graph
     using System.Linq.Expressions;
 
     /// <summary>
-    /// The type AccessPackageAssignmentPolicyRequest.
+    /// The type AccessPackageQuestionRequest.
     /// </summary>
-    public partial class AccessPackageAssignmentPolicyRequest : BaseRequest, IAccessPackageAssignmentPolicyRequest
+    public partial class AccessPackageQuestionRequest : BaseRequest, IAccessPackageQuestionRequest
     {
         /// <summary>
-        /// Constructs a new AccessPackageAssignmentPolicyRequest.
+        /// Constructs a new AccessPackageQuestionRequest.
         /// </summary>
         /// <param name="requestUrl">The URL for the built request.</param>
         /// <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
         /// <param name="options">Query and header option name value pairs for the request.</param>
-        public AccessPackageAssignmentPolicyRequest(
+        public AccessPackageQuestionRequest(
             string requestUrl,
             IBaseClient client,
             IEnumerable<Option> options)
@@ -36,46 +36,46 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Creates the specified AccessPackageAssignmentPolicy using POST.
+        /// Creates the specified AccessPackageQuestion using POST.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToCreate">The AccessPackageAssignmentPolicy to create.</param>
+        /// <param name="accessPackageQuestionToCreate">The AccessPackageQuestion to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The created AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> CreateAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The created AccessPackageQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageQuestion> CreateAsync(AccessPackageQuestion accessPackageQuestionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            var newEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToCreate, cancellationToken).ConfigureAwait(false);
+            var newEntity = await this.SendAsync<AccessPackageQuestion>(accessPackageQuestionToCreate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(newEntity);
             return newEntity;
         }
 
         /// <summary>
-        /// Creates the specified AccessPackageAssignmentPolicy using POST and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Creates the specified AccessPackageQuestion using POST and returns a <see cref="GraphResponse{AccessPackageQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToCreate">The AccessPackageAssignmentPolicy to create.</param>
+        /// <param name="accessPackageQuestionToCreate">The AccessPackageQuestion to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> CreateResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageQuestion>> CreateResponseAsync(AccessPackageQuestion accessPackageQuestionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToCreate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageQuestion>(accessPackageQuestionToCreate, cancellationToken);
         }
 
         /// <summary>
-        /// Deletes the specified AccessPackageAssignmentPolicy.
+        /// Deletes the specified AccessPackageQuestion.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
         public async System.Threading.Tasks.Task DeleteAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.DELETE;
-            await this.SendAsync<AccessPackageAssignmentPolicy>(null, cancellationToken).ConfigureAwait(false);
+            await this.SendAsync<AccessPackageQuestion>(null, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Deletes the specified AccessPackageAssignmentPolicy and returns a <see cref="GraphResponse"/> object.
+        /// Deletes the specified AccessPackageQuestion and returns a <see cref="GraphResponse"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task of <see cref="GraphResponse"/> to await.</returns>
@@ -86,85 +86,85 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Gets the specified AccessPackageAssignmentPolicy.
+        /// Gets the specified AccessPackageQuestion.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> GetAsync(CancellationToken cancellationToken = default)
+        /// <returns>The AccessPackageQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageQuestion> GetAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            var retrievedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(null, cancellationToken).ConfigureAwait(false);
+            var retrievedEntity = await this.SendAsync<AccessPackageQuestion>(null, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(retrievedEntity);
             return retrievedEntity;
         }
 
         /// <summary>
-        /// Gets the specified AccessPackageAssignmentPolicy and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Gets the specified AccessPackageQuestion and returns a <see cref="GraphResponse{AccessPackageQuestion}"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> GetResponseAsync(CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageQuestion>> GetResponseAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(null, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageQuestion>(null, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PATCH.
+        /// Updates the specified AccessPackageQuestion using PATCH.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy to update.</param>
+        /// <param name="accessPackageQuestionToUpdate">The AccessPackageQuestion to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The updated AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> UpdateAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The updated AccessPackageQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageQuestion> UpdateAsync(AccessPackageQuestion accessPackageQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            var updatedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<AccessPackageQuestion>(accessPackageQuestionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PATCH and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Updates the specified AccessPackageQuestion using PATCH and returns a <see cref="GraphResponse{AccessPackageQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy to update.</param>
+        /// <param name="accessPackageQuestionToUpdate">The AccessPackageQuestion to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> UpdateResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageQuestion>> UpdateResponseAsync(AccessPackageQuestion accessPackageQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageQuestion>(accessPackageQuestionToUpdate, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PUT.
+        /// Updates the specified AccessPackageQuestion using PUT.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy object to update.</param>
+        /// <param name="accessPackageQuestionToUpdate">The AccessPackageQuestion object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> PutAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<AccessPackageQuestion> PutAsync(AccessPackageQuestion accessPackageQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            var updatedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<AccessPackageQuestion>(accessPackageQuestionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PUT and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Updates the specified AccessPackageQuestion using PUT and returns a <see cref="GraphResponse{AccessPackageQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy object to update.</param>
+        /// <param name="accessPackageQuestionToUpdate">The AccessPackageQuestion object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The task to await of <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/>.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> PutResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The task to await of <see cref="GraphResponse{AccessPackageQuestion}"/>.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageQuestion>> PutResponseAsync(AccessPackageQuestion accessPackageQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageQuestion>(accessPackageQuestionToUpdate, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Expand(string value)
+        public IAccessPackageQuestionRequest Expand(string value)
         {
             this.QueryOptions.Add(new QueryOption("$expand", value));
             return this;
@@ -183,7 +183,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="expandExpression">The expression from which to calculate the expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Expand(Expression<Func<AccessPackageAssignmentPolicy, object>> expandExpression)
+        public IAccessPackageQuestionRequest Expand(Expression<Func<AccessPackageQuestion, object>> expandExpression)
         {
 		    if (expandExpression == null)
             {
@@ -207,7 +207,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The select value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Select(string value)
+        public IAccessPackageQuestionRequest Select(string value)
         {
             this.QueryOptions.Add(new QueryOption("$select", value));
             return this;
@@ -218,7 +218,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="selectExpression">The expression from which to calculate the select value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Select(Expression<Func<AccessPackageAssignmentPolicy, object>> selectExpression)
+        public IAccessPackageQuestionRequest Select(Expression<Func<AccessPackageQuestion, object>> selectExpression)
         {
             if (selectExpression == null)
             {
@@ -240,21 +240,9 @@ namespace Microsoft.Graph
         /// <summary>
         /// Initializes any collection properties after deserialization, like next requests for paging.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToInitialize">The <see cref="AccessPackageAssignmentPolicy"/> with the collection properties to initialize.</param>
-        private void InitializeCollectionProperties(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToInitialize)
+        /// <param name="accessPackageQuestionToInitialize">The <see cref="AccessPackageQuestion"/> with the collection properties to initialize.</param>
+        private void InitializeCollectionProperties(AccessPackageQuestion accessPackageQuestionToInitialize)
         {
-
-            if (accessPackageAssignmentPolicyToInitialize != null)
-            {
-                if (accessPackageAssignmentPolicyToInitialize.Questions != null && accessPackageAssignmentPolicyToInitialize.Questions.CurrentPage != null)
-                {
-                    accessPackageAssignmentPolicyToInitialize.Questions.InitializeNextPageRequest(this.Client, accessPackageAssignmentPolicyToInitialize.QuestionsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    accessPackageAssignmentPolicyToInitialize.Questions.AdditionalData = accessPackageAssignmentPolicyToInitialize.AdditionalData;
-                }
-
-            }
-
 
         }
     }
