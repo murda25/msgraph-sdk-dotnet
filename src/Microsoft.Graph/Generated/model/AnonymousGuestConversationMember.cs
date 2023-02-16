@@ -30,6 +30,7 @@ namespace Microsoft.Graph
 
         /// <summary>
         /// Gets or sets anonymous guest id.
+        /// Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
         /// </summary>
         [JsonPropertyName("anonymousGuestId")]
         public string AnonymousGuestId { get; set; }

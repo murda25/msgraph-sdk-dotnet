@@ -42,6 +42,12 @@ namespace Microsoft.Graph
         /// </summary>
         /// <returns>The <see cref="IAccessPackageCatalogWithReferenceRequestBuilder"/>.</returns>
         IAccessPackageCatalogWithReferenceRequestBuilder Catalog { get; }
+
+        /// <summary>
+        /// Gets the request builder for Questions.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPolicyQuestionsCollectionRequestBuilder"/>.</returns>
+        IAccessPackageAssignmentPolicyQuestionsCollectionRequestBuilder Questions { get; }
     
     }
 }

@@ -15,32 +15,32 @@ namespace Microsoft.Graph
     using System.Text.Json.Serialization;
 
     /// <summary>
-    /// The type Skype For Business User Conversation Member.
+    /// The type Access Package Text Input Question.
     /// </summary>
-    public partial class SkypeForBusinessUserConversationMember : ConversationMember
+    public partial class AccessPackageTextInputQuestion : AccessPackageQuestion
     {
     
         ///<summary>
-        /// The SkypeForBusinessUserConversationMember constructor
+        /// The AccessPackageTextInputQuestion constructor
         ///</summary>
-        public SkypeForBusinessUserConversationMember()
+        public AccessPackageTextInputQuestion()
         {
-            this.ODataType = "microsoft.graph.skypeForBusinessUserConversationMember";
+            this.ODataType = "microsoft.graph.accessPackageTextInputQuestion";
         }
 
         /// <summary>
-        /// Gets or sets tenant id.
-        /// ID of the tenant that the user belongs to.
+        /// Gets or sets is single line question.
+        /// Indicates whether the answer will be in single or multiple line format.
         /// </summary>
-        [JsonPropertyName("tenantId")]
-        public string TenantId { get; set; }
+        [JsonPropertyName("isSingleLineQuestion")]
+        public bool? IsSingleLineQuestion { get; set; }
     
         /// <summary>
-        /// Gets or sets user id.
-        /// Azure Active Directory ID of the user.
+        /// Gets or sets regex pattern.
+        /// The regular expression pattern which any answer to this question must match.
         /// </summary>
-        [JsonPropertyName("userId")]
-        public string UserId { get; set; }
+        [JsonPropertyName("regexPattern")]
+        public string RegexPattern { get; set; }
     
     }
 }

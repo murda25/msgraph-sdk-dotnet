@@ -76,10 +76,22 @@ namespace Microsoft.Graph
         public SearchAlterationOptions QueryAlterationOptions { get; set; }
     
         /// <summary>
+        /// Gets or sets region.
+        /// </summary>
+        [JsonPropertyName("region")]
+        public string Region { get; set; }
+    
+        /// <summary>
         /// Gets or sets resultTemplateOptions.
         /// </summary>
         [JsonPropertyName("resultTemplateOptions")]
         public ResultTemplateOption ResultTemplateOptions { get; set; }
+    
+        /// <summary>
+        /// Gets or sets sharePointOneDriveOptions.
+        /// </summary>
+        [JsonPropertyName("sharePointOneDriveOptions")]
+        public SharePointOneDriveOptions SharePointOneDriveOptions { get; set; }
     
         /// <summary>
         /// Gets or sets size.
