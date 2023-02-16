@@ -73,6 +73,18 @@ namespace Microsoft.Graph
                 return new AccessPackageCatalogWithReferenceRequestBuilder(this.AppendSegmentToRequestUrl("catalog"), this.Client);
             }
         }
+
+        /// <summary>
+        /// Gets the request builder for Questions.
+        /// </summary>
+        /// <returns>The <see cref="IAccessPackageAssignmentPolicyQuestionsCollectionRequestBuilder"/>.</returns>
+        public IAccessPackageAssignmentPolicyQuestionsCollectionRequestBuilder Questions
+        {
+            get
+            {
+                return new AccessPackageAssignmentPolicyQuestionsCollectionRequestBuilder(this.AppendSegmentToRequestUrl("questions"), this.Client);
+            }
+        }
     
     }
 }

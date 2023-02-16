@@ -17,17 +17,17 @@ namespace Microsoft.Graph
     using System.Linq.Expressions;
 
     /// <summary>
-    /// The type AccessPackageAssignmentPolicyRequest.
+    /// The type AccessPackageMultipleChoiceQuestionRequest.
     /// </summary>
-    public partial class AccessPackageAssignmentPolicyRequest : BaseRequest, IAccessPackageAssignmentPolicyRequest
+    public partial class AccessPackageMultipleChoiceQuestionRequest : BaseRequest, IAccessPackageMultipleChoiceQuestionRequest
     {
         /// <summary>
-        /// Constructs a new AccessPackageAssignmentPolicyRequest.
+        /// Constructs a new AccessPackageMultipleChoiceQuestionRequest.
         /// </summary>
         /// <param name="requestUrl">The URL for the built request.</param>
         /// <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
         /// <param name="options">Query and header option name value pairs for the request.</param>
-        public AccessPackageAssignmentPolicyRequest(
+        public AccessPackageMultipleChoiceQuestionRequest(
             string requestUrl,
             IBaseClient client,
             IEnumerable<Option> options)
@@ -36,46 +36,46 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Creates the specified AccessPackageAssignmentPolicy using POST.
+        /// Creates the specified AccessPackageMultipleChoiceQuestion using POST.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToCreate">The AccessPackageAssignmentPolicy to create.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToCreate">The AccessPackageMultipleChoiceQuestion to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The created AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> CreateAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The created AccessPackageMultipleChoiceQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageMultipleChoiceQuestion> CreateAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            var newEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToCreate, cancellationToken).ConfigureAwait(false);
+            var newEntity = await this.SendAsync<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToCreate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(newEntity);
             return newEntity;
         }
 
         /// <summary>
-        /// Creates the specified AccessPackageAssignmentPolicy using POST and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Creates the specified AccessPackageMultipleChoiceQuestion using POST and returns a <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToCreate">The AccessPackageAssignmentPolicy to create.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToCreate">The AccessPackageMultipleChoiceQuestion to create.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> CreateResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToCreate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageMultipleChoiceQuestion>> CreateResponseAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToCreate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.POST;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToCreate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToCreate, cancellationToken);
         }
 
         /// <summary>
-        /// Deletes the specified AccessPackageAssignmentPolicy.
+        /// Deletes the specified AccessPackageMultipleChoiceQuestion.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
         public async System.Threading.Tasks.Task DeleteAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.DELETE;
-            await this.SendAsync<AccessPackageAssignmentPolicy>(null, cancellationToken).ConfigureAwait(false);
+            await this.SendAsync<AccessPackageMultipleChoiceQuestion>(null, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Deletes the specified AccessPackageAssignmentPolicy and returns a <see cref="GraphResponse"/> object.
+        /// Deletes the specified AccessPackageMultipleChoiceQuestion and returns a <see cref="GraphResponse"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task of <see cref="GraphResponse"/> to await.</returns>
@@ -86,85 +86,85 @@ namespace Microsoft.Graph
         }
 
         /// <summary>
-        /// Gets the specified AccessPackageAssignmentPolicy.
+        /// Gets the specified AccessPackageMultipleChoiceQuestion.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> GetAsync(CancellationToken cancellationToken = default)
+        /// <returns>The AccessPackageMultipleChoiceQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageMultipleChoiceQuestion> GetAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            var retrievedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(null, cancellationToken).ConfigureAwait(false);
+            var retrievedEntity = await this.SendAsync<AccessPackageMultipleChoiceQuestion>(null, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(retrievedEntity);
             return retrievedEntity;
         }
 
         /// <summary>
-        /// Gets the specified AccessPackageAssignmentPolicy and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Gets the specified AccessPackageMultipleChoiceQuestion and returns a <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> GetResponseAsync(CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageMultipleChoiceQuestion>> GetResponseAsync(CancellationToken cancellationToken = default)
         {
             this.Method = HttpMethods.GET;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(null, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageMultipleChoiceQuestion>(null, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PATCH.
+        /// Updates the specified AccessPackageMultipleChoiceQuestion using PATCH.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy to update.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToUpdate">The AccessPackageMultipleChoiceQuestion to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The updated AccessPackageAssignmentPolicy.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> UpdateAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The updated AccessPackageMultipleChoiceQuestion.</returns>
+        public async System.Threading.Tasks.Task<AccessPackageMultipleChoiceQuestion> UpdateAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            var updatedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PATCH and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Updates the specified AccessPackageMultipleChoiceQuestion using PATCH and returns a <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy to update.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToUpdate">The AccessPackageMultipleChoiceQuestion to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <exception cref="ClientException">Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</exception>
-        /// <returns>The <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object of the request.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> UpdateResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object of the request.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageMultipleChoiceQuestion>> UpdateResponseAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PATCH;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToUpdate, cancellationToken);
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PUT.
+        /// Updates the specified AccessPackageMultipleChoiceQuestion using PUT.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy object to update.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToUpdate">The AccessPackageMultipleChoiceQuestion object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
         /// <returns>The task to await.</returns>
-        public async System.Threading.Tasks.Task<AccessPackageAssignmentPolicy> PutAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<AccessPackageMultipleChoiceQuestion> PutAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            var updatedEntity = await this.SendAsync<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken).ConfigureAwait(false);
+            var updatedEntity = await this.SendAsync<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToUpdate, cancellationToken).ConfigureAwait(false);
             this.InitializeCollectionProperties(updatedEntity);
             return updatedEntity;
         }
 
         /// <summary>
-        /// Updates the specified AccessPackageAssignmentPolicy using PUT and returns a <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/> object.
+        /// Updates the specified AccessPackageMultipleChoiceQuestion using PUT and returns a <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/> object.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToUpdate">The AccessPackageAssignmentPolicy object to update.</param>
+        /// <param name="accessPackageMultipleChoiceQuestionToUpdate">The AccessPackageMultipleChoiceQuestion object to update.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-        /// <returns>The task to await of <see cref="GraphResponse{AccessPackageAssignmentPolicy}"/>.</returns>
-        public System.Threading.Tasks.Task<GraphResponse<AccessPackageAssignmentPolicy>> PutResponseAsync(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToUpdate, CancellationToken cancellationToken = default)
+        /// <returns>The task to await of <see cref="GraphResponse{AccessPackageMultipleChoiceQuestion}"/>.</returns>
+        public System.Threading.Tasks.Task<GraphResponse<AccessPackageMultipleChoiceQuestion>> PutResponseAsync(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToUpdate, CancellationToken cancellationToken = default)
         {
             this.ContentType = CoreConstants.MimeTypeNames.Application.Json;
             this.Method = HttpMethods.PUT;
-            return this.SendAsyncWithGraphResponse<AccessPackageAssignmentPolicy>(accessPackageAssignmentPolicyToUpdate, cancellationToken);
+            return this.SendAsyncWithGraphResponse<AccessPackageMultipleChoiceQuestion>(accessPackageMultipleChoiceQuestionToUpdate, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Expand(string value)
+        public IAccessPackageMultipleChoiceQuestionRequest Expand(string value)
         {
             this.QueryOptions.Add(new QueryOption("$expand", value));
             return this;
@@ -183,7 +183,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="expandExpression">The expression from which to calculate the expand value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Expand(Expression<Func<AccessPackageAssignmentPolicy, object>> expandExpression)
+        public IAccessPackageMultipleChoiceQuestionRequest Expand(Expression<Func<AccessPackageMultipleChoiceQuestion, object>> expandExpression)
         {
 		    if (expandExpression == null)
             {
@@ -207,7 +207,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="value">The select value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Select(string value)
+        public IAccessPackageMultipleChoiceQuestionRequest Select(string value)
         {
             this.QueryOptions.Add(new QueryOption("$select", value));
             return this;
@@ -218,7 +218,7 @@ namespace Microsoft.Graph
         /// </summary>
         /// <param name="selectExpression">The expression from which to calculate the select value.</param>
         /// <returns>The request object to send.</returns>
-        public IAccessPackageAssignmentPolicyRequest Select(Expression<Func<AccessPackageAssignmentPolicy, object>> selectExpression)
+        public IAccessPackageMultipleChoiceQuestionRequest Select(Expression<Func<AccessPackageMultipleChoiceQuestion, object>> selectExpression)
         {
             if (selectExpression == null)
             {
@@ -240,21 +240,9 @@ namespace Microsoft.Graph
         /// <summary>
         /// Initializes any collection properties after deserialization, like next requests for paging.
         /// </summary>
-        /// <param name="accessPackageAssignmentPolicyToInitialize">The <see cref="AccessPackageAssignmentPolicy"/> with the collection properties to initialize.</param>
-        private void InitializeCollectionProperties(AccessPackageAssignmentPolicy accessPackageAssignmentPolicyToInitialize)
+        /// <param name="accessPackageMultipleChoiceQuestionToInitialize">The <see cref="AccessPackageMultipleChoiceQuestion"/> with the collection properties to initialize.</param>
+        private void InitializeCollectionProperties(AccessPackageMultipleChoiceQuestion accessPackageMultipleChoiceQuestionToInitialize)
         {
-
-            if (accessPackageAssignmentPolicyToInitialize != null)
-            {
-                if (accessPackageAssignmentPolicyToInitialize.Questions != null && accessPackageAssignmentPolicyToInitialize.Questions.CurrentPage != null)
-                {
-                    accessPackageAssignmentPolicyToInitialize.Questions.InitializeNextPageRequest(this.Client, accessPackageAssignmentPolicyToInitialize.QuestionsNextLink);
-                    // Copy the additional data collection to the page itself so that information is not lost
-                    accessPackageAssignmentPolicyToInitialize.Questions.AdditionalData = accessPackageAssignmentPolicyToInitialize.AdditionalData;
-                }
-
-            }
-
 
         }
     }

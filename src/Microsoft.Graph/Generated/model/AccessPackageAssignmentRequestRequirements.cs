@@ -71,6 +71,12 @@ namespace Microsoft.Graph
         public EntitlementManagementSchedule Schedule { get; set; }
     
         /// <summary>
+        /// Gets or sets questions.
+        /// </summary>
+        [JsonPropertyName("questions")]
+        public IEnumerable<AccessPackageQuestion> Questions { get; set; }
+    
+        /// <summary>
         /// Gets or sets additional data.
         /// </summary>
         [JsonExtensionData]
