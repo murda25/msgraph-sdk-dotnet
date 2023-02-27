@@ -24,13 +24,13 @@ To begin making requests with the library, you will need to initialize a **Graph
 
 ## IAuthenticationProvider
 
-The authentication provider is responsible for authenticating requests before sending them to the service. The Microsoft Graph .NET Client Library doesn't implement any authentication by default. Instead, you will need to retrieve access tokens for the service via the authentication library of your choice or by coding against one of the authentication endpoints directly. Please [read here](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview) for more details about authenticating the Microsoft Graph service.
+The authentication provider is responsible for authenticating requests before sending them to the service. The Microsoft Graph .NET Client Library doesn't implement any authentication by default. Instead, you will need to retrieve access tokens for the service via the authentication library of your choice or by coding against one of the authentication endpoints directly. Please [read here](https://docs.microsoft.com/en-us/graph/auth/) for more details about authenticating the Microsoft Graph service.
 
 You can also read about authentication with Kiota generated clients [here](https://github.com/microsoft/kiota/blob/main/docs/extending/authentication.md#authentication-with-kiota-clients)
 
 ## Resource model
 
-Microsoft Graph service resource are represented by property bag model classes of the same name in the client library. For example, the [user resource](https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/user) is represented by the [user class](../src/Microsoft.Graph/Models/Generated/User.cs) in the client library. Each of these model classes contain properties that represent the properties of the resources they represent.
+Microsoft Graph service resource are represented by property bag model classes of the same name in the client library. For example, the [user resource](https://docs.microsoft.com/en-us/graph/api/resources/users) is represented by the [user class](../src/Microsoft.Graph/Generated/model/User.cs) in the client library. Each of these model classes contain properties that represent the properties of the resources they represent.
 
 These classes are used for serializing and deserializing the resources in requests to the service. They do not contain any logic to issue requests.
 
@@ -50,7 +50,7 @@ You get the first request builder from the `GraphServiceClient` object. For exam
  
 The call will return a `UserRequestBuilder` object. From Me you can continue to chain the request builders.
 
-The [Microsoft Graph service documentation](https://graph.microsoft.io/en-us/docs) has more details about the full functionality of the API.
+The [Microsoft Graph API documentation](https://docs.microsoft.com/en-us/graph/api/overview) has more details about the full functionality of the API.
 
 
 ### 2. Request calls
