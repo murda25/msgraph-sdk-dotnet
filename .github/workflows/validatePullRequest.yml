@@ -3,15 +3,9 @@ name: Validate Pull Request
 on:
   workflow_dispatch:
   push:
-<<<<<<< HEAD
-    branches: [ 'feature/5.0', 'dev' ,'master' ]
-  pull_request:
-    branches: [ 'feature/5.0', 'dev' ,'master' ]
-=======
     branches: [ 'feature/*', 'dev' ,'master' ]
   pull_request:
     branches: [ 'feature/*', 'dev' ,'master' ]
->>>>>>> dev
 
 jobs:
   build:
@@ -36,7 +30,3 @@ jobs:
         run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
