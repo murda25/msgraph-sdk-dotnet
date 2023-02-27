@@ -6,7 +6,7 @@
 Integrate the [Microsoft Graph API](https://graph.microsoft.io) into your .NET
 project!
 
-The Microsoft Graph .NET Client Library targets .NetStandard 2.1
+The Microsoft Graph .NET Client Library targets .NetStandard 2.0.
 
 ## Installation via NuGet
 
