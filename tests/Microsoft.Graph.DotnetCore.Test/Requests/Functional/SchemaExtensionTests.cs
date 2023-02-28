@@ -4,6 +4,8 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Microsoft.Graph.Models;
+    using Microsoft.Graph.Models.ODataErrors;
     using System;
     using System.Collections.Generic;
     using Async = System.Threading.Tasks;
@@ -48,28 +50,23 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             };
 
             // Create the schema extension. This results in a call to Microsoft Graph.
-            SchemaExtension schemaExtension = await graphClient.SchemaExtensions.Request().AddAsync(extensionDefinition);
+            SchemaExtension schemaExtension = await graphClient.SchemaExtensions.PostAsync(extensionDefinition);
             Assert.NotNull(schemaExtension);
-            Assert.Equal(schemaExtension.Status, "InDevelopment");
+            Assert.Equal("InDevelopment", schemaExtension.Status);
             Assert.Contains(extensionDefinition.Id, schemaExtension.Id);
             Assert.NotNull(schemaExtension.Owner);
 
             // List all of the schema extensions available to this application.
-            IGraphServiceSchemaExtensionsCollectionPage schemaExtensions = await graphClient.SchemaExtensions.Request().GetAsync();
-            Assert.True(schemaExtensions.Count > 0);
-            Assert.NotNull(schemaExtensions[0].Properties);
-            Assert.True(schemaExtensions[0].Description.Length > 0);
-            Assert.NotNull(schemaExtensions[0].TargetTypes);
-            Assert.NotNull(schemaExtensions[0].Id);
+            var schemaExtensions = await graphClient.SchemaExtensions.GetAsync();
+            Assert.True(schemaExtensions.Value.Count > 0);
+            Assert.NotNull(schemaExtensions.Value[0].Properties);
+            Assert.True(schemaExtensions.Value[0].Description.Length > 0);
+            Assert.NotNull(schemaExtensions.Value[0].TargetTypes);
+            Assert.NotNull(schemaExtensions.Value[0].Id);
 
             // Get a specific schema extension.
-            SchemaExtension extensionFromGet = await graphClient.SchemaExtensions[schemaExtension.Id].Request().GetAsync();
+            SchemaExtension extensionFromGet = await graphClient.SchemaExtensions[schemaExtension.Id].GetAsync();
             Assert.NotNull(extensionFromGet);
-
-            // Add header so we get back a representation of the updated schema extension.
-            List<HeaderOption> headers = new List<HeaderOption>();
-            HeaderOption preferHeader = new HeaderOption("Prefer", "return=representation");
-            headers.Add(preferHeader);
 
             // Update a specific schema extension.
             extensionFromGet.Description = "This extension will be deleted";
@@ -77,7 +74,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             // Potential bug: state transition from deprecated to available is not working.
             // Potential bug here as the service is not returning the SchemaExtension on update. Must delete test until this is fixed. 5/30/2017
             // SchemaExtension extensionFromUpdate = await graphClient.SchemaExtensions[extensionFromGet.Id].Request(headers).UpdateAsync(extensionFromGet);
-            await graphClient.SchemaExtensions[extensionFromGet.Id].Request(headers).UpdateAsync(extensionFromGet);
+            await graphClient.SchemaExtensions[extensionFromGet.Id].PatchAsync(extensionFromGet, requestConfiguration => requestConfiguration.Headers.Add("Prefer", "return=representation"));
 
             // Enable or re-write test when we learn expected behavior.
             //Assert.Equal(extensionFromGet.Status, extensionFromUpdate.Status, "Expected: the patch object status property matches the returned status property; Actual: they don't match.");
@@ -96,26 +93,26 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 AdditionalData = extensionInstance
             };
             await Async.Task.Delay(15000); // It takes some time for the schema extension def to be available for the creation of a group.
-            group = await graphClient.Groups.Request().AddAsync(group);
+            group = await graphClient.Groups.PostAsync(group);
             
             // Delete a specific schema extension.
-            await graphClient.SchemaExtensions[extensionFromGet.Id].Request().DeleteAsync();
+            await graphClient.SchemaExtensions[extensionFromGet.Id].DeleteAsync();
             try
             {
-                var deletedSchemaExtension = await graphClient.SchemaExtensions[extensionFromGet.Id].Request().GetAsync();
+                var deletedSchemaExtension = await graphClient.SchemaExtensions[extensionFromGet.Id].GetAsync();
                 Assert.False(true, "Expected: ServiceException since the schema extension ws deleted; Actual: the GET on the supposedly deleted schema extension returned successfully.");
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
-                Assert.Equal(e.StatusCode, System.Net.HttpStatusCode.NotFound);
+                Assert.NotEmpty(e.Error.Message);
             }
 
             // Delete the group.
             try
             {
-                await graphClient.Groups[group.Id].Request().DeleteAsync();
+                await graphClient.Groups[group.Id].DeleteAsync();
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.False(true, ($"Error: {e.Error.ToString()}"));
             }

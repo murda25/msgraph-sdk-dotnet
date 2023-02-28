@@ -1,12 +1,12 @@
 # Microsoft Graph .NET Client Library
 
-[![Build status](https://ci.appveyor.com/api/projects/status/m8qncaosr2ry4ks6/branch/master?svg=true)](https://ci.appveyor.com/project/MIchaelMainer/msgraph-sdk-dotnet/branch/master)
+[![Validate Pull Request](https://github.com/microsoftgraph/msgraph-sdk-dotnet/actions/workflows/validatePullRequest.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-sdk-dotnet/actions/workflows/validatePullRequest.yml)
 [![NuGet Version](https://buildstats.info/nuget/Microsoft.Graph)](https://www.nuget.org/packages/Microsoft.Graph/)
 
 Integrate the [Microsoft Graph API](https://graph.microsoft.io) into your .NET
 project!
 
-The Microsoft Graph .NET Client Library targets .NetStandard 2.0 and .Net Framework 4.6.2.
+The Microsoft Graph .NET Client Library targets .NetStandard 2.0.
 
 ## Installation via NuGet
 
@@ -26,8 +26,6 @@ Register your application to use Microsoft Graph API using the [Microsoft Applic
 The Microsoft Graph .NET Client Library supports the use of TokenCredential classes in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
 
 You can read more about available Credential classes [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#key-concepts) and examples on how to quickly setup TokenCredential instances can be found [here](docs/tokencredentials.md).
-
-For more information on `DelegateAuthenticationProvider`, see the [library overview](docs/overview.md).  
 
 The recommended library for authenticating against Microsoft Identity (Azure AD) is [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
@@ -51,20 +49,20 @@ of the Microsoft Graph API's RESTful syntax.
 For example, to retrieve a user's default drive:
 
 ```csharp
-var drive = await graphClient.Me.Drive.Request().GetAsync();
+var drive = await graphClient.Me.Drive.GetAsync();
 ```
 
 `GetAsync` will return a `Drive` object on success and throw a
-`ServiceException` on error.
+`ApiException` on error.
 
 To get the current user's root folder of their default drive:
 
 ```csharp
-var rootItem = await graphClient.Me.Drive.Root.Request().GetAsync();
+var rootItem = await graphClient.Me.Drive.Root.GetAsync();
 ```
 
 `GetAsync` will return a `DriveItem` object on success and throw a
-`ServiceException` on error.
+`ApiException` on error.
 
 For a general overview of how the SDK is designed, see [overview](docs/overview.md).
 
@@ -111,6 +109,13 @@ Between 3.x and 4.x there were some major breaking changes:
  * Upgrading Microsoft.Graph.Core dependency to version 2.0.0
 
 View the upgrade guide [here](docs/upgrade-to-v4.md).
+
+
+### Upgrading to v5
+
+Between 4.x and 5.x there were several major breaking changes as the SDK now uses Kiota for code generation.
+
+View the upgrade guide [here](docs/upgrade-to-v5.md).
 
 ## Issues
 

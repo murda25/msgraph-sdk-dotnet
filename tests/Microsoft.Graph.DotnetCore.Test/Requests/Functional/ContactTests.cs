@@ -4,9 +4,11 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using System.Collections.Generic;
     using System;
     using System.Threading.Tasks;
     using Xunit;
+    using Microsoft.Graph.Models;
     public class ContactTests : GraphTestBase
     {
         // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties
@@ -24,19 +26,20 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             customProperty.Id = propertyId;
             customProperty.Value = "My custom property value";
 
-            var extendedValueCollection = new ContactSingleValueExtendedPropertiesCollectionPage();
+            var extendedValueCollection = new List<SingleValueLegacyExtendedProperty>();
             extendedValueCollection.Add(customProperty);
 
             contact.SingleValueExtendedProperties = extendedValueCollection;
 
             // This results in a call to the service. It adds a contact with the extended property set on it.
-            var partiallySyncdContact = await graphClient.Me.Contacts.Request().AddAsync(contact);
+            var partiallySyncdContact = await graphClient.Me.Contacts.PostAsync(contact);
 
             Assert.NotNull(partiallySyncdContact.Id);
 
             // This results in a call to the service. It gets the contact with the extended property.
             // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/singlevaluelegacyextendedproperty_get
-            var syncdContact = await graphClient.Me.Contacts[partiallySyncdContact.Id].Request().Expand($"singleValueExtendedProperties($filter=id eq '{propertyId}')").GetAsync();
+            // TODO should be expand
+            var syncdContact = await graphClient.Me.Contacts[partiallySyncdContact.Id].GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Select = new []{$"singleValueExtendedProperties($filter=id eq '{propertyId}')"});
 
             Assert.NotNull(syncdContact.SingleValueExtendedProperties);
         }

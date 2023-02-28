@@ -2,41 +2,22 @@
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
-using Microsoft.Graph;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Xunit;
-
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Newtonsoft.Json.Linq;
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Kiota.Abstractions.Authentication;
+    
     public class GraphTestBase
     {
-        private readonly string clientId;
-        private readonly string userName;
-        private readonly string password;
-        private readonly string contentType = "application/x-www-form-urlencoded";
-        // Don't use password grant in your apps. Only use for legacy solutions and automated testing.
-        private readonly string grantType = "password";
-        private readonly string tokenEndpoint = "https://login.microsoftonline.com/common/oauth2/token";
-        private readonly string resourceId = "https%3A%2F%2Fgraph.microsoft.com%2F";
-
-        private static string accessToken = null;
-        private static string tokenForUser = null;
-        private static System.DateTimeOffset expiration;
-
         protected static GraphServiceClient graphClient = null;
 
         public GraphTestBase()
         {
-            // Setup for CI
-            clientId = System.Environment.GetEnvironmentVariable("test_client_id");
-            userName = System.Environment.GetEnvironmentVariable("test_user_name");
-            password = System.Environment.GetEnvironmentVariable("test_password");
-
             GetAuthenticatedClient();
         }
 
@@ -48,15 +29,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 // Create Microsoft Graph client.
                 try
                 {
-                    graphClient = new GraphServiceClient(
-                        "https://graph.microsoft.com/v1.0",
-                        new DelegateAuthenticationProvider(
-                            async (requestMessage) =>
-                            {
-                                var token = await GetAccessTokenUsingPasswordGrant();
-                                requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", token);
-
-                            }));
+                    graphClient = new GraphServiceClient(new BaseBearerTokenAuthenticationProvider( new GraphTokenProvider()));
                 }
                 catch (Exception ex)
                 {
@@ -65,7 +38,32 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             }
         }
 
-        public async Task<string> GetAccessTokenUsingPasswordGrant()
+    }
+
+    public class GraphTokenProvider : IAccessTokenProvider
+    {
+        private readonly string clientId;
+        private readonly string userName;
+        private readonly string password;
+        // Don't use password grant in your apps. Only use for legacy solutions and automated testing.
+        private readonly string grantType = "password";
+        private readonly string tokenEndpoint = "https://login.microsoftonline.com/common/oauth2/token";
+        private readonly string resourceId = "https%3A%2F%2Fgraph.microsoft.com%2F";
+        
+        private readonly string contentType = "application/x-www-form-urlencoded";
+        private static string accessToken = null;
+        private static string tokenForUser = null;
+        private static System.DateTimeOffset expiration;
+
+        public GraphTokenProvider()
+        {
+            // Setup for CI
+            clientId = System.Environment.GetEnvironmentVariable("test_client_id");
+            userName = System.Environment.GetEnvironmentVariable("test_user_name");
+            password = System.Environment.GetEnvironmentVariable("test_password");
+        }
+        public async Task<string> GetAuthorizationTokenAsync(Uri uri, Dictionary<string, object> additionalAuthenticationContext = null,
+            CancellationToken cancellationToken = new CancellationToken())
         {
             JObject jResult = null;
             String urlParameters = String.Format(
@@ -99,6 +97,11 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             }
 
             return accessToken;
+        }
+
+        public AllowedHostsValidator AllowedHostsValidator
+        {
+            get;
         }
     }
 }
