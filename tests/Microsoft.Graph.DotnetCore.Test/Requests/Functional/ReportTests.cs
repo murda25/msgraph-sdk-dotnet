@@ -4,8 +4,9 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
-    using System.Net.Http;
+    using System.IO;
     using System.Threading.Tasks;
+    using Microsoft.Graph.Models.ODataErrors;
     using Xunit;
     /// <summary>
     /// Ad hoc functional tests to make sure that the Reports API works.
@@ -20,23 +21,21 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // Create the request message.
-                string getOffice365ActiveUserCountsRequestUrl = graphClient.Reports.GetOffice365ActiveUserCounts("D7").Request().RequestUrl;
-                HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Get, getOffice365ActiveUserCountsRequestUrl);
-
-                await graphClient.AuthenticationProvider.AuthenticateRequestAsync(hrm);
+                var getOffice365ActiveUserCountsRequest = graphClient.Reports.GetOffice365ActiveUserCountsWithPeriod("D7").ToGetRequestInformation();
 
                 // Send the request and get the response. It will automatically follow the redirect to get the Report file.
-                HttpResponseMessage response = await graphClient.HttpProvider.SendAsync(hrm);
+                var responseStream = await graphClient.RequestAdapter.SendPrimitiveAsync<Stream>(getOffice365ActiveUserCountsRequest);
 
                 // Get the csv report file
-                string csvReportFile = await response.Content.ReadAsStringAsync();
+                var streamReader = new StreamReader(responseStream);
+                string csvReportFile = await streamReader.ReadToEndAsync();
 
                 Assert.Contains("Report", csvReportFile);
                 Assert.Contains("Office 365", csvReportFile);
                 Assert.Contains("Exchange", csvReportFile);
                 Assert.Contains("SharePoint", csvReportFile);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.False(true, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }

@@ -1,15 +1,19 @@
-﻿namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
+﻿
+namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
-    using Microsoft.Graph.DotnetCore.Test.Requests.Functional.Resources;
+    using Microsoft.Graph.Models;
+    using Microsoft.Kiota.Abstractions;
+    using Microsoft.Kiota.Serialization.Json;
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
     using Xunit;
+    using System.Collections.Generic;
+    using System.Net.Http.Headers;
+    using Microsoft.Graph.DotnetCore.Test.Requests.Functional.Resources;
+    using Microsoft.Graph.Models.ODataErrors;
 
     public class OneNoteTests : GraphTestBase
     {
@@ -19,20 +23,19 @@
 
         public OneNoteTests() : base() {
             // Get a page of OneNote sections.
-            IOnenoteSectionsCollectionPage sectionPage = graphClient.Me
+            var sectionPage = graphClient.Me
                                                                     .Onenote
                                                                     .Sections
-                                                                    .Request()
                                                                     .GetAsync()
                                                                     .Result;
 
             // Get a handle to the first section.
-            firstSectionID = sectionPage[0].Id;
+            firstSectionID = sectionPage.Value[0].Id;
         }
         
-        public async void TestPageCleanUp()
+        internal async Task TestPageCleanUp()
         {
-            await graphClient.Me.Onenote.Pages[testPage.Id].Request().DeleteAsync();
+            await graphClient.Me.Onenote.Pages[testPage.Id].DeleteAsync();
         }
 
         /// <summary>
@@ -44,18 +47,17 @@
         { 
             try 
             {
-                IOnenoteNotebooksCollectionPage notebooksPage = await graphClient.Me
+                var notebooksPage = await graphClient.Me
                                                                                  .Onenote
                                                                                  .Notebooks
-                                                                                 .Request()
                                                                                  .GetAsync();
 
-                Assert.True(notebooksPage.Count > 0);
-                Assert.NotNull(notebooksPage[0].Id);
+                Assert.True(notebooksPage.Value.Count > 0);
+                Assert.NotNull(notebooksPage.Value[0].Id);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -73,18 +75,17 @@
         {
             try
             {
-                IOnenotePagesCollectionPage pageCollection = await graphClient.Me
+                var pageCollection = await graphClient.Me
                                                                               .Onenote
                                                                               .Pages
-                                                                              .Request()
                                                                               .GetAsync();
 
-                Assert.True(pageCollection.Count > 0);
-                Assert.NotNull(pageCollection[0].Id);
+                Assert.True(pageCollection.Value.Count > 0);
+                Assert.NotNull(pageCollection.Value[0].Id);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -102,18 +103,17 @@
         {
             try
             {
-                IOnenoteSectionsCollectionPage sectionsCollection = await graphClient.Me
+                var sectionsCollection = await graphClient.Me
                                                                                      .Onenote
                                                                                      .Sections
-                                                                                     .Request()
                                                                                      .GetAsync();
 
-                Assert.True(sectionsCollection.Count > 0);
-                Assert.NotNull(sectionsCollection[0].Id);
+                Assert.True(sectionsCollection.Value.Count > 0);
+                Assert.NotNull(sectionsCollection.Value[0].Id);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -131,18 +131,17 @@
         {
             try
             {
-                IOnenoteSectionGroupsCollectionPage sectionGroupCollection = await graphClient.Me
+                var sectionGroupCollection = await graphClient.Me
                                                                                               .Onenote
                                                                                               .SectionGroups
-                                                                                              .Request()
                                                                                               .GetAsync();
 
-                Assert.True(sectionGroupCollection.Count > 0);
-                Assert.NotNull(sectionGroupCollection[0].Id);
+                Assert.True(sectionGroupCollection.Value.Count > 0);
+                Assert.NotNull(sectionGroupCollection.Value[0].Id);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -160,20 +159,18 @@
         {
             try
             {
-                IOnenoteNotebooksCollectionPage notebooksPage = await graphClient.Me
+                var notebooksPage = await graphClient.Me
                                                                                  .Onenote
                                                                                  .Notebooks
-                                                                                 .Request()
-                                                                                 .Expand("sections")
-                                                                                 .GetAsync();
+                                                                                 .GetAsync(requestConfiguration => requestConfiguration.QueryParameters.Expand = new string[] { "sections" });
 
-                Assert.True(notebooksPage.Count > 0);
-                Assert.NotNull(notebooksPage[0].Id);
-                Assert.NotNull(notebooksPage[0].Sections);
+                Assert.True(notebooksPage.Value.Count > 0);
+                Assert.NotNull(notebooksPage.Value[0].Id);
+                Assert.NotNull(notebooksPage.Value[0].Sections);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -190,19 +187,18 @@
         {
             try
             {
-                INotebookGetRecentNotebooksCollectionPage recentNotebooksPage = await graphClient.Me
+                var recentNotebooksPage = await graphClient.Me
                                                                                                  .Onenote
                                                                                                  .Notebooks
-                                                                                                 .GetRecentNotebooks(true)
-                                                                                                 .Request()
+                                                                                                 //.GetRecentNotebooks(true)
                                                                                                  .GetAsync();
 
-                Assert.True(recentNotebooksPage.Count > 0);
-                Assert.NotNull(recentNotebooksPage[0].DisplayName);
+                Assert.True(recentNotebooksPage.Value.Count > 0);
+                Assert.NotNull(recentNotebooksPage.Value[0].DisplayName);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -220,29 +216,27 @@
             try
             {
                 // Get a page of OneNote pages
-                IOnenoteSectionPagesCollectionPage pageCollection = await graphClient.Me
+                var pageCollection = await graphClient.Me
                                                                                      .Onenote
                                                                                      .Sections[firstSectionID]
                                                                                      .Pages
-                                                                                     .Request()
                                                                                      .GetAsync();
 
                 // Get a handle to the first section.
-                string pageId = pageCollection[0].Id;
+                string pageId = pageCollection.Value[0].Id;
 
                 // URL to update a page. https://graph.microsoft.com/v1.0/me/onenote/sections/{id}/pages/{id}/preview
                 OnenotePagePreview pagePreview = await graphClient.Me
                                                                   .Onenote
                                                                   .Pages[pageId]
-                                                                  .Preview()
-                                                                  .Request()
+                                                                  .Preview
                                                                   .GetAsync();
 
                 Assert.NotNull(pagePreview);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -265,13 +259,13 @@
                 // This resource is from a page created with OneNoteAddPageMultipart.
                 // Page Id: 1-c57153f8dc2245b291b83015961fdccd!114-4ad43aa2-8e35-42e6-b9ca-8be860a8af11
                 string resourceId = "1-03dd7ea8053b488f9c3ce14c09e1b833!1-4ad43aa2-8e35-42e6-b9ca-8be860a8af11";
-                Stream resource = await graphClient.Me.Onenote.Resources[resourceId].Content.Request().GetAsync();
+                Stream resource = await graphClient.Me.Onenote.Resources[resourceId].Content.GetAsync();
 
                 Assert.NotNull(resource);
             }
-            catch (ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -293,11 +287,11 @@
                     DisplayName = $"Notebook created from test, ?*\\/:<>|'"
                 };
 
-                Notebook notebook = await graphClient.Me.Onenote.Notebooks.Request().AddAsync(newNotebook);
+                Notebook notebook = await graphClient.Me.Onenote.Notebooks.PostAsync(newNotebook);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.Contains("The notebook name value contains invalid characters", e.Error.Message);
+                Assert.Contains("The notebook name value contains invalid characters", e.Message);
             }
 
             catch (Exception e)
@@ -319,13 +313,13 @@
                     DisplayName = $"Notebook created from test, {DateTime.Now.ToString("yyyy.mm.dd.hh.mm.ss")}"
                 };
 
-                Notebook notebook = await graphClient.Me.Onenote.Notebooks.Request().AddAsync(testNotebook);
+                Notebook notebook = await graphClient.Me.Onenote.Notebooks.PostAsync(testNotebook);
                 Assert.NotNull(notebook);
                 Assert.Equal(testNotebook.DisplayName, notebook.DisplayName);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.Contains(e.Error.Message, "The notebook name value contains invalid characters");
+                Assert.Contains(e.Message, "The notebook name value contains invalid characters");
             }
 
             catch (Exception e)
@@ -343,44 +337,42 @@
         {
             try
             {
-                // Get the request URL for adding a page.
-                string requestUrl = graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().RequestUrl;
-
+                // Get the request information for adding a page.
                 string title = "OneNoteAddPageHtml test created this";
                 string htmlBody = $"<!DOCTYPE html><html><head><title>{title}</title></head>" +
                                     "<body>Generated from the test</body></html> ";
 
-                // Create the request message and add the content.
-                HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Post, requestUrl);
-                hrm.Content = new StringContent(htmlBody, System.Text.Encoding.UTF8, "text/html");
+                var requestInformation = graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToPostRequestInformation(null);
+                requestInformation.SetStreamContent(new MemoryStream(Encoding.UTF8.GetBytes(htmlBody)));
+                requestInformation.Headers.Add("Content-Type","text/html");
 
                 // Send the request and get the response.
-                HttpResponseMessage response = await graphClient.HttpProvider.SendAsync(hrm);
+                var responseHandler = new NativeResponseHandler();
+                requestInformation.AddRequestOptions(new []{new ResponseHandlerOption{ResponseHandler = responseHandler}});
+                await graphClient.RequestAdapter.SendNoContentAsync(requestInformation);
+                HttpResponseMessage response = responseHandler.Value as HttpResponseMessage;
 
                 // Get the OneNote page that we created.
                 if (response.IsSuccessStatusCode)
                 {
                     // Deserialize into OneNotePage object.
-                    var content = await response.Content.ReadAsStringAsync();
-                    testPage = graphClient.HttpProvider.Serializer.DeserializeObject<OnenotePage>(content);
+                    var content = await response.Content.ReadAsStreamAsync();
+                    var parseNodeFactory = new JsonParseNodeFactory();
+                    var parseNode = parseNodeFactory.GetRootParseNode(CoreConstants.MimeTypeNames.Application.Json, content);
+                    testPage = parseNode.GetObjectValue<OnenotePage>(OnenotePage.CreateFromDiscriminatorValue);
 
                     Assert.NotNull(testPage);
                     Assert.Contains(testPage.Title, title);
                     Assert.Null(testPage.Content);
 
-                    TestPageCleanUp();
+                    await TestPageCleanUp();
                 }
                 else
-                    throw new ServiceException(
-                        new Error
-                        {
-                            Code = response.StatusCode.ToString(),
-                            Message = await response.Content.ReadAsStringAsync()
-                        });
+                    throw new ServiceException(await response.Content.ReadAsStringAsync());
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ApiException e)
             {
-                Assert.True(false, $"Error code: {e.Error.Code}");
+                Assert.True(false, $"Error code: {e.Message}");
             }
 
             catch (Exception e)
@@ -388,7 +380,7 @@
                 Assert.True(false, $"Error code: {e.Message}");
             }
         }
-
+        
         /// <summary>
         /// OneNoteAddPageHtmlWithStreamWorkaround is a workaround test. We've since added functionality to address this in the client library.
         /// See OneNoteCreatePageWithHtml() for how this is done.
@@ -400,51 +392,38 @@
             {
                 // Get the request URL for adding a page. You don't have to use the request builder to 
                 // get the URL. We use it here for convenience.
-                string requestUrl = graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().RequestUrl;
+                var requestInformation = graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToGetRequestInformation();
 
                 // Create the request body.
                 string title = "OneNoteAddPageHtmlWithStream test created this";
                 string htmlBody = $"<!DOCTYPE html><html><head><title>{title}</title></head><body>Generated from the test</body></html> ";
                 byte[] byteArray = Encoding.ASCII.GetBytes(htmlBody);
 
-                StreamContent body;
-                HttpResponseMessage response;
-
                 using (MemoryStream stream = new MemoryStream(byteArray))
                 {
                     // Create the stream body.
-                    body = new StreamContent(stream);
-                    body.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+                    requestInformation.Headers.Add("Content-Type","text/html");
+                    requestInformation.HttpMethod = Method.POST;
 
                     // Create the request message and add the content.
-                    HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Post, requestUrl);
-                    hrm.Content = body;
-
-                    // Send the request and get the response.
-                    response = await graphClient.HttpProvider.SendAsync(hrm);
+                    requestInformation.SetStreamContent(stream);
+                    
                 }
+                
+                // Deserialize into OneNotePage object.
+                // Send the request and get the response.
+                var content = await graphClient.RequestAdapter.SendPrimitiveAsync<Stream>(requestInformation);
+                var parseNodeFactory = new JsonParseNodeFactory();
+                var parseNode = parseNodeFactory.GetRootParseNode(CoreConstants.MimeTypeNames.Application.Json, content);
+                testPage = parseNode.GetObjectValue<OnenotePage>(OnenotePage.CreateFromDiscriminatorValue);
 
-                // Get the OneNote page that we created.
-                if (response.IsSuccessStatusCode)
-                {
-                    // Deserialize into OneNotePage object.
-                    var content = await response.Content.ReadAsStringAsync();
-                    testPage = graphClient.HttpProvider.Serializer.DeserializeObject<OnenotePage>(content);
+                Assert.NotNull(testPage);
+                Assert.Contains(testPage.Title, title);
 
-                    Assert.NotNull(testPage);
-                    Assert.Contains(testPage.Title, title);
+                await TestPageCleanUp();
 
-                    TestPageCleanUp();
-                }
-                else
-                    throw new ServiceException(
-                        new Error
-                        {
-                            Code = response.StatusCode.ToString(),
-                            Message = await response.Content.ReadAsStringAsync()
-                        });
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Error code: {e.Error.Code}");
             }
@@ -465,7 +444,7 @@
             try
             {
                 // Get the request URL for adding a page.
-                string requestUrl = graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().RequestUrl;
+                var requestInformation = graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToGetRequestInformation();
                 string title = "OneNoteAddPageMultipart test created this";
                 string htmlBody = $@"<!DOCTYPE html><html><head><title>{title}</title></head>
                                     <body>Generated from the test
@@ -477,21 +456,17 @@
                 string boundary = "MultiPartBoundary32541";
                 string contentType = "multipart/form-data; boundary=" + boundary;
 
-                HttpResponseMessage response;
-
                 // Create the presentation part. 
                 StringContent presentation = new StringContent(htmlBody);
                 presentation.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
                 presentation.Headers.ContentDisposition.Name = "Presentation";
                 presentation.Headers.ContentType = new MediaTypeHeaderValue("text/html");
 
-                StreamContent image;
-                using (Stream ms = ResourceHelper.GetResourceAsStream(ResourceHelper.Hamilton))
+                await using (Stream ms = ResourceHelper.GetResourceAsStream(ResourceHelper.Hamilton))
                 {
                     // Create the image part.
-                    image = new StreamContent(ms);
-                    image.Headers.ContentDisposition = new ContentDispositionHeaderValue(@"form-data");
-                    image.Headers.ContentDisposition.Name = "imageBlock1";
+                    StreamContent image = new StreamContent(ms);
+                    image.Headers.ContentDisposition = new ContentDispositionHeaderValue(@"form-data") { Name = "imageBlock1" };
                     image.Headers.ContentType = new MediaTypeHeaderValue("image/png");
 
                     // Put the multiparts togeter
@@ -500,35 +475,21 @@
                     multiPartContent.Add(image);
 
                     // Create the request message and add the content.
-                    HttpRequestMessage hrm = new HttpRequestMessage(HttpMethod.Post, requestUrl);
-                    hrm.Content = multiPartContent;
-
-                    // Send the request and get the response.
-                    response = await graphClient.HttpProvider.SendAsync(hrm);
-                }
-
-                // Get the OneNote page that we created.
-                if (response.IsSuccessStatusCode)
-                {
+                    requestInformation.HttpMethod = Method.POST;
+                    requestInformation.Headers.Add("Content-Type",contentType);
+                    requestInformation.SetStreamContent(await image.ReadAsStreamAsync());
+                    
                     // Deserialize into OneNotePage object.
-                    var content = await response.Content.ReadAsStringAsync();
-                    testPage = graphClient.HttpProvider.Serializer.DeserializeObject<OnenotePage>(content);
+                    testPage = await graphClient.RequestAdapter.SendAsync<OnenotePage>(requestInformation,OnenotePage.CreateFromDiscriminatorValue);
 
                     Assert.NotNull(testPage);
                     Assert.True(testPage.GetType() == typeof(OnenotePage));
                     Assert.Contains(testPage.Title, title);
 
-                    TestPageCleanUp();
+                    await TestPageCleanUp();
                 }
-                else
-                    throw new ServiceException(
-                        new Error
-                        {
-                            Code = response.StatusCode.ToString(),
-                            Message = await response.Content.ReadAsStringAsync()
-                        });
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Error code: {e.Error.Code}");
             }
@@ -557,54 +518,42 @@
             try
             {
                 // Get a page of OneNote pages
-                IOnenoteSectionPagesCollectionPage pageCollection = await graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().GetAsync();
+                var pageCollection = await graphClient.Me.Onenote.Sections[firstSectionID].Pages.GetAsync();
 
                 // Get a handle to the first section.
-                string pageId = pageCollection[0].Id;
+                string pageId = pageCollection.Value[0].Id;
 
                 // URL to update a page. https://graph.microsoft.com/v1.0/me/onenote/sections/{id}/pages/{id}/content
-                var requestUrl = graphClient.Me.Onenote.Pages[pageId].Content.Request().RequestUrl;
+                var requestInformation = graphClient.Me.Onenote.Pages[pageId].Content.ToGetRequestInformation();
 
                 // Create the patch command to update thebody of the OneNote page.
                 OnenotePatchContentCommand updateBodyCommand = new OnenotePatchContentCommand() {
-                    Action = OnenotePatchActionType.Append,
+                    //Action = OnenotePatchActionType.Append,
                     Target = "body",
                     Content = @"<table><tr><td><p><b>Brazil</b></p></td><td><p>Germany</p></td></tr>
-                                       <tr><td><p>France</p></td><td><p><b>Italy</b></p></td></tr>
-                                       <tr><td><p>Netherlands</p></td><td><p><b>Spain</b></p></td></tr>
-                                       <tr><td><p>Argentina</p></td><td><p><b>Germany</b></p></td></tr>
-                                </table>",
+                                   <tr><td><p>France</p></td><td><p><b>Italy</b></p></td></tr>
+                                   <tr><td><p>Netherlands</p></td><td><p><b>Spain</b></p></td></tr>
+                                   <tr><td><p>Argentina</p></td><td><p><b>Germany</b></p></td></tr>
+                            </table>",
                     Position = OnenotePatchInsertPosition.After
                 };
 
-                List<OnenotePatchContentCommand> commands = new List<OnenotePatchContentCommand>();
-                commands.Add(updateBodyCommand);
+                List<OnenotePatchContentCommand> commands = new List<OnenotePatchContentCommand> { updateBodyCommand };
 
                 // Create the request message.
-                HttpRequestMessage hrm = new HttpRequestMessage(new HttpMethod("PATCH"), requestUrl);
+                requestInformation.HttpMethod = Method.PATCH;
 
                 // Serialize the OnenotePatchContentCommand object and add to the request.
-                string updateBodyCommandString = graphClient.HttpProvider.Serializer.SerializeObject(commands);
-                hrm.Content = new StringContent(updateBodyCommandString);
-                hrm.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var serializer = new JsonSerializationWriter();
+                serializer.WriteCollectionOfObjectValues<OnenotePatchContentCommand>(string.Empty,commands);
+                
+                requestInformation.SetStreamContent(serializer.GetSerializedContent());
+                requestInformation.Headers.Add("Content-Type", "application/json");
 
                 // Send the request and get the response.
-                HttpResponseMessage response = await graphClient.HttpProvider.SendAsync(hrm);
-
-                // We get a 204 No Content.
-                if (response.IsSuccessStatusCode)
-                {
-                    Assert.Equal(response.StatusCode, System.Net.HttpStatusCode.NoContent);
-                }
-                else
-                    throw new ServiceException(
-                        new Error
-                        {
-                            Code = response.StatusCode.ToString(),
-                            Message = await response.Content.ReadAsStringAsync()
-                        });
+                await graphClient.RequestAdapter.SendNoContentAsync(requestInformation);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Error code: {e.Error.Code}");
             }
@@ -631,13 +580,17 @@
             using (MemoryStream stream = new MemoryStream(byteArray))
             {
                 // Create a OneNote page.
-                testPage = await graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().AddAsync(stream, "text/html");
+                var requestInformation =
+                    graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToGetRequestInformation();
+                requestInformation.HttpMethod = Method.POST;
+                requestInformation.Headers.Add("Content-Type","text/html");
+                testPage = await graphClient.RequestAdapter.SendAsync(requestInformation,OnenotePage.CreateFromDiscriminatorValue);
             }
 
             Assert.NotNull(testPage);
             Assert.Contains(testString, testPage.Title);
 
-            TestPageCleanUp();
+            await TestPageCleanUp();
         }
 
         /// <summary>
@@ -652,12 +605,17 @@
             string htmlBody = $"<!DOCTYPE html><html><head><title>OneNoteAddPageHtmlWithStream test created this{testString}</title></head>" +
                                     "<body>Generated from the test with the partial</body></html> ";
 
-            testPage = await graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().AddAsync(htmlBody, "text/html");
+            var requestInformation =
+                graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToGetRequestInformation();
+            requestInformation.HttpMethod = Method.POST;
+            requestInformation.SetStreamContent(new MemoryStream(System.Text.Encoding.UTF8.GetBytes(htmlBody)));
+            requestInformation.Headers.Add("Content-Type","text/html");
+            testPage = await graphClient.RequestAdapter.SendAsync(requestInformation,OnenotePage.CreateFromDiscriminatorValue);
 
             Assert.NotNull(testPage);
             Assert.Contains(testString, testPage.Title);
 
-            TestPageCleanUp();
+            await TestPageCleanUp();
         }
 
         /// <summary>
@@ -675,7 +633,7 @@
                                             <img src=""name:imageBlock1"" alt=""an image on the page"" width=""300"" />
                                         </p>
                                     </body></html>
-";
+        ";
 
                 string boundary = "MultiPartBoundary32541";
                 string contentType = "multipart/form-data; boundary=" + boundary;
@@ -689,7 +647,7 @@
                 StreamContent image;
 
                 // Get an image stream.
-                using (Stream ms = ResourceHelper.GetResourceAsStream(ResourceHelper.Hamilton))
+                await using (Stream ms = ResourceHelper.GetResourceAsStream(ResourceHelper.Hamilton))
                 {
                     // Create the image part.
                     image = new StreamContent(ms);
@@ -703,16 +661,21 @@
                     multiPartContent.Add(image);
 
                     // Get the multiPart stream and then send the request to add a page using the stream.
-                    testPage = await graphClient.Me.Onenote.Sections[firstSectionID].Pages.Request().AddAsync(multiPartContent);
+                    var requestInformation =
+                        graphClient.Me.Onenote.Sections[firstSectionID].Pages.ToGetRequestInformation();
+                    requestInformation.HttpMethod = Method.POST;
+                    requestInformation.SetStreamContent(await multiPartContent.ReadAsStreamAsync());
+                    requestInformation.Headers.Add("Content-Type",contentType);
+                    testPage = await graphClient.RequestAdapter.SendAsync(requestInformation,OnenotePage.CreateFromDiscriminatorValue);
                 }
 
                 Assert.NotNull(testPage);
                 Assert.True(testPage.GetType() == typeof(OnenotePage));
                 Assert.Contains(testPage.Title, htmlBody);
 
-                TestPageCleanUp();
+                await TestPageCleanUp();
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Error code: {e.Error.Code}");
             }
@@ -732,10 +695,10 @@
         {
             try
             {
-                Site site = await graphClient.Sites.Root.Request().GetAsync();
+                Site site = await graphClient.Sites["root"].GetAsync();
                 Assert.NotNull(site);
 
-                IOnenoteNotebooksCollectionPage notebooks = await graphClient.Sites[site.Id].Onenote.Notebooks.Request().GetAsync();
+                var notebooks = await graphClient.Sites[site.Id].Onenote.Notebooks.GetAsync();
                 Assert.NotNull(notebooks);
             }
             catch (Exception)

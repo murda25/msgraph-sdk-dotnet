@@ -4,6 +4,8 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
+    using Microsoft.Kiota.Abstractions.Authentication;
+    using Microsoft.Kiota.Http.HttpClientLibrary;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -15,7 +17,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         [Fact(Skip = "No CI set up for functional tests")]
         public async Task JsonBatchRequest()
         {
-            string token = await GetAccessTokenUsingPasswordGrant();
+            string token = await new GraphTokenProvider().GetAuthorizationTokenAsync(new Uri("https%3A%2F%2Fgraph.microsoft.com%2F"));
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
@@ -30,7 +32,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             BatchRequestStep requestStep1 = new BatchRequestStep("1", httpRequestMessage1, null);
             BatchRequestStep requestStep2 = new BatchRequestStep("2", httpRequestMessage2, new List<string> { "1" });
 
-            BatchRequestContent batchRequestContent = new BatchRequestContent();
+            var baseClient = new GraphServiceClient(new HttpClientRequestAdapter(new AnonymousAuthenticationProvider()));
+            BatchRequestContent batchRequestContent = new BatchRequestContent(baseClient);
             batchRequestContent.AddBatchRequestStep(requestStep1);
             batchRequestContent.AddBatchRequestStep(requestStep2);
 
