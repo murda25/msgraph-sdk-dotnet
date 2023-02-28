@@ -5,7 +5,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using System.Threading.Tasks;
     using Xunit;
     using Microsoft.Graph.Models;
-    
+    using Microsoft.Graph.Models.ODataErrors;
+
     public class MiscTests: GraphTestBase
     {
         /// <summary>
@@ -33,7 +34,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 // Delete the extension. Results in a call to the service.
                 await graphClient.Groups[groupPage.Value[0].Id].Extensions["com.contoso.trackingKey"].DeleteAsync();
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, e.Error.ToString());
             }

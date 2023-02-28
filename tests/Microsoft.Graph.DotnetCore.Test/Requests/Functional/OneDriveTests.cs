@@ -15,6 +15,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using Microsoft.Graph.Drives.Item.Items.Item.Children;
     using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
     using Microsoft.Graph.Drives.Item.Items.Item.Invite;
+    using Microsoft.Graph.Models.ODataErrors;
 
     public class OneDriveTests : GraphTestBase
     {
@@ -125,7 +126,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     }
                 }
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }
@@ -150,7 +151,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     driveItems.AddRange(driveItemsPage.Value);
                 }
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
@@ -176,7 +177,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     }
                 }
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
@@ -217,7 +218,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     }
                 }
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
@@ -237,7 +238,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 Assert.Equal(2, driveItems.Value.Count);
 
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
@@ -266,7 +267,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 Assert.NotNull(permission.Link.WebUrl);
 
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
@@ -316,7 +317,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 
                 Assert.Equal("Alex Wilber", inviteCollection.Value[0].GrantedTo.User.DisplayName);
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, "Something happened, check out a trace. Error code: " + e.Error.Code);
             }
