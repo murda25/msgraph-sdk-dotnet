@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Count;
+using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Delta;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item;
-using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.MicrosoftGraphDelta;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

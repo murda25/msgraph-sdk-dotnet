@@ -1,6 +1,6 @@
-using Microsoft.Graph.Me.RegisteredDevices.Item.MicrosoftGraphAppRoleAssignment;
-using Microsoft.Graph.Me.RegisteredDevices.Item.MicrosoftGraphDevice;
-using Microsoft.Graph.Me.RegisteredDevices.Item.MicrosoftGraphEndpoint;
+using Microsoft.Graph.Me.RegisteredDevices.Item.GraphAppRoleAssignment;
+using Microsoft.Graph.Me.RegisteredDevices.Item.GraphDevice;
+using Microsoft.Graph.Me.RegisteredDevices.Item.GraphEndpoint;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -17,16 +17,16 @@ namespace Microsoft.Graph.Me.RegisteredDevices.Item {
     /// </summary>
     public class DirectoryObjectItemRequestBuilder {
         /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
-            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        public GraphAppRoleAssignmentRequestBuilder GraphAppRoleAssignment { get =>
+            new GraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to device.</summary>
-        public MicrosoftGraphDeviceRequestBuilder MicrosoftGraphDevice { get =>
-            new MicrosoftGraphDeviceRequestBuilder(PathParameters, RequestAdapter);
+        public GraphDeviceRequestBuilder GraphDevice { get =>
+            new GraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
-            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
+        public GraphEndpointRequestBuilder GraphEndpoint { get =>
+            new GraphEndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

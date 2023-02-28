@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.CreatedObjects.Count;
+using Microsoft.Graph.Me.CreatedObjects.GraphServicePrincipal;
 using Microsoft.Graph.Me.CreatedObjects.Item;
-using Microsoft.Graph.Me.CreatedObjects.MicrosoftGraphServicePrincipal;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.CreatedObjects {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to servicePrincipal.</summary>
-        public MicrosoftGraphServicePrincipalRequestBuilder MicrosoftGraphServicePrincipal { get =>
-            new MicrosoftGraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        public GraphServicePrincipalRequestBuilder GraphServicePrincipal { get =>
+            new GraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

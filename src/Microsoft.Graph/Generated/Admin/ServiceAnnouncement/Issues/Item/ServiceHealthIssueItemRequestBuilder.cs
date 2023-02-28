@@ -1,4 +1,4 @@
-using Microsoft.Graph.Admin.ServiceAnnouncement.Issues.Item.MicrosoftGraphIncidentReport;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Issues.Item.IncidentReport;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Admin.ServiceAnnouncement.Issues.Item {
     /// </summary>
     public class ServiceHealthIssueItemRequestBuilder {
         /// <summary>Provides operations to call the incidentReport method.</summary>
-        public MicrosoftGraphIncidentReportRequestBuilder MicrosoftGraphIncidentReport { get =>
-            new MicrosoftGraphIncidentReportRequestBuilder(PathParameters, RequestAdapter);
+        public IncidentReportRequestBuilder IncidentReport { get =>
+            new IncidentReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

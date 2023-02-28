@@ -1,4 +1,4 @@
-using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate.MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequest;
+using Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate.DownloadApplePushNotificationCertificateSigningRequest;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.DeviceManagement.ApplePushNotificationCertificate {
     /// </summary>
     public class ApplePushNotificationCertificateRequestBuilder {
         /// <summary>Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.</summary>
-        public MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequest { get =>
-            new MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder(PathParameters, RequestAdapter);
+        public DownloadApplePushNotificationCertificateSigningRequestRequestBuilder DownloadApplePushNotificationCertificateSigningRequest { get =>
+            new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

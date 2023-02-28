@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests.Count;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests.FilterByCurrentUserWithOn;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests.Item;
-using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests.MicrosoftGraphFilterByCurrentUserWithOn;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -60,6 +60,14 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSch
             RequestAdapter = requestAdapter;
         }
         /// <summary>
+        /// Provides operations to call the filterByCurrentUser method.
+        /// </summary>
+        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
+        public FilterByCurrentUserWithOnRequestBuilder FilterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
+        }
+        /// <summary>
         /// Retrieve the requests for active role assignments to principals. The active assignments include those made through assignments and activation requests, and directly through the role assignments API. The role assignments can be permanently active with or without an expiry date, or temporarily active after user activation of eligible assignments.
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedulerequests?view=graph-rest-1.0" />
         /// </summary>
@@ -78,14 +86,6 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSch
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<UnifiedRoleAssignmentScheduleRequestCollectionResponse>(requestInfo, UnifiedRoleAssignmentScheduleRequestCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the filterByCurrentUser method.
-        /// </summary>
-        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
-        public MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder MicrosoftGraphFilterByCurrentUserWithOn(string on) {
-            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
-            return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
         /// In PIM, carry out the following operations through the unifiedRoleAssignmentScheduleRequest object:+ Request active and persistent role assignments for a principal, with or without expiry dates.+ Activate, deactivate, extend, or renew an eligible role assignment for a principal. To call this API to update, renew, and extend assignments for yourself, you must have multi-factor authentication (MFA) enforced, and running the query in a session in which they were challenged for MFA. See Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events.

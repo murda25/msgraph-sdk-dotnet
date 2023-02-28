@@ -1,7 +1,7 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Print.Printers.Item.Connectors;
-using Microsoft.Graph.Print.Printers.Item.MicrosoftGraphRestoreFactoryDefaults;
+using Microsoft.Graph.Print.Printers.Item.RestoreFactoryDefaults;
 using Microsoft.Graph.Print.Printers.Item.Shares;
 using Microsoft.Graph.Print.Printers.Item.TaskTriggers;
 using Microsoft.Kiota.Abstractions;
@@ -21,14 +21,14 @@ namespace Microsoft.Graph.Print.Printers.Item {
         public ConnectorsRequestBuilder Connectors { get =>
             new ConnectorsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the restoreFactoryDefaults method.</summary>
-        public MicrosoftGraphRestoreFactoryDefaultsRequestBuilder MicrosoftGraphRestoreFactoryDefaults { get =>
-            new MicrosoftGraphRestoreFactoryDefaultsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the restoreFactoryDefaults method.</summary>
+        public RestoreFactoryDefaultsRequestBuilder RestoreFactoryDefaults { get =>
+            new RestoreFactoryDefaultsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the shares property of the microsoft.graph.printer entity.</summary>
         public SharesRequestBuilder Shares { get =>
             new SharesRequestBuilder(PathParameters, RequestAdapter);

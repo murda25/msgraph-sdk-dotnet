@@ -1,11 +1,11 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Count;
+using Microsoft.Graph.Users.Delta;
+using Microsoft.Graph.Users.GetAvailableExtensionProperties;
+using Microsoft.Graph.Users.GetByIds;
 using Microsoft.Graph.Users.Item;
-using Microsoft.Graph.Users.MicrosoftGraphDelta;
-using Microsoft.Graph.Users.MicrosoftGraphGetAvailableExtensionProperties;
-using Microsoft.Graph.Users.MicrosoftGraphGetByIds;
-using Microsoft.Graph.Users.MicrosoftGraphValidateProperties;
+using Microsoft.Graph.Users.ValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -24,20 +24,16 @@ namespace Microsoft.Graph.Users {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
-            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
-            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
-            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -45,6 +41,10 @@ namespace Microsoft.Graph.Users {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the collection of user entities.</summary>
         public UserItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Users {
         public UsersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+            UrlTemplate = "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -72,15 +72,15 @@ namespace Microsoft.Graph.Users {
         public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+            UrlTemplate = "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
             var urlTplParams = new Dictionary<string, object>();
             if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
+        /// Retrieve a list of user objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Microsoft.Graph.Users {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.User>(requestInfo, Microsoft.Graph.Models.User.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object.
+        /// Retrieve a list of user objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -175,7 +175,7 @@ namespace Microsoft.Graph.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object.
+        /// Retrieve a list of user objects.
         /// </summary>
         public class UsersRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
@@ -231,9 +231,6 @@ namespace Microsoft.Graph.Users {
             [QueryParameter("%24select")]
             public string[] Select { get; set; }
 #endif
-            /// <summary>Skip the first n items</summary>
-            [QueryParameter("%24skip")]
-            public int? Skip { get; set; }
             /// <summary>Show only the first n items</summary>
             [QueryParameter("%24top")]
             public int? Top { get; set; }

@@ -1,6 +1,6 @@
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Count;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.FilterByCurrentUserWithOn;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.MicrosoftGraphFilterByCurrentUserWithOn;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -60,6 +60,14 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
             RequestAdapter = requestAdapter;
         }
         /// <summary>
+        /// Provides operations to call the filterByCurrentUser method.
+        /// </summary>
+        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
+        public FilterByCurrentUserWithOnRequestBuilder FilterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
+        }
+        /// <summary>
         /// Get a list of the accessReviewInstance objects and their properties.
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-1.0" />
         /// </summary>
@@ -78,14 +86,6 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<AccessReviewInstanceCollectionResponse>(requestInfo, AccessReviewInstanceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the filterByCurrentUser method.
-        /// </summary>
-        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
-        public MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder MicrosoftGraphFilterByCurrentUserWithOn(string on) {
-            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
-            return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
         /// Create new navigation property to instances for identityGovernance

@@ -1,7 +1,7 @@
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Count;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.GraphManagedMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.GraphMobileLobApp;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.MicrosoftGraphManagedMobileLobApp;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.MicrosoftGraphMobileLobApp;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -22,12 +22,12 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to managedMobileLobApp.</summary>
-        public MicrosoftGraphManagedMobileLobAppRequestBuilder MicrosoftGraphManagedMobileLobApp { get =>
-            new MicrosoftGraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public GraphManagedMobileLobAppRequestBuilder GraphManagedMobileLobApp { get =>
+            new GraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to mobileLobApp.</summary>
-        public MicrosoftGraphMobileLobAppRequestBuilder MicrosoftGraphMobileLobApp { get =>
-            new MicrosoftGraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public GraphMobileLobAppRequestBuilder GraphMobileLobApp { get =>
+            new GraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

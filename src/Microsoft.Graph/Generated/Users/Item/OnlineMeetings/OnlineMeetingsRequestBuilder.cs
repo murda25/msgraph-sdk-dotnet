@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.OnlineMeetings.Count;
+using Microsoft.Graph.Users.Item.OnlineMeetings.CreateOrGet;
 using Microsoft.Graph.Users.Item.OnlineMeetings.Item;
-using Microsoft.Graph.Users.Item.OnlineMeetings.MicrosoftGraphCreateOrGet;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Users.Item.OnlineMeetings {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createOrGet method.</summary>
-        public MicrosoftGraphCreateOrGetRequestBuilder MicrosoftGraphCreateOrGet { get =>
-            new MicrosoftGraphCreateOrGetRequestBuilder(PathParameters, RequestAdapter);
+        public CreateOrGetRequestBuilder CreateOrGet { get =>
+            new CreateOrGetRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

@@ -1,22 +1,22 @@
 using Microsoft.Graph.DeviceManagement.Reports.ExportJobs;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetCachedReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetCompliancePolicyNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetComplianceSettingNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetConfigurationPolicyNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetConfigurationSettingNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfiles;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetDeviceManagementIntentSettingsReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetDeviceNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetDevicesWithoutCompliancePolicyReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetHistoricalReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetNoncompliantDevicesAndSettingsReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetPolicyNonComplianceMetadata;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetPolicyNonComplianceReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetPolicyNonComplianceSummaryReport;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetReportFilters;
-using Microsoft.Graph.DeviceManagement.Reports.MicrosoftGraphGetSettingNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetCachedReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetCompliancePolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetCompliancePolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetComplianceSettingNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetConfigurationSettingNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingContributingProfiles;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetDevicesWithoutCompliancePolicyReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetHistoricalReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetNoncompliantDevicesAndSettingsReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceMetadata;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetPolicyNonComplianceSummaryReport;
+using Microsoft.Graph.DeviceManagement.Reports.GetReportFilters;
+using Microsoft.Graph.DeviceManagement.Reports.GetSettingNonComplianceReport;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -37,76 +37,76 @@ namespace Microsoft.Graph.DeviceManagement.Reports {
             new ExportJobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getCachedReport method.</summary>
-        public MicrosoftGraphGetCachedReportRequestBuilder MicrosoftGraphGetCachedReport { get =>
-            new MicrosoftGraphGetCachedReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetCachedReportRequestBuilder GetCachedReport { get =>
+            new GetCachedReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getCompliancePolicyNonComplianceReport method.</summary>
-        public MicrosoftGraphGetCompliancePolicyNonComplianceReportRequestBuilder MicrosoftGraphGetCompliancePolicyNonComplianceReport { get =>
-            new MicrosoftGraphGetCompliancePolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetCompliancePolicyNonComplianceReportRequestBuilder GetCompliancePolicyNonComplianceReport { get =>
+            new GetCompliancePolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method.</summary>
-        public MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReportRequestBuilder MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReport { get =>
-            new MicrosoftGraphGetCompliancePolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetCompliancePolicyNonComplianceSummaryReportRequestBuilder GetCompliancePolicyNonComplianceSummaryReport { get =>
+            new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getComplianceSettingNonComplianceReport method.</summary>
-        public MicrosoftGraphGetComplianceSettingNonComplianceReportRequestBuilder MicrosoftGraphGetComplianceSettingNonComplianceReport { get =>
-            new MicrosoftGraphGetComplianceSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetComplianceSettingNonComplianceReportRequestBuilder GetComplianceSettingNonComplianceReport { get =>
+            new GetComplianceSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getConfigurationPolicyNonComplianceReport method.</summary>
-        public MicrosoftGraphGetConfigurationPolicyNonComplianceReportRequestBuilder MicrosoftGraphGetConfigurationPolicyNonComplianceReport { get =>
-            new MicrosoftGraphGetConfigurationPolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetConfigurationPolicyNonComplianceReportRequestBuilder GetConfigurationPolicyNonComplianceReport { get =>
+            new GetConfigurationPolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.</summary>
-        public MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReportRequestBuilder MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReport { get =>
-            new MicrosoftGraphGetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder GetConfigurationPolicyNonComplianceSummaryReport { get =>
+            new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getConfigurationSettingNonComplianceReport method.</summary>
-        public MicrosoftGraphGetConfigurationSettingNonComplianceReportRequestBuilder MicrosoftGraphGetConfigurationSettingNonComplianceReport { get =>
-            new MicrosoftGraphGetConfigurationSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetConfigurationSettingNonComplianceReportRequestBuilder GetConfigurationSettingNonComplianceReport { get =>
+            new GetConfigurationSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.</summary>
-        public MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfiles { get =>
-            new MicrosoftGraphGetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(PathParameters, RequestAdapter);
+        public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder GetDeviceManagementIntentPerSettingContributingProfiles { get =>
+            new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getDeviceManagementIntentSettingsReport method.</summary>
-        public MicrosoftGraphGetDeviceManagementIntentSettingsReportRequestBuilder MicrosoftGraphGetDeviceManagementIntentSettingsReport { get =>
-            new MicrosoftGraphGetDeviceManagementIntentSettingsReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetDeviceManagementIntentSettingsReportRequestBuilder GetDeviceManagementIntentSettingsReport { get =>
+            new GetDeviceManagementIntentSettingsReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getDeviceNonComplianceReport method.</summary>
-        public MicrosoftGraphGetDeviceNonComplianceReportRequestBuilder MicrosoftGraphGetDeviceNonComplianceReport { get =>
-            new MicrosoftGraphGetDeviceNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetDeviceNonComplianceReportRequestBuilder GetDeviceNonComplianceReport { get =>
+            new GetDeviceNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getDevicesWithoutCompliancePolicyReport method.</summary>
-        public MicrosoftGraphGetDevicesWithoutCompliancePolicyReportRequestBuilder MicrosoftGraphGetDevicesWithoutCompliancePolicyReport { get =>
-            new MicrosoftGraphGetDevicesWithoutCompliancePolicyReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetDevicesWithoutCompliancePolicyReportRequestBuilder GetDevicesWithoutCompliancePolicyReport { get =>
+            new GetDevicesWithoutCompliancePolicyReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getHistoricalReport method.</summary>
-        public MicrosoftGraphGetHistoricalReportRequestBuilder MicrosoftGraphGetHistoricalReport { get =>
-            new MicrosoftGraphGetHistoricalReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetHistoricalReportRequestBuilder GetHistoricalReport { get =>
+            new GetHistoricalReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getNoncompliantDevicesAndSettingsReport method.</summary>
-        public MicrosoftGraphGetNoncompliantDevicesAndSettingsReportRequestBuilder MicrosoftGraphGetNoncompliantDevicesAndSettingsReport { get =>
-            new MicrosoftGraphGetNoncompliantDevicesAndSettingsReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetNoncompliantDevicesAndSettingsReportRequestBuilder GetNoncompliantDevicesAndSettingsReport { get =>
+            new GetNoncompliantDevicesAndSettingsReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getPolicyNonComplianceMetadata method.</summary>
-        public MicrosoftGraphGetPolicyNonComplianceMetadataRequestBuilder MicrosoftGraphGetPolicyNonComplianceMetadata { get =>
-            new MicrosoftGraphGetPolicyNonComplianceMetadataRequestBuilder(PathParameters, RequestAdapter);
+        public GetPolicyNonComplianceMetadataRequestBuilder GetPolicyNonComplianceMetadata { get =>
+            new GetPolicyNonComplianceMetadataRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getPolicyNonComplianceReport method.</summary>
-        public MicrosoftGraphGetPolicyNonComplianceReportRequestBuilder MicrosoftGraphGetPolicyNonComplianceReport { get =>
-            new MicrosoftGraphGetPolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetPolicyNonComplianceReportRequestBuilder GetPolicyNonComplianceReport { get =>
+            new GetPolicyNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getPolicyNonComplianceSummaryReport method.</summary>
-        public MicrosoftGraphGetPolicyNonComplianceSummaryReportRequestBuilder MicrosoftGraphGetPolicyNonComplianceSummaryReport { get =>
-            new MicrosoftGraphGetPolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetPolicyNonComplianceSummaryReportRequestBuilder GetPolicyNonComplianceSummaryReport { get =>
+            new GetPolicyNonComplianceSummaryReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getReportFilters method.</summary>
-        public MicrosoftGraphGetReportFiltersRequestBuilder MicrosoftGraphGetReportFilters { get =>
-            new MicrosoftGraphGetReportFiltersRequestBuilder(PathParameters, RequestAdapter);
+        public GetReportFiltersRequestBuilder GetReportFilters { get =>
+            new GetReportFiltersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getSettingNonComplianceReport method.</summary>
-        public MicrosoftGraphGetSettingNonComplianceReportRequestBuilder MicrosoftGraphGetSettingNonComplianceReport { get =>
-            new MicrosoftGraphGetSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
+        public GetSettingNonComplianceReportRequestBuilder GetSettingNonComplianceReport { get =>
+            new GetSettingNonComplianceReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

@@ -1,6 +1,6 @@
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Count;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.FilterByCurrentUserWithOn;
 using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item;
-using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.MicrosoftGraphFilterByCurrentUserWithOn;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -60,6 +60,14 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
+        /// Provides operations to call the filterByCurrentUser method.
+        /// </summary>
+        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
+        public FilterByCurrentUserWithOnRequestBuilder FilterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
+        }
+        /// <summary>
         /// Get a list of the accessReviewScheduleDefinition objects and their properties.
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0" />
         /// </summary>
@@ -78,14 +86,6 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, AccessReviewScheduleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the filterByCurrentUser method.
-        /// </summary>
-        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
-        public MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder MicrosoftGraphFilterByCurrentUserWithOn(string on) {
-            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
-            return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
         /// Create a new accessReviewScheduleDefinition object.

@@ -1,6 +1,6 @@
 using Microsoft.Graph.Communications.Calls.Item.Participants.Count;
+using Microsoft.Graph.Communications.Calls.Item.Participants.Invite;
 using Microsoft.Graph.Communications.Calls.Item.Participants.Item;
-using Microsoft.Graph.Communications.Calls.Item.Participants.MicrosoftGraphInvite;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Communications.Calls.Item.Participants {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the invite method.</summary>
-        public MicrosoftGraphInviteRequestBuilder MicrosoftGraphInvite { get =>
-            new MicrosoftGraphInviteRequestBuilder(PathParameters, RequestAdapter);
+        public InviteRequestBuilder Invite { get =>
+            new InviteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

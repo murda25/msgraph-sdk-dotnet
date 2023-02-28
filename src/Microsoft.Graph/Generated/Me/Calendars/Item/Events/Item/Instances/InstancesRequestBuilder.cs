@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.Calendars.Item.Events.Item.Instances.Count;
+using Microsoft.Graph.Me.Calendars.Item.Events.Item.Instances.Delta;
 using Microsoft.Graph.Me.Calendars.Item.Events.Item.Instances.Item;
-using Microsoft.Graph.Me.Calendars.Item.Events.Item.Instances.MicrosoftGraphDelta;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.Calendars.Item.Events.Item.Instances {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

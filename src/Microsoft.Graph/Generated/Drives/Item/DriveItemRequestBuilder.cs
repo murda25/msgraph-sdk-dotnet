@@ -2,10 +2,10 @@ using Microsoft.Graph.Drives.Item.Bundles;
 using Microsoft.Graph.Drives.Item.Following;
 using Microsoft.Graph.Drives.Item.Items;
 using Microsoft.Graph.Drives.Item.List;
-using Microsoft.Graph.Drives.Item.MicrosoftGraphRecent;
-using Microsoft.Graph.Drives.Item.MicrosoftGraphSearchWithQ;
-using Microsoft.Graph.Drives.Item.MicrosoftGraphSharedWithMe;
+using Microsoft.Graph.Drives.Item.Recent;
 using Microsoft.Graph.Drives.Item.Root;
+using Microsoft.Graph.Drives.Item.SearchWithQ;
+using Microsoft.Graph.Drives.Item.SharedWithMe;
 using Microsoft.Graph.Drives.Item.Special;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -38,21 +38,21 @@ namespace Microsoft.Graph.Drives.Item {
         public ListRequestBuilder List { get =>
             new ListRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the recent method.</summary>
-        public MicrosoftGraphRecentRequestBuilder MicrosoftGraphRecent { get =>
-            new MicrosoftGraphRecentRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the sharedWithMe method.</summary>
-        public MicrosoftGraphSharedWithMeRequestBuilder MicrosoftGraphSharedWithMe { get =>
-            new MicrosoftGraphSharedWithMeRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the recent method.</summary>
+        public RecentRequestBuilder Recent { get =>
+            new RecentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the root property of the microsoft.graph.drive entity.</summary>
         public RootRequestBuilder Root { get =>
             new RootRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the sharedWithMe method.</summary>
+        public SharedWithMeRequestBuilder SharedWithMe { get =>
+            new SharedWithMeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the special property of the microsoft.graph.drive entity.</summary>
         public SpecialRequestBuilder Special { get =>
@@ -127,14 +127,6 @@ namespace Microsoft.Graph.Drives.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Drive>(requestInfo, Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Provides operations to call the search method.
-        /// </summary>
-        /// <param name="q">Usage: q=&apos;{q}&apos;</param>
-        public MicrosoftGraphSearchWithQRequestBuilder MicrosoftGraphSearchWithQ(string q) {
-            if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
-            return new MicrosoftGraphSearchWithQRequestBuilder(PathParameters, RequestAdapter, q);
-        }
-        /// <summary>
         /// Update entity in drives
         /// </summary>
         /// <param name="body">The request body</param>
@@ -154,6 +146,14 @@ namespace Microsoft.Graph.Drives.Item {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Drive>(requestInfo, Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Provides operations to call the search method.
+        /// </summary>
+        /// <param name="q">Usage: q=&apos;{q}&apos;</param>
+        public SearchWithQRequestBuilder SearchWithQ(string q) {
+            if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
+            return new SearchWithQRequestBuilder(PathParameters, RequestAdapter, q);
         }
         /// <summary>
         /// Delete entity from drives

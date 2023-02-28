@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.JoinedTeams.Count;
+using Microsoft.Graph.Me.JoinedTeams.GetAllMessages;
 using Microsoft.Graph.Me.JoinedTeams.Item;
-using Microsoft.Graph.Me.JoinedTeams.MicrosoftGraphGetAllMessages;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.JoinedTeams {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAllMessages method.</summary>
-        public MicrosoftGraphGetAllMessagesRequestBuilder MicrosoftGraphGetAllMessages { get =>
-            new MicrosoftGraphGetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAllMessagesRequestBuilder GetAllMessages { get =>
+            new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

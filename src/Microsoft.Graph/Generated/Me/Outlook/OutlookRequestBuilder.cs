@@ -1,7 +1,7 @@
 using Microsoft.Graph.Me.Outlook.MasterCategories;
-using Microsoft.Graph.Me.Outlook.MicrosoftGraphSupportedLanguages;
-using Microsoft.Graph.Me.Outlook.MicrosoftGraphSupportedTimeZones;
-using Microsoft.Graph.Me.Outlook.MicrosoftGraphSupportedTimeZonesWithTimeZoneStandard;
+using Microsoft.Graph.Me.Outlook.SupportedLanguages;
+using Microsoft.Graph.Me.Outlook.SupportedTimeZones;
+using Microsoft.Graph.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,18 +21,18 @@ namespace Microsoft.Graph.Me.Outlook {
         public MasterCategoriesRequestBuilder MasterCategories { get =>
             new MasterCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the supportedLanguages method.</summary>
-        public MicrosoftGraphSupportedLanguagesRequestBuilder MicrosoftGraphSupportedLanguages { get =>
-            new MicrosoftGraphSupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the supportedTimeZones method.</summary>
-        public MicrosoftGraphSupportedTimeZonesRequestBuilder MicrosoftGraphSupportedTimeZones { get =>
-            new MicrosoftGraphSupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the supportedLanguages method.</summary>
+        public SupportedLanguagesRequestBuilder SupportedLanguages { get =>
+            new SupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the supportedTimeZones method.</summary>
+        public SupportedTimeZonesRequestBuilder SupportedTimeZones { get =>
+            new SupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
@@ -85,9 +85,9 @@ namespace Microsoft.Graph.Me.Outlook {
         /// Provides operations to call the supportedTimeZones method.
         /// </summary>
         /// <param name="timeZoneStandard">Usage: TimeZoneStandard=&apos;{TimeZoneStandard}&apos;</param>
-        public MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder MicrosoftGraphSupportedTimeZonesWithTimeZoneStandard(string timeZoneStandard) {
+        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder SupportedTimeZonesWithTimeZoneStandard(string timeZoneStandard) {
             if(string.IsNullOrEmpty(timeZoneStandard)) throw new ArgumentNullException(nameof(timeZoneStandard));
-            return new MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
+            return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
         }
         /// <summary>
         /// Get outlook from me

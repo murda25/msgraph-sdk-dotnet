@@ -1,9 +1,9 @@
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assign;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assignments;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSettingStateSummaries;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatusOverview;
-using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.MicrosoftGraphAssign;
-using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.GetOmaSettingPlainTextValueWithSecretReferenceValueId;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatusOverview;
 using Microsoft.Graph.Models;
@@ -21,6 +21,10 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
     /// Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
     public class DeviceConfigurationItemRequestBuilder {
+        /// <summary>Provides operations to call the assign method.</summary>
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.</summary>
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -36,10 +40,6 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         /// <summary>Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity.</summary>
         public DeviceStatusOverviewRequestBuilder DeviceStatusOverview { get =>
             new DeviceStatusOverviewRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the assign method.</summary>
-        public MicrosoftGraphAssignRequestBuilder MicrosoftGraphAssign { get =>
-            new MicrosoftGraphAssignRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -124,9 +124,9 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         /// Provides operations to call the getOmaSettingPlainTextValue method.
         /// </summary>
         /// <param name="secretReferenceValueId">Usage: secretReferenceValueId=&apos;{secretReferenceValueId}&apos;</param>
-        public MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId(string secretReferenceValueId) {
+        public GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder GetOmaSettingPlainTextValueWithSecretReferenceValueId(string secretReferenceValueId) {
             if(string.IsNullOrEmpty(secretReferenceValueId)) throw new ArgumentNullException(nameof(secretReferenceValueId));
-            return new MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(PathParameters, RequestAdapter, secretReferenceValueId);
+            return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(PathParameters, RequestAdapter, secretReferenceValueId);
         }
         /// <summary>
         /// Update the navigation property deviceConfigurations in deviceManagement

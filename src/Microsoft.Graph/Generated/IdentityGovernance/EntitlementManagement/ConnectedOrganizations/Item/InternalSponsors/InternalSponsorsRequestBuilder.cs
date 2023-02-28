@@ -1,9 +1,9 @@
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.GetAvailableExtensionProperties;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.GetByIds;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item;
-using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.MicrosoftGraphGetAvailableExtensionProperties;
-using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.MicrosoftGraphGetByIds;
-using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.MicrosoftGraphValidateProperties;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Ref;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.ValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -24,16 +24,12 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
-            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
-            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
-            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -45,6 +41,10 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Microsoft.Graph.identityGovernance.entitlementManagement.connectedOrganizations.item.internalSponsors.item collection</summary>
         public DirectoryObjectItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

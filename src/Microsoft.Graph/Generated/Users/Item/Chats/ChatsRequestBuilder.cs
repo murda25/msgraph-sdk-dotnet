@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.Chats.Count;
+using Microsoft.Graph.Users.Item.Chats.GetAllMessages;
 using Microsoft.Graph.Users.Item.Chats.Item;
-using Microsoft.Graph.Users.Item.Chats.MicrosoftGraphGetAllMessages;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Users.Item.Chats {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAllMessages method.</summary>
-        public MicrosoftGraphGetAllMessagesRequestBuilder MicrosoftGraphGetAllMessages { get =>
-            new MicrosoftGraphGetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAllMessagesRequestBuilder GetAllMessages { get =>
+            new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

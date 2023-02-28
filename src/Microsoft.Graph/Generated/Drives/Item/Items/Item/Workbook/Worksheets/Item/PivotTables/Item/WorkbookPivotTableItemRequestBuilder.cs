@@ -1,4 +1,4 @@
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables.Item.MicrosoftGraphRefresh;
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables.Item.Refresh;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotTables.Item.Worksheet;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -15,12 +15,12 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.PivotT
     /// Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
     public class WorkbookPivotTableItemRequestBuilder {
-        /// <summary>Provides operations to call the refresh method.</summary>
-        public MicrosoftGraphRefreshRequestBuilder MicrosoftGraphRefresh { get =>
-            new MicrosoftGraphRefreshRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the refresh method.</summary>
+        public RefreshRequestBuilder Refresh { get =>
+            new RefreshRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>

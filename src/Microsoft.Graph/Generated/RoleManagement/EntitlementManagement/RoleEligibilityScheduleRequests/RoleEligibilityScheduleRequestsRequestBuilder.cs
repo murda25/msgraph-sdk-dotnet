@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Count;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.FilterByCurrentUserWithOn;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item;
-using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.MicrosoftGraphFilterByCurrentUserWithOn;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -60,6 +60,14 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             RequestAdapter = requestAdapter;
         }
         /// <summary>
+        /// Provides operations to call the filterByCurrentUser method.
+        /// </summary>
+        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
+        public FilterByCurrentUserWithOnRequestBuilder FilterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
+        }
+        /// <summary>
         /// In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0" />
         /// </summary>
@@ -78,14 +86,6 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<UnifiedRoleEligibilityScheduleRequestCollectionResponse>(requestInfo, UnifiedRoleEligibilityScheduleRequestCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
-        }
-        /// <summary>
-        /// Provides operations to call the filterByCurrentUser method.
-        /// </summary>
-        /// <param name="on">Usage: on=&apos;{on}&apos;</param>
-        public MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder MicrosoftGraphFilterByCurrentUserWithOn(string on) {
-            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
-            return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
         /// In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.

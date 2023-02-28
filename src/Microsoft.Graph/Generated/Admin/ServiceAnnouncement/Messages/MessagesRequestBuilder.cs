@@ -1,11 +1,11 @@
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Archive;
 using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Count;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Favorite;
 using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Item;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphArchive;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphFavorite;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphMarkRead;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphMarkUnread;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphUnarchive;
-using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MicrosoftGraphUnfavorite;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MarkRead;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.MarkUnread;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Unarchive;
+using Microsoft.Graph.Admin.ServiceAnnouncement.Messages.Unfavorite;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,38 +21,38 @@ namespace Microsoft.Graph.Admin.ServiceAnnouncement.Messages {
     /// Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
     /// </summary>
     public class MessagesRequestBuilder {
+        /// <summary>Provides operations to call the archive method.</summary>
+        public ArchiveRequestBuilder Archive { get =>
+            new ArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the archive method.</summary>
-        public MicrosoftGraphArchiveRequestBuilder MicrosoftGraphArchive { get =>
-            new MicrosoftGraphArchiveRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the favorite method.</summary>
-        public MicrosoftGraphFavoriteRequestBuilder MicrosoftGraphFavorite { get =>
-            new MicrosoftGraphFavoriteRequestBuilder(PathParameters, RequestAdapter);
+        public FavoriteRequestBuilder Favorite { get =>
+            new FavoriteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the markRead method.</summary>
-        public MicrosoftGraphMarkReadRequestBuilder MicrosoftGraphMarkRead { get =>
-            new MicrosoftGraphMarkReadRequestBuilder(PathParameters, RequestAdapter);
+        public MarkReadRequestBuilder MarkRead { get =>
+            new MarkReadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the markUnread method.</summary>
-        public MicrosoftGraphMarkUnreadRequestBuilder MicrosoftGraphMarkUnread { get =>
-            new MicrosoftGraphMarkUnreadRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the unarchive method.</summary>
-        public MicrosoftGraphUnarchiveRequestBuilder MicrosoftGraphUnarchive { get =>
-            new MicrosoftGraphUnarchiveRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the unfavorite method.</summary>
-        public MicrosoftGraphUnfavoriteRequestBuilder MicrosoftGraphUnfavorite { get =>
-            new MicrosoftGraphUnfavoriteRequestBuilder(PathParameters, RequestAdapter);
+        public MarkUnreadRequestBuilder MarkUnread { get =>
+            new MarkUnreadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the unarchive method.</summary>
+        public UnarchiveRequestBuilder Unarchive { get =>
+            new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unfavorite method.</summary>
+        public UnfavoriteRequestBuilder Unfavorite { get =>
+            new UnfavoriteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.</summary>

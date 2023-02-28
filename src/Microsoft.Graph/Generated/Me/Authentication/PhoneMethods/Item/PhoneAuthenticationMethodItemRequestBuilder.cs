@@ -1,5 +1,5 @@
-using Microsoft.Graph.Me.Authentication.PhoneMethods.Item.MicrosoftGraphDisableSmsSignIn;
-using Microsoft.Graph.Me.Authentication.PhoneMethods.Item.MicrosoftGraphEnableSmsSignIn;
+using Microsoft.Graph.Me.Authentication.PhoneMethods.Item.DisableSmsSignIn;
+using Microsoft.Graph.Me.Authentication.PhoneMethods.Item.EnableSmsSignIn;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -16,12 +16,12 @@ namespace Microsoft.Graph.Me.Authentication.PhoneMethods.Item {
     /// </summary>
     public class PhoneAuthenticationMethodItemRequestBuilder {
         /// <summary>Provides operations to call the disableSmsSignIn method.</summary>
-        public MicrosoftGraphDisableSmsSignInRequestBuilder MicrosoftGraphDisableSmsSignIn { get =>
-            new MicrosoftGraphDisableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
+        public DisableSmsSignInRequestBuilder DisableSmsSignIn { get =>
+            new DisableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the enableSmsSignIn method.</summary>
-        public MicrosoftGraphEnableSmsSignInRequestBuilder MicrosoftGraphEnableSmsSignIn { get =>
-            new MicrosoftGraphEnableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
+        public EnableSmsSignInRequestBuilder EnableSmsSignIn { get =>
+            new EnableSmsSignInRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
