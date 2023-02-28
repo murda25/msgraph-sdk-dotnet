@@ -1,6 +1,6 @@
 using Microsoft.Graph.Communications.Calls.Count;
 using Microsoft.Graph.Communications.Calls.Item;
-using Microsoft.Graph.Communications.Calls.MicrosoftGraphLogTeleconferenceDeviceQuality;
+using Microsoft.Graph.Communications.Calls.LogTeleconferenceDeviceQuality;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Communications.Calls {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the logTeleconferenceDeviceQuality method.</summary>
-        public MicrosoftGraphLogTeleconferenceDeviceQualityRequestBuilder MicrosoftGraphLogTeleconferenceDeviceQuality { get =>
-            new MicrosoftGraphLogTeleconferenceDeviceQualityRequestBuilder(PathParameters, RequestAdapter);
+        public LogTeleconferenceDeviceQualityRequestBuilder LogTeleconferenceDeviceQuality { get =>
+            new LogTeleconferenceDeviceQualityRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

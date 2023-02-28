@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView.Item.MicrosoftGraphCancel;
+using Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView.Item.Cancel;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView.Item {
     /// </summary>
     public class BookingAppointmentItemRequestBuilder {
         /// <summary>Provides operations to call the cancel method.</summary>
-        public MicrosoftGraphCancelRequestBuilder MicrosoftGraphCancel { get =>
-            new MicrosoftGraphCancelRequestBuilder(PathParameters, RequestAdapter);
+        public CancelRequestBuilder Cancel { get =>
+            new CancelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

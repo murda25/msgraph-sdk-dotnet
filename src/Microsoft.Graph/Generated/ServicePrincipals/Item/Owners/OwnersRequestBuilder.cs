@@ -1,11 +1,11 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Count;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.GraphAppRoleAssignment;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.GraphEndpoint;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.GraphServicePrincipal;
+using Microsoft.Graph.ServicePrincipals.Item.Owners.GraphUser;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Item;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphAppRoleAssignment;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphEndpoint;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphServicePrincipal;
-using Microsoft.Graph.ServicePrincipals.Item.Owners.MicrosoftGraphUser;
 using Microsoft.Graph.ServicePrincipals.Item.Owners.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -25,20 +25,20 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Owners {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
-            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        public GraphAppRoleAssignmentRequestBuilder GraphAppRoleAssignment { get =>
+            new GraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
-            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
+        public GraphEndpointRequestBuilder GraphEndpoint { get =>
+            new GraphEndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to servicePrincipal.</summary>
-        public MicrosoftGraphServicePrincipalRequestBuilder MicrosoftGraphServicePrincipal { get =>
-            new MicrosoftGraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        public GraphServicePrincipalRequestBuilder GraphServicePrincipal { get =>
+            new GraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to user.</summary>
-        public MicrosoftGraphUserRequestBuilder MicrosoftGraphUser { get =>
-            new MicrosoftGraphUserRequestBuilder(PathParameters, RequestAdapter);
+        public GraphUserRequestBuilder GraphUser { get =>
+            new GraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

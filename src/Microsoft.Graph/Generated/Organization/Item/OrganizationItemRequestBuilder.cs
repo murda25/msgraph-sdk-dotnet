@@ -2,13 +2,13 @@ using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Organization.Item.Branding;
 using Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration;
+using Microsoft.Graph.Organization.Item.CheckMemberGroups;
+using Microsoft.Graph.Organization.Item.CheckMemberObjects;
 using Microsoft.Graph.Organization.Item.Extensions;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphCheckMemberGroups;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphCheckMemberObjects;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphGetMemberGroups;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphGetMemberObjects;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphRestore;
-using Microsoft.Graph.Organization.Item.MicrosoftGraphSetMobileDeviceManagementAuthority;
+using Microsoft.Graph.Organization.Item.GetMemberGroups;
+using Microsoft.Graph.Organization.Item.GetMemberObjects;
+using Microsoft.Graph.Organization.Item.Restore;
+using Microsoft.Graph.Organization.Item.SetMobileDeviceManagementAuthority;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -30,38 +30,38 @@ namespace Microsoft.Graph.Organization.Item {
         public CertificateBasedAuthConfigurationRequestBuilder CertificateBasedAuthConfiguration { get =>
             new CertificateBasedAuthConfigurationRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the extensions property of the microsoft.graph.organization entity.</summary>
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
-        public MicrosoftGraphCheckMemberGroupsRequestBuilder MicrosoftGraphCheckMemberGroups { get =>
-            new MicrosoftGraphCheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
-        public MicrosoftGraphCheckMemberObjectsRequestBuilder MicrosoftGraphCheckMemberObjects { get =>
-            new MicrosoftGraphCheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the getMemberGroups method.</summary>
-        public MicrosoftGraphGetMemberGroupsRequestBuilder MicrosoftGraphGetMemberGroups { get =>
-            new MicrosoftGraphGetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getMemberObjects method.</summary>
-        public MicrosoftGraphGetMemberObjectsRequestBuilder MicrosoftGraphGetMemberObjects { get =>
-            new MicrosoftGraphGetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the restore method.</summary>
-        public MicrosoftGraphRestoreRequestBuilder MicrosoftGraphRestore { get =>
-            new MicrosoftGraphRestoreRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the setMobileDeviceManagementAuthority method.</summary>
-        public MicrosoftGraphSetMobileDeviceManagementAuthorityRequestBuilder MicrosoftGraphSetMobileDeviceManagementAuthority { get =>
-            new MicrosoftGraphSetMobileDeviceManagementAuthorityRequestBuilder(PathParameters, RequestAdapter);
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the restore method.</summary>
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setMobileDeviceManagementAuthority method.</summary>
+        public SetMobileDeviceManagementAuthorityRequestBuilder SetMobileDeviceManagementAuthority { get =>
+            new SetMobileDeviceManagementAuthorityRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

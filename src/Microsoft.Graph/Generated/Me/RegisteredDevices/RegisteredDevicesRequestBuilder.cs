@@ -1,8 +1,8 @@
 using Microsoft.Graph.Me.RegisteredDevices.Count;
+using Microsoft.Graph.Me.RegisteredDevices.GraphAppRoleAssignment;
+using Microsoft.Graph.Me.RegisteredDevices.GraphDevice;
+using Microsoft.Graph.Me.RegisteredDevices.GraphEndpoint;
 using Microsoft.Graph.Me.RegisteredDevices.Item;
-using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphAppRoleAssignment;
-using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphDevice;
-using Microsoft.Graph.Me.RegisteredDevices.MicrosoftGraphEndpoint;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -23,16 +23,16 @@ namespace Microsoft.Graph.Me.RegisteredDevices {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to appRoleAssignment.</summary>
-        public MicrosoftGraphAppRoleAssignmentRequestBuilder MicrosoftGraphAppRoleAssignment { get =>
-            new MicrosoftGraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
+        public GraphAppRoleAssignmentRequestBuilder GraphAppRoleAssignment { get =>
+            new GraphAppRoleAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to device.</summary>
-        public MicrosoftGraphDeviceRequestBuilder MicrosoftGraphDevice { get =>
-            new MicrosoftGraphDeviceRequestBuilder(PathParameters, RequestAdapter);
+        public GraphDeviceRequestBuilder GraphDevice { get =>
+            new GraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to endpoint.</summary>
-        public MicrosoftGraphEndpointRequestBuilder MicrosoftGraphEndpoint { get =>
-            new MicrosoftGraphEndpointRequestBuilder(PathParameters, RequestAdapter);
+        public GraphEndpointRequestBuilder GraphEndpoint { get =>
+            new GraphEndpointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

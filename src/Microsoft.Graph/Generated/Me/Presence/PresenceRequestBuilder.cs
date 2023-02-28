@@ -1,7 +1,7 @@
-using Microsoft.Graph.Me.Presence.MicrosoftGraphClearPresence;
-using Microsoft.Graph.Me.Presence.MicrosoftGraphClearUserPreferredPresence;
-using Microsoft.Graph.Me.Presence.MicrosoftGraphSetPresence;
-using Microsoft.Graph.Me.Presence.MicrosoftGraphSetUserPreferredPresence;
+using Microsoft.Graph.Me.Presence.ClearPresence;
+using Microsoft.Graph.Me.Presence.ClearUserPreferredPresence;
+using Microsoft.Graph.Me.Presence.SetPresence;
+using Microsoft.Graph.Me.Presence.SetUserPreferredPresence;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -18,25 +18,25 @@ namespace Microsoft.Graph.Me.Presence {
     /// </summary>
     public class PresenceRequestBuilder {
         /// <summary>Provides operations to call the clearPresence method.</summary>
-        public MicrosoftGraphClearPresenceRequestBuilder MicrosoftGraphClearPresence { get =>
-            new MicrosoftGraphClearPresenceRequestBuilder(PathParameters, RequestAdapter);
+        public ClearPresenceRequestBuilder ClearPresence { get =>
+            new ClearPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the clearUserPreferredPresence method.</summary>
-        public MicrosoftGraphClearUserPreferredPresenceRequestBuilder MicrosoftGraphClearUserPreferredPresence { get =>
-            new MicrosoftGraphClearUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the setPresence method.</summary>
-        public MicrosoftGraphSetPresenceRequestBuilder MicrosoftGraphSetPresence { get =>
-            new MicrosoftGraphSetPresenceRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
-        public MicrosoftGraphSetUserPreferredPresenceRequestBuilder MicrosoftGraphSetUserPreferredPresence { get =>
-            new MicrosoftGraphSetUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
+        public ClearUserPreferredPresenceRequestBuilder ClearUserPreferredPresence { get =>
+            new ClearUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the setPresence method.</summary>
+        public SetPresenceRequestBuilder SetPresence { get =>
+            new SetPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
+        public SetUserPreferredPresenceRequestBuilder SetUserPreferredPresence { get =>
+            new SetUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

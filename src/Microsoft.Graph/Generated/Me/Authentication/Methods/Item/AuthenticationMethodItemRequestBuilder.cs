@@ -1,4 +1,4 @@
-using Microsoft.Graph.Me.Authentication.Methods.Item.MicrosoftGraphResetPassword;
+using Microsoft.Graph.Me.Authentication.Methods.Item.ResetPassword;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -14,14 +14,14 @@ namespace Microsoft.Graph.Me.Authentication.Methods.Item {
     /// Provides operations to manage the methods property of the microsoft.graph.authentication entity.
     /// </summary>
     public class AuthenticationMethodItemRequestBuilder {
-        /// <summary>Provides operations to call the resetPassword method.</summary>
-        public MicrosoftGraphResetPasswordRequestBuilder MicrosoftGraphResetPassword { get =>
-            new MicrosoftGraphResetPasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the resetPassword method.</summary>
+        public ResetPasswordRequestBuilder ResetPassword { get =>
+            new ResetPasswordRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

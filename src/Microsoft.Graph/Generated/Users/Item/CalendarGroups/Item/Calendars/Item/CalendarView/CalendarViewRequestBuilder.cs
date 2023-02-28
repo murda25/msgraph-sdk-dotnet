@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.CalendarView.Count;
+using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.CalendarView.Delta;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.CalendarView.Item;
-using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.CalendarView.MicrosoftGraphDelta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Calendar
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

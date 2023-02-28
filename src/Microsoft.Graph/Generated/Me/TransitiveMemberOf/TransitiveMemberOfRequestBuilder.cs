@@ -1,11 +1,6 @@
 using Microsoft.Graph.Me.TransitiveMemberOf.Count;
+using Microsoft.Graph.Me.TransitiveMemberOf.GraphGroup;
 using Microsoft.Graph.Me.TransitiveMemberOf.Item;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphApplication;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphDevice;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphGroup;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphOrgContact;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphServicePrincipal;
-using Microsoft.Graph.Me.TransitiveMemberOf.MicrosoftGraphUser;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -25,29 +20,9 @@ namespace Microsoft.Graph.Me.TransitiveMemberOf {
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Casts the previous resource to application.</summary>
-        public MicrosoftGraphApplicationRequestBuilder MicrosoftGraphApplication { get =>
-            new MicrosoftGraphApplicationRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Casts the previous resource to device.</summary>
-        public MicrosoftGraphDeviceRequestBuilder MicrosoftGraphDevice { get =>
-            new MicrosoftGraphDeviceRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Casts the previous resource to group.</summary>
-        public MicrosoftGraphGroupRequestBuilder MicrosoftGraphGroup { get =>
-            new MicrosoftGraphGroupRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Casts the previous resource to orgContact.</summary>
-        public MicrosoftGraphOrgContactRequestBuilder MicrosoftGraphOrgContact { get =>
-            new MicrosoftGraphOrgContactRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Casts the previous resource to servicePrincipal.</summary>
-        public MicrosoftGraphServicePrincipalRequestBuilder MicrosoftGraphServicePrincipal { get =>
-            new MicrosoftGraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Casts the previous resource to user.</summary>
-        public MicrosoftGraphUserRequestBuilder MicrosoftGraphUser { get =>
-            new MicrosoftGraphUserRequestBuilder(PathParameters, RequestAdapter);
+        public GraphGroupRequestBuilder GraphGroup { get =>
+            new GraphGroupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

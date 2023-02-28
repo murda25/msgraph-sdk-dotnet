@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.Attachments.Count;
+using Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.Attachments.CreateUploadSession;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.Attachments.Item;
-using Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.Attachments.MicrosoftGraphCreateUploadSession;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.Attachments 
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createUploadSession method.</summary>
-        public MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession { get =>
-            new MicrosoftGraphCreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
+        public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
+            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

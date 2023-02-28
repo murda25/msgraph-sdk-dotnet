@@ -1,8 +1,8 @@
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assign;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Categories;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.MicrosoftGraphAssign;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.MicrosoftGraphManagedMobileLobApp;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.MicrosoftGraphMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphManagedMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphMobileLobApp;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -18,6 +18,10 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
     /// Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
     public class MobileAppItemRequestBuilder {
+        /// <summary>Provides operations to call the assign method.</summary>
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.</summary>
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -26,17 +30,13 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
         public CategoriesRequestBuilder Categories { get =>
             new CategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the assign method.</summary>
-        public MicrosoftGraphAssignRequestBuilder MicrosoftGraphAssign { get =>
-            new MicrosoftGraphAssignRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Casts the previous resource to managedMobileLobApp.</summary>
-        public MicrosoftGraphManagedMobileLobAppRequestBuilder MicrosoftGraphManagedMobileLobApp { get =>
-            new MicrosoftGraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public GraphManagedMobileLobAppRequestBuilder GraphManagedMobileLobApp { get =>
+            new GraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to mobileLobApp.</summary>
-        public MicrosoftGraphMobileLobAppRequestBuilder MicrosoftGraphMobileLobApp { get =>
-            new MicrosoftGraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        public GraphMobileLobAppRequestBuilder GraphMobileLobApp { get =>
+            new GraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

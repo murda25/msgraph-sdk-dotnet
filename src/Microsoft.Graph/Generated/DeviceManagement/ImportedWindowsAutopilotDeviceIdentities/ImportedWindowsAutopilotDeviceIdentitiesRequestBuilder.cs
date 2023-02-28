@@ -1,6 +1,6 @@
 using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Count;
+using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Import;
 using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Item;
-using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.MicrosoftGraphImport;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the import method.</summary>
-        public MicrosoftGraphImportRequestBuilder MicrosoftGraphImport { get =>
-            new MicrosoftGraphImportRequestBuilder(PathParameters, RequestAdapter);
+        public ImportRequestBuilder Import { get =>
+            new ImportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

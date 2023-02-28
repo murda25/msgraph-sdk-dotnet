@@ -1,8 +1,8 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Count;
+using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Delta;
 using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.Item;
-using Microsoft.Graph.Teams.Item.PrimaryChannel.Messages.MicrosoftGraphDelta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Teams.Item.PrimaryChannel.Messages {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

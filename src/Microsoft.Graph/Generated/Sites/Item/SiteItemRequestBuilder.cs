@@ -6,12 +6,12 @@ using Microsoft.Graph.Sites.Item.ContentTypes;
 using Microsoft.Graph.Sites.Item.Drive;
 using Microsoft.Graph.Sites.Item.Drives;
 using Microsoft.Graph.Sites.Item.ExternalColumns;
+using Microsoft.Graph.Sites.Item.GetActivitiesByInterval;
+using Microsoft.Graph.Sites.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using Microsoft.Graph.Sites.Item.GetApplicableContentTypesForListWithListId;
+using Microsoft.Graph.Sites.Item.GetByPathWithPath;
 using Microsoft.Graph.Sites.Item.Items;
 using Microsoft.Graph.Sites.Item.Lists;
-using Microsoft.Graph.Sites.Item.MicrosoftGraphGetActivitiesByInterval;
-using Microsoft.Graph.Sites.Item.MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
-using Microsoft.Graph.Sites.Item.MicrosoftGraphGetApplicableContentTypesForListWithListId;
-using Microsoft.Graph.Sites.Item.MicrosoftGraphGetByPathWithPath;
 using Microsoft.Graph.Sites.Item.Onenote;
 using Microsoft.Graph.Sites.Item.Operations;
 using Microsoft.Graph.Sites.Item.Permissions;
@@ -55,6 +55,10 @@ namespace Microsoft.Graph.Sites.Item {
         public ExternalColumnsRequestBuilder ExternalColumns { get =>
             new ExternalColumnsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
+        public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval { get =>
+            new GetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the items property of the microsoft.graph.site entity.</summary>
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
@@ -62,10 +66,6 @@ namespace Microsoft.Graph.Sites.Item {
         /// <summary>Provides operations to manage the lists property of the microsoft.graph.site entity.</summary>
         public ListsRequestBuilder Lists { get =>
             new ListsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
-        public MicrosoftGraphGetActivitiesByIntervalRequestBuilder MicrosoftGraphGetActivitiesByInterval { get =>
-            new MicrosoftGraphGetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the onenote property of the microsoft.graph.site entity.</summary>
         public OnenoteRequestBuilder Onenote { get =>
@@ -125,6 +125,26 @@ namespace Microsoft.Graph.Sites.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
+        /// Provides operations to call the getActivitiesByInterval method.
+        /// </summary>
+        /// <param name="endDateTime">Usage: endDateTime=&apos;{endDateTime}&apos;</param>
+        /// <param name="interval">Usage: interval=&apos;{interval}&apos;</param>
+        /// <param name="startDateTime">Usage: startDateTime=&apos;{startDateTime}&apos;</param>
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string endDateTime, string interval, string startDateTime) {
+            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
+            if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
+            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
+            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, endDateTime, interval, startDateTime);
+        }
+        /// <summary>
+        /// Provides operations to call the getApplicableContentTypesForList method.
+        /// </summary>
+        /// <param name="listId">Usage: listId=&apos;{listId}&apos;</param>
+        public GetApplicableContentTypesForListWithListIdRequestBuilder GetApplicableContentTypesForListWithListId(string listId) {
+            if(string.IsNullOrEmpty(listId)) throw new ArgumentNullException(nameof(listId));
+            return new GetApplicableContentTypesForListWithListIdRequestBuilder(PathParameters, RequestAdapter, listId);
+        }
+        /// <summary>
         /// Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0" />
         /// </summary>
@@ -145,32 +165,12 @@ namespace Microsoft.Graph.Sites.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Site>(requestInfo, Microsoft.Graph.Models.Site.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Provides operations to call the getActivitiesByInterval method.
-        /// </summary>
-        /// <param name="endDateTime">Usage: endDateTime=&apos;{endDateTime}&apos;</param>
-        /// <param name="interval">Usage: interval=&apos;{interval}&apos;</param>
-        /// <param name="startDateTime">Usage: startDateTime=&apos;{startDateTime}&apos;</param>
-        public MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string endDateTime, string interval, string startDateTime) {
-            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
-            if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
-            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
-            return new MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, endDateTime, interval, startDateTime);
-        }
-        /// <summary>
-        /// Provides operations to call the getApplicableContentTypesForList method.
-        /// </summary>
-        /// <param name="listId">Usage: listId=&apos;{listId}&apos;</param>
-        public MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder MicrosoftGraphGetApplicableContentTypesForListWithListId(string listId) {
-            if(string.IsNullOrEmpty(listId)) throw new ArgumentNullException(nameof(listId));
-            return new MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder(PathParameters, RequestAdapter, listId);
-        }
-        /// <summary>
         /// Provides operations to call the getByPath method.
         /// </summary>
         /// <param name="path">Usage: path=&apos;{path}&apos;</param>
-        public MicrosoftGraphGetByPathWithPathRequestBuilder MicrosoftGraphGetByPathWithPath(string path) {
+        public GetByPathWithPathRequestBuilder GetByPathWithPath(string path) {
             if(string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            return new MicrosoftGraphGetByPathWithPathRequestBuilder(PathParameters, RequestAdapter, path);
+            return new GetByPathWithPathRequestBuilder(PathParameters, RequestAdapter, path);
         }
         /// <summary>
         /// Update entity in sites

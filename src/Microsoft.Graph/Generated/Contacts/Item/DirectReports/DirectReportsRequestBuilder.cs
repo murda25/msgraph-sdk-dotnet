@@ -1,7 +1,7 @@
 using Microsoft.Graph.Contacts.Item.DirectReports.Count;
+using Microsoft.Graph.Contacts.Item.DirectReports.GraphOrgContact;
+using Microsoft.Graph.Contacts.Item.DirectReports.GraphUser;
 using Microsoft.Graph.Contacts.Item.DirectReports.Item;
-using Microsoft.Graph.Contacts.Item.DirectReports.MicrosoftGraphOrgContact;
-using Microsoft.Graph.Contacts.Item.DirectReports.MicrosoftGraphUser;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -22,12 +22,12 @@ namespace Microsoft.Graph.Contacts.Item.DirectReports {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to orgContact.</summary>
-        public MicrosoftGraphOrgContactRequestBuilder MicrosoftGraphOrgContact { get =>
-            new MicrosoftGraphOrgContactRequestBuilder(PathParameters, RequestAdapter);
+        public GraphOrgContactRequestBuilder GraphOrgContact { get =>
+            new GraphOrgContactRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to user.</summary>
-        public MicrosoftGraphUserRequestBuilder MicrosoftGraphUser { get =>
-            new MicrosoftGraphUserRequestBuilder(PathParameters, RequestAdapter);
+        public GraphUserRequestBuilder GraphUser { get =>
+            new GraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

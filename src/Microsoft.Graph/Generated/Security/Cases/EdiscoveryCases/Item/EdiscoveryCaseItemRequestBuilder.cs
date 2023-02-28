@@ -1,12 +1,12 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.MicrosoftGraphSecurityClose;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.MicrosoftGraphSecurityReopen;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSources;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Operations;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Searches;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.SecurityClose;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.SecurityReopen;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Settings;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags;
 using Microsoft.Kiota.Abstractions;
@@ -25,14 +25,6 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item {
         /// <summary>Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.</summary>
         public CustodiansRequestBuilder Custodians { get =>
             new CustodiansRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the close method.</summary>
-        public MicrosoftGraphSecurityCloseRequestBuilder MicrosoftGraphSecurityClose { get =>
-            new MicrosoftGraphSecurityCloseRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the reopen method.</summary>
-        public MicrosoftGraphSecurityReopenRequestBuilder MicrosoftGraphSecurityReopen { get =>
-            new MicrosoftGraphSecurityReopenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.</summary>
         public NoncustodialDataSourcesRequestBuilder NoncustodialDataSources { get =>
@@ -53,6 +45,14 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item {
         /// <summary>Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.</summary>
         public SearchesRequestBuilder Searches { get =>
             new SearchesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the close method.</summary>
+        public SecurityCloseRequestBuilder SecurityClose { get =>
+            new SecurityCloseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the reopen method.</summary>
+        public SecurityReopenRequestBuilder SecurityReopen { get =>
+            new SecurityReopenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.</summary>
         public SettingsRequestBuilder Settings { get =>

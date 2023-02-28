@@ -1,7 +1,7 @@
 using Microsoft.Graph.Chats.Item.Messages.Item.HostedContents;
-using Microsoft.Graph.Chats.Item.Messages.Item.MicrosoftGraphSoftDelete;
-using Microsoft.Graph.Chats.Item.Messages.Item.MicrosoftGraphUndoSoftDelete;
 using Microsoft.Graph.Chats.Item.Messages.Item.Replies;
+using Microsoft.Graph.Chats.Item.Messages.Item.SoftDelete;
+using Microsoft.Graph.Chats.Item.Messages.Item.UndoSoftDelete;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,14 +21,6 @@ namespace Microsoft.Graph.Chats.Item.Messages.Item {
         public HostedContentsRequestBuilder HostedContents { get =>
             new HostedContentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the softDelete method.</summary>
-        public MicrosoftGraphSoftDeleteRequestBuilder MicrosoftGraphSoftDelete { get =>
-            new MicrosoftGraphSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the undoSoftDelete method.</summary>
-        public MicrosoftGraphUndoSoftDeleteRequestBuilder MicrosoftGraphUndoSoftDelete { get =>
-            new MicrosoftGraphUndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.</summary>
@@ -37,6 +29,14 @@ namespace Microsoft.Graph.Chats.Item.Messages.Item {
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the softDelete method.</summary>
+        public SoftDeleteRequestBuilder SoftDelete { get =>
+            new SoftDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the undoSoftDelete method.</summary>
+        public UndoSoftDeleteRequestBuilder UndoSoftDelete { get =>
+            new UndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

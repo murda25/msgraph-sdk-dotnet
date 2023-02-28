@@ -1,6 +1,6 @@
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Add;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Count;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.MicrosoftGraphAdd;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -16,13 +16,13 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets {
     /// Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
     /// </summary>
     public class WorksheetsRequestBuilder {
+        /// <summary>Provides operations to call the add method.</summary>
+        public AddRequestBuilder Add { get =>
+            new AddRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the add method.</summary>
-        public MicrosoftGraphAddRequestBuilder MicrosoftGraphAdd { get =>
-            new MicrosoftGraphAddRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets {
         }
         /// <summary>
         /// Retrieve a list of worksheet objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/worksheet-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -2,102 +2,102 @@ using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Reports.DailyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.DailyPrintUsageByUser;
-using Microsoft.Graph.Reports.MicrosoftGraphDeviceConfigurationDeviceActivity;
-using Microsoft.Graph.Reports.MicrosoftGraphDeviceConfigurationUserActivity;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailAppUsageAppsUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailAppUsageUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailAppUsageUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailAppUsageUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetEmailAppUsageVersionsUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime;
-using Microsoft.Graph.Reports.MicrosoftGraphGetM365AppPlatformUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetM365AppUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetM365AppUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetM365AppUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetMailboxUsageDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetMailboxUsageMailboxCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetMailboxUsageQuotaStatusMailboxCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetMailboxUsageStorageWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActivationCounts;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActivationsUserCounts;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActivationsUserDetail;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActiveUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActiveUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ActiveUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityFileCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityGroupCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365GroupsActivityStorageWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOffice365ServicesUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveActivityFileCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveUsageAccountCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveUsageAccountDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveUsageAccountDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveUsageFileCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetOneDriveUsageStorageWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointActivityFileCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointActivityPagesWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsageDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsageDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsageFileCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsagePagesWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsageSiteCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSharePointSiteUsageStorageWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessDeviceUsageUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessOrganizerActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessOrganizerActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessParticipantActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessParticipantActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsDeviceUsageDistributionUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsDeviceUsageUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsDeviceUsageUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsDeviceUsageUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsUserActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsUserActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsUserActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetTeamsUserActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerActivityUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerActivityUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerActivityUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerDeviceUsageDistributionUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerDeviceUsageUserCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerDeviceUsageUserDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerDeviceUsageUserDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerGroupsActivityCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerGroupsActivityDetailWithDate;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerGroupsActivityDetailWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphGetYammerGroupsActivityGroupCountsWithPeriod;
-using Microsoft.Graph.Reports.MicrosoftGraphManagedDeviceEnrollmentFailureDetails;
-using Microsoft.Graph.Reports.MicrosoftGraphManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken;
-using Microsoft.Graph.Reports.MicrosoftGraphManagedDeviceEnrollmentTopFailures;
-using Microsoft.Graph.Reports.MicrosoftGraphManagedDeviceEnrollmentTopFailuresWithPeriod;
+using Microsoft.Graph.Reports.DeviceConfigurationDeviceActivity;
+using Microsoft.Graph.Reports.DeviceConfigurationUserActivity;
+using Microsoft.Graph.Reports.GetEmailActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetEmailActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetEmailActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetEmailActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetEmailAppUsageAppsUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetEmailAppUsageUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetEmailAppUsageUserDetailWithDate;
+using Microsoft.Graph.Reports.GetEmailAppUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime;
+using Microsoft.Graph.Reports.GetM365AppPlatformUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetM365AppUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetM365AppUserDetailWithDate;
+using Microsoft.Graph.Reports.GetM365AppUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetMailboxUsageDetailWithPeriod;
+using Microsoft.Graph.Reports.GetMailboxUsageMailboxCountsWithPeriod;
+using Microsoft.Graph.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod;
+using Microsoft.Graph.Reports.GetMailboxUsageStorageWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365ActivationCounts;
+using Microsoft.Graph.Reports.GetOffice365ActivationsUserCounts;
+using Microsoft.Graph.Reports.GetOffice365ActivationsUserDetail;
+using Microsoft.Graph.Reports.GetOffice365ActiveUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365ActiveUserDetailWithDate;
+using Microsoft.Graph.Reports.GetOffice365ActiveUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityDetailWithDate;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityDetailWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityFileCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365GroupsActivityStorageWithPeriod;
+using Microsoft.Graph.Reports.GetOffice365ServicesUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveActivityFileCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetOneDriveActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveUsageAccountCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveUsageAccountDetailWithDate;
+using Microsoft.Graph.Reports.GetOneDriveUsageAccountDetailWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveUsageFileCountsWithPeriod;
+using Microsoft.Graph.Reports.GetOneDriveUsageStorageWithPeriod;
+using Microsoft.Graph.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime;
+using Microsoft.Graph.Reports.GetSharePointActivityFileCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointActivityPagesWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetSharePointActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointSiteUsageDetailWithDate;
+using Microsoft.Graph.Reports.GetSharePointSiteUsageDetailWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointSiteUsageFileCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointSiteUsagePagesWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointSiteUsageSiteCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSharePointSiteUsageStorageWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetSkypeForBusinessActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessDeviceUsageUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate;
+using Microsoft.Graph.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessOrganizerActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessParticipantActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod;
+using Microsoft.Graph.Reports.GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithDate;
+using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsUserActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsUserActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsUserActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetTeamsUserActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime;
+using Microsoft.Graph.Reports.GetYammerActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetYammerActivityUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetYammerActivityUserDetailWithDate;
+using Microsoft.Graph.Reports.GetYammerActivityUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetYammerDeviceUsageUserCountsWithPeriod;
+using Microsoft.Graph.Reports.GetYammerDeviceUsageUserDetailWithDate;
+using Microsoft.Graph.Reports.GetYammerDeviceUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetYammerGroupsActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetYammerGroupsActivityDetailWithDate;
+using Microsoft.Graph.Reports.GetYammerGroupsActivityDetailWithPeriod;
+using Microsoft.Graph.Reports.GetYammerGroupsActivityGroupCountsWithPeriod;
+using Microsoft.Graph.Reports.ManagedDeviceEnrollmentFailureDetails;
+using Microsoft.Graph.Reports.ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken;
+using Microsoft.Graph.Reports.ManagedDeviceEnrollmentTopFailures;
+using Microsoft.Graph.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByUser;
 using Microsoft.Graph.Reports.Security;
@@ -123,32 +123,32 @@ namespace Microsoft.Graph.Reports {
             new DailyPrintUsageByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the deviceConfigurationDeviceActivity method.</summary>
-        public MicrosoftGraphDeviceConfigurationDeviceActivityRequestBuilder MicrosoftGraphDeviceConfigurationDeviceActivity { get =>
-            new MicrosoftGraphDeviceConfigurationDeviceActivityRequestBuilder(PathParameters, RequestAdapter);
+        public DeviceConfigurationDeviceActivityRequestBuilder DeviceConfigurationDeviceActivity { get =>
+            new DeviceConfigurationDeviceActivityRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the deviceConfigurationUserActivity method.</summary>
-        public MicrosoftGraphDeviceConfigurationUserActivityRequestBuilder MicrosoftGraphDeviceConfigurationUserActivity { get =>
-            new MicrosoftGraphDeviceConfigurationUserActivityRequestBuilder(PathParameters, RequestAdapter);
+        public DeviceConfigurationUserActivityRequestBuilder DeviceConfigurationUserActivity { get =>
+            new DeviceConfigurationUserActivityRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getOffice365ActivationCounts method.</summary>
-        public MicrosoftGraphGetOffice365ActivationCountsRequestBuilder MicrosoftGraphGetOffice365ActivationCounts { get =>
-            new MicrosoftGraphGetOffice365ActivationCountsRequestBuilder(PathParameters, RequestAdapter);
+        public GetOffice365ActivationCountsRequestBuilder GetOffice365ActivationCounts { get =>
+            new GetOffice365ActivationCountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getOffice365ActivationsUserCounts method.</summary>
-        public MicrosoftGraphGetOffice365ActivationsUserCountsRequestBuilder MicrosoftGraphGetOffice365ActivationsUserCounts { get =>
-            new MicrosoftGraphGetOffice365ActivationsUserCountsRequestBuilder(PathParameters, RequestAdapter);
+        public GetOffice365ActivationsUserCountsRequestBuilder GetOffice365ActivationsUserCounts { get =>
+            new GetOffice365ActivationsUserCountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getOffice365ActivationsUserDetail method.</summary>
-        public MicrosoftGraphGetOffice365ActivationsUserDetailRequestBuilder MicrosoftGraphGetOffice365ActivationsUserDetail { get =>
-            new MicrosoftGraphGetOffice365ActivationsUserDetailRequestBuilder(PathParameters, RequestAdapter);
+        public GetOffice365ActivationsUserDetailRequestBuilder GetOffice365ActivationsUserDetail { get =>
+            new GetOffice365ActivationsUserDetailRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the managedDeviceEnrollmentFailureDetails method.</summary>
-        public MicrosoftGraphManagedDeviceEnrollmentFailureDetailsRequestBuilder MicrosoftGraphManagedDeviceEnrollmentFailureDetails { get =>
-            new MicrosoftGraphManagedDeviceEnrollmentFailureDetailsRequestBuilder(PathParameters, RequestAdapter);
+        public ManagedDeviceEnrollmentFailureDetailsRequestBuilder ManagedDeviceEnrollmentFailureDetails { get =>
+            new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the managedDeviceEnrollmentTopFailures method.</summary>
-        public MicrosoftGraphManagedDeviceEnrollmentTopFailuresRequestBuilder MicrosoftGraphManagedDeviceEnrollmentTopFailures { get =>
-            new MicrosoftGraphManagedDeviceEnrollmentTopFailuresRequestBuilder(PathParameters, RequestAdapter);
+        public ManagedDeviceEnrollmentTopFailuresRequestBuilder ManagedDeviceEnrollmentTopFailures { get =>
+            new ManagedDeviceEnrollmentTopFailuresRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.</summary>
         public MonthlyPrintUsageByPrinterRequestBuilder MonthlyPrintUsageByPrinter { get =>
@@ -218,73 +218,73 @@ namespace Microsoft.Graph.Reports {
         /// Provides operations to call the getEmailActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetEmailActivityCountsWithPeriod(string period) {
+        public GetEmailActivityCountsWithPeriodRequestBuilder GetEmailActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetEmailActivityUserCountsWithPeriod(string period) {
+        public GetEmailActivityUserCountsWithPeriodRequestBuilder GetEmailActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetEmailActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetEmailActivityUserDetailWithDate(Date? date) {
+        public GetEmailActivityUserDetailWithDateRequestBuilder GetEmailActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetEmailActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetEmailActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getEmailActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetEmailActivityUserDetailWithPeriod(string period) {
+        public GetEmailActivityUserDetailWithPeriodRequestBuilder GetEmailActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailAppUsageAppsUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder MicrosoftGraphGetEmailAppUsageAppsUserCountsWithPeriod(string period) {
+        public GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder GetEmailAppUsageAppsUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailAppUsageUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailAppUsageUserCountsWithPeriodRequestBuilder MicrosoftGraphGetEmailAppUsageUserCountsWithPeriod(string period) {
+        public GetEmailAppUsageUserCountsWithPeriodRequestBuilder GetEmailAppUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailAppUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailAppUsageUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetEmailAppUsageUserDetailWithDateRequestBuilder MicrosoftGraphGetEmailAppUsageUserDetailWithDate(Date? date) {
+        public GetEmailAppUsageUserDetailWithDateRequestBuilder GetEmailAppUsageUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getEmailAppUsageUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailAppUsageUserDetailWithPeriodRequestBuilder MicrosoftGraphGetEmailAppUsageUserDetailWithPeriod(string period) {
+        public GetEmailAppUsageUserDetailWithPeriodRequestBuilder GetEmailAppUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailAppUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getEmailAppUsageVersionsUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder MicrosoftGraphGetEmailAppUsageVersionsUserCountsWithPeriod(string period) {
+        public GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder GetEmailAppUsageVersionsUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getGroupArchivedPrintJobs method.
@@ -292,227 +292,227 @@ namespace Microsoft.Graph.Reports {
         /// <param name="endDateTime">Usage: endDateTime={endDateTime}</param>
         /// <param name="groupId">Usage: groupId=&apos;{groupId}&apos;</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
-        public MicrosoftGraphGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder MicrosoftGraphGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, string groupId, DateTimeOffset? startDateTime) {
+        public GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, string groupId, DateTimeOffset? startDateTime) {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(groupId)) throw new ArgumentNullException(nameof(groupId));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
-            return new MicrosoftGraphGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, groupId, startDateTime);
+            return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, groupId, startDateTime);
         }
         /// <summary>
         /// Provides operations to call the getM365AppPlatformUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetM365AppPlatformUserCountsWithPeriodRequestBuilder MicrosoftGraphGetM365AppPlatformUserCountsWithPeriod(string period) {
+        public GetM365AppPlatformUserCountsWithPeriodRequestBuilder GetM365AppPlatformUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetM365AppPlatformUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetM365AppPlatformUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getM365AppUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetM365AppUserCountsWithPeriodRequestBuilder MicrosoftGraphGetM365AppUserCountsWithPeriod(string period) {
+        public GetM365AppUserCountsWithPeriodRequestBuilder GetM365AppUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetM365AppUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetM365AppUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getM365AppUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetM365AppUserDetailWithDateRequestBuilder MicrosoftGraphGetM365AppUserDetailWithDate(Date? date) {
+        public GetM365AppUserDetailWithDateRequestBuilder GetM365AppUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetM365AppUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetM365AppUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getM365AppUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetM365AppUserDetailWithPeriodRequestBuilder MicrosoftGraphGetM365AppUserDetailWithPeriod(string period) {
+        public GetM365AppUserDetailWithPeriodRequestBuilder GetM365AppUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetM365AppUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetM365AppUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getMailboxUsageDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetMailboxUsageDetailWithPeriodRequestBuilder MicrosoftGraphGetMailboxUsageDetailWithPeriod(string period) {
+        public GetMailboxUsageDetailWithPeriodRequestBuilder GetMailboxUsageDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetMailboxUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetMailboxUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getMailboxUsageMailboxCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetMailboxUsageMailboxCountsWithPeriodRequestBuilder MicrosoftGraphGetMailboxUsageMailboxCountsWithPeriod(string period) {
+        public GetMailboxUsageMailboxCountsWithPeriodRequestBuilder GetMailboxUsageMailboxCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetMailboxUsageMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder MicrosoftGraphGetMailboxUsageQuotaStatusMailboxCountsWithPeriod(string period) {
+        public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder GetMailboxUsageQuotaStatusMailboxCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getMailboxUsageStorage method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetMailboxUsageStorageWithPeriodRequestBuilder MicrosoftGraphGetMailboxUsageStorageWithPeriod(string period) {
+        public GetMailboxUsageStorageWithPeriodRequestBuilder GetMailboxUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetMailboxUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetMailboxUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365ActiveUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365ActiveUserCountsWithPeriodRequestBuilder MicrosoftGraphGetOffice365ActiveUserCountsWithPeriod(string period) {
+        public GetOffice365ActiveUserCountsWithPeriodRequestBuilder GetOffice365ActiveUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365ActiveUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365ActiveUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetOffice365ActiveUserDetailWithDateRequestBuilder MicrosoftGraphGetOffice365ActiveUserDetailWithDate(Date? date) {
+        public GetOffice365ActiveUserDetailWithDateRequestBuilder GetOffice365ActiveUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getOffice365ActiveUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365ActiveUserDetailWithPeriodRequestBuilder MicrosoftGraphGetOffice365ActiveUserDetailWithPeriod(string period) {
+        public GetOffice365ActiveUserDetailWithPeriodRequestBuilder GetOffice365ActiveUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365ActiveUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365GroupsActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetOffice365GroupsActivityCountsWithPeriod(string period) {
+        public GetOffice365GroupsActivityCountsWithPeriodRequestBuilder GetOffice365GroupsActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365GroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetOffice365GroupsActivityDetailWithDateRequestBuilder MicrosoftGraphGetOffice365GroupsActivityDetailWithDate(Date? date) {
+        public GetOffice365GroupsActivityDetailWithDateRequestBuilder GetOffice365GroupsActivityDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365GroupsActivityDetailWithPeriodRequestBuilder MicrosoftGraphGetOffice365GroupsActivityDetailWithPeriod(string period) {
+        public GetOffice365GroupsActivityDetailWithPeriodRequestBuilder GetOffice365GroupsActivityDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365GroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityFileCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder MicrosoftGraphGetOffice365GroupsActivityFileCountsWithPeriod(string period) {
+        public GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder GetOffice365GroupsActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityGroupCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder MicrosoftGraphGetOffice365GroupsActivityGroupCountsWithPeriod(string period) {
+        public GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder GetOffice365GroupsActivityGroupCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365GroupsActivityStorage method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365GroupsActivityStorageWithPeriodRequestBuilder MicrosoftGraphGetOffice365GroupsActivityStorageWithPeriod(string period) {
+        public GetOffice365GroupsActivityStorageWithPeriodRequestBuilder GetOffice365GroupsActivityStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365GroupsActivityStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOffice365ServicesUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOffice365ServicesUserCountsWithPeriodRequestBuilder MicrosoftGraphGetOffice365ServicesUserCountsWithPeriod(string period) {
+        public GetOffice365ServicesUserCountsWithPeriodRequestBuilder GetOffice365ServicesUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOffice365ServicesUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveActivityFileCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveActivityFileCountsWithPeriodRequestBuilder MicrosoftGraphGetOneDriveActivityFileCountsWithPeriod(string period) {
+        public GetOneDriveActivityFileCountsWithPeriodRequestBuilder GetOneDriveActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetOneDriveActivityUserCountsWithPeriod(string period) {
+        public GetOneDriveActivityUserCountsWithPeriodRequestBuilder GetOneDriveActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetOneDriveActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetOneDriveActivityUserDetailWithDate(Date? date) {
+        public GetOneDriveActivityUserDetailWithDateRequestBuilder GetOneDriveActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetOneDriveActivityUserDetailWithPeriod(string period) {
+        public GetOneDriveActivityUserDetailWithPeriodRequestBuilder GetOneDriveActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveUsageAccountCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveUsageAccountCountsWithPeriodRequestBuilder MicrosoftGraphGetOneDriveUsageAccountCountsWithPeriod(string period) {
+        public GetOneDriveUsageAccountCountsWithPeriodRequestBuilder GetOneDriveUsageAccountCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveUsageAccountCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveUsageAccountDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetOneDriveUsageAccountDetailWithDateRequestBuilder MicrosoftGraphGetOneDriveUsageAccountDetailWithDate(Date? date) {
+        public GetOneDriveUsageAccountDetailWithDateRequestBuilder GetOneDriveUsageAccountDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveUsageAccountDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveUsageAccountDetailWithPeriodRequestBuilder MicrosoftGraphGetOneDriveUsageAccountDetailWithPeriod(string period) {
+        public GetOneDriveUsageAccountDetailWithPeriodRequestBuilder GetOneDriveUsageAccountDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveUsageAccountDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveUsageFileCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveUsageFileCountsWithPeriodRequestBuilder MicrosoftGraphGetOneDriveUsageFileCountsWithPeriod(string period) {
+        public GetOneDriveUsageFileCountsWithPeriodRequestBuilder GetOneDriveUsageFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getOneDriveUsageStorage method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetOneDriveUsageStorageWithPeriodRequestBuilder MicrosoftGraphGetOneDriveUsageStorageWithPeriod(string period) {
+        public GetOneDriveUsageStorageWithPeriodRequestBuilder GetOneDriveUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetOneDriveUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetOneDriveUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getPrinterArchivedPrintJobs method.
@@ -520,299 +520,299 @@ namespace Microsoft.Graph.Reports {
         /// <param name="endDateTime">Usage: endDateTime={endDateTime}</param>
         /// <param name="printerId">Usage: printerId=&apos;{printerId}&apos;</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
-        public MicrosoftGraphGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder MicrosoftGraphGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, string printerId, DateTimeOffset? startDateTime) {
+        public GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, string printerId, DateTimeOffset? startDateTime) {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(printerId)) throw new ArgumentNullException(nameof(printerId));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
-            return new MicrosoftGraphGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, printerId, startDateTime);
+            return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, printerId, startDateTime);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityFileCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointActivityFileCountsWithPeriodRequestBuilder MicrosoftGraphGetSharePointActivityFileCountsWithPeriod(string period) {
+        public GetSharePointActivityFileCountsWithPeriodRequestBuilder GetSharePointActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityPages method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointActivityPagesWithPeriodRequestBuilder MicrosoftGraphGetSharePointActivityPagesWithPeriod(string period) {
+        public GetSharePointActivityPagesWithPeriodRequestBuilder GetSharePointActivityPagesWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointActivityPagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointActivityPagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSharePointActivityUserCountsWithPeriod(string period) {
+        public GetSharePointActivityUserCountsWithPeriodRequestBuilder GetSharePointActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetSharePointActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetSharePointActivityUserDetailWithDate(Date? date) {
+        public GetSharePointActivityUserDetailWithDateRequestBuilder GetSharePointActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetSharePointActivityUserDetailWithPeriod(string period) {
+        public GetSharePointActivityUserDetailWithPeriodRequestBuilder GetSharePointActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsageDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetSharePointSiteUsageDetailWithDateRequestBuilder MicrosoftGraphGetSharePointSiteUsageDetailWithDate(Date? date) {
+        public GetSharePointSiteUsageDetailWithDateRequestBuilder GetSharePointSiteUsageDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsageDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointSiteUsageDetailWithPeriodRequestBuilder MicrosoftGraphGetSharePointSiteUsageDetailWithPeriod(string period) {
+        public GetSharePointSiteUsageDetailWithPeriodRequestBuilder GetSharePointSiteUsageDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointSiteUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsageFileCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointSiteUsageFileCountsWithPeriodRequestBuilder MicrosoftGraphGetSharePointSiteUsageFileCountsWithPeriod(string period) {
+        public GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder GetSharePointSiteUsageFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsagePages method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointSiteUsagePagesWithPeriodRequestBuilder MicrosoftGraphGetSharePointSiteUsagePagesWithPeriod(string period) {
+        public GetSharePointSiteUsagePagesWithPeriodRequestBuilder GetSharePointSiteUsagePagesWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointSiteUsagePagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsageSiteCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder MicrosoftGraphGetSharePointSiteUsageSiteCountsWithPeriod(string period) {
+        public GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder GetSharePointSiteUsageSiteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointSiteUsageStorage method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSharePointSiteUsageStorageWithPeriodRequestBuilder MicrosoftGraphGetSharePointSiteUsageStorageWithPeriod(string period) {
+        public GetSharePointSiteUsageStorageWithPeriodRequestBuilder GetSharePointSiteUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSharePointSiteUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessActivityCountsWithPeriod(string period) {
+        public GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessActivityUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithDate(Date? date) {
+        public GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder GetSkypeForBusinessActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithPeriod(string period) {
+        public GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder GetSkypeForBusinessActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessDeviceUsageDistributionUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessDeviceUsageUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessDeviceUsageUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithDate(Date? date) {
+        public GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithPeriod(string period) {
+        public GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessOrganizerActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessOrganizerActivityCountsWithPeriod(string period) {
+        public GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessOrganizerActivityMinuteCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod(string period) {
+        public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessOrganizerActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessOrganizerActivityUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessParticipantActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessParticipantActivityCountsWithPeriod(string period) {
+        public GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessParticipantActivityMinuteCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod(string period) {
+        public GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessParticipantActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessParticipantActivityUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessPeerToPeerActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityCountsWithPeriod(string period) {
+        public GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessPeerToPeerActivityMinuteCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod(string period) {
+        public GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSkypeForBusinessPeerToPeerActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod(string period) {
+        public GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsDeviceUsageDistributionUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder MicrosoftGraphGetTeamsDeviceUsageDistributionUserCountsWithPeriod(string period) {
+        public GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetTeamsDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsDeviceUsageUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder MicrosoftGraphGetTeamsDeviceUsageUserCountsWithPeriod(string period) {
+        public GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder GetTeamsDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetTeamsDeviceUsageUserDetailWithDateRequestBuilder MicrosoftGraphGetTeamsDeviceUsageUserDetailWithDate(Date? date) {
+        public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder GetTeamsDeviceUsageUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getTeamsDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder MicrosoftGraphGetTeamsDeviceUsageUserDetailWithPeriod(string period) {
+        public GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder GetTeamsDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsUserActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetTeamsUserActivityCountsWithPeriod(string period) {
+        public GetTeamsUserActivityCountsWithPeriodRequestBuilder GetTeamsUserActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsUserActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsUserActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsUserActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetTeamsUserActivityUserCountsWithPeriod(string period) {
+        public GetTeamsUserActivityUserCountsWithPeriodRequestBuilder GetTeamsUserActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetTeamsUserActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetTeamsUserActivityUserDetailWithDate(Date? date) {
+        public GetTeamsUserActivityUserDetailWithDateRequestBuilder GetTeamsUserActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetTeamsUserActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetTeamsUserActivityUserDetailWithPeriod(string period) {
+        public GetTeamsUserActivityUserDetailWithPeriodRequestBuilder GetTeamsUserActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetTeamsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getUserArchivedPrintJobs method.
@@ -820,107 +820,107 @@ namespace Microsoft.Graph.Reports {
         /// <param name="endDateTime">Usage: endDateTime={endDateTime}</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
         /// <param name="userId">Usage: userId=&apos;{userId}&apos;</param>
-        public MicrosoftGraphGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder MicrosoftGraphGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, DateTimeOffset? startDateTime, string userId) {
+        public GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(DateTimeOffset? endDateTime, DateTimeOffset? startDateTime, string userId) {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
             if(string.IsNullOrEmpty(userId)) throw new ArgumentNullException(nameof(userId));
-            return new MicrosoftGraphGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime, userId);
+            return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime, userId);
         }
         /// <summary>
         /// Provides operations to call the getYammerActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerActivityCountsWithPeriod(string period) {
+        public GetYammerActivityCountsWithPeriodRequestBuilder GetYammerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerActivityUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerActivityUserCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerActivityUserCountsWithPeriod(string period) {
+        public GetYammerActivityUserCountsWithPeriodRequestBuilder GetYammerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerActivityUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetYammerActivityUserDetailWithDateRequestBuilder MicrosoftGraphGetYammerActivityUserDetailWithDate(Date? date) {
+        public GetYammerActivityUserDetailWithDateRequestBuilder GetYammerActivityUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetYammerActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetYammerActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getYammerActivityUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerActivityUserDetailWithPeriodRequestBuilder MicrosoftGraphGetYammerActivityUserDetailWithPeriod(string period) {
+        public GetYammerActivityUserDetailWithPeriodRequestBuilder GetYammerActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerDeviceUsageDistributionUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerDeviceUsageDistributionUserCountsWithPeriod(string period) {
+        public GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetYammerDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerDeviceUsageUserCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerDeviceUsageUserCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerDeviceUsageUserCountsWithPeriod(string period) {
+        public GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder GetYammerDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetYammerDeviceUsageUserDetailWithDateRequestBuilder MicrosoftGraphGetYammerDeviceUsageUserDetailWithDate(Date? date) {
+        public GetYammerDeviceUsageUserDetailWithDateRequestBuilder GetYammerDeviceUsageUserDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getYammerDeviceUsageUserDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerDeviceUsageUserDetailWithPeriodRequestBuilder MicrosoftGraphGetYammerDeviceUsageUserDetailWithPeriod(string period) {
+        public GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder GetYammerDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerGroupsActivityCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerGroupsActivityCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerGroupsActivityCountsWithPeriod(string period) {
+        public GetYammerGroupsActivityCountsWithPeriodRequestBuilder GetYammerGroupsActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerGroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerGroupsActivityDetail method.
         /// </summary>
         /// <param name="date">Usage: date={date}</param>
-        public MicrosoftGraphGetYammerGroupsActivityDetailWithDateRequestBuilder MicrosoftGraphGetYammerGroupsActivityDetailWithDate(Date? date) {
+        public GetYammerGroupsActivityDetailWithDateRequestBuilder GetYammerGroupsActivityDetailWithDate(Date? date) {
             _ = date ?? throw new ArgumentNullException(nameof(date));
-            return new MicrosoftGraphGetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+            return new GetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Provides operations to call the getYammerGroupsActivityDetail method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerGroupsActivityDetailWithPeriodRequestBuilder MicrosoftGraphGetYammerGroupsActivityDetailWithPeriod(string period) {
+        public GetYammerGroupsActivityDetailWithPeriodRequestBuilder GetYammerGroupsActivityDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerGroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getYammerGroupsActivityGroupCounts method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphGetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder MicrosoftGraphGetYammerGroupsActivityGroupCountsWithPeriod(string period) {
+        public GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder GetYammerGroupsActivityGroupCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphGetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the managedDeviceEnrollmentFailureDetails method.
@@ -929,20 +929,20 @@ namespace Microsoft.Graph.Reports {
         /// <param name="skip">Usage: skip={skip}</param>
         /// <param name="skipToken">Usage: skipToken=&apos;{skipToken}&apos;</param>
         /// <param name="top">Usage: top={top}</param>
-        public MicrosoftGraphManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder MicrosoftGraphManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken(string filter, int? skip, string skipToken, int? top) {
+        public ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken(string filter, int? skip, string skipToken, int? top) {
             if(string.IsNullOrEmpty(filter)) throw new ArgumentNullException(nameof(filter));
             _ = skip ?? throw new ArgumentNullException(nameof(skip));
             if(string.IsNullOrEmpty(skipToken)) throw new ArgumentNullException(nameof(skipToken));
             _ = top ?? throw new ArgumentNullException(nameof(top));
-            return new MicrosoftGraphManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters, RequestAdapter, filter, skip, skipToken, top);
+            return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters, RequestAdapter, filter, skip, skipToken, top);
         }
         /// <summary>
         /// Provides operations to call the managedDeviceEnrollmentTopFailures method.
         /// </summary>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
-        public MicrosoftGraphManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder MicrosoftGraphManagedDeviceEnrollmentTopFailuresWithPeriod(string period) {
+        public ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder ManagedDeviceEnrollmentTopFailuresWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new MicrosoftGraphManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+            return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Update reports

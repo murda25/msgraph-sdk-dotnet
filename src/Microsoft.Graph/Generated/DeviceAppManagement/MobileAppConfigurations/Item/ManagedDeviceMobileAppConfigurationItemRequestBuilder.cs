@@ -1,7 +1,7 @@
+using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assign;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.DeviceStatuses;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.DeviceStatusSummary;
-using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.MicrosoftGraphAssign;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.UserStatuses;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.UserStatusSummary;
 using Microsoft.Graph.Models;
@@ -19,6 +19,10 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item {
     /// Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
     public class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
+        /// <summary>Provides operations to call the assign method.</summary>
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.</summary>
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -30,10 +34,6 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item {
         /// <summary>Provides operations to manage the deviceStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.</summary>
         public DeviceStatusSummaryRequestBuilder DeviceStatusSummary { get =>
             new DeviceStatusSummaryRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the assign method.</summary>
-        public MicrosoftGraphAssignRequestBuilder MicrosoftGraphAssign { get =>
-            new MicrosoftGraphAssignRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

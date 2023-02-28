@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Shares.Item.Permission.MicrosoftGraphGrant;
+using Microsoft.Graph.Shares.Item.Permission.Grant;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Shares.Item.Permission {
     /// </summary>
     public class PermissionRequestBuilder {
         /// <summary>Provides operations to call the grant method.</summary>
-        public MicrosoftGraphGrantRequestBuilder MicrosoftGraphGrant { get =>
-            new MicrosoftGraphGrantRequestBuilder(PathParameters, RequestAdapter);
+        public GrantRequestBuilder Grant { get =>
+            new GrantRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

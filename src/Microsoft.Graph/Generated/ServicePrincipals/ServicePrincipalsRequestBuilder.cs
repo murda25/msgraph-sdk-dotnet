@@ -1,11 +1,11 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.ServicePrincipals.Count;
+using Microsoft.Graph.ServicePrincipals.Delta;
+using Microsoft.Graph.ServicePrincipals.GetAvailableExtensionProperties;
+using Microsoft.Graph.ServicePrincipals.GetByIds;
 using Microsoft.Graph.ServicePrincipals.Item;
-using Microsoft.Graph.ServicePrincipals.MicrosoftGraphDelta;
-using Microsoft.Graph.ServicePrincipals.MicrosoftGraphGetAvailableExtensionProperties;
-using Microsoft.Graph.ServicePrincipals.MicrosoftGraphGetByIds;
-using Microsoft.Graph.ServicePrincipals.MicrosoftGraphValidateProperties;
+using Microsoft.Graph.ServicePrincipals.ValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -24,20 +24,16 @@ namespace Microsoft.Graph.ServicePrincipals {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
-            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
-            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
-            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -45,6 +41,10 @@ namespace Microsoft.Graph.ServicePrincipals {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the collection of servicePrincipal entities.</summary>
         public ServicePrincipalItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

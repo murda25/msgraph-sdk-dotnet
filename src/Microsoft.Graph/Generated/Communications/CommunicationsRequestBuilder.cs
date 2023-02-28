@@ -1,6 +1,6 @@
 using Microsoft.Graph.Communications.CallRecords;
 using Microsoft.Graph.Communications.Calls;
-using Microsoft.Graph.Communications.MicrosoftGraphGetPresencesByUserId;
+using Microsoft.Graph.Communications.GetPresencesByUserId;
 using Microsoft.Graph.Communications.OnlineMeetings;
 using Microsoft.Graph.Communications.Presences;
 using Microsoft.Graph.Models;
@@ -27,8 +27,8 @@ namespace Microsoft.Graph.Communications {
             new CallsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getPresencesByUserId method.</summary>
-        public MicrosoftGraphGetPresencesByUserIdRequestBuilder MicrosoftGraphGetPresencesByUserId { get =>
-            new MicrosoftGraphGetPresencesByUserIdRequestBuilder(PathParameters, RequestAdapter);
+        public GetPresencesByUserIdRequestBuilder GetPresencesByUserId { get =>
+            new GetPresencesByUserIdRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.</summary>
         public OnlineMeetingsRequestBuilder OnlineMeetings { get =>

@@ -1,8 +1,8 @@
 using Microsoft.Graph.DirectoryRoleTemplates.Count;
+using Microsoft.Graph.DirectoryRoleTemplates.GetAvailableExtensionProperties;
+using Microsoft.Graph.DirectoryRoleTemplates.GetByIds;
 using Microsoft.Graph.DirectoryRoleTemplates.Item;
-using Microsoft.Graph.DirectoryRoleTemplates.MicrosoftGraphGetAvailableExtensionProperties;
-using Microsoft.Graph.DirectoryRoleTemplates.MicrosoftGraphGetByIds;
-using Microsoft.Graph.DirectoryRoleTemplates.MicrosoftGraphValidateProperties;
+using Microsoft.Graph.DirectoryRoleTemplates.ValidateProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -23,16 +23,12 @@ namespace Microsoft.Graph.DirectoryRoleTemplates {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
-        public MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder MicrosoftGraphGetAvailableExtensionProperties { get =>
-            new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getByIds method.</summary>
-        public MicrosoftGraphGetByIdsRequestBuilder MicrosoftGraphGetByIds { get =>
-            new MicrosoftGraphGetByIdsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the validateProperties method.</summary>
-        public MicrosoftGraphValidatePropertiesRequestBuilder MicrosoftGraphValidateProperties { get =>
-            new MicrosoftGraphValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -40,6 +36,10 @@ namespace Microsoft.Graph.DirectoryRoleTemplates {
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to call the validateProperties method.</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the collection of directoryRoleTemplate entities.</summary>
         public DirectoryRoleTemplateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);

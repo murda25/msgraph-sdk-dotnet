@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Teamwork.MicrosoftGraphSendActivityNotificationToRecipients;
+using Microsoft.Graph.Teamwork.DeletedTeams;
+using Microsoft.Graph.Teamwork.SendActivityNotificationToRecipients;
 using Microsoft.Graph.Teamwork.WorkforceIntegrations;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -15,14 +16,18 @@ namespace Microsoft.Graph.Teamwork {
     /// Provides operations to manage the teamwork singleton.
     /// </summary>
     public class TeamworkRequestBuilder {
-        /// <summary>Provides operations to call the sendActivityNotificationToRecipients method.</summary>
-        public MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder MicrosoftGraphSendActivityNotificationToRecipients { get =>
-            new MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder(PathParameters, RequestAdapter);
+        /// <summary>Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.</summary>
+        public DeletedTeamsRequestBuilder DeletedTeams { get =>
+            new DeletedTeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the sendActivityNotificationToRecipients method.</summary>
+        public SendActivityNotificationToRecipientsRequestBuilder SendActivityNotificationToRecipients { get =>
+            new SendActivityNotificationToRecipientsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.</summary>

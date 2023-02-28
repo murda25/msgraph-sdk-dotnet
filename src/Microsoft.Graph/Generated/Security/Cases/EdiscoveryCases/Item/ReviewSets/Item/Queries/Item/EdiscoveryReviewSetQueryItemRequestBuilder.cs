@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphSecurityApplyTags;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item.SecurityApplyTags;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,14 +14,14 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Qu
     /// Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
     /// </summary>
     public class EdiscoveryReviewSetQueryItemRequestBuilder {
-        /// <summary>Provides operations to call the applyTags method.</summary>
-        public MicrosoftGraphSecurityApplyTagsRequestBuilder MicrosoftGraphSecurityApplyTags { get =>
-            new MicrosoftGraphSecurityApplyTagsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the applyTags method.</summary>
+        public SecurityApplyTagsRequestBuilder SecurityApplyTags { get =>
+            new SecurityApplyTagsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>

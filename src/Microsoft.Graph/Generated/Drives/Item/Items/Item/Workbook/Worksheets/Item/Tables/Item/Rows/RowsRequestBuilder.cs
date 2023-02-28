@@ -1,8 +1,7 @@
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Add;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Count;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.MicrosoftGraphAdd;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.MicrosoftGraphCount;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.MicrosoftGraphItemAtWithIndex;
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables.Item.Rows.ItemAtWithIndex;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -18,17 +17,13 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables
     /// Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
     /// </summary>
     public class RowsRequestBuilder {
-        /// <summary>Provides operations to count the resources in the collection.</summary>
-        public CountRequestBuilder Count { get =>
-            new CountRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the add method.</summary>
-        public MicrosoftGraphAddRequestBuilder MicrosoftGraphAdd { get =>
-            new MicrosoftGraphAddRequestBuilder(PathParameters, RequestAdapter);
+        public AddRequestBuilder Add { get =>
+            new AddRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the count method.</summary>
-        public MicrosoftGraphCountRequestBuilder MicrosoftGraphCount { get =>
-            new MicrosoftGraphCountRequestBuilder(PathParameters, RequestAdapter);
+        public CountRequestBuilder Count { get =>
+            new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -93,9 +88,9 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables
         /// Provides operations to call the itemAt method.
         /// </summary>
         /// <param name="index">Usage: index={index}</param>
-        public MicrosoftGraphItemAtWithIndexRequestBuilder MicrosoftGraphItemAtWithIndex(int? index) {
+        public ItemAtWithIndexRequestBuilder ItemAtWithIndex(int? index) {
             _ = index ?? throw new ArgumentNullException(nameof(index));
-            return new MicrosoftGraphItemAtWithIndexRequestBuilder(PathParameters, RequestAdapter, index);
+            return new ItemAtWithIndexRequestBuilder(PathParameters, RequestAdapter, index);
         }
         /// <summary>
         /// Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.

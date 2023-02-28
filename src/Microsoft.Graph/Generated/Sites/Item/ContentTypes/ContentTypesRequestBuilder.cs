@@ -1,10 +1,10 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Sites.Item.ContentTypes.AddCopy;
+using Microsoft.Graph.Sites.Item.ContentTypes.AddCopyFromContentTypeHub;
 using Microsoft.Graph.Sites.Item.ContentTypes.Count;
+using Microsoft.Graph.Sites.Item.ContentTypes.GetCompatibleHubContentTypes;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item;
-using Microsoft.Graph.Sites.Item.ContentTypes.MicrosoftGraphAddCopy;
-using Microsoft.Graph.Sites.Item.ContentTypes.MicrosoftGraphAddCopyFromContentTypeHub;
-using Microsoft.Graph.Sites.Item.ContentTypes.MicrosoftGraphGetCompatibleHubContentTypes;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,21 +18,21 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes {
     /// Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
     /// </summary>
     public class ContentTypesRequestBuilder {
+        /// <summary>Provides operations to call the addCopy method.</summary>
+        public AddCopyRequestBuilder AddCopy { get =>
+            new AddCopyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addCopyFromContentTypeHub method.</summary>
+        public AddCopyFromContentTypeHubRequestBuilder AddCopyFromContentTypeHub { get =>
+            new AddCopyFromContentTypeHubRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the addCopy method.</summary>
-        public MicrosoftGraphAddCopyRequestBuilder MicrosoftGraphAddCopy { get =>
-            new MicrosoftGraphAddCopyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addCopyFromContentTypeHub method.</summary>
-        public MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder MicrosoftGraphAddCopyFromContentTypeHub { get =>
-            new MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the getCompatibleHubContentTypes method.</summary>
-        public MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder MicrosoftGraphGetCompatibleHubContentTypes { get =>
-            new MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder(PathParameters, RequestAdapter);
+        public GetCompatibleHubContentTypesRequestBuilder GetCompatibleHubContentTypes { get =>
+            new GetCompatibleHubContentTypesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
