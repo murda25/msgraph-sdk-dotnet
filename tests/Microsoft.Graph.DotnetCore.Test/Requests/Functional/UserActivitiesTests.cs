@@ -9,6 +9,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using System.Threading.Tasks;
     using Xunit;
     using Microsoft.Graph.Models;
+    using Microsoft.Graph.Models.ODataErrors;
 
     public class UserActivitiesTests : GraphTestBase
     {
@@ -72,7 +73,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     Assert.True(false, "Ids not equal in create and get responses");
                 }
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }
@@ -115,7 +116,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     Assert.False(true, "History ids not equal in create and get responses");
                 }
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.False(true, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }
@@ -159,7 +160,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     Assert.False(true, "History ids not equal in create and get responses");
                 }
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.False(true, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }
@@ -192,7 +193,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     Assert.False(true, "Activity has not been deleted");
                 }
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.False(true, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }
@@ -239,7 +240,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     Assert.True(false, "History ids not equal in create and get responses");
                 }
             }
-            catch (ServiceException e)
+            catch (ODataError e)
             {
                 Assert.True(false, $"Something happened, check out a trace. Error code: {e.Error.Code}");
             }

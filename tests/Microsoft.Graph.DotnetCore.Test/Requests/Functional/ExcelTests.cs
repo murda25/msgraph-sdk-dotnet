@@ -14,10 +14,12 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using System.Threading.Tasks;
     using Xunit;
     using Microsoft.Graph.Models;
+    using Microsoft.Graph.Models.ODataErrors;
+
     /// <summary>
     /// The tests in this class cover the Excel REST API.
     /// </summary>
-    
+
     public class ExcelTests : GraphTestBase
     {
         [Fact (Skip = "No CI set up for functional tests")]
@@ -93,7 +95,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 // https://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/item_delete
                 await graphClient.Drives["driveId"].Items[fileId].DeleteAsync(requestConfiguration => requestConfiguration.Headers.Add("if-match","*"));
             }
-            catch (Microsoft.Graph.ServiceException e)
+            catch (ODataError e)
             {
                 if (e.Error.Code == "resourceModified")
                     Assert.True(false, "Error code: " + e.Error.Code + ", message: " + e.Error.Message);

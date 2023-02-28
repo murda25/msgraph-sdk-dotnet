@@ -7,6 +7,7 @@ using System;
 using Microsoft.Kiota.Abstractions;
 using Xunit;
 using Microsoft.Graph.DotnetCore.Test.Mocks;
+using Microsoft.Graph.Models.ODataErrors;
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
 {
@@ -76,12 +77,11 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Generated
             {
                 Assert.Throws<ArgumentNullException>(() => graphServiceClient.Me.ReminderViewWithStartDateTimeWithEndDateTime("",""));
             }
-            catch (ServiceException serviceException)
+            catch (ODataError exception)
             {
-                Assert.True(serviceException.IsMatch(GraphErrorCode.InvalidRequest.ToString()));
                 Assert.Equal(
                     "startDateTime is a required parameter for this method request.",
-                    serviceException.Error.Message);
+                    exception.Error.Message);
 
                 throw;
             }
