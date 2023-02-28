@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Graph.Drives.Item.Items.Item.Analytics;
@@ -194,3 +194,4 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
         new VersionsRequestBuilder(this._rawUrl+"/versions", RequestAdapter);
     }
 }
+*/
