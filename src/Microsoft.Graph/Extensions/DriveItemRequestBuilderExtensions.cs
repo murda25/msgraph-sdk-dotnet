@@ -1,21 +1,21 @@
-﻿/*using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Graph.Drives.Item.Items.Item.Analytics;
 using Microsoft.Graph.Drives.Item.Items.Item.Children;
 using Microsoft.Graph.Drives.Item.Items.Item.Content;
 using Microsoft.Graph.Drives.Item.Items.Item.ListItem;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCheckin;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCheckout;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCopy;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCreateLink;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCreateUploadSession;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphFollow;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphInvite;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphPreview;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphRestore;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphUnfollow;
-using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphValidatePermission;
+using Microsoft.Graph.Drives.Item.Items.Item.Checkin;
+using Microsoft.Graph.Drives.Item.Items.Item.Checkout;
+using Microsoft.Graph.Drives.Item.Items.Item.Copy;
+using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
+using Microsoft.Graph.Drives.Item.Items.Item.CreateUploadSession;
+using Microsoft.Graph.Drives.Item.Items.Item.Follow;
+using Microsoft.Graph.Drives.Item.Items.Item.Invite;
+using Microsoft.Graph.Drives.Item.Items.Item.Preview;
+using Microsoft.Graph.Drives.Item.Items.Item.Restore;
+using Microsoft.Graph.Drives.Item.Items.Item.Unfollow;
+using Microsoft.Graph.Drives.Item.Items.Item.ValidatePermission;
 using Microsoft.Graph.Drives.Item.Items.Item.Permissions;
 using Microsoft.Graph.Drives.Item.Items.Item.Subscriptions;
 using Microsoft.Graph.Drives.Item.Items.Item.Thumbnails;
@@ -109,14 +109,14 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
         new AnalyticsRequestBuilder(this._rawUrl + "/analytics", RequestAdapter);
     }
     /// <summary>Provides operations to call the checkin method.</summary>
-    public new MicrosoftGraphCheckinRequestBuilder MicrosoftGraphCheckin
+    public new CheckinRequestBuilder Checkin
     { get =>
-        new MicrosoftGraphCheckinRequestBuilder(this._rawUrl + "/microsoft.graph.checkin", RequestAdapter);
+        new CheckinRequestBuilder(this._rawUrl + "/microsoft.graph.checkin", RequestAdapter);
     }
     /// <summary>Provides operations to call the checkout method.</summary>
-    public new MicrosoftGraphCheckoutRequestBuilder MicrosoftGraphCheckout
+    public new CheckoutRequestBuilder Checkout
     { get =>
-        new MicrosoftGraphCheckoutRequestBuilder(this._rawUrl + "/microsoft.graph.checkout", RequestAdapter);
+        new CheckoutRequestBuilder(this._rawUrl + "/microsoft.graph.checkout", RequestAdapter);
     }
     /// <summary>Provides operations to manage the children property of the microsoft.graph.driveItem entity.</summary>
     public new ChildrenRequestBuilder Children { get =>
@@ -127,29 +127,29 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
         new ContentRequestBuilder(this._rawUrl + "/content", RequestAdapter);
     }
     /// <summary>Provides operations to call the copy method.</summary>
-    public new MicrosoftGraphCopyRequestBuilder MicrosoftGraphCopy
+    public new CopyRequestBuilder Copy
     { get =>
-        new MicrosoftGraphCopyRequestBuilder(this._rawUrl + "/microsoft.graph.copy", RequestAdapter);
+        new CopyRequestBuilder(this._rawUrl + "/microsoft.graph.copy", RequestAdapter);
     }
     /// <summary>Provides operations to call the createLink method.</summary>
-    public new MicrosoftGraphCreateLinkRequestBuilder MicrosoftGraphCreateLink
+    public new CreateLinkRequestBuilder CreateLink
     { get =>
-        new MicrosoftGraphCreateLinkRequestBuilder(this._rawUrl + "/microsoft.graph.createLink", RequestAdapter);
+        new CreateLinkRequestBuilder(this._rawUrl + "/microsoft.graph.createLink", RequestAdapter);
     }
     /// <summary>Provides operations to call the createUploadSession method.</summary>
-    public new MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession
+    public new CreateUploadSessionRequestBuilder CreateUploadSession
     { get =>
-        new MicrosoftGraphCreateUploadSessionRequestBuilder(this._rawUrl+"/microsoft.graph.createUploadSession" , RequestAdapter);
+        new CreateUploadSessionRequestBuilder(this._rawUrl+"/microsoft.graph.createUploadSession" , RequestAdapter);
     }
     /// <summary>Provides operations to call the follow method.</summary>
-    public new MicrosoftGraphFollowRequestBuilder MicrosoftGraphFollow
+    public new FollowRequestBuilder Follow
     { get =>
-        new MicrosoftGraphFollowRequestBuilder(this._rawUrl + "/microsoft.graph.follow", RequestAdapter);
+        new FollowRequestBuilder(this._rawUrl + "/microsoft.graph.follow", RequestAdapter);
     }
     /// <summary>Provides operations to call the invite method.</summary>
-    public new MicrosoftGraphInviteRequestBuilder MicrosoftGraphInvite
+    public new InviteRequestBuilder Invite
     { get =>
-        new MicrosoftGraphInviteRequestBuilder(this._rawUrl + "/microsoft.graph.invite", RequestAdapter);
+        new InviteRequestBuilder(this._rawUrl + "/microsoft.graph.invite", RequestAdapter);
     }
     /// <summary>Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.</summary>
     public new ListItemRequestBuilder ListItem { get =>
@@ -160,16 +160,16 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
         new PermissionsRequestBuilder(this._rawUrl+"/permissions", RequestAdapter);
     }
     /// <summary>Provides operations to call the preview method.</summary>
-    public new MicrosoftGraphPreviewRequestBuilder MicrosoftGraphPreview
+    public new PreviewRequestBuilder Preview
     { get =>
-        new MicrosoftGraphPreviewRequestBuilder(this._rawUrl+"/microsoft.graph.preview", RequestAdapter);
+        new PreviewRequestBuilder(this._rawUrl+"/microsoft.graph.preview", RequestAdapter);
     }
     /// <summary>The request adapter to use to execute the requests.</summary>
     private IRequestAdapter RequestAdapter { get; set; }
     /// <summary>Provides operations to call the restore method.</summary>
-    public new MicrosoftGraphRestoreRequestBuilder MicrosoftGraphRestore
+    public new RestoreRequestBuilder Restore
     { get =>
-        new MicrosoftGraphRestoreRequestBuilder(this._rawUrl+"/microsoft.graph.restore", RequestAdapter);
+        new RestoreRequestBuilder(this._rawUrl+"/microsoft.graph.restore", RequestAdapter);
     }
     /// <summary>Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.</summary>
     public new SubscriptionsRequestBuilder Subscriptions { get =>
@@ -180,18 +180,17 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
         new ThumbnailsRequestBuilder(this._rawUrl+"/thumbnails", RequestAdapter);
     }
     /// <summary>Provides operations to call the unfollow method.</summary>
-    public new MicrosoftGraphUnfollowRequestBuilder MicrosoftGraphUnfollow
+    public new UnfollowRequestBuilder Unfollow
     { get =>
-        new MicrosoftGraphUnfollowRequestBuilder(this._rawUrl+"/microsoft.graph.unfollow", RequestAdapter);
+        new UnfollowRequestBuilder(this._rawUrl+"/microsoft.graph.unfollow", RequestAdapter);
     }
     /// <summary>Provides operations to call the validatePermission method.</summary>
-    public new MicrosoftGraphValidatePermissionRequestBuilder MicrosoftGraphValidatePermission
+    public new ValidatePermissionRequestBuilder ValidatePermission
     { get =>
-        new MicrosoftGraphValidatePermissionRequestBuilder(this._rawUrl+"/microsoft.graph.validatePermission", RequestAdapter);
+        new ValidatePermissionRequestBuilder(this._rawUrl+"/microsoft.graph.validatePermission", RequestAdapter);
     }
     /// <summary>Provides operations to manage the versions property of the microsoft.graph.driveItem entity.</summary>
     public new VersionsRequestBuilder Versions { get =>
         new VersionsRequestBuilder(this._rawUrl+"/versions", RequestAdapter);
     }
 }
-*/

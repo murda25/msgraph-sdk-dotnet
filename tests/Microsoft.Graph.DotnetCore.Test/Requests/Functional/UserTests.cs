@@ -4,9 +4,9 @@
 
 namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
 {
-    using Microsoft.Graph.Me.MicrosoftGraphGetMailTips;
-    using Microsoft.Graph.Me.MicrosoftGraphGetMemberGroups;
-    using AssignLicensePostRequestBody = Microsoft.Graph.Me.MicrosoftGraphAssignLicense.AssignLicensePostRequestBody;
+    using Microsoft.Graph.Me.GetMailTips;
+    using Microsoft.Graph.Me.GetMemberGroups;
+    using AssignLicensePostRequestBody = Microsoft.Graph.Me.AssignLicense.AssignLicensePostRequestBody;
     using Microsoft.Graph.DotnetCore.Test.Requests.Functional.Resources;
     using Microsoft.Graph.Models;
     using System;
@@ -34,7 +34,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 {
                     EmailAddresses = emailAddresses, MailTipsOptions = mailTipsOptions
                 };
-                var mailTipsCollectionPage = await graphClient.Me.MicrosoftGraphGetMailTips.PostAsync(requestBody);
+                var mailTipsCollectionPage = await graphClient.Me.GetMailTips.PostAsync(requestBody);
 
                 foreach (var mt in mailTipsCollectionPage.Value)
                 {
@@ -301,7 +301,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                     AddLicenses = new List<AssignedLicense>(),
                     RemoveLicenses = new ()
                 };
-                var user = await graphClient.Me.MicrosoftGraphAssignLicense.PostAsync(requestBody);
+                var user = await graphClient.Me.AssignLicense.PostAsync(requestBody);
                 Assert.Null(user);
 
             }
@@ -320,7 +320,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var getMemberGroupsRequest = graphClient.Me.MicrosoftGraphGetMemberGroups;
+                var getMemberGroupsRequest = graphClient.Me.GetMemberGroups;
                 var requestBody = new GetMemberGroupsPostRequestBody
                 {
                     SecurityEnabledOnly = true
@@ -346,7 +346,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         {
             try
             {
-                var getMemberGroupsRequest = graphClient.Me.MicrosoftGraphGetMemberGroups;
+                var getMemberGroupsRequest = graphClient.Me.GetMemberGroups;
                 var requestBody = new GetMemberGroupsPostRequestBody();
                 var directoryObjectGetMemberGroupsCollectionPage = await getMemberGroupsRequest.PostAsync(requestBody);
             }

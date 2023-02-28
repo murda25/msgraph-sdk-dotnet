@@ -13,8 +13,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
     using Microsoft.Graph.Drives.Item.Items.Item.Permissions;
     using Microsoft.Graph.Models;
     using Microsoft.Graph.Drives.Item.Items.Item.Children;
-    using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphCreateLink;
-    using Microsoft.Graph.Drives.Item.Items.Item.MicrosoftGraphInvite;
+    using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
+    using Microsoft.Graph.Drives.Item.Items.Item.Invite;
 
     public class OneDriveTests : GraphTestBase
     {
@@ -22,7 +22,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
         public async Task OneDriveSharedWithMe()
         {
 
-            var sharedDriveItems = await graphClient.Drives["driveId"].MicrosoftGraphSharedWithMe.GetAsync();
+            var sharedDriveItems = await graphClient.Drives["driveId"].SharedWithMe.GetAsync();
             var permissionsPage = await graphClient.Drives["driveId"].Items[sharedDriveItems.Value[0].Id].Permissions.GetAsync();
             var permissions = new List<Permission>();
             permissions.AddRange(permissionsPage.Value);
@@ -231,7 +231,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
             try
             {
                 // http://graph.microsoft.io/en-us/docs/api-reference/v1.0/api/item_search
-                var driveItems = await graphClient.Drives["driveId"].MicrosoftGraphSearchWithQ("employee services").GetAsync();
+                var driveItems = await graphClient.Drives["driveId"].SearchWithQ("employee services").GetAsync();
 
                 // Expecting two results.
                 Assert.Equal(2, driveItems.Value.Count);
@@ -258,7 +258,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var requestBody = new CreateLinkPostRequestBody { Type = "edit", Scope = "organization" };
                 var permission = await graphClient.Drives["driveId"].Root
                                                            .ItemWithPath(itemToShare.Value[0].Name)
-                                                           .MicrosoftGraphCreateLink
+                                                           .CreateLink
                                                            .PostAsync(requestBody);
 
                 Assert.Equal("organization", permission.Link.Scope);
@@ -311,7 +311,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Functional
                 var inviteCollection = await graphClient.Drives["driveId"]
                                                            .Root
                                                            .ItemWithPath(itemToShare.Value[0].Name)
-                                                           .MicrosoftGraphInvite
+                                                           .Invite
                                                            .PostAsync(invitePostBody);
 
                 Assert.Equal("Alex Wilber", inviteCollection.Value[0].GrantedTo.User.DisplayName);

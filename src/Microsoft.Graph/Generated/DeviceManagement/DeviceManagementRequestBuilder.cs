@@ -12,12 +12,11 @@ using Microsoft.Graph.DeviceManagement.DeviceConfigurations;
 using Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations;
 using Microsoft.Graph.DeviceManagement.DeviceManagementPartners;
 using Microsoft.Graph.DeviceManagement.ExchangeConnectors;
+using Microsoft.Graph.DeviceManagement.GetEffectivePermissionsWithScope;
 using Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
 using Microsoft.Graph.DeviceManagement.IosUpdateStatuses;
 using Microsoft.Graph.DeviceManagement.ManagedDeviceOverview;
 using Microsoft.Graph.DeviceManagement.ManagedDevices;
-using Microsoft.Graph.DeviceManagement.MicrosoftGraphGetEffectivePermissionsWithScope;
-using Microsoft.Graph.DeviceManagement.MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
 using Microsoft.Graph.DeviceManagement.MobileThreatDefenseConnectors;
 using Microsoft.Graph.DeviceManagement.NotificationMessageTemplates;
 using Microsoft.Graph.DeviceManagement.RemoteAssistancePartners;
@@ -29,6 +28,7 @@ using Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary;
 using Microsoft.Graph.DeviceManagement.TelecomExpenseManagementPartners;
 using Microsoft.Graph.DeviceManagement.TermsAndConditions;
 using Microsoft.Graph.DeviceManagement.TroubleshootingEvents;
+using Microsoft.Graph.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
 using Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities;
 using Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
 using Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
@@ -231,17 +231,9 @@ namespace Microsoft.Graph.DeviceManagement {
         /// Provides operations to call the getEffectivePermissions method.
         /// </summary>
         /// <param name="scope">Usage: scope=&apos;{scope}&apos;</param>
-        public MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder MicrosoftGraphGetEffectivePermissionsWithScope(string scope) {
+        public GetEffectivePermissionsWithScopeRequestBuilder GetEffectivePermissionsWithScope(string scope) {
             if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
-            return new MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilder(PathParameters, RequestAdapter, scope);
-        }
-        /// <summary>
-        /// Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
-        /// </summary>
-        /// <param name="domainName">Usage: domainName=&apos;{domainName}&apos;</param>
-        public MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
-            if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
-            return new MicrosoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
+            return new GetEffectivePermissionsWithScopeRequestBuilder(PathParameters, RequestAdapter, scope);
         }
         /// <summary>
         /// Update deviceManagement
@@ -317,6 +309,14 @@ namespace Microsoft.Graph.DeviceManagement {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+        /// </summary>
+        /// <param name="domainName">Usage: domainName=&apos;{domainName}&apos;</param>
+        public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder VerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
+            if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
+            return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
         }
         /// <summary>
         /// Get deviceManagement

@@ -1,4 +1,4 @@
-using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances.Item.MicrosoftGraphGenerateDownloadUri;
+using Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.Item.Instances.Item.GenerateDownloadUri;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.HistoryDefinitions.It
     /// </summary>
     public class AccessReviewHistoryInstanceItemRequestBuilder {
         /// <summary>Provides operations to call the generateDownloadUri method.</summary>
-        public MicrosoftGraphGenerateDownloadUriRequestBuilder MicrosoftGraphGenerateDownloadUri { get =>
-            new MicrosoftGraphGenerateDownloadUriRequestBuilder(PathParameters, RequestAdapter);
+        public GenerateDownloadUriRequestBuilder GenerateDownloadUri { get =>
+            new GenerateDownloadUriRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

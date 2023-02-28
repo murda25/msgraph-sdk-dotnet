@@ -1,8 +1,8 @@
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Attachments;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Extensions;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.MicrosoftGraphForward;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.MicrosoftGraphReply;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Forward;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.MultiValueExtendedProperties;
+using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.Reply;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo.SingleValueExtendedProperties;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
@@ -28,12 +28,8 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the forward method.</summary>
-        public MicrosoftGraphForwardRequestBuilder MicrosoftGraphForward { get =>
-            new MicrosoftGraphForwardRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the reply method.</summary>
-        public MicrosoftGraphReplyRequestBuilder MicrosoftGraphReply { get =>
-            new MicrosoftGraphReplyRequestBuilder(PathParameters, RequestAdapter);
+        public ForwardRequestBuilder Forward { get =>
+            new ForwardRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.</summary>
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
@@ -41,6 +37,10 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the reply method.</summary>
+        public ReplyRequestBuilder Reply { get =>
+            new ReplyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.</summary>

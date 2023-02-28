@@ -1,10 +1,10 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.MicrosoftGraphShare;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OfferShiftRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OpenShiftChangeRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OpenShifts;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SchedulingGroups;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.Share;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.Shifts;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SwapShiftsChangeRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons;
@@ -23,10 +23,6 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule {
     /// Provides operations to manage the schedule property of the microsoft.graph.team entity.
     /// </summary>
     public class ScheduleRequestBuilder {
-        /// <summary>Provides operations to call the share method.</summary>
-        public MicrosoftGraphShareRequestBuilder MicrosoftGraphShare { get =>
-            new MicrosoftGraphShareRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.</summary>
         public OfferShiftRequestsRequestBuilder OfferShiftRequests { get =>
             new OfferShiftRequestsRequestBuilder(PathParameters, RequestAdapter);
@@ -46,6 +42,10 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule {
         /// <summary>Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.</summary>
         public SchedulingGroupsRequestBuilder SchedulingGroups { get =>
             new SchedulingGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the share method.</summary>
+        public ShareRequestBuilder Share { get =>
+            new ShareRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the shifts property of the microsoft.graph.schedule entity.</summary>
         public ShiftsRequestBuilder Shifts { get =>

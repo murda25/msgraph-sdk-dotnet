@@ -1,7 +1,7 @@
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Add;
+using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.AddFormulaLocal;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Count;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Item;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.MicrosoftGraphAdd;
-using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.MicrosoftGraphAddFormulaLocal;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -17,17 +17,17 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names {
     /// Provides operations to manage the names property of the microsoft.graph.workbook entity.
     /// </summary>
     public class NamesRequestBuilder {
+        /// <summary>Provides operations to call the add method.</summary>
+        public AddRequestBuilder Add { get =>
+            new AddRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addFormulaLocal method.</summary>
+        public AddFormulaLocalRequestBuilder AddFormulaLocal { get =>
+            new AddFormulaLocalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the add method.</summary>
-        public MicrosoftGraphAddRequestBuilder MicrosoftGraphAdd { get =>
-            new MicrosoftGraphAddRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addFormulaLocal method.</summary>
-        public MicrosoftGraphAddFormulaLocalRequestBuilder MicrosoftGraphAddFormulaLocal { get =>
-            new MicrosoftGraphAddFormulaLocalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names {
         }
         /// <summary>
         /// Retrieve a list of nameditem objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

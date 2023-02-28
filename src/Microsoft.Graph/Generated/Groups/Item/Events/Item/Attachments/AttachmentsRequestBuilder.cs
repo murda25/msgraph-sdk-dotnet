@@ -1,6 +1,6 @@
 using Microsoft.Graph.Groups.Item.Events.Item.Attachments.Count;
+using Microsoft.Graph.Groups.Item.Events.Item.Attachments.CreateUploadSession;
 using Microsoft.Graph.Groups.Item.Events.Item.Attachments.Item;
-using Microsoft.Graph.Groups.Item.Events.Item.Attachments.MicrosoftGraphCreateUploadSession;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Attachments {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createUploadSession method.</summary>
-        public MicrosoftGraphCreateUploadSessionRequestBuilder MicrosoftGraphCreateUploadSession { get =>
-            new MicrosoftGraphCreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
+        public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
+            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

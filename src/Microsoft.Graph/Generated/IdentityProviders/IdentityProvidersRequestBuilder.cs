@@ -1,6 +1,6 @@
+using Microsoft.Graph.IdentityProviders.AvailableProviderTypes;
 using Microsoft.Graph.IdentityProviders.Count;
 using Microsoft.Graph.IdentityProviders.Item;
-using Microsoft.Graph.IdentityProviders.MicrosoftGraphAvailableProviderTypes;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -16,13 +16,13 @@ namespace Microsoft.Graph.IdentityProviders {
     /// Provides operations to manage the collection of identityProvider entities.
     /// </summary>
     public class IdentityProvidersRequestBuilder {
+        /// <summary>Provides operations to call the availableProviderTypes method.</summary>
+        public AvailableProviderTypesRequestBuilder AvailableProviderTypes { get =>
+            new AvailableProviderTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the availableProviderTypes method.</summary>
-        public MicrosoftGraphAvailableProviderTypesRequestBuilder MicrosoftGraphAvailableProviderTypes { get =>
-            new MicrosoftGraphAvailableProviderTypesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

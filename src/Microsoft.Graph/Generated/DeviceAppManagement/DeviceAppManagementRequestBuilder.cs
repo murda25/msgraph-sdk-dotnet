@@ -6,10 +6,10 @@ using Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations;
 using Microsoft.Graph.DeviceAppManagement.ManagedAppStatuses;
 using Microsoft.Graph.DeviceAppManagement.ManagedEBooks;
 using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies;
-using Microsoft.Graph.DeviceAppManagement.MicrosoftGraphSyncMicrosoftStoreForBusinessApps;
 using Microsoft.Graph.DeviceAppManagement.MobileAppCategories;
 using Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations;
 using Microsoft.Graph.DeviceAppManagement.MobileApps;
+using Microsoft.Graph.DeviceAppManagement.SyncMicrosoftStoreForBusinessApps;
 using Microsoft.Graph.DeviceAppManagement.TargetedManagedAppConfigurations;
 using Microsoft.Graph.DeviceAppManagement.VppTokens;
 using Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolicies;
@@ -60,10 +60,6 @@ namespace Microsoft.Graph.DeviceAppManagement {
         public MdmWindowsInformationProtectionPoliciesRequestBuilder MdmWindowsInformationProtectionPolicies { get =>
             new MdmWindowsInformationProtectionPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the syncMicrosoftStoreForBusinessApps method.</summary>
-        public MicrosoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder MicrosoftGraphSyncMicrosoftStoreForBusinessApps { get =>
-            new MicrosoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.</summary>
         public MobileAppCategoriesRequestBuilder MobileAppCategories { get =>
             new MobileAppCategoriesRequestBuilder(PathParameters, RequestAdapter);
@@ -80,6 +76,10 @@ namespace Microsoft.Graph.DeviceAppManagement {
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the syncMicrosoftStoreForBusinessApps method.</summary>
+        public SyncMicrosoftStoreForBusinessAppsRequestBuilder SyncMicrosoftStoreForBusinessApps { get =>
+            new SyncMicrosoftStoreForBusinessAppsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.</summary>
         public TargetedManagedAppConfigurationsRequestBuilder TargetedManagedAppConfigurations { get =>
             new TargetedManagedAppConfigurationsRequestBuilder(PathParameters, RequestAdapter);

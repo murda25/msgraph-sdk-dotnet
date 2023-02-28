@@ -1,27 +1,28 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.ServicePrincipals.Item.AddKey;
+using Microsoft.Graph.ServicePrincipals.Item.AddPassword;
+using Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate;
+using Microsoft.Graph.ServicePrincipals.Item.AppManagementPolicies;
 using Microsoft.Graph.ServicePrincipals.Item.AppRoleAssignedTo;
 using Microsoft.Graph.ServicePrincipals.Item.AppRoleAssignments;
+using Microsoft.Graph.ServicePrincipals.Item.CheckMemberGroups;
+using Microsoft.Graph.ServicePrincipals.Item.CheckMemberObjects;
 using Microsoft.Graph.ServicePrincipals.Item.ClaimsMappingPolicies;
 using Microsoft.Graph.ServicePrincipals.Item.CreatedObjects;
 using Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassifications;
 using Microsoft.Graph.ServicePrincipals.Item.Endpoints;
 using Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials;
+using Microsoft.Graph.ServicePrincipals.Item.GetMemberGroups;
+using Microsoft.Graph.ServicePrincipals.Item.GetMemberObjects;
 using Microsoft.Graph.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
 using Microsoft.Graph.ServicePrincipals.Item.MemberOf;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphAddKey;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphAddPassword;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphAddTokenSigningCertificate;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphCheckMemberGroups;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphCheckMemberObjects;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphGetMemberGroups;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphGetMemberObjects;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphRemoveKey;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphRemovePassword;
-using Microsoft.Graph.ServicePrincipals.Item.MicrosoftGraphRestore;
 using Microsoft.Graph.ServicePrincipals.Item.Oauth2PermissionGrants;
 using Microsoft.Graph.ServicePrincipals.Item.OwnedObjects;
 using Microsoft.Graph.ServicePrincipals.Item.Owners;
+using Microsoft.Graph.ServicePrincipals.Item.RemoveKey;
+using Microsoft.Graph.ServicePrincipals.Item.RemovePassword;
+using Microsoft.Graph.ServicePrincipals.Item.Restore;
 using Microsoft.Graph.ServicePrincipals.Item.TokenIssuancePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf;
@@ -38,6 +39,22 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
     /// Provides operations to manage the collection of servicePrincipal entities.
     /// </summary>
     public class ServicePrincipalItemRequestBuilder {
+        /// <summary>Provides operations to call the addKey method.</summary>
+        public AddKeyRequestBuilder AddKey { get =>
+            new AddKeyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addPassword method.</summary>
+        public AddPasswordRequestBuilder AddPassword { get =>
+            new AddPasswordRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addTokenSigningCertificate method.</summary>
+        public AddTokenSigningCertificateRequestBuilder AddTokenSigningCertificate { get =>
+            new AddTokenSigningCertificateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the appManagementPolicies property of the microsoft.graph.servicePrincipal entity.</summary>
+        public AppManagementPoliciesRequestBuilder AppManagementPolicies { get =>
+            new AppManagementPoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.</summary>
         public AppRoleAssignedToRequestBuilder AppRoleAssignedTo { get =>
             new AppRoleAssignedToRequestBuilder(PathParameters, RequestAdapter);
@@ -45,6 +62,14 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         /// <summary>Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.</summary>
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
             new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity.</summary>
         public ClaimsMappingPoliciesRequestBuilder ClaimsMappingPolicies { get =>
@@ -66,6 +91,14 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         public FederatedIdentityCredentialsRequestBuilder FederatedIdentityCredentials { get =>
             new FederatedIdentityCredentialsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the getMemberGroups method.</summary>
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getMemberObjects method.</summary>
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.servicePrincipal entity.</summary>
         public HomeRealmDiscoveryPoliciesRequestBuilder HomeRealmDiscoveryPolicies { get =>
             new HomeRealmDiscoveryPoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -73,46 +106,6 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         /// <summary>Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.</summary>
         public MemberOfRequestBuilder MemberOf { get =>
             new MemberOfRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addKey method.</summary>
-        public MicrosoftGraphAddKeyRequestBuilder MicrosoftGraphAddKey { get =>
-            new MicrosoftGraphAddKeyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addPassword method.</summary>
-        public MicrosoftGraphAddPasswordRequestBuilder MicrosoftGraphAddPassword { get =>
-            new MicrosoftGraphAddPasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addTokenSigningCertificate method.</summary>
-        public MicrosoftGraphAddTokenSigningCertificateRequestBuilder MicrosoftGraphAddTokenSigningCertificate { get =>
-            new MicrosoftGraphAddTokenSigningCertificateRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkMemberGroups method.</summary>
-        public MicrosoftGraphCheckMemberGroupsRequestBuilder MicrosoftGraphCheckMemberGroups { get =>
-            new MicrosoftGraphCheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the checkMemberObjects method.</summary>
-        public MicrosoftGraphCheckMemberObjectsRequestBuilder MicrosoftGraphCheckMemberObjects { get =>
-            new MicrosoftGraphCheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the getMemberGroups method.</summary>
-        public MicrosoftGraphGetMemberGroupsRequestBuilder MicrosoftGraphGetMemberGroups { get =>
-            new MicrosoftGraphGetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the getMemberObjects method.</summary>
-        public MicrosoftGraphGetMemberObjectsRequestBuilder MicrosoftGraphGetMemberObjects { get =>
-            new MicrosoftGraphGetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the removeKey method.</summary>
-        public MicrosoftGraphRemoveKeyRequestBuilder MicrosoftGraphRemoveKey { get =>
-            new MicrosoftGraphRemoveKeyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the removePassword method.</summary>
-        public MicrosoftGraphRemovePasswordRequestBuilder MicrosoftGraphRemovePassword { get =>
-            new MicrosoftGraphRemovePasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the restore method.</summary>
-        public MicrosoftGraphRestoreRequestBuilder MicrosoftGraphRestore { get =>
-            new MicrosoftGraphRestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity.</summary>
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
@@ -128,8 +121,20 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to call the removeKey method.</summary>
+        public RemoveKeyRequestBuilder RemoveKey { get =>
+            new RemoveKeyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the removePassword method.</summary>
+        public RemovePasswordRequestBuilder RemovePassword { get =>
+            new RemovePasswordRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the restore method.</summary>
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.</summary>
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
             new TokenIssuancePoliciesRequestBuilder(PathParameters, RequestAdapter);

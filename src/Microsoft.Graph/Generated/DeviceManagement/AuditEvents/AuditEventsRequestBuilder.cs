@@ -1,7 +1,7 @@
 using Microsoft.Graph.DeviceManagement.AuditEvents.Count;
+using Microsoft.Graph.DeviceManagement.AuditEvents.GetAuditActivityTypesWithCategory;
+using Microsoft.Graph.DeviceManagement.AuditEvents.GetAuditCategories;
 using Microsoft.Graph.DeviceManagement.AuditEvents.Item;
-using Microsoft.Graph.DeviceManagement.AuditEvents.MicrosoftGraphGetAuditActivityTypesWithCategory;
-using Microsoft.Graph.DeviceManagement.AuditEvents.MicrosoftGraphGetAuditCategories;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -22,8 +22,8 @@ namespace Microsoft.Graph.DeviceManagement.AuditEvents {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAuditCategories method.</summary>
-        public MicrosoftGraphGetAuditCategoriesRequestBuilder MicrosoftGraphGetAuditCategories { get =>
-            new MicrosoftGraphGetAuditCategoriesRequestBuilder(PathParameters, RequestAdapter);
+        public GetAuditCategoriesRequestBuilder GetAuditCategories { get =>
+            new GetAuditCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -87,9 +87,9 @@ namespace Microsoft.Graph.DeviceManagement.AuditEvents {
         /// Provides operations to call the getAuditActivityTypes method.
         /// </summary>
         /// <param name="category">Usage: category=&apos;{category}&apos;</param>
-        public MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder MicrosoftGraphGetAuditActivityTypesWithCategory(string category) {
+        public GetAuditActivityTypesWithCategoryRequestBuilder GetAuditActivityTypesWithCategory(string category) {
             if(string.IsNullOrEmpty(category)) throw new ArgumentNullException(nameof(category));
-            return new MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder(PathParameters, RequestAdapter, category);
+            return new GetAuditActivityTypesWithCategoryRequestBuilder(PathParameters, RequestAdapter, category);
         }
         /// <summary>
         /// Create new navigation property to auditEvents for deviceManagement

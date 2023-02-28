@@ -5,9 +5,9 @@ using Microsoft.Graph.Security.Alerts;
 using Microsoft.Graph.Security.AttackSimulation;
 using Microsoft.Graph.Security.Cases;
 using Microsoft.Graph.Security.Incidents;
-using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
+using Microsoft.Graph.Security.SecurityRunHuntingQuery;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -41,10 +41,6 @@ namespace Microsoft.Graph.Security {
         public IncidentsRequestBuilder Incidents { get =>
             new IncidentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
-        public MicrosoftGraphSecurityRunHuntingQueryRequestBuilder MicrosoftGraphSecurityRunHuntingQuery { get =>
-            new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
@@ -56,6 +52,10 @@ namespace Microsoft.Graph.Security {
         /// <summary>Provides operations to manage the secureScores property of the microsoft.graph.security entity.</summary>
         public SecureScoresRequestBuilder SecureScores { get =>
             new SecureScoresRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
+        public SecurityRunHuntingQueryRequestBuilder SecurityRunHuntingQuery { get =>
+            new SecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }

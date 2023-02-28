@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts.Count;
+using Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts.Delta;
 using Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts.Item;
-using Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts.MicrosoftGraphDelta;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -21,8 +21,8 @@ namespace Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the delta method.</summary>
-        public MicrosoftGraphDeltaRequestBuilder MicrosoftGraphDelta { get =>
-            new MicrosoftGraphDeltaRequestBuilder(PathParameters, RequestAdapter);
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

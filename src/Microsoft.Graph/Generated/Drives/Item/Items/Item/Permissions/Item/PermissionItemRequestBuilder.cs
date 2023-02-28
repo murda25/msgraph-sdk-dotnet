@@ -1,4 +1,4 @@
-using Microsoft.Graph.Drives.Item.Items.Item.Permissions.Item.MicrosoftGraphGrant;
+using Microsoft.Graph.Drives.Item.Items.Item.Permissions.Item.Grant;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Permissions.Item {
     /// </summary>
     public class PermissionItemRequestBuilder {
         /// <summary>Provides operations to call the grant method.</summary>
-        public MicrosoftGraphGrantRequestBuilder MicrosoftGraphGrant { get =>
-            new MicrosoftGraphGrantRequestBuilder(PathParameters, RequestAdapter);
+        public GrantRequestBuilder Grant { get =>
+            new GrantRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }

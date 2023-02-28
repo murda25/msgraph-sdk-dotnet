@@ -1,6 +1,6 @@
 using Microsoft.Graph.Me.Teamwork.AssociatedTeams;
 using Microsoft.Graph.Me.Teamwork.InstalledApps;
-using Microsoft.Graph.Me.Teamwork.MicrosoftGraphSendActivityNotification;
+using Microsoft.Graph.Me.Teamwork.SendActivityNotification;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions;
@@ -24,14 +24,14 @@ namespace Microsoft.Graph.Me.Teamwork {
         public InstalledAppsRequestBuilder InstalledApps { get =>
             new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
-        public MicrosoftGraphSendActivityNotificationRequestBuilder MicrosoftGraphSendActivityNotification { get =>
-            new MicrosoftGraphSendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the sendActivityNotification method.</summary>
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
         /// <summary>
