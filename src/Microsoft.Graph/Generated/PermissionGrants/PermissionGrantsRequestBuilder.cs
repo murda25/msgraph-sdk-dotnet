@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.PermissionGrants.Delta;
 using Microsoft.Graph.PermissionGrants.GetAvailableExtensionProperties;
 using Microsoft.Graph.PermissionGrants.GetByIds;
 using Microsoft.Graph.PermissionGrants.Item;
@@ -17,6 +18,10 @@ namespace Microsoft.Graph.PermissionGrants {
     /// Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
     /// </summary>
     public class PermissionGrantsRequestBuilder {
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
             new GetAvailableExtensionPropertiesRequestBuilder(PathParameters, RequestAdapter);

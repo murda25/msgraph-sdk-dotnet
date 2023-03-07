@@ -1,4 +1,5 @@
 using Microsoft.Graph.Contracts.Count;
+using Microsoft.Graph.Contracts.Delta;
 using Microsoft.Graph.Contracts.GetAvailableExtensionProperties;
 using Microsoft.Graph.Contracts.GetByIds;
 using Microsoft.Graph.Contracts.Item;
@@ -21,6 +22,10 @@ namespace Microsoft.Graph.Contracts {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>

@@ -1,4 +1,5 @@
 using Microsoft.Graph.Groups.Item.PermissionGrants.Count;
+using Microsoft.Graph.Groups.Item.PermissionGrants.Delta;
 using Microsoft.Graph.Groups.Item.PermissionGrants.GetAvailableExtensionProperties;
 using Microsoft.Graph.Groups.Item.PermissionGrants.GetByIds;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item;
@@ -21,6 +22,10 @@ namespace Microsoft.Graph.Groups.Item.PermissionGrants {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get questions from identityGovernance
+        /// Questions that are posed to the  requestor.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
             return await RequestAdapter.SendAsync<AccessPackageQuestion>(requestInfo, AccessPackageQuestion.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get questions from identityGovernance
+        /// Questions that are posed to the  requestor.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,7 +153,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
             return requestInfo;
         }
         /// <summary>
-        /// Get questions from identityGovernance
+        /// Questions that are posed to the  requestor.
         /// </summary>
         public class QuestionsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

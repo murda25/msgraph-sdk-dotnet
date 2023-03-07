@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Organization.Count;
+using Microsoft.Graph.Organization.Delta;
 using Microsoft.Graph.Organization.GetAvailableExtensionProperties;
 using Microsoft.Graph.Organization.GetByIds;
 using Microsoft.Graph.Organization.Item;
@@ -21,6 +22,10 @@ namespace Microsoft.Graph.Organization {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>

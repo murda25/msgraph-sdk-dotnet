@@ -10,5 +10,6 @@ namespace Microsoft.Graph.Models {
         Drive,
         UnknownFutureValue,
         ChatMessage,
+        Person,
     }
 }
