@@ -1,4 +1,5 @@
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Count;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.Delta;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetAvailableExtensionProperties;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetByIds;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphApplication;
@@ -24,6 +25,10 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>

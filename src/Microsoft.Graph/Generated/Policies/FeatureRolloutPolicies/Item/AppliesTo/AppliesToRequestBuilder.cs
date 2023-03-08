@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo.Count;
+using Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo.Delta;
 using Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo.GetAvailableExtensionProperties;
 using Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo.GetByIds;
 using Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item;
@@ -22,6 +23,10 @@ namespace Microsoft.Graph.Policies.FeatureRolloutPolicies.Item.AppliesTo {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
