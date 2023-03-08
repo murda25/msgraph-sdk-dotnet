@@ -1,4 +1,5 @@
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Count;
+using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Delta;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.GetAvailableExtensionProperties;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.GetByIds;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item;
@@ -22,6 +23,10 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ConnectedOrga
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>

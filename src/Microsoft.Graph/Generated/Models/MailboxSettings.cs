@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("timeZone", value); }
         }
 #endif
-        /// <summary>The userPurpose property</summary>
+        /// <summary>The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.</summary>
         public Microsoft.Graph.Models.UserPurpose? UserPurpose {
             get { return BackingStore?.Get<Microsoft.Graph.Models.UserPurpose?>("userPurpose"); }
             set { BackingStore?.Set("userPurpose", value); }

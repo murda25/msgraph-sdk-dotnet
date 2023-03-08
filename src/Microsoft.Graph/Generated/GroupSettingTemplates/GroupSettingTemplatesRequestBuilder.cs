@@ -1,4 +1,5 @@
 using Microsoft.Graph.GroupSettingTemplates.Count;
+using Microsoft.Graph.GroupSettingTemplates.Delta;
 using Microsoft.Graph.GroupSettingTemplates.GetAvailableExtensionProperties;
 using Microsoft.Graph.GroupSettingTemplates.GetByIds;
 using Microsoft.Graph.GroupSettingTemplates.Item;
@@ -21,6 +22,10 @@ namespace Microsoft.Graph.GroupSettingTemplates {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
