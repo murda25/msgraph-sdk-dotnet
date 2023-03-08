@@ -7,6 +7,14 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+
+## [5.0.0] - 2023-02-28
+
+### Added
+
+- Adds support for enhanced batch requests
+- Latest metadata updates from 7th March 2023
+
 ## [5.0.0] - 2023-02-28
 
 - GA release for Kiota SDK version
