@@ -48,6 +48,8 @@ namespace Microsoft.Graph
         InvalidRequest,
         /// Invalid start index.
         InvalidStartIndex,
+        /// The image could not be found.
+        ImageNotFound,
         /// The resource could not be found.
         ItemNotFound,
         /// Lock token does not match existing lock.
