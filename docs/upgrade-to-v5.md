@@ -149,6 +149,17 @@ Other `IRequestOption` instances provided by default include the following and t
 - RedirectHandlerOption - for configuring the redirect handler to customise request redirects
 - ChaosHandlerOption - for configuring the chaos handler to customise simulated chaos when testing with mock responses
 
+### Native Response Object
+The per-request options object can be used to obtain the native HttpReponseObject from the request to override the default response handling of the request builders using the `ResponseHandlerOption` as below. This can be used in scenarios where one wished to access the native response object or customize the response handling by creating and passing an instance of [IResponseHandler](https://github.com/microsoft/kiota-abstractions-dotnet/blob/main/src/IResponseHandler.cs).
+
+```cs
+var nativeResponseHandler = new NativeResponseHandler();
+await graphClient.Me.GetAsync(requestConfiguration => requestConfiguration.Options.Add(new ResponseHandlerOption(){ ResponseHandler = nativeResponseHandler }));
+
+var responseMessage = nativeResponseHandler.Value as HttpResponseMessage;
+
+```
+
 ### Collections
 
 Querying for collections are done as follows and resembles the response from API.
