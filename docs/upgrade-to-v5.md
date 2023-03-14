@@ -108,7 +108,7 @@ var user = await graphServiceClient
     .GetAsync(requestConfiguration => requestConfiguration.Headers.Add("ConsistencyLevel","eventual"));
 ```
 
-### Query Options
+### Query Parameter Options
 To pass query Options, the `QueryOption` class is no longer used. Query options are set using the `requestConfiguration` modifier as follows
 
 ```cs
@@ -128,6 +128,36 @@ var groups = await graphServiceClient
         requestConfiguration.QueryParameters.Expand = new string[] { "members" };
         requestConfiguration.QueryParameters.Filter = "startswith(displayName%2C+'J')";
     });
+```
+
+### Per-Request Options
+To pass per-request options to the default http middleware to configure actions like redirects and retries, this can be done using the `requestConfiguration` by adding an `IRequestOption` instance to the `Options` collection. For example, adding a `RetryHandlerOption` instance to configure the retry handler option as below.
+
+```cs
+
+var retryHandlerOption = new RetryHandlerOption
+{
+    MaxRetry = 7,
+    ShouldRetry = (delay,attempt,message) => true
+};
+var user = await graphClient.Me.GetAsync(requestConfiguration => requestConfiguration.Options.Add(retryHandlerOption));
+```
+
+Other `IRequestOption` instances provided by default include the following and their source can be found [here](https://github.com/microsoft/kiota-http-dotnet/tree/main/src/Middleware/Options)
+
+- `RetryHandlerOption` - for configuring the retry handler to customise request retries
+- `RedirectHandlerOption` - for configuring the redirect handler to customise request redirects
+- `ChaosHandlerOption` - for configuring the chaos handler to customise simulated chaos when testing with mock responses
+
+### Native Response Object
+The per-request options object can be used to obtain the native `HttpReponseMessage` from the request to override the default response handling of the request builders using the `ResponseHandlerOption` as below. This can be used in scenarios where one wished to access the native response object or customize the response handling by creating and passing an instance of [IResponseHandler](https://github.com/microsoft/kiota-abstractions-dotnet/blob/main/src/IResponseHandler.cs).
+
+```cs
+var nativeResponseHandler = new NativeResponseHandler();
+await graphClient.Me.GetAsync(requestConfiguration => requestConfiguration.Options.Add(new ResponseHandlerOption(){ ResponseHandler = nativeResponseHandler }));
+
+var responseMessage = nativeResponseHandler.Value as HttpResponseMessage;
+
 ```
 
 ### Collections

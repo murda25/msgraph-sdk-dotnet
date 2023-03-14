@@ -27,6 +27,7 @@ using Microsoft.Graph.DomainDnsRecords;
 using Microsoft.Graph.Domains;
 using Microsoft.Graph.Drives;
 using Microsoft.Graph.Education;
+using Microsoft.Graph.EmployeeExperience;
 using Microsoft.Graph.External;
 using Microsoft.Graph.GroupLifecyclePolicies;
 using Microsoft.Graph.Groups;
@@ -196,6 +197,10 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the educationRoot singleton.</summary>
         public EducationRequestBuilder Education { get =>
             new EducationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the employeeExperience singleton.</summary>
+        public EmployeeExperienceRequestBuilder EmployeeExperience { get =>
+            new EmployeeExperienceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the external singleton.</summary>
         public ExternalRequestBuilder External { get =>

@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions {
             return await RequestAdapter.SendAsync<PermissionCollectionResponse>(requestInfo, PermissionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new permission object on a site.
+        /// Create a new permission object on a site. 
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-post-permissions?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new permission object on a site.
+        /// Create a new permission object on a site. 
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
