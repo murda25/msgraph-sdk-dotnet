@@ -342,6 +342,8 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.itemActivityStat" => new ItemActivityStat(),
                 "#microsoft.graph.itemAnalytics" => new ItemAnalytics(),
                 "#microsoft.graph.itemAttachment" => new ItemAttachment(),
+                "#microsoft.graph.learningContent" => new LearningContent(),
+                "#microsoft.graph.learningProvider" => new LearningProvider(),
                 "#microsoft.graph.licenseDetails" => new LicenseDetails(),
                 "#microsoft.graph.linkedResource" => new LinkedResource(),
                 "#microsoft.graph.list" => new List(),

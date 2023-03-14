@@ -151,7 +151,7 @@ namespace Microsoft.Graph.Teams.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -217,7 +217,7 @@ namespace Microsoft.Graph.Teams.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -287,7 +287,7 @@ namespace Microsoft.Graph.Teams.Item {
             }
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// </summary>
         public class TeamItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
