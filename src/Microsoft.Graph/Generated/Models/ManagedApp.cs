@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 namespace Microsoft.Graph.Models {
-    /// <summary>
-    /// Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy.
-    /// </summary>
     public class ManagedApp : MobileApp, IParsable {
         /// <summary>A managed (MAM) application&apos;s availability.</summary>
         public ManagedAppAvailability? AppAvailability {
@@ -28,7 +25,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new managedApp and sets the default values.
+        /// Instantiates a new ManagedApp and sets the default values.
         /// </summary>
         public ManagedApp() : base() {
             OdataType = "#microsoft.graph.managedApp";
