@@ -126,6 +126,63 @@ var device = await graphClient.DeviceManagement.ManagedDevices["1"].Request().Ge
 Assert.Equal("1",device.Id);
 ```
 
+### Collection responses do not have @odata.nextLink in the AdditionalData
+
+Response for collection types are now deserialized into the NextLink property in the collection response object(example [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/23e9386538993ebe08ba88c084831b6163304e27/src/Microsoft.Graph/Generated/requests/AccessPackageAssignmentFilterByCurrentUserCollectionResponse.cs#L31)) and are not available in the additionalData bag. The property is then used to automatically initialize the nextPage request for the collection page and can be accessed as below.
+
+```cs
+var users = await graphServiceClient.Users.Request().GetAsync();
+var nextLink = users.NextPageRequest.GetHttpRequestMessage().RequestUri.OriginalString;
+```
+
+#### Note
+It is recommended to use the PageIterator when paging through collections as this allows for advance functionality such as configuring pausing, managing state and access to the DeltaLink and NextLink if needed. An example of using the PageIterator with delta is shown below.
+
+```cs
+    int count = 0;
+    int pauseAfter = 25;
+
+    var messages = await graphClient.Me.Messages
+        .Request()
+        .Select(e => new {
+            e.Sender,
+            e.Subject
+        })
+        .Top(10)
+        .GetAsync();
+
+    var pageIterator = PageIterator<Message>
+        .CreatePageIterator(
+            graphClient,
+            messages,
+            (m) =>
+            {
+                Console.WriteLine(m.Subject);
+                count++;
+                // If we've iterated over the limit,
+                // stop the iteration by returning false
+                return count < pauseAfter;
+            }
+        );
+
+    await pageIterator.IterateAsync();
+
+    while (pageIterator.State != PagingState.Complete)
+    {
+        if (pageIterator.State == PagingState.Delta) 
+        {
+            string deltaLink = pageIterator.Deltalink;
+            Console.WriteLine($"Paged through results and found deltaLink : {deltaLink}");
+        }
+
+        Console.WriteLine("Iteration paused for 5 seconds...");
+        await Task.Delay(5000);
+        // Reset count
+        count = 0;
+        await pageIterator.ResumeAsync();
+    }
+```
+
 ## New capabilities
 
 ### Azure Identity
