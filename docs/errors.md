@@ -1,19 +1,41 @@
 Handling errors in the Microsoft Graph .NET Client Library
 =====
 
-Errors in the Microsoft Graph .NET Client Library behave like errors returned from the Microsoft Graph service. You can read more about them [here](https://graph.microsoft.io/en-us/docs/overview/errors).
+Errors in the Microsoft Graph .NET Client Library behave like errors returned from the Microsoft Graph service. You can read more about them [here](https://learn.microsoft.com/en-us/graph/errors).
 
-Anytime you make a request against the service there is the potential for an error. In the case of an error, the request will throw a `ServiceException` object with an inner `Error` object that contains the service error details.
+Anytime you make a request against the service there is the potential for an error. In the case of an error, the request will throw a `ODataError` exception that contains the service error details and can be handled as below.
+
+```cs
+try
+{
+    await graphServiceClient.Me.PatchAsync(user);
+}
+catch (ODataError odataError)
+{
+    Console.WriteLine(odataError.Error.Code);
+    Console.WriteLine(odataError.Error.Message);
+    throw;
+}
+```
+
+
+## Checking the error status code
+
+You can check the status code that caused the error as below.
+
+```csharp
+catch (ODataError odataError) when (odataError.ResponseStatusCode.Equals(404))
+{
+        // Handle 404 status code
+}
+```
 
 ## Checking the error
 
-There are a few different types of errors that can occur during a network call. These error codes are defined in [GraphErrorCode.cs](../src/Microsoft.Graph/Enums/GraphErrorCode.cs).
-
-### Checking the error code
-You can easily check if an error has a specific code by calling `IsMatch` on the error code value. `IsMatch` is not case sensitive:
+There are a few different types of errors that can occur during a network call. These most common error codes are defined in [GraphErrorCode.cs](../src/Microsoft.Graph/Enums/GraphErrorCode.cs). These can be checked by matching with the error code value as below.
 
 ```csharp
-if (exception.IsMatch(GraphErrorCode.AccessDenied.ToString())
+catch (ODataError odataError) when (odataError.Error.Code.Equals(GraphErrorCode.AccessDenied.ToString()))
 {
         // Handle access denied error
 }
