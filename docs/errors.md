@@ -12,8 +12,8 @@ try
 }
 catch (ODataError odataError)
 {
-    Console.WriteLine(odataError.Error.Code);
-    Console.WriteLine(odataError.Error.Message);
+    Console.WriteLine(odataError.Error?.Code);
+    Console.WriteLine(odataError.Error?.Message);
     throw;
 }
 ```
@@ -24,7 +24,7 @@ catch (ODataError odataError)
 You can check the status code that caused the error as below.
 
 ```csharp
-catch (ODataError odataError) when (odataError.ResponseStatusCode.Equals(404))
+catch (ODataError odataError) when (odataError.ResponseStatusCode.Equals(HttpStatusCode.NotFound))
 {
         // Handle 404 status code
 }

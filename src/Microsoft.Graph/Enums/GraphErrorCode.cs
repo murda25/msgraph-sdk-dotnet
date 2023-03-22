@@ -80,6 +80,8 @@ namespace Microsoft.Graph
         NameAlreadyExists,
         /// The action is not allowed by the system.
         NotAllowed,
+        /// The requested item is not not found.
+        NotFound,
         /// The request is not supported by the system.
         NotSupported,
         /// Parameter Exceeds Maximum Length.
