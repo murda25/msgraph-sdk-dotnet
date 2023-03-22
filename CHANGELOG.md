@@ -8,6 +8,15 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 ## [Unreleased]
 
 
+## [5.3.0] - 2023-03-21
+
+### Added
+
+- Allows checking for status codes without parsing request bodies in batch requests (https://github.com/microsoftgraph/msgraph-sdk-dotnet-core/pull/626)
+- Updates kiota abstraction library dependencies to fix serialization errors.
+- Metadata fixes for missing expand clauses for messages,calendar and mailfolder endpoints
+- Latest metadata updates from 21st March 2023
+
 ## [5.2.0] - 2023-03-14
 
 ### Added
