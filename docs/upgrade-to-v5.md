@@ -316,6 +316,15 @@ var usersResponse = await batchResponseContent.GetResponseByIdAsync<UserCollecti
 List<User> userList = usersResponse.Value;
 
 ```
+Find failing responses 
+```cs
+var responses = await result.GetResponsesAsync();
+//all the responses are successfull?
+var allReponsesSuccessFull = responses.Any( response => !response.Value.IsSuccessStatusCode);
+//the responses which do not have a success code.
+var failedResponses = responses.Where(response => !response.Value.IsSuccessStatusCode);
+```
+
 
 ### Support for $count in request builders
 
