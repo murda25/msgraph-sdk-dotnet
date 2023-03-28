@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationTemplateId", value); }
         }
 #endif
-        /// <summary>The appManagementPolicies property</summary>
+        /// <summary>The appManagementPolicy applied to this application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies {
@@ -403,7 +403,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publisherDomain", value); }
         }
 #endif
-        /// <summary>The requestSignatureVerification property</summary>
+        /// <summary>Specifies whether this application requires Azure AD to verify the signed authentication requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.RequestSignatureVerification? RequestSignatureVerification {
@@ -563,7 +563,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new application and sets the default values.
+        /// Instantiates a new Application and sets the default values.
         /// </summary>
         public Application() : base() {
             OdataType = "#microsoft.graph.application";

@@ -32,12 +32,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The restrictForAppsCreatedAfterDateTime property</summary>
+        /// <summary>Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be back dated. To apply to all applications, enforcement datetime would be null.</summary>
         public DateTimeOffset? RestrictForAppsCreatedAfterDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("restrictForAppsCreatedAfterDateTime"); }
             set { BackingStore?.Set("restrictForAppsCreatedAfterDateTime", value); }
         }
-        /// <summary>The restrictionType property</summary>
+        /// <summary>The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.</summary>
         public AppCredentialRestrictionType? RestrictionType {
             get { return BackingStore?.Get<AppCredentialRestrictionType?>("restrictionType"); }
             set { BackingStore?.Set("restrictionType", value); }

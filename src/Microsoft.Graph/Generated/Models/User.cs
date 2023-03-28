@@ -1400,6 +1400,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("showInAddressList"); }
             set { BackingStore?.Set("showInAddressList", value); }
         }
+        /// <summary>The signInActivity property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.SignInActivity? SignInActivity {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SignInActivity?>("signInActivity"); }
+            set { BackingStore?.Set("signInActivity", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.SignInActivity SignInActivity {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SignInActivity>("signInActivity"); }
+            set { BackingStore?.Set("signInActivity", value); }
+        }
+#endif
         /// <summary>Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select.</summary>
         public DateTimeOffset? SignInSessionsValidFromDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("signInSessionsValidFromDateTime"); }
@@ -1672,6 +1686,7 @@ namespace Microsoft.Graph.Models {
                 {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
                 {"settings", n => { Settings = n.GetObjectValue<UserSettings>(UserSettings.CreateFromDiscriminatorValue); } },
                 {"showInAddressList", n => { ShowInAddressList = n.GetBoolValue(); } },
+                {"signInActivity", n => { SignInActivity = n.GetObjectValue<Microsoft.Graph.Models.SignInActivity>(Microsoft.Graph.Models.SignInActivity.CreateFromDiscriminatorValue); } },
                 {"signInSessionsValidFromDateTime", n => { SignInSessionsValidFromDateTime = n.GetDateTimeOffsetValue(); } },
                 {"skills", n => { Skills = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"state", n => { State = n.GetStringValue(); } },
@@ -1800,6 +1815,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("securityIdentifier", SecurityIdentifier);
             writer.WriteObjectValue<UserSettings>("settings", Settings);
             writer.WriteBoolValue("showInAddressList", ShowInAddressList);
+            writer.WriteObjectValue<Microsoft.Graph.Models.SignInActivity>("signInActivity", SignInActivity);
             writer.WriteDateTimeOffsetValue("signInSessionsValidFromDateTime", SignInSessionsValidFromDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("skills", Skills);
             writer.WriteStringValue("state", State);

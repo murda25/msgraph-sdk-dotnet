@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Groups.Item.Team {
     /// <summary>
     /// Provides operations to manage the team property of the microsoft.graph.group entity.
     /// </summary>
-    public class TeamRequestBuilder {
+    public class TeamRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the allChannels property of the microsoft.graph.team entity.</summary>
         public AllChannelsRequestBuilder AllChannels { get =>
             new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
@@ -70,8 +70,6 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>
             new PhotoRequestBuilder(PathParameters, RequestAdapter);
@@ -80,8 +78,6 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public PrimaryChannelRequestBuilder PrimaryChannel { get =>
             new PrimaryChannelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the schedule property of the microsoft.graph.team entity.</summary>
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
@@ -102,34 +98,19 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public UnarchiveRequestBuilder Unarchive { get =>
             new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property team for groups

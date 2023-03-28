@@ -81,7 +81,7 @@ namespace Microsoft.Graph {
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class BaseGraphServiceClient {
+    public class BaseGraphServiceClient : BaseRequestBuilder {
         /// <summary>Provides operations to manage the admin singleton.</summary>
         public AdminRequestBuilder Admin { get =>
             new AdminRequestBuilder(PathParameters, RequestAdapter);
@@ -262,8 +262,6 @@ namespace Microsoft.Graph {
         public OrganizationRequestBuilder Organization { get =>
             new OrganizationRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the collection of resourceSpecificPermissionGrant entities.</summary>
         public PermissionGrantsRequestBuilder PermissionGrants { get =>
             new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
@@ -292,8 +290,6 @@ namespace Microsoft.Graph {
         public ReportsRequestBuilder Reports { get =>
             new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the roleManagement singleton.</summary>
         public RoleManagementRequestBuilder RoleManagement { get =>
             new RoleManagementRequestBuilder(PathParameters, RequestAdapter);
@@ -354,8 +350,6 @@ namespace Microsoft.Graph {
         public TenantRelationshipsRequestBuilder TenantRelationships { get =>
             new TenantRelationshipsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the collection of user entities.</summary>
         public UsersRequestBuilder Users { get =>
             new UsersRequestBuilder(PathParameters, RequestAdapter);
@@ -365,11 +359,7 @@ namespace Microsoft.Graph {
         /// </summary>
         /// <param name="backingStore">The backing store to use for the models.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BaseGraphServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) {
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathParameters = new Dictionary<string, object>();
-            UrlTemplate = "{+baseurl}";
-            RequestAdapter = requestAdapter;
+        public BaseGraphServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>()) {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();

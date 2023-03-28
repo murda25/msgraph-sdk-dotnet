@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("adminConsentRequestPolicy", value); }
         }
 #endif
-        /// <summary>The appManagementPolicies property</summary>
+        /// <summary>The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies {
@@ -131,7 +131,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("crossTenantAccessPolicy", value); }
         }
 #endif
-        /// <summary>The defaultAppManagementPolicy property</summary>
+        /// <summary>The tenant-wide policy that enforces app management restrictions for all applications and service principals.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TenantAppManagementPolicy? DefaultAppManagementPolicy {
