@@ -82,6 +82,7 @@ public static class DriveItemRequestBuilderExtensions
     
     private static IRequestAdapter GetRequestAdapter(this object obj) {
         var field = obj.GetType()
+                        .BaseType
                         .GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
                         .FirstOrDefault( field => field.FieldType.Equals(typeof(IRequestAdapter)));
         return (IRequestAdapter)field?.GetValue(obj);
@@ -164,8 +165,6 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     { get =>
         new PreviewRequestBuilder(this._rawUrl+"/microsoft.graph.preview", RequestAdapter);
     }
-    /// <summary>The request adapter to use to execute the requests.</summary>
-    private IRequestAdapter RequestAdapter { get; set; }
     /// <summary>Provides operations to call the restore method.</summary>
     public new RestoreRequestBuilder Restore
     { get =>
