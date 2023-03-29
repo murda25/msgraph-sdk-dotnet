@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Me {
     /// <summary>
     /// Provides operations to manage the user singleton.
     /// </summary>
-    public class MeRequestBuilder {
+    public class MeRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the activities property of the microsoft.graph.user entity.</summary>
         public ActivitiesRequestBuilder Activities { get =>
             new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
@@ -273,8 +273,6 @@ namespace Microsoft.Graph.Me {
         public OwnedObjectsRequestBuilder OwnedObjects { get =>
             new OwnedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the people property of the microsoft.graph.user entity.</summary>
         public PeopleRequestBuilder People { get =>
             new PeopleRequestBuilder(PathParameters, RequestAdapter);
@@ -307,8 +305,6 @@ namespace Microsoft.Graph.Me {
         public ReprocessLicenseAssignmentRequestBuilder ReprocessLicenseAssignment { get =>
             new ReprocessLicenseAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
@@ -345,8 +341,6 @@ namespace Microsoft.Graph.Me {
         public TranslateExchangeIdsRequestBuilder TranslateExchangeIds { get =>
             new TranslateExchangeIdsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.</summary>
         public WipeManagedAppRegistrationsByDeviceTagRequestBuilder WipeManagedAppRegistrationsByDeviceTag { get =>
             new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(PathParameters, RequestAdapter);
@@ -356,27 +350,14 @@ namespace Microsoft.Graph.Me {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new MeRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Provides operations to call the exportDeviceAndAppManagementData method.

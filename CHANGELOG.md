@@ -7,6 +7,13 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.4.0] - 2023-03-28
+
+### Added
+
+- Updates kiota abstraction library dependencies to reduce code size in generation.
+- Metadata fixes for missing expand clauses for contact endpoints
+- Latest metadata updates from 28st March 2023
 
 ## [5.3.0] - 2023-03-21
 
