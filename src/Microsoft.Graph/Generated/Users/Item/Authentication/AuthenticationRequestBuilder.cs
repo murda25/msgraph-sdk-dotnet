@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Authentication.EmailMethods;
 using Microsoft.Graph.Users.Item.Authentication.Fido2Methods;
 using Microsoft.Graph.Users.Item.Authentication.Methods;
@@ -10,14 +10,14 @@ using Microsoft.Graph.Users.Item.Authentication.PhoneMethods;
 using Microsoft.Graph.Users.Item.Authentication.SoftwareOathMethods;
 using Microsoft.Graph.Users.Item.Authentication.TemporaryAccessPassMethods;
 using Microsoft.Graph.Users.Item.Authentication.WindowsHelloForBusinessMethods;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Authentication {
     /// <summary>
     /// Provides operations to manage the authentication property of the microsoft.graph.user entity.

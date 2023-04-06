@@ -1,16 +1,16 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Print.Shares.Item.AllowedGroups;
 using Microsoft.Graph.Print.Shares.Item.AllowedUsers;
 using Microsoft.Graph.Print.Shares.Item.Printer;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Print.Shares.Item {
     /// <summary>
     /// Provides operations to manage the shares property of the microsoft.graph.print entity.

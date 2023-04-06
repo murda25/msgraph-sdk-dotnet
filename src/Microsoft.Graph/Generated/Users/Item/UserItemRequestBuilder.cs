@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Activities;
 using Microsoft.Graph.Users.Item.AgreementAcceptances;
 using Microsoft.Graph.Users.Item.AppRoleAssignments;
@@ -7,8 +7,8 @@ using Microsoft.Graph.Users.Item.AssignLicense;
 using Microsoft.Graph.Users.Item.Authentication;
 using Microsoft.Graph.Users.Item.Calendar;
 using Microsoft.Graph.Users.Item.CalendarGroups;
-using Microsoft.Graph.Users.Item.Calendars;
 using Microsoft.Graph.Users.Item.CalendarView;
+using Microsoft.Graph.Users.Item.Calendars;
 using Microsoft.Graph.Users.Item.ChangePassword;
 using Microsoft.Graph.Users.Item.Chats;
 using Microsoft.Graph.Users.Item.CheckMemberGroups;
@@ -68,14 +68,14 @@ using Microsoft.Graph.Users.Item.Todo;
 using Microsoft.Graph.Users.Item.TransitiveMemberOf;
 using Microsoft.Graph.Users.Item.TranslateExchangeIds;
 using Microsoft.Graph.Users.Item.WipeManagedAppRegistrationsByDeviceTag;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item {
     /// <summary>
     /// Provides operations to manage the collection of user entities.

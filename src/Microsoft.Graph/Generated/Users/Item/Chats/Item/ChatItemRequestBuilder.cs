@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Chats.Item.HideForUser;
 using Microsoft.Graph.Users.Item.Chats.Item.InstalledApps;
 using Microsoft.Graph.Users.Item.Chats.Item.LastMessagePreview;
@@ -11,14 +11,14 @@ using Microsoft.Graph.Users.Item.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Users.Item.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Users.Item.Chats.Item.Tabs;
 using Microsoft.Graph.Users.Item.Chats.Item.UnhideForUser;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Chats.Item {
     /// <summary>
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.

@@ -5,16 +5,16 @@ using Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item.Events;
 using Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item.GetSchedule;
 using Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item.SingleValueExtendedProperties;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item {
     /// <summary>
     /// Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.

@@ -3,16 +3,16 @@ using Microsoft.Graph.Groups.Item.PermissionGrants.Item.CheckMemberObjects;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item.GetMemberGroups;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item.GetMemberObjects;
 using Microsoft.Graph.Groups.Item.PermissionGrants.Item.Restore;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.PermissionGrants.Item {
     /// <summary>
     /// Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.

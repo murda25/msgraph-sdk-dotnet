@@ -6,16 +6,16 @@ using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphApplication;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphGroup;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphUser;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.Restore;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
     /// <summary>
     /// Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.

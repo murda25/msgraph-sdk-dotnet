@@ -1,16 +1,16 @@
 using Microsoft.Graph.Me.Teamwork.AssociatedTeams;
 using Microsoft.Graph.Me.Teamwork.InstalledApps;
 using Microsoft.Graph.Me.Teamwork.SendActivityNotification;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Teamwork {
     /// <summary>
     /// Provides operations to manage the teamwork property of the microsoft.graph.user entity.

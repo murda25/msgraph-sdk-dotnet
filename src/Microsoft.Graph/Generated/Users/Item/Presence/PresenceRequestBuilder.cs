@@ -1,17 +1,17 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Presence.ClearPresence;
 using Microsoft.Graph.Users.Item.Presence.ClearUserPreferredPresence;
 using Microsoft.Graph.Users.Item.Presence.SetPresence;
 using Microsoft.Graph.Users.Item.Presence.SetUserPreferredPresence;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Presence {
     /// <summary>
     /// Provides operations to manage the presence property of the microsoft.graph.user entity.
