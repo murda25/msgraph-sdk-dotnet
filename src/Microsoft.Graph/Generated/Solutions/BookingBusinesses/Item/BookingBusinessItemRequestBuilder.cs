@@ -1,22 +1,22 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.CalendarView;
-using Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.CustomQuestions;
+using Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.GetStaffAvailability;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.Publish;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.Services;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.Unpublish;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Solutions.BookingBusinesses.Item {
     /// <summary>
     /// Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.

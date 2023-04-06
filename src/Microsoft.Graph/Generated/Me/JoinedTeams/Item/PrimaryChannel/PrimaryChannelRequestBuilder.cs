@@ -7,16 +7,16 @@ using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.ProvisionEmail;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.RemoveEmail;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.SharedWithTeams;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Tabs;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel {
     /// <summary>
     /// Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.

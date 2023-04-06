@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OfferShiftRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OpenShiftChangeRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.OpenShifts;
@@ -10,14 +10,14 @@ using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.SwapShiftsChangeReque
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule {
     /// <summary>
     /// Provides operations to manage the schedule property of the microsoft.graph.team entity.

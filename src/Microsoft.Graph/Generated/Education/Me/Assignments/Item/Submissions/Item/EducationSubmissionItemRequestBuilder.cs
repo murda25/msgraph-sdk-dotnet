@@ -6,16 +6,16 @@ using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.SetUpResour
 using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.Submit;
 using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.SubmittedResources;
 using Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item.Unsubmit;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Education.Me.Assignments.Item.Submissions.Item {
     /// <summary>
     /// Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.

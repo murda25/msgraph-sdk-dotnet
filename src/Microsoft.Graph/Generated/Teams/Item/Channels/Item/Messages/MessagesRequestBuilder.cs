@@ -1,16 +1,16 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Teams.Item.Channels.Item.Messages.Count;
 using Microsoft.Graph.Teams.Item.Channels.Item.Messages.Delta;
 using Microsoft.Graph.Teams.Item.Channels.Item.Messages.Item;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teams.Item.Channels.Item.Messages {
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -65,8 +65,8 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item.Messages {
             return await RequestAdapter.SendAsync<ChatMessageCollectionResponse>(requestInfo, ChatMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0" />
+        /// Send a new chatMessage in the specified channel.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,7 +113,7 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
+        /// Send a new chatMessage in the specified channel.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

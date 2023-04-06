@@ -4,14 +4,14 @@ using Microsoft.Graph.External.Connections.Item.Operations;
 using Microsoft.Graph.External.Connections.Item.Schema;
 using Microsoft.Graph.Models.ExternalConnectors;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.External.Connections.Item {
     /// <summary>
     /// Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.

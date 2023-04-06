@@ -1,17 +1,17 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Organization.Item.Branding.BackgroundImage;
 using Microsoft.Graph.Organization.Item.Branding.BannerLogo;
 using Microsoft.Graph.Organization.Item.Branding.Localizations;
 using Microsoft.Graph.Organization.Item.Branding.SquareLogo;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Organization.Item.Branding {
     /// <summary>
     /// Provides operations to manage the branding property of the microsoft.graph.organization entity.
