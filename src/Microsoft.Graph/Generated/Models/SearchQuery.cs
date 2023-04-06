@@ -1,9 +1,9 @@
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class SearchQuery : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -41,6 +41,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("queryString", value); }
         }
 #endif
+        /// <summary>The queryTemplate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? QueryTemplate {
+            get { return BackingStore?.Get<string?>("queryTemplate"); }
+            set { BackingStore?.Set("queryTemplate", value); }
+        }
+#nullable restore
+#else
+        public string QueryTemplate {
+            get { return BackingStore?.Get<string>("queryTemplate"); }
+            set { BackingStore?.Set("queryTemplate", value); }
+        }
+#endif
         /// <summary>
         /// Instantiates a new searchQuery and sets the default values.
         /// </summary>
@@ -63,6 +77,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"queryString", n => { QueryString = n.GetStringValue(); } },
+                {"queryTemplate", n => { QueryTemplate = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -73,6 +88,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("queryString", QueryString);
+            writer.WriteStringValue("queryTemplate", QueryTemplate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,14 +3,14 @@ using Microsoft.Graph.Models.TermStore;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item.FromTerm;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item.Set;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item.ToTerm;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Relations.Item {
     /// <summary>
     /// Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.

@@ -4,14 +4,14 @@ using Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.Children;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.ParentGroup;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.Relations;
 using Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.Terms;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item {
     /// <summary>
     /// Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.

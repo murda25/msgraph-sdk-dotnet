@@ -80,7 +80,7 @@ namespace Microsoft.Graph
         NameAlreadyExists,
         /// The action is not allowed by the system.
         NotAllowed,
-        /// The requested item is not not found.
+        /// The requested item is not found.
         NotFound,
         /// The request is not supported by the system.
         NotSupported,
@@ -94,6 +94,8 @@ namespace Microsoft.Graph
         PathTooDeep,
         /// Property not updateable.
         PropertyNotUpdateable,
+        /// The requested resource is not found.
+        Request_ResourceNotFound,
         /// The resource being updated has changed since the caller last read it, usually an eTag mismatch.
         ResourceModified,
         /// Resync required. Replace any local items with the server's version (including deletes) 

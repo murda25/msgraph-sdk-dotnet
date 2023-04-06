@@ -297,6 +297,7 @@ await graphServiceClient.Me
 ```
 
 ### Batch Requests
+
 Apart from passing instances of `HttpRequestMessage`, batch requests support the passing of `RequestInformation` instances as follows.
 
 ```cs
@@ -304,9 +305,9 @@ var requestInformation = graphServiceClient
                          .Users
                          .ToGetRequestInformation();
 
-// create the content
+// create the batch request
 var batchRequestContent = new BatchRequestContent(graphServiceClient);
-// add steps
+// add one or more steps (up to 20, or check below)
 var requestStepId = await batchRequestContent.AddBatchRequestStepAsync(requestInformation);
 
 // send and get back response
@@ -316,15 +317,37 @@ var usersResponse = await batchResponseContent.GetResponseByIdAsync<UserCollecti
 List<User> userList = usersResponse.Value;
 
 ```
-Find failing responses 
+
+Find failing responses (and retry)
+
 ```cs
-var responses = await result.GetResponsesAsync();
-//all the responses are successfull?
-var allReponsesSuccessFull = responses.Any( response => !response.Value.IsSuccessStatusCode);
-//the responses which do not have a success code.
-var failedResponses = responses.Where(response => !response.Value.IsSuccessStatusCode);
+var statusCodes = await batchResponseContent.GetResponsesStatusCodesAsync();
+// all the responses are successfull?
+var allReponsesSuccessFull = statusCodes.Any( x => !BatchResponseContent.IsSuccessStatusCode(x.Value));
+// the responses with a 
+var rateLimitedResponses = statusCodes.Where(x => x.Value == (HttpStatusCode)429);
+// maybe retry those rate limited?
+var retryBatch = batchRequestContent.NewBatchWithFailedRequests(rateLimitedResponses);
+var retryResponse = await graphServiceClient.Batch.PostAsync(retryBatch);
 ```
 
+Automatically manage batch size with `BatchRequestContentCollection`.
+The sample above uses the `BatchRequestContent` which has a limit of max. 20 combined requests. This means you'll need to manage the batch size yourself if you go beyond the batch limit of 20 requests.
+
+```csharp
+// Replace BatchRequestContent with BatchRequestContentCollection and you're good to go.
+var batchRequestContent = new BatchRequestContentCollection(graphServiceClient);
+
+// or with a set batch size
+// var batchRequestContent = new BatchRequestContentCollection(graphServiceClient, 4);
+
+// Add "unlimited" requests, but don't use "DependsOn", you cannot be sure they will be in the same request and thus fail.
+var requestStepId = await batchRequestContent.AddBatchRequestStepAsync(requestInformation);
+
+// Execute the request like before and use the response like before.
+```
+
+Using batched requests can make your code a lot faster, if you need to query several endpoints at once or if you're creating/deleting a lot of items at the same time. Check out the [sample code](https://github.com/svrooij/msgraph-sdk-dotnet-batching/tree/main/sample/BatchClient) in this [repository](https://github.com/svrooij/msgraph-sdk-dotnet-batching/) for a complete sample on batching and experience yourself how much faster your application can process those requests.
 
 ### Support for $count in request builders
 

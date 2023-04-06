@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.ServicePrincipals.Item.AddKey;
 using Microsoft.Graph.ServicePrincipals.Item.AddPassword;
 using Microsoft.Graph.ServicePrincipals.Item.AddTokenSigningCertificate;
@@ -26,14 +26,14 @@ using Microsoft.Graph.ServicePrincipals.Item.Restore;
 using Microsoft.Graph.ServicePrincipals.Item.TokenIssuancePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.ServicePrincipals.Item {
     /// <summary>
     /// Provides operations to manage the collection of servicePrincipal entities.

@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Teams.Item.AllChannels;
 using Microsoft.Graph.Teams.Item.Archive;
 using Microsoft.Graph.Teams.Item.Channels;
@@ -17,14 +17,14 @@ using Microsoft.Graph.Teams.Item.SendActivityNotification;
 using Microsoft.Graph.Teams.Item.Tags;
 using Microsoft.Graph.Teams.Item.Template;
 using Microsoft.Graph.Teams.Item.Unarchive;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teams.Item {
     /// <summary>
     /// Provides operations to manage the collection of team entities.

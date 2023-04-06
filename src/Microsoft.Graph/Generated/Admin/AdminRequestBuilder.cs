@@ -1,19 +1,24 @@
+using Microsoft.Graph.Admin.Edge;
 using Microsoft.Graph.Admin.ServiceAnnouncement;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Admin {
     /// <summary>
     /// Provides operations to manage the admin singleton.
     /// </summary>
     public class AdminRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the edge property of the microsoft.graph.admin entity.</summary>
+        public EdgeRequestBuilder Edge { get =>
+            new EdgeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.</summary>
         public ServiceAnnouncementRequestBuilder ServiceAnnouncement { get =>
             new ServiceAnnouncementRequestBuilder(PathParameters, RequestAdapter);

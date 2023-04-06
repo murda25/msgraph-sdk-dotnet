@@ -5,16 +5,16 @@ using Microsoft.Graph.Education.Users.Item.Assignments.Item.Rubric;
 using Microsoft.Graph.Education.Users.Item.Assignments.Item.SetUpFeedbackResourcesFolder;
 using Microsoft.Graph.Education.Users.Item.Assignments.Item.SetUpResourcesFolder;
 using Microsoft.Graph.Education.Users.Item.Assignments.Item.Submissions;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Education.Users.Item.Assignments.Item {
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.

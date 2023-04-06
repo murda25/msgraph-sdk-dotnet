@@ -7,13 +7,26 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.5.0] - 2023-04-06
+
+### Changed 
+
+- Fixes missing dateTime query parameters for bookingBusinesses (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1791)
+- Fixes missing exapand clauses for calendars and contactFolder (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1788)
+- Fixes return type when uploading small files to drive (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1718)
+- Fixes inconsistencies in errors when using batch requests. (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1782)
+
+### Added
+
+- Latest metadata updates from 6th April 2023
+
 ## [5.4.0] - 2023-03-28
 
 ### Added
 
 - Updates kiota abstraction library dependencies to reduce code size in generation.
 - Metadata fixes for missing expand clauses for contact endpoints
-- Latest metadata updates from 28st March 2023
+- Latest metadata updates from 28th March 2023
 
 ## [5.3.0] - 2023-03-21
 

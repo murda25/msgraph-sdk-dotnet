@@ -1,19 +1,19 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Onenote.Notebooks;
 using Microsoft.Graph.Users.Item.Onenote.Operations;
 using Microsoft.Graph.Users.Item.Onenote.Pages;
 using Microsoft.Graph.Users.Item.Onenote.Resources;
 using Microsoft.Graph.Users.Item.Onenote.SectionGroups;
 using Microsoft.Graph.Users.Item.Onenote.Sections;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Onenote {
     /// <summary>
     /// Provides operations to manage the onenote property of the microsoft.graph.user entity.

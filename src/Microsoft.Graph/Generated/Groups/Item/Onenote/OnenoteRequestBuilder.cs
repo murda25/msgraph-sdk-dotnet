@@ -4,16 +4,16 @@ using Microsoft.Graph.Groups.Item.Onenote.Pages;
 using Microsoft.Graph.Groups.Item.Onenote.Resources;
 using Microsoft.Graph.Groups.Item.Onenote.SectionGroups;
 using Microsoft.Graph.Groups.Item.Onenote.Sections;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Onenote {
     /// <summary>
     /// Provides operations to manage the onenote property of the microsoft.graph.group entity.

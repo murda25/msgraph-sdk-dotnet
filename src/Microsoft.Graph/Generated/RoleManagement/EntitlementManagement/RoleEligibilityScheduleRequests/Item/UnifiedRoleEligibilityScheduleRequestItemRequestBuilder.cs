@@ -1,19 +1,19 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.AppScope;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.Cancel;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.DirectoryScope;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.Principal;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.RoleDefinition;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item.TargetSchedule;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests.Item {
     /// <summary>
     /// Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.

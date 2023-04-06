@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class SharedDriveItem : BaseItem, IParsable {
         /// <summary>Used to access the underlying driveItem</summary>
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new SharedDriveItem and sets the default values.
+        /// Instantiates a new sharedDriveItem and sets the default values.
         /// </summary>
         public SharedDriveItem() : base() {
             OdataType = "#microsoft.graph.sharedDriveItem";

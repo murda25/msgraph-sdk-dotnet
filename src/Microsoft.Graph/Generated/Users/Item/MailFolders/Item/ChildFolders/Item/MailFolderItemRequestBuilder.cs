@@ -1,19 +1,19 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Copy;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.MessageRules;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Messages;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.Move;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item.SingleValueExtendedProperties;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders.Item {
     /// <summary>
     /// Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
