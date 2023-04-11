@@ -52,7 +52,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get internetExplorerMode from admin
+        /// A container for Internet Explorer mode resources.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode {
             return requestInfo;
         }
         /// <summary>
-        /// Get internetExplorerMode from admin
+        /// A container for Internet Explorer mode resources.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode {
             }
         }
         /// <summary>
-        /// Get internetExplorerMode from admin
+        /// A container for Internet Explorer mode resources.
         /// </summary>
         public class InternetExplorerModeRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

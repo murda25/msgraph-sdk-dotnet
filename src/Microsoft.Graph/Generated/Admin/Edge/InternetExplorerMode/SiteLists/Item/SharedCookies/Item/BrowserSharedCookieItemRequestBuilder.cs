@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedC
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get sharedCookies from admin
+        /// A collection of shared cookies defined for the site list.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedC
             return requestInfo;
         }
         /// <summary>
-        /// Get sharedCookies from admin
+        /// A collection of shared cookies defined for the site list.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedC
             }
         }
         /// <summary>
-        /// Get sharedCookies from admin
+        /// A collection of shared cookies defined for the site list.
         /// </summary>
         public class BrowserSharedCookieItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

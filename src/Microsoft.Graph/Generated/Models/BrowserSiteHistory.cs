@@ -14,14 +14,14 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>Boolean attribute that controls the behavior of redirected sites</summary>
+        /// <summary>Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.</summary>
         public bool? AllowRedirect {
             get { return BackingStore?.Get<bool?>("allowRedirect"); }
             set { BackingStore?.Set("allowRedirect", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The content for the site</summary>
+        /// <summary>The comment for the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment {
@@ -35,12 +35,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("comment", value); }
         }
 #endif
-        /// <summary>Controls what compatibility setting is used for specific sites or domains</summary>
+        /// <summary>Controls what compatibility setting is used for specific sites or domains. The possible values are: default, internetExplorer8Enterprise, internetExplorer7Enterprise, internetExplorer11, internetExplorer10, internetExplorer9, internetExplorer8, internetExplorer7, internetExplorer5, unknownFutureValue.</summary>
         public BrowserSiteCompatibilityMode? CompatibilityMode {
             get { return BackingStore?.Get<BrowserSiteCompatibilityMode?>("compatibilityMode"); }
             set { BackingStore?.Set("compatibilityMode", value); }
         }
-        /// <summary>The user who modified the site</summary>
+        /// <summary>The user who last modified the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? LastModifiedBy {
@@ -54,7 +54,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The merge type of the site</summary>
+        /// <summary>The merge type of the site. The possible values are: noMerge, default, unknownFutureValue.</summary>
         public BrowserSiteMergeType? MergeType {
             get { return BackingStore?.Get<BrowserSiteMergeType?>("mergeType"); }
             set { BackingStore?.Set("mergeType", value); }
@@ -73,12 +73,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The time the site was last published</summary>
+        /// <summary>The date and time when the site was last published.</summary>
         public DateTimeOffset? PublishedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("publishedDateTime"); }
             set { BackingStore?.Set("publishedDateTime", value); }
         }
-        /// <summary>The render mode in Edge client that the site is supposed to open in</summary>
+        /// <summary>The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option.</summary>
         public BrowserSiteTargetEnvironment? TargetEnvironment {
             get { return BackingStore?.Get<BrowserSiteTargetEnvironment?>("targetEnvironment"); }
             set { BackingStore?.Set("targetEnvironment", value); }

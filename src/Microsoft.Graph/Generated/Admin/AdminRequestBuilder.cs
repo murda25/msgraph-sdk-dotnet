@@ -1,5 +1,6 @@
 using Microsoft.Graph.Admin.Edge;
 using Microsoft.Graph.Admin.ServiceAnnouncement;
+using Microsoft.Graph.Admin.Sharepoint;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -22,6 +23,10 @@ namespace Microsoft.Graph.Admin {
         /// <summary>Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.</summary>
         public ServiceAnnouncementRequestBuilder ServiceAnnouncement { get =>
             new ServiceAnnouncementRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.</summary>
+        public SharepointRequestBuilder Sharepoint { get =>
+            new SharepointRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new AdminRequestBuilder and sets the default values.

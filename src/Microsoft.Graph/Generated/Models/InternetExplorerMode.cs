@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class InternetExplorerMode : Entity, IParsable {
-        /// <summary>The siteLists property</summary>
+        /// <summary>A collection of site lists to support Internet Explorer mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BrowserSiteList>? SiteLists {
