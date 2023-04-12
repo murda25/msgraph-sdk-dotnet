@@ -242,6 +242,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("videoTeleconferenceId", value); }
         }
 #endif
+        /// <summary>Specifies whether a watermark should be applied to a content type by the client application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WatermarkProtectionValues? WatermarkProtection {
+            get { return BackingStore?.Get<WatermarkProtectionValues?>("watermarkProtection"); }
+            set { BackingStore?.Set("watermarkProtection", value); }
+        }
+#nullable restore
+#else
+        public WatermarkProtectionValues WatermarkProtection {
+            get { return BackingStore?.Get<WatermarkProtectionValues>("watermarkProtection"); }
+            set { BackingStore?.Set("watermarkProtection", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -279,6 +293,7 @@ namespace Microsoft.Graph.Models {
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"subject", n => { Subject = n.GetStringValue(); } },
                 {"videoTeleconferenceId", n => { VideoTeleconferenceId = n.GetStringValue(); } },
+                {"watermarkProtection", n => { WatermarkProtection = n.GetObjectValue<WatermarkProtectionValues>(WatermarkProtectionValues.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -312,6 +327,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("videoTeleconferenceId", VideoTeleconferenceId);
+            writer.WriteObjectValue<WatermarkProtectionValues>("watermarkProtection", WatermarkProtection);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class Edge : Entity, IParsable {
-        /// <summary>The internetExplorerMode property</summary>
+        /// <summary>A container for Internet Explorer mode resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.InternetExplorerMode? InternetExplorerMode {

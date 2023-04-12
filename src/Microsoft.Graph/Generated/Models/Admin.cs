@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The edge property</summary>
+        /// <summary>A container for Microsoft Edge resources. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Edge? Edge {
@@ -55,6 +55,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("serviceAnnouncement", value); }
         }
 #endif
+        /// <summary>The sharepoint property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.Sharepoint? Sharepoint {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Sharepoint?>("sharepoint"); }
+            set { BackingStore?.Set("sharepoint", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.Sharepoint Sharepoint {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Sharepoint>("sharepoint"); }
+            set { BackingStore?.Set("sharepoint", value); }
+        }
+#endif
         /// <summary>
         /// Instantiates a new Admin and sets the default values.
         /// </summary>
@@ -78,6 +92,7 @@ namespace Microsoft.Graph.Models {
                 {"edge", n => { Edge = n.GetObjectValue<Microsoft.Graph.Models.Edge>(Microsoft.Graph.Models.Edge.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"serviceAnnouncement", n => { ServiceAnnouncement = n.GetObjectValue<Microsoft.Graph.Models.ServiceAnnouncement>(Microsoft.Graph.Models.ServiceAnnouncement.CreateFromDiscriminatorValue); } },
+                {"sharepoint", n => { Sharepoint = n.GetObjectValue<Microsoft.Graph.Models.Sharepoint>(Microsoft.Graph.Models.Sharepoint.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,6 +104,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.Edge>("edge", Edge);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<Microsoft.Graph.Models.ServiceAnnouncement>("serviceAnnouncement", ServiceAnnouncement);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Sharepoint>("sharepoint", Sharepoint);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.6.0] - 2023-04-12
+
+- Latest metadata updates from 12th April 2023
+- Fixes disposing of implicitly constructed BaseGraphRequestAdapter (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1724)
+
 ## [5.5.0] - 2023-04-06
 
 ### Changed 

@@ -1,6 +1,3 @@
-using Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.Publish;
-using Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedCookies;
-using Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -11,48 +8,36 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
+namespace Microsoft.Graph.Admin.Sharepoint.Settings {
     /// <summary>
-    /// Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+    /// Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
     /// </summary>
-    public class BrowserSiteListItemRequestBuilder : BaseRequestBuilder {
-        /// <summary>Provides operations to call the publish method.</summary>
-        public PublishRequestBuilder Publish { get =>
-            new PublishRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.</summary>
-        public SharedCookiesRequestBuilder SharedCookies { get =>
-            new SharedCookiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.</summary>
-        public SitesRequestBuilder Sites { get =>
-            new SitesRequestBuilder(PathParameters, RequestAdapter);
-        }
+    public class SettingsRequestBuilder : BaseRequestBuilder {
         /// <summary>
-        /// Instantiates a new BrowserSiteListItemRequestBuilder and sets the default values.
+        /// Instantiates a new SettingsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BrowserSiteListItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}", pathParameters) {
+        public SettingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/sharepoint/settings{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
-        /// Instantiates a new BrowserSiteListItemRequestBuilder and sets the default values.
+        /// Instantiates a new SettingsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BrowserSiteListItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}", rawUrl) {
+        public SettingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/sharepoint/settings{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property siteLists for admin
+        /// Delete navigation property settings for admin
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<BrowserSiteListItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<SettingsRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<BrowserSiteListItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<SettingsRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -62,36 +47,36 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get settings from admin
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<BrowserSiteList?> GetAsync(Action<BrowserSiteListItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<SharepointSettings?> GetAsync(Action<SettingsRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<BrowserSiteList> GetAsync(Action<BrowserSiteListItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<SharepointSettings> GetAsync(Action<SettingsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<BrowserSiteList>(requestInfo, BrowserSiteList.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<SharepointSettings>(requestInfo, SharepointSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property siteLists in admin
+        /// Update the navigation property settings in admin
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<BrowserSiteList?> PatchAsync(BrowserSiteList body, Action<BrowserSiteListItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<SharepointSettings?> PatchAsync(SharepointSettings body, Action<SettingsRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<BrowserSiteList> PatchAsync(BrowserSiteList body, Action<BrowserSiteListItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<SharepointSettings> PatchAsync(SharepointSettings body, Action<SettingsRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
@@ -99,18 +84,18 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<BrowserSiteList>(requestInfo, BrowserSiteList.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<SharepointSettings>(requestInfo, SharepointSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property siteLists for admin
+        /// Delete navigation property settings for admin
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<BrowserSiteListItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<SettingsRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<BrowserSiteListItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<SettingsRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
 #endif
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.DELETE,
@@ -118,7 +103,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
                 PathParameters = PathParameters,
             };
             if (requestConfiguration != null) {
-                var requestConfig = new BrowserSiteListItemRequestBuilderDeleteRequestConfiguration();
+                var requestConfig = new SettingsRequestBuilderDeleteRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -126,15 +111,15 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get settings from admin
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<BrowserSiteListItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<SettingsRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<BrowserSiteListItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<SettingsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
 #endif
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -143,7 +128,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             };
             requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
-                var requestConfig = new BrowserSiteListItemRequestBuilderGetRequestConfiguration();
+                var requestConfig = new SettingsRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddQueryParameters(requestConfig.QueryParameters);
                 requestInfo.AddRequestOptions(requestConfig.Options);
@@ -152,16 +137,16 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property siteLists in admin
+        /// Update the navigation property settings in admin
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<BrowserSiteListItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<SettingsRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BrowserSiteList body, Action<BrowserSiteListItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(SharepointSettings body, Action<SettingsRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -172,7 +157,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
             requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
-                var requestConfig = new BrowserSiteListItemRequestBuilderPatchRequestConfiguration();
+                var requestConfig = new SettingsRequestBuilderPatchRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -182,23 +167,23 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class BrowserSiteListItemRequestBuilderDeleteRequestConfiguration {
+        public class SettingsRequestBuilderDeleteRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new BrowserSiteListItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// Instantiates a new settingsRequestBuilderDeleteRequestConfiguration and sets the default values.
             /// </summary>
-            public BrowserSiteListItemRequestBuilderDeleteRequestConfiguration() {
+            public SettingsRequestBuilderDeleteRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get settings from admin
         /// </summary>
-        public class BrowserSiteListItemRequestBuilderGetQueryParameters {
+        public class SettingsRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -223,17 +208,17 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class BrowserSiteListItemRequestBuilderGetRequestConfiguration {
+        public class SettingsRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>Request query parameters</summary>
-            public BrowserSiteListItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new BrowserSiteListItemRequestBuilderGetQueryParameters();
+            public SettingsRequestBuilderGetQueryParameters QueryParameters { get; set; } = new SettingsRequestBuilderGetQueryParameters();
             /// <summary>
-            /// Instantiates a new BrowserSiteListItemRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new settingsRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
-            public BrowserSiteListItemRequestBuilderGetRequestConfiguration() {
+            public SettingsRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }
@@ -241,15 +226,15 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class BrowserSiteListItemRequestBuilderPatchRequestConfiguration {
+        public class SettingsRequestBuilderPatchRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new BrowserSiteListItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new settingsRequestBuilderPatchRequestConfiguration and sets the default values.
             /// </summary>
-            public BrowserSiteListItemRequestBuilderPatchRequestConfiguration() {
+            public SettingsRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }

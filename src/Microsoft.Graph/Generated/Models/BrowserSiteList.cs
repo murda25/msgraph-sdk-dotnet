@@ -8,7 +8,7 @@ namespace Microsoft.Graph.Models {
     /// A singleton entity which is used to specify IE mode site list metadata
     /// </summary>
     public class BrowserSiteList : Entity, IParsable {
-        /// <summary>Description for the site list</summary>
+        /// <summary>The description of the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -22,7 +22,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>Display name of this site list</summary>
+        /// <summary>The name of the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>Name of the admin who made the last update on the site list</summary>
+        /// <summary>The user who last modified the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? LastModifiedBy {
@@ -50,12 +50,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The datetime that the admin last updated the site list.</summary>
+        /// <summary>The date and time when the site list was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>Name of the admin who published the site list</summary>
+        /// <summary>The user who published the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? PublishedBy {
@@ -69,12 +69,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publishedBy", value); }
         }
 #endif
-        /// <summary>The datetime that admin published the site list to users in their organization.</summary>
+        /// <summary>The date and time when the site list was published.</summary>
         public DateTimeOffset? PublishedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("publishedDateTime"); }
             set { BackingStore?.Set("publishedDateTime", value); }
         }
-        /// <summary>Admin can have multiple revisions of the site list and the revision is generated whenever admin create/update the site list.</summary>
+        /// <summary>The current revision of the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Revision {
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("revision", value); }
         }
 #endif
-        /// <summary>The sharedCookies property</summary>
+        /// <summary>A collection of shared cookies defined for the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BrowserSharedCookie>? SharedCookies {
@@ -102,7 +102,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("sharedCookies", value); }
         }
 #endif
-        /// <summary>The sites property</summary>
+        /// <summary>A collection of sites defined for the site list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BrowserSite>? Sites {

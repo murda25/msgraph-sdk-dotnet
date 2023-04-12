@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.I
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get sites from admin
+        /// A collection of sites defined for the site list.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.I
             return requestInfo;
         }
         /// <summary>
-        /// Get sites from admin
+        /// A collection of sites defined for the site list.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.Sites.I
             }
         }
         /// <summary>
-        /// Get sites from admin
+        /// A collection of sites defined for the site list.
         /// </summary>
         public class BrowserSiteItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

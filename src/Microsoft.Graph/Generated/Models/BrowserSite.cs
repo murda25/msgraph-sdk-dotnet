@@ -8,12 +8,12 @@ namespace Microsoft.Graph.Models {
     /// Singleton entity which is used to specify IE mode site metadata
     /// </summary>
     public class BrowserSite : Entity, IParsable {
-        /// <summary>Boolean attribute that controls the behavior of redirected sites</summary>
+        /// <summary>Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.</summary>
         public bool? AllowRedirect {
             get { return BackingStore?.Get<bool?>("allowRedirect"); }
             set { BackingStore?.Set("allowRedirect", value); }
         }
-        /// <summary>The comment for the site</summary>
+        /// <summary>The comment for the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment {
@@ -32,17 +32,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<BrowserSiteCompatibilityMode?>("compatibilityMode"); }
             set { BackingStore?.Set("compatibilityMode", value); }
         }
-        /// <summary>The datetime that the site is created</summary>
+        /// <summary>The date and time when the site was created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The datetime that the admin deleted the site</summary>
+        /// <summary>The date and time when the site was deleted.</summary>
         public DateTimeOffset? DeletedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("deletedDateTime"); }
             set { BackingStore?.Set("deletedDateTime", value); }
         }
-        /// <summary>The collection stores site revision metadata and audit logs.</summary>
+        /// <summary>The history of modifications applied to the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BrowserSiteHistory>? History {
@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("history", value); }
         }
 #endif
-        /// <summary>The admin who made the last update on the site.</summary>
+        /// <summary>The user who last modified the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? LastModifiedBy {
@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The datetime that the admin updated the site.</summary>
+        /// <summary>The date and time when the site was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<BrowserSiteTargetEnvironment?>("targetEnvironment"); }
             set { BackingStore?.Set("targetEnvironment", value); }
         }
-        /// <summary>The URL of the site</summary>
+        /// <summary>The URL of the site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebUrl {
