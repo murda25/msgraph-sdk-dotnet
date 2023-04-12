@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class BrowserSharedCookie : Entity, IParsable {
-        /// <summary>The comment of the cookie</summary>
+        /// <summary>The comment for the shared cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment {
@@ -19,17 +19,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("comment", value); }
         }
 #endif
-        /// <summary>The datetime that the admin created the cookie</summary>
+        /// <summary>The date and time when the shared cookie was created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The datetime that the admin deleted the cookie</summary>
+        /// <summary>The date and time when the shared cookie was deleted.</summary>
         public DateTimeOffset? DeletedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("deletedDateTime"); }
             set { BackingStore?.Set("deletedDateTime", value); }
         }
-        /// <summary>The name of the cookie</summary>
+        /// <summary>The name of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The history of the cookie</summary>
+        /// <summary>The history of modifications applied to the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BrowserSharedCookieHistory>? History {
@@ -57,12 +57,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("history", value); }
         }
 #endif
-        /// <summary>Boolean attribute that determines whether a cookie is  a host-only or domain cookie</summary>
+        /// <summary>Controls whether a cookie is a host-only or domain cookie.</summary>
         public bool? HostOnly {
             get { return BackingStore?.Get<bool?>("hostOnly"); }
             set { BackingStore?.Set("hostOnly", value); }
         }
-        /// <summary>The URL of the cookie</summary>
+        /// <summary>The URL of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HostOrDomain {
@@ -76,7 +76,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("hostOrDomain", value); }
         }
 #endif
-        /// <summary>The identity of the admin who last updated the cookie</summary>
+        /// <summary>The user who last modified the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? LastModifiedBy {
@@ -90,12 +90,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The datetime that the admin last updated the cookie</summary>
+        /// <summary>The date and time when the cookie was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The path of the cookie</summary>
+        /// <summary>The path of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path {

@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The comment of the cookie</summary>
+        /// <summary>The comment for the shared cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("comment", value); }
         }
 #endif
-        /// <summary>The name of the cookie</summary>
+        /// <summary>The name of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -41,12 +41,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>Boolean attribute that determines whether a cookie is  a host-only or domain cookie</summary>
+        /// <summary>Controls whether a cookie is a host-only or domain cookie.</summary>
         public bool? HostOnly {
             get { return BackingStore?.Get<bool?>("hostOnly"); }
             set { BackingStore?.Set("hostOnly", value); }
         }
-        /// <summary>The URL of the cookie</summary>
+        /// <summary>The URL of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HostOrDomain {
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The path of the cookie</summary>
+        /// <summary>The path of the cookie.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path {
@@ -102,12 +102,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("path", value); }
         }
 #endif
-        /// <summary>The time the cookie was published</summary>
+        /// <summary>The date and time when the cookie was last published.</summary>
         public DateTimeOffset? PublishedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("publishedDateTime"); }
             set { BackingStore?.Set("publishedDateTime", value); }
         }
-        /// <summary>Specifies how the cookies are shared between Microsoft Edge and Internet Explorer</summary>
+        /// <summary>Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue.</summary>
         public BrowserSharedCookieSourceEnvironment? SourceEnvironment {
             get { return BackingStore?.Get<BrowserSharedCookieSourceEnvironment?>("sourceEnvironment"); }
             set { BackingStore?.Set("sourceEnvironment", value); }
