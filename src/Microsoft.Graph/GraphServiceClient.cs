@@ -19,7 +19,7 @@ namespace Microsoft.Graph
     /// <summary>
     /// A default client implementation.
     /// </summary>
-    public class GraphServiceClient : BaseGraphServiceClient, IBaseClient
+    public class GraphServiceClient : BaseGraphServiceClient, IBaseClient, IDisposable
     {
         private static readonly Version assemblyVersion = typeof(GraphServiceClient).GetTypeInfo().Assembly.GetName().Version;
         private static readonly GraphClientOptions graphClientOptions = new GraphClientOptions
@@ -81,7 +81,7 @@ namespace Microsoft.Graph
         /// <summary>
         /// Gets the <see cref="IRequestAdapter"/> for sending requests.
         /// </summary>
-        public IRequestAdapter RequestAdapter { get; set; }
+        public new IRequestAdapter RequestAdapter { get; set; }
 
         /// <summary>
         /// Gets the <see cref="BatchRequestBuilder"/> for building batch Requests
@@ -91,6 +91,17 @@ namespace Microsoft.Graph
             get
             {
                 return new CustomBatchRequestBuilder(this.RequestAdapter);
+            }
+        }
+        
+        /// <summary>
+        /// Cleanup anything as needed
+        /// </summary>
+        public void Dispose()
+        {
+            if (this.RequestAdapter is IDisposable disposable)
+            {
+                disposable.Dispose();
             }
         }
         
