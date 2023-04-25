@@ -27,8 +27,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.AssociateWithHubSites {
         public AssociateWithHubSitesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/associateWithHubSites", rawUrl) {
         }
         /// <summary>
-        /// Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0" />
+        /// Invoke action associateWithHubSites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -49,7 +48,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.AssociateWithHubSites {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
+        /// Invoke action associateWithHubSites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

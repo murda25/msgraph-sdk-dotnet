@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowedToCreateSecurityGroups"); }
             set { BackingStore?.Set("allowedToCreateSecurityGroups", value); }
         }
-        /// <summary>The allowedToReadBitlockerKeysForOwnedDevice property</summary>
+        /// <summary>Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.</summary>
         public bool? AllowedToReadBitlockerKeysForOwnedDevice {
             get { return BackingStore?.Get<bool?>("allowedToReadBitlockerKeysForOwnedDevice"); }
             set { BackingStore?.Set("allowedToReadBitlockerKeysForOwnedDevice", value); }

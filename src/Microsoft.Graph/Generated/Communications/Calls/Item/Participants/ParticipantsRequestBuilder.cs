@@ -45,8 +45,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Participants {
         public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of participant objects in the call.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0" />
+        /// Get participants from communications
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,7 +85,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Participants {
             return await RequestAdapter.SendAsync<Participant>(requestInfo, Participant.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of participant objects in the call.
+        /// Get participants from communications
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,7 +139,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Participants {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of participant objects in the call.
+        /// Get participants from communications
         /// </summary>
         public class ParticipantsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

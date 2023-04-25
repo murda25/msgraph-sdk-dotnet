@@ -62,7 +62,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
             return requestInfo;
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
             }
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         public class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

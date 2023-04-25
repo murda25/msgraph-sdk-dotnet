@@ -40,8 +40,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs {
         public CatalogsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/catalogs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of accessPackageCatalog objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0" />
+        /// A container for access packages.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs {
             return await RequestAdapter.SendAsync<AccessPackageCatalogCollectionResponse>(requestInfo, AccessPackageCatalogCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new accessPackageCatalog object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0" />
+        /// Create new navigation property to catalogs for identityGovernance
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs {
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, AccessPackageCatalog.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of accessPackageCatalog objects.
+        /// A container for access packages.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new accessPackageCatalog object.
+        /// Create new navigation property to catalogs for identityGovernance
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of accessPackageCatalog objects.
+        /// A container for access packages.
         /// </summary>
         public class CatalogsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

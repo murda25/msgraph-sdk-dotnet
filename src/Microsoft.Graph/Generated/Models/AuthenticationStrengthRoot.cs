@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AuthenticationStrengthRoot : Entity, IParsable {
-        /// <summary>The authenticationMethodModes property</summary>
+        /// <summary>Names and descriptions of all valid authentication method modes in the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationMethodModeDetail>? AuthenticationMethodModes {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("combinations", value); }
         }
 #endif
-        /// <summary>The policies property</summary>
+        /// <summary>A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationStrengthPolicy>? Policies {
