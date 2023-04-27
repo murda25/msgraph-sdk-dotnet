@@ -66,8 +66,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings {
             return await RequestAdapter.SendAsync<EducationAssignmentSettings>(requestInfo, EducationAssignmentSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0" />
+        /// Update the navigation property assignmentSettings in education
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -138,7 +137,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
+        /// Update the navigation property assignmentSettings in education
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

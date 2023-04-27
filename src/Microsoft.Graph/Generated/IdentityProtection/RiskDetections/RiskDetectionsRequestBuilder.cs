@@ -40,8 +40,7 @@ namespace Microsoft.Graph.IdentityProtection.RiskDetections {
         public RiskDetectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/identityProtection/riskDetections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of the riskDetection objects and their properties.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0" />
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +80,7 @@ namespace Microsoft.Graph.IdentityProtection.RiskDetections {
             return await RequestAdapter.SendAsync<RiskDetection>(requestInfo, RiskDetection.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of the riskDetection objects and their properties.
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +134,7 @@ namespace Microsoft.Graph.IdentityProtection.RiskDetections {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the riskDetection objects and their properties.
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// </summary>
         public class RiskDetectionsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

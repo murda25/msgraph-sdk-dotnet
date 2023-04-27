@@ -199,7 +199,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("profileType", value); }
         }
 #endif
-        /// <summary>The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? RegisteredOwners {
@@ -270,7 +270,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new Device and sets the default values.
+        /// Instantiates a new device and sets the default values.
         /// </summary>
         public Device() : base() {
             OdataType = "#microsoft.graph.device";

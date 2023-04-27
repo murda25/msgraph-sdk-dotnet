@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Planner.Plans {
         public PlansRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/planner/plans{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of **plannerplan** objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0" />
+        /// Read-only. Nullable. Returns a collection of the specified plans
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.Planner.Plans {
             return await RequestAdapter.SendAsync<PlannerPlanCollectionResponse>(requestInfo, PlannerPlanCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Use this API to create a new **plannerPlan**.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0" />
+        /// Create new navigation property to plans for planner
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.Planner.Plans {
             return await RequestAdapter.SendAsync<PlannerPlan>(requestInfo, PlannerPlan.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of **plannerplan** objects.
+        /// Read-only. Nullable. Returns a collection of the specified plans
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Use this API to create a new **plannerPlan**.
+        /// Create new navigation property to plans for planner
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of **plannerplan** objects.
+        /// Read-only. Nullable. Returns a collection of the specified plans
         /// </summary>
         public class PlansRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

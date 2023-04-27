@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests {
         public TimeOffRequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of timeOffRequest objects in the team.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0" />
+        /// Get timeOffRequests from users
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +80,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests {
             return await RequestAdapter.SendAsync<TimeOffRequest>(requestInfo, TimeOffRequest.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of timeOffRequest objects in the team.
+        /// Get timeOffRequests from users
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +134,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of timeOffRequest objects in the team.
+        /// Get timeOffRequests from users
         /// </summary>
         public class TimeOffRequestsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

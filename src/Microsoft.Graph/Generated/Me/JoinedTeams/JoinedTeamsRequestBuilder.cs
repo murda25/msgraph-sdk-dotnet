@@ -45,8 +45,7 @@ namespace Microsoft.Graph.Me.JoinedTeams {
         public JoinedTeamsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get the teams in Microsoft Teams that the user is a direct member of.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-list-joinedteams?view=graph-rest-1.0" />
+        /// Get joinedTeams from me
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,7 +85,7 @@ namespace Microsoft.Graph.Me.JoinedTeams {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Team>(requestInfo, Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get the teams in Microsoft Teams that the user is a direct member of.
+        /// Get joinedTeams from me
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,7 +139,7 @@ namespace Microsoft.Graph.Me.JoinedTeams {
             return requestInfo;
         }
         /// <summary>
-        /// Get the teams in Microsoft Teams that the user is a direct member of.
+        /// Get joinedTeams from me
         /// </summary>
         public class JoinedTeamsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

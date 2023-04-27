@@ -28,8 +28,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.AddPassword {
         public AddPasswordRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/addPassword", rawUrl) {
         }
         /// <summary>
-        /// Add a strong password or secret to a servicePrincipal object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/serviceprincipal-addpassword?view=graph-rest-1.0" />
+        /// Invoke action addPassword
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -50,7 +49,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.AddPassword {
             return await RequestAdapter.SendAsync<PasswordCredential>(requestInfo, PasswordCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Add a strong password or secret to a servicePrincipal object.
+        /// Invoke action addPassword
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

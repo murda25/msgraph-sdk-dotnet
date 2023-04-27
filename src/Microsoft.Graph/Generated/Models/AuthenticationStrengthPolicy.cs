@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AuthenticationStrengthPolicy : Entity, IParsable {
-        /// <summary>The allowedCombinations property</summary>
+        /// <summary>A collection of authentication method modes that are required be used to satify this authentication strength.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationMethodModes?>? AllowedCombinations {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("allowedCombinations", value); }
         }
 #endif
-        /// <summary>The combinationConfigurations property</summary>
+        /// <summary>Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationCombinationConfiguration>? CombinationConfigurations {
@@ -33,12 +33,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("combinationConfigurations", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The datetime when this policy was created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The description property</summary>
+        /// <summary>The human-readable description of this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -52,7 +52,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The modifiedDateTime property</summary>
+        /// <summary>The datetime when this policy was last modified.</summary>
         public DateTimeOffset? ModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("modifiedDateTime"); }
             set { BackingStore?.Set("modifiedDateTime", value); }

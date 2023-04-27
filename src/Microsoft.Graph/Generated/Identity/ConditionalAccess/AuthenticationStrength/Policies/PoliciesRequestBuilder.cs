@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
         public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/identity/conditionalAccess/authenticationStrength/policies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
             return await RequestAdapter.SendAsync<AuthenticationStrengthPolicy>(requestInfo, AuthenticationStrengthPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Poli
             return requestInfo;
         }
         /// <summary>
-        /// Get policies from identity
+        /// A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
         /// </summary>
         public class PoliciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

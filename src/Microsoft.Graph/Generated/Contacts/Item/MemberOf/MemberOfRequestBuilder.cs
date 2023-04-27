@@ -51,7 +51,6 @@ namespace Microsoft.Graph.Contacts.Item.MemberOf {
         }
         /// <summary>
         /// Get memberOf from contacts
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/orgcontact-list-memberof?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

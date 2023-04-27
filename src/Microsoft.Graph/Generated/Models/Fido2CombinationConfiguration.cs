@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class Fido2CombinationConfiguration : AuthenticationCombinationConfiguration, IParsable {
-        /// <summary>The allowedAAGUIDs property</summary>
+        /// <summary>A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AllowedAAGUIDs {

@@ -45,8 +45,7 @@ namespace Microsoft.Graph.Education.Users {
         public UsersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of the educationUser objects and their properties.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationuser-list?view=graph-rest-1.0" />
+        /// Get users from education
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -65,8 +64,7 @@ namespace Microsoft.Graph.Education.Users {
             return await RequestAdapter.SendAsync<EducationUserCollectionResponse>(requestInfo, EducationUserCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new educationUser object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationuser-post?view=graph-rest-1.0" />
+        /// Create new navigation property to users for education
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +85,7 @@ namespace Microsoft.Graph.Education.Users {
             return await RequestAdapter.SendAsync<EducationUser>(requestInfo, EducationUser.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of the educationUser objects and their properties.
+        /// Get users from education
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,7 +111,7 @@ namespace Microsoft.Graph.Education.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new educationUser object.
+        /// Create new navigation property to users for education
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -141,7 +139,7 @@ namespace Microsoft.Graph.Education.Users {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the educationUser objects and their properties.
+        /// Get users from education
         /// </summary>
         public class UsersRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

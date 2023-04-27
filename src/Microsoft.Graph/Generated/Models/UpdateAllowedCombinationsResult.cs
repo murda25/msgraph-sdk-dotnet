@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The additionalInformation property</summary>
+        /// <summary>Information about why the updateAllowedCombinations action was successful or failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdditionalInformation {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The conditionalAccessReferences property</summary>
+        /// <summary>References to existing Conditional Access policies that use this authentication strength.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ConditionalAccessReferences {
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("conditionalAccessReferences", value); }
         }
 #endif
-        /// <summary>The currentCombinations property</summary>
+        /// <summary>The list of current authentication method combinations allowed by the authentication strength.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationMethodModes?>? CurrentCombinations {
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The previousCombinations property</summary>
+        /// <summary>The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationMethodModes?>? PreviousCombinations {

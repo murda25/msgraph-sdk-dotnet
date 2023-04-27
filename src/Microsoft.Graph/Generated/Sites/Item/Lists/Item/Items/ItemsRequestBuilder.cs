@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items {
         public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get the collection of [items][item] in a [list][].
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0" />
+        /// All items contained in the list.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items {
             return await RequestAdapter.SendAsync<ListItemCollectionResponse>(requestInfo, ListItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new [listItem][] in a [list][].
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0" />
+        /// Create new navigation property to items for sites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ListItem>(requestInfo, Microsoft.Graph.Models.ListItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get the collection of [items][item] in a [list][].
+        /// All items contained in the list.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new [listItem][] in a [list][].
+        /// Create new navigation property to items for sites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Get the collection of [items][item] in a [list][].
+        /// All items contained in the list.
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

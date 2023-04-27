@@ -49,8 +49,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Get a list of the accessReviewScheduleDefinition objects and their properties.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0" />
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -69,8 +68,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             return await RequestAdapter.SendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, AccessReviewScheduleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new accessReviewScheduleDefinition object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0" />
+        /// Create new navigation property to definitions for identityGovernance
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +89,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             return await RequestAdapter.SendAsync<AccessReviewScheduleDefinition>(requestInfo, AccessReviewScheduleDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of the accessReviewScheduleDefinition objects and their properties.
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,7 +115,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new accessReviewScheduleDefinition object.
+        /// Create new navigation property to definitions for identityGovernance
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +143,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of the accessReviewScheduleDefinition objects and their properties.
+        /// Represents the template and scheduling for an access review.
         /// </summary>
         public class DefinitionsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

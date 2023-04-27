@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Solutions.BookingCurrencies {
         public BookingCurrenciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingCurrencies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0" />
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +80,7 @@ namespace Microsoft.Graph.Solutions.BookingCurrencies {
             return await RequestAdapter.SendAsync<BookingCurrency>(requestInfo, BookingCurrency.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +134,7 @@ namespace Microsoft.Graph.Solutions.BookingCurrencies {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+        /// Get bookingCurrencies from solutions
         /// </summary>
         public class BookingCurrenciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

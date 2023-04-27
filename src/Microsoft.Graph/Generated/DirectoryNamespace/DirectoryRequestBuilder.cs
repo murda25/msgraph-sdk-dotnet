@@ -1,4 +1,6 @@
 using Microsoft.Graph.DirectoryNamespace.AdministrativeUnits;
+using Microsoft.Graph.DirectoryNamespace.AttributeSets;
+using Microsoft.Graph.DirectoryNamespace.CustomSecurityAttributeDefinitions;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems;
 using Microsoft.Graph.DirectoryNamespace.FederationConfigurations;
 using Microsoft.Graph.DirectoryNamespace.OnPremisesSynchronization;
@@ -20,6 +22,14 @@ namespace Microsoft.Graph.DirectoryNamespace {
         /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
         public AdministrativeUnitsRequestBuilder AdministrativeUnits { get =>
             new AdministrativeUnitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.</summary>
+        public AttributeSetsRequestBuilder AttributeSets { get =>
+            new AttributeSetsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.</summary>
+        public CustomSecurityAttributeDefinitionsRequestBuilder CustomSecurityAttributeDefinitions { get =>
+            new CustomSecurityAttributeDefinitionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.</summary>
         public DeletedItemsRequestBuilder DeletedItems { get =>

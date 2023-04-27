@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("notificationQueryOptions", value); }
         }
 #endif
-        /// <summary>Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.</summary>
+        /// <summary>Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol. Any query string parameter included in the notificationUrl property will be included in the HTTP POST request when Microsoft Graph sends the change notifications.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NotificationUrl {

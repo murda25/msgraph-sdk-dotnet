@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies {
         public AuthenticationStrengthPoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/policies/authenticationStrengthPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get authenticationStrengthPolicies from policies
+        /// The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies {
             return await RequestAdapter.SendAsync<AuthenticationStrengthPolicy>(requestInfo, AuthenticationStrengthPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get authenticationStrengthPolicies from policies
+        /// The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Get authenticationStrengthPolicies from policies
+        /// The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
         /// </summary>
         public class AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

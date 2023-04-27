@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Auth
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get authenticationMethodModes from identity
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Auth
             return requestInfo;
         }
         /// <summary>
-        /// Get authenticationMethodModes from identity
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationStrength.Auth
             }
         }
         /// <summary>
-        /// Get authenticationMethodModes from identity
+        /// Names and descriptions of all valid authentication method modes in the system.
         /// </summary>
         public class AuthenticationMethodModeDetailItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -27,8 +27,7 @@ namespace Microsoft.Graph.Applications.GetAvailableExtensionProperties {
         public GetAvailableExtensionPropertiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/getAvailableExtensionProperties", rawUrl) {
         }
         /// <summary>
-        /// Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0" />
+        /// Invoke action getAvailableExtensionProperties
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -49,7 +48,7 @@ namespace Microsoft.Graph.Applications.GetAvailableExtensionProperties {
             return await RequestAdapter.SendAsync<GetAvailableExtensionPropertiesResponse>(requestInfo, GetAvailableExtensionPropertiesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
+        /// Invoke action getAvailableExtensionProperties
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups {
         public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of group objects in a term store.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0" />
+        /// Collection of all groups available in the term store.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups {
             return await RequestAdapter.SendAsync<GroupCollectionResponse>(requestInfo, GroupCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new group object in a term store.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0" />
+        /// Create new navigation property to groups for sites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TermStore.Group>(requestInfo, Microsoft.Graph.Models.TermStore.Group.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of group objects in a term store.
+        /// Collection of all groups available in the term store.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new group object in a term store.
+        /// Create new navigation property to groups for sites
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of group objects in a term store.
+        /// Collection of all groups available in the term store.
         /// </summary>
         public class GroupsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
