@@ -47,8 +47,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read the properties and relationships of a schema object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0" />
+        /// Get schema from external
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +111,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             return requestInfo;
         }
         /// <summary>
-        /// Read the properties and relationships of a schema object.
+        /// Get schema from external
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -182,7 +181,7 @@ namespace Microsoft.Graph.External.Connections.Item.Schema {
             }
         }
         /// <summary>
-        /// Read the properties and relationships of a schema object.
+        /// Get schema from external
         /// </summary>
         public class SchemaRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

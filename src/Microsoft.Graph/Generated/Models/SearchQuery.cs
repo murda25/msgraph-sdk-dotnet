@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("queryString", value); }
         }
 #endif
-        /// <summary>The queryTemplate property</summary>
+        /// <summary>Provides a way to decorate the query string. Supports both KQL and query variables. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? QueryTemplate {

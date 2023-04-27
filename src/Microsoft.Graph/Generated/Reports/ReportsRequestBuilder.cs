@@ -77,6 +77,11 @@ using Microsoft.Graph.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPerio
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithDate;
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDetailWithDate;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDetailWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDistributionCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityUserCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityUserDetailWithDate;
@@ -762,6 +767,46 @@ namespace Microsoft.Graph.Reports {
         public GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder GetTeamsDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
             return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityCountsWithPeriodRequestBuilder GetTeamsTeamActivityCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDetail method.
+        /// </summary>
+        /// <param name="date">Usage: date={date}</param>
+        public GetTeamsTeamActivityDetailWithDateRequestBuilder GetTeamsTeamActivityDetailWithDate(Date? date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
+            return new GetTeamsTeamActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDetail method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityDetailWithPeriodRequestBuilder GetTeamsTeamActivityDetailWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDistributionCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder GetTeamsTeamActivityDistributionCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamCountsWithPeriodRequestBuilder GetTeamsTeamCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityCounts method.

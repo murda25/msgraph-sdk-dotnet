@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Security.SecureScores {
         public SecureScoresRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0" />
+        /// Get secureScores from security
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +80,7 @@ namespace Microsoft.Graph.Security.SecureScores {
             return await RequestAdapter.SendAsync<SecureScore>(requestInfo, SecureScore.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
+        /// Get secureScores from security
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +134,7 @@ namespace Microsoft.Graph.Security.SecureScores {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of secureScore objects.
+        /// Get secureScores from security
         /// </summary>
         public class SecureScoresRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

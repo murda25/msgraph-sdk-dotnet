@@ -19,6 +19,34 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("administrativeUnits", value); }
         }
 #endif
+        /// <summary>The attributeSets property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AttributeSet>? AttributeSets {
+            get { return BackingStore?.Get<List<AttributeSet>?>("attributeSets"); }
+            set { BackingStore?.Set("attributeSets", value); }
+        }
+#nullable restore
+#else
+        public List<AttributeSet> AttributeSets {
+            get { return BackingStore?.Get<List<AttributeSet>>("attributeSets"); }
+            set { BackingStore?.Set("attributeSets", value); }
+        }
+#endif
+        /// <summary>The customSecurityAttributeDefinitions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CustomSecurityAttributeDefinition>? CustomSecurityAttributeDefinitions {
+            get { return BackingStore?.Get<List<CustomSecurityAttributeDefinition>?>("customSecurityAttributeDefinitions"); }
+            set { BackingStore?.Set("customSecurityAttributeDefinitions", value); }
+        }
+#nullable restore
+#else
+        public List<CustomSecurityAttributeDefinition> CustomSecurityAttributeDefinitions {
+            get { return BackingStore?.Get<List<CustomSecurityAttributeDefinition>>("customSecurityAttributeDefinitions"); }
+            set { BackingStore?.Set("customSecurityAttributeDefinitions", value); }
+        }
+#endif
         /// <summary>Recently deleted items. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +103,8 @@ namespace Microsoft.Graph.Models {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"administrativeUnits", n => { AdministrativeUnits = n.GetCollectionOfObjectValues<AdministrativeUnit>(AdministrativeUnit.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"attributeSets", n => { AttributeSets = n.GetCollectionOfObjectValues<AttributeSet>(AttributeSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"customSecurityAttributeDefinitions", n => { CustomSecurityAttributeDefinitions = n.GetCollectionOfObjectValues<CustomSecurityAttributeDefinition>(CustomSecurityAttributeDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deletedItems", n => { DeletedItems = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"federationConfigurations", n => { FederationConfigurations = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"onPremisesSynchronization", n => { OnPremisesSynchronization = n.GetCollectionOfObjectValues<OnPremisesDirectorySynchronization>(OnPremisesDirectorySynchronization.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -88,6 +118,8 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", AdministrativeUnits);
+            writer.WriteCollectionOfObjectValues<AttributeSet>("attributeSets", AttributeSets);
+            writer.WriteCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", CustomSecurityAttributeDefinitions);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("deletedItems", DeletedItems);
             writer.WriteCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", FederationConfigurations);
             writer.WriteCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", OnPremisesSynchronization);

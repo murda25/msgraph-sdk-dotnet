@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("authenticationFlowsPolicy", value); }
         }
 #endif
-        /// <summary>The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).</summary>
+        /// <summary>The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.AuthenticationMethodsPolicy? AuthenticationMethodsPolicy {
@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("authenticationMethodsPolicy", value); }
         }
 #endif
-        /// <summary>The authenticationStrengthPolicies property</summary>
+        /// <summary>The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthenticationStrengthPolicy>? AuthenticationStrengthPolicies {

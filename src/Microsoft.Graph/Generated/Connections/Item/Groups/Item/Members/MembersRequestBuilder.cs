@@ -59,8 +59,7 @@ namespace Microsoft.Graph.Connections.Item.Groups.Item.Members {
             return await RequestAdapter.SendAsync<IdentityCollectionResponse>(requestInfo, IdentityCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create an identity resource for a new member in an externalGroup.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-post-members?view=graph-rest-1.0" />
+        /// Create new navigation property to members for connections
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -107,7 +106,7 @@ namespace Microsoft.Graph.Connections.Item.Groups.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Create an identity resource for a new member in an externalGroup.
+        /// Create new navigation property to members for connections
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

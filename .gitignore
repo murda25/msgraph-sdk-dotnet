@@ -36,3 +36,4 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 .idea/
+*.log

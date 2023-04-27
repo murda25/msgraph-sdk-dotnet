@@ -28,8 +28,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics.AllTime {
         public AllTimeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/allTime{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get [itemAnalytics][] about the views that took place under this resource.The **itemAnalytics** resource is a convenient way to get activity stats for `allTime` and the `lastSevenDays`.For a custom time range or interval, use the [getActivitiesByInterval][] API.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/itemanalytics-get?view=graph-rest-1.0" />
+        /// Get allTime from drives
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,7 +47,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics.AllTime {
             return await RequestAdapter.SendAsync<ItemActivityStat>(requestInfo, ItemActivityStat.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get [itemAnalytics][] about the views that took place under this resource.The **itemAnalytics** resource is a convenient way to get activity stats for `allTime` and the `lastSevenDays`.For a custom time range or interval, use the [getActivitiesByInterval][] API.
+        /// Get allTime from drives
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +73,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics.AllTime {
             return requestInfo;
         }
         /// <summary>
-        /// Get [itemAnalytics][] about the views that took place under this resource.The **itemAnalytics** resource is a convenient way to get activity stats for `allTime` and the `lastSevenDays`.For a custom time range or interval, use the [getActivitiesByInterval][] API.
+        /// Get allTime from drives
         /// </summary>
         public class AllTimeRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

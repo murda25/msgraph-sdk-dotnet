@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies.Item.Combinati
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get combinationConfigurations from policies
+        /// Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies.Item.Combinati
             return requestInfo;
         }
         /// <summary>
-        /// Get combinationConfigurations from policies
+        /// Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies.Item.Combinati
             }
         }
         /// <summary>
-        /// Get combinationConfigurations from policies
+        /// Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
         /// </summary>
         public class AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

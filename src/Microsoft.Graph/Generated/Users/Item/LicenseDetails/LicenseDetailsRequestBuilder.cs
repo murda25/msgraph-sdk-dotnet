@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Users.Item.LicenseDetails {
         public LicenseDetailsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/licenseDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-list-licensedetails?view=graph-rest-1.0" />
+        /// A collection of this user&apos;s license details. Read-only.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +80,7 @@ namespace Microsoft.Graph.Users.Item.LicenseDetails {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.LicenseDetails>(requestInfo, Microsoft.Graph.Models.LicenseDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+        /// A collection of this user&apos;s license details. Read-only.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +134,7 @@ namespace Microsoft.Graph.Users.Item.LicenseDetails {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+        /// A collection of this user&apos;s license details. Read-only.
         /// </summary>
         public class LicenseDetailsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

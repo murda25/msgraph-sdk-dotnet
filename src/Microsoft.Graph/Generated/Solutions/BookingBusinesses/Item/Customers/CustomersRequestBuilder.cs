@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
         public CustomersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects of a business.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0" />
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
             return await RequestAdapter.SendAsync<BookingCustomerBaseCollectionResponse>(requestInfo, BookingCustomerBaseCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new bookingCustomer object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0" />
+        /// Create new navigation property to customers for solutions
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
             return await RequestAdapter.SendAsync<BookingCustomerBase>(requestInfo, BookingCustomerBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects of a business.
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new bookingCustomer object.
+        /// Create new navigation property to customers for solutions
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of bookingCustomer objects of a business.
+        /// All the customers of this business. Read-only. Nullable.
         /// </summary>
         public class CustomersRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

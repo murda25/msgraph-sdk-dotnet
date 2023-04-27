@@ -40,8 +40,7 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
         public EmailMethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/authentication/emailMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a list of a user&apos;s emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/authentication-list-emailmethods?view=graph-rest-1.0" />
+        /// The email address registered to a user for authentication.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +59,7 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
             return await RequestAdapter.SendAsync<EmailAuthenticationMethodCollectionResponse>(requestInfo, EmailAuthenticationMethodCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Set a user&apos;s emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-1.0" />
+        /// Create new navigation property to emailMethods for me
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +80,7 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
             return await RequestAdapter.SendAsync<EmailAuthenticationMethod>(requestInfo, EmailAuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a list of a user&apos;s emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+        /// The email address registered to a user for authentication.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +106,7 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Set a user&apos;s emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+        /// Create new navigation property to emailMethods for me
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +134,7 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of a user&apos;s emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+        /// The email address registered to a user for authentication.
         /// </summary>
         public class EmailMethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
