@@ -244,6 +244,19 @@ var groupDriveId = driveItem.Id;
 var children = await graphServiceClient.Drives[groupDriveId].Items["itemId"].Children.GetAsync();
 ```
 
+#### Upload a small file with conflictBehavior set
+
+To upload a small file (remember the size should not exceed 4mb according to the [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-put-content?view=graph-rest-1.0&tabs=http)) and at the same time, set the `conflictBehavior` [instance attribute](https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0#instance-attributes) you'll need to do it this way:
+
+```cs
+var requestInformation = graphClient.Drives[drive.Id.ToString()].Root.ItemWithPath("MediaMeta.xml").Content.ToPutRequestInformation(file);
+requestInformation.URI = new Uri(requestInformation.URI.OriginalString +"?@microsoft.graph.conflictBehavior=rename");
+
+var result = await graphClient.RequestAdapter.SendAsync<DriveItem>(requestInformation, DriveItem.CreateFromDiscriminatorValue);
+```
+
+To [upload large files](https://learn.microsoft.com/en-us/graph/sdks/large-file-upload?view=graph-rest-1.0&tabs=csharp#upload-large-file-to-onedrive), the method is slightly different.
+
 ## New Features
 
 ### Backing Store
