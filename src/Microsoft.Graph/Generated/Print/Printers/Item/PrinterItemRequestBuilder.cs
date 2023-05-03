@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Print.Printers.Item.Connectors;
+using Microsoft.Graph.Print.Printers.Item.Jobs;
 using Microsoft.Graph.Print.Printers.Item.RestoreFactoryDefaults;
 using Microsoft.Graph.Print.Printers.Item.Shares;
 using Microsoft.Graph.Print.Printers.Item.TaskTriggers;
@@ -20,6 +21,10 @@ namespace Microsoft.Graph.Print.Printers.Item {
         /// <summary>Provides operations to manage the connectors property of the microsoft.graph.printer entity.</summary>
         public ConnectorsRequestBuilder Connectors { get =>
             new ConnectorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.</summary>
+        public JobsRequestBuilder Jobs { get =>
+            new JobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the restoreFactoryDefaults method.</summary>
         public RestoreFactoryDefaultsRequestBuilder RestoreFactoryDefaults { get =>

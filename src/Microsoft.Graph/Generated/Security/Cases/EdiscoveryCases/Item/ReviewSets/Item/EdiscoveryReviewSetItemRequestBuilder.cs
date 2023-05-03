@@ -1,7 +1,7 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.MicrosoftGraphSecurityAddToReviewSet;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.SecurityAddToReviewSet;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -15,13 +15,13 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item {
     /// Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
     public class EdiscoveryReviewSetItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to call the addToReviewSet method.</summary>
+        public MicrosoftGraphSecurityAddToReviewSetRequestBuilder MicrosoftGraphSecurityAddToReviewSet { get =>
+            new MicrosoftGraphSecurityAddToReviewSetRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.</summary>
         public QueriesRequestBuilder Queries { get =>
             new QueriesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the addToReviewSet method.</summary>
-        public SecurityAddToReviewSetRequestBuilder SecurityAddToReviewSet { get =>
-            new SecurityAddToReviewSetRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new EdiscoveryReviewSetItemRequestBuilder and sets the default values.

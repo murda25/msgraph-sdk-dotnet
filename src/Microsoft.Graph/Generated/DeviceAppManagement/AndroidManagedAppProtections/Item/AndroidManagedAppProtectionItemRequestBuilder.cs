@@ -1,4 +1,5 @@
 using Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item.Apps;
+using Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item.DeploymentSummary;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -18,6 +19,10 @@ namespace Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections.Item 
         /// <summary>Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity.</summary>
         public AppsRequestBuilder Apps { get =>
             new AppsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.</summary>
+        public AssignmentsRequestBuilder Assignments { get =>
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the deploymentSummary property of the microsoft.graph.androidManagedAppProtection entity.</summary>
         public DeploymentSummaryRequestBuilder DeploymentSummary { get =>

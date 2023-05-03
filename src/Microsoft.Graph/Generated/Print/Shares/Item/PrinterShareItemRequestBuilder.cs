@@ -2,6 +2,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Print.Shares.Item.AllowedGroups;
 using Microsoft.Graph.Print.Shares.Item.AllowedUsers;
+using Microsoft.Graph.Print.Shares.Item.Jobs;
 using Microsoft.Graph.Print.Shares.Item.Printer;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -23,6 +24,10 @@ namespace Microsoft.Graph.Print.Shares.Item {
         /// <summary>Provides operations to manage the allowedUsers property of the microsoft.graph.printerShare entity.</summary>
         public AllowedUsersRequestBuilder AllowedUsers { get =>
             new AllowedUsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.</summary>
+        public JobsRequestBuilder Jobs { get =>
+            new JobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the printer property of the microsoft.graph.printerShare entity.</summary>
         public PrinterRequestBuilder Printer { get =>

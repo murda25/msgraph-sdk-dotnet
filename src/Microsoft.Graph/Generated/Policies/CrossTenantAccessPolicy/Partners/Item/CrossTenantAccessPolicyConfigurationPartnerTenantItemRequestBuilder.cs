@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
+using Microsoft.Graph.Policies.CrossTenantAccessPolicy.Partners.Item.IdentitySynchronization;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace Microsoft.Graph.Policies.CrossTenantAccessPolicy.Partners.Item {
     /// Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
     /// </summary>
     public class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.</summary>
+        public IdentitySynchronizationRequestBuilder IdentitySynchronization { get =>
+            new IdentitySynchronizationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder and sets the default values.
         /// </summary>

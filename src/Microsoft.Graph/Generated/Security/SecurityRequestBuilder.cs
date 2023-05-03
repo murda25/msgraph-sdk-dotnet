@@ -5,9 +5,9 @@ using Microsoft.Graph.Security.Alerts_v2;
 using Microsoft.Graph.Security.AttackSimulation;
 using Microsoft.Graph.Security.Cases;
 using Microsoft.Graph.Security.Incidents;
+using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
-using Microsoft.Graph.Security.SecurityRunHuntingQuery;
 using Microsoft.Graph.Security.TriggerTypes;
 using Microsoft.Graph.Security.Triggers;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -43,6 +43,10 @@ namespace Microsoft.Graph.Security {
         public IncidentsRequestBuilder Incidents { get =>
             new IncidentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
+        public MicrosoftGraphSecurityRunHuntingQueryRequestBuilder MicrosoftGraphSecurityRunHuntingQuery { get =>
+            new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.</summary>
         public SecureScoreControlProfilesRequestBuilder SecureScoreControlProfiles { get =>
             new SecureScoreControlProfilesRequestBuilder(PathParameters, RequestAdapter);
@@ -50,10 +54,6 @@ namespace Microsoft.Graph.Security {
         /// <summary>Provides operations to manage the secureScores property of the microsoft.graph.security entity.</summary>
         public SecureScoresRequestBuilder SecureScores { get =>
             new SecureScoresRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
-        public SecurityRunHuntingQueryRequestBuilder SecurityRunHuntingQuery { get =>
-            new SecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the triggers property of the microsoft.graph.security entity.</summary>
         public TriggersRequestBuilder Triggers { get =>

@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item.SecurityApplyTags;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphSecurityApplyTags;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Qu
     /// </summary>
     public class EdiscoveryReviewSetQueryItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the applyTags method.</summary>
-        public SecurityApplyTagsRequestBuilder SecurityApplyTags { get =>
-            new SecurityApplyTagsRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphSecurityApplyTagsRequestBuilder MicrosoftGraphSecurityApplyTags { get =>
+            new MicrosoftGraphSecurityApplyTagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new EdiscoveryReviewSetQueryItemRequestBuilder and sets the default values.

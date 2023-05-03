@@ -1,3 +1,4 @@
+using Microsoft.Graph.DeviceManagement.RoleAssignments.Item.RoleDefinition;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,6 +14,10 @@ namespace Microsoft.Graph.DeviceManagement.RoleAssignments.Item {
     /// Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
     /// </summary>
     public class DeviceAndAppManagementRoleAssignmentItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the roleDefinition property of the microsoft.graph.roleAssignment entity.</summary>
+        public RoleDefinitionRequestBuilder RoleDefinition { get =>
+            new RoleDefinitionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new DeviceAndAppManagementRoleAssignmentItemRequestBuilder and sets the default values.
         /// </summary>
