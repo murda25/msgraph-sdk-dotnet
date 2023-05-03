@@ -1,6 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Settings.SecurityResetToDefault;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Settings.MicrosoftGraphSecurityResetToDefault;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Settings {
     /// </summary>
     public class SettingsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the resetToDefault method.</summary>
-        public SecurityResetToDefaultRequestBuilder SecurityResetToDefault { get =>
-            new SecurityResetToDefaultRequestBuilder(PathParameters, RequestAdapter);
+        public MicrosoftGraphSecurityResetToDefaultRequestBuilder MicrosoftGraphSecurityResetToDefault { get =>
+            new MicrosoftGraphSecurityResetToDefaultRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new SettingsRequestBuilder and sets the default values.

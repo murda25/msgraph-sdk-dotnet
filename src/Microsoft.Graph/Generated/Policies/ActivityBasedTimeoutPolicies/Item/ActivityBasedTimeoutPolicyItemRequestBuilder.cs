@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
+using Microsoft.Graph.Policies.ActivityBasedTimeoutPolicies.Item.AppliesTo;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace Microsoft.Graph.Policies.ActivityBasedTimeoutPolicies.Item {
     /// Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
     public class ActivityBasedTimeoutPolicyItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the appliesTo property of the microsoft.graph.stsPolicy entity.</summary>
+        public AppliesToRequestBuilder AppliesTo { get =>
+            new AppliesToRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new ActivityBasedTimeoutPolicyItemRequestBuilder and sets the default values.
         /// </summary>

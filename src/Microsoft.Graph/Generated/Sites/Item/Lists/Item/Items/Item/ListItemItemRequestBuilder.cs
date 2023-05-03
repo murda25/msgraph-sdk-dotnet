@@ -1,11 +1,13 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Analytics;
+using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.CreatedByUser;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.DocumentSetVersions;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.DriveItem;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Fields;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.GetActivitiesByInterval;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.LastModifiedByUser;
 using Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Versions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -24,6 +26,10 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items.Item {
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.</summary>
         public DocumentSetVersionsRequestBuilder DocumentSetVersions { get =>
             new DocumentSetVersionsRequestBuilder(PathParameters, RequestAdapter);
@@ -39,6 +45,10 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items.Item {
         /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
         public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval { get =>
             new GetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the versions property of the microsoft.graph.listItem entity.</summary>
         public VersionsRequestBuilder Versions { get =>

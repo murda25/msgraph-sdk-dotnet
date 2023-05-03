@@ -1,3 +1,4 @@
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item.DocumentSetVersions.Item.Fields;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item.DocumentSetVersions.Item.Restore;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -14,6 +15,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item.DocumentS
     /// Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
     /// </summary>
     public class DocumentSetVersionItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity.</summary>
+        public FieldsRequestBuilder Fields { get =>
+            new FieldsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);

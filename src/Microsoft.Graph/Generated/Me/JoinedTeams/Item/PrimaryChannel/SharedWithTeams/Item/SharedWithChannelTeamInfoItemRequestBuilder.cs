@@ -1,4 +1,5 @@
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.SharedWithTeams.Item.AllowedMembers;
+using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.SharedWithTeams.Item.Team;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -17,6 +18,10 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.SharedWithTeams.Ite
         /// <summary>Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.</summary>
         public AllowedMembersRequestBuilder AllowedMembers { get =>
             new AllowedMembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the team property of the microsoft.graph.teamInfo entity.</summary>
+        public TeamRequestBuilder Team { get =>
+            new TeamRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new SharedWithChannelTeamInfoItemRequestBuilder and sets the default values.
