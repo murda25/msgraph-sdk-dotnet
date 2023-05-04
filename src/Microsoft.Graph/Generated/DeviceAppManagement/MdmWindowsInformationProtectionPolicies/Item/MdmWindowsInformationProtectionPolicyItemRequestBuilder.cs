@@ -1,3 +1,6 @@
+using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Item.Assignments;
+using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Item.ExemptAppLockerFiles;
+using Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.Item.ProtectedAppLockerFiles;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,6 +16,18 @@ namespace Microsoft.Graph.DeviceAppManagement.MdmWindowsInformationProtectionPol
     /// Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
     public class MdmWindowsInformationProtectionPolicyItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the assignments property of the microsoft.graph.windowsInformationProtection entity.</summary>
+        public AssignmentsRequestBuilder Assignments { get =>
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.</summary>
+        public ExemptAppLockerFilesRequestBuilder ExemptAppLockerFiles { get =>
+            new ExemptAppLockerFilesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.</summary>
+        public ProtectedAppLockerFilesRequestBuilder ProtectedAppLockerFiles { get =>
+            new ProtectedAppLockerFilesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new MdmWindowsInformationProtectionPolicyItemRequestBuilder and sets the default values.
         /// </summary>

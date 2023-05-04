@@ -1,6 +1,8 @@
 using Microsoft.Graph.Drives.Item.Bundles;
+using Microsoft.Graph.Drives.Item.CreatedByUser;
 using Microsoft.Graph.Drives.Item.Following;
 using Microsoft.Graph.Drives.Item.Items;
+using Microsoft.Graph.Drives.Item.LastModifiedByUser;
 using Microsoft.Graph.Drives.Item.List;
 using Microsoft.Graph.Drives.Item.Recent;
 using Microsoft.Graph.Drives.Item.Root;
@@ -26,6 +28,10 @@ namespace Microsoft.Graph.Drives.Item {
         public BundlesRequestBuilder Bundles { get =>
             new BundlesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the following property of the microsoft.graph.drive entity.</summary>
         public FollowingRequestBuilder Following { get =>
             new FollowingRequestBuilder(PathParameters, RequestAdapter);
@@ -33,6 +39,10 @@ namespace Microsoft.Graph.Drives.Item {
         /// <summary>Provides operations to manage the items property of the microsoft.graph.drive entity.</summary>
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the list property of the microsoft.graph.drive entity.</summary>
         public ListRequestBuilder List { get =>

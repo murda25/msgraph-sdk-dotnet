@@ -1,7 +1,9 @@
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Columns;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.CreatedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Drive;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.LastModifiedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Operations;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Subscriptions;
 using Microsoft.Graph.Models.ODataErrors;
@@ -27,6 +29,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
         public ContentTypesRequestBuilder ContentTypes { get =>
             new ContentTypesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the drive property of the microsoft.graph.list entity.</summary>
         public DriveRequestBuilder Drive { get =>
             new DriveRequestBuilder(PathParameters, RequestAdapter);
@@ -34,6 +40,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
         /// <summary>Provides operations to manage the items property of the microsoft.graph.list entity.</summary>
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.list entity.</summary>
         public OperationsRequestBuilder Operations { get =>
