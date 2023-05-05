@@ -224,6 +224,13 @@ var userDriveId = driveItem.Id;
 var children = await graphServiceClient.Drives[userDriveId].Items["itemId"].Children.GetAsync();
 ```
 
+> NOTE: /drive/root is a shorthand for /drive/items/root so the `itemId` can be replaced with `root` to make a call to get the root folder.
+
+```
+// List children in the root drive
+var children = await graphServiceClient.Drives[userDriveId].Items["root"].Children.GetAsync();
+```
+
 2. List children from a site's drive.
 
 ```cs
