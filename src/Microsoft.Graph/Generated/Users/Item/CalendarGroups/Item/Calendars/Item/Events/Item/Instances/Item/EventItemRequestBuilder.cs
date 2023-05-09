@@ -8,8 +8,6 @@ using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.DismissReminder;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Extensions;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Forward;
-using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.SnoozeReminder;
 using Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.TentativelyAccept;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -56,14 +54,6 @@ namespace Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Events.I
         /// <summary>Provides operations to call the forward method.</summary>
         public ForwardRequestBuilder Forward { get =>
             new ForwardRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the snoozeReminder method.</summary>
         public SnoozeReminderRequestBuilder SnoozeReminder { get =>

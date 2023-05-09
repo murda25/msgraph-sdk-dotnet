@@ -34,6 +34,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("complianceExpirationDateTime"); }
             set { BackingStore?.Set("complianceExpirationDateTime", value); }
         }
+        /// <summary>User-defined property set by Intune to automatically add devices to groups and simplify managing devices.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceCategory {
+            get { return BackingStore?.Get<string?>("deviceCategory"); }
+            set { BackingStore?.Set("deviceCategory", value); }
+        }
+#nullable restore
+#else
+        public string DeviceCategory {
+            get { return BackingStore?.Get<string>("deviceCategory"); }
+            set { BackingStore?.Set("deviceCategory", value); }
+        }
+#endif
         /// <summary>Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +76,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("deviceMetadata", value); }
         }
 #endif
+        /// <summary>Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DeviceOwnership {
+            get { return BackingStore?.Get<string?>("deviceOwnership"); }
+            set { BackingStore?.Set("deviceOwnership", value); }
+        }
+#nullable restore
+#else
+        public string DeviceOwnership {
+            get { return BackingStore?.Get<string>("deviceOwnership"); }
+            set { BackingStore?.Set("deviceOwnership", value); }
+        }
+#endif
         /// <summary>For internal use only.</summary>
         public int? DeviceVersion {
             get { return BackingStore?.Get<int?>("deviceVersion"); }
@@ -79,6 +107,20 @@ namespace Microsoft.Graph.Models {
         public string DisplayName {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
+        }
+#endif
+        /// <summary>Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EnrollmentProfileName {
+            get { return BackingStore?.Get<string?>("enrollmentProfileName"); }
+            set { BackingStore?.Set("enrollmentProfileName", value); }
+        }
+#nullable restore
+#else
+        public string EnrollmentProfileName {
+            get { return BackingStore?.Get<string>("enrollmentProfileName"); }
+            set { BackingStore?.Set("enrollmentProfileName", value); }
         }
 #endif
         /// <summary>The collection of open extensions defined for the device. Read-only. Nullable.</summary>
@@ -227,6 +269,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("registeredUsers", value); }
         }
 #endif
+        /// <summary>Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        public DateTimeOffset? RegistrationDateTime {
+            get { return BackingStore?.Get<DateTimeOffset?>("registrationDateTime"); }
+            set { BackingStore?.Set("registrationDateTime", value); }
+        }
         /// <summary>List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -292,10 +339,13 @@ namespace Microsoft.Graph.Models {
                 {"alternativeSecurityIds", n => { AlternativeSecurityIds = n.GetCollectionOfObjectValues<AlternativeSecurityId>(AlternativeSecurityId.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"approximateLastSignInDateTime", n => { ApproximateLastSignInDateTime = n.GetDateTimeOffsetValue(); } },
                 {"complianceExpirationDateTime", n => { ComplianceExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                {"deviceCategory", n => { DeviceCategory = n.GetStringValue(); } },
                 {"deviceId", n => { DeviceId = n.GetStringValue(); } },
                 {"deviceMetadata", n => { DeviceMetadata = n.GetStringValue(); } },
+                {"deviceOwnership", n => { DeviceOwnership = n.GetStringValue(); } },
                 {"deviceVersion", n => { DeviceVersion = n.GetIntValue(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
+                {"enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
                 {"isManaged", n => { IsManaged = n.GetBoolValue(); } },
@@ -309,6 +359,7 @@ namespace Microsoft.Graph.Models {
                 {"profileType", n => { ProfileType = n.GetStringValue(); } },
                 {"registeredOwners", n => { RegisteredOwners = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"registeredUsers", n => { RegisteredUsers = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"transitiveMemberOf", n => { TransitiveMemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"trustType", n => { TrustType = n.GetStringValue(); } },
@@ -325,10 +376,13 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AlternativeSecurityId>("alternativeSecurityIds", AlternativeSecurityIds);
             writer.WriteDateTimeOffsetValue("approximateLastSignInDateTime", ApproximateLastSignInDateTime);
             writer.WriteDateTimeOffsetValue("complianceExpirationDateTime", ComplianceExpirationDateTime);
+            writer.WriteStringValue("deviceCategory", DeviceCategory);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceMetadata", DeviceMetadata);
+            writer.WriteStringValue("deviceOwnership", DeviceOwnership);
             writer.WriteIntValue("deviceVersion", DeviceVersion);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteStringValue("enrollmentProfileName", EnrollmentProfileName);
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteBoolValue("isCompliant", IsCompliant);
             writer.WriteBoolValue("isManaged", IsManaged);
@@ -342,6 +396,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("profileType", ProfileType);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("registeredOwners", RegisteredOwners);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("registeredUsers", RegisteredUsers);
+            writer.WriteDateTimeOffsetValue("registrationDateTime", RegistrationDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("systemLabels", SystemLabels);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", TransitiveMemberOf);
             writer.WriteStringValue("trustType", TrustType);

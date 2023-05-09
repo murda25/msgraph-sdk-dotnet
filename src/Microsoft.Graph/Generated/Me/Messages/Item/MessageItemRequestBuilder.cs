@@ -6,11 +6,9 @@ using Microsoft.Graph.Me.Messages.Item.CreateReplyAll;
 using Microsoft.Graph.Me.Messages.Item.Extensions;
 using Microsoft.Graph.Me.Messages.Item.Forward;
 using Microsoft.Graph.Me.Messages.Item.Move;
-using Microsoft.Graph.Me.Messages.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Me.Messages.Item.Reply;
 using Microsoft.Graph.Me.Messages.Item.ReplyAll;
 using Microsoft.Graph.Me.Messages.Item.Send;
-using Microsoft.Graph.Me.Messages.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Me.Messages.Item.Value;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -63,10 +61,6 @@ namespace Microsoft.Graph.Me.Messages.Item {
         public MoveRequestBuilder Move { get =>
             new MoveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the reply method.</summary>
         public ReplyRequestBuilder Reply { get =>
             new ReplyRequestBuilder(PathParameters, RequestAdapter);
@@ -78,10 +72,6 @@ namespace Microsoft.Graph.Me.Messages.Item {
         /// <summary>Provides operations to call the send method.</summary>
         public SendRequestBuilder Send { get =>
             new SendRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new MessageItemRequestBuilder and sets the default values.

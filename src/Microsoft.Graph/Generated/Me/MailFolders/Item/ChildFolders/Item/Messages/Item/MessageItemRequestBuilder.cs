@@ -6,11 +6,9 @@ using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Create
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Extensions;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Forward;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Move;
-using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Reply;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.ReplyAll;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Send;
-using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item.Value;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -63,10 +61,6 @@ namespace Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item {
         public MoveRequestBuilder Move { get =>
             new MoveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the reply method.</summary>
         public ReplyRequestBuilder Reply { get =>
             new ReplyRequestBuilder(PathParameters, RequestAdapter);
@@ -78,10 +72,6 @@ namespace Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages.Item {
         /// <summary>Provides operations to call the send method.</summary>
         public SendRequestBuilder Send { get =>
             new SendRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new MessageItemRequestBuilder and sets the default values.

@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The membershipKind property</summary>
+        /// <summary>The membership kind. Possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object.</summary>
         public ConditionalAccessExternalTenantsMembershipKind? MembershipKind {
             get { return BackingStore?.Get<ConditionalAccessExternalTenantsMembershipKind?>("membershipKind"); }
             set { BackingStore?.Set("membershipKind", value); }
