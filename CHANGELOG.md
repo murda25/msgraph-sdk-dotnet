@@ -7,6 +7,12 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.10.0] - 2023-05-10
+
+- Latest metadata updates from 9th May 2023
+- Fixes invalid paths for singleValueExtendedProperties and multiValueExtendedProperties nav properties (https://github.com/microsoftgraph/msgraph-metadata/issues/246)
+- Fixes invalid paths for catalogs/accessPackages nav properties (https://github.com/microsoftgraph/msgraph-metadata/issues/338)
+
 ## [5.9.0] - 2023-05-03
 
 - Latest metadata updates from 2nd May 2023
