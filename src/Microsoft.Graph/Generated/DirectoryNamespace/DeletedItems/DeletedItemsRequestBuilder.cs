@@ -2,8 +2,11 @@ using Microsoft.Graph.DirectoryNamespace.DeletedItems.Count;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Delta;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetAvailableExtensionProperties;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetByIds;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphAdministrativeUnit;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphApplication;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphDevice;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphGroup;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphServicePrincipal;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphUser;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.ValidateProperties;
@@ -38,13 +41,25 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
         public GetByIdsRequestBuilder GetByIds { get =>
             new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to administrativeUnit.</summary>
+        public GraphAdministrativeUnitRequestBuilder GraphAdministrativeUnit { get =>
+            new GraphAdministrativeUnitRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to application.</summary>
         public GraphApplicationRequestBuilder GraphApplication { get =>
             new GraphApplicationRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to device.</summary>
+        public GraphDeviceRequestBuilder GraphDevice { get =>
+            new GraphDeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to group.</summary>
         public GraphGroupRequestBuilder GraphGroup { get =>
             new GraphGroupRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to servicePrincipal.</summary>
+        public GraphServicePrincipalRequestBuilder GraphServicePrincipal { get =>
+            new GraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to user.</summary>
         public GraphUserRequestBuilder GraphUser { get =>

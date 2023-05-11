@@ -7,8 +7,6 @@ using Microsoft.Graph.Me.Calendar.Events.Item.DismissReminder;
 using Microsoft.Graph.Me.Calendar.Events.Item.Extensions;
 using Microsoft.Graph.Me.Calendar.Events.Item.Forward;
 using Microsoft.Graph.Me.Calendar.Events.Item.Instances;
-using Microsoft.Graph.Me.Calendar.Events.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Me.Calendar.Events.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Me.Calendar.Events.Item.SnoozeReminder;
 using Microsoft.Graph.Me.Calendar.Events.Item.TentativelyAccept;
 using Microsoft.Graph.Models.ODataErrors;
@@ -61,14 +59,6 @@ namespace Microsoft.Graph.Me.Calendar.Events.Item {
         /// <summary>Provides operations to manage the instances property of the microsoft.graph.event entity.</summary>
         public InstancesRequestBuilder Instances { get =>
             new InstancesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the snoozeReminder method.</summary>
         public SnoozeReminderRequestBuilder SnoozeReminder { get =>

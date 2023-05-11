@@ -2,9 +2,7 @@ using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Attachments;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Extensions;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Forward;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.InReplyTo;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.Reply;
-using Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -36,17 +34,9 @@ namespace Microsoft.Graph.Groups.Item.Threads.Item.Posts.Item {
         public InReplyToRequestBuilder InReplyTo { get =>
             new InReplyToRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the reply method.</summary>
         public ReplyRequestBuilder Reply { get =>
             new ReplyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new PostItemRequestBuilder and sets the default values.

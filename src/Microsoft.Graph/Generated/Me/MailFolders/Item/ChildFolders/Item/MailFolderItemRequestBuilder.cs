@@ -2,8 +2,6 @@ using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Copy;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.MessageRules;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Messages;
 using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.Move;
-using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -34,14 +32,6 @@ namespace Microsoft.Graph.Me.MailFolders.Item.ChildFolders.Item {
         /// <summary>Provides operations to call the move method.</summary>
         public MoveRequestBuilder Move { get =>
             new MoveRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new MailFolderItemRequestBuilder and sets the default values.

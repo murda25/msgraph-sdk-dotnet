@@ -3,8 +3,6 @@ using Microsoft.Graph.Me.Calendars.Item.CalendarPermissions;
 using Microsoft.Graph.Me.Calendars.Item.CalendarView;
 using Microsoft.Graph.Me.Calendars.Item.Events;
 using Microsoft.Graph.Me.Calendars.Item.GetSchedule;
-using Microsoft.Graph.Me.Calendars.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Me.Calendars.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -35,14 +33,6 @@ namespace Microsoft.Graph.Me.Calendars.Item {
         /// <summary>Provides operations to call the getSchedule method.</summary>
         public GetScheduleRequestBuilder GetSchedule { get =>
             new GetScheduleRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Provides operations to call the allowedCalendarSharingRoles method.
