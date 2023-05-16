@@ -1,5 +1,6 @@
 using Microsoft.Graph.Groups.Item.Sites.Add;
 using Microsoft.Graph.Groups.Item.Sites.Count;
+using Microsoft.Graph.Groups.Item.Sites.GetAllSites;
 using Microsoft.Graph.Groups.Item.Sites.Item;
 using Microsoft.Graph.Groups.Item.Sites.Remove;
 using Microsoft.Graph.Models.ODataErrors;
@@ -24,6 +25,10 @@ namespace Microsoft.Graph.Groups.Item.Sites {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getAllSites method.</summary>
+        public GetAllSitesRequestBuilder GetAllSites { get =>
+            new GetAllSitesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the remove method.</summary>
         public RemoveRequestBuilder Remove { get =>

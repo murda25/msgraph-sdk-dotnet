@@ -1,5 +1,6 @@
 using Microsoft.Graph.Me.OnlineMeetings.Item.AttendanceReports;
 using Microsoft.Graph.Me.OnlineMeetings.Item.AttendeeReport;
+using Microsoft.Graph.Me.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -23,6 +24,10 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
         public AttendeeReportRequestBuilder AttendeeReport { get =>
             new AttendeeReportRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the getVirtualAppointmentJoinWebUrl method.</summary>
+        public GetVirtualAppointmentJoinWebUrlRequestBuilder GetVirtualAppointmentJoinWebUrl { get =>
+            new GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.
         /// </summary>
@@ -38,7 +43,8 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
         public OnlineMeetingItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/onlineMeetings/{onlineMeeting%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property onlineMeetings for me
+        /// Delete an onlineMeeting object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -57,7 +63,8 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get onlineMeetings from me
+        /// Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,7 +83,8 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, OnlineMeeting.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property onlineMeetings in me
+        /// Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -97,7 +105,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, OnlineMeeting.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property onlineMeetings for me
+        /// Delete an onlineMeeting object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +129,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get onlineMeetings from me
+        /// Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +155,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property onlineMeetings in me
+        /// Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -191,7 +199,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item {
             }
         }
         /// <summary>
-        /// Get onlineMeetings from me
+        /// Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
         /// </summary>
         public class OnlineMeetingItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

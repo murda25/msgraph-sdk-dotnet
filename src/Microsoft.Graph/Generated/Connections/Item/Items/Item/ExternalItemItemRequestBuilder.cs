@@ -1,3 +1,5 @@
+using Microsoft.Graph.Connections.Item.Items.Item.Activities;
+using Microsoft.Graph.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities;
 using Microsoft.Graph.Models.ExternalConnectors;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,6 +15,14 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
     /// Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
     public class ExternalItemItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.</summary>
+        public ActivitiesRequestBuilder Activities { get =>
+            new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addActivities method.</summary>
+        public MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder MicrosoftGraphExternalConnectorsAddActivities { get =>
+            new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new ExternalItemItemRequestBuilder and sets the default values.
         /// </summary>
@@ -28,7 +38,8 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
         public ExternalItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property items for connections
+        /// Delete an externalItem object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +58,8 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +99,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             return await RequestAdapter.SendAsync<ExternalItem>(requestInfo, ExternalItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property items for connections
+        /// Delete an externalItem object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +123,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +193,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             }
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
         /// </summary>
         public class ExternalItemItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

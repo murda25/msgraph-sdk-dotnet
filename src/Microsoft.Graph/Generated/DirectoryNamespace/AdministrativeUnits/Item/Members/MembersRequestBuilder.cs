@@ -76,6 +76,7 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits.Item.Members {
         }
         /// <summary>
         /// Users and groups that are members of this administrative unit. Supports $expand.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/administrativeunit-list-members?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

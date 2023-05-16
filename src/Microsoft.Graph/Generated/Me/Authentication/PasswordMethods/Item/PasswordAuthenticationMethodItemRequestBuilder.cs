@@ -28,7 +28,8 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
         public PasswordAuthenticationMethodItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+        /// Retrieve a password that&apos;s registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the **password** property is always `null`.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,7 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
             return await RequestAdapter.SendAsync<PasswordAuthenticationMethod>(requestInfo, PasswordAuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+        /// Retrieve a password that&apos;s registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the **password** property is always `null`.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +74,7 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the password that&apos;s registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+        /// Retrieve a password that&apos;s registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the **password** property is always `null`.
         /// </summary>
         public class PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

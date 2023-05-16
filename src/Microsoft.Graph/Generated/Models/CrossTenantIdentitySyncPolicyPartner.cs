@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name for the cross-tenant user synchronization policy. Use the name of the partner Azure AD (Azure Active Directory) tenant to easily identify the policy. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The tenantId property</summary>
+        /// <summary>Tenant identifier for the partner Azure AD organization. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantId {
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("tenantId", value); }
         }
 #endif
-        /// <summary>The userSyncInbound property</summary>
+        /// <summary>Defines whether users can be synchronized from the partner tenant. Key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CrossTenantUserSyncInbound? UserSyncInbound {

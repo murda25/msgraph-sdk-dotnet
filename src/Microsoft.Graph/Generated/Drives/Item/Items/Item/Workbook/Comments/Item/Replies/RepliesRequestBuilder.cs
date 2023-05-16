@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item.Replies 
         public RepliesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments/{workbookComment%2Did}/replies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get replies from drives
+        /// Retrieve the properties and relationships of workbookCommentReply object.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item.Replies 
             return await RequestAdapter.SendAsync<WorkbookCommentReply>(requestInfo, WorkbookCommentReply.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get replies from drives
+        /// Retrieve the properties and relationships of workbookCommentReply object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item.Replies 
             return requestInfo;
         }
         /// <summary>
-        /// Get replies from drives
+        /// Retrieve the properties and relationships of workbookCommentReply object.
         /// </summary>
         public class RepliesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

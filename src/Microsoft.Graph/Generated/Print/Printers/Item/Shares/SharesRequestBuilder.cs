@@ -40,7 +40,8 @@ namespace Microsoft.Graph.Print.Printers.Item.Shares {
         public SharesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/print/printers/{printer%2Did}/shares{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+        /// Retrieve a list of printer shares associated with the printer.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printer-list-shares?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,7 @@ namespace Microsoft.Graph.Print.Printers.Item.Shares {
             return await RequestAdapter.SendAsync<PrinterShareCollectionResponse>(requestInfo, PrinterShareCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+        /// Retrieve a list of printer shares associated with the printer.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +86,7 @@ namespace Microsoft.Graph.Print.Printers.Item.Shares {
             return requestInfo;
         }
         /// <summary>
-        /// The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
+        /// Retrieve a list of printer shares associated with the printer.
         /// </summary>
         public class SharesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

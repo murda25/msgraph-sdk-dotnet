@@ -28,7 +28,8 @@ namespace Microsoft.Graph.Me.AssignLicense {
         public AssignLicenseRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/assignLicense", rawUrl) {
         }
         /// <summary>
-        /// Invoke action assignLicense
+        /// Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-assignlicense?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -49,7 +50,7 @@ namespace Microsoft.Graph.Me.AssignLicense {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.User>(requestInfo, Microsoft.Graph.Models.User.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action assignLicense
+        /// Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

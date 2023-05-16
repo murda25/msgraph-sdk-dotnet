@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Connections.Item.Operations {
         public OperationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get operations from connections
+        /// Read the properties and relationships of a connectionOperation object.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Connections.Item.Operations {
             return await RequestAdapter.SendAsync<ConnectionOperation>(requestInfo, ConnectionOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get operations from connections
+        /// Read the properties and relationships of a connectionOperation object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Connections.Item.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from connections
+        /// Read the properties and relationships of a connectionOperation object.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

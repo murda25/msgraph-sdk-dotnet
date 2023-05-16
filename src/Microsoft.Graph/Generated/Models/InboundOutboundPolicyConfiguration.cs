@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The inboundAllowed property</summary>
+        /// <summary>Defines whether external users coming inbound are allowed.</summary>
         public bool? InboundAllowed {
             get { return BackingStore?.Get<bool?>("inboundAllowed"); }
             set { BackingStore?.Set("inboundAllowed", value); }
@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The outboundAllowed property</summary>
+        /// <summary>Defines whether internal users are allowed to go outbound.</summary>
         public bool? OutboundAllowed {
             get { return BackingStore?.Get<bool?>("outboundAllowed"); }
             set { BackingStore?.Set("outboundAllowed", value); }
