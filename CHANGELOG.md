@@ -7,6 +7,8 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+- Fixes ItemWithPath not propagating request configuration options.
+
 ## [5.10.0] - 2023-05-10
 
 - Latest metadata updates from 9th May 2023
