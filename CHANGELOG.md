@@ -7,6 +7,12 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.11.0] - 2023-05-17
+
+- Latest metadata updates from 16th May 2023
+- Fixes incorrect count path in sites lists (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1749)
+- Fixes ItemWithPath not propagating request configuration options.(https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1806,https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1840)
+
 ## [5.10.0] - 2023-05-10
 
 - Latest metadata updates from 9th May 2023

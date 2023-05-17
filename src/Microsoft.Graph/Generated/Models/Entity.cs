@@ -295,6 +295,8 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.extension" => new Extension(),
                 "#microsoft.graph.extensionProperty" => new ExtensionProperty(),
                 "#microsoft.graph.externalConnectors.connectionOperation" => new ConnectionOperation(),
+                "#microsoft.graph.externalConnectors.externalActivity" => new ExternalActivity(),
+                "#microsoft.graph.externalConnectors.externalActivityResult" => new ExternalActivityResult(),
                 "#microsoft.graph.externalConnectors.externalConnection" => new ExternalConnection(),
                 "#microsoft.graph.externalConnectors.externalGroup" => new ExternalGroup(),
                 "#microsoft.graph.externalConnectors.externalItem" => new ExternalItem(),

@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Contacts.Item.TransitiveMemberOf.Item {
         public DirectoryObjectItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts/{orgContact%2Did}/transitiveMemberOf/{directoryObject%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get transitiveMemberOf from contacts
+        /// Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Contacts.Item.TransitiveMemberOf.Item {
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get transitiveMemberOf from contacts
+        /// Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Contacts.Item.TransitiveMemberOf.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get transitiveMemberOf from contacts
+        /// Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable.
         /// </summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

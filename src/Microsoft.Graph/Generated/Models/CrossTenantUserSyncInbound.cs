@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The isSyncAllowed property</summary>
+        /// <summary>Defines whether user objects should be synchronized from the partner tenant. false causes any current user synchronization from the source tenant to the target tenant to stop. This property has no impact on existing users who have already been synchronized.</summary>
         public bool? IsSyncAllowed {
             get { return BackingStore?.Get<bool?>("isSyncAllowed"); }
             set { BackingStore?.Set("isSyncAllowed", value); }

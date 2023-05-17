@@ -66,7 +66,8 @@ namespace Microsoft.Graph.Policies.AuthorizationPolicy {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthorizationPolicy>(requestInfo, Microsoft.Graph.Models.AuthorizationPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property authorizationPolicy in policies
+        /// Update the properties of an authorizationPolicy object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -137,7 +138,7 @@ namespace Microsoft.Graph.Policies.AuthorizationPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property authorizationPolicy in policies
+        /// Update the properties of an authorizationPolicy object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

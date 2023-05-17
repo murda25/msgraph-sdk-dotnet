@@ -40,7 +40,8 @@ namespace Microsoft.Graph.Security.SecureScoreControlProfiles {
         public SecureScoreControlProfilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/secureScoreControlProfiles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieve the properties and relationships of a secureScoreControlProfiles object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-list-securescorecontrolprofiles?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +81,7 @@ namespace Microsoft.Graph.Security.SecureScoreControlProfiles {
             return await RequestAdapter.SendAsync<SecureScoreControlProfile>(requestInfo, SecureScoreControlProfile.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieve the properties and relationships of a secureScoreControlProfiles object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +135,7 @@ namespace Microsoft.Graph.Security.SecureScoreControlProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieve the properties and relationships of a secureScoreControlProfiles object.
         /// </summary>
         public class SecureScoreControlProfilesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

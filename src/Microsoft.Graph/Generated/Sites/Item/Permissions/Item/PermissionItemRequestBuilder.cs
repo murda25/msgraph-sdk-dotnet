@@ -33,7 +33,8 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
         public PermissionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property permissions for sites
+        /// Delete a permission object on a site.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -52,7 +53,8 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,7 +73,8 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Permission>(requestInfo, Microsoft.Graph.Models.Permission.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property permissions in sites
+        /// Update an application permission object on a site. 
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +95,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Permission>(requestInfo, Microsoft.Graph.Models.Permission.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property permissions for sites
+        /// Delete a permission object on a site.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,7 +119,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,7 +145,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property permissions in sites
+        /// Update an application permission object on a site. 
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -186,7 +189,7 @@ namespace Microsoft.Graph.Sites.Item.Permissions.Item {
             }
         }
         /// <summary>
-        /// The permissions associated with the site. Nullable.
+        /// Retrieve the properties and relationships of a permission object on a site.
         /// </summary>
         public class PermissionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

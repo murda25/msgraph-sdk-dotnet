@@ -2,6 +2,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Sites.Add;
 using Microsoft.Graph.Sites.Count;
+using Microsoft.Graph.Sites.GetAllSites;
 using Microsoft.Graph.Sites.Item;
 using Microsoft.Graph.Sites.Remove;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -24,6 +25,10 @@ namespace Microsoft.Graph.Sites {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getAllSites method.</summary>
+        public GetAllSitesRequestBuilder GetAllSites { get =>
+            new GetAllSitesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the remove method.</summary>
         public RemoveRequestBuilder Remove { get =>

@@ -49,7 +49,8 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedules?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +90,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             return await RequestAdapter.SendAsync<UnifiedRoleEligibilitySchedule>(requestInfo, UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,7 +144,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             return requestInfo;
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
         /// </summary>
         public class RoleEligibilitySchedulesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

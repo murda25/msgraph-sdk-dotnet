@@ -40,7 +40,8 @@ namespace Microsoft.Graph.Security.Alerts {
         public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/alerts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get alerts from security
+        /// Retrieve a list of alert objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/alert-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +81,7 @@ namespace Microsoft.Graph.Security.Alerts {
             return await RequestAdapter.SendAsync<Alert>(requestInfo, Alert.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get alerts from security
+        /// Retrieve a list of alert objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +135,7 @@ namespace Microsoft.Graph.Security.Alerts {
             return requestInfo;
         }
         /// <summary>
-        /// Get alerts from security
+        /// Retrieve a list of alert objects.
         /// </summary>
         public class AlertsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
