@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class OrgContact : DirectoryObject, IParsable {
-        /// <summary>The addresses property</summary>
+        /// <summary>Postal addresses for this organizational contact. For now a contact can only have one physical address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PhysicalOfficeAddress>? Addresses {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("addresses", value); }
         }
 #endif
-        /// <summary>The companyName property</summary>
+        /// <summary>Name of the company that this organizational contact belongs to.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CompanyName {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("companyName", value); }
         }
 #endif
-        /// <summary>The department property</summary>
+        /// <summary>The name for the department in which the contact works.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Department {
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("department", value); }
         }
 #endif
-        /// <summary>The directReports property</summary>
+        /// <summary>The contact&apos;s direct reports. (The users and contacts that have their manager property set to this contact.)  Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? DirectReports {
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("directReports", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The givenName property</summary>
+        /// <summary>First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GivenName {
@@ -89,7 +89,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("givenName", value); }
         }
 #endif
-        /// <summary>The jobTitle property</summary>
+        /// <summary>Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobTitle {
@@ -103,7 +103,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("jobTitle", value); }
         }
 #endif
-        /// <summary>The mail property</summary>
+        /// <summary>The SMTP address for the contact, for example, &apos;jeff@contoso.onmicrosoft.com&apos;. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mail {
@@ -117,7 +117,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mail", value); }
         }
 #endif
-        /// <summary>The mailNickname property</summary>
+        /// <summary>Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MailNickname {
@@ -131,7 +131,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mailNickname", value); }
         }
 #endif
-        /// <summary>The manager property</summary>
+        /// <summary>The user or contact that is this contact&apos;s manager. Read-only. Supports $expand and $filter (eq) by id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? Manager {
@@ -145,7 +145,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("manager", value); }
         }
 #endif
-        /// <summary>The memberOf property</summary>
+        /// <summary>Groups that this contact is a member of. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? MemberOf {
@@ -159,12 +159,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("memberOf", value); }
         }
 #endif
-        /// <summary>The onPremisesLastSyncDateTime property</summary>
+        /// <summary>Date and time when this organizational contact was last synchronized from on-premises AD. This date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("onPremisesLastSyncDateTime"); }
             set { BackingStore?.Set("onPremisesLastSyncDateTime", value); }
         }
-        /// <summary>The onPremisesProvisioningErrors property</summary>
+        /// <summary>List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OnPremisesProvisioningError>? OnPremisesProvisioningErrors {
@@ -178,12 +178,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("onPremisesProvisioningErrors", value); }
         }
 #endif
-        /// <summary>The onPremisesSyncEnabled property</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).   Supports $filter (eq, ne, not, in, and eq for null values).</summary>
         public bool? OnPremisesSyncEnabled {
             get { return BackingStore?.Get<bool?>("onPremisesSyncEnabled"); }
             set { BackingStore?.Set("onPremisesSyncEnabled", value); }
         }
-        /// <summary>The phones property</summary>
+        /// <summary>List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Phone>? Phones {
@@ -197,7 +197,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("phones", value); }
         }
 #endif
-        /// <summary>The proxyAddresses property</summary>
+        /// <summary>For example: &apos;SMTP: bob@contoso.com&apos;, &apos;smtp: bob@sales.contoso.com&apos;. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ProxyAddresses {
@@ -211,7 +211,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("proxyAddresses", value); }
         }
 #endif
-        /// <summary>The surname property</summary>
+        /// <summary>Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Surname {
@@ -225,7 +225,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("surname", value); }
         }
 #endif
-        /// <summary>The transitiveMemberOf property</summary>
+        /// <summary>Groups that this contact is a member of, including groups that the contact is nested under. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DirectoryObject>? TransitiveMemberOf {

@@ -69,7 +69,8 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item {
         public ListItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property items for groups
+        /// Removes an item from a [list][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +101,8 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item {
             return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, endDateTime, interval, startDateTime);
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Returns the metadata for an [item][] in a [list][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,7 +142,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ListItem>(requestInfo, Microsoft.Graph.Models.ListItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property items for groups
+        /// Removes an item from a [list][].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,7 +166,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Returns the metadata for an [item][] in a [list][].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -234,7 +236,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item {
             }
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Returns the metadata for an [item][] in a [list][].
         /// </summary>
         public class ListItemItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

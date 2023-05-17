@@ -67,7 +67,8 @@ namespace Microsoft.Graph.Users.Item.Presence {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get presence from users
+        /// Get a user&apos;s presence information.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +132,7 @@ namespace Microsoft.Graph.Users.Item.Presence {
             return requestInfo;
         }
         /// <summary>
-        /// Get presence from users
+        /// Get a user&apos;s presence information.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -201,7 +202,7 @@ namespace Microsoft.Graph.Users.Item.Presence {
             }
         }
         /// <summary>
-        /// Get presence from users
+        /// Get a user&apos;s presence information.
         /// </summary>
         public class PresenceRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

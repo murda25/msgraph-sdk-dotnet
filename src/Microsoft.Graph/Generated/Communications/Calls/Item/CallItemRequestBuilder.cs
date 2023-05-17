@@ -118,7 +118,8 @@ namespace Microsoft.Graph.Communications.Calls.Item {
         public CallItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/call-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -137,7 +138,8 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/call-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -177,7 +179,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             return await RequestAdapter.SendAsync<Call>(requestInfo, Call.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -201,7 +203,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -271,7 +273,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             }
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         public class CallItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -1,5 +1,6 @@
 using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendanceReports;
 using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendeeReport;
+using Microsoft.Graph.Communications.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -22,6 +23,10 @@ namespace Microsoft.Graph.Communications.OnlineMeetings.Item {
         /// <summary>Provides operations to manage the media for the cloudCommunications entity.</summary>
         public AttendeeReportRequestBuilder AttendeeReport { get =>
             new AttendeeReportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getVirtualAppointmentJoinWebUrl method.</summary>
+        public GetVirtualAppointmentJoinWebUrlRequestBuilder GetVirtualAppointmentJoinWebUrl { get =>
+            new GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.

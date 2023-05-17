@@ -40,7 +40,8 @@ namespace Microsoft.Graph.Education.Me.TaughtClasses {
         public TaughtClassesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/me/taughtClasses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Classes for which the user is a teacher.
+        /// Get the educationClass resources owned by an educationUser.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,7 @@ namespace Microsoft.Graph.Education.Me.TaughtClasses {
             return await RequestAdapter.SendAsync<EducationClassCollectionResponse>(requestInfo, EducationClassCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Classes for which the user is a teacher.
+        /// Get the educationClass resources owned by an educationUser.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +86,7 @@ namespace Microsoft.Graph.Education.Me.TaughtClasses {
             return requestInfo;
         }
         /// <summary>
-        /// Classes for which the user is a teacher.
+        /// Get the educationClass resources owned by an educationUser.
         /// </summary>
         public class TaughtClassesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

@@ -40,7 +40,8 @@ namespace Microsoft.Graph.Planner.Buckets {
         public BucketsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/planner/buckets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of **plannerbucket** objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.Planner.Buckets {
             return await RequestAdapter.SendAsync<PlannerBucketCollectionResponse>(requestInfo, PlannerBucketCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to buckets for planner
+        /// Create a new plannerBucket object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.Planner.Buckets {
             return await RequestAdapter.SendAsync<PlannerBucket>(requestInfo, PlannerBucket.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of **plannerbucket** objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.Planner.Buckets {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to buckets for planner
+        /// Create a new plannerBucket object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.Planner.Buckets {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified buckets
+        /// Retrieve a list of **plannerbucket** objects.
         /// </summary>
         public class BucketsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

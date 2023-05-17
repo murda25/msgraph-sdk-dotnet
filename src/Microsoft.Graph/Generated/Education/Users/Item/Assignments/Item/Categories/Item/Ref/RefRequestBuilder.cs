@@ -27,7 +27,8 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments.Item.Categories.Item.
         public RefRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/categories/{educationCategory%2Did}/$ref{?%40id*}", rawUrl) {
         }
         /// <summary>
-        /// Delete ref of navigation property categories for education
+        /// Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationassignment-remove-category?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,7 +47,7 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments.Item.Categories.Item.
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete ref of navigation property categories for education
+        /// Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +72,7 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments.Item.Categories.Item.
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property categories for education
+        /// Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters {
             /// <summary>Delete Uri</summary>

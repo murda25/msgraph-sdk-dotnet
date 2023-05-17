@@ -16,7 +16,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowedToCreateApps"); }
             set { BackingStore?.Set("allowedToCreateApps", value); }
         }
-        /// <summary>Indicates whether the default user role can create security groups.</summary>
+        /// <summary>Indicates whether the default user role can create security groups. This setting corresponds to the The Users can create security groups in Azure portals, API or PowerShell setting in the group settings menu in the Azure portal.</summary>
         public bool? AllowedToCreateSecurityGroups {
             get { return BackingStore?.Get<bool?>("allowedToCreateSecurityGroups"); }
             set { BackingStore?.Set("allowedToCreateSecurityGroups", value); }

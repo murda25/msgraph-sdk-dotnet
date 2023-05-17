@@ -53,7 +53,8 @@ namespace Microsoft.Graph.Print.Printers.Item {
         public PrinterItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/print/printers/{printer%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property printers for print
+        /// Delete (unregister) a printer.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,7 +73,8 @@ namespace Microsoft.Graph.Print.Printers.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of printers registered in the tenant.
+        /// Retrieve the properties and relationships of a printer object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printer-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +93,8 @@ namespace Microsoft.Graph.Print.Printers.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Printer>(requestInfo, Microsoft.Graph.Models.Printer.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property printers in print
+        /// Update the properties of a printer object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printer-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -112,7 +115,7 @@ namespace Microsoft.Graph.Print.Printers.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Printer>(requestInfo, Microsoft.Graph.Models.Printer.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property printers for print
+        /// Delete (unregister) a printer.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -136,7 +139,7 @@ namespace Microsoft.Graph.Print.Printers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of printers registered in the tenant.
+        /// Retrieve the properties and relationships of a printer object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,7 +165,7 @@ namespace Microsoft.Graph.Print.Printers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property printers in print
+        /// Update the properties of a printer object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +209,7 @@ namespace Microsoft.Graph.Print.Printers.Item {
             }
         }
         /// <summary>
-        /// The list of printers registered in the tenant.
+        /// Retrieve the properties and relationships of a printer object.
         /// </summary>
         public class PrinterItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -28,7 +28,8 @@ namespace Microsoft.Graph.Users.Item.Calendar.Events.Item.Attachments.Item {
         public AttachmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/calendar/events/{event%2Did}/attachments/{attachment%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property attachments for users
+        /// Delete an attachment from a user calendar event, mail message, or group post.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/attachment-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +67,7 @@ namespace Microsoft.Graph.Users.Item.Calendar.Events.Item.Attachments.Item {
             return await RequestAdapter.SendAsync<Attachment>(requestInfo, Attachment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property attachments for users
+        /// Delete an attachment from a user calendar event, mail message, or group post.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

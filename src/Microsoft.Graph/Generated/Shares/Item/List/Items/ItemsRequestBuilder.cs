@@ -1,6 +1,5 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
-using Microsoft.Graph.Shares.Item.List.Items.Count;
 using Microsoft.Graph.Shares.Item.List.Items.Item;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -15,10 +14,6 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
     /// Provides operations to manage the items property of the microsoft.graph.list entity.
     /// </summary>
     public class ItemsRequestBuilder : BaseRequestBuilder {
-        /// <summary>Provides operations to count the resources in the collection.</summary>
-        public CountRequestBuilder Count { get =>
-            new CountRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to manage the items property of the microsoft.graph.list entity.</summary>
         public ListItemItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
@@ -30,17 +25,18 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
+        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24orderby,%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ItemsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
+        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Get the collection of [items][item] in a [list][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +55,8 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
             return await RequestAdapter.SendAsync<ListItemCollectionResponse>(requestInfo, ListItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to items for shares
+        /// Create a new [listItem][] in a [list][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +77,7 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ListItem>(requestInfo, Microsoft.Graph.Models.ListItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Get the collection of [items][item] in a [list][].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +103,7 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to items for shares
+        /// Create a new [listItem][] in a [list][].
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,12 +131,9 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
             return requestInfo;
         }
         /// <summary>
-        /// All items contained in the list.
+        /// Get the collection of [items][item] in a [list][].
         /// </summary>
         public class ItemsRequestBuilderGetQueryParameters {
-            /// <summary>Include count of items</summary>
-            [QueryParameter("%24count")]
-            public bool? Count { get; set; }
             /// <summary>Expand related entities</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

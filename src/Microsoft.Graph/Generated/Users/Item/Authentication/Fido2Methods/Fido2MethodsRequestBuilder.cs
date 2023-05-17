@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
         public Fido2MethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/fido2Methods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             return await RequestAdapter.SendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, Fido2AuthenticationMethodCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Users.Item.Authentication.Fido2Methods {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
         /// </summary>
         public class Fido2MethodsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

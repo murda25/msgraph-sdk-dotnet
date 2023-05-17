@@ -47,7 +47,8 @@ namespace Microsoft.Graph.AuditLogs.SignIns.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Retrieve a specific Azure AD user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/signin-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +112,7 @@ namespace Microsoft.Graph.AuditLogs.SignIns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Retrieve a specific Azure AD user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +182,7 @@ namespace Microsoft.Graph.AuditLogs.SignIns.Item {
             }
         }
         /// <summary>
-        /// Get signIns from auditLogs
+        /// Retrieve a specific Azure AD user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
         /// </summary>
         public class SignInItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
