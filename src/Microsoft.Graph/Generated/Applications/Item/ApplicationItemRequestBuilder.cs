@@ -15,6 +15,7 @@ using Microsoft.Graph.Applications.Item.RemoveKey;
 using Microsoft.Graph.Applications.Item.RemovePassword;
 using Microsoft.Graph.Applications.Item.Restore;
 using Microsoft.Graph.Applications.Item.SetVerifiedPublisher;
+using Microsoft.Graph.Applications.Item.Synchronization;
 using Microsoft.Graph.Applications.Item.TokenIssuancePolicies;
 using Microsoft.Graph.Applications.Item.TokenLifetimePolicies;
 using Microsoft.Graph.Applications.Item.UnsetVerifiedPublisher;
@@ -100,6 +101,10 @@ namespace Microsoft.Graph.Applications.Item {
         /// <summary>Provides operations to call the setVerifiedPublisher method.</summary>
         public SetVerifiedPublisherRequestBuilder SetVerifiedPublisher { get =>
             new SetVerifiedPublisherRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the synchronization property of the microsoft.graph.application entity.</summary>
+        public SynchronizationRequestBuilder Synchronization { get =>
+            new SynchronizationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity.</summary>
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>

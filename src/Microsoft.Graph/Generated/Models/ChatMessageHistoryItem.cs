@@ -18,7 +18,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The modifiedDateTime property</summary>
+        /// <summary>The date and time when the message was modified.</summary>
         public DateTimeOffset? ModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("modifiedDateTime"); }
             set { BackingStore?.Set("modifiedDateTime", value); }
@@ -37,7 +37,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The reaction property</summary>
+        /// <summary>The reaction in the modified message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ChatMessageReaction? Reaction {
