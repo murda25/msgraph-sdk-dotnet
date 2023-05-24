@@ -170,7 +170,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mentions", value); }
         }
 #endif
-        /// <summary>The messageHistory property</summary>
+        /// <summary>List of activity history of a message item, including modification time and actions, such as reactionAdded, reactionRemoved, or reaction changes, on the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ChatMessageHistoryItem>? MessageHistory {

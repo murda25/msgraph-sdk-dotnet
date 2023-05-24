@@ -23,6 +23,7 @@ using Microsoft.Graph.ServicePrincipals.Item.Owners;
 using Microsoft.Graph.ServicePrincipals.Item.RemoveKey;
 using Microsoft.Graph.ServicePrincipals.Item.RemovePassword;
 using Microsoft.Graph.ServicePrincipals.Item.Restore;
+using Microsoft.Graph.ServicePrincipals.Item.Synchronization;
 using Microsoft.Graph.ServicePrincipals.Item.TokenIssuancePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies;
 using Microsoft.Graph.ServicePrincipals.Item.TransitiveMemberOf;
@@ -130,6 +131,10 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the synchronization property of the microsoft.graph.servicePrincipal entity.</summary>
+        public SynchronizationRequestBuilder Synchronization { get =>
+            new SynchronizationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.</summary>
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>

@@ -580,6 +580,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("signInAudience", value); }
         }
 #endif
+        /// <summary>The synchronization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.Synchronization? Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization?>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.Synchronization Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#endif
         /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity&apos;s tags property.Supports $filter (eq, not, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -717,6 +731,7 @@ namespace Microsoft.Graph.Models {
                 {"servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
+                {"synchronization", n => { Synchronization = n.GetObjectValue<Microsoft.Graph.Models.Synchronization>(Microsoft.Graph.Models.Synchronization.CreateFromDiscriminatorValue); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -775,6 +790,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalNames", ServicePrincipalNames);
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);
             writer.WriteStringValue("signInAudience", SignInAudience);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Synchronization>("synchronization", Synchronization);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
