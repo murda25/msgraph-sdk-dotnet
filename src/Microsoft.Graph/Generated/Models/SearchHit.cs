@@ -41,6 +41,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("hitId", value); }
         }
 #endif
+        /// <summary>The isCollapsed property</summary>
+        public bool? IsCollapsed {
+            get { return BackingStore?.Get<bool?>("isCollapsed"); }
+            set { BackingStore?.Set("isCollapsed", value); }
+        }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,6 +129,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"contentSource", n => { ContentSource = n.GetStringValue(); } },
                 {"hitId", n => { HitId = n.GetStringValue(); } },
+                {"isCollapsed", n => { IsCollapsed = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"rank", n => { Rank = n.GetIntValue(); } },
                 {"resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
@@ -139,6 +145,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("contentSource", ContentSource);
             writer.WriteStringValue("hitId", HitId);
+            writer.WriteBoolValue("isCollapsed", IsCollapsed);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("rank", Rank);
             writer.WriteObjectValue<Entity>("resource", Resource);

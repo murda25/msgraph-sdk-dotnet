@@ -29,6 +29,8 @@ using Microsoft.Graph.Drives;
 using Microsoft.Graph.Education;
 using Microsoft.Graph.EmployeeExperience;
 using Microsoft.Graph.External;
+using Microsoft.Graph.FilterOperators;
+using Microsoft.Graph.Functions;
 using Microsoft.Graph.GroupLifecyclePolicies;
 using Microsoft.Graph.GroupSettingTemplates;
 using Microsoft.Graph.GroupSettings;
@@ -205,6 +207,14 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the external singleton.</summary>
         public ExternalRequestBuilder External { get =>
             new ExternalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the collection of filterOperatorSchema entities.</summary>
+        public FilterOperatorsRequestBuilder FilterOperators { get =>
+            new FilterOperatorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the collection of attributeMappingFunctionSchema entities.</summary>
+        public FunctionsRequestBuilder Functions { get =>
+            new FunctionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of groupLifecyclePolicy entities.</summary>
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
