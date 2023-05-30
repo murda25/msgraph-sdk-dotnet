@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class PolicyRoot : Entity, IParsable {
         /// <summary>The policy that controls the idle time out for web sessions for applications.</summary>
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("adminConsentRequestPolicy", value); }
         }
 #endif
-        /// <summary>The appManagementPolicies property</summary>
+        /// <summary>The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies {
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("authenticationFlowsPolicy", value); }
         }
 #endif
-        /// <summary>The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).</summary>
+        /// <summary>The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.AuthenticationMethodsPolicy? AuthenticationMethodsPolicy {
@@ -73,6 +73,20 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.AuthenticationMethodsPolicy AuthenticationMethodsPolicy {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AuthenticationMethodsPolicy>("authenticationMethodsPolicy"); }
             set { BackingStore?.Set("authenticationMethodsPolicy", value); }
+        }
+#endif
+        /// <summary>The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AuthenticationStrengthPolicy>? AuthenticationStrengthPolicies {
+            get { return BackingStore?.Get<List<AuthenticationStrengthPolicy>?>("authenticationStrengthPolicies"); }
+            set { BackingStore?.Set("authenticationStrengthPolicies", value); }
+        }
+#nullable restore
+#else
+        public List<AuthenticationStrengthPolicy> AuthenticationStrengthPolicies {
+            get { return BackingStore?.Get<List<AuthenticationStrengthPolicy>>("authenticationStrengthPolicies"); }
+            set { BackingStore?.Set("authenticationStrengthPolicies", value); }
         }
 #endif
         /// <summary>The policy that controls Azure AD authorization settings.</summary>
@@ -131,7 +145,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("crossTenantAccessPolicy", value); }
         }
 #endif
-        /// <summary>The defaultAppManagementPolicy property</summary>
+        /// <summary>The tenant-wide policy that enforces app management restrictions for all applications and service principals.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TenantAppManagementPolicy? DefaultAppManagementPolicy {
@@ -275,6 +289,7 @@ namespace Microsoft.Graph.Models {
                 {"appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<AppManagementPolicy>(AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"authenticationFlowsPolicy", n => { AuthenticationFlowsPolicy = n.GetObjectValue<Microsoft.Graph.Models.AuthenticationFlowsPolicy>(Microsoft.Graph.Models.AuthenticationFlowsPolicy.CreateFromDiscriminatorValue); } },
                 {"authenticationMethodsPolicy", n => { AuthenticationMethodsPolicy = n.GetObjectValue<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(Microsoft.Graph.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue); } },
+                {"authenticationStrengthPolicies", n => { AuthenticationStrengthPolicies = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"authorizationPolicy", n => { AuthorizationPolicy = n.GetObjectValue<Microsoft.Graph.Models.AuthorizationPolicy>(Microsoft.Graph.Models.AuthorizationPolicy.CreateFromDiscriminatorValue); } },
                 {"claimsMappingPolicies", n => { ClaimsMappingPolicies = n.GetCollectionOfObjectValues<ClaimsMappingPolicy>(ClaimsMappingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -302,6 +317,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", AppManagementPolicies);
             writer.WriteObjectValue<Microsoft.Graph.Models.AuthenticationFlowsPolicy>("authenticationFlowsPolicy", AuthenticationFlowsPolicy);
             writer.WriteObjectValue<Microsoft.Graph.Models.AuthenticationMethodsPolicy>("authenticationMethodsPolicy", AuthenticationMethodsPolicy);
+            writer.WriteCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", AuthenticationStrengthPolicies);
             writer.WriteObjectValue<Microsoft.Graph.Models.AuthorizationPolicy>("authorizationPolicy", AuthorizationPolicy);
             writer.WriteCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", ClaimsMappingPolicies);
             writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);

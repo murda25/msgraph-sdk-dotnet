@@ -1,58 +1,40 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item.SourceColumn;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item {
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.contentType entity.
     /// </summary>
-    public class ColumnDefinitionItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+    public class ColumnDefinitionItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.</summary>
         public SourceColumnRequestBuilder SourceColumn { get =>
             new SourceColumnRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ColumnDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ColumnDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ColumnDefinitionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ColumnDefinitionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property columns for sites
+        /// Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,7 +53,8 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
+        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,7 +94,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item {
             return await RequestAdapter.SendAsync<ColumnDefinition>(requestInfo, ColumnDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property columns for sites
+        /// Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +118,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
+        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -205,7 +188,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item.Columns.Item {
             }
         }
         /// <summary>
-        /// The collection of column definitions for this contentType.
+        /// Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
         /// </summary>
         public class ColumnDefinitionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

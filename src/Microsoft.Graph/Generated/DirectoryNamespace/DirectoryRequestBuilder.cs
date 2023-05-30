@@ -1,25 +1,35 @@
 using Microsoft.Graph.DirectoryNamespace.AdministrativeUnits;
+using Microsoft.Graph.DirectoryNamespace.AttributeSets;
+using Microsoft.Graph.DirectoryNamespace.CustomSecurityAttributeDefinitions;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems;
 using Microsoft.Graph.DirectoryNamespace.FederationConfigurations;
 using Microsoft.Graph.DirectoryNamespace.OnPremisesSynchronization;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DirectoryNamespace {
     /// <summary>
     /// Provides operations to manage the directory singleton.
     /// </summary>
-    public class DirectoryRequestBuilder {
+    public class DirectoryRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
         public AdministrativeUnitsRequestBuilder AdministrativeUnits { get =>
             new AdministrativeUnitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.</summary>
+        public AttributeSetsRequestBuilder AttributeSets { get =>
+            new AttributeSetsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.</summary>
+        public CustomSecurityAttributeDefinitionsRequestBuilder CustomSecurityAttributeDefinitions { get =>
+            new CustomSecurityAttributeDefinitionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.</summary>
         public DeletedItemsRequestBuilder DeletedItems { get =>
@@ -33,38 +43,19 @@ namespace Microsoft.Graph.DirectoryNamespace {
         public OnPremisesSynchronizationRequestBuilder OnPremisesSynchronization { get =>
             new OnPremisesSynchronizationRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new DirectoryRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DirectoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DirectoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DirectoryRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DirectoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DirectoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Get directory

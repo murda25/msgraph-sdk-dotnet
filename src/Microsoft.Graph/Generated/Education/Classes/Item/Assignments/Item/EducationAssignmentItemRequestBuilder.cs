@@ -5,33 +5,29 @@ using Microsoft.Graph.Education.Classes.Item.Assignments.Item.Rubric;
 using Microsoft.Graph.Education.Classes.Item.Assignments.Item.SetUpFeedbackResourcesFolder;
 using Microsoft.Graph.Education.Classes.Item.Assignments.Item.SetUpResourcesFolder;
 using Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class EducationAssignmentItemRequestBuilder {
+    public class EducationAssignmentItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.</summary>
         public CategoriesRequestBuilder Categories { get =>
             new CategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the publish method.</summary>
         public PublishRequestBuilder Publish { get =>
             new PublishRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.</summary>
         public ResourcesRequestBuilder Resources { get =>
             new ResourcesRequestBuilder(PathParameters, RequestAdapter);
@@ -52,37 +48,23 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
         public SubmissionsRequestBuilder Submissions { get =>
             new SubmissionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new EducationAssignmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EducationAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EducationAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new EducationAssignmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EducationAssignmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EducationAssignmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property assignments for education
+        /// Delete an existing assignment. Only teachers within a class can delete assignments.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +83,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,7 +103,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             return await RequestAdapter.SendAsync<EducationAssignment>(requestInfo, EducationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property assignments in education
+        /// Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an **assignment** with publish action. Don&apos;t use a PATCH operation for this purpose.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -141,7 +125,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             return await RequestAdapter.SendAsync<EducationAssignment>(requestInfo, EducationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property assignments for education
+        /// Delete an existing assignment. Only teachers within a class can delete assignments.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,7 +149,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -191,7 +175,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property assignments in education
+        /// Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an **assignment** with publish action. Don&apos;t use a PATCH operation for this purpose.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -235,7 +219,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item {
             }
         }
         /// <summary>
-        /// All assignments associated with this class. Nullable.
+        /// Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class.
         /// </summary>
         public class EducationAssignmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

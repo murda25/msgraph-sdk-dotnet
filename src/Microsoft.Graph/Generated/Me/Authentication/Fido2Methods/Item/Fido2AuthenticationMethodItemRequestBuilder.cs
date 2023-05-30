@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Authentication.Fido2Methods.Item {
     /// <summary>
     /// Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class Fido2AuthenticationMethodItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class Fido2AuthenticationMethodItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new Fido2AuthenticationMethodItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Fido2AuthenticationMethodItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public Fido2AuthenticationMethodItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new Fido2AuthenticationMethodItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Fido2AuthenticationMethodItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public Fido2AuthenticationMethodItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property fido2Methods for me
+        /// Deletes a user&apos;s FIDO2 Security Key Authentication Method object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Me.Authentication.Fido2Methods.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/fido2authenticationmethod-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,7 @@ namespace Microsoft.Graph.Me.Authentication.Fido2Methods.Item {
             return await RequestAdapter.SendAsync<Fido2AuthenticationMethod>(requestInfo, Fido2AuthenticationMethod.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property fido2Methods for me
+        /// Deletes a user&apos;s FIDO2 Security Key Authentication Method object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +92,7 @@ namespace Microsoft.Graph.Me.Authentication.Fido2Methods.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,7 +134,7 @@ namespace Microsoft.Graph.Me.Authentication.Fido2Methods.Item {
             }
         }
         /// <summary>
-        /// Represents the FIDO2 security keys registered to a user for authentication.
+        /// Retrieve a user&apos;s single FIDO2 Security Key Authentication Method object.
         /// </summary>
         public class Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Activities;
 using Microsoft.Graph.Users.Item.AgreementAcceptances;
 using Microsoft.Graph.Users.Item.AppRoleAssignments;
@@ -7,8 +7,8 @@ using Microsoft.Graph.Users.Item.AssignLicense;
 using Microsoft.Graph.Users.Item.Authentication;
 using Microsoft.Graph.Users.Item.Calendar;
 using Microsoft.Graph.Users.Item.CalendarGroups;
-using Microsoft.Graph.Users.Item.Calendars;
 using Microsoft.Graph.Users.Item.CalendarView;
+using Microsoft.Graph.Users.Item.Calendars;
 using Microsoft.Graph.Users.Item.ChangePassword;
 using Microsoft.Graph.Users.Item.Chats;
 using Microsoft.Graph.Users.Item.CheckMemberGroups;
@@ -38,6 +38,7 @@ using Microsoft.Graph.Users.Item.Insights;
 using Microsoft.Graph.Users.Item.JoinedTeams;
 using Microsoft.Graph.Users.Item.LicenseDetails;
 using Microsoft.Graph.Users.Item.MailFolders;
+using Microsoft.Graph.Users.Item.MailboxSettings;
 using Microsoft.Graph.Users.Item.ManagedAppRegistrations;
 using Microsoft.Graph.Users.Item.ManagedDevices;
 using Microsoft.Graph.Users.Item.Manager;
@@ -68,19 +69,19 @@ using Microsoft.Graph.Users.Item.Todo;
 using Microsoft.Graph.Users.Item.TransitiveMemberOf;
 using Microsoft.Graph.Users.Item.TranslateExchangeIds;
 using Microsoft.Graph.Users.Item.WipeManagedAppRegistrationsByDeviceTag;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item {
     /// <summary>
     /// Provides operations to manage the collection of user entities.
     /// </summary>
-    public class UserItemRequestBuilder {
+    public class UserItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the activities property of the microsoft.graph.user entity.</summary>
         public ActivitiesRequestBuilder Activities { get =>
             new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
@@ -225,6 +226,10 @@ namespace Microsoft.Graph.Users.Item {
         public LicenseDetailsRequestBuilder LicenseDetails { get =>
             new LicenseDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The mailboxSettings property</summary>
+        public MailboxSettingsRequestBuilder MailboxSettings { get =>
+            new MailboxSettingsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the mailFolders property of the microsoft.graph.user entity.</summary>
         public MailFoldersRequestBuilder MailFolders { get =>
             new MailFoldersRequestBuilder(PathParameters, RequestAdapter);
@@ -273,8 +278,6 @@ namespace Microsoft.Graph.Users.Item {
         public OwnedObjectsRequestBuilder OwnedObjects { get =>
             new OwnedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the people property of the microsoft.graph.user entity.</summary>
         public PeopleRequestBuilder People { get =>
             new PeopleRequestBuilder(PathParameters, RequestAdapter);
@@ -307,8 +310,6 @@ namespace Microsoft.Graph.Users.Item {
         public ReprocessLicenseAssignmentRequestBuilder ReprocessLicenseAssignment { get =>
             new ReprocessLicenseAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
@@ -345,8 +346,6 @@ namespace Microsoft.Graph.Users.Item {
         public TranslateExchangeIdsRequestBuilder TranslateExchangeIds { get =>
             new TranslateExchangeIdsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.</summary>
         public WipeManagedAppRegistrationsByDeviceTagRequestBuilder WipeManagedAppRegistrationsByDeviceTag { get =>
             new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(PathParameters, RequestAdapter);
@@ -356,27 +355,14 @@ namespace Microsoft.Graph.Users.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new UserItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.

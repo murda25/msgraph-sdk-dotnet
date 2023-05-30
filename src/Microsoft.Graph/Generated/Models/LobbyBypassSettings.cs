@@ -1,9 +1,9 @@
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class LobbyBypassSettings : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,6 +32,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.</summary>
+        public LobbyBypassScope? Scope {
+            get { return BackingStore?.Get<LobbyBypassScope?>("scope"); }
+            set { BackingStore?.Set("scope", value); }
+        }
         /// <summary>
         /// Instantiates a new lobbyBypassSettings and sets the default values.
         /// </summary>
@@ -54,6 +59,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"isDialInBypassEnabled", n => { IsDialInBypassEnabled = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"scope", n => { Scope = n.GetEnumValue<LobbyBypassScope>(); } },
             };
         }
         /// <summary>
@@ -64,6 +70,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("isDialInBypassEnabled", IsDialInBypassEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteEnumValue<LobbyBypassScope>("scope", Scope);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

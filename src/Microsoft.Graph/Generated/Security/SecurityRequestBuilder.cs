@@ -1,26 +1,28 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
-using Microsoft.Graph.Security.Alerts_v2;
 using Microsoft.Graph.Security.Alerts;
+using Microsoft.Graph.Security.Alerts_v2;
 using Microsoft.Graph.Security.AttackSimulation;
 using Microsoft.Graph.Security.Cases;
 using Microsoft.Graph.Security.Incidents;
+using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
-using Microsoft.Graph.Security.SecurityRunHuntingQuery;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Security.TriggerTypes;
+using Microsoft.Graph.Security.Triggers;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Security {
     /// <summary>
     /// Provides operations to manage the security singleton.
     /// </summary>
-    public class SecurityRequestBuilder {
+    public class SecurityRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the alerts property of the microsoft.graph.security entity.</summary>
         public AlertsRequestBuilder Alerts { get =>
             new AlertsRequestBuilder(PathParameters, RequestAdapter);
@@ -41,10 +43,10 @@ namespace Microsoft.Graph.Security {
         public IncidentsRequestBuilder Incidents { get =>
             new IncidentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
+        public MicrosoftGraphSecurityRunHuntingQueryRequestBuilder MicrosoftGraphSecurityRunHuntingQuery { get =>
+            new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.</summary>
         public SecureScoreControlProfilesRequestBuilder SecureScoreControlProfiles { get =>
             new SecureScoreControlProfilesRequestBuilder(PathParameters, RequestAdapter);
@@ -53,38 +55,27 @@ namespace Microsoft.Graph.Security {
         public SecureScoresRequestBuilder SecureScores { get =>
             new SecureScoresRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to call the runHuntingQuery method.</summary>
-        public SecurityRunHuntingQueryRequestBuilder SecurityRunHuntingQuery { get =>
-            new SecurityRunHuntingQueryRequestBuilder(PathParameters, RequestAdapter);
+        /// <summary>Provides operations to manage the triggers property of the microsoft.graph.security entity.</summary>
+        public TriggersRequestBuilder Triggers { get =>
+            new TriggersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.</summary>
+        public TriggerTypesRequestBuilder TriggerTypes { get =>
+            new TriggerTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new SecurityRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SecurityRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/security{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SecurityRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new SecurityRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SecurityRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/security{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SecurityRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Get security

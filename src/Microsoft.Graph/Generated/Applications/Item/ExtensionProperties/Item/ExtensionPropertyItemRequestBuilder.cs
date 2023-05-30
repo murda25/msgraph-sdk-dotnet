@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Applications.Item.ExtensionProperties.Item {
     /// <summary>
     /// Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
     /// </summary>
-    public class ExtensionPropertyItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class ExtensionPropertyItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new ExtensionPropertyItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExtensionPropertyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ExtensionPropertyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ExtensionPropertyItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExtensionPropertyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ExtensionPropertyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property extensionProperties for applications
+        /// Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren&apos;t synced from on-premises active directory (AD).
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Applications.Item.ExtensionProperties.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+        /// Read a directory extension definition represented by an extensionProperty object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +89,7 @@ namespace Microsoft.Graph.Applications.Item.ExtensionProperties.Item {
             return await RequestAdapter.SendAsync<ExtensionProperty>(requestInfo, ExtensionProperty.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property extensionProperties for applications
+        /// Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren&apos;t synced from on-premises active directory (AD).
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +113,7 @@ namespace Microsoft.Graph.Applications.Item.ExtensionProperties.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+        /// Read a directory extension definition represented by an extensionProperty object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,7 +183,7 @@ namespace Microsoft.Graph.Applications.Item.ExtensionProperties.Item {
             }
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+        /// Read a directory extension definition represented by an extensionProperty object.
         /// </summary>
         public class ExtensionPropertyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

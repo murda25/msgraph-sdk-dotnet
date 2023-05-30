@@ -7,6 +7,91 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.12.0] - 2023-05-24
+
+- Latest metadata updates from 23rd May 2023
+- 
+## [5.11.0] - 2023-05-17
+
+- Latest metadata updates from 16th May 2023
+- Fixes incorrect count path in sites lists (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1749)
+- Fixes ItemWithPath not propagating request configuration options.(https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1806,https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1840)
+
+## [5.10.0] - 2023-05-10
+
+- Latest metadata updates from 9th May 2023
+- Fixes invalid paths for singleValueExtendedProperties and multiValueExtendedProperties nav properties (https://github.com/microsoftgraph/msgraph-metadata/issues/246)
+- Fixes invalid paths for catalogs/accessPackages nav properties (https://github.com/microsoftgraph/msgraph-metadata/issues/338)
+
+## [5.9.0] - 2023-05-03
+
+- Latest metadata updates from 2nd May 2023
+- Fixes missing printJob paths in metadata (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1823)
+- Fixes incorrect path for methods in security namespace (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1823, https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1691)
+- Fixes incorrect paths for methods in call records namespace (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1787)
+
+## [5.8.0] - 2023-04-27
+
+- Latest metadata updates from 25th April 2023
+- Drops orphaned collection models unnecessarily generated due to inheritance (https://github.com/microsoft/kiota/issues/2543)
+
+## [5.7.0] - 2023-04-18
+
+- Latest metadata updates from 18th April 2023
+- Fixes missing /mailBoxSettings paths on user objects (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1712)
+- Adds response headers collection to ApiException object (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1755)
+- Fixes missing query parameters for mailFolders api (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1814)
+
+## [5.6.0] - 2023-04-12
+
+- Latest metadata updates from 12th April 2023
+- Fixes disposing of implicitly constructed BaseGraphRequestAdapter (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1724)
+
+## [5.5.0] - 2023-04-06
+
+### Changed 
+
+- Fixes missing dateTime query parameters for bookingBusinesses (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1791)
+- Fixes missing exapand clauses for calendars and contactFolder (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1788)
+- Fixes return type when uploading small files to drive (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1718)
+- Fixes inconsistencies in errors when using batch requests. (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1782)
+
+### Added
+
+- Latest metadata updates from 6th April 2023
+
+## [5.4.0] - 2023-03-28
+
+### Added
+
+- Updates kiota abstraction library dependencies to reduce code size in generation.
+- Metadata fixes for missing expand clauses for contact endpoints
+- Latest metadata updates from 28th March 2023
+
+## [5.3.0] - 2023-03-21
+
+### Added
+
+- Allows checking for status codes without parsing request bodies in batch requests (https://github.com/microsoftgraph/msgraph-sdk-dotnet-core/pull/626)
+- Updates kiota abstraction library dependencies to fix serialization errors.
+- Metadata fixes for missing expand clauses for messages,calendar and mailfolder endpoints
+- Latest metadata updates from 21st March 2023
+
+## [5.2.0] - 2023-03-14
+
+### Added
+
+- Updated core version to fix delta link parsing in pageiterator
+- Updated core version to use range dependency for System.Text.Json and System.DiagnosticSource
+- Latest metadata updates from 14th March 2023
+
+## [5.1.0] - 2023-03-07
+
+### Added
+
+- Adds support for enhanced batch requests
+- Latest metadata updates from 7th March 2023
+
 ## [5.0.0] - 2023-02-28
 
 - GA release for Kiota SDK version

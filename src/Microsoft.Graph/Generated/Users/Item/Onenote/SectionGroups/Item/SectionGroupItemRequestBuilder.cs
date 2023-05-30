@@ -1,22 +1,22 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.ParentNotebook;
 using Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.ParentSectionGroup;
 using Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.SectionGroups;
 using Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.Sections;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
     /// <summary>
     /// Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class SectionGroupItemRequestBuilder {
+    public class SectionGroupItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity.</summary>
         public ParentNotebookRequestBuilder ParentNotebook { get =>
             new ParentNotebookRequestBuilder(PathParameters, RequestAdapter);
@@ -25,10 +25,6 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
         public ParentSectionGroupRequestBuilder ParentSectionGroup { get =>
             new ParentSectionGroupRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.</summary>
         public Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.SectionGroups.SectionGroupsRequestBuilder SectionGroups { get =>
             new Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item.SectionGroups.SectionGroupsRequestBuilder(PathParameters, RequestAdapter);
@@ -37,34 +33,19 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
         public SectionsRequestBuilder Sections { get =>
             new SectionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new SectionGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SectionGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SectionGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new SectionGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SectionGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SectionGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property sectionGroups for users
@@ -86,7 +67,8 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a sectionGroup object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/sectiongroup-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +132,7 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a sectionGroup object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,7 +202,7 @@ namespace Microsoft.Graph.Users.Item.Onenote.SectionGroups.Item {
             }
         }
         /// <summary>
-        /// The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a sectionGroup object.
         /// </summary>
         public class SectionGroupItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

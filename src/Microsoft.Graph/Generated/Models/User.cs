@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class User : DirectoryObject, IParsable {
         /// <summary>A freeform text entry field for the user to describe themselves. Returned only on $select.</summary>
@@ -450,7 +450,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("employeeId", value); }
         }
 #endif
-        /// <summary>The employeeLeaveDateTime property</summary>
+        /// <summary>The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.</summary>
         public DateTimeOffset? EmployeeLeaveDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("employeeLeaveDateTime"); }
             set { BackingStore?.Set("employeeLeaveDateTime", value); }
@@ -1400,6 +1400,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("showInAddressList"); }
             set { BackingStore?.Set("showInAddressList", value); }
         }
+        /// <summary>Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note: Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.SignInActivity? SignInActivity {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SignInActivity?>("signInActivity"); }
+            set { BackingStore?.Set("signInActivity", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.SignInActivity SignInActivity {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.SignInActivity>("signInActivity"); }
+            set { BackingStore?.Set("signInActivity", value); }
+        }
+#endif
         /// <summary>Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select.</summary>
         public DateTimeOffset? SignInSessionsValidFromDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("signInSessionsValidFromDateTime"); }
@@ -1672,6 +1686,7 @@ namespace Microsoft.Graph.Models {
                 {"securityIdentifier", n => { SecurityIdentifier = n.GetStringValue(); } },
                 {"settings", n => { Settings = n.GetObjectValue<UserSettings>(UserSettings.CreateFromDiscriminatorValue); } },
                 {"showInAddressList", n => { ShowInAddressList = n.GetBoolValue(); } },
+                {"signInActivity", n => { SignInActivity = n.GetObjectValue<Microsoft.Graph.Models.SignInActivity>(Microsoft.Graph.Models.SignInActivity.CreateFromDiscriminatorValue); } },
                 {"signInSessionsValidFromDateTime", n => { SignInSessionsValidFromDateTime = n.GetDateTimeOffsetValue(); } },
                 {"skills", n => { Skills = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"state", n => { State = n.GetStringValue(); } },
@@ -1800,6 +1815,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("securityIdentifier", SecurityIdentifier);
             writer.WriteObjectValue<UserSettings>("settings", Settings);
             writer.WriteBoolValue("showInAddressList", ShowInAddressList);
+            writer.WriteObjectValue<Microsoft.Graph.Models.SignInActivity>("signInActivity", SignInActivity);
             writer.WriteDateTimeOffsetValue("signInSessionsValidFromDateTime", SignInSessionsValidFromDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("skills", Skills);
             writer.WriteStringValue("state", State);

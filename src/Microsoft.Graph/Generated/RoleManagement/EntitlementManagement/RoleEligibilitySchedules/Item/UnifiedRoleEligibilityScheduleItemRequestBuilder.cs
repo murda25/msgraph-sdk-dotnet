@@ -1,50 +1,51 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules.Item.AppScope;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules.Item.DirectoryScope;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules.Item.Principal;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules.Item.RoleDefinition;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules.Item {
     /// <summary>
     /// Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class UnifiedRoleEligibilityScheduleItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class UnifiedRoleEligibilityScheduleItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public AppScopeRequestBuilder AppScope { get =>
+            new AppScopeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public DirectoryScopeRequestBuilder DirectoryScope { get =>
+            new DirectoryScopeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public PrincipalRequestBuilder Principal { get =>
+            new PrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public RoleDefinitionRequestBuilder RoleDefinition { get =>
+            new RoleDefinitionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new UnifiedRoleEligibilityScheduleItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UnifiedRoleEligibilityScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UnifiedRoleEligibilityScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new UnifiedRoleEligibilityScheduleItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UnifiedRoleEligibilityScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UnifiedRoleEligibilityScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property roleEligibilitySchedules for roleManagement
@@ -66,7 +67,8 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Retrieve the schedule for a role eligibility operation.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/unifiedroleeligibilityschedule-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +132,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             return requestInfo;
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Retrieve the schedule for a role eligibility operation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,7 +202,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySc
             }
         }
         /// <summary>
-        /// Schedules for role eligibility operations.
+        /// Retrieve the schedule for a role eligibility operation.
         /// </summary>
         public class UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

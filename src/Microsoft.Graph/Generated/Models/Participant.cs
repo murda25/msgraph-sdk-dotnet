@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class Participant : Entity, IParsable {
         /// <summary>The info property</summary>
@@ -71,6 +71,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("recordingInfo", value); }
         }
 #endif
+        /// <summary>Indicates the reason or reasons media content from this participant is restricted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public OnlineMeetingRestricted? RestrictedExperience {
+            get { return BackingStore?.Get<OnlineMeetingRestricted?>("restrictedExperience"); }
+            set { BackingStore?.Set("restrictedExperience", value); }
+        }
+#nullable restore
+#else
+        public OnlineMeetingRestricted RestrictedExperience {
+            get { return BackingStore?.Get<OnlineMeetingRestricted>("restrictedExperience"); }
+            set { BackingStore?.Set("restrictedExperience", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -90,6 +104,7 @@ namespace Microsoft.Graph.Models {
                 {"mediaStreams", n => { MediaStreams = n.GetCollectionOfObjectValues<MediaStream>(MediaStream.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"metadata", n => { Metadata = n.GetStringValue(); } },
                 {"recordingInfo", n => { RecordingInfo = n.GetObjectValue<Microsoft.Graph.Models.RecordingInfo>(Microsoft.Graph.Models.RecordingInfo.CreateFromDiscriminatorValue); } },
+                {"restrictedExperience", n => { RestrictedExperience = n.GetObjectValue<OnlineMeetingRestricted>(OnlineMeetingRestricted.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -105,6 +120,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<MediaStream>("mediaStreams", MediaStreams);
             writer.WriteStringValue("metadata", Metadata);
             writer.WriteObjectValue<Microsoft.Graph.Models.RecordingInfo>("recordingInfo", RecordingInfo);
+            writer.WriteObjectValue<OnlineMeetingRestricted>("restrictedExperience", RestrictedExperience);
         }
     }
 }

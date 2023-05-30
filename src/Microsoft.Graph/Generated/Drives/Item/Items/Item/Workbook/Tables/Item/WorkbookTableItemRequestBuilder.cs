@@ -9,21 +9,21 @@ using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.Rows;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.Sort;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.TotalRowRange;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.Worksheet;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
     /// <summary>
     /// Provides operations to manage the tables property of the microsoft.graph.workbook entity.
     /// </summary>
-    public class WorkbookTableItemRequestBuilder {
+    public class WorkbookTableItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the clearFilters method.</summary>
         public ClearFiltersRequestBuilder ClearFilters { get =>
             new ClearFiltersRequestBuilder(PathParameters, RequestAdapter);
@@ -44,8 +44,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
         public HeaderRowRangeRequestBuilder HeaderRowRange { get =>
             new HeaderRowRangeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the range method.</summary>
         public RangeRequestBuilder Range { get =>
             new RangeRequestBuilder(PathParameters, RequestAdapter);
@@ -54,8 +52,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
         public ReapplyFiltersRequestBuilder ReapplyFilters { get =>
             new ReapplyFiltersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.</summary>
         public RowsRequestBuilder Rows { get =>
             new RowsRequestBuilder(PathParameters, RequestAdapter);
@@ -68,8 +64,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
         public TotalRowRangeRequestBuilder TotalRowRange { get =>
             new TotalRowRangeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity.</summary>
         public WorksheetRequestBuilder Worksheet { get =>
             new WorksheetRequestBuilder(PathParameters, RequestAdapter);
@@ -79,30 +73,18 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkbookTableItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public WorkbookTableItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new WorkbookTableItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkbookTableItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public WorkbookTableItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property tables for drives
+        /// Deletes the table.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/table-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +103,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents a collection of tables associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of table object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/table-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,7 +123,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             return await RequestAdapter.SendAsync<WorkbookTable>(requestInfo, WorkbookTable.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property tables in drives
+        /// Update the properties of table object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/table-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -161,7 +145,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             return await RequestAdapter.SendAsync<WorkbookTable>(requestInfo, WorkbookTable.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property tables for drives
+        /// Deletes the table.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -185,7 +169,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of tables associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of table object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -211,7 +195,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tables in drives
+        /// Update the properties of table object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -255,7 +239,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item {
             }
         }
         /// <summary>
-        /// Represents a collection of tables associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of table object.
         /// </summary>
         public class WorkbookTableItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

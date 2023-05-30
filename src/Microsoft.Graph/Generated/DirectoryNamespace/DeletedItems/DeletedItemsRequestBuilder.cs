@@ -1,29 +1,37 @@
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Count;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.Delta;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetAvailableExtensionProperties;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GetByIds;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphAdministrativeUnit;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphApplication;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphDevice;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphGroup;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphServicePrincipal;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.GraphUser;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.ValidateProperties;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
     /// <summary>
     /// Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
     /// </summary>
-    public class DeletedItemsRequestBuilder {
+    public class DeletedItemsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the delta method.</summary>
+        public DeltaRequestBuilder Delta { get =>
+            new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the getAvailableExtensionProperties method.</summary>
         public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
@@ -33,24 +41,30 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
         public GetByIdsRequestBuilder GetByIds { get =>
             new GetByIdsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to administrativeUnit.</summary>
+        public GraphAdministrativeUnitRequestBuilder GraphAdministrativeUnit { get =>
+            new GraphAdministrativeUnitRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to application.</summary>
         public GraphApplicationRequestBuilder GraphApplication { get =>
             new GraphApplicationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to device.</summary>
+        public GraphDeviceRequestBuilder GraphDevice { get =>
+            new GraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to group.</summary>
         public GraphGroupRequestBuilder GraphGroup { get =>
             new GraphGroupRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to servicePrincipal.</summary>
+        public GraphServicePrincipalRequestBuilder GraphServicePrincipal { get =>
+            new GraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to user.</summary>
         public GraphUserRequestBuilder GraphUser { get =>
             new GraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to call the validateProperties method.</summary>
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
@@ -66,30 +80,17 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeletedItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory/deletedItems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeletedItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory/deletedItems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DeletedItemsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeletedItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory/deletedItems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeletedItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory/deletedItems{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -129,7 +130,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -183,7 +184,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems {
             return requestInfo;
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
         /// </summary>
         public class DeletedItemsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

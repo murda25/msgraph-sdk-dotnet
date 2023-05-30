@@ -1,50 +1,31 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item {
     /// <summary>
     /// Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class OpenShiftChangeRequestItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class OpenShiftChangeRequestItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new OpenShiftChangeRequestItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OpenShiftChangeRequestItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OpenShiftChangeRequestItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new OpenShiftChangeRequestItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OpenShiftChangeRequestItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OpenShiftChangeRequestItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property openShiftChangeRequests for groups
@@ -66,7 +47,8 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get openShiftChangeRequests from groups
+        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +112,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get openShiftChangeRequests from groups
+        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,7 +182,7 @@ namespace Microsoft.Graph.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item
             }
         }
         /// <summary>
-        /// Get openShiftChangeRequests from groups
+        /// Retrieve the properties and relationships of an openShiftChangeRequest object.
         /// </summary>
         public class OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

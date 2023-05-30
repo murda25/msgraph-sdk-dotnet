@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.Item {
     /// <summary>
     /// Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffReasonItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class TimeOffReasonItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new TimeOffReasonItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TimeOffReasonItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TimeOffReasonItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TimeOffReasonItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TimeOffReasonItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TimeOffReasonItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property timeOffReasons for users
+        /// Mark a timeOffReason as inactive by setting the **isActive** property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The set of reasons for a time off in the schedule.
+        /// Retrieve the properties and relationships of a timeOffReason object by ID.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             return await RequestAdapter.SendAsync<TimeOffReason>(requestInfo, TimeOffReason.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property timeOffReasons in users
+        /// Replace an existing timeOffReason. If the specified timeOffReason doesn&apos;t exist, this method returns `404 Not found`.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             return await RequestAdapter.SendAsync<TimeOffReason>(requestInfo, TimeOffReason.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property timeOffReasons for users
+        /// Mark a timeOffReason as inactive by setting the **isActive** property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             return requestInfo;
         }
         /// <summary>
-        /// The set of reasons for a time off in the schedule.
+        /// Retrieve the properties and relationships of a timeOffReason object by ID.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property timeOffReasons in users
+        /// Replace an existing timeOffReason. If the specified timeOffReason doesn&apos;t exist, this method returns `404 Not found`.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimeOffReasons.It
             }
         }
         /// <summary>
-        /// The set of reasons for a time off in the schedule.
+        /// Retrieve the properties and relationships of a timeOffReason object by ID.
         /// </summary>
         public class TimeOffReasonItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>

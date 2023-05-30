@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class OnlineMeeting : Entity, IParsable {
         /// <summary>Indicates whether attendees can turn on their camera.</summary>
@@ -14,6 +14,16 @@ namespace Microsoft.Graph.Models {
         public bool? AllowAttendeeToEnableMic {
             get { return BackingStore?.Get<bool?>("allowAttendeeToEnableMic"); }
             set { BackingStore?.Set("allowAttendeeToEnableMic", value); }
+        }
+        /// <summary>Specifies who can be a presenter in a meeting. Possible values are listed in the following table.</summary>
+        public OnlineMeetingPresenters? AllowedPresenters {
+            get { return BackingStore?.Get<OnlineMeetingPresenters?>("allowedPresenters"); }
+            set { BackingStore?.Set("allowedPresenters", value); }
+        }
+        /// <summary>Specifies the mode of meeting chat.</summary>
+        public MeetingChatMode? AllowMeetingChat {
+            get { return BackingStore?.Get<MeetingChatMode?>("allowMeetingChat"); }
+            set { BackingStore?.Set("allowMeetingChat", value); }
         }
         /// <summary>Indicates whether Teams reactions are enabled for the meeting.</summary>
         public bool? AllowTeamworkReactions {
@@ -232,6 +242,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("videoTeleconferenceId", value); }
         }
 #endif
+        /// <summary>Specifies whether a watermark should be applied to a content type by the client application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public WatermarkProtectionValues? WatermarkProtection {
+            get { return BackingStore?.Get<WatermarkProtectionValues?>("watermarkProtection"); }
+            set { BackingStore?.Set("watermarkProtection", value); }
+        }
+#nullable restore
+#else
+        public WatermarkProtectionValues WatermarkProtection {
+            get { return BackingStore?.Get<WatermarkProtectionValues>("watermarkProtection"); }
+            set { BackingStore?.Set("watermarkProtection", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -247,6 +271,8 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"allowAttendeeToEnableCamera", n => { AllowAttendeeToEnableCamera = n.GetBoolValue(); } },
                 {"allowAttendeeToEnableMic", n => { AllowAttendeeToEnableMic = n.GetBoolValue(); } },
+                {"allowedPresenters", n => { AllowedPresenters = n.GetEnumValue<OnlineMeetingPresenters>(); } },
+                {"allowMeetingChat", n => { AllowMeetingChat = n.GetEnumValue<MeetingChatMode>(); } },
                 {"allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
                 {"attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
@@ -267,6 +293,7 @@ namespace Microsoft.Graph.Models {
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"subject", n => { Subject = n.GetStringValue(); } },
                 {"videoTeleconferenceId", n => { VideoTeleconferenceId = n.GetStringValue(); } },
+                {"watermarkProtection", n => { WatermarkProtection = n.GetObjectValue<WatermarkProtectionValues>(WatermarkProtectionValues.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -278,6 +305,8 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteBoolValue("allowAttendeeToEnableCamera", AllowAttendeeToEnableCamera);
             writer.WriteBoolValue("allowAttendeeToEnableMic", AllowAttendeeToEnableMic);
+            writer.WriteEnumValue<OnlineMeetingPresenters>("allowedPresenters", AllowedPresenters);
+            writer.WriteEnumValue<MeetingChatMode>("allowMeetingChat", AllowMeetingChat);
             writer.WriteBoolValue("allowTeamworkReactions", AllowTeamworkReactions);
             writer.WriteCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", AttendanceReports);
             writer.WriteByteArrayValue("attendeeReport", AttendeeReport);
@@ -298,6 +327,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("videoTeleconferenceId", VideoTeleconferenceId);
+            writer.WriteObjectValue<WatermarkProtectionValues>("watermarkProtection", WatermarkProtection);
         }
     }
 }

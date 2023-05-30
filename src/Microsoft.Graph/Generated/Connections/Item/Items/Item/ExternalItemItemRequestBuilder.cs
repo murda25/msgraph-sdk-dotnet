@@ -1,53 +1,45 @@
+using Microsoft.Graph.Connections.Item.Items.Item.Activities;
+using Microsoft.Graph.Connections.Item.Items.Item.MicrosoftGraphExternalConnectorsAddActivities;
 using Microsoft.Graph.Models.ExternalConnectors;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Connections.Item.Items.Item {
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class ExternalItemItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class ExternalItemItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.</summary>
+        public ActivitiesRequestBuilder Activities { get =>
+            new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the addActivities method.</summary>
+        public MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder MicrosoftGraphExternalConnectorsAddActivities { get =>
+            new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new ExternalItemItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExternalItemItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ExternalItemItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ExternalItemItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExternalItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ExternalItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property items for connections
+        /// Delete an externalItem object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +58,8 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -92,13 +85,13 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<ExternalItem?> PatchAsync(ExternalItem body, Action<ExternalItemItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ExternalItem?> PutAsync(ExternalItem body, Action<ExternalItemItemRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<ExternalItem> PatchAsync(ExternalItem body, Action<ExternalItemItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ExternalItem> PutAsync(ExternalItem body, Action<ExternalItemItemRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -106,7 +99,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             return await RequestAdapter.SendAsync<ExternalItem>(requestInfo, ExternalItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property items for connections
+        /// Delete an externalItem object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +123,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,21 +155,21 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ExternalItem body, Action<ExternalItemItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(ExternalItem body, Action<ExternalItemItemRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ExternalItem body, Action<ExternalItemItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(ExternalItem body, Action<ExternalItemItemRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
+                HttpMethod = Method.PUT,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
             requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
-                var requestConfig = new ExternalItemItemRequestBuilderPatchRequestConfiguration();
+                var requestConfig = new ExternalItemItemRequestBuilderPutRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -200,7 +193,7 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
             }
         }
         /// <summary>
-        /// Get items from connections
+        /// Read the properties and relationships of an externalItem object.
         /// </summary>
         public class ExternalItemItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
@@ -245,15 +238,15 @@ namespace Microsoft.Graph.Connections.Item.Items.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ExternalItemItemRequestBuilderPatchRequestConfiguration {
+        public class ExternalItemItemRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new ExternalItemItemRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new ExternalItemItemRequestBuilderPutRequestConfiguration and sets the default values.
             /// </summary>
-            public ExternalItemItemRequestBuilderPatchRequestConfiguration() {
+            public ExternalItemItemRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }

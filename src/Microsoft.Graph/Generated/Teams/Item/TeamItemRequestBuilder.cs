@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Teams.Item.AllChannels;
 using Microsoft.Graph.Teams.Item.Archive;
 using Microsoft.Graph.Teams.Item.Channels;
@@ -17,19 +17,19 @@ using Microsoft.Graph.Teams.Item.SendActivityNotification;
 using Microsoft.Graph.Teams.Item.Tags;
 using Microsoft.Graph.Teams.Item.Template;
 using Microsoft.Graph.Teams.Item.Unarchive;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teams.Item {
     /// <summary>
     /// Provides operations to manage the collection of team entities.
     /// </summary>
-    public class TeamItemRequestBuilder {
+    public class TeamItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the allChannels property of the microsoft.graph.team entity.</summary>
         public AllChannelsRequestBuilder AllChannels { get =>
             new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
@@ -70,8 +70,6 @@ namespace Microsoft.Graph.Teams.Item {
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>
             new PhotoRequestBuilder(PathParameters, RequestAdapter);
@@ -80,8 +78,6 @@ namespace Microsoft.Graph.Teams.Item {
         public PrimaryChannelRequestBuilder PrimaryChannel { get =>
             new PrimaryChannelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the schedule property of the microsoft.graph.team entity.</summary>
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
@@ -102,34 +98,19 @@ namespace Microsoft.Graph.Teams.Item {
         public UnarchiveRequestBuilder Unarchive { get =>
             new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TeamItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TeamItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete entity from teams
@@ -151,7 +132,7 @@ namespace Microsoft.Graph.Teams.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -217,7 +198,7 @@ namespace Microsoft.Graph.Teams.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -287,7 +268,7 @@ namespace Microsoft.Graph.Teams.Item {
             }
         }
         /// <summary>
-        /// Retrieve the properties and relationships of the specified team.
+        /// Get entity from teams by key
         /// </summary>
         public class TeamItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

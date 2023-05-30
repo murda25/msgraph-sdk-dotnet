@@ -15,21 +15,21 @@ using Microsoft.Graph.Groups.Item.Team.SendActivityNotification;
 using Microsoft.Graph.Groups.Item.Team.Tags;
 using Microsoft.Graph.Groups.Item.Team.Template;
 using Microsoft.Graph.Groups.Item.Team.Unarchive;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Team {
     /// <summary>
     /// Provides operations to manage the team property of the microsoft.graph.group entity.
     /// </summary>
-    public class TeamRequestBuilder {
+    public class TeamRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the allChannels property of the microsoft.graph.team entity.</summary>
         public AllChannelsRequestBuilder AllChannels { get =>
             new AllChannelsRequestBuilder(PathParameters, RequestAdapter);
@@ -70,8 +70,6 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>
             new PhotoRequestBuilder(PathParameters, RequestAdapter);
@@ -80,8 +78,6 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public PrimaryChannelRequestBuilder PrimaryChannel { get =>
             new PrimaryChannelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the schedule property of the microsoft.graph.team entity.</summary>
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(PathParameters, RequestAdapter);
@@ -102,34 +98,19 @@ namespace Microsoft.Graph.Groups.Item.Team {
         public UnarchiveRequestBuilder Unarchive { get =>
             new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/team{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property team for groups
@@ -170,21 +151,20 @@ namespace Microsoft.Graph.Groups.Item.Team {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Team>(requestInfo, Microsoft.Graph.Models.Team.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new team under a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it&apos;s possible for the Create team call to fail with a 404 error code due to replication delays. The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-put-teams?view=graph-rest-1.0" />
+        /// Update the navigation property team in groups
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Microsoft.Graph.Models.Team?> PatchAsync(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Team?> PutAsync(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Microsoft.Graph.Models.Team> PatchAsync(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.Team> PutAsync(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
@@ -242,27 +222,27 @@ namespace Microsoft.Graph.Groups.Item.Team {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new team under a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it&apos;s possible for the Create team call to fail with a 404 error code due to replication delays. The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
+        /// Update the navigation property team in groups
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Microsoft.Graph.Models.Team body, Action<TeamRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
+                HttpMethod = Method.PUT,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
             requestInfo.Headers.Add("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
-                var requestConfig = new TeamRequestBuilderPatchRequestConfiguration();
+                var requestConfig = new TeamRequestBuilderPutRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -331,15 +311,15 @@ namespace Microsoft.Graph.Groups.Item.Team {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class TeamRequestBuilderPatchRequestConfiguration {
+        public class TeamRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new teamRequestBuilderPatchRequestConfiguration and sets the default values.
+            /// Instantiates a new teamRequestBuilderPutRequestConfiguration and sets the default values.
             /// </summary>
-            public TeamRequestBuilderPatchRequestConfiguration() {
+            public TeamRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }

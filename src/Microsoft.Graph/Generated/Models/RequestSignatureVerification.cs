@@ -1,9 +1,9 @@
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class RequestSignatureVerification : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -11,14 +11,14 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
-        /// <summary>The allowedWeakAlgorithms property</summary>
+        /// <summary>Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue.</summary>
         public WeakAlgorithms? AllowedWeakAlgorithms {
             get { return BackingStore?.Get<WeakAlgorithms?>("allowedWeakAlgorithms"); }
             set { BackingStore?.Set("allowedWeakAlgorithms", value); }
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The isSignedRequestRequired property</summary>
+        /// <summary>Specifies whether signed authentication requests for this application should be required.</summary>
         public bool? IsSignedRequestRequired {
             get { return BackingStore?.Get<bool?>("isSignedRequestRequired"); }
             set { BackingStore?.Set("isSignedRequestRequired", value); }

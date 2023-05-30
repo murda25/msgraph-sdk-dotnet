@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Chats.Item.HideForUser;
 using Microsoft.Graph.Users.Item.Chats.Item.InstalledApps;
 using Microsoft.Graph.Users.Item.Chats.Item.LastMessagePreview;
@@ -11,19 +11,19 @@ using Microsoft.Graph.Users.Item.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Users.Item.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Users.Item.Chats.Item.Tabs;
 using Microsoft.Graph.Users.Item.Chats.Item.UnhideForUser;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.Chats.Item {
     /// <summary>
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.
     /// </summary>
-    public class ChatItemRequestBuilder {
+    public class ChatItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the hideForUser method.</summary>
         public HideForUserRequestBuilder HideForUser { get =>
             new HideForUserRequestBuilder(PathParameters, RequestAdapter);
@@ -52,14 +52,10 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.</summary>
         public PinnedMessagesRequestBuilder PinnedMessages { get =>
             new PinnedMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the sendActivityNotification method.</summary>
         public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
             new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
@@ -72,34 +68,19 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
         public UnhideForUserRequestBuilder UnhideForUser { get =>
             new UnhideForUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ChatItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ChatItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property chats for users
@@ -121,7 +102,8 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +167,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -255,7 +237,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item {
             }
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
         public class ChatItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

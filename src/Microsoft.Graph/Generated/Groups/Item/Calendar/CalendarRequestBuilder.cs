@@ -3,23 +3,21 @@ using Microsoft.Graph.Groups.Item.Calendar.CalendarPermissions;
 using Microsoft.Graph.Groups.Item.Calendar.CalendarView;
 using Microsoft.Graph.Groups.Item.Calendar.Events;
 using Microsoft.Graph.Groups.Item.Calendar.GetSchedule;
-using Microsoft.Graph.Groups.Item.Calendar.MultiValueExtendedProperties;
-using Microsoft.Graph.Groups.Item.Calendar.SingleValueExtendedProperties;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Calendar {
     /// <summary>
     /// Provides operations to manage the calendar property of the microsoft.graph.group entity.
     /// </summary>
-    public class CalendarRequestBuilder {
+    public class CalendarRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.</summary>
         public CalendarPermissionsRequestBuilder CalendarPermissions { get =>
             new CalendarPermissionsRequestBuilder(PathParameters, RequestAdapter);
@@ -36,20 +34,6 @@ namespace Microsoft.Graph.Groups.Item.Calendar {
         public GetScheduleRequestBuilder GetSchedule { get =>
             new GetScheduleRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Provides operations to call the allowedCalendarSharingRoles method.
         /// </summary>
@@ -63,27 +47,14 @@ namespace Microsoft.Graph.Groups.Item.Calendar {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CalendarRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/calendar{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CalendarRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/calendar{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new CalendarRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CalendarRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/calendar{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CalendarRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/calendar{?%24select}", rawUrl) {
         }
         /// <summary>
         /// The group&apos;s calendar. Read-only.

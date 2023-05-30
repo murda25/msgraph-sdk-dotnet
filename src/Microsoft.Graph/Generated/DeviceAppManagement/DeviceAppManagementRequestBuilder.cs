@@ -13,21 +13,21 @@ using Microsoft.Graph.DeviceAppManagement.SyncMicrosoftStoreForBusinessApps;
 using Microsoft.Graph.DeviceAppManagement.TargetedManagedAppConfigurations;
 using Microsoft.Graph.DeviceAppManagement.VppTokens;
 using Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolicies;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DeviceAppManagement {
     /// <summary>
     /// Provides operations to manage the deviceAppManagement singleton.
     /// </summary>
-    public class DeviceAppManagementRequestBuilder {
+    public class DeviceAppManagementRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.</summary>
         public AndroidManagedAppProtectionsRequestBuilder AndroidManagedAppProtections { get =>
             new AndroidManagedAppProtectionsRequestBuilder(PathParameters, RequestAdapter);
@@ -72,10 +72,6 @@ namespace Microsoft.Graph.DeviceAppManagement {
         public MobileAppsRequestBuilder MobileApps { get =>
             new MobileAppsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the syncMicrosoftStoreForBusinessApps method.</summary>
         public SyncMicrosoftStoreForBusinessAppsRequestBuilder SyncMicrosoftStoreForBusinessApps { get =>
             new SyncMicrosoftStoreForBusinessAppsRequestBuilder(PathParameters, RequestAdapter);
@@ -84,8 +80,6 @@ namespace Microsoft.Graph.DeviceAppManagement {
         public TargetedManagedAppConfigurationsRequestBuilder TargetedManagedAppConfigurations { get =>
             new TargetedManagedAppConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.</summary>
         public VppTokensRequestBuilder VppTokens { get =>
             new VppTokensRequestBuilder(PathParameters, RequestAdapter);
@@ -99,27 +93,14 @@ namespace Microsoft.Graph.DeviceAppManagement {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeviceAppManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/deviceAppManagement{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeviceAppManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DeviceAppManagementRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeviceAppManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/deviceAppManagement{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeviceAppManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Get deviceAppManagement

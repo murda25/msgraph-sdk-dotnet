@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
     /// <summary>
     /// Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
     /// </summary>
-    public class FederatedIdentityCredentialItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class FederatedIdentityCredentialItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new FederatedIdentityCredentialItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FederatedIdentityCredentialItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public FederatedIdentityCredentialItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new FederatedIdentityCredentialItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FederatedIdentityCredentialItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public FederatedIdentityCredentialItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property federatedIdentityCredentials for applications
+        /// Delete a federatedIdentityCredential object from an application.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/federatedidentitycredential-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
+        /// Read the properties and relationships of a federatedIdentityCredential object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/federatedidentitycredential-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property federatedIdentityCredentials in applications
+        /// Update the properties of a federatedIdentityCredential object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/federatedidentitycredential-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property federatedIdentityCredentials for applications
+        /// Delete a federatedIdentityCredential object from an application.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
+        /// Read the properties and relationships of a federatedIdentityCredential object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property federatedIdentityCredentials in applications
+        /// Update the properties of a federatedIdentityCredential object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Applications.Item.FederatedIdentityCredentials.Item {
             }
         }
         /// <summary>
-        /// Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
+        /// Read the properties and relationships of a federatedIdentityCredential object.
         /// </summary>
         public class FederatedIdentityCredentialItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

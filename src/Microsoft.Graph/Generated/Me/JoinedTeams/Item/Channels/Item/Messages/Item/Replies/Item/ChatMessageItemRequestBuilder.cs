@@ -1,29 +1,25 @@
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item.HostedContents;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item.SoftDelete;
 using Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item.UndoSoftDelete;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replies.Item {
     /// <summary>
     /// Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
     /// </summary>
-    public class ChatMessageItemRequestBuilder {
+    public class ChatMessageItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.</summary>
         public HostedContentsRequestBuilder HostedContents { get =>
             new HostedContentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the softDelete method.</summary>
         public SoftDeleteRequestBuilder SoftDelete { get =>
             new SoftDeleteRequestBuilder(PathParameters, RequestAdapter);
@@ -32,34 +28,19 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replie
         public UndoSoftDeleteRequestBuilder UndoSoftDelete { get =>
             new UndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatMessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatMessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatMessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatMessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property replies for me
@@ -81,7 +62,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replie
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Replies for a specified message. Supports $expand for channel messages.
+        /// Retrieve a single message or a message reply in a channel or a chat.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +127,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replie
             return requestInfo;
         }
         /// <summary>
-        /// Replies for a specified message. Supports $expand for channel messages.
+        /// Retrieve a single message or a message reply in a channel or a chat.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -215,7 +197,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.Replie
             }
         }
         /// <summary>
-        /// Replies for a specified message. Supports $expand for channel messages.
+        /// Retrieve a single message or a message reply in a channel or a chat.
         /// </summary>
         public class ChatMessageItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

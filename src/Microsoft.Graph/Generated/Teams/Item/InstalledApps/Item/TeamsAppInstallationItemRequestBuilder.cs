@@ -1,25 +1,21 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Teams.Item.InstalledApps.Item.TeamsApp;
 using Microsoft.Graph.Teams.Item.InstalledApps.Item.TeamsAppDefinition;
 using Microsoft.Graph.Teams.Item.InstalledApps.Item.Upgrade;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
     /// <summary>
     /// Provides operations to manage the installedApps property of the microsoft.graph.team entity.
     /// </summary>
-    public class TeamsAppInstallationItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+    public class TeamsAppInstallationItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the teamsApp property of the microsoft.graph.teamsAppInstallation entity.</summary>
         public TeamsAppRequestBuilder TeamsApp { get =>
             new TeamsAppRequestBuilder(PathParameters, RequestAdapter);
@@ -32,37 +28,23 @@ namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
         public UpgradeRequestBuilder Upgrade { get =>
             new UpgradeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TeamsAppInstallationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamsAppInstallationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamsAppInstallationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TeamsAppInstallationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TeamsAppInstallationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TeamsAppInstallationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property installedApps for teams
+        /// Uninstalls an app from the specified team.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-delete-installedapps?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +63,8 @@ namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The apps installed in this team.
+        /// Retrieve the app installed in the specified team.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-get-installedapps?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +104,7 @@ namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
             return await RequestAdapter.SendAsync<TeamsAppInstallation>(requestInfo, TeamsAppInstallation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property installedApps for teams
+        /// Uninstalls an app from the specified team.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +128,7 @@ namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The apps installed in this team.
+        /// Retrieve the app installed in the specified team.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -215,7 +198,7 @@ namespace Microsoft.Graph.Teams.Item.InstalledApps.Item {
             }
         }
         /// <summary>
-        /// The apps installed in this team.
+        /// Retrieve the app installed in the specified team.
         /// </summary>
         public class TeamsAppInstallationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

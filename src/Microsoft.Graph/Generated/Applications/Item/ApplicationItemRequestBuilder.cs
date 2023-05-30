@@ -15,24 +15,25 @@ using Microsoft.Graph.Applications.Item.RemoveKey;
 using Microsoft.Graph.Applications.Item.RemovePassword;
 using Microsoft.Graph.Applications.Item.Restore;
 using Microsoft.Graph.Applications.Item.SetVerifiedPublisher;
+using Microsoft.Graph.Applications.Item.Synchronization;
 using Microsoft.Graph.Applications.Item.TokenIssuancePolicies;
 using Microsoft.Graph.Applications.Item.TokenLifetimePolicies;
 using Microsoft.Graph.Applications.Item.UnsetVerifiedPublisher;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Applications.Item {
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class ApplicationItemRequestBuilder {
+    public class ApplicationItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the addKey method.</summary>
         public AddKeyRequestBuilder AddKey { get =>
             new AddKeyRequestBuilder(PathParameters, RequestAdapter);
@@ -85,8 +86,6 @@ namespace Microsoft.Graph.Applications.Item {
         public OwnersRequestBuilder Owners { get =>
             new OwnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the removeKey method.</summary>
         public RemoveKeyRequestBuilder RemoveKey { get =>
             new RemoveKeyRequestBuilder(PathParameters, RequestAdapter);
@@ -95,8 +94,6 @@ namespace Microsoft.Graph.Applications.Item {
         public RemovePasswordRequestBuilder RemovePassword { get =>
             new RemovePasswordRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
@@ -104,6 +101,10 @@ namespace Microsoft.Graph.Applications.Item {
         /// <summary>Provides operations to call the setVerifiedPublisher method.</summary>
         public SetVerifiedPublisherRequestBuilder SetVerifiedPublisher { get =>
             new SetVerifiedPublisherRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the synchronization property of the microsoft.graph.application entity.</summary>
+        public SynchronizationRequestBuilder Synchronization { get =>
+            new SynchronizationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity.</summary>
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
@@ -117,34 +118,19 @@ namespace Microsoft.Graph.Applications.Item {
         public UnsetVerifiedPublisherRequestBuilder UnsetVerifiedPublisher { get =>
             new UnsetVerifiedPublisherRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ApplicationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApplicationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ApplicationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ApplicationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ApplicationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/applications/{application%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ApplicationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/applications/{application%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.

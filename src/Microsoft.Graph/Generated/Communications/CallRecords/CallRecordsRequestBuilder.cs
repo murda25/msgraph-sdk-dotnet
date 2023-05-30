@@ -1,32 +1,26 @@
-using Microsoft.Graph.Communications.CallRecords.CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime;
-using Microsoft.Graph.Communications.CallRecords.CallRecordsGetPstnCallsWithFromDateTimeWithToDateTime;
 using Microsoft.Graph.Communications.CallRecords.Count;
 using Microsoft.Graph.Communications.CallRecords.Item;
+using Microsoft.Graph.Communications.CallRecords.MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime;
+using Microsoft.Graph.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime;
 using Microsoft.Graph.Models.CallRecords;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Communications.CallRecords {
     /// <summary>
     /// Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class CallRecordsRequestBuilder {
+    public class CallRecordsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to count the resources in the collection.</summary>
         public CountRequestBuilder Count { get =>
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.</summary>
         public CallRecordItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
@@ -34,54 +28,21 @@ namespace Microsoft.Graph.Communications.CallRecords {
             return new CallRecordItemRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
-        /// Provides operations to call the getDirectRoutingCalls method.
-        /// </summary>
-        /// <param name="fromDateTime">Usage: fromDateTime={fromDateTime}</param>
-        /// <param name="toDateTime">Usage: toDateTime={toDateTime}</param>
-        public CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(DateTimeOffset? fromDateTime, DateTimeOffset? toDateTime) {
-            _ = fromDateTime ?? throw new ArgumentNullException(nameof(fromDateTime));
-            _ = toDateTime ?? throw new ArgumentNullException(nameof(toDateTime));
-            return new CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters, RequestAdapter, fromDateTime, toDateTime);
-        }
-        /// <summary>
-        /// Provides operations to call the getPstnCalls method.
-        /// </summary>
-        /// <param name="fromDateTime">Usage: fromDateTime={fromDateTime}</param>
-        /// <param name="toDateTime">Usage: toDateTime={toDateTime}</param>
-        public CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder CallRecordsGetPstnCallsWithFromDateTimeWithToDateTime(DateTimeOffset? fromDateTime, DateTimeOffset? toDateTime) {
-            _ = fromDateTime ?? throw new ArgumentNullException(nameof(fromDateTime));
-            _ = toDateTime ?? throw new ArgumentNullException(nameof(toDateTime));
-            return new CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters, RequestAdapter, fromDateTime, toDateTime);
-        }
-        /// <summary>
         /// Instantiates a new CallRecordsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallRecordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CallRecordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new CallRecordsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallRecordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CallRecordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get callRecords from communications
+        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,6 +59,26 @@ namespace Microsoft.Graph.Communications.CallRecords {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<CallRecordCollectionResponse>(requestInfo, CallRecordCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Provides operations to call the getDirectRoutingCalls method.
+        /// </summary>
+        /// <param name="fromDateTime">Usage: fromDateTime={fromDateTime}</param>
+        /// <param name="toDateTime">Usage: toDateTime={toDateTime}</param>
+        public MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(DateTimeOffset? fromDateTime, DateTimeOffset? toDateTime) {
+            _ = fromDateTime ?? throw new ArgumentNullException(nameof(fromDateTime));
+            _ = toDateTime ?? throw new ArgumentNullException(nameof(toDateTime));
+            return new MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters, RequestAdapter, fromDateTime, toDateTime);
+        }
+        /// <summary>
+        /// Provides operations to call the getPstnCalls method.
+        /// </summary>
+        /// <param name="fromDateTime">Usage: fromDateTime={fromDateTime}</param>
+        /// <param name="toDateTime">Usage: toDateTime={toDateTime}</param>
+        public MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime(DateTimeOffset? fromDateTime, DateTimeOffset? toDateTime) {
+            _ = fromDateTime ?? throw new ArgumentNullException(nameof(fromDateTime));
+            _ = toDateTime ?? throw new ArgumentNullException(nameof(toDateTime));
+            return new MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(PathParameters, RequestAdapter, fromDateTime, toDateTime);
         }
         /// <summary>
         /// Create new navigation property to callRecords for communications
@@ -121,7 +102,7 @@ namespace Microsoft.Graph.Communications.CallRecords {
             return await RequestAdapter.SendAsync<CallRecord>(requestInfo, CallRecord.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get callRecords from communications
+        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -175,7 +156,7 @@ namespace Microsoft.Graph.Communications.CallRecords {
             return requestInfo;
         }
         /// <summary>
-        /// Get callRecords from communications
+        /// Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
         /// </summary>
         public class CallRecordsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

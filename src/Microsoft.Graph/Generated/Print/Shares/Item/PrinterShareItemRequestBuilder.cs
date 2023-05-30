@@ -1,21 +1,22 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Print.Shares.Item.AllowedGroups;
 using Microsoft.Graph.Print.Shares.Item.AllowedUsers;
+using Microsoft.Graph.Print.Shares.Item.Jobs;
 using Microsoft.Graph.Print.Shares.Item.Printer;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Print.Shares.Item {
     /// <summary>
     /// Provides operations to manage the shares property of the microsoft.graph.print entity.
     /// </summary>
-    public class PrinterShareItemRequestBuilder {
+    public class PrinterShareItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.</summary>
         public AllowedGroupsRequestBuilder AllowedGroups { get =>
             new AllowedGroupsRequestBuilder(PathParameters, RequestAdapter);
@@ -24,45 +25,31 @@ namespace Microsoft.Graph.Print.Shares.Item {
         public AllowedUsersRequestBuilder AllowedUsers { get =>
             new AllowedUsersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.</summary>
+        public JobsRequestBuilder Jobs { get =>
+            new JobsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the printer property of the microsoft.graph.printerShare entity.</summary>
         public PrinterRequestBuilder Printer { get =>
             new PrinterRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PrinterShareItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PrinterShareItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/print/shares/{printerShare%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PrinterShareItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new PrinterShareItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PrinterShareItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/print/shares/{printerShare%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PrinterShareItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property shares for print
+        /// Delete a printer share (unshare the associated printer). This action cannot be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer will need to discover and reinstall it.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printershare-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +68,8 @@ namespace Microsoft.Graph.Print.Shares.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printershare-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +88,8 @@ namespace Microsoft.Graph.Print.Shares.Item {
             return await RequestAdapter.SendAsync<PrinterShare>(requestInfo, PrinterShare.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property shares in print
+        /// Update the properties of a printer share. This method can be used to swap printers. For example, if a physical printer device breaks, an administrator can register a new printer device and update this printerShare to point to the new printer without requiring users to take any action.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/printershare-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -121,7 +110,7 @@ namespace Microsoft.Graph.Print.Shares.Item {
             return await RequestAdapter.SendAsync<PrinterShare>(requestInfo, PrinterShare.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property shares for print
+        /// Delete a printer share (unshare the associated printer). This action cannot be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer will need to discover and reinstall it.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +134,7 @@ namespace Microsoft.Graph.Print.Shares.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -171,7 +160,7 @@ namespace Microsoft.Graph.Print.Shares.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property shares in print
+        /// Update the properties of a printer share. This method can be used to swap printers. For example, if a physical printer device breaks, an administrator can register a new printer device and update this printerShare to point to the new printer without requiring users to take any action.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -215,7 +204,7 @@ namespace Microsoft.Graph.Print.Shares.Item {
             }
         }
         /// <summary>
-        /// The list of printer shares registered in the tenant.
+        /// Retrieve the properties and relationships of a printer share.
         /// </summary>
         public class PrinterShareItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

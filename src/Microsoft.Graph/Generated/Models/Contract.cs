@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class Contract : DirectoryObject, IParsable {
         /// <summary>Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.</summary>
@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new Contract and sets the default values.
+        /// Instantiates a new contract and sets the default values.
         /// </summary>
         public Contract() : base() {
             OdataType = "#microsoft.graph.contract";

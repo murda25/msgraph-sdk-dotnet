@@ -1,58 +1,40 @@
 using Microsoft.Graph.Me.CalendarGroups.Item.Calendars;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.CalendarGroups.Item {
     /// <summary>
     /// Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
     /// </summary>
-    public class CalendarGroupItemRequestBuilder {
+    public class CalendarGroupItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.</summary>
         public CalendarsRequestBuilder Calendars { get =>
             new CalendarsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new CalendarGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CalendarGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CalendarGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new CalendarGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CalendarGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CalendarGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property calendarGroups for me
+        /// Delete a calendar group other than the default calendar group.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,7 +53,8 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The user&apos;s calendar groups. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a calendar group object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -90,7 +73,8 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             return await RequestAdapter.SendAsync<CalendarGroup>(requestInfo, CalendarGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property calendarGroups in me
+        /// Update the properties of calendargroup object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +95,7 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             return await RequestAdapter.SendAsync<CalendarGroup>(requestInfo, CalendarGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property calendarGroups for me
+        /// Delete a calendar group other than the default calendar group.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +119,7 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user&apos;s calendar groups. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a calendar group object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -161,7 +145,7 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property calendarGroups in me
+        /// Update the properties of calendargroup object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +189,7 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item {
             }
         }
         /// <summary>
-        /// The user&apos;s calendar groups. Read-only. Nullable.
+        /// Retrieve the properties and relationships of a calendar group object.
         /// </summary>
         public class CalendarGroupItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>

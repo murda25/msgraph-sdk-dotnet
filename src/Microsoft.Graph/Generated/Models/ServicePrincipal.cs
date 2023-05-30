@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class ServicePrincipal : DirectoryObject, IParsable {
         /// <summary>true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).</summary>
@@ -94,7 +94,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationTemplateId", value); }
         }
 #endif
-        /// <summary>The appManagementPolicies property</summary>
+        /// <summary>The appManagementPolicy applied to this application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies {
@@ -482,7 +482,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("preferredSingleSignOnMode", value); }
         }
 #endif
-        /// <summary>Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.</summary>
+        /// <summary>This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that are not SAML, do not write or otherwise rely on this property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreferredTokenSigningKeyThumbprint {
@@ -566,7 +566,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("servicePrincipalType", value); }
         }
 #endif
-        /// <summary>Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.</summary>
+        /// <summary>Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization&apos;s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization&apos;s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization&apos;s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SignInAudience {
@@ -580,7 +580,21 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("signInAudience", value); }
         }
 #endif
-        /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
+        /// <summary>The synchronization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.Synchronization? Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization?>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.Synchronization Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#endif
+        /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity&apos;s tags property.Supports $filter (eq, not, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags {
@@ -656,7 +670,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new servicePrincipal and sets the default values.
+        /// Instantiates a new ServicePrincipal and sets the default values.
         /// </summary>
         public ServicePrincipal() : base() {
             OdataType = "#microsoft.graph.servicePrincipal";
@@ -717,6 +731,7 @@ namespace Microsoft.Graph.Models {
                 {"servicePrincipalNames", n => { ServicePrincipalNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"servicePrincipalType", n => { ServicePrincipalType = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
+                {"synchronization", n => { Synchronization = n.GetObjectValue<Microsoft.Graph.Models.Synchronization>(Microsoft.Graph.Models.Synchronization.CreateFromDiscriminatorValue); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -775,6 +790,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("servicePrincipalNames", ServicePrincipalNames);
             writer.WriteStringValue("servicePrincipalType", ServicePrincipalType);
             writer.WriteStringValue("signInAudience", SignInAudience);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Synchronization>("synchronization", Synchronization);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);

@@ -6,12 +6,14 @@ using Microsoft.Graph.Drives.Item.Items.Item.Content;
 using Microsoft.Graph.Drives.Item.Items.Item.Copy;
 using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
 using Microsoft.Graph.Drives.Item.Items.Item.CreateUploadSession;
+using Microsoft.Graph.Drives.Item.Items.Item.CreatedByUser;
 using Microsoft.Graph.Drives.Item.Items.Item.Delta;
 using Microsoft.Graph.Drives.Item.Items.Item.DeltaWithToken;
 using Microsoft.Graph.Drives.Item.Items.Item.Follow;
 using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByInterval;
 using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
 using Microsoft.Graph.Drives.Item.Items.Item.Invite;
+using Microsoft.Graph.Drives.Item.Items.Item.LastModifiedByUser;
 using Microsoft.Graph.Drives.Item.Items.Item.ListItem;
 using Microsoft.Graph.Drives.Item.Items.Item.Permissions;
 using Microsoft.Graph.Drives.Item.Items.Item.Preview;
@@ -23,21 +25,21 @@ using Microsoft.Graph.Drives.Item.Items.Item.Unfollow;
 using Microsoft.Graph.Drives.Item.Items.Item.ValidatePermission;
 using Microsoft.Graph.Drives.Item.Items.Item.Versions;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Drives.Item.Items.Item {
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.drive entity.
     /// </summary>
-    public class DriveItemItemRequestBuilder {
+    public class DriveItemItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.</summary>
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
@@ -61,6 +63,10 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         /// <summary>Provides operations to call the copy method.</summary>
         public CopyRequestBuilder Copy { get =>
             new CopyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the createLink method.</summary>
         public CreateLinkRequestBuilder CreateLink { get =>
@@ -86,12 +92,14 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         public InviteRequestBuilder Invite { get =>
             new InviteRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.</summary>
         public ListItemRequestBuilder ListItem { get =>
             new ListItemRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.</summary>
         public PermissionsRequestBuilder Permissions { get =>
             new PermissionsRequestBuilder(PathParameters, RequestAdapter);
@@ -100,8 +108,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         public PreviewRequestBuilder Preview { get =>
             new PreviewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
@@ -118,8 +124,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         public UnfollowRequestBuilder Unfollow { get =>
             new UnfollowRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to call the validatePermission method.</summary>
         public ValidatePermissionRequestBuilder ValidatePermission { get =>
             new ValidatePermissionRequestBuilder(PathParameters, RequestAdapter);
@@ -137,30 +141,18 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DriveItemItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DriveItemItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DriveItemItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DriveItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DriveItemItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property items for drives
+        /// Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -218,7 +210,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DriveItem>(requestInfo, Microsoft.Graph.Models.DriveItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property items in drives
+        /// Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item&apos;s **parentReference** property.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -247,7 +240,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
             return new SearchWithQRequestBuilder(PathParameters, RequestAdapter, q);
         }
         /// <summary>
-        /// Delete navigation property items for drives
+        /// Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -297,7 +290,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property items in drives
+        /// Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item&apos;s **parentReference** property.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

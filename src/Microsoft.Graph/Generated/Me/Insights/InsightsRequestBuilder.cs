@@ -1,25 +1,21 @@
 using Microsoft.Graph.Me.Insights.Shared;
 using Microsoft.Graph.Me.Insights.Trending;
 using Microsoft.Graph.Me.Insights.Used;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Insights {
     /// <summary>
     /// Provides operations to manage the insights property of the microsoft.graph.user entity.
     /// </summary>
-    public class InsightsRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+    public class InsightsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.</summary>
         public SharedRequestBuilder Shared { get =>
             new SharedRequestBuilder(PathParameters, RequestAdapter);
@@ -28,8 +24,6 @@ namespace Microsoft.Graph.Me.Insights {
         public TrendingRequestBuilder Trending { get =>
             new TrendingRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.</summary>
         public UsedRequestBuilder Used { get =>
             new UsedRequestBuilder(PathParameters, RequestAdapter);
@@ -39,27 +33,14 @@ namespace Microsoft.Graph.Me.Insights {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InsightsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/insights{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public InsightsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/insights{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new InsightsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InsightsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/insights{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public InsightsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/insights{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property insights for me

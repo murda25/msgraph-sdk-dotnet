@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentPolicy : Entity, IParsable {
         /// <summary>Access package containing this policy. Read-only.</summary>
@@ -104,7 +104,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("modifiedDateTime"); }
             set { BackingStore?.Set("modifiedDateTime", value); }
         }
-        /// <summary>The questions property</summary>
+        /// <summary>Questions that are posed to the  requestor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageQuestion>? Questions {

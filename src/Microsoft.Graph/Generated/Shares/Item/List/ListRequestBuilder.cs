@@ -1,24 +1,26 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Shares.Item.List.Columns;
 using Microsoft.Graph.Shares.Item.List.ContentTypes;
+using Microsoft.Graph.Shares.Item.List.CreatedByUser;
 using Microsoft.Graph.Shares.Item.List.Drive;
 using Microsoft.Graph.Shares.Item.List.Items;
+using Microsoft.Graph.Shares.Item.List.LastModifiedByUser;
 using Microsoft.Graph.Shares.Item.List.Operations;
 using Microsoft.Graph.Shares.Item.List.Subscriptions;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Shares.Item.List {
     /// <summary>
     /// Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
     /// </summary>
-    public class ListRequestBuilder {
+    public class ListRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the columns property of the microsoft.graph.list entity.</summary>
         public ColumnsRequestBuilder Columns { get =>
             new ColumnsRequestBuilder(PathParameters, RequestAdapter);
@@ -26,6 +28,10 @@ namespace Microsoft.Graph.Shares.Item.List {
         /// <summary>Provides operations to manage the contentTypes property of the microsoft.graph.list entity.</summary>
         public ContentTypesRequestBuilder ContentTypes { get =>
             new ContentTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the drive property of the microsoft.graph.list entity.</summary>
         public DriveRequestBuilder Drive { get =>
@@ -35,46 +41,31 @@ namespace Microsoft.Graph.Shares.Item.List {
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.list entity.</summary>
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the subscriptions property of the microsoft.graph.list entity.</summary>
         public SubscriptionsRequestBuilder Subscriptions { get =>
             new SubscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ListRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ListRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property list for shares

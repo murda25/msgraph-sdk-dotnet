@@ -1,58 +1,40 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item.Cancel;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
     /// <summary>
     /// Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
     /// </summary>
-    public class BookingAppointmentItemRequestBuilder {
+    public class BookingAppointmentItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the cancel method.</summary>
         public CancelRequestBuilder Cancel { get =>
             new CancelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new BookingAppointmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingAppointmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public BookingAppointmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new BookingAppointmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingAppointmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public BookingAppointmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property appointments for solutions
+        /// Delete a bookingAppointment in the specified bookingBusiness.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,7 +53,8 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// All the appointments of this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -90,7 +73,8 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             return await RequestAdapter.SendAsync<BookingAppointment>(requestInfo, BookingAppointment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property appointments in solutions
+        /// Update the properties of a bookingAppointment object in the specified bookingBusiness.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +95,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             return await RequestAdapter.SendAsync<BookingAppointment>(requestInfo, BookingAppointment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property appointments for solutions
+        /// Delete a bookingAppointment in the specified bookingBusiness.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +119,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All the appointments of this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -161,7 +145,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property appointments in solutions
+        /// Update the properties of a bookingAppointment object in the specified bookingBusiness.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +189,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Appointments.Item {
             }
         }
         /// <summary>
-        /// All the appointments of this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
         /// </summary>
         public class BookingAppointmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

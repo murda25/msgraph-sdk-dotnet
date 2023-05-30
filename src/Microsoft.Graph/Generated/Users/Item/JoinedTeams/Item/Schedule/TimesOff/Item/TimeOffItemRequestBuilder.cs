@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
     /// <summary>
     /// Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class TimeOffItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new TimeOffItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TimeOffItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TimeOffItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TimeOffItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TimeOffItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TimeOffItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property timesOff for users
+        /// Delete a timeOff instance from a schedule.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The instances of times off in the schedule.
+        /// Retrieve the properties and relationships of a timeOff object by ID.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             return await RequestAdapter.SendAsync<TimeOff>(requestInfo, TimeOff.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property timesOff in users
+        /// Replace an existing timeOff object. If the specified timeOff object doesn&apos;t exist, this method returns `404 Not found`.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             return await RequestAdapter.SendAsync<TimeOff>(requestInfo, TimeOff.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property timesOff for users
+        /// Delete a timeOff instance from a schedule.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The instances of times off in the schedule.
+        /// Retrieve the properties and relationships of a timeOff object by ID.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property timesOff in users
+        /// Replace an existing timeOff object. If the specified timeOff object doesn&apos;t exist, this method returns `404 Not found`.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Schedule.TimesOff.Item {
             }
         }
         /// <summary>
-        /// The instances of times off in the schedule.
+        /// Retrieve the properties and relationships of a timeOff object by ID.
         /// </summary>
         public class TimeOffItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>

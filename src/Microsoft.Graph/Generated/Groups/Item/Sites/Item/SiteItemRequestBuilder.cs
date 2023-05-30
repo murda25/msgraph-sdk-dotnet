@@ -1,6 +1,7 @@
 using Microsoft.Graph.Groups.Item.Sites.Item.Analytics;
 using Microsoft.Graph.Groups.Item.Sites.Item.Columns;
 using Microsoft.Graph.Groups.Item.Sites.Item.ContentTypes;
+using Microsoft.Graph.Groups.Item.Sites.Item.CreatedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Drive;
 using Microsoft.Graph.Groups.Item.Sites.Item.Drives;
 using Microsoft.Graph.Groups.Item.Sites.Item.ExternalColumns;
@@ -9,6 +10,7 @@ using Microsoft.Graph.Groups.Item.Sites.Item.GetActivitiesByIntervalWithStartDat
 using Microsoft.Graph.Groups.Item.Sites.Item.GetApplicableContentTypesForListWithListId;
 using Microsoft.Graph.Groups.Item.Sites.Item.GetByPathWithPath;
 using Microsoft.Graph.Groups.Item.Sites.Item.Items;
+using Microsoft.Graph.Groups.Item.Sites.Item.LastModifiedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists;
 using Microsoft.Graph.Groups.Item.Sites.Item.Onenote;
 using Microsoft.Graph.Groups.Item.Sites.Item.Operations;
@@ -16,21 +18,21 @@ using Microsoft.Graph.Groups.Item.Sites.Item.Permissions;
 using Microsoft.Graph.Groups.Item.Sites.Item.Sites;
 using Microsoft.Graph.Groups.Item.Sites.Item.TermStore;
 using Microsoft.Graph.Groups.Item.Sites.Item.TermStores;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Sites.Item {
     /// <summary>
     /// Provides operations to manage the sites property of the microsoft.graph.group entity.
     /// </summary>
-    public class SiteItemRequestBuilder {
+    public class SiteItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the analytics property of the microsoft.graph.site entity.</summary>
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
@@ -42,6 +44,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item {
         /// <summary>Provides operations to manage the contentTypes property of the microsoft.graph.site entity.</summary>
         public ContentTypesRequestBuilder ContentTypes { get =>
             new ContentTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the drive property of the microsoft.graph.site entity.</summary>
         public DriveRequestBuilder Drive { get =>
@@ -63,6 +69,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item {
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the lists property of the microsoft.graph.site entity.</summary>
         public ListsRequestBuilder Lists { get =>
             new ListsRequestBuilder(PathParameters, RequestAdapter);
@@ -75,14 +85,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item {
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the permissions property of the microsoft.graph.site entity.</summary>
         public PermissionsRequestBuilder Permissions { get =>
             new PermissionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the sites property of the microsoft.graph.site entity.</summary>
         public Microsoft.Graph.Groups.Item.Sites.Item.Sites.SitesRequestBuilder Sites { get =>
             new Microsoft.Graph.Groups.Item.Sites.Item.Sites.SitesRequestBuilder(PathParameters, RequestAdapter);
@@ -95,34 +101,19 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item {
         public TermStoresRequestBuilder TermStores { get =>
             new TermStoresRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new SiteItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SiteItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SiteItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new SiteItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SiteItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SiteItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Provides operations to call the getActivitiesByInterval method.

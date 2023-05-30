@@ -1,30 +1,36 @@
 using Microsoft.Graph.Drives.Item.Bundles;
+using Microsoft.Graph.Drives.Item.CreatedByUser;
 using Microsoft.Graph.Drives.Item.Following;
 using Microsoft.Graph.Drives.Item.Items;
+using Microsoft.Graph.Drives.Item.LastModifiedByUser;
 using Microsoft.Graph.Drives.Item.List;
 using Microsoft.Graph.Drives.Item.Recent;
 using Microsoft.Graph.Drives.Item.Root;
 using Microsoft.Graph.Drives.Item.SearchWithQ;
 using Microsoft.Graph.Drives.Item.SharedWithMe;
 using Microsoft.Graph.Drives.Item.Special;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Drives.Item {
     /// <summary>
     /// Provides operations to manage the collection of drive entities.
     /// </summary>
-    public class DriveItemRequestBuilder {
+    public class DriveItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the bundles property of the microsoft.graph.drive entity.</summary>
         public BundlesRequestBuilder Bundles { get =>
             new BundlesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the following property of the microsoft.graph.drive entity.</summary>
         public FollowingRequestBuilder Following { get =>
@@ -34,18 +40,18 @@ namespace Microsoft.Graph.Drives.Item {
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the list property of the microsoft.graph.drive entity.</summary>
         public ListRequestBuilder List { get =>
             new ListRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the recent method.</summary>
         public RecentRequestBuilder Recent { get =>
             new RecentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the root property of the microsoft.graph.drive entity.</summary>
         public RootRequestBuilder Root { get =>
             new RootRequestBuilder(PathParameters, RequestAdapter);
@@ -58,34 +64,19 @@ namespace Microsoft.Graph.Drives.Item {
         public SpecialRequestBuilder Special { get =>
             new SpecialRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new DriveItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DriveItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DriveItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DriveItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DriveItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DriveItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete entity from drives
@@ -107,8 +98,7 @@ namespace Microsoft.Graph.Drives.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/drive-get?view=graph-rest-1.0" />
+        /// Get entity from drives by key
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -180,7 +170,7 @@ namespace Microsoft.Graph.Drives.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+        /// Get entity from drives by key
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -250,7 +240,7 @@ namespace Microsoft.Graph.Drives.Item {
             }
         }
         /// <summary>
-        /// Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+        /// Get entity from drives by key
         /// </summary>
         public class DriveItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

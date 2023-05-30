@@ -2,33 +2,29 @@ using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.HostedCon
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Replies;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.SoftDelete;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.UndoSoftDelete;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.channel entity.
     /// </summary>
-    public class ChatMessageItemRequestBuilder {
+    public class ChatMessageItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.</summary>
         public HostedContentsRequestBuilder HostedContents { get =>
             new HostedContentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.</summary>
         public RepliesRequestBuilder Replies { get =>
             new RepliesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the softDelete method.</summary>
         public SoftDeleteRequestBuilder SoftDelete { get =>
             new SoftDeleteRequestBuilder(PathParameters, RequestAdapter);
@@ -37,34 +33,19 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
         public UndoSoftDeleteRequestBuilder UndoSoftDelete { get =>
             new UndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatMessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatMessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChatMessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChatMessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property messages for me
@@ -86,7 +67,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve a single message or a message reply in a channel or a chat.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +87,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
             return await RequestAdapter.SendAsync<ChatMessage>(requestInfo, ChatMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property messages in me
+        /// Update a chatMessage object. With the exception of the **policyViolation** property, all properties of a **chatMessage** can be updated in delegated permissions scenarios.Only the **policyViolation** property of a **chatMessage** can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -150,7 +133,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve a single message or a message reply in a channel or a chat.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,7 +159,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property messages in me
+        /// Update a chatMessage object. With the exception of the **policyViolation** property, all properties of a **chatMessage** can be updated in delegated permissions scenarios.Only the **policyViolation** property of a **chatMessage** can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +203,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item {
             }
         }
         /// <summary>
-        /// A collection of all the messages in the channel. A navigation property. Nullable.
+        /// Retrieve a single message or a message reply in a channel or a chat.
         /// </summary>
         public class ChatMessageItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

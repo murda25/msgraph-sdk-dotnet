@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class MicrosoftAuthenticatorAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable {
         /// <summary>A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.</summary>
@@ -33,6 +33,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("includeTargets", value); }
         }
 #endif
+        /// <summary>The isSoftwareOathEnabled property</summary>
+        public bool? IsSoftwareOathEnabled {
+            get { return BackingStore?.Get<bool?>("isSoftwareOathEnabled"); }
+            set { BackingStore?.Set("isSoftwareOathEnabled", value); }
+        }
         /// <summary>
         /// Instantiates a new MicrosoftAuthenticatorAuthenticationMethodConfiguration and sets the default values.
         /// </summary>
@@ -54,6 +59,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"featureSettings", n => { FeatureSettings = n.GetObjectValue<MicrosoftAuthenticatorFeatureSettings>(MicrosoftAuthenticatorFeatureSettings.CreateFromDiscriminatorValue); } },
                 {"includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>(MicrosoftAuthenticatorAuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"isSoftwareOathEnabled", n => { IsSoftwareOathEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -65,6 +71,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", FeatureSettings);
             writer.WriteCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", IncludeTargets);
+            writer.WriteBoolValue("isSoftwareOathEnabled", IsSoftwareOathEnabled);
         }
     }
 }

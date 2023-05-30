@@ -2,8 +2,8 @@ using Microsoft.Graph.Admin;
 using Microsoft.Graph.AgreementAcceptances;
 using Microsoft.Graph.Agreements;
 using Microsoft.Graph.AppCatalogs;
-using Microsoft.Graph.Applications;
 using Microsoft.Graph.ApplicationTemplates;
+using Microsoft.Graph.Applications;
 using Microsoft.Graph.AuditLogs;
 using Microsoft.Graph.AuthenticationMethodConfigurations;
 using Microsoft.Graph.AuthenticationMethodsPolicy;
@@ -21,17 +21,20 @@ using Microsoft.Graph.DeviceManagement;
 using Microsoft.Graph.Devices;
 using Microsoft.Graph.DirectoryNamespace;
 using Microsoft.Graph.DirectoryObjects;
-using Microsoft.Graph.DirectoryRoles;
 using Microsoft.Graph.DirectoryRoleTemplates;
+using Microsoft.Graph.DirectoryRoles;
 using Microsoft.Graph.DomainDnsRecords;
 using Microsoft.Graph.Domains;
 using Microsoft.Graph.Drives;
 using Microsoft.Graph.Education;
+using Microsoft.Graph.EmployeeExperience;
 using Microsoft.Graph.External;
+using Microsoft.Graph.FilterOperators;
+using Microsoft.Graph.Functions;
 using Microsoft.Graph.GroupLifecyclePolicies;
-using Microsoft.Graph.Groups;
-using Microsoft.Graph.GroupSettings;
 using Microsoft.Graph.GroupSettingTemplates;
+using Microsoft.Graph.GroupSettings;
+using Microsoft.Graph.Groups;
 using Microsoft.Graph.Identity;
 using Microsoft.Graph.IdentityGovernance;
 using Microsoft.Graph.IdentityProtection;
@@ -65,22 +68,22 @@ using Microsoft.Graph.TeamsTemplates;
 using Microsoft.Graph.Teamwork;
 using Microsoft.Graph.TenantRelationships;
 using Microsoft.Graph.Users;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Store;
+using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Text;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 namespace Microsoft.Graph {
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class BaseGraphServiceClient {
+    public class BaseGraphServiceClient : BaseRequestBuilder {
         /// <summary>Provides operations to manage the admin singleton.</summary>
         public AdminRequestBuilder Admin { get =>
             new AdminRequestBuilder(PathParameters, RequestAdapter);
@@ -197,9 +200,21 @@ namespace Microsoft.Graph {
         public EducationRequestBuilder Education { get =>
             new EducationRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the employeeExperience singleton.</summary>
+        public EmployeeExperienceRequestBuilder EmployeeExperience { get =>
+            new EmployeeExperienceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the external singleton.</summary>
         public ExternalRequestBuilder External { get =>
             new ExternalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the collection of filterOperatorSchema entities.</summary>
+        public FilterOperatorsRequestBuilder FilterOperators { get =>
+            new FilterOperatorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the collection of attributeMappingFunctionSchema entities.</summary>
+        public FunctionsRequestBuilder Functions { get =>
+            new FunctionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of groupLifecyclePolicy entities.</summary>
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
@@ -257,8 +272,6 @@ namespace Microsoft.Graph {
         public OrganizationRequestBuilder Organization { get =>
             new OrganizationRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the collection of resourceSpecificPermissionGrant entities.</summary>
         public PermissionGrantsRequestBuilder PermissionGrants { get =>
             new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
@@ -287,8 +300,6 @@ namespace Microsoft.Graph {
         public ReportsRequestBuilder Reports { get =>
             new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the roleManagement singleton.</summary>
         public RoleManagementRequestBuilder RoleManagement { get =>
             new RoleManagementRequestBuilder(PathParameters, RequestAdapter);
@@ -349,8 +360,6 @@ namespace Microsoft.Graph {
         public TenantRelationshipsRequestBuilder TenantRelationships { get =>
             new TenantRelationshipsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the collection of user entities.</summary>
         public UsersRequestBuilder Users { get =>
             new UsersRequestBuilder(PathParameters, RequestAdapter);
@@ -360,11 +369,7 @@ namespace Microsoft.Graph {
         /// </summary>
         /// <param name="backingStore">The backing store to use for the models.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BaseGraphServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) {
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathParameters = new Dictionary<string, object>();
-            UrlTemplate = "{+baseurl}";
-            RequestAdapter = requestAdapter;
+        public BaseGraphServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>()) {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();

@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class AttendanceRecord : Entity, IParsable {
         /// <summary>List of time periods between joining and leaving a meeting.</summary>
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("attendanceIntervals", value); }
         }
 #endif
-        /// <summary>Email address of the user associated with this atttendance record.</summary>
+        /// <summary>Email address of the user associated with this attendance record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EmailAddress {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("emailAddress", value); }
         }
 #endif
-        /// <summary>Identity of the user associated with this atttendance record.</summary>
+        /// <summary>Identity of the user associated with this attendance record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Identity? Identity {

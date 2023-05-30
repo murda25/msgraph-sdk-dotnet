@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
     /// <summary>
     /// Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class SchedulingGroupItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class SchedulingGroupItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new SchedulingGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SchedulingGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SchedulingGroupItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new SchedulingGroupItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SchedulingGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public SchedulingGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property schedulingGroups for teams
+        /// Mark a schedulingGroup as inactive by setting its **isActive** property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             return await RequestAdapter.SendAsync<SchedulingGroup>(requestInfo, SchedulingGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property schedulingGroups in teams
+        /// Replace an existing schedulingGroup. If the specified schedulingGroup doesn&apos;t exist, this method returns `404 Not found`.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/schedulinggroup-put?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             return await RequestAdapter.SendAsync<SchedulingGroup>(requestInfo, SchedulingGroup.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property schedulingGroups for teams
+        /// Mark a schedulingGroup as inactive by setting its **isActive** property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property schedulingGroups in teams
+        /// Replace an existing schedulingGroup. If the specified schedulingGroup doesn&apos;t exist, this method returns `404 Not found`.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Teams.Item.Schedule.SchedulingGroups.Item {
             }
         }
         /// <summary>
-        /// The logical grouping of users in the schedule (usually by role).
+        /// Retrieve the properties and relationships of a schedulingGroup by ID.
         /// </summary>
         public class SchedulingGroupItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>

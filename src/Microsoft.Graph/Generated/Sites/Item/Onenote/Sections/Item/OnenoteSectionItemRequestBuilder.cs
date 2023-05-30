@@ -1,23 +1,23 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Sites.Item.Onenote.Sections.Item.CopyToNotebook;
 using Microsoft.Graph.Sites.Item.Onenote.Sections.Item.CopyToSectionGroup;
 using Microsoft.Graph.Sites.Item.Onenote.Sections.Item.Pages;
 using Microsoft.Graph.Sites.Item.Onenote.Sections.Item.ParentNotebook;
 using Microsoft.Graph.Sites.Item.Onenote.Sections.Item.ParentSectionGroup;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Sites.Item.Onenote.Sections.Item {
     /// <summary>
     /// Provides operations to manage the sections property of the microsoft.graph.onenote entity.
     /// </summary>
-    public class OnenoteSectionItemRequestBuilder {
+    public class OnenoteSectionItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the copyToNotebook method.</summary>
         public CopyToNotebookRequestBuilder CopyToNotebook { get =>
             new CopyToNotebookRequestBuilder(PathParameters, RequestAdapter);
@@ -38,38 +38,19 @@ namespace Microsoft.Graph.Sites.Item.Onenote.Sections.Item {
         public ParentSectionGroupRequestBuilder ParentSectionGroup { get =>
             new ParentSectionGroupRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new OnenoteSectionItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OnenoteSectionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OnenoteSectionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new OnenoteSectionItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OnenoteSectionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OnenoteSectionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property sections for sites
@@ -91,7 +72,8 @@ namespace Microsoft.Graph.Sites.Item.Onenote.Sections.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a onenoteSection object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/section-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +137,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote.Sections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a onenoteSection object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -225,7 +207,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote.Sections.Item {
             }
         }
         /// <summary>
-        /// The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a onenoteSection object.
         /// </summary>
         public class OnenoteSectionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

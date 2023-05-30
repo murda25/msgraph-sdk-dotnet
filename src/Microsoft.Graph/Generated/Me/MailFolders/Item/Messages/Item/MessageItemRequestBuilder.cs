@@ -6,27 +6,25 @@ using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.CreateReplyAll;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Extensions;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Forward;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Move;
-using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.MultiValueExtendedProperties;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Reply;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.ReplyAll;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Send;
-using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Me.MailFolders.Item.Messages.Item.Value;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.MailFolders.Item.Messages.Item {
     /// <summary>
     /// Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
     /// </summary>
-    public class MessageItemRequestBuilder {
+    public class MessageItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.message entity.</summary>
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -63,12 +61,6 @@ namespace Microsoft.Graph.Me.MailFolders.Item.Messages.Item {
         public MoveRequestBuilder Move { get =>
             new MoveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the reply method.</summary>
         public ReplyRequestBuilder Reply { get =>
             new ReplyRequestBuilder(PathParameters, RequestAdapter);
@@ -77,44 +69,23 @@ namespace Microsoft.Graph.Me.MailFolders.Item.Messages.Item {
         public ReplyAllRequestBuilder ReplyAll { get =>
             new ReplyAllRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the send method.</summary>
         public SendRequestBuilder Send { get =>
             new SendRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new MessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/mailFolders/{mailFolder%2Did}/messages/{message%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MessageItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/messages/{message%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new MessageItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/mailFolders/{mailFolder%2Did}/messages/{message%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/messages/{message%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property messages for me

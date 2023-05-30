@@ -1,22 +1,20 @@
 using Microsoft.Graph.Me.ContactFolders.Item.ChildFolders;
 using Microsoft.Graph.Me.ContactFolders.Item.Contacts;
-using Microsoft.Graph.Me.ContactFolders.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Me.ContactFolders.Item.SingleValueExtendedProperties;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.ContactFolders.Item {
     /// <summary>
     /// Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
     /// </summary>
-    public class ContactFolderItemRequestBuilder {
+    public class ContactFolderItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.</summary>
         public ChildFoldersRequestBuilder ChildFolders { get =>
             new ChildFoldersRequestBuilder(PathParameters, RequestAdapter);
@@ -25,49 +23,23 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
         public ContactsRequestBuilder Contacts { get =>
             new ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.contactFolder entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.contactFolder entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ContactFolderItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactFolderItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ContactFolderItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ContactFolderItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactFolderItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ContactFolderItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property contactFolders for me
+        /// Delete contactFolder other than the default contactFolder.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,7 +58,8 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The user&apos;s contacts folders. Read-only. Nullable.
+        /// Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user&apos;s contact folder:
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +78,8 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, ContactFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property contactFolders in me
+        /// Update the properties of contactfolder object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contactfolder-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -126,7 +100,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, ContactFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property contactFolders for me
+        /// Delete contactFolder other than the default contactFolder.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -150,7 +124,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user&apos;s contacts folders. Read-only. Nullable.
+        /// Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user&apos;s contact folder:
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,7 +150,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property contactFolders in me
+        /// Update the properties of contactfolder object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,9 +194,19 @@ namespace Microsoft.Graph.Me.ContactFolders.Item {
             }
         }
         /// <summary>
-        /// The user&apos;s contacts folders. Read-only. Nullable.
+        /// Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user&apos;s contact folder:
         /// </summary>
         public class ContactFolderItemRequestBuilderGetQueryParameters {
+            /// <summary>Expand related entities</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24expand")]
+            public string[]? Expand { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24expand")]
+            public string[] Expand { get; set; }
+#endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

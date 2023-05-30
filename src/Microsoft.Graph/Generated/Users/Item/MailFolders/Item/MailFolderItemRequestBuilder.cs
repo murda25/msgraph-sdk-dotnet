@@ -1,25 +1,23 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.MailFolders.Item.ChildFolders;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Copy;
 using Microsoft.Graph.Users.Item.MailFolders.Item.MessageRules;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Messages;
 using Microsoft.Graph.Users.Item.MailFolders.Item.Move;
-using Microsoft.Graph.Users.Item.MailFolders.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Users.Item.MailFolders.Item.SingleValueExtendedProperties;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Users.Item.MailFolders.Item {
     /// <summary>
     /// Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
     /// </summary>
-    public class MailFolderItemRequestBuilder {
+    public class MailFolderItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.</summary>
         public ChildFoldersRequestBuilder ChildFolders { get =>
             new ChildFoldersRequestBuilder(PathParameters, RequestAdapter);
@@ -40,49 +38,23 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         public MoveRequestBuilder Move { get =>
             new MoveRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new MailFolderItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MailFolderItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MailFolderItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?includeHiddenFolders*,%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new MailFolderItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MailFolderItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public MailFolderItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?includeHiddenFolders*,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property mailFolders for users
+        /// Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/mailfolder-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,6 +74,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         }
         /// <summary>
         /// The user&apos;s mail folders. Read-only. Nullable.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/mailfolder-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,7 +93,8 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             return await RequestAdapter.SendAsync<MailFolder>(requestInfo, MailFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property mailFolders in users
+        /// Update the writable properties of a mailSearchFolder object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/mailsearchfolder-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -141,7 +115,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             return await RequestAdapter.SendAsync<MailFolder>(requestInfo, MailFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property mailFolders for users
+        /// Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -191,7 +165,7 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property mailFolders in users
+        /// Update the writable properties of a mailSearchFolder object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,6 +212,24 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item {
         /// The user&apos;s mail folders. Read-only. Nullable.
         /// </summary>
         public class MailFolderItemRequestBuilderGetQueryParameters {
+            /// <summary>Expand related entities</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24expand")]
+            public string[]? Expand { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24expand")]
+            public string[] Expand { get; set; }
+#endif
+            /// <summary>Include Hidden Folders</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? IncludeHiddenFolders { get; set; }
+#nullable restore
+#else
+            public string IncludeHiddenFolders { get; set; }
+#endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

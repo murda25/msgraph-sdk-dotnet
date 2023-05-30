@@ -2,29 +2,25 @@ using Microsoft.Graph.Me.Outlook.MasterCategories;
 using Microsoft.Graph.Me.Outlook.SupportedLanguages;
 using Microsoft.Graph.Me.Outlook.SupportedTimeZones;
 using Microsoft.Graph.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Outlook {
     /// <summary>
     /// Provides operations to manage the outlook property of the microsoft.graph.user entity.
     /// </summary>
-    public class OutlookRequestBuilder {
+    public class OutlookRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.</summary>
         public MasterCategoriesRequestBuilder MasterCategories { get =>
             new MasterCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the supportedLanguages method.</summary>
         public SupportedLanguagesRequestBuilder SupportedLanguages { get =>
             new SupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
@@ -33,34 +29,19 @@ namespace Microsoft.Graph.Me.Outlook {
         public SupportedTimeZonesRequestBuilder SupportedTimeZones { get =>
             new SupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new OutlookRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OutlookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/outlook{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OutlookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/outlook{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new OutlookRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OutlookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/outlook{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public OutlookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/outlook{?%24select}", rawUrl) {
         }
         /// <summary>
         /// Get outlook from me

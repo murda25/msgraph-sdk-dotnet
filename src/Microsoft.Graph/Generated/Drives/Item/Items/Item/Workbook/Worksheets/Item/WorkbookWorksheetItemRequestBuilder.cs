@@ -8,21 +8,21 @@ using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.RangeWithA
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tables;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.UsedRange;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.UsedRangeWithValuesOnly;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
     /// <summary>
     /// Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
     /// </summary>
-    public class WorkbookWorksheetItemRequestBuilder {
+    public class WorkbookWorksheetItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.</summary>
         public ChartsRequestBuilder Charts { get =>
             new ChartsRequestBuilder(PathParameters, RequestAdapter);
@@ -31,8 +31,6 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         public NamesRequestBuilder Names { get =>
             new NamesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.</summary>
         public PivotTablesRequestBuilder PivotTables { get =>
             new PivotTablesRequestBuilder(PathParameters, RequestAdapter);
@@ -45,14 +43,10 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         public RangeRequestBuilder Range { get =>
             new RangeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.</summary>
         public TablesRequestBuilder Tables { get =>
             new TablesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to call the usedRange method.</summary>
         public UsedRangeRequestBuilder UsedRange { get =>
             new UsedRangeRequestBuilder(PathParameters, RequestAdapter);
@@ -72,30 +66,18 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkbookWorksheetItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public WorkbookWorksheetItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new WorkbookWorksheetItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkbookWorksheetItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public WorkbookWorksheetItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property worksheets for drives
+        /// Deletes the worksheet from the workbook.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +96,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Represents a collection of worksheets associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of worksheet object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -133,7 +116,8 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, WorkbookWorksheet.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property worksheets in drives
+        /// Update the properties of worksheet object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -162,7 +146,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return new RangeWithAddressRequestBuilder(PathParameters, RequestAdapter, address);
         }
         /// <summary>
-        /// Delete navigation property worksheets for drives
+        /// Deletes the worksheet from the workbook.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,7 +170,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of worksheets associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of worksheet object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -212,7 +196,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property worksheets in drives
+        /// Update the properties of worksheet object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +248,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item {
             }
         }
         /// <summary>
-        /// Represents a collection of worksheets associated with the workbook. Read-only.
+        /// Retrieve the properties and relationships of worksheet object.
         /// </summary>
         public class WorkbookWorksheetItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

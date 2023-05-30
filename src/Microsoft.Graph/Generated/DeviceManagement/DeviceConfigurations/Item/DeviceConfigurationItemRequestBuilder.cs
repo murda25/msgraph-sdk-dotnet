@@ -1,26 +1,26 @@
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assign;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assignments;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSettingStateSummaries;
-using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatusOverview;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.GetOmaSettingPlainTextValueWithSecretReferenceValueId;
-using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
 using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatusOverview;
-using Microsoft.Graph.Models;
+using Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
     /// <summary>
     /// Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceConfigurationItemRequestBuilder {
+    public class DeviceConfigurationItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the assign method.</summary>
         public AssignRequestBuilder Assign { get =>
             new AssignRequestBuilder(PathParameters, RequestAdapter);
@@ -41,12 +41,6 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public DeviceStatusOverviewRequestBuilder DeviceStatusOverview { get =>
             new DeviceStatusOverviewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.</summary>
         public UserStatusesRequestBuilder UserStatuses { get =>
             new UserStatusesRequestBuilder(PathParameters, RequestAdapter);
@@ -60,27 +54,14 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeviceConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeviceConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DeviceConfigurationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property deviceConfigurations for deviceManagement

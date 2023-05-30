@@ -2,19 +2,19 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models.Security;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item.ChildTags;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item.Parent;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
     /// </summary>
-    public class EdiscoveryReviewTagItemRequestBuilder {
+    public class EdiscoveryReviewTagItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.</summary>
         public ChildTagsRequestBuilder ChildTags { get =>
             new ChildTagsRequestBuilder(PathParameters, RequestAdapter);
@@ -23,41 +23,23 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
         public ParentRequestBuilder Parent { get =>
             new ParentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new EdiscoveryReviewTagItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EdiscoveryReviewTagItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EdiscoveryReviewTagItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new EdiscoveryReviewTagItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EdiscoveryReviewTagItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EdiscoveryReviewTagItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property tags for security
+        /// Remove an ediscoveryReviewTag object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-ediscoverycase-delete-tags?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,7 +58,8 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Read the properties and relationships of an ediscoveryReviewTag object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-ediscoveryreviewtag-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +78,8 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             return await RequestAdapter.SendAsync<EdiscoveryReviewTag>(requestInfo, EdiscoveryReviewTag.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property tags in security
+        /// Update the properties of an ediscoveryReviewTag object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/security-ediscoveryreviewtag-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -116,7 +100,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             return await RequestAdapter.SendAsync<EdiscoveryReviewTag>(requestInfo, EdiscoveryReviewTag.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property tags for security
+        /// Remove an ediscoveryReviewTag object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,7 +124,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Read the properties and relationships of an ediscoveryReviewTag object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +150,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tags in security
+        /// Update the properties of an ediscoveryReviewTag object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +194,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Tags.Item {
             }
         }
         /// <summary>
-        /// Returns a list of ediscoveryReviewTag objects associated to this case.
+        /// Read the properties and relationships of an ediscoveryReviewTag object.
         /// </summary>
         public class EdiscoveryReviewTagItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

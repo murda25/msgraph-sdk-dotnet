@@ -1,20 +1,20 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Policies.PermissionGrantPolicies.Item.Excludes;
 using Microsoft.Graph.Policies.PermissionGrantPolicies.Item.Includes;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
     /// <summary>
     /// Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class PermissionGrantPolicyItemRequestBuilder {
+    public class PermissionGrantPolicyItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.</summary>
         public ExcludesRequestBuilder Excludes { get =>
             new ExcludesRequestBuilder(PathParameters, RequestAdapter);
@@ -23,41 +23,23 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
         public IncludesRequestBuilder Includes { get =>
             new IncludesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PermissionGrantPolicyItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionGrantPolicyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PermissionGrantPolicyItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new PermissionGrantPolicyItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionGrantPolicyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PermissionGrantPolicyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property permissionGrantPolicies for policies
+        /// Delete a permissionGrantPolicy object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,7 +58,8 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The policy that specifies the conditions under which consent can be granted.
+        /// Retrieve a single permissionGrantPolicy object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +78,8 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             return await RequestAdapter.SendAsync<PermissionGrantPolicy>(requestInfo, PermissionGrantPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property permissionGrantPolicies in policies
+        /// Update properties of a  permissionGrantPolicy.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/permissiongrantpolicy-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -116,7 +100,7 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             return await RequestAdapter.SendAsync<PermissionGrantPolicy>(requestInfo, PermissionGrantPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property permissionGrantPolicies for policies
+        /// Delete a permissionGrantPolicy object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,7 +124,7 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policy that specifies the conditions under which consent can be granted.
+        /// Retrieve a single permissionGrantPolicy object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +150,7 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property permissionGrantPolicies in policies
+        /// Update properties of a  permissionGrantPolicy.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +194,7 @@ namespace Microsoft.Graph.Policies.PermissionGrantPolicies.Item {
             }
         }
         /// <summary>
-        /// The policy that specifies the conditions under which consent can be granted.
+        /// Retrieve a single permissionGrantPolicy object.
         /// </summary>
         public class PermissionGrantPolicyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

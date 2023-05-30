@@ -1,30 +1,31 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignments;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.ResourceNamespaces;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleInstances;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentScheduleRequests;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignments;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleDefinitions;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleInstances;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilityScheduleRequests;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleEligibilitySchedules;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.RoleManagement.EntitlementManagement {
     /// <summary>
     /// Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class EntitlementManagementRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+    public class EntitlementManagementRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.</summary>
+        public ResourceNamespacesRequestBuilder ResourceNamespaces { get =>
+            new ResourceNamespacesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.</summary>
         public RoleAssignmentsRequestBuilder RoleAssignments { get =>
             new RoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -57,34 +58,19 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement {
         public RoleEligibilitySchedulesRequestBuilder RoleEligibilitySchedules { get =>
             new RoleEligibilitySchedulesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitlementManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EntitlementManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitlementManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EntitlementManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property entitlementManagement for roleManagement

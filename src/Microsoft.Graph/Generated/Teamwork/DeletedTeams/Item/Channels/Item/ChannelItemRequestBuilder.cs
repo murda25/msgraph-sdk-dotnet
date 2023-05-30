@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.CompleteMigration;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.FilesFolder;
@@ -9,19 +9,19 @@ using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.ProvisionEmail;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.RemoveEmail;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.SharedWithTeams;
 using Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.Tabs;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
     /// <summary>
     /// Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
     /// </summary>
-    public class ChannelItemRequestBuilder {
+    public class ChannelItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the completeMigration method.</summary>
         public CompleteMigrationRequestBuilder CompleteMigration { get =>
             new CompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
@@ -42,8 +42,6 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the provisionEmail method.</summary>
         public ProvisionEmailRequestBuilder ProvisionEmail { get =>
             new ProvisionEmailRequestBuilder(PathParameters, RequestAdapter);
@@ -52,8 +50,6 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
         public RemoveEmailRequestBuilder RemoveEmail { get =>
             new RemoveEmailRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.</summary>
         public SharedWithTeamsRequestBuilder SharedWithTeams { get =>
             new SharedWithTeamsRequestBuilder(PathParameters, RequestAdapter);
@@ -62,34 +58,19 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ChannelItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChannelItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChannelItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ChannelItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChannelItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ChannelItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property channels for teamwork
@@ -111,7 +92,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get channels from teamwork
+        /// The channels that are either shared with this deleted team or created in this deleted team.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -175,7 +156,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get channels from teamwork
+        /// The channels that are either shared with this deleted team or created in this deleted team.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -245,7 +226,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item {
             }
         }
         /// <summary>
-        /// Get channels from teamwork
+        /// The channels that are either shared with this deleted team or created in this deleted team.
         /// </summary>
         public class ChannelItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -1,23 +1,23 @@
-using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments;
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.AttachmentSessions;
+using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Attachments;
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.ChecklistItems;
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.Extensions;
 using Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item.LinkedResources;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
     /// </summary>
-    public class TodoTaskItemRequestBuilder {
+    public class TodoTaskItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.</summary>
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(PathParameters, RequestAdapter);
@@ -38,41 +38,23 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
         public LinkedResourcesRequestBuilder LinkedResources { get =>
             new LinkedResourcesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new TodoTaskItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TodoTaskItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TodoTaskItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new TodoTaskItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TodoTaskItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public TodoTaskItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property tasks for me
+        /// Deletes a todoTask object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/todotask-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +73,8 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The tasks in this task list. Read-only. Nullable.
+        /// Read the properties and relationships of a todoTask object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/todotask-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +93,8 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             return await RequestAdapter.SendAsync<TodoTask>(requestInfo, TodoTask.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property tasks in me
+        /// Update the properties of a todoTask object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/todotask-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -131,7 +115,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             return await RequestAdapter.SendAsync<TodoTask>(requestInfo, TodoTask.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property tasks for me
+        /// Deletes a todoTask object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -155,7 +139,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The tasks in this task list. Read-only. Nullable.
+        /// Read the properties and relationships of a todoTask object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,7 +165,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tasks in me
+        /// Update the properties of a todoTask object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +209,7 @@ namespace Microsoft.Graph.Me.Todo.Lists.Item.Tasks.Item {
             }
         }
         /// <summary>
-        /// The tasks in this task list. Read-only. Nullable.
+        /// Read the properties and relationships of a todoTask object.
         /// </summary>
         public class TodoTaskItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

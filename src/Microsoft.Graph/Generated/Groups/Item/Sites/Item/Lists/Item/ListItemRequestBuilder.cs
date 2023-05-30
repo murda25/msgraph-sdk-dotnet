@@ -1,24 +1,26 @@
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Columns;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.ContentTypes;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.CreatedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Drive;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items;
+using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.LastModifiedByUser;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Operations;
 using Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Subscriptions;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
     /// <summary>
     /// Provides operations to manage the lists property of the microsoft.graph.site entity.
     /// </summary>
-    public class ListItemRequestBuilder {
+    public class ListItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the columns property of the microsoft.graph.list entity.</summary>
         public ColumnsRequestBuilder Columns { get =>
             new ColumnsRequestBuilder(PathParameters, RequestAdapter);
@@ -26,6 +28,10 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
         /// <summary>Provides operations to manage the contentTypes property of the microsoft.graph.list entity.</summary>
         public ContentTypesRequestBuilder ContentTypes { get =>
             new ContentTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+        public CreatedByUserRequestBuilder CreatedByUser { get =>
+            new CreatedByUserRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the drive property of the microsoft.graph.list entity.</summary>
         public DriveRequestBuilder Drive { get =>
@@ -35,46 +41,31 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
         public ItemsRequestBuilder Items { get =>
             new ItemsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+        public LastModifiedByUserRequestBuilder LastModifiedByUser { get =>
+            new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.list entity.</summary>
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the subscriptions property of the microsoft.graph.list entity.</summary>
         public SubscriptionsRequestBuilder Subscriptions { get =>
             new SubscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ListItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ListItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ListItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ListItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property lists for groups
@@ -96,7 +87,8 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get a list of rich long-running operations associated with a list.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -160,7 +152,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get a list of rich long-running operations associated with a list.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -230,7 +222,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item {
             }
         }
         /// <summary>
-        /// The collection of lists under this site.
+        /// Get a list of rich long-running operations associated with a list.
         /// </summary>
         public class ListItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

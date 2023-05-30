@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class Application : DirectoryObject, IParsable {
         /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its &apos;FileHandler&apos; functionality. This will let services like Office 365 call the application in the context of a document the user is working on.</summary>
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationTemplateId", value); }
         }
 #endif
-        /// <summary>The appManagementPolicies property</summary>
+        /// <summary>The appManagementPolicy applied to this application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AppManagementPolicy>? AppManagementPolicies {
@@ -403,7 +403,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publisherDomain", value); }
         }
 #endif
-        /// <summary>The requestSignatureVerification property</summary>
+        /// <summary>Specifies whether this application requires Azure AD to verify the signed authentication requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.RequestSignatureVerification? RequestSignatureVerification {
@@ -487,7 +487,21 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("spa", value); }
         }
 #endif
-        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
+        /// <summary>The synchronization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.Synchronization? Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization?>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.Synchronization Synchronization {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Synchronization>("synchronization"); }
+            set { BackingStore?.Set("synchronization", value); }
+        }
+#endif
+        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags {
@@ -563,7 +577,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new application and sets the default values.
+        /// Instantiates a new Application and sets the default values.
         /// </summary>
         public Application() : base() {
             OdataType = "#microsoft.graph.application";
@@ -618,6 +632,7 @@ namespace Microsoft.Graph.Models {
                 {"serviceManagementReference", n => { ServiceManagementReference = n.GetStringValue(); } },
                 {"signInAudience", n => { SignInAudience = n.GetStringValue(); } },
                 {"spa", n => { Spa = n.GetObjectValue<SpaApplication>(SpaApplication.CreateFromDiscriminatorValue); } },
+                {"synchronization", n => { Synchronization = n.GetObjectValue<Microsoft.Graph.Models.Synchronization>(Microsoft.Graph.Models.Synchronization.CreateFromDiscriminatorValue); } },
                 {"tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"tokenEncryptionKeyId", n => { TokenEncryptionKeyId = n.GetGuidValue(); } },
                 {"tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -670,6 +685,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("serviceManagementReference", ServiceManagementReference);
             writer.WriteStringValue("signInAudience", SignInAudience);
             writer.WriteObjectValue<SpaApplication>("spa", Spa);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Synchronization>("synchronization", Synchronization);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteGuidValue("tokenEncryptionKeyId", TokenEncryptionKeyId);
             writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);

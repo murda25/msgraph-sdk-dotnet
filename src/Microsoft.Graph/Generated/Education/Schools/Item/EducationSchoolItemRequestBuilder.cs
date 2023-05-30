@@ -1,21 +1,21 @@
 using Microsoft.Graph.Education.Schools.Item.AdministrativeUnit;
 using Microsoft.Graph.Education.Schools.Item.Classes;
 using Microsoft.Graph.Education.Schools.Item.Users;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Education.Schools.Item {
     /// <summary>
     /// Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class EducationSchoolItemRequestBuilder {
+    public class EducationSchoolItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.</summary>
         public AdministrativeUnitRequestBuilder AdministrativeUnit { get =>
             new AdministrativeUnitRequestBuilder(PathParameters, RequestAdapter);
@@ -24,12 +24,6 @@ namespace Microsoft.Graph.Education.Schools.Item {
         public ClassesRequestBuilder Classes { get =>
             new ClassesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>Provides operations to manage the users property of the microsoft.graph.educationSchool entity.</summary>
         public UsersRequestBuilder Users { get =>
             new UsersRequestBuilder(PathParameters, RequestAdapter);
@@ -39,30 +33,18 @@ namespace Microsoft.Graph.Education.Schools.Item {
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EducationSchoolItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EducationSchoolItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new EducationSchoolItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EducationSchoolItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EducationSchoolItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property schools for education
+        /// Delete a school.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationschool-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -81,7 +63,8 @@ namespace Microsoft.Graph.Education.Schools.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get schools from education
+        /// Read the properties and relationships of an educationSchool object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationschool-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +83,8 @@ namespace Microsoft.Graph.Education.Schools.Item {
             return await RequestAdapter.SendAsync<EducationSchool>(requestInfo, EducationSchool.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property schools in education
+        /// Update the properties of an educationSchool object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -121,7 +105,7 @@ namespace Microsoft.Graph.Education.Schools.Item {
             return await RequestAdapter.SendAsync<EducationSchool>(requestInfo, EducationSchool.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property schools for education
+        /// Delete a school.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +129,7 @@ namespace Microsoft.Graph.Education.Schools.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get schools from education
+        /// Read the properties and relationships of an educationSchool object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -171,7 +155,7 @@ namespace Microsoft.Graph.Education.Schools.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property schools in education
+        /// Update the properties of an educationSchool object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -215,7 +199,7 @@ namespace Microsoft.Graph.Education.Schools.Item {
             }
         }
         /// <summary>
-        /// Get schools from education
+        /// Read the properties and relationships of an educationSchool object.
         /// </summary>
         public class EducationSchoolItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

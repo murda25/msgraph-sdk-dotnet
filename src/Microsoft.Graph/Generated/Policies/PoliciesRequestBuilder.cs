@@ -1,10 +1,11 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Policies.ActivityBasedTimeoutPolicies;
 using Microsoft.Graph.Policies.AdminConsentRequestPolicy;
 using Microsoft.Graph.Policies.AppManagementPolicies;
 using Microsoft.Graph.Policies.AuthenticationFlowsPolicy;
 using Microsoft.Graph.Policies.AuthenticationMethodsPolicy;
+using Microsoft.Graph.Policies.AuthenticationStrengthPolicies;
 using Microsoft.Graph.Policies.AuthorizationPolicy;
 using Microsoft.Graph.Policies.ClaimsMappingPolicies;
 using Microsoft.Graph.Policies.ConditionalAccessPolicies;
@@ -18,19 +19,19 @@ using Microsoft.Graph.Policies.RoleManagementPolicies;
 using Microsoft.Graph.Policies.RoleManagementPolicyAssignments;
 using Microsoft.Graph.Policies.TokenIssuancePolicies;
 using Microsoft.Graph.Policies.TokenLifetimePolicies;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Policies {
     /// <summary>
     /// Provides operations to manage the policyRoot singleton.
     /// </summary>
-    public class PoliciesRequestBuilder {
+    public class PoliciesRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.</summary>
         public ActivityBasedTimeoutPoliciesRequestBuilder ActivityBasedTimeoutPolicies { get =>
             new ActivityBasedTimeoutPoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -50,6 +51,10 @@ namespace Microsoft.Graph.Policies {
         /// <summary>Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.</summary>
         public AuthenticationMethodsPolicyRequestBuilder AuthenticationMethodsPolicy { get =>
             new AuthenticationMethodsPolicyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.</summary>
+        public AuthenticationStrengthPoliciesRequestBuilder AuthenticationStrengthPolicies { get =>
+            new AuthenticationStrengthPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.</summary>
         public AuthorizationPolicyRequestBuilder AuthorizationPolicy { get =>
@@ -83,14 +88,10 @@ namespace Microsoft.Graph.Policies {
         public IdentitySecurityDefaultsEnforcementPolicyRequestBuilder IdentitySecurityDefaultsEnforcementPolicy { get =>
             new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.</summary>
         public PermissionGrantPoliciesRequestBuilder PermissionGrantPolicies { get =>
             new PermissionGrantPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.</summary>
         public RoleManagementPoliciesRequestBuilder RoleManagementPolicies { get =>
             new RoleManagementPoliciesRequestBuilder(PathParameters, RequestAdapter);
@@ -107,34 +108,19 @@ namespace Microsoft.Graph.Policies {
         public TokenLifetimePoliciesRequestBuilder TokenLifetimePolicies { get =>
             new TokenLifetimePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PoliciesRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/policies{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/policies{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new PoliciesRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/policies{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/policies{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Get policies

@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Reports.DailyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.DailyPrintUsageByUser;
 using Microsoft.Graph.Reports.DeviceConfigurationDeviceActivity;
@@ -77,6 +77,11 @@ using Microsoft.Graph.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPerio
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithDate;
 using Microsoft.Graph.Reports.GetTeamsDeviceUsageUserDetailWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDetailWithDate;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDetailWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamActivityDistributionCountsWithPeriod;
+using Microsoft.Graph.Reports.GetTeamsTeamCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityUserCountsWithPeriod;
 using Microsoft.Graph.Reports.GetTeamsUserActivityUserDetailWithDate;
@@ -101,19 +106,19 @@ using Microsoft.Graph.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.MonthlyPrintUsageByUser;
 using Microsoft.Graph.Reports.Security;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Reports {
     /// <summary>
     /// Provides operations to manage the reportRoot singleton.
     /// </summary>
-    public class ReportsRequestBuilder {
+    public class ReportsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.</summary>
         public DailyPrintUsageByPrinterRequestBuilder DailyPrintUsageByPrinter { get =>
             new DailyPrintUsageByPrinterRequestBuilder(PathParameters, RequestAdapter);
@@ -158,42 +163,23 @@ namespace Microsoft.Graph.Reports {
         public MonthlyPrintUsageByUserRequestBuilder MonthlyPrintUsageByUser { get =>
             new MonthlyPrintUsageByUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the security property of the microsoft.graph.reportRoot entity.</summary>
         public SecurityRequestBuilder Security { get =>
             new SecurityRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ReportsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/reports{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ReportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ReportsRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/reports{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ReportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Get reports
@@ -781,6 +767,46 @@ namespace Microsoft.Graph.Reports {
         public GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder GetTeamsDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
             return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityCountsWithPeriodRequestBuilder GetTeamsTeamActivityCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDetail method.
+        /// </summary>
+        /// <param name="date">Usage: date={date}</param>
+        public GetTeamsTeamActivityDetailWithDateRequestBuilder GetTeamsTeamActivityDetailWithDate(Date? date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
+            return new GetTeamsTeamActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDetail method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityDetailWithPeriodRequestBuilder GetTeamsTeamActivityDetailWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamActivityDistributionCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder GetTeamsTeamActivityDistributionCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
+        }
+        /// <summary>
+        /// Provides operations to call the getTeamsTeamCounts method.
+        /// </summary>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetTeamsTeamCountsWithPeriodRequestBuilder GetTeamsTeamCountsWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetTeamsTeamCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getTeamsUserActivityCounts method.

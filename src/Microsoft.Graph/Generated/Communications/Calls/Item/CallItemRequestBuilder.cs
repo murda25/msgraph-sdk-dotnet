@@ -16,21 +16,21 @@ using Microsoft.Graph.Communications.Calls.Item.SubscribeToTone;
 using Microsoft.Graph.Communications.Calls.Item.Transfer;
 using Microsoft.Graph.Communications.Calls.Item.Unmute;
 using Microsoft.Graph.Communications.Calls.Item.UpdateRecordingStatus;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Communications.Calls.Item {
     /// <summary>
     /// Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class CallItemRequestBuilder {
+    public class CallItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the addLargeGalleryView method.</summary>
         public AddLargeGalleryViewRequestBuilder AddLargeGalleryView { get =>
             new AddLargeGalleryViewRequestBuilder(PathParameters, RequestAdapter);
@@ -71,8 +71,6 @@ namespace Microsoft.Graph.Communications.Calls.Item {
         public ParticipantsRequestBuilder Participants { get =>
             new ParticipantsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the playPrompt method.</summary>
         public PlayPromptRequestBuilder PlayPrompt { get =>
             new PlayPromptRequestBuilder(PathParameters, RequestAdapter);
@@ -89,8 +87,6 @@ namespace Microsoft.Graph.Communications.Calls.Item {
         public RejectRequestBuilder Reject { get =>
             new RejectRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the subscribeToTone method.</summary>
         public SubscribeToToneRequestBuilder SubscribeToTone { get =>
             new SubscribeToToneRequestBuilder(PathParameters, RequestAdapter);
@@ -107,37 +103,23 @@ namespace Microsoft.Graph.Communications.Calls.Item {
         public UpdateRecordingStatusRequestBuilder UpdateRecordingStatus { get =>
             new UpdateRecordingStatusRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new CallItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CallItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new CallItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CallItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/call-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -156,7 +138,8 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/call-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -196,7 +179,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             return await RequestAdapter.SendAsync<Call>(requestInfo, Call.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property calls for communications
+        /// Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,7 +203,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -290,7 +273,7 @@ namespace Microsoft.Graph.Communications.Calls.Item {
             }
         }
         /// <summary>
-        /// Get calls from communications
+        /// Retrieve the properties and relationships of a call object.
         /// </summary>
         public class CallItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

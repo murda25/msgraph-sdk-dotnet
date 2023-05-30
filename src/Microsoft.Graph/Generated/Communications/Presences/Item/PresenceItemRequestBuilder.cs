@@ -2,21 +2,21 @@ using Microsoft.Graph.Communications.Presences.Item.ClearPresence;
 using Microsoft.Graph.Communications.Presences.Item.ClearUserPreferredPresence;
 using Microsoft.Graph.Communications.Presences.Item.SetPresence;
 using Microsoft.Graph.Communications.Presences.Item.SetUserPreferredPresence;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Communications.Presences.Item {
     /// <summary>
     /// Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
     /// </summary>
-    public class PresenceItemRequestBuilder {
+    public class PresenceItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the clearPresence method.</summary>
         public ClearPresenceRequestBuilder ClearPresence { get =>
             new ClearPresenceRequestBuilder(PathParameters, RequestAdapter);
@@ -25,10 +25,6 @@ namespace Microsoft.Graph.Communications.Presences.Item {
         public ClearUserPreferredPresenceRequestBuilder ClearUserPreferredPresence { get =>
             new ClearUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the setPresence method.</summary>
         public SetPresenceRequestBuilder SetPresence { get =>
             new SetPresenceRequestBuilder(PathParameters, RequestAdapter);
@@ -37,34 +33,19 @@ namespace Microsoft.Graph.Communications.Presences.Item {
         public SetUserPreferredPresenceRequestBuilder SetUserPreferredPresence { get =>
             new SetUserPreferredPresenceRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PresenceItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PresenceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PresenceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new PresenceItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PresenceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public PresenceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property presences for communications
@@ -86,7 +67,8 @@ namespace Microsoft.Graph.Communications.Presences.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +132,7 @@ namespace Microsoft.Graph.Communications.Presences.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,7 +202,7 @@ namespace Microsoft.Graph.Communications.Presences.Item {
             }
         }
         /// <summary>
-        /// Get presences from communications
+        /// Get a user&apos;s presence information.
         /// </summary>
         public class PresenceItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

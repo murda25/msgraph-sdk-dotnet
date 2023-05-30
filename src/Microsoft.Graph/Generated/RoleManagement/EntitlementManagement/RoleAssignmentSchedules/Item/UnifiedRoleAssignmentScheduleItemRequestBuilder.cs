@@ -1,55 +1,56 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item.ActivatedUsing;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item.AppScope;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item.DirectoryScope;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item.Principal;
+using Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item.RoleDefinition;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSchedules.Item {
     /// <summary>
     /// Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class UnifiedRoleAssignmentScheduleItemRequestBuilder {
+    public class UnifiedRoleAssignmentScheduleItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the activatedUsing property of the microsoft.graph.unifiedRoleAssignmentSchedule entity.</summary>
         public ActivatedUsingRequestBuilder ActivatedUsing { get =>
             new ActivatedUsingRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+        /// <summary>Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public AppScopeRequestBuilder AppScope { get =>
+            new AppScopeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public DirectoryScopeRequestBuilder DirectoryScope { get =>
+            new DirectoryScopeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public PrincipalRequestBuilder Principal { get =>
+            new PrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleBase entity.</summary>
+        public RoleDefinitionRequestBuilder RoleDefinition { get =>
+            new RoleDefinitionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new UnifiedRoleAssignmentScheduleItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UnifiedRoleAssignmentScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UnifiedRoleAssignmentScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new UnifiedRoleAssignmentScheduleItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UnifiedRoleAssignmentScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public UnifiedRoleAssignmentScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property roleAssignmentSchedules for roleManagement
@@ -71,7 +72,8 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSch
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Schedules for active role assignment operations.
+        /// Retrieve the schedule for an active role assignment operation.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +137,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSch
             return requestInfo;
         }
         /// <summary>
-        /// Schedules for active role assignment operations.
+        /// Retrieve the schedule for an active role assignment operation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -205,7 +207,7 @@ namespace Microsoft.Graph.RoleManagement.EntitlementManagement.RoleAssignmentSch
             }
         }
         /// <summary>
-        /// Schedules for active role assignment operations.
+        /// Retrieve the schedule for an active role assignment operation.
         /// </summary>
         public class UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

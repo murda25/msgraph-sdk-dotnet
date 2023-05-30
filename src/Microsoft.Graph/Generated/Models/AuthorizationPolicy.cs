@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class AuthorizationPolicy : PolicyBase, IParsable {
         /// <summary>Indicates whether users can sign up for email based subscriptions.</summary>
@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowedToSignUpEmailBasedSubscriptions"); }
             set { BackingStore?.Set("allowedToSignUpEmailBasedSubscriptions", value); }
         }
-        /// <summary>Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.</summary>
+        /// <summary>Indicates whether users can use the Self-Serve Password Reset feature on the tenant.</summary>
         public bool? AllowedToUseSSPR {
             get { return BackingStore?.Get<bool?>("allowedToUseSSPR"); }
             set { BackingStore?.Set("allowedToUseSSPR", value); }
@@ -20,12 +20,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowEmailVerifiedUsersToJoinOrganization"); }
             set { BackingStore?.Set("allowEmailVerifiedUsersToJoinOrganization", value); }
         }
-        /// <summary>Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.</summary>
+        /// <summary>Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more details, see allowInvitesFrom values.</summary>
         public Microsoft.Graph.Models.AllowInvitesFrom? AllowInvitesFrom {
             get { return BackingStore?.Get<Microsoft.Graph.Models.AllowInvitesFrom?>("allowInvitesFrom"); }
             set { BackingStore?.Set("allowInvitesFrom", value); }
         }
-        /// <summary>To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.</summary>
+        /// <summary>Indicates whether user consent for risky apps is allowed. We recommend to keep this as false. Default value is false.</summary>
+        public bool? AllowUserConsentForRiskyApps {
+            get { return BackingStore?.Get<bool?>("allowUserConsentForRiskyApps"); }
+            set { BackingStore?.Set("allowUserConsentForRiskyApps", value); }
+        }
+        /// <summary>To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure Active Directory Connect or Microsoft Graph.</summary>
         public bool? BlockMsolPowerShell {
             get { return BackingStore?.Get<bool?>("blockMsolPowerShell"); }
             set { BackingStore?.Set("blockMsolPowerShell", value); }
@@ -72,6 +77,7 @@ namespace Microsoft.Graph.Models {
                 {"allowedToUseSSPR", n => { AllowedToUseSSPR = n.GetBoolValue(); } },
                 {"allowEmailVerifiedUsersToJoinOrganization", n => { AllowEmailVerifiedUsersToJoinOrganization = n.GetBoolValue(); } },
                 {"allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<AllowInvitesFrom>(); } },
+                {"allowUserConsentForRiskyApps", n => { AllowUserConsentForRiskyApps = n.GetBoolValue(); } },
                 {"blockMsolPowerShell", n => { BlockMsolPowerShell = n.GetBoolValue(); } },
                 {"defaultUserRolePermissions", n => { DefaultUserRolePermissions = n.GetObjectValue<Microsoft.Graph.Models.DefaultUserRolePermissions>(Microsoft.Graph.Models.DefaultUserRolePermissions.CreateFromDiscriminatorValue); } },
                 {"guestUserRoleId", n => { GuestUserRoleId = n.GetGuidValue(); } },
@@ -88,6 +94,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("allowedToUseSSPR", AllowedToUseSSPR);
             writer.WriteBoolValue("allowEmailVerifiedUsersToJoinOrganization", AllowEmailVerifiedUsersToJoinOrganization);
             writer.WriteEnumValue<AllowInvitesFrom>("allowInvitesFrom", AllowInvitesFrom);
+            writer.WriteBoolValue("allowUserConsentForRiskyApps", AllowUserConsentForRiskyApps);
             writer.WriteBoolValue("blockMsolPowerShell", BlockMsolPowerShell);
             writer.WriteObjectValue<Microsoft.Graph.Models.DefaultUserRolePermissions>("defaultUserRolePermissions", DefaultUserRolePermissions);
             writer.WriteGuidValue("guestUserRoleId", GuestUserRoleId);

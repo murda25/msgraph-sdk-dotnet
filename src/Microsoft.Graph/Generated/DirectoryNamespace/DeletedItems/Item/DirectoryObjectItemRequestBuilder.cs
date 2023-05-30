@@ -2,25 +2,28 @@ using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.CheckMemberGroups;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.CheckMemberObjects;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GetMemberGroups;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GetMemberObjects;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphAdministrativeUnit;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphApplication;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphDevice;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphGroup;
+using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphServicePrincipal;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.GraphUser;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems.Item.Restore;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
     /// <summary>
     /// Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder {
+    public class DirectoryObjectItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the checkMemberGroups method.</summary>
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
             new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
@@ -37,57 +40,51 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
             new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to administrativeUnit.</summary>
+        public GraphAdministrativeUnitRequestBuilder GraphAdministrativeUnit { get =>
+            new GraphAdministrativeUnitRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to application.</summary>
         public GraphApplicationRequestBuilder GraphApplication { get =>
             new GraphApplicationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to device.</summary>
+        public GraphDeviceRequestBuilder GraphDevice { get =>
+            new GraphDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Casts the previous resource to group.</summary>
         public GraphGroupRequestBuilder GraphGroup { get =>
             new GraphGroupRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to servicePrincipal.</summary>
+        public GraphServicePrincipalRequestBuilder GraphServicePrincipal { get =>
+            new GraphServicePrincipalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to user.</summary>
         public GraphUserRequestBuilder GraphUser { get =>
             new GraphUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the restore method.</summary>
         public RestoreRequestBuilder Restore { get =>
             new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DirectoryObjectItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DirectoryObjectItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DirectoryObjectItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public DirectoryObjectItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property deletedItems for directory
+        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it **cannot** be restored. Administrative units **cannot** be permanently deleted by using the **deletedItems** API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/directory-deleteditems-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +103,8 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/directory-deleteditems-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -146,7 +144,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property deletedItems for directory
+        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it **cannot** be restored. Administrative units **cannot** be permanently deleted by using the **deletedItems** API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -170,7 +168,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -240,7 +238,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             }
         }
         /// <summary>
-        /// Recently deleted items. Read-only. Nullable.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
         /// </summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

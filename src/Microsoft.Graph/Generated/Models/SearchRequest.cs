@@ -1,9 +1,9 @@
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class SearchRequest : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -41,6 +41,20 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>The collapseProperties property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CollapseProperty>? CollapseProperties {
+            get { return BackingStore?.Get<List<CollapseProperty>?>("collapseProperties"); }
+            set { BackingStore?.Set("collapseProperties", value); }
+        }
+#nullable restore
+#else
+        public List<CollapseProperty> CollapseProperties {
+            get { return BackingStore?.Get<List<CollapseProperty>>("collapseProperties"); }
+            set { BackingStore?.Set("collapseProperties", value); }
+        }
+#endif
         /// <summary>The contentSources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -218,6 +232,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"aggregationFilters", n => { AggregationFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<AggregationOption>(AggregationOption.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"collapseProperties", n => { CollapseProperties = n.GetCollectionOfObjectValues<CollapseProperty>(CollapseProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"contentSources", n => { ContentSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"enableTopResults", n => { EnableTopResults = n.GetBoolValue(); } },
                 {"entityTypes", n => { EntityTypes = n.GetCollectionOfEnumValues<EntityType>()?.ToList(); } },
@@ -241,6 +256,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("aggregationFilters", AggregationFilters);
             writer.WriteCollectionOfObjectValues<AggregationOption>("aggregations", Aggregations);
+            writer.WriteCollectionOfObjectValues<CollapseProperty>("collapseProperties", CollapseProperties);
             writer.WriteCollectionOfPrimitiveValues<string>("contentSources", ContentSources);
             writer.WriteBoolValue("enableTopResults", EnableTopResults);
             writer.WriteCollectionOfEnumValues<EntityType>("entityTypes", EntityTypes);

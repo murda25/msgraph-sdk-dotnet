@@ -1,5 +1,5 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.AssociateWithHubSites;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.Base;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.BaseTypes;
@@ -10,26 +10,26 @@ using Microsoft.Graph.Sites.Item.ContentTypes.Item.CopyToDefaultContentLocation;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.IsPublished;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.Publish;
 using Microsoft.Graph.Sites.Item.ContentTypes.Item.Unpublish;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
     /// <summary>
     /// Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
     /// </summary>
-    public class ContentTypeItemRequestBuilder {
+    public class ContentTypeItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the associateWithHubSites method.</summary>
         public AssociateWithHubSitesRequestBuilder AssociateWithHubSites { get =>
             new AssociateWithHubSitesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the base property of the microsoft.graph.contentType entity.</summary>
-        public BaseRequestBuilder Base { get =>
-            new BaseRequestBuilder(PathParameters, RequestAdapter);
+        public BaseRequestBuilderEscaped Base { get =>
+            new BaseRequestBuilderEscaped(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.</summary>
         public BaseTypesRequestBuilder BaseTypes { get =>
@@ -55,49 +55,31 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
         public IsPublishedRequestBuilder IsPublished { get =>
             new IsPublishedRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the publish method.</summary>
         public PublishRequestBuilder Publish { get =>
             new PublishRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to call the unpublish method.</summary>
         public UnpublishRequestBuilder Unpublish { get =>
             new UnpublishRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContentTypeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ContentTypeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContentTypeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ContentTypeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property contentTypes for sites
+        /// Remove a [content type][contentType] from a [list][] or a [site][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +98,8 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The collection of content types defined for this site.
+        /// Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +118,8 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             return await RequestAdapter.SendAsync<ContentType>(requestInfo, ContentType.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property contentTypes in sites
+        /// Update a [content type][contentType].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/contenttype-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             return await RequestAdapter.SendAsync<ContentType>(requestInfo, ContentType.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property contentTypes for sites
+        /// Remove a [content type][contentType] from a [list][] or a [site][].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -180,7 +164,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of content types defined for this site.
+        /// Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -206,7 +190,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property contentTypes in sites
+        /// Update a [content type][contentType].
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +234,7 @@ namespace Microsoft.Graph.Sites.Item.ContentTypes.Item {
             }
         }
         /// <summary>
-        /// The collection of content types defined for this site.
+        /// Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
         /// </summary>
         public class ContentTypeItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

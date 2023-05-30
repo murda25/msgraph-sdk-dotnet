@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
     /// <summary>
     /// Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class ShiftItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class ShiftItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new ShiftItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ShiftItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ShiftItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new ShiftItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ShiftItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public ShiftItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property shifts for me
+        /// Delete a shift from the schedule.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/shift-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The shifts in the schedule.
+        /// Retrieve the properties and relationships of a shift object by ID.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/shift-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             return await RequestAdapter.SendAsync<Shift>(requestInfo, Shift.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property shifts in me
+        /// Replace an existing shift. If the specified shift doesn&apos;t exist, this method returns `404 Not found`. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/shift-put?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             return await RequestAdapter.SendAsync<Shift>(requestInfo, Shift.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property shifts for me
+        /// Delete a shift from the schedule.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The shifts in the schedule.
+        /// Retrieve the properties and relationships of a shift object by ID.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property shifts in me
+        /// Replace an existing shift. If the specified shift doesn&apos;t exist, this method returns `404 Not found`. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Schedule.Shifts.Item {
             }
         }
         /// <summary>
-        /// The shifts in the schedule.
+        /// Retrieve the properties and relationships of a shift object by ID.
         /// </summary>
         public class ShiftItemRequestBuilderGetQueryParameters {
             /// <summary>Select properties to be returned</summary>

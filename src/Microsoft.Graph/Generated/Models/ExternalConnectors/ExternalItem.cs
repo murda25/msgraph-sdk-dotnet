@@ -1,8 +1,8 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models.ExternalConnectors {
     public class ExternalItem : Entity, IParsable {
         /// <summary>An array of access control entries. Each entry specifies the access granted to a user or group. Required.</summary>
@@ -17,6 +17,20 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         public List<Microsoft.Graph.Models.ExternalConnectors.Acl> Acl {
             get { return BackingStore?.Get<List<Microsoft.Graph.Models.ExternalConnectors.Acl>>("acl"); }
             set { BackingStore?.Set("acl", value); }
+        }
+#endif
+        /// <summary>Returns a list of activities performed on the item. Write-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ExternalActivity>? Activities {
+            get { return BackingStore?.Get<List<ExternalActivity>?>("activities"); }
+            set { BackingStore?.Set("activities", value); }
+        }
+#nullable restore
+#else
+        public List<ExternalActivity> Activities {
+            get { return BackingStore?.Get<List<ExternalActivity>>("activities"); }
+            set { BackingStore?.Set("activities", value); }
         }
 #endif
         /// <summary>A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
@@ -61,6 +75,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"acl", n => { Acl = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.ExternalConnectors.Acl>(Microsoft.Graph.Models.ExternalConnectors.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"activities", n => { Activities = n.GetCollectionOfObjectValues<ExternalActivity>(ExternalActivity.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
                 {"properties", n => { Properties = n.GetObjectValue<Microsoft.Graph.Models.ExternalConnectors.Properties>(Microsoft.Graph.Models.ExternalConnectors.Properties.CreateFromDiscriminatorValue); } },
             };
@@ -73,6 +88,7 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.ExternalConnectors.Acl>("acl", Acl);
+            writer.WriteCollectionOfObjectValues<ExternalActivity>("activities", Activities);
             writer.WriteObjectValue<ExternalItemContent>("content", Content);
             writer.WriteObjectValue<Microsoft.Graph.Models.ExternalConnectors.Properties>("properties", Properties);
         }

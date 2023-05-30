@@ -7,25 +7,23 @@ using Microsoft.Graph.Me.Events.Item.DismissReminder;
 using Microsoft.Graph.Me.Events.Item.Extensions;
 using Microsoft.Graph.Me.Events.Item.Forward;
 using Microsoft.Graph.Me.Events.Item.Instances;
-using Microsoft.Graph.Me.Events.Item.MultiValueExtendedProperties;
-using Microsoft.Graph.Me.Events.Item.SingleValueExtendedProperties;
 using Microsoft.Graph.Me.Events.Item.SnoozeReminder;
 using Microsoft.Graph.Me.Events.Item.TentativelyAccept;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Me.Events.Item {
     /// <summary>
     /// Provides operations to manage the events property of the microsoft.graph.user entity.
     /// </summary>
-    public class EventItemRequestBuilder {
+    public class EventItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to call the accept method.</summary>
         public AcceptRequestBuilder Accept { get =>
             new AcceptRequestBuilder(PathParameters, RequestAdapter);
@@ -62,18 +60,6 @@ namespace Microsoft.Graph.Me.Events.Item {
         public InstancesRequestBuilder Instances { get =>
             new InstancesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
-            new MultiValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.</summary>
-        public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
-            new SingleValueExtendedPropertiesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Provides operations to call the snoozeReminder method.</summary>
         public SnoozeReminderRequestBuilder SnoozeReminder { get =>
             new SnoozeReminderRequestBuilder(PathParameters, RequestAdapter);
@@ -82,37 +68,23 @@ namespace Microsoft.Graph.Me.Events.Item {
         public TentativelyAcceptRequestBuilder TentativelyAccept { get =>
             new TentativelyAcceptRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new EventItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/events/{event%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EventItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/events/{event%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new EventItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/me/events/{event%2Did}{?%24select}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public EventItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/events/{event%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property events for me
+        /// Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer&apos;s calendar sends a cancellation message to the meeting attendees.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/event-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +103,8 @@ namespace Microsoft.Graph.Me.Events.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user&apos;s calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/event-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +123,8 @@ namespace Microsoft.Graph.Me.Events.Item {
             return await RequestAdapter.SendAsync<Event>(requestInfo, Event.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property events in me
+        /// Update the properties of the event object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/event-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -171,7 +145,7 @@ namespace Microsoft.Graph.Me.Events.Item {
             return await RequestAdapter.SendAsync<Event>(requestInfo, Event.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property events for me
+        /// Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer&apos;s calendar sends a cancellation message to the meeting attendees.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -195,7 +169,7 @@ namespace Microsoft.Graph.Me.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user&apos;s calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -221,7 +195,7 @@ namespace Microsoft.Graph.Me.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property events in me
+        /// Update the properties of the event object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,9 +239,19 @@ namespace Microsoft.Graph.Me.Events.Item {
             }
         }
         /// <summary>
-        /// The user&apos;s events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user&apos;s calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
         /// </summary>
         public class EventItemRequestBuilderGetQueryParameters {
+            /// <summary>Expand related entities</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("%24expand")]
+            public string[]? Expand { get; set; }
+#nullable restore
+#else
+            [QueryParameter("%24expand")]
+            public string[] Expand { get; set; }
+#endif
             /// <summary>Select properties to be returned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

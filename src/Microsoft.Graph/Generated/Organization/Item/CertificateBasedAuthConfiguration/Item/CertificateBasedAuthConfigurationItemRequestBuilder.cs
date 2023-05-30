@@ -1,53 +1,55 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration.Item {
     /// <summary>
     /// Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
     /// </summary>
-    public class CertificateBasedAuthConfigurationItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class CertificateBasedAuthConfigurationItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CertificateBasedAuthConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CertificateBasedAuthConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CertificateBasedAuthConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public CertificateBasedAuthConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Delete a certificateBasedAuthConfiguration object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/certificatebasedauthconfiguration-delete?view=graph-rest-1.0" />
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task DeleteAsync(Action<CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+#nullable restore
+#else
+        public async Task DeleteAsync(Action<CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                {"4XX", ODataError.CreateFromDiscriminatorValue},
+                {"5XX", ODataError.CreateFromDiscriminatorValue},
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+        }
+        /// <summary>
+        /// Get the properties of a certificateBasedAuthConfiguration object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/certificatebasedauthconfiguration-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,31 @@ namespace Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration.It
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>(requestInfo, Microsoft.Graph.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Delete a certificateBasedAuthConfiguration object.
+        /// </summary>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
+#endif
+            var requestInfo = new RequestInformation {
+                HttpMethod = Method.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
+            };
+            if (requestConfiguration != null) {
+                var requestConfig = new CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration();
+                requestConfiguration.Invoke(requestConfig);
+                requestInfo.AddRequestOptions(requestConfig.Options);
+                requestInfo.AddHeaders(requestConfig.Headers);
+            }
+            return requestInfo;
+        }
+        /// <summary>
+        /// Get the properties of a certificateBasedAuthConfiguration object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +118,23 @@ namespace Microsoft.Graph.Organization.Item.CertificateBasedAuthConfiguration.It
             return requestInfo;
         }
         /// <summary>
-        /// Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        public class CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration {
+            /// <summary>Request headers</summary>
+            public RequestHeaders Headers { get; set; }
+            /// <summary>Request options</summary>
+            public IList<IRequestOption> Options { get; set; }
+            /// <summary>
+            /// Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration and sets the default values.
+            /// </summary>
+            public CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration() {
+                Options = new List<IRequestOption>();
+                Headers = new RequestHeaders();
+            }
+        }
+        /// <summary>
+        /// Get the properties of a certificateBasedAuthConfiguration object.
         /// </summary>
         public class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

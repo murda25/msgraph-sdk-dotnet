@@ -1,11 +1,11 @@
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 namespace Microsoft.Graph.Models {
     public class AzureCommunicationServicesUserConversationMember : ConversationMember, IParsable {
-        /// <summary>The azureCommunicationServicesId property</summary>
+        /// <summary>Azure Communication Services ID of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AzureCommunicationServicesId {

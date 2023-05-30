@@ -1,53 +1,35 @@
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
     /// <summary>
     /// Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
     /// </summary>
-    public class BookingStaffMemberBaseItemRequestBuilder {
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
+    public class BookingStaffMemberBaseItemRequestBuilder : BaseRequestBuilder {
         /// <summary>
         /// Instantiates a new BookingStaffMemberBaseItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingStaffMemberBaseItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers/{bookingStaffMemberBase%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public BookingStaffMemberBaseItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers/{bookingStaffMemberBase%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new BookingStaffMemberBaseItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingStaffMemberBaseItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers/{bookingStaffMemberBase%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public BookingStaffMemberBaseItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers/{bookingStaffMemberBase%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property staffMembers for solutions
+        /// Delete a bookingStaffMember in the specified bookingBusiness.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +48,8 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// All the staff members that provide services in this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +68,8 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             return await RequestAdapter.SendAsync<BookingStaffMemberBase>(requestInfo, BookingStaffMemberBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property staffMembers in solutions
+        /// Update the properties of a bookingStaffMember in the specified bookingBusiness.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +90,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             return await RequestAdapter.SendAsync<BookingStaffMemberBase>(requestInfo, BookingStaffMemberBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property staffMembers for solutions
+        /// Delete a bookingStaffMember in the specified bookingBusiness.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,7 +114,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All the staff members that provide services in this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +140,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property staffMembers in solutions
+        /// Update the properties of a bookingStaffMember in the specified bookingBusiness.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,7 +184,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers.Item {
             }
         }
         /// <summary>
-        /// All the staff members that provide services in this business. Read-only. Nullable.
+        /// Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
         /// </summary>
         public class BookingStaffMemberBaseItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

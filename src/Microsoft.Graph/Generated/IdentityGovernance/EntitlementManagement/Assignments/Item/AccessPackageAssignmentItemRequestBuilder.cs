@@ -2,21 +2,21 @@ using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.AssignmentPolicy;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Reprocess;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item.Target;
-using Microsoft.Graph.Models;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Kiota.Abstractions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
-using System;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.Item {
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageAssignmentItemRequestBuilder {
+    public class AccessPackageAssignmentItemRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignment entity.</summary>
         public AccessPackageRequestBuilder AccessPackage { get =>
             new AccessPackageRequestBuilder(PathParameters, RequestAdapter);
@@ -25,46 +25,27 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
         public AssignmentPolicyRequestBuilder AssignmentPolicy { get =>
             new AssignmentPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path parameters for the request</summary>
-        private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>Provides operations to call the reprocess method.</summary>
         public ReprocessRequestBuilder Reprocess { get =>
             new ReprocessRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity.</summary>
         public TargetRequestBuilder Target { get =>
             new TargetRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Url template to use to build the URL for the current request builder</summary>
-        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new AccessPackageAssignmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccessPackageAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
-            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>(pathParameters);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public AccessPackageAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}{?%24select,%24expand}", pathParameters) {
         }
         /// <summary>
         /// Instantiates a new AccessPackageAssignmentItemRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccessPackageAssignmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
-            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
-            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}{?%24select,%24expand}";
-            var urlTplParams = new Dictionary<string, object>();
-            if (!string.IsNullOrWhiteSpace(rawUrl)) urlTplParams.Add("request-raw-url", rawUrl);
-            PathParameters = urlTplParams;
-            RequestAdapter = requestAdapter;
+        public AccessPackageAssignmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignments/{accessPackageAssignment%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
         /// Delete navigation property assignments for identityGovernance
@@ -86,7 +67,8 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The assignment of an access package to a subject for a period of time.
+        /// In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/accesspackageassignment-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +132,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             return requestInfo;
         }
         /// <summary>
-        /// The assignment of an access package to a subject for a period of time.
+        /// In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,7 +202,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             }
         }
         /// <summary>
-        /// The assignment of an access package to a subject for a period of time.
+        /// In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
         /// </summary>
         public class AccessPackageAssignmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
