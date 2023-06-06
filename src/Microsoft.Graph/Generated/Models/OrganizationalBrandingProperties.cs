@@ -89,6 +89,258 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("cdnList", value); }
         }
 #endif
+        /// <summary>The customAccountResetCredentialsUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomAccountResetCredentialsUrl {
+            get { return BackingStore?.Get<string?>("customAccountResetCredentialsUrl"); }
+            set { BackingStore?.Set("customAccountResetCredentialsUrl", value); }
+        }
+#nullable restore
+#else
+        public string CustomAccountResetCredentialsUrl {
+            get { return BackingStore?.Get<string>("customAccountResetCredentialsUrl"); }
+            set { BackingStore?.Set("customAccountResetCredentialsUrl", value); }
+        }
+#endif
+        /// <summary>The customCannotAccessYourAccountText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomCannotAccessYourAccountText {
+            get { return BackingStore?.Get<string?>("customCannotAccessYourAccountText"); }
+            set { BackingStore?.Set("customCannotAccessYourAccountText", value); }
+        }
+#nullable restore
+#else
+        public string CustomCannotAccessYourAccountText {
+            get { return BackingStore?.Get<string>("customCannotAccessYourAccountText"); }
+            set { BackingStore?.Set("customCannotAccessYourAccountText", value); }
+        }
+#endif
+        /// <summary>The customCannotAccessYourAccountUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomCannotAccessYourAccountUrl {
+            get { return BackingStore?.Get<string?>("customCannotAccessYourAccountUrl"); }
+            set { BackingStore?.Set("customCannotAccessYourAccountUrl", value); }
+        }
+#nullable restore
+#else
+        public string CustomCannotAccessYourAccountUrl {
+            get { return BackingStore?.Get<string>("customCannotAccessYourAccountUrl"); }
+            set { BackingStore?.Set("customCannotAccessYourAccountUrl", value); }
+        }
+#endif
+        /// <summary>The customCSS property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? CustomCSS {
+            get { return BackingStore?.Get<byte[]?>("customCSS"); }
+            set { BackingStore?.Set("customCSS", value); }
+        }
+#nullable restore
+#else
+        public byte[] CustomCSS {
+            get { return BackingStore?.Get<byte[]>("customCSS"); }
+            set { BackingStore?.Set("customCSS", value); }
+        }
+#endif
+        /// <summary>The customCSSRelativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomCSSRelativeUrl {
+            get { return BackingStore?.Get<string?>("customCSSRelativeUrl"); }
+            set { BackingStore?.Set("customCSSRelativeUrl", value); }
+        }
+#nullable restore
+#else
+        public string CustomCSSRelativeUrl {
+            get { return BackingStore?.Get<string>("customCSSRelativeUrl"); }
+            set { BackingStore?.Set("customCSSRelativeUrl", value); }
+        }
+#endif
+        /// <summary>The customForgotMyPasswordText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomForgotMyPasswordText {
+            get { return BackingStore?.Get<string?>("customForgotMyPasswordText"); }
+            set { BackingStore?.Set("customForgotMyPasswordText", value); }
+        }
+#nullable restore
+#else
+        public string CustomForgotMyPasswordText {
+            get { return BackingStore?.Get<string>("customForgotMyPasswordText"); }
+            set { BackingStore?.Set("customForgotMyPasswordText", value); }
+        }
+#endif
+        /// <summary>The customPrivacyAndCookiesText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomPrivacyAndCookiesText {
+            get { return BackingStore?.Get<string?>("customPrivacyAndCookiesText"); }
+            set { BackingStore?.Set("customPrivacyAndCookiesText", value); }
+        }
+#nullable restore
+#else
+        public string CustomPrivacyAndCookiesText {
+            get { return BackingStore?.Get<string>("customPrivacyAndCookiesText"); }
+            set { BackingStore?.Set("customPrivacyAndCookiesText", value); }
+        }
+#endif
+        /// <summary>The customPrivacyAndCookiesUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomPrivacyAndCookiesUrl {
+            get { return BackingStore?.Get<string?>("customPrivacyAndCookiesUrl"); }
+            set { BackingStore?.Set("customPrivacyAndCookiesUrl", value); }
+        }
+#nullable restore
+#else
+        public string CustomPrivacyAndCookiesUrl {
+            get { return BackingStore?.Get<string>("customPrivacyAndCookiesUrl"); }
+            set { BackingStore?.Set("customPrivacyAndCookiesUrl", value); }
+        }
+#endif
+        /// <summary>The customResetItNowText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomResetItNowText {
+            get { return BackingStore?.Get<string?>("customResetItNowText"); }
+            set { BackingStore?.Set("customResetItNowText", value); }
+        }
+#nullable restore
+#else
+        public string CustomResetItNowText {
+            get { return BackingStore?.Get<string>("customResetItNowText"); }
+            set { BackingStore?.Set("customResetItNowText", value); }
+        }
+#endif
+        /// <summary>The customTermsOfUseText property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomTermsOfUseText {
+            get { return BackingStore?.Get<string?>("customTermsOfUseText"); }
+            set { BackingStore?.Set("customTermsOfUseText", value); }
+        }
+#nullable restore
+#else
+        public string CustomTermsOfUseText {
+            get { return BackingStore?.Get<string>("customTermsOfUseText"); }
+            set { BackingStore?.Set("customTermsOfUseText", value); }
+        }
+#endif
+        /// <summary>The customTermsOfUseUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomTermsOfUseUrl {
+            get { return BackingStore?.Get<string?>("customTermsOfUseUrl"); }
+            set { BackingStore?.Set("customTermsOfUseUrl", value); }
+        }
+#nullable restore
+#else
+        public string CustomTermsOfUseUrl {
+            get { return BackingStore?.Get<string>("customTermsOfUseUrl"); }
+            set { BackingStore?.Set("customTermsOfUseUrl", value); }
+        }
+#endif
+        /// <summary>The favicon property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? Favicon {
+            get { return BackingStore?.Get<byte[]?>("favicon"); }
+            set { BackingStore?.Set("favicon", value); }
+        }
+#nullable restore
+#else
+        public byte[] Favicon {
+            get { return BackingStore?.Get<byte[]>("favicon"); }
+            set { BackingStore?.Set("favicon", value); }
+        }
+#endif
+        /// <summary>The faviconRelativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FaviconRelativeUrl {
+            get { return BackingStore?.Get<string?>("faviconRelativeUrl"); }
+            set { BackingStore?.Set("faviconRelativeUrl", value); }
+        }
+#nullable restore
+#else
+        public string FaviconRelativeUrl {
+            get { return BackingStore?.Get<string>("faviconRelativeUrl"); }
+            set { BackingStore?.Set("faviconRelativeUrl", value); }
+        }
+#endif
+        /// <summary>The headerBackgroundColor property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HeaderBackgroundColor {
+            get { return BackingStore?.Get<string?>("headerBackgroundColor"); }
+            set { BackingStore?.Set("headerBackgroundColor", value); }
+        }
+#nullable restore
+#else
+        public string HeaderBackgroundColor {
+            get { return BackingStore?.Get<string>("headerBackgroundColor"); }
+            set { BackingStore?.Set("headerBackgroundColor", value); }
+        }
+#endif
+        /// <summary>The headerLogo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? HeaderLogo {
+            get { return BackingStore?.Get<byte[]?>("headerLogo"); }
+            set { BackingStore?.Set("headerLogo", value); }
+        }
+#nullable restore
+#else
+        public byte[] HeaderLogo {
+            get { return BackingStore?.Get<byte[]>("headerLogo"); }
+            set { BackingStore?.Set("headerLogo", value); }
+        }
+#endif
+        /// <summary>The headerLogoRelativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HeaderLogoRelativeUrl {
+            get { return BackingStore?.Get<string?>("headerLogoRelativeUrl"); }
+            set { BackingStore?.Set("headerLogoRelativeUrl", value); }
+        }
+#nullable restore
+#else
+        public string HeaderLogoRelativeUrl {
+            get { return BackingStore?.Get<string>("headerLogoRelativeUrl"); }
+            set { BackingStore?.Set("headerLogoRelativeUrl", value); }
+        }
+#endif
+        /// <summary>The loginPageLayoutConfiguration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.LoginPageLayoutConfiguration? LoginPageLayoutConfiguration {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.LoginPageLayoutConfiguration?>("loginPageLayoutConfiguration"); }
+            set { BackingStore?.Set("loginPageLayoutConfiguration", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.LoginPageLayoutConfiguration LoginPageLayoutConfiguration {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.LoginPageLayoutConfiguration>("loginPageLayoutConfiguration"); }
+            set { BackingStore?.Set("loginPageLayoutConfiguration", value); }
+        }
+#endif
+        /// <summary>The loginPageTextVisibilitySettings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.LoginPageTextVisibilitySettings? LoginPageTextVisibilitySettings {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.LoginPageTextVisibilitySettings?>("loginPageTextVisibilitySettings"); }
+            set { BackingStore?.Set("loginPageTextVisibilitySettings", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.LoginPageTextVisibilitySettings LoginPageTextVisibilitySettings {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.LoginPageTextVisibilitySettings>("loginPageTextVisibilitySettings"); }
+            set { BackingStore?.Set("loginPageTextVisibilitySettings", value); }
+        }
+#endif
         /// <summary>Text that appears at the bottom of the sign-in box. You can use this to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be Unicode and not exceed 1024 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +367,34 @@ namespace Microsoft.Graph.Models {
         public byte[] SquareLogo {
             get { return BackingStore?.Get<byte[]>("squareLogo"); }
             set { BackingStore?.Set("squareLogo", value); }
+        }
+#endif
+        /// <summary>The squareLogoDark property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? SquareLogoDark {
+            get { return BackingStore?.Get<byte[]?>("squareLogoDark"); }
+            set { BackingStore?.Set("squareLogoDark", value); }
+        }
+#nullable restore
+#else
+        public byte[] SquareLogoDark {
+            get { return BackingStore?.Get<byte[]>("squareLogoDark"); }
+            set { BackingStore?.Set("squareLogoDark", value); }
+        }
+#endif
+        /// <summary>The squareLogoDarkRelativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SquareLogoDarkRelativeUrl {
+            get { return BackingStore?.Get<string?>("squareLogoDarkRelativeUrl"); }
+            set { BackingStore?.Set("squareLogoDarkRelativeUrl", value); }
+        }
+#nullable restore
+#else
+        public string SquareLogoDarkRelativeUrl {
+            get { return BackingStore?.Get<string>("squareLogoDarkRelativeUrl"); }
+            set { BackingStore?.Set("squareLogoDarkRelativeUrl", value); }
         }
 #endif
         /// <summary>A relative url for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.</summary>
@@ -169,8 +449,28 @@ namespace Microsoft.Graph.Models {
                 {"bannerLogo", n => { BannerLogo = n.GetByteArrayValue(); } },
                 {"bannerLogoRelativeUrl", n => { BannerLogoRelativeUrl = n.GetStringValue(); } },
                 {"cdnList", n => { CdnList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"customAccountResetCredentialsUrl", n => { CustomAccountResetCredentialsUrl = n.GetStringValue(); } },
+                {"customCannotAccessYourAccountText", n => { CustomCannotAccessYourAccountText = n.GetStringValue(); } },
+                {"customCannotAccessYourAccountUrl", n => { CustomCannotAccessYourAccountUrl = n.GetStringValue(); } },
+                {"customCSS", n => { CustomCSS = n.GetByteArrayValue(); } },
+                {"customCSSRelativeUrl", n => { CustomCSSRelativeUrl = n.GetStringValue(); } },
+                {"customForgotMyPasswordText", n => { CustomForgotMyPasswordText = n.GetStringValue(); } },
+                {"customPrivacyAndCookiesText", n => { CustomPrivacyAndCookiesText = n.GetStringValue(); } },
+                {"customPrivacyAndCookiesUrl", n => { CustomPrivacyAndCookiesUrl = n.GetStringValue(); } },
+                {"customResetItNowText", n => { CustomResetItNowText = n.GetStringValue(); } },
+                {"customTermsOfUseText", n => { CustomTermsOfUseText = n.GetStringValue(); } },
+                {"customTermsOfUseUrl", n => { CustomTermsOfUseUrl = n.GetStringValue(); } },
+                {"favicon", n => { Favicon = n.GetByteArrayValue(); } },
+                {"faviconRelativeUrl", n => { FaviconRelativeUrl = n.GetStringValue(); } },
+                {"headerBackgroundColor", n => { HeaderBackgroundColor = n.GetStringValue(); } },
+                {"headerLogo", n => { HeaderLogo = n.GetByteArrayValue(); } },
+                {"headerLogoRelativeUrl", n => { HeaderLogoRelativeUrl = n.GetStringValue(); } },
+                {"loginPageLayoutConfiguration", n => { LoginPageLayoutConfiguration = n.GetObjectValue<Microsoft.Graph.Models.LoginPageLayoutConfiguration>(Microsoft.Graph.Models.LoginPageLayoutConfiguration.CreateFromDiscriminatorValue); } },
+                {"loginPageTextVisibilitySettings", n => { LoginPageTextVisibilitySettings = n.GetObjectValue<Microsoft.Graph.Models.LoginPageTextVisibilitySettings>(Microsoft.Graph.Models.LoginPageTextVisibilitySettings.CreateFromDiscriminatorValue); } },
                 {"signInPageText", n => { SignInPageText = n.GetStringValue(); } },
                 {"squareLogo", n => { SquareLogo = n.GetByteArrayValue(); } },
+                {"squareLogoDark", n => { SquareLogoDark = n.GetByteArrayValue(); } },
+                {"squareLogoDarkRelativeUrl", n => { SquareLogoDarkRelativeUrl = n.GetStringValue(); } },
                 {"squareLogoRelativeUrl", n => { SquareLogoRelativeUrl = n.GetStringValue(); } },
                 {"usernameHintText", n => { UsernameHintText = n.GetStringValue(); } },
             };
@@ -188,8 +488,28 @@ namespace Microsoft.Graph.Models {
             writer.WriteByteArrayValue("bannerLogo", BannerLogo);
             writer.WriteStringValue("bannerLogoRelativeUrl", BannerLogoRelativeUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("cdnList", CdnList);
+            writer.WriteStringValue("customAccountResetCredentialsUrl", CustomAccountResetCredentialsUrl);
+            writer.WriteStringValue("customCannotAccessYourAccountText", CustomCannotAccessYourAccountText);
+            writer.WriteStringValue("customCannotAccessYourAccountUrl", CustomCannotAccessYourAccountUrl);
+            writer.WriteByteArrayValue("customCSS", CustomCSS);
+            writer.WriteStringValue("customCSSRelativeUrl", CustomCSSRelativeUrl);
+            writer.WriteStringValue("customForgotMyPasswordText", CustomForgotMyPasswordText);
+            writer.WriteStringValue("customPrivacyAndCookiesText", CustomPrivacyAndCookiesText);
+            writer.WriteStringValue("customPrivacyAndCookiesUrl", CustomPrivacyAndCookiesUrl);
+            writer.WriteStringValue("customResetItNowText", CustomResetItNowText);
+            writer.WriteStringValue("customTermsOfUseText", CustomTermsOfUseText);
+            writer.WriteStringValue("customTermsOfUseUrl", CustomTermsOfUseUrl);
+            writer.WriteByteArrayValue("favicon", Favicon);
+            writer.WriteStringValue("faviconRelativeUrl", FaviconRelativeUrl);
+            writer.WriteStringValue("headerBackgroundColor", HeaderBackgroundColor);
+            writer.WriteByteArrayValue("headerLogo", HeaderLogo);
+            writer.WriteStringValue("headerLogoRelativeUrl", HeaderLogoRelativeUrl);
+            writer.WriteObjectValue<Microsoft.Graph.Models.LoginPageLayoutConfiguration>("loginPageLayoutConfiguration", LoginPageLayoutConfiguration);
+            writer.WriteObjectValue<Microsoft.Graph.Models.LoginPageTextVisibilitySettings>("loginPageTextVisibilitySettings", LoginPageTextVisibilitySettings);
             writer.WriteStringValue("signInPageText", SignInPageText);
             writer.WriteByteArrayValue("squareLogo", SquareLogo);
+            writer.WriteByteArrayValue("squareLogoDark", SquareLogoDark);
+            writer.WriteStringValue("squareLogoDarkRelativeUrl", SquareLogoDarkRelativeUrl);
             writer.WriteStringValue("squareLogoRelativeUrl", SquareLogoRelativeUrl);
             writer.WriteStringValue("usernameHintText", UsernameHintText);
         }

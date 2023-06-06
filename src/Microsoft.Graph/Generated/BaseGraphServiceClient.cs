@@ -7,7 +7,6 @@ using Microsoft.Graph.Applications;
 using Microsoft.Graph.AuditLogs;
 using Microsoft.Graph.AuthenticationMethodConfigurations;
 using Microsoft.Graph.AuthenticationMethodsPolicy;
-using Microsoft.Graph.Branding;
 using Microsoft.Graph.CertificateBasedAuthConfiguration;
 using Microsoft.Graph.Chats;
 using Microsoft.Graph.Communications;
@@ -119,10 +118,6 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the authenticationMethodsPolicy singleton.</summary>
         public AuthenticationMethodsPolicyRequestBuilder AuthenticationMethodsPolicy { get =>
             new AuthenticationMethodsPolicyRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the organizationalBranding singleton.</summary>
-        public BrandingRequestBuilder Branding { get =>
-            new BrandingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of certificateBasedAuthConfiguration entities.</summary>
         public CertificateBasedAuthConfigurationRequestBuilder CertificateBasedAuthConfiguration { get =>

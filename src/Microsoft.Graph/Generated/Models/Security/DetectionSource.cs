@@ -38,5 +38,7 @@ namespace Microsoft.Graph.Models.Security {
         AppGovernanceDetection,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
+        [EnumMember(Value = "microsoftDefenderForCloud")]
+        MicrosoftDefenderForCloud,
     }
 }

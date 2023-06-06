@@ -1,6 +1,10 @@
 using Microsoft.Graph.Localizations.Item.BackgroundImage;
 using Microsoft.Graph.Localizations.Item.BannerLogo;
+using Microsoft.Graph.Localizations.Item.CustomCSS;
+using Microsoft.Graph.Localizations.Item.Favicon;
+using Microsoft.Graph.Localizations.Item.HeaderLogo;
 using Microsoft.Graph.Localizations.Item.SquareLogo;
+using Microsoft.Graph.Localizations.Item.SquareLogoDark;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -25,8 +29,24 @@ namespace Microsoft.Graph.Localizations.Item {
             new BannerLogoRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
+        public CustomCSSRequestBuilder CustomCSS { get =>
+            new CustomCSSRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
+        public FaviconRequestBuilder Favicon { get =>
+            new FaviconRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
+        public HeaderLogoRequestBuilder HeaderLogo { get =>
+            new HeaderLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
         public SquareLogoRequestBuilder SquareLogo { get =>
             new SquareLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organizationalBrandingLocalization entity.</summary>
+        public SquareLogoDarkRequestBuilder SquareLogoDark { get =>
+            new SquareLogoDarkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new OrganizationalBrandingLocalizationItemRequestBuilder and sets the default values.
