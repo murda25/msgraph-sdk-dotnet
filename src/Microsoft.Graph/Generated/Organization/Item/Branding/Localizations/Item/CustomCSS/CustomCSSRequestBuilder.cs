@@ -7,36 +7,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Microsoft.Graph.Branding.BackgroundImage {
+namespace Microsoft.Graph.Organization.Item.Branding.Localizations.Item.CustomCSS {
     /// <summary>
-    /// Provides operations to manage the media for the organizationalBranding entity.
+    /// Provides operations to manage the media for the organization entity.
     /// </summary>
-    public class BackgroundImageRequestBuilder : BaseRequestBuilder {
+    public class CustomCSSRequestBuilder : BaseRequestBuilder {
         /// <summary>
-        /// Instantiates a new BackgroundImageRequestBuilder and sets the default values.
+        /// Instantiates a new CustomCSSRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BackgroundImageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/branding/backgroundImage", pathParameters) {
+        public CustomCSSRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/customCSS", pathParameters) {
         }
         /// <summary>
-        /// Instantiates a new BackgroundImageRequestBuilder and sets the default values.
+        /// Instantiates a new CustomCSSRequestBuilder and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BackgroundImageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/branding/backgroundImage", rawUrl) {
+        public CustomCSSRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/customCSS", rawUrl) {
         }
         /// <summary>
-        /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
+        /// Get customCSS for the navigation property localizations from organization
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<BackgroundImageRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream?> GetAsync(Action<CustomCSSRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<BackgroundImageRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream> GetAsync(Action<CustomCSSRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -46,17 +47,17 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
+        /// Update customCSS for the navigation property localizations in organization
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(Stream body, Action<BackgroundImageRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream?> PutAsync(Stream body, Action<CustomCSSRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(Stream body, Action<BackgroundImageRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream> PutAsync(Stream body, Action<CustomCSSRequestBuilderPutRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
@@ -67,15 +68,15 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
+        /// Get customCSS for the navigation property localizations from organization
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<BackgroundImageRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<CustomCSSRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<BackgroundImageRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<CustomCSSRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
 #endif
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.GET,
@@ -83,7 +84,7 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
                 PathParameters = PathParameters,
             };
             if (requestConfiguration != null) {
-                var requestConfig = new BackgroundImageRequestBuilderGetRequestConfiguration();
+                var requestConfig = new CustomCSSRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -91,16 +92,16 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
             return requestInfo;
         }
         /// <summary>
-        /// Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
+        /// Update customCSS for the navigation property localizations in organization
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, Action<BackgroundImageRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<CustomCSSRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, Action<BackgroundImageRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPutRequestInformation(Stream body, Action<CustomCSSRequestBuilderPutRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
@@ -110,7 +111,7 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
             };
             requestInfo.SetStreamContent(body);
             if (requestConfiguration != null) {
-                var requestConfig = new BackgroundImageRequestBuilderPutRequestConfiguration();
+                var requestConfig = new CustomCSSRequestBuilderPutRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
@@ -120,15 +121,15 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class BackgroundImageRequestBuilderGetRequestConfiguration {
+        public class CustomCSSRequestBuilderGetRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new backgroundImageRequestBuilderGetRequestConfiguration and sets the default values.
+            /// Instantiates a new customCSSRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
-            public BackgroundImageRequestBuilderGetRequestConfiguration() {
+            public CustomCSSRequestBuilderGetRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }
@@ -136,15 +137,15 @@ namespace Microsoft.Graph.Branding.BackgroundImage {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class BackgroundImageRequestBuilderPutRequestConfiguration {
+        public class CustomCSSRequestBuilderPutRequestConfiguration {
             /// <summary>Request headers</summary>
             public RequestHeaders Headers { get; set; }
             /// <summary>Request options</summary>
             public IList<IRequestOption> Options { get; set; }
             /// <summary>
-            /// Instantiates a new backgroundImageRequestBuilderPutRequestConfiguration and sets the default values.
+            /// Instantiates a new customCSSRequestBuilderPutRequestConfiguration and sets the default values.
             /// </summary>
-            public BackgroundImageRequestBuilderPutRequestConfiguration() {
+            public CustomCSSRequestBuilderPutRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }

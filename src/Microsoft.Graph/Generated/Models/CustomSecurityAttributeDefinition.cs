@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class CustomSecurityAttributeDefinition : Entity, IParsable {
-        /// <summary>The allowedValues property</summary>
+        /// <summary>Values that are predefined for this custom security attribute. This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AllowedValue>? AllowedValues {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("allowedValues", value); }
         }
 #endif
-        /// <summary>The attributeSet property</summary>
+        /// <summary>Name of the attribute set. Case insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AttributeSet {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("attributeSet", value); }
         }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>Description of the custom security attribute. Can be up to 128 characters long and include Unicode characters. Can be changed later.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -47,17 +47,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>The isCollection property</summary>
+        /// <summary>Indicates whether multiple values can be assigned to the custom security attribute. Cannot be changed later. If type is set to Boolean, isCollection cannot be set to true.</summary>
         public bool? IsCollection {
             get { return BackingStore?.Get<bool?>("isCollection"); }
             set { BackingStore?.Set("isCollection", value); }
         }
-        /// <summary>The isSearchable property</summary>
+        /// <summary>Indicates whether custom security attribute values are indexed for searching on objects that are assigned attribute values. Cannot be changed later.</summary>
         public bool? IsSearchable {
             get { return BackingStore?.Get<bool?>("isSearchable"); }
             set { BackingStore?.Set("isSearchable", value); }
         }
-        /// <summary>The name property</summary>
+        /// <summary>Name of the custom security attribute. Must be unique within an attribute set. Can be up to 32 characters long and include Unicode characters. Cannot contain spaces or special characters. Cannot be changed later. Case insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name {
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("name", value); }
         }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Specifies whether the custom security attribute is active or deactivated. Acceptable values are: Available and Deprecated. Can be changed later.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status {
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("status", value); }
         }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>Data type for the custom security attribute values. Supported types are: Boolean, Integer, and String. Cannot be changed later.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("type", value); }
         }
 #endif
-        /// <summary>The usePreDefinedValuesOnly property</summary>
+        /// <summary>Indicates whether only predefined values can be assigned to the custom security attribute. If set to false, free-form values are allowed. Can later be changed from true to false, but cannot be changed from false to true. If type is set to Boolean, usePreDefinedValuesOnly cannot be set to true.</summary>
         public bool? UsePreDefinedValuesOnly {
             get { return BackingStore?.Get<bool?>("usePreDefinedValuesOnly"); }
             set { BackingStore?.Set("usePreDefinedValuesOnly", value); }

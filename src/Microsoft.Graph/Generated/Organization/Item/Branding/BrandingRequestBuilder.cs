@@ -2,8 +2,12 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Organization.Item.Branding.BackgroundImage;
 using Microsoft.Graph.Organization.Item.Branding.BannerLogo;
+using Microsoft.Graph.Organization.Item.Branding.CustomCSS;
+using Microsoft.Graph.Organization.Item.Branding.Favicon;
+using Microsoft.Graph.Organization.Item.Branding.HeaderLogo;
 using Microsoft.Graph.Organization.Item.Branding.Localizations;
 using Microsoft.Graph.Organization.Item.Branding.SquareLogo;
+using Microsoft.Graph.Organization.Item.Branding.SquareLogoDark;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -25,6 +29,18 @@ namespace Microsoft.Graph.Organization.Item.Branding {
         public BannerLogoRequestBuilder BannerLogo { get =>
             new BannerLogoRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the media for the organization entity.</summary>
+        public CustomCSSRequestBuilder CustomCSS { get =>
+            new CustomCSSRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organization entity.</summary>
+        public FaviconRequestBuilder Favicon { get =>
+            new FaviconRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organization entity.</summary>
+        public HeaderLogoRequestBuilder HeaderLogo { get =>
+            new HeaderLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.</summary>
         public LocalizationsRequestBuilder Localizations { get =>
             new LocalizationsRequestBuilder(PathParameters, RequestAdapter);
@@ -32,6 +48,10 @@ namespace Microsoft.Graph.Organization.Item.Branding {
         /// <summary>Provides operations to manage the media for the organization entity.</summary>
         public SquareLogoRequestBuilder SquareLogo { get =>
             new SquareLogoRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the media for the organization entity.</summary>
+        public SquareLogoDarkRequestBuilder SquareLogoDark { get =>
+            new SquareLogoDarkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new BrandingRequestBuilder and sets the default values.
