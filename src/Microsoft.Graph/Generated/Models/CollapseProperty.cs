@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The fields property</summary>
+        /// <summary>Defines the collapse group to trim results. The properties in this collection must be sortable/refinable properties. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Fields {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("fields", value); }
         }
 #endif
-        /// <summary>The limit property</summary>
+        /// <summary>Defines a maximum limit count for this field. This numeric value must be a positive integer. Required.</summary>
         public int? Limit {
             get { return BackingStore?.Get<int?>("limit"); }
             set { BackingStore?.Set("limit", value); }

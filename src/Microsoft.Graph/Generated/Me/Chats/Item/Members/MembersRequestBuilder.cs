@@ -45,8 +45,8 @@ namespace Microsoft.Graph.Me.Chats.Item.Members {
         public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/chats/{chat%2Did}/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-list-members?view=graph-rest-1.0" />
+        /// List all conversation members in a chat or channel.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/conversationmember-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Microsoft.Graph.Me.Chats.Item.Members {
             return await RequestAdapter.SendAsync<ConversationMember>(requestInfo, ConversationMember.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
+        /// List all conversation members in a chat or channel.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Me.Chats.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
+        /// List all conversation members in a chat or channel.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

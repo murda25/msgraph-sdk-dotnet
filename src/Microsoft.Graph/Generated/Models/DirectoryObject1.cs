@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("administrativeUnits", value); }
         }
 #endif
-        /// <summary>The attributeSets property</summary>
+        /// <summary>Group of related custom security attribute definitions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AttributeSet>? AttributeSets {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("attributeSets", value); }
         }
 #endif
-        /// <summary>The customSecurityAttributeDefinitions property</summary>
+        /// <summary>Schema of a custom security attributes (key-value pairs).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CustomSecurityAttributeDefinition>? CustomSecurityAttributeDefinitions {
