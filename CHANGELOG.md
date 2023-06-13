@@ -7,7 +7,12 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-## [5.12.0] - 2023-06-09
+## [5.14.0] - 2023-06-13
+
+- Fixes missing GET method for teams singleton (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1956)
+- Latest metadata updates from 13th June 2023
+
+## [5.13.0] - 2023-06-09
 
 - Latest metadata updates from 6th June 2023
 
