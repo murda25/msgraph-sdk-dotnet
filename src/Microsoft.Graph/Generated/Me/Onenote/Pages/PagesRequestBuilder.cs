@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Me.Onenote.Pages {
         public PagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/onenote/pages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a page object. **Getting page information** Access a page&apos;s metadata by page identifier: **Getting page content** You can use the page&apos;s `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Me.Onenote.Pages {
             return await RequestAdapter.SendAsync<OnenotePage>(requestInfo, OnenotePage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a page object. **Getting page information** Access a page&apos;s metadata by page identifier: **Getting page content** You can use the page&apos;s `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Me.Onenote.Pages {
             return requestInfo;
         }
         /// <summary>
-        /// The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+        /// Retrieve the properties and relationships of a page object. **Getting page information** Access a page&apos;s metadata by page identifier: **Getting page content** You can use the page&apos;s `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
         /// </summary>
         public class PagesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

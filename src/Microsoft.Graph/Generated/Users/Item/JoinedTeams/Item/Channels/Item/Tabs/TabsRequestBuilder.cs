@@ -60,7 +60,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Tabs {
             return await RequestAdapter.SendAsync<TeamsTabCollectionResponse>(requestInfo, TeamsTabCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to tabs for users
+        /// Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/channel-post-tabs?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -107,7 +108,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Tabs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tabs for users
+        /// Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

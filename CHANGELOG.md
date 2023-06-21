@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.15.0] - 2023-06-21
+
+- Fixes incorrect naming for the InnerError property in MainError (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1916)
+- Latest metadata updates from 20th June 2023
+
 ## [5.14.0] - 2023-06-13
 
 - Fixes missing GET method for teams singleton (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1956)

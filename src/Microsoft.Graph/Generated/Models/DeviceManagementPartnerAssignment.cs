@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new deviceManagementPartnerAssignment and sets the default values.
+        /// Instantiates a new DeviceManagementPartnerAssignment and sets the default values.
         /// </summary>
         public DeviceManagementPartnerAssignment() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
