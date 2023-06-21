@@ -29,6 +29,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote.Notebooks.Item.SectionGroups.Item.S
         }
         /// <summary>
         /// The page&apos;s HTML content.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

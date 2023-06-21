@@ -19,9 +19,11 @@ steps:
 
 - checkout: self
 
-- task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@2
+- task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@3
   displayName: 'Run CredScan'
   inputs:
+    toolMajorVersion: 'V2'
+    scanFolder: '$(Build.SourcesDirectory)'
     debugMode: false
 
 - task: UseDotNet@2

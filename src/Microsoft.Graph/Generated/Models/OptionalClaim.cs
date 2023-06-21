@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new optionalClaim and sets the default values.
+        /// Instantiates a new OptionalClaim and sets the default values.
         /// </summary>
         public OptionalClaim() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();

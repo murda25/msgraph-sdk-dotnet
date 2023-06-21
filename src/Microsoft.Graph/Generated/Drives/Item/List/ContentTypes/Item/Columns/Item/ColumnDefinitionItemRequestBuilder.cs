@@ -73,7 +73,8 @@ namespace Microsoft.Graph.Drives.Item.List.ContentTypes.Item.Columns.Item {
             return await RequestAdapter.SendAsync<ColumnDefinition>(requestInfo, ColumnDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property columns in drives
+        /// Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -144,7 +145,7 @@ namespace Microsoft.Graph.Drives.Item.List.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property columns in drives
+        /// Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
