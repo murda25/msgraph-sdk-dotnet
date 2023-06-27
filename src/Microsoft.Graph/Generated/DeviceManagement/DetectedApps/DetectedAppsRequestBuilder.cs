@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps {
         public DetectedAppsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/detectedApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The list of detected apps associated with a device.
+        /// List properties and relationships of the detectedApp objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-detectedapp-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps {
             return await RequestAdapter.SendAsync<DetectedAppCollectionResponse>(requestInfo, DetectedAppCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to detectedApps for deviceManagement
+        /// Create a new detectedApp object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-detectedapp-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps {
             return await RequestAdapter.SendAsync<DetectedApp>(requestInfo, DetectedApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of detected apps associated with a device.
+        /// List properties and relationships of the detectedApp objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to detectedApps for deviceManagement
+        /// Create a new detectedApp object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceManagement.DetectedApps {
             return requestInfo;
         }
         /// <summary>
-        /// The list of detected apps associated with a device.
+        /// List properties and relationships of the detectedApp objects.
         /// </summary>
         public class DetectedAppsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

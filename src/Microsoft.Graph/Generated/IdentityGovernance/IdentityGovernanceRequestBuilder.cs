@@ -1,9 +1,10 @@
 using Microsoft.Graph.IdentityGovernance.AccessReviews;
 using Microsoft.Graph.IdentityGovernance.AppConsent;
 using Microsoft.Graph.IdentityGovernance.EntitlementManagement;
+using Microsoft.Graph.IdentityGovernance.LifecycleWorkflows;
 using Microsoft.Graph.IdentityGovernance.TermsOfUse;
+using Microsoft.Graph.Models.IdentityGovernance;
 using Microsoft.Graph.Models.ODataErrors;
-using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -28,6 +29,10 @@ namespace Microsoft.Graph.IdentityGovernance {
         /// <summary>Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.</summary>
         public EntitlementManagementRequestBuilder EntitlementManagement { get =>
             new EntitlementManagementRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.</summary>
+        public LifecycleWorkflowsRequestBuilder LifecycleWorkflows { get =>
+            new LifecycleWorkflowsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.</summary>
         public TermsOfUseRequestBuilder TermsOfUse { get =>
@@ -54,17 +59,17 @@ namespace Microsoft.Graph.IdentityGovernance {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Microsoft.Graph.Models.IdentityGovernance?> GetAsync(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance?> GetAsync(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Microsoft.Graph.Models.IdentityGovernance> GetAsync(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance> GetAsync(Action<IdentityGovernanceRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Update identityGovernance
@@ -74,10 +79,10 @@ namespace Microsoft.Graph.IdentityGovernance {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Microsoft.Graph.Models.IdentityGovernance?> PatchAsync(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance?> PatchAsync(Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<Microsoft.Graph.Models.IdentityGovernance> PatchAsync(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance> PatchAsync(Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
@@ -85,7 +90,7 @@ namespace Microsoft.Graph.IdentityGovernance {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
         /// Get identityGovernance
@@ -120,10 +125,10 @@ namespace Microsoft.Graph.IdentityGovernance {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance body, Action<IdentityGovernanceRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {

@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
         public WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+        /// Deletes a windowsInformationProtectionNetworkLearningSummary.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The windows information protection network learning summaries.
+        /// Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, WindowsInformationProtectionNetworkLearningSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
+        /// Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, WindowsInformationProtectionNetworkLearningSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+        /// Deletes a windowsInformationProtectionNetworkLearningSummary.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             return requestInfo;
         }
         /// <summary>
-        /// The windows information protection network learning summaries.
+        /// Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
+        /// Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             }
         }
         /// <summary>
-        /// The windows information protection network learning summaries.
+        /// Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
         /// </summary>
         public class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

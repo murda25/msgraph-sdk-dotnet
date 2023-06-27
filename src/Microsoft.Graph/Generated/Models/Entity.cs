@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models.CallRecords;
 using Microsoft.Graph.Models.ExternalConnectors;
+using Microsoft.Graph.Models.IdentityGovernance;
 using Microsoft.Graph.Models.Security;
 using Microsoft.Graph.Models.TermStore;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -195,6 +196,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.countryNamedLocation" => new CountryNamedLocation(),
                 "#microsoft.graph.crossTenantAccessPolicy" => new CrossTenantAccessPolicy(),
                 "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault" => new CrossTenantAccessPolicyConfigurationDefault(),
+                "#microsoft.graph.customCalloutExtension" => new CustomCalloutExtension(),
                 "#microsoft.graph.customSecurityAttributeDefinition" => new CustomSecurityAttributeDefinition(),
                 "#microsoft.graph.dataPolicyOperation" => new DataPolicyOperation(),
                 "#microsoft.graph.defaultManagedAppProtection" => new DefaultManagedAppProtection(),
@@ -205,6 +207,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.delegatedAdminRelationshipRequest" => new DelegatedAdminRelationshipRequest(),
                 "#microsoft.graph.delegatedAdminServiceManagementDetail" => new DelegatedAdminServiceManagementDetail(),
                 "#microsoft.graph.delegatedPermissionClassification" => new DelegatedPermissionClassification(),
+                "#microsoft.graph.deletedItemContainer" => new DeletedItemContainer(),
                 "#microsoft.graph.deletedTeam" => new DeletedTeam(),
                 "#microsoft.graph.detectedApp" => new DetectedApp(),
                 "#microsoft.graph.device" => new Device(),
@@ -314,6 +317,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.fileAssessmentRequest" => new FileAssessmentRequest(),
                 "#microsoft.graph.fileAttachment" => new FileAttachment(),
                 "#microsoft.graph.filterOperatorSchema" => new FilterOperatorSchema(),
+                "#microsoft.graph.governanceInsight" => new GovernanceInsight(),
                 "#microsoft.graph.group" => new Group(),
                 "#microsoft.graph.groupLifecyclePolicy" => new GroupLifecyclePolicy(),
                 "#microsoft.graph.groupSetting" => new GroupSetting(),
@@ -323,6 +327,16 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.identityBuiltInUserFlowAttribute" => new IdentityBuiltInUserFlowAttribute(),
                 "#microsoft.graph.identityContainer" => new IdentityContainer(),
                 "#microsoft.graph.identityCustomUserFlowAttribute" => new IdentityCustomUserFlowAttribute(),
+                "#microsoft.graph.identityGovernance.customTaskExtension" => new CustomTaskExtension(),
+                "#microsoft.graph.identityGovernance.lifecycleManagementSettings" => new LifecycleManagementSettings(),
+                "#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer" => new LifecycleWorkflowsContainer(),
+                "#microsoft.graph.identityGovernance.run" => new Run(),
+                "#microsoft.graph.identityGovernance.task" => new TaskObject(),
+                "#microsoft.graph.identityGovernance.taskDefinition" => new Microsoft.Graph.Models.IdentityGovernance.TaskDefinition(),
+                "#microsoft.graph.identityGovernance.taskProcessingResult" => new TaskProcessingResult(),
+                "#microsoft.graph.identityGovernance.taskReport" => new TaskReport(),
+                "#microsoft.graph.identityGovernance.userProcessingResult" => new UserProcessingResult(),
+                "#microsoft.graph.identityGovernance.workflowTemplate" => new WorkflowTemplate(),
                 "#microsoft.graph.identityProvider" => new IdentityProvider(),
                 "#microsoft.graph.identityProviderBase" => new IdentityProviderBase(),
                 "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy" => new IdentitySecurityDefaultsEnforcementPolicy(),
@@ -675,6 +689,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.userInstallStateSummary" => new UserInstallStateSummary(),
                 "#microsoft.graph.userScopeTeamsAppInstallation" => new UserScopeTeamsAppInstallation(),
                 "#microsoft.graph.userSettings" => new UserSettings(),
+                "#microsoft.graph.userSignInInsight" => new UserSignInInsight(),
                 "#microsoft.graph.userTeamwork" => new UserTeamwork(),
                 "#microsoft.graph.voiceAuthenticationMethodConfiguration" => new VoiceAuthenticationMethodConfiguration(),
                 "#microsoft.graph.vppToken" => new VppToken(),

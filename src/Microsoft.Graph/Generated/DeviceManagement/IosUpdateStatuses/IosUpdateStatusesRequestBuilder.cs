@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
         public IosUpdateStatusesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/iosUpdateStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The IOS software update installation statuses for this account.
+        /// List properties and relationships of the iosUpdateDeviceStatus objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
             return await RequestAdapter.SendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, IosUpdateDeviceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to iosUpdateStatuses for deviceManagement
+        /// Create a new iosUpdateDeviceStatus object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
             return await RequestAdapter.SendAsync<IosUpdateDeviceStatus>(requestInfo, IosUpdateDeviceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The IOS software update installation statuses for this account.
+        /// List properties and relationships of the iosUpdateDeviceStatus objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to iosUpdateStatuses for deviceManagement
+        /// Create a new iosUpdateDeviceStatus object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
             return requestInfo;
         }
         /// <summary>
-        /// The IOS software update installation statuses for this account.
+        /// List properties and relationships of the iosUpdateDeviceStatus objects.
         /// </summary>
         public class IosUpdateStatusesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

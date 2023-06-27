@@ -74,6 +74,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The recommendationInsightSettings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessReviewRecommendationInsightSetting>? RecommendationInsightSettings {
+            get { return BackingStore?.Get<List<AccessReviewRecommendationInsightSetting>?>("recommendationInsightSettings"); }
+            set { BackingStore?.Set("recommendationInsightSettings", value); }
+        }
+#nullable restore
+#else
+        public List<AccessReviewRecommendationInsightSetting> RecommendationInsightSettings {
+            get { return BackingStore?.Get<List<AccessReviewRecommendationInsightSetting>>("recommendationInsightSettings"); }
+            set { BackingStore?.Set("recommendationInsightSettings", value); }
+        }
+#endif
         /// <summary>Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.</summary>
         public bool? RecommendationsEnabled {
             get { return BackingStore?.Get<bool?>("recommendationsEnabled"); }
@@ -132,6 +146,7 @@ namespace Microsoft.Graph.Models {
                 {"durationInDays", n => { DurationInDays = n.GetIntValue(); } },
                 {"fallbackReviewers", n => { FallbackReviewers = n.GetCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
                 {"reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"stageId", n => { StageId = n.GetStringValue(); } },
@@ -148,6 +163,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteIntValue("durationInDays", DurationInDays);
             writer.WriteCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", FallbackReviewers);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", RecommendationInsightSettings);
             writer.WriteBoolValue("recommendationsEnabled", RecommendationsEnabled);
             writer.WriteCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", Reviewers);
             writer.WriteStringValue("stageId", StageId);

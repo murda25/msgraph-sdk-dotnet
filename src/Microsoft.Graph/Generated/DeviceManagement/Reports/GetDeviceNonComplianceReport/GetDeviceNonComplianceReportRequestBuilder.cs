@@ -27,7 +27,8 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport 
         public GetDeviceNonComplianceReportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/reports/getDeviceNonComplianceReport", rawUrl) {
         }
         /// <summary>
-        /// Invoke action getDeviceNonComplianceReport
+        /// Not yet documented
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicenoncompliancereport?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetDeviceNonComplianceReport 
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action getDeviceNonComplianceReport
+        /// Not yet documented
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

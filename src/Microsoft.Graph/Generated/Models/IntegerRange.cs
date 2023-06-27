@@ -38,7 +38,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("start", value); }
         }
         /// <summary>
-        /// Instantiates a new IntegerRange and sets the default values.
+        /// Instantiates a new integerRange and sets the default values.
         /// </summary>
         public IntegerRange() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();

@@ -47,7 +47,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummari
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The device configuration device state summary for this account.
+        /// Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +67,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummari
             return await RequestAdapter.SendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, DeviceConfigurationDeviceStateSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
+        /// Update the properties of a deviceConfigurationDeviceStateSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +113,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummari
             return requestInfo;
         }
         /// <summary>
-        /// The device configuration device state summary for this account.
+        /// Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +139,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummari
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
+        /// Update the properties of a deviceConfigurationDeviceStateSummary object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +183,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurationDeviceStateSummari
             }
         }
         /// <summary>
-        /// The device configuration device state summary for this account.
+        /// Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
         /// </summary>
         public class DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

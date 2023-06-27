@@ -47,7 +47,8 @@ namespace Microsoft.Graph.DeviceManagement.ConditionalAccessSettings {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+        /// Read properties and relationships of the onPremisesConditionalAccessSettings object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +67,8 @@ namespace Microsoft.Graph.DeviceManagement.ConditionalAccessSettings {
             return await RequestAdapter.SendAsync<OnPremisesConditionalAccessSettings>(requestInfo, OnPremisesConditionalAccessSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property conditionalAccessSettings in deviceManagement
+        /// Update the properties of a onPremisesConditionalAccessSettings object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +113,7 @@ namespace Microsoft.Graph.DeviceManagement.ConditionalAccessSettings {
             return requestInfo;
         }
         /// <summary>
-        /// The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+        /// Read properties and relationships of the onPremisesConditionalAccessSettings object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +139,7 @@ namespace Microsoft.Graph.DeviceManagement.ConditionalAccessSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property conditionalAccessSettings in deviceManagement
+        /// Update the properties of a onPremisesConditionalAccessSettings object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +183,7 @@ namespace Microsoft.Graph.DeviceManagement.ConditionalAccessSettings {
             }
         }
         /// <summary>
-        /// The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+        /// Read properties and relationships of the onPremisesConditionalAccessSettings object.
         /// </summary>
         public class ConditionalAccessSettingsRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

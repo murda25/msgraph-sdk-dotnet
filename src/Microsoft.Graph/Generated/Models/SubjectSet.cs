@@ -1,3 +1,4 @@
+using Microsoft.Graph.Models.IdentityGovernance;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.connectedOrganizationMembers" => new ConnectedOrganizationMembers(),
                 "#microsoft.graph.externalSponsors" => new ExternalSponsors(),
                 "#microsoft.graph.groupMembers" => new GroupMembers(),
+                "#microsoft.graph.identityGovernance.ruleBasedSubjectSet" => new RuleBasedSubjectSet(),
                 "#microsoft.graph.internalSponsors" => new InternalSponsors(),
                 "#microsoft.graph.requestorManager" => new RequestorManager(),
                 "#microsoft.graph.singleServicePrincipal" => new SingleServicePrincipal(),

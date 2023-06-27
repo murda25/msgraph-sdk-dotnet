@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
         public LocalizedNotificationMessageItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property localizedNotificationMessages for deviceManagement
+        /// Deletes a localizedNotificationMessage.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of localized messages for this Notification Message Template.
+        /// Read properties and relationships of the localizedNotificationMessage object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, LocalizedNotificationMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property localizedNotificationMessages in deviceManagement
+        /// Update the properties of a localizedNotificationMessage object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, LocalizedNotificationMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property localizedNotificationMessages for deviceManagement
+        /// Deletes a localizedNotificationMessage.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             return requestInfo;
         }
         /// <summary>
-        /// The list of localized messages for this Notification Message Template.
+        /// Read properties and relationships of the localizedNotificationMessage object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property localizedNotificationMessages in deviceManagement
+        /// Update the properties of a localizedNotificationMessage object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             }
         }
         /// <summary>
-        /// The list of localized messages for this Notification Message Template.
+        /// Read properties and relationships of the localizedNotificationMessage object.
         /// </summary>
         public class LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

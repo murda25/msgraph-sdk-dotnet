@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("hitId", value); }
         }
 #endif
-        /// <summary>Indicates whether the current result is collapsed when the collapseProperties property is used.</summary>
+        /// <summary>Indicates whether the current result is collapsed when the collapseProperties property in the searchRequest is used.</summary>
         public bool? IsCollapsed {
             get { return BackingStore?.Get<bool?>("isCollapsed"); }
             set { BackingStore?.Set("isCollapsed", value); }
