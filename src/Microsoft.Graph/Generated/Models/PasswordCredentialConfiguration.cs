@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("restrictionType", value); }
         }
         /// <summary>
-        /// Instantiates a new PasswordCredentialConfiguration and sets the default values.
+        /// Instantiates a new passwordCredentialConfiguration and sets the default values.
         /// </summary>
         public PasswordCredentialConfiguration() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();

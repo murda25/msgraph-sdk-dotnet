@@ -1,4 +1,5 @@
 using Microsoft.Graph.Drives.Item.Items.Item.Analytics;
+using Microsoft.Graph.Drives.Item.Items.Item.AssignSensitivityLabel;
 using Microsoft.Graph.Drives.Item.Items.Item.Checkin;
 using Microsoft.Graph.Drives.Item.Items.Item.Checkout;
 using Microsoft.Graph.Drives.Item.Items.Item.Children;
@@ -9,6 +10,7 @@ using Microsoft.Graph.Drives.Item.Items.Item.CreateUploadSession;
 using Microsoft.Graph.Drives.Item.Items.Item.CreatedByUser;
 using Microsoft.Graph.Drives.Item.Items.Item.Delta;
 using Microsoft.Graph.Drives.Item.Items.Item.DeltaWithToken;
+using Microsoft.Graph.Drives.Item.Items.Item.ExtractSensitivityLabels;
 using Microsoft.Graph.Drives.Item.Items.Item.Follow;
 using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByInterval;
 using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
@@ -43,6 +45,10 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         /// <summary>Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.</summary>
         public AnalyticsRequestBuilder Analytics { get =>
             new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the assignSensitivityLabel method.</summary>
+        public AssignSensitivityLabelRequestBuilder AssignSensitivityLabel { get =>
+            new AssignSensitivityLabelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the checkin method.</summary>
         public CheckinRequestBuilder Checkin { get =>
@@ -79,6 +85,10 @@ namespace Microsoft.Graph.Drives.Item.Items.Item {
         /// <summary>Provides operations to call the delta method.</summary>
         public DeltaRequestBuilder Delta { get =>
             new DeltaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the extractSensitivityLabels method.</summary>
+        public ExtractSensitivityLabelsRequestBuilder ExtractSensitivityLabels { get =>
+            new ExtractSensitivityLabelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the follow method.</summary>
         public FollowRequestBuilder Follow { get =>

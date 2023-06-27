@@ -923,7 +923,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("onenote", value); }
         }
 #endif
-        /// <summary>The onlineMeetings property</summary>
+        /// <summary>Information about a meeting, including the URL used to join a meeting, the attendees&apos; list, and the description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OnlineMeeting>? OnlineMeetings {
@@ -1283,6 +1283,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("presence", value); }
         }
 #endif
+        /// <summary>The print property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UserPrint? Print {
+            get { return BackingStore?.Get<UserPrint?>("print"); }
+            set { BackingStore?.Set("print", value); }
+        }
+#nullable restore
+#else
+        public UserPrint Print {
+            get { return BackingStore?.Get<UserPrint>("print"); }
+            set { BackingStore?.Set("print", value); }
+        }
+#endif
         /// <summary>The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1475,7 +1489,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("surname", value); }
         }
 #endif
-        /// <summary>The teamwork property</summary>
+        /// <summary>A container for Microsoft Teams features available for the user. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UserTeamwork? Teamwork {
@@ -1560,7 +1574,7 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new User and sets the default values.
+        /// Instantiates a new user and sets the default values.
         /// </summary>
         public User() : base() {
             OdataType = "#microsoft.graph.user";
@@ -1677,6 +1691,7 @@ namespace Microsoft.Graph.Models {
                 {"preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 {"preferredName", n => { PreferredName = n.GetStringValue(); } },
                 {"presence", n => { Presence = n.GetObjectValue<Microsoft.Graph.Models.Presence>(Microsoft.Graph.Models.Presence.CreateFromDiscriminatorValue); } },
+                {"print", n => { Print = n.GetObjectValue<UserPrint>(UserPrint.CreateFromDiscriminatorValue); } },
                 {"provisionedPlans", n => { ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"proxyAddresses", n => { ProxyAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"registeredDevices", n => { RegisteredDevices = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1806,6 +1821,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteStringValue("preferredName", PreferredName);
             writer.WriteObjectValue<Microsoft.Graph.Models.Presence>("presence", Presence);
+            writer.WriteObjectValue<UserPrint>("print", Print);
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
             writer.WriteCollectionOfPrimitiveValues<string>("proxyAddresses", ProxyAddresses);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("registeredDevices", RegisteredDevices);

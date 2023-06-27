@@ -60,7 +60,8 @@ namespace Microsoft.Graph.Sites.Item.TermStore.Groups {
             return await RequestAdapter.SendAsync<GroupCollectionResponse>(requestInfo, GroupCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to groups for sites
+        /// Create a new group object in a term store.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -107,7 +108,7 @@ namespace Microsoft.Graph.Sites.Item.TermStore.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to groups for sites
+        /// Create a new group object in a term store.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

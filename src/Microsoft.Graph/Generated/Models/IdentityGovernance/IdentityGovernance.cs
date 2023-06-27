@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Microsoft.Graph.Models {
+namespace Microsoft.Graph.Models.IdentityGovernance {
     public class IdentityGovernance : IAdditionalDataHolder, IBackedModel, IParsable {
         /// <summary>The accessReviews property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccessReviewSet? AccessReviews {
-            get { return BackingStore?.Get<AccessReviewSet?>("accessReviews"); }
+        public Microsoft.Graph.Models.AccessReviewSet? AccessReviews {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AccessReviewSet?>("accessReviews"); }
             set { BackingStore?.Set("accessReviews", value); }
         }
 #nullable restore
 #else
-        public AccessReviewSet AccessReviews {
-            get { return BackingStore?.Get<AccessReviewSet>("accessReviews"); }
+        public Microsoft.Graph.Models.AccessReviewSet AccessReviews {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AccessReviewSet>("accessReviews"); }
             set { BackingStore?.Set("accessReviews", value); }
         }
 #endif
@@ -28,14 +28,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>The appConsent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AppConsentApprovalRoute? AppConsent {
-            get { return BackingStore?.Get<AppConsentApprovalRoute?>("appConsent"); }
+        public Microsoft.Graph.Models.AppConsentApprovalRoute? AppConsent {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AppConsentApprovalRoute?>("appConsent"); }
             set { BackingStore?.Set("appConsent", value); }
         }
 #nullable restore
 #else
-        public AppConsentApprovalRoute AppConsent {
-            get { return BackingStore?.Get<AppConsentApprovalRoute>("appConsent"); }
+        public Microsoft.Graph.Models.AppConsentApprovalRoute AppConsent {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.AppConsentApprovalRoute>("appConsent"); }
             set { BackingStore?.Set("appConsent", value); }
         }
 #endif
@@ -55,6 +55,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("entitlementManagement", value); }
         }
 #endif
+        /// <summary>The lifecycleWorkflows property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public LifecycleWorkflowsContainer? LifecycleWorkflows {
+            get { return BackingStore?.Get<LifecycleWorkflowsContainer?>("lifecycleWorkflows"); }
+            set { BackingStore?.Set("lifecycleWorkflows", value); }
+        }
+#nullable restore
+#else
+        public LifecycleWorkflowsContainer LifecycleWorkflows {
+            get { return BackingStore?.Get<LifecycleWorkflowsContainer>("lifecycleWorkflows"); }
+            set { BackingStore?.Set("lifecycleWorkflows", value); }
+        }
+#endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,14 +86,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>The termsOfUse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TermsOfUseContainer? TermsOfUse {
-            get { return BackingStore?.Get<TermsOfUseContainer?>("termsOfUse"); }
+        public Microsoft.Graph.Models.TermsOfUseContainer? TermsOfUse {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.TermsOfUseContainer?>("termsOfUse"); }
             set { BackingStore?.Set("termsOfUse", value); }
         }
 #nullable restore
 #else
-        public TermsOfUseContainer TermsOfUse {
-            get { return BackingStore?.Get<TermsOfUseContainer>("termsOfUse"); }
+        public Microsoft.Graph.Models.TermsOfUseContainer TermsOfUse {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.TermsOfUseContainer>("termsOfUse"); }
             set { BackingStore?.Set("termsOfUse", value); }
         }
 #endif
@@ -103,11 +117,12 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"accessReviews", n => { AccessReviews = n.GetObjectValue<AccessReviewSet>(AccessReviewSet.CreateFromDiscriminatorValue); } },
-                {"appConsent", n => { AppConsent = n.GetObjectValue<AppConsentApprovalRoute>(AppConsentApprovalRoute.CreateFromDiscriminatorValue); } },
+                {"accessReviews", n => { AccessReviews = n.GetObjectValue<Microsoft.Graph.Models.AccessReviewSet>(Microsoft.Graph.Models.AccessReviewSet.CreateFromDiscriminatorValue); } },
+                {"appConsent", n => { AppConsent = n.GetObjectValue<Microsoft.Graph.Models.AppConsentApprovalRoute>(Microsoft.Graph.Models.AppConsentApprovalRoute.CreateFromDiscriminatorValue); } },
                 {"entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<Microsoft.Graph.Models.EntitlementManagement>(Microsoft.Graph.Models.EntitlementManagement.CreateFromDiscriminatorValue); } },
+                {"lifecycleWorkflows", n => { LifecycleWorkflows = n.GetObjectValue<LifecycleWorkflowsContainer>(LifecycleWorkflowsContainer.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"termsOfUse", n => { TermsOfUse = n.GetObjectValue<TermsOfUseContainer>(TermsOfUseContainer.CreateFromDiscriminatorValue); } },
+                {"termsOfUse", n => { TermsOfUse = n.GetObjectValue<Microsoft.Graph.Models.TermsOfUseContainer>(Microsoft.Graph.Models.TermsOfUseContainer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -116,11 +131,12 @@ namespace Microsoft.Graph.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<AccessReviewSet>("accessReviews", AccessReviews);
-            writer.WriteObjectValue<AppConsentApprovalRoute>("appConsent", AppConsent);
+            writer.WriteObjectValue<Microsoft.Graph.Models.AccessReviewSet>("accessReviews", AccessReviews);
+            writer.WriteObjectValue<Microsoft.Graph.Models.AppConsentApprovalRoute>("appConsent", AppConsent);
             writer.WriteObjectValue<Microsoft.Graph.Models.EntitlementManagement>("entitlementManagement", EntitlementManagement);
+            writer.WriteObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", LifecycleWorkflows);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TermsOfUseContainer>("termsOfUse", TermsOfUse);
+            writer.WriteObjectValue<Microsoft.Graph.Models.TermsOfUseContainer>("termsOfUse", TermsOfUse);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

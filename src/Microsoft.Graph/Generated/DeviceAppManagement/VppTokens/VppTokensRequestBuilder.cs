@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
         public VppTokensRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/vppTokens{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List of Vpp tokens for this organization.
+        /// List properties and relationships of the vppToken objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
             return await RequestAdapter.SendAsync<VppTokenCollectionResponse>(requestInfo, VppTokenCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to vppTokens for deviceAppManagement
+        /// Create a new vppToken object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
             return await RequestAdapter.SendAsync<VppToken>(requestInfo, VppToken.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// List of Vpp tokens for this organization.
+        /// List properties and relationships of the vppToken objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to vppTokens for deviceAppManagement
+        /// Create a new vppToken object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
             return requestInfo;
         }
         /// <summary>
-        /// List of Vpp tokens for this organization.
+        /// List properties and relationships of the vppToken objects.
         /// </summary>
         public class VppTokensRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

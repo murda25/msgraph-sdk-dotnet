@@ -190,7 +190,8 @@ namespace Microsoft.Graph.DeviceManagement {
         public DeviceManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get deviceManagement
+        /// Read properties and relationships of the deviceManagement object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-tem-devicemanagement-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -217,7 +218,8 @@ namespace Microsoft.Graph.DeviceManagement {
             return new GetEffectivePermissionsWithScopeRequestBuilder(PathParameters, RequestAdapter, scope);
         }
         /// <summary>
-        /// Update deviceManagement
+        /// Update the properties of a deviceManagement object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-enrollment-devicemanagement-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -238,7 +240,7 @@ namespace Microsoft.Graph.DeviceManagement {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DeviceManagement>(requestInfo, Microsoft.Graph.Models.DeviceManagement.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get deviceManagement
+        /// Read properties and relationships of the deviceManagement object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -264,7 +266,7 @@ namespace Microsoft.Graph.DeviceManagement {
             return requestInfo;
         }
         /// <summary>
-        /// Update deviceManagement
+        /// Update the properties of a deviceManagement object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -300,7 +302,7 @@ namespace Microsoft.Graph.DeviceManagement {
             return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
         }
         /// <summary>
-        /// Get deviceManagement
+        /// Read properties and relationships of the deviceManagement object.
         /// </summary>
         public class DeviceManagementRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

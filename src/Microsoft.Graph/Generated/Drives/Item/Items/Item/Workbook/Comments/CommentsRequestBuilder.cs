@@ -40,7 +40,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments {
         public CommentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments {
             return await RequestAdapter.SendAsync<WorkbookComment>(requestInfo, WorkbookComment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments {
             return requestInfo;
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         public class CommentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

@@ -27,7 +27,8 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetConfigurationSettingNonCom
         public GetConfigurationSettingNonComplianceReportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/reports/getConfigurationSettingNonComplianceReport", rawUrl) {
         }
         /// <summary>
-        /// Invoke action getConfigurationSettingNonComplianceReport
+        /// Not yet documented
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getconfigurationsettingnoncompliancereport?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetConfigurationSettingNonCom
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action getConfigurationSettingNonComplianceReport
+        /// Not yet documented
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

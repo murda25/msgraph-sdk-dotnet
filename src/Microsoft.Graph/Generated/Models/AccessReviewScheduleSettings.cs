@@ -85,6 +85,25 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The recommendationInsightSettings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AccessReviewRecommendationInsightSetting>? RecommendationInsightSettings {
+            get { return BackingStore?.Get<List<AccessReviewRecommendationInsightSetting>?>("recommendationInsightSettings"); }
+            set { BackingStore?.Set("recommendationInsightSettings", value); }
+        }
+#nullable restore
+#else
+        public List<AccessReviewRecommendationInsightSetting> RecommendationInsightSettings {
+            get { return BackingStore?.Get<List<AccessReviewRecommendationInsightSetting>>("recommendationInsightSettings"); }
+            set { BackingStore?.Set("recommendationInsightSettings", value); }
+        }
+#endif
+        /// <summary>The recommendationLookBackDuration property</summary>
+        public TimeSpan? RecommendationLookBackDuration {
+            get { return BackingStore?.Get<TimeSpan?>("recommendationLookBackDuration"); }
+            set { BackingStore?.Set("recommendationLookBackDuration", value); }
+        }
         /// <summary>Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.</summary>
         public bool? RecommendationsEnabled {
             get { return BackingStore?.Get<bool?>("recommendationsEnabled"); }
@@ -138,6 +157,8 @@ namespace Microsoft.Graph.Models {
                 {"justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
                 {"mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"recommendationLookBackDuration", n => { RecommendationLookBackDuration = n.GetTimeSpanValue(); } },
                 {"recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
                 {"recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
                 {"reminderNotificationsEnabled", n => { ReminderNotificationsEnabled = n.GetBoolValue(); } },
@@ -158,6 +179,8 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("justificationRequiredOnApproval", JustificationRequiredOnApproval);
             writer.WriteBoolValue("mailNotificationsEnabled", MailNotificationsEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", RecommendationInsightSettings);
+            writer.WriteTimeSpanValue("recommendationLookBackDuration", RecommendationLookBackDuration);
             writer.WriteBoolValue("recommendationsEnabled", RecommendationsEnabled);
             writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
             writer.WriteBoolValue("reminderNotificationsEnabled", ReminderNotificationsEnabled);

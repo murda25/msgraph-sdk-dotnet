@@ -38,7 +38,8 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
         public RemoteAssistancePartnerItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property remoteAssistancePartners for deviceManagement
+        /// Deletes a remoteAssistancePartner.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -57,7 +58,8 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The remote assist partners.
+        /// Read properties and relationships of the remoteAssistancePartner object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,7 +78,8 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             return await RequestAdapter.SendAsync<RemoteAssistancePartner>(requestInfo, RemoteAssistancePartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property remoteAssistancePartners in deviceManagement
+        /// Update the properties of a remoteAssistancePartner object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -97,7 +100,7 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             return await RequestAdapter.SendAsync<RemoteAssistancePartner>(requestInfo, RemoteAssistancePartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property remoteAssistancePartners for deviceManagement
+        /// Deletes a remoteAssistancePartner.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +124,7 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The remote assist partners.
+        /// Read properties and relationships of the remoteAssistancePartner object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +150,7 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property remoteAssistancePartners in deviceManagement
+        /// Update the properties of a remoteAssistancePartner object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -191,7 +194,7 @@ namespace Microsoft.Graph.DeviceManagement.RemoteAssistancePartners.Item {
             }
         }
         /// <summary>
-        /// The remote assist partners.
+        /// Read properties and relationships of the remoteAssistancePartner object.
         /// </summary>
         public class RemoteAssistancePartnerItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

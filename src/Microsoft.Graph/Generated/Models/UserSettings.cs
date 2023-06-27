@@ -5,12 +5,12 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class UserSettings : Entity, IParsable {
-        /// <summary>The contributionToContentDiscoveryAsOrganizationDisabled property</summary>
+        /// <summary>Reflects the organization level setting controlling delegate access to the trending API. When set to true, the organization doesn&apos;t have access to Office Delve. The relevancy of the content displayed in Microsoft 365, for example in Suggested sites in SharePoint Home and the Discover view in OneDrive for Business is affected for the whole organization. This setting is read-only and can only be changed by administrators in the SharePoint admin center.</summary>
         public bool? ContributionToContentDiscoveryAsOrganizationDisabled {
             get { return BackingStore?.Get<bool?>("contributionToContentDiscoveryAsOrganizationDisabled"); }
             set { BackingStore?.Set("contributionToContentDiscoveryAsOrganizationDisabled", value); }
         }
-        /// <summary>The contributionToContentDiscoveryDisabled property</summary>
+        /// <summary>When set to true, the delegate access to the user&apos;s trending API is disabled. When set to true, documents in the user&apos;s Office Delve are disabled. When set to true, the relevancy of the content displayed in Microsoft 365, for example in Suggested sites in SharePoint Home and the Discover view in OneDrive for Business is affected. Users can control this setting in Office Delve.</summary>
         public bool? ContributionToContentDiscoveryDisabled {
             get { return BackingStore?.Get<bool?>("contributionToContentDiscoveryDisabled"); }
             set { BackingStore?.Set("contributionToContentDiscoveryDisabled", value); }
