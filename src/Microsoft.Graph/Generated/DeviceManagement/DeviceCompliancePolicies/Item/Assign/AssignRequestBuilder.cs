@@ -27,7 +27,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assign 
         public AssignRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/assign", rawUrl) {
         }
         /// <summary>
-        /// Invoke action assign
+        /// Not yet documented
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-assign?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assign 
             return await RequestAdapter.SendAsync<AssignResponse>(requestInfo, AssignResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action assign
+        /// Not yet documented
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

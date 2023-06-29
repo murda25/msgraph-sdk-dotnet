@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
         public SettingStateDeviceSummaryItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/deviceSettingStateSummaries/{settingStateDeviceSummary%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property deviceSettingStateSummaries for deviceManagement
+        /// Deletes a settingStateDeviceSummary.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Device Configuration Setting State Device Summary
+        /// Read properties and relationships of the settingStateDeviceSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, SettingStateDeviceSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property deviceSettingStateSummaries in deviceManagement
+        /// Update the properties of a settingStateDeviceSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, SettingStateDeviceSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property deviceSettingStateSummaries for deviceManagement
+        /// Deletes a settingStateDeviceSummary.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             return requestInfo;
         }
         /// <summary>
-        /// Device Configuration Setting State Device Summary
+        /// Read properties and relationships of the settingStateDeviceSummary object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceSettingStateSummaries in deviceManagement
+        /// Update the properties of a settingStateDeviceSummary object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceSetti
             }
         }
         /// <summary>
-        /// Device Configuration Setting State Device Summary
+        /// Read properties and relationships of the settingStateDeviceSummary object.
         /// </summary>
         public class SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

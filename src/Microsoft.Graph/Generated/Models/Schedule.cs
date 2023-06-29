@@ -10,7 +10,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("enabled"); }
             set { BackingStore?.Set("enabled", value); }
         }
-        /// <summary>The offerShiftRequests property</summary>
+        /// <summary>The offer requests for shifts in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OfferShiftRequest>? OfferShiftRequests {
@@ -109,7 +109,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("shifts", value); }
         }
 #endif
-        /// <summary>The swapShiftsChangeRequests property</summary>
+        /// <summary>The swap requests for shifts in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<SwapShiftsChangeRequest>? SwapShiftsChangeRequests {
@@ -147,7 +147,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("timeOffReasons", value); }
         }
 #endif
-        /// <summary>The timeOffRequests property</summary>
+        /// <summary>The time off requests in the schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<TimeOffRequest>? TimeOffRequests {

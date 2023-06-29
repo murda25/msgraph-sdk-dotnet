@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
         public DeviceComplianceSettingStateItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary%2Did}/deviceComplianceSettingStates/{deviceComplianceSettingState%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property deviceComplianceSettingStates for deviceManagement
+        /// Deletes a deviceComplianceSettingState.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Not yet documented
+        /// Read properties and relationships of the deviceComplianceSettingState object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             return await RequestAdapter.SendAsync<DeviceComplianceSettingState>(requestInfo, DeviceComplianceSettingState.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property deviceComplianceSettingStates in deviceManagement
+        /// Update the properties of a deviceComplianceSettingState object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             return await RequestAdapter.SendAsync<DeviceComplianceSettingState>(requestInfo, DeviceComplianceSettingState.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property deviceComplianceSettingStates for deviceManagement
+        /// Deletes a deviceComplianceSettingState.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             return requestInfo;
         }
         /// <summary>
-        /// Not yet documented
+        /// Read properties and relationships of the deviceComplianceSettingState object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceComplianceSettingStates in deviceManagement
+        /// Update the properties of a deviceComplianceSettingState object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             }
         }
         /// <summary>
-        /// Not yet documented
+        /// Read properties and relationships of the deviceComplianceSettingState object.
         /// </summary>
         public class DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -52,7 +52,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Comments.Item {
             }
         }
         /// <summary>
-        /// Get comments from drives
+        /// Represents a collection of comments in a workbook.
         /// </summary>
         public class WorkbookCommentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

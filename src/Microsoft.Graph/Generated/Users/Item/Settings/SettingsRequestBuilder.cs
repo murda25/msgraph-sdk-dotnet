@@ -72,7 +72,8 @@ namespace Microsoft.Graph.Users.Item.Settings {
             return await RequestAdapter.SendAsync<UserSettings>(requestInfo, UserSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property settings in users
+        /// Update the properties of the userSettings object. Users in the same organization can have different settings based on their preference or on the organization policies. To get the user current settings, see current user settings. 
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/usersettings-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -143,7 +144,7 @@ namespace Microsoft.Graph.Users.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property settings in users
+        /// Update the properties of the userSettings object. Users in the same organization can have different settings based on their preference or on the organization policies. To get the user current settings, see current user settings. 
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

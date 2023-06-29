@@ -57,8 +57,22 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("printer", value); }
         }
 #endif
+        /// <summary>Additional data for a printer share as viewed by the signed-in user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PrinterShareViewpoint? ViewPoint {
+            get { return BackingStore?.Get<PrinterShareViewpoint?>("viewPoint"); }
+            set { BackingStore?.Set("viewPoint", value); }
+        }
+#nullable restore
+#else
+        public PrinterShareViewpoint ViewPoint {
+            get { return BackingStore?.Get<PrinterShareViewpoint>("viewPoint"); }
+            set { BackingStore?.Set("viewPoint", value); }
+        }
+#endif
         /// <summary>
-        /// Instantiates a new printerShare and sets the default values.
+        /// Instantiates a new PrinterShare and sets the default values.
         /// </summary>
         public PrinterShare() : base() {
             OdataType = "#microsoft.graph.printerShare";
@@ -81,6 +95,7 @@ namespace Microsoft.Graph.Models {
                 {"allowedUsers", n => { AllowedUsers = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"printer", n => { Printer = n.GetObjectValue<Microsoft.Graph.Models.Printer>(Microsoft.Graph.Models.Printer.CreateFromDiscriminatorValue); } },
+                {"viewPoint", n => { ViewPoint = n.GetObjectValue<PrinterShareViewpoint>(PrinterShareViewpoint.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -95,6 +110,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<User>("allowedUsers", AllowedUsers);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<Microsoft.Graph.Models.Printer>("printer", Printer);
+            writer.WriteObjectValue<PrinterShareViewpoint>("viewPoint", ViewPoint);
         }
     }
 }

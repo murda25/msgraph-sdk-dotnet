@@ -27,7 +27,8 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetCachedReport {
         public GetCachedReportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/reports/getCachedReport", rawUrl) {
         }
         /// <summary>
-        /// Invoke action getCachedReport
+        /// Not yet documented
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcachedreport?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetCachedReport {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action getCachedReport
+        /// Not yet documented
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

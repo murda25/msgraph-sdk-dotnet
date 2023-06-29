@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
         public AssignmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The collection of assignments for this compliance policy.
+        /// List properties and relationships of the deviceCompliancePolicyAssignment objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
             return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignmentCollectionResponse>(requestInfo, DeviceCompliancePolicyAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to assignments for deviceManagement
+        /// Create a new deviceCompliancePolicyAssignment object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
             return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignment>(requestInfo, DeviceCompliancePolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The collection of assignments for this compliance policy.
+        /// List properties and relationships of the deviceCompliancePolicyAssignment objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to assignments for deviceManagement
+        /// Create a new deviceCompliancePolicyAssignment object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
             return requestInfo;
         }
         /// <summary>
-        /// The collection of assignments for this compliance policy.
+        /// List properties and relationships of the deviceCompliancePolicyAssignment objects.
         /// </summary>
         public class AssignmentsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

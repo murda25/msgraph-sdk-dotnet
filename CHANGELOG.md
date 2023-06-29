@@ -7,6 +7,14 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.16.0] - 2023-06-27
+
+- Fixes missing `Model` query parameter for Channels.GetAllMessages (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1979)
+- Fixes missing `StartDateTime` and `EndDateTime` query parameters for Event delta functions (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1860)
+- Fixes missing `PostAsync()` method for AdministrativeUnits[""].Members (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1828)
+- Fixes stream buffering for Stream response (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1954)
+- Latest metadata updates from 27th June 2023
+
 ## [5.15.0] - 2023-06-21
 
 - Fixes incorrect naming for the InnerError property in MainError (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1916)

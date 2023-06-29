@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
         public AppsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List of apps to which the policy is deployed.
+        /// List properties and relationships of the managedMobileApp objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
             return await RequestAdapter.SendAsync<ManagedMobileAppCollectionResponse>(requestInfo, ManagedMobileAppCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to apps for deviceAppManagement
+        /// Create a new managedMobileApp object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
             return await RequestAdapter.SendAsync<ManagedMobileApp>(requestInfo, ManagedMobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// List of apps to which the policy is deployed.
+        /// List properties and relationships of the managedMobileApp objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to apps for deviceAppManagement
+        /// Create a new managedMobileApp object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
             return requestInfo;
         }
         /// <summary>
-        /// List of apps to which the policy is deployed.
+        /// List properties and relationships of the managedMobileApp objects.
         /// </summary>
         public class AppsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

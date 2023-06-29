@@ -62,7 +62,7 @@ namespace Microsoft.Graph.Users.Item.Teamwork {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get teamwork from users
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Users.Item.Teamwork {
             return requestInfo;
         }
         /// <summary>
-        /// Get teamwork from users
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace Microsoft.Graph.Users.Item.Teamwork {
             }
         }
         /// <summary>
-        /// Get teamwork from users
+        /// A container for Microsoft Teams features available for the user. Read-only. Nullable.
         /// </summary>
         public class TeamworkRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
