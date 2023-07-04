@@ -1,3 +1,4 @@
+using Microsoft.Graph.EmployeeExperience.LearningCourseActivities;
 using Microsoft.Graph.EmployeeExperience.LearningProviders;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -14,6 +15,10 @@ namespace Microsoft.Graph.EmployeeExperience {
     /// Provides operations to manage the employeeExperience singleton.
     /// </summary>
     public class EmployeeExperienceRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.</summary>
+        public LearningCourseActivitiesRequestBuilder LearningCourseActivities { get =>
+            new LearningCourseActivitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.</summary>
         public LearningProvidersRequestBuilder LearningProviders { get =>
             new LearningProvidersRequestBuilder(PathParameters, RequestAdapter);

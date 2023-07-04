@@ -1,5 +1,6 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
+using Microsoft.Graph.Reports.AuthenticationMethods;
 using Microsoft.Graph.Reports.DailyPrintUsageByPrinter;
 using Microsoft.Graph.Reports.DailyPrintUsageByUser;
 using Microsoft.Graph.Reports.DeviceConfigurationDeviceActivity;
@@ -119,6 +120,10 @@ namespace Microsoft.Graph.Reports {
     /// Provides operations to manage the reportRoot singleton.
     /// </summary>
     public class ReportsRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.</summary>
+        public AuthenticationMethodsRequestBuilder AuthenticationMethods { get =>
+            new AuthenticationMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.</summary>
         public DailyPrintUsageByPrinterRequestBuilder DailyPrintUsageByPrinter { get =>
             new DailyPrintUsageByPrinterRequestBuilder(PathParameters, RequestAdapter);

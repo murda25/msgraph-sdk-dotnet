@@ -8,6 +8,7 @@ using Microsoft.Graph.Security.Incidents;
 using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
+using Microsoft.Graph.Security.ThreatIntelligence;
 using Microsoft.Graph.Security.TriggerTypes;
 using Microsoft.Graph.Security.Triggers;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -54,6 +55,10 @@ namespace Microsoft.Graph.Security {
         /// <summary>Provides operations to manage the secureScores property of the microsoft.graph.security entity.</summary>
         public SecureScoresRequestBuilder SecureScores { get =>
             new SecureScoresRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.</summary>
+        public ThreatIntelligenceRequestBuilder ThreatIntelligence { get =>
+            new ThreatIntelligenceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the triggers property of the microsoft.graph.security entity.</summary>
         public TriggersRequestBuilder Triggers { get =>

@@ -321,6 +321,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("lastSyncDateTime"); }
             set { BackingStore?.Set("lastSyncDateTime", value); }
         }
+        /// <summary>List of log collection requests</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceLogCollectionResponse>? LogCollectionRequests {
+            get { return BackingStore?.Get<List<DeviceLogCollectionResponse>?>("logCollectionRequests"); }
+            set { BackingStore?.Set("logCollectionRequests", value); }
+        }
+#nullable restore
+#else
+        public List<DeviceLogCollectionResponse> LogCollectionRequests {
+            get { return BackingStore?.Get<List<DeviceLogCollectionResponse>>("logCollectionRequests"); }
+            set { BackingStore?.Set("logCollectionRequests", value); }
+        }
+#endif
         /// <summary>Automatically generated name to identify a device. Can be overwritten to a user friendly name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -608,6 +622,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("wiFiMacAddress", value); }
         }
 #endif
+        /// <summary>The device protection status. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.WindowsProtectionState? WindowsProtectionState {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.WindowsProtectionState?>("windowsProtectionState"); }
+            set { BackingStore?.Set("windowsProtectionState", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.WindowsProtectionState WindowsProtectionState {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.WindowsProtectionState>("windowsProtectionState"); }
+            set { BackingStore?.Set("windowsProtectionState", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -653,6 +681,7 @@ namespace Microsoft.Graph.Models {
                 {"isSupervised", n => { IsSupervised = n.GetBoolValue(); } },
                 {"jailBroken", n => { JailBroken = n.GetStringValue(); } },
                 {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                {"logCollectionRequests", n => { LogCollectionRequests = n.GetCollectionOfObjectValues<DeviceLogCollectionResponse>(DeviceLogCollectionResponse.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
                 {"managedDeviceOwnerType", n => { ManagedDeviceOwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
                 {"managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
@@ -678,6 +707,7 @@ namespace Microsoft.Graph.Models {
                 {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
                 {"users", n => { Users = n.GetCollectionOfObjectValues<User>(User.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"wiFiMacAddress", n => { WiFiMacAddress = n.GetStringValue(); } },
+                {"windowsProtectionState", n => { WindowsProtectionState = n.GetObjectValue<Microsoft.Graph.Models.WindowsProtectionState>(Microsoft.Graph.Models.WindowsProtectionState.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -695,12 +725,14 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<DeviceRegistrationState>("deviceRegistrationState", DeviceRegistrationState);
             writer.WriteEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", ExchangeAccessState);
             writer.WriteEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", ExchangeAccessStateReason);
+            writer.WriteCollectionOfObjectValues<DeviceLogCollectionResponse>("logCollectionRequests", LogCollectionRequests);
             writer.WriteStringValue("managedDeviceName", ManagedDeviceName);
             writer.WriteEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", ManagedDeviceOwnerType);
             writer.WriteEnumValue<ManagementAgentType>("managementAgent", ManagementAgent);
             writer.WriteStringValue("notes", Notes);
             writer.WriteEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", PartnerReportedThreatState);
             writer.WriteCollectionOfObjectValues<User>("users", Users);
+            writer.WriteObjectValue<Microsoft.Graph.Models.WindowsProtectionState>("windowsProtectionState", WindowsProtectionState);
         }
     }
 }
