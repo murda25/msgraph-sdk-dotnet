@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.17.0] - 2023-07-05
+
+- Fixes missing odata cast path for `roomList` in places API.
+- Latest metadata updates from 4th July 2023.
+
 ## [5.16.0] - 2023-06-27
 
 - Fixes missing `Model` query parameter for Channels.GetAllMessages (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1979)

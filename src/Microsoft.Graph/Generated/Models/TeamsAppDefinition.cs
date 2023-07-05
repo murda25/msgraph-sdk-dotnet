@@ -5,6 +5,20 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class TeamsAppDefinition : Entity, IParsable {
+        /// <summary>The authorization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public TeamsAppAuthorization? Authorization {
+            get { return BackingStore?.Get<TeamsAppAuthorization?>("authorization"); }
+            set { BackingStore?.Set("authorization", value); }
+        }
+#nullable restore
+#else
+        public TeamsAppAuthorization Authorization {
+            get { return BackingStore?.Get<TeamsAppAuthorization>("authorization"); }
+            set { BackingStore?.Set("authorization", value); }
+        }
+#endif
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +140,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"authorization", n => { Authorization = n.GetObjectValue<TeamsAppAuthorization>(TeamsAppAuthorization.CreateFromDiscriminatorValue); } },
                 {"bot", n => { Bot = n.GetObjectValue<TeamworkBot>(TeamworkBot.CreateFromDiscriminatorValue); } },
                 {"createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
                 {"description", n => { Description = n.GetStringValue(); } },
@@ -144,6 +159,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<TeamsAppAuthorization>("authorization", Authorization);
             writer.WriteObjectValue<TeamworkBot>("bot", Bot);
             writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
             writer.WriteStringValue("description", Description);

@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class GovernanceInsight : Entity, IParsable {
-        /// <summary>The insightCreatedDateTime property</summary>
+        /// <summary>Indicates when the insight was created.</summary>
         public DateTimeOffset? InsightCreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("insightCreatedDateTime"); }
             set { BackingStore?.Set("insightCreatedDateTime", value); }
@@ -18,6 +18,7 @@ namespace Microsoft.Graph.Models {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch {
+                "#microsoft.graph.membershipOutlierInsight" => new MembershipOutlierInsight(),
                 "#microsoft.graph.userSignInInsight" => new UserSignInInsight(),
                 _ => new GovernanceInsight(),
             };

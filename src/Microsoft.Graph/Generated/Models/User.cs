@@ -431,6 +431,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("drives", value); }
         }
 #endif
+        /// <summary>The employeeExperience property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public EmployeeExperienceUser? EmployeeExperience {
+            get { return BackingStore?.Get<EmployeeExperienceUser?>("employeeExperience"); }
+            set { BackingStore?.Set("employeeExperience", value); }
+        }
+#nullable restore
+#else
+        public EmployeeExperienceUser EmployeeExperience {
+            get { return BackingStore?.Get<EmployeeExperienceUser>("employeeExperience"); }
+            set { BackingStore?.Set("employeeExperience", value); }
+        }
+#endif
         /// <summary>The date and time when the user was hired or will start work in case of a future hire. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).</summary>
         public DateTimeOffset? EmployeeHireDate {
             get { return BackingStore?.Get<DateTimeOffset?>("employeeHireDate"); }
@@ -1625,6 +1639,7 @@ namespace Microsoft.Graph.Models {
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"drive", n => { Drive = n.GetObjectValue<Microsoft.Graph.Models.Drive>(Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue); } },
                 {"drives", n => { Drives = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Drive>(Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"employeeExperience", n => { EmployeeExperience = n.GetObjectValue<EmployeeExperienceUser>(EmployeeExperienceUser.CreateFromDiscriminatorValue); } },
                 {"employeeHireDate", n => { EmployeeHireDate = n.GetDateTimeOffsetValue(); } },
                 {"employeeId", n => { EmployeeId = n.GetStringValue(); } },
                 {"employeeLeaveDateTime", n => { EmployeeLeaveDateTime = n.GetDateTimeOffsetValue(); } },
@@ -1755,6 +1770,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<Microsoft.Graph.Models.Drive>("drive", Drive);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.Drive>("drives", Drives);
+            writer.WriteObjectValue<EmployeeExperienceUser>("employeeExperience", EmployeeExperience);
             writer.WriteDateTimeOffsetValue("employeeHireDate", EmployeeHireDate);
             writer.WriteStringValue("employeeId", EmployeeId);
             writer.WriteDateTimeOffsetValue("employeeLeaveDateTime", EmployeeLeaveDateTime);

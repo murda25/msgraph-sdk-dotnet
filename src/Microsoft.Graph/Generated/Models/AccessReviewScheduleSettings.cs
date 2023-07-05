@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The recommendationInsightSettings property</summary>
+        /// <summary>Optional. Describes the types of insights that aid reviewers to make access review decisions. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationInsightSettings setting will be used instead of the value of this property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessReviewRecommendationInsightSetting>? RecommendationInsightSettings {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("recommendationInsightSettings", value); }
         }
 #endif
-        /// <summary>The recommendationLookBackDuration property</summary>
+        /// <summary>Optional field. Indicates the period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look-back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationLookBackDuration setting will be used instead of the value of this property.</summary>
         public TimeSpan? RecommendationLookBackDuration {
             get { return BackingStore?.Get<TimeSpan?>("recommendationLookBackDuration"); }
             set { BackingStore?.Set("recommendationLookBackDuration", value); }
