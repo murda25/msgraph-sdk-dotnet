@@ -1,6 +1,7 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Places.Item.GraphRoom;
+using Microsoft.Graph.Places.Item.GraphRoomList;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ namespace Microsoft.Graph.Places.Item {
         /// <summary>Casts the previous resource to room.</summary>
         public GraphRoomRequestBuilder GraphRoom { get =>
             new GraphRoomRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to roomList.</summary>
+        public GraphRoomListRequestBuilder GraphRoomList { get =>
+            new GraphRoomListRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new PlaceItemRequestBuilder and sets the default values.

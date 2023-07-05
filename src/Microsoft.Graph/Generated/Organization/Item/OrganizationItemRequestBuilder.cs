@@ -92,8 +92,8 @@ namespace Microsoft.Graph.Organization.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read properties and relationships of the organization object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-organization-get?view=graph-rest-1.0" />
+        /// Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/organization-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -158,7 +158,7 @@ namespace Microsoft.Graph.Organization.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the organization object.
+        /// Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -228,7 +228,7 @@ namespace Microsoft.Graph.Organization.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the organization object.
+        /// Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
         /// </summary>
         public class OrganizationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

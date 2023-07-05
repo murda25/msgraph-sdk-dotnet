@@ -8,6 +8,7 @@ using Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceCompliancePolicyState
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceConfigurationStates;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.DisableLostMode;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.LocateDevice;
+using Microsoft.Graph.Users.Item.ManagedDevices.Item.LogCollectionRequests;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.RebootNow;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.RecoverPasscode;
@@ -21,6 +22,7 @@ using Microsoft.Graph.Users.Item.ManagedDevices.Item.UpdateWindowsDeviceAccount;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.Users;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsDefenderScan;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
+using Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState;
 using Microsoft.Graph.Users.Item.ManagedDevices.Item.Wipe;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -66,6 +68,10 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item {
         /// <summary>Provides operations to call the locateDevice method.</summary>
         public LocateDeviceRequestBuilder LocateDevice { get =>
             new LocateDeviceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.</summary>
+        public LogCollectionRequestsRequestBuilder LogCollectionRequests { get =>
+            new LogCollectionRequestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the logoutSharedAppleDeviceActiveUser method.</summary>
         public LogoutSharedAppleDeviceActiveUserRequestBuilder LogoutSharedAppleDeviceActiveUser { get =>
@@ -118,6 +124,10 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item {
         /// <summary>Provides operations to call the windowsDefenderUpdateSignatures method.</summary>
         public WindowsDefenderUpdateSignaturesRequestBuilder WindowsDefenderUpdateSignatures { get =>
             new WindowsDefenderUpdateSignaturesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.</summary>
+        public WindowsProtectionStateRequestBuilder WindowsProtectionState { get =>
+            new WindowsProtectionStateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the wipe method.</summary>
         public WipeRequestBuilder Wipe { get =>

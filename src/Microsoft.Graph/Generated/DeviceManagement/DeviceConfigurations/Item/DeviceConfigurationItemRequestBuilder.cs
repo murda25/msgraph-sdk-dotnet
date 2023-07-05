@@ -64,8 +64,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-delete?view=graph-rest-1.0" />
+        /// Deletes a editionUpgradeConfiguration.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-editionupgradeconfiguration-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -84,8 +84,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read properties and relationships of the sharedPCConfiguration object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-sharedpcconfiguration-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the androidGeneralDeviceConfiguration object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-androidgeneraldeviceconfiguration-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,8 +112,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(PathParameters, RequestAdapter, secretReferenceValueId);
         }
         /// <summary>
-        /// Update the properties of a androidCustomConfiguration object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-androidcustomconfiguration-update?view=graph-rest-1.0" />
+        /// Update the properties of a sharedPCConfiguration object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-sharedpcconfiguration-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, DeviceConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
+        /// Deletes a editionUpgradeConfiguration.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -158,7 +158,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the sharedPCConfiguration object.
+        /// Read properties and relationships of the androidGeneralDeviceConfiguration object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a androidCustomConfiguration object.
+        /// Update the properties of a sharedPCConfiguration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +228,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the sharedPCConfiguration object.
+        /// Read properties and relationships of the androidGeneralDeviceConfiguration object.
         /// </summary>
         public class DeviceConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

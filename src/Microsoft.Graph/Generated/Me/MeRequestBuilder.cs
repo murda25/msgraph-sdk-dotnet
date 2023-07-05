@@ -18,6 +18,7 @@ using Microsoft.Graph.Me.DeviceManagementTroubleshootingEvents;
 using Microsoft.Graph.Me.DirectReports;
 using Microsoft.Graph.Me.Drive;
 using Microsoft.Graph.Me.Drives;
+using Microsoft.Graph.Me.EmployeeExperience;
 using Microsoft.Graph.Me.Events;
 using Microsoft.Graph.Me.ExportDeviceAndAppManagementData;
 using Microsoft.Graph.Me.ExportDeviceAndAppManagementDataWithSkipWithTop;
@@ -161,6 +162,10 @@ namespace Microsoft.Graph.Me {
         /// <summary>Provides operations to manage the drives property of the microsoft.graph.user entity.</summary>
         public DrivesRequestBuilder Drives { get =>
             new DrivesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.</summary>
+        public EmployeeExperienceRequestBuilder EmployeeExperience { get =>
+            new EmployeeExperienceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the events property of the microsoft.graph.user entity.</summary>
         public EventsRequestBuilder Events { get =>
@@ -375,8 +380,8 @@ namespace Microsoft.Graph.Me {
             return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(PathParameters, RequestAdapter, skip, top);
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0" />
+        /// Retrieve the properties and relationships of user object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -427,7 +432,7 @@ namespace Microsoft.Graph.Me {
             return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime);
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -481,7 +486,7 @@ namespace Microsoft.Graph.Me {
             return requestInfo;
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         public class MeRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

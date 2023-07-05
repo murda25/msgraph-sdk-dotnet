@@ -1,3 +1,4 @@
+using Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions.Item.Insights;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,6 +14,10 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
     /// Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
     /// </summary>
     public class AccessReviewInstanceDecisionItemItemRequestBuilder : BaseRequestBuilder {
+        /// <summary>Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.</summary>
+        public InsightsRequestBuilder Insights { get =>
+            new InsightsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new AccessReviewInstanceDecisionItemItemRequestBuilder and sets the default values.
         /// </summary>

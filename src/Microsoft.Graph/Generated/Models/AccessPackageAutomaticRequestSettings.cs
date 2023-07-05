@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The gracePeriodBeforeAccessRemoval property</summary>
+        /// <summary>The duration for which access must be retained before the target&apos;s access is revoked once they leave the allowed target scope.</summary>
         public TimeSpan? GracePeriodBeforeAccessRemoval {
             get { return BackingStore?.Get<TimeSpan?>("gracePeriodBeforeAccessRemoval"); }
             set { BackingStore?.Set("gracePeriodBeforeAccessRemoval", value); }
@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The removeAccessWhenTargetLeavesAllowedTargets property</summary>
+        /// <summary>Indicates whether automatic assignment must be removed for targets who move out of the allowed target scope.</summary>
         public bool? RemoveAccessWhenTargetLeavesAllowedTargets {
             get { return BackingStore?.Get<bool?>("removeAccessWhenTargetLeavesAllowedTargets"); }
             set { BackingStore?.Set("removeAccessWhenTargetLeavesAllowedTargets", value); }

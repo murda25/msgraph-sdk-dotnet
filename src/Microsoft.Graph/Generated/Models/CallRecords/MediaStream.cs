@@ -187,7 +187,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("wasMediaBypassed", value); }
         }
         /// <summary>
-        /// Instantiates a new MediaStream and sets the default values.
+        /// Instantiates a new mediaStream and sets the default values.
         /// </summary>
         public MediaStream() {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();

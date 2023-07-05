@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class UserSignInInsight : GovernanceInsight, IParsable {
-        /// <summary>The lastSignInDateTime property</summary>
+        /// <summary>Indicates when the user last signed in.</summary>
         public DateTimeOffset? LastSignInDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastSignInDateTime"); }
             set { BackingStore?.Set("lastSignInDateTime", value); }

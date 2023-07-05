@@ -20,6 +20,7 @@ using Microsoft.Graph.Users.Item.DeviceManagementTroubleshootingEvents;
 using Microsoft.Graph.Users.Item.DirectReports;
 using Microsoft.Graph.Users.Item.Drive;
 using Microsoft.Graph.Users.Item.Drives;
+using Microsoft.Graph.Users.Item.EmployeeExperience;
 using Microsoft.Graph.Users.Item.Events;
 using Microsoft.Graph.Users.Item.ExportDeviceAndAppManagementData;
 using Microsoft.Graph.Users.Item.ExportDeviceAndAppManagementDataWithSkipWithTop;
@@ -161,6 +162,10 @@ namespace Microsoft.Graph.Users.Item {
         /// <summary>Provides operations to manage the drives property of the microsoft.graph.user entity.</summary>
         public DrivesRequestBuilder Drives { get =>
             new DrivesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.</summary>
+        public EmployeeExperienceRequestBuilder EmployeeExperience { get =>
+            new EmployeeExperienceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the events property of the microsoft.graph.user entity.</summary>
         public EventsRequestBuilder Events { get =>
@@ -366,7 +371,7 @@ namespace Microsoft.Graph.Users.Item {
         }
         /// <summary>
         /// Deletes a user.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -395,8 +400,8 @@ namespace Microsoft.Graph.Users.Item {
             return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(PathParameters, RequestAdapter, skip, top);
         }
         /// <summary>
-        /// Read properties and relationships of the user object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0" />
+        /// Retrieve the properties and relationships of user object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -416,7 +421,7 @@ namespace Microsoft.Graph.Users.Item {
         }
         /// <summary>
         /// Update the properties of a user object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-user-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -471,7 +476,7 @@ namespace Microsoft.Graph.Users.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the user object.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -541,7 +546,7 @@ namespace Microsoft.Graph.Users.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the user object.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         public class UserItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
