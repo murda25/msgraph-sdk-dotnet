@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.19.0] - 2023-07-19
+
+- Latest metadata updates from 18th July 2023.
+
 ## [5.18.0] - 2023-07-12
 
 - Fixes missing odata cast paths for `Directory Role` in `memberOf` and `transitiveMemberOf`(https://github.com/microsoftgraph/msgraph-metadata/issues/372).
