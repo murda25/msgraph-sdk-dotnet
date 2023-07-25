@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class SubscribedSku : Entity, IParsable {
-        /// <summary>The accountId property</summary>
+        /// <summary>The unique ID of the account this SKU belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccountId {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("accountId", value); }
         }
 #endif
-        /// <summary>The accountName property</summary>
+        /// <summary>The name of the account this SKU belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccountName {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("accountName", value); }
         }
 #endif
-        /// <summary>For example, &apos;User&apos; or &apos;Company&apos;.</summary>
+        /// <summary>The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: &apos;User&apos;, &apos;Company&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppliesTo {
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("appliesTo", value); }
         }
 #endif
-        /// <summary>Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.</summary>
+        /// <summary>Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer cancelled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CapabilityStatus {
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("prepaidUnits", value); }
         }
 #endif
-        /// <summary>Information about the service plans that are available with the SKU. Not nullable</summary>
+        /// <summary>Information about the service plans that are available with the SKU. Not nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ServicePlanInfo>? ServicePlans {

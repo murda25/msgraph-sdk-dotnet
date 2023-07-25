@@ -27,7 +27,8 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerS
         public GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles", rawUrl) {
         }
         /// <summary>
-        /// Invoke action getDeviceManagementIntentPerSettingContributingProfiles
+        /// Not yet documented
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicemanagementintentpersettingcontributingprofiles?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.Reports.GetDeviceManagementIntentPerS
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Invoke action getDeviceManagementIntentPerSettingContributingProfiles
+        /// Not yet documented
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

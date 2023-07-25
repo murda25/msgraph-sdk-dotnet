@@ -55,6 +55,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The servicePrincipalFilter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessFilter? ServicePrincipalFilter {
+            get { return BackingStore?.Get<ConditionalAccessFilter?>("servicePrincipalFilter"); }
+            set { BackingStore?.Set("servicePrincipalFilter", value); }
+        }
+#nullable restore
+#else
+        public ConditionalAccessFilter ServicePrincipalFilter {
+            get { return BackingStore?.Get<ConditionalAccessFilter>("servicePrincipalFilter"); }
+            set { BackingStore?.Set("servicePrincipalFilter", value); }
+        }
+#endif
         /// <summary>
         /// Instantiates a new conditionalAccessClientApplications and sets the default values.
         /// </summary>
@@ -78,6 +92,7 @@ namespace Microsoft.Graph.Models {
                 {"excludeServicePrincipals", n => { ExcludeServicePrincipals = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"includeServicePrincipals", n => { IncludeServicePrincipals = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"servicePrincipalFilter", n => { ServicePrincipalFilter = n.GetObjectValue<ConditionalAccessFilter>(ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,6 +104,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfPrimitiveValues<string>("excludeServicePrincipals", ExcludeServicePrincipals);
             writer.WriteCollectionOfPrimitiveValues<string>("includeServicePrincipals", IncludeServicePrincipals);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteObjectValue<ConditionalAccessFilter>("servicePrincipalFilter", ServicePrincipalFilter);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

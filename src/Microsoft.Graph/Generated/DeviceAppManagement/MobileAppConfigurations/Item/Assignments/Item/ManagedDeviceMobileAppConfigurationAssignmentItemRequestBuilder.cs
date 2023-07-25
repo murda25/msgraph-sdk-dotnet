@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
         public ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property assignments for deviceAppManagement
+        /// Deletes a managedDeviceMobileAppConfigurationAssignment.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The list of group assignemenets for app configration.
+        /// Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationAssignment>(requestInfo, ManagedDeviceMobileAppConfigurationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property assignments in deviceAppManagement
+        /// Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationAssignment>(requestInfo, ManagedDeviceMobileAppConfigurationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property assignments for deviceAppManagement
+        /// Deletes a managedDeviceMobileAppConfigurationAssignment.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             return requestInfo;
         }
         /// <summary>
-        /// The list of group assignemenets for app configration.
+        /// Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property assignments in deviceAppManagement
+        /// Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             }
         }
         /// <summary>
-        /// The list of group assignemenets for app configration.
+        /// Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
         /// </summary>
         public class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -52,7 +52,8 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState 
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The device protection status. This property is read-only.
+        /// Read properties and relationships of the windowsProtectionState object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,7 +72,8 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState 
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.WindowsProtectionState>(requestInfo, Microsoft.Graph.Models.WindowsProtectionState.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property windowsProtectionState in users
+        /// Update the properties of a windowsProtectionState object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -116,7 +118,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState 
             return requestInfo;
         }
         /// <summary>
-        /// The device protection status. This property is read-only.
+        /// Read properties and relationships of the windowsProtectionState object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,7 +144,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState 
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property windowsProtectionState in users
+        /// Update the properties of a windowsProtectionState object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -186,7 +188,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.WindowsProtectionState 
             }
         }
         /// <summary>
-        /// The device protection status. This property is read-only.
+        /// Read properties and relationships of the windowsProtectionState object.
         /// </summary>
         public class WindowsProtectionStateRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
