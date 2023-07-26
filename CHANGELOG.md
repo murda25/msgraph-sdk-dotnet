@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.20.0] - 2023-07-26
+
+- Fixes/removes incorrect `Localizations` entitySet/path/request builder in the GraphServiceClient
+- Latest metadata updates from 25th July 2023.
+
 ## [5.19.0] - 2023-07-19
 
 - Latest metadata updates from 18th July 2023.
