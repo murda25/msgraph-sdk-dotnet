@@ -47,7 +47,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatu
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Device Configuration devices status overview
+        /// Read properties and relationships of the deviceConfigurationDeviceOverview object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +67,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatu
             return await RequestAdapter.SendAsync<DeviceConfigurationDeviceOverview>(requestInfo, DeviceConfigurationDeviceOverview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property deviceStatusOverview in deviceManagement
+        /// Update the properties of a deviceConfigurationDeviceOverview object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +113,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatu
             return requestInfo;
         }
         /// <summary>
-        /// Device Configuration devices status overview
+        /// Read properties and relationships of the deviceConfigurationDeviceOverview object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +139,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatu
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceStatusOverview in deviceManagement
+        /// Update the properties of a deviceConfigurationDeviceOverview object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +183,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.DeviceStatu
             }
         }
         /// <summary>
-        /// Device Configuration devices status overview
+        /// Read properties and relationships of the deviceConfigurationDeviceOverview object.
         /// </summary>
         public class DeviceStatusOverviewRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

@@ -47,7 +47,8 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Device category
+        /// Read properties and relationships of the deviceCategory object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-devicecategory-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +67,8 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DeviceCategory>(requestInfo, Microsoft.Graph.Models.DeviceCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property deviceCategory in me
+        /// Update the properties of a deviceCategory object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-devices-devicecategory-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -111,7 +113,7 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory {
             return requestInfo;
         }
         /// <summary>
-        /// Device category
+        /// Read properties and relationships of the deviceCategory object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +139,7 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deviceCategory in me
+        /// Update the properties of a deviceCategory object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +183,7 @@ namespace Microsoft.Graph.Me.ManagedDevices.Item.DeviceCategory {
             }
         }
         /// <summary>
-        /// Device category
+        /// Read properties and relationships of the deviceCategory object.
         /// </summary>
         public class DeviceCategoryRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

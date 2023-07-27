@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
         public ResourceOperationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property resourceOperations for deviceManagement
+        /// Deletes a resourceOperation.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,8 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The Resource Operations.
+        /// Read properties and relationships of the resourceOperation object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +68,8 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             return await RequestAdapter.SendAsync<ResourceOperation>(requestInfo, ResourceOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property resourceOperations in deviceManagement
+        /// Update the properties of a resourceOperation object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +90,7 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             return await RequestAdapter.SendAsync<ResourceOperation>(requestInfo, ResourceOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Delete navigation property resourceOperations for deviceManagement
+        /// Deletes a resourceOperation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +114,7 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The Resource Operations.
+        /// Read properties and relationships of the resourceOperation object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +140,7 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property resourceOperations in deviceManagement
+        /// Update the properties of a resourceOperation object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Graph.DeviceManagement.ResourceOperations.Item {
             }
         }
         /// <summary>
-        /// The Resource Operations.
+        /// Read properties and relationships of the resourceOperation object.
         /// </summary>
         public class ResourceOperationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

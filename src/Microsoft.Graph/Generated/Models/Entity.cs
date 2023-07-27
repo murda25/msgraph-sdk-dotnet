@@ -662,6 +662,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.teamsApp" => new TeamsApp(),
                 "#microsoft.graph.teamsAppDefinition" => new TeamsAppDefinition(),
                 "#microsoft.graph.teamsAppInstallation" => new TeamsAppInstallation(),
+                "#microsoft.graph.teamsAppSettings" => new TeamsAppSettings(),
                 "#microsoft.graph.teamsAsyncOperation" => new TeamsAsyncOperation(),
                 "#microsoft.graph.teamsTab" => new TeamsTab(),
                 "#microsoft.graph.teamsTemplate" => new TeamsTemplate(),

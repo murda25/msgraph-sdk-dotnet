@@ -11,6 +11,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("additionalData"); }
             set { BackingStore?.Set("additionalData", value); }
         }
+        /// <summary>The applicationFilter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ConditionalAccessFilter? ApplicationFilter {
+            get { return BackingStore?.Get<ConditionalAccessFilter?>("applicationFilter"); }
+            set { BackingStore?.Set("applicationFilter", value); }
+        }
+#nullable restore
+#else
+        public ConditionalAccessFilter ApplicationFilter {
+            get { return BackingStore?.Get<ConditionalAccessFilter>("applicationFilter"); }
+            set { BackingStore?.Set("applicationFilter", value); }
+        }
+#endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
         /// <summary>Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365</summary>
@@ -103,6 +117,7 @@ namespace Microsoft.Graph.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
+                {"applicationFilter", n => { ApplicationFilter = n.GetObjectValue<ConditionalAccessFilter>(ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
                 {"excludeApplications", n => { ExcludeApplications = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"includeApplications", n => { IncludeApplications = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"includeAuthenticationContextClassReferences", n => { IncludeAuthenticationContextClassReferences = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -116,6 +131,7 @@ namespace Microsoft.Graph.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<ConditionalAccessFilter>("applicationFilter", ApplicationFilter);
             writer.WriteCollectionOfPrimitiveValues<string>("excludeApplications", ExcludeApplications);
             writer.WriteCollectionOfPrimitiveValues<string>("includeApplications", IncludeApplications);
             writer.WriteCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", IncludeAuthenticationContextClassReferences);

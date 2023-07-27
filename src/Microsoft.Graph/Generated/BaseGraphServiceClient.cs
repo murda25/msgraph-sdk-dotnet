@@ -43,7 +43,6 @@ using Microsoft.Graph.IdentityProtection;
 using Microsoft.Graph.IdentityProviders;
 using Microsoft.Graph.InformationProtection;
 using Microsoft.Graph.Invitations;
-using Microsoft.Graph.Localizations;
 using Microsoft.Graph.Me;
 using Microsoft.Graph.Oauth2PermissionGrants;
 using Microsoft.Graph.Organization;
@@ -254,10 +253,6 @@ namespace Microsoft.Graph {
         /// <summary>Provides operations to manage the collection of invitation entities.</summary>
         public InvitationsRequestBuilder Invitations { get =>
             new InvitationsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Provides operations to manage the collection of organizationalBrandingLocalization entities.</summary>
-        public LocalizationsRequestBuilder Localizations { get =>
-            new LocalizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the user singleton.</summary>
         public MeRequestBuilder Me { get =>
