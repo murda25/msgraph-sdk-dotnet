@@ -28,7 +28,8 @@ namespace Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary {
         public SoftwareUpdateStatusSummaryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/softwareUpdateStatusSummary{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The software update status summary.
+        /// Read properties and relationships of the softwareUpdateStatusSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-deviceconfig-softwareupdatestatussummary-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +48,7 @@ namespace Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.SoftwareUpdateStatusSummary>(requestInfo, Microsoft.Graph.Models.SoftwareUpdateStatusSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The software update status summary.
+        /// Read properties and relationships of the softwareUpdateStatusSummary object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +74,7 @@ namespace Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary {
             return requestInfo;
         }
         /// <summary>
-        /// The software update status summary.
+        /// Read properties and relationships of the softwareUpdateStatusSummary object.
         /// </summary>
         public class SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

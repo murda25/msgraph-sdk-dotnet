@@ -45,7 +45,8 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations {
         public ManagedAppRegistrationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The managed app registrations.
+        /// List properties and relationships of the iosManagedAppRegistration objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -64,7 +65,8 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations {
             return await RequestAdapter.SendAsync<ManagedAppRegistrationCollectionResponse>(requestInfo, ManagedAppRegistrationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to managedAppRegistrations for deviceAppManagement
+        /// Create a new androidManagedAppRegistration object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -85,7 +87,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations {
             return await RequestAdapter.SendAsync<ManagedAppRegistration>(requestInfo, ManagedAppRegistration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The managed app registrations.
+        /// List properties and relationships of the iosManagedAppRegistration objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +113,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to managedAppRegistrations for deviceAppManagement
+        /// Create a new androidManagedAppRegistration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -139,7 +141,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations {
             return requestInfo;
         }
         /// <summary>
-        /// The managed app registrations.
+        /// List properties and relationships of the iosManagedAppRegistration objects.
         /// </summary>
         public class ManagedAppRegistrationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

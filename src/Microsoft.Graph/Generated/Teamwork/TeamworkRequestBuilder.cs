@@ -2,6 +2,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Teamwork.DeletedTeams;
 using Microsoft.Graph.Teamwork.SendActivityNotificationToRecipients;
+using Microsoft.Graph.Teamwork.TeamsAppSettings;
 using Microsoft.Graph.Teamwork.WorkforceIntegrations;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -23,6 +24,10 @@ namespace Microsoft.Graph.Teamwork {
         /// <summary>Provides operations to call the sendActivityNotificationToRecipients method.</summary>
         public SendActivityNotificationToRecipientsRequestBuilder SendActivityNotificationToRecipients { get =>
             new SendActivityNotificationToRecipientsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.</summary>
+        public TeamsAppSettingsRequestBuilder TeamsAppSettings { get =>
+            new TeamsAppSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.</summary>
         public WorkforceIntegrationsRequestBuilder WorkforceIntegrations { get =>

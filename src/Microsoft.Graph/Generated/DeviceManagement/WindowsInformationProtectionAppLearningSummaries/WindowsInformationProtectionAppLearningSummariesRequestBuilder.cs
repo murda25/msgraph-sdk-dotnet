@@ -40,7 +40,8 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearni
         public WindowsInformationProtectionAppLearningSummariesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/windowsInformationProtectionAppLearningSummaries{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The windows information protection app learning summaries.
+        /// List properties and relationships of the windowsInformationProtectionAppLearningSummary objects.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionapplearningsummary-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +60,8 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearni
             return await RequestAdapter.SendAsync<WindowsInformationProtectionAppLearningSummaryCollectionResponse>(requestInfo, WindowsInformationProtectionAppLearningSummaryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to windowsInformationProtectionAppLearningSummaries for deviceManagement
+        /// Create a new windowsInformationProtectionAppLearningSummary object.
+        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionapplearningsummary-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +82,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearni
             return await RequestAdapter.SendAsync<WindowsInformationProtectionAppLearningSummary>(requestInfo, WindowsInformationProtectionAppLearningSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// The windows information protection app learning summaries.
+        /// List properties and relationships of the windowsInformationProtectionAppLearningSummary objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +108,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearni
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to windowsInformationProtectionAppLearningSummaries for deviceManagement
+        /// Create a new windowsInformationProtectionAppLearningSummary object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +136,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionAppLearni
             return requestInfo;
         }
         /// <summary>
-        /// The windows information protection app learning summaries.
+        /// List properties and relationships of the windowsInformationProtectionAppLearningSummary objects.
         /// </summary>
         public class WindowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
