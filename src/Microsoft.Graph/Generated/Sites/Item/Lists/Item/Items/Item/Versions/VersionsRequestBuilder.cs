@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.Items.Item.Versions {
         }
         /// <summary>
         /// SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/listitem-list-versions?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/listitem-list-versions?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

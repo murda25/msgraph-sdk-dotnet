@@ -13,32 +13,32 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The hideAccountResetCredentials property</summary>
+        /// <summary>Option to hide the self-service password reset (SSPR) hyperlinks such as &apos;Can&apos;t access your account?&apos;, &apos;Forgot my password&apos; and &apos;Reset it now&apos; on the sign-in form.</summary>
         public bool? HideAccountResetCredentials {
             get { return BackingStore?.Get<bool?>("hideAccountResetCredentials"); }
             set { BackingStore?.Set("hideAccountResetCredentials", value); }
         }
-        /// <summary>The hideCannotAccessYourAccount property</summary>
+        /// <summary>Option to hide the self-service password reset (SSPR) &apos;Can&apos;t access your account?&apos; hyperlink on the sign-in form.</summary>
         public bool? HideCannotAccessYourAccount {
             get { return BackingStore?.Get<bool?>("hideCannotAccessYourAccount"); }
             set { BackingStore?.Set("hideCannotAccessYourAccount", value); }
         }
-        /// <summary>The hideForgotMyPassword property</summary>
+        /// <summary>Option to hide the self-service password reset (SSPR) &apos;Forgot my password&apos; hyperlink on the sign-in form.</summary>
         public bool? HideForgotMyPassword {
             get { return BackingStore?.Get<bool?>("hideForgotMyPassword"); }
             set { BackingStore?.Set("hideForgotMyPassword", value); }
         }
-        /// <summary>The hidePrivacyAndCookies property</summary>
+        /// <summary>Option to hide the &apos;Privacy &amp; Cookies&apos; hyperlink in the footer.</summary>
         public bool? HidePrivacyAndCookies {
             get { return BackingStore?.Get<bool?>("hidePrivacyAndCookies"); }
             set { BackingStore?.Set("hidePrivacyAndCookies", value); }
         }
-        /// <summary>The hideResetItNow property</summary>
+        /// <summary>Option to hide the self-service password reset (SSPR) &apos;reset it now&apos; hyperlink on the sign-in form.</summary>
         public bool? HideResetItNow {
             get { return BackingStore?.Get<bool?>("hideResetItNow"); }
             set { BackingStore?.Set("hideResetItNow", value); }
         }
-        /// <summary>The hideTermsOfUse property</summary>
+        /// <summary>Option to hide the &apos;Terms of Use&apos; hyperlink in the footer.</summary>
         public bool? HideTermsOfUse {
             get { return BackingStore?.Get<bool?>("hideTermsOfUse"); }
             set { BackingStore?.Set("hideTermsOfUse", value); }

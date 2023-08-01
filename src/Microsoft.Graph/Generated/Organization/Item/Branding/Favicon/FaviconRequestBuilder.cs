@@ -27,8 +27,8 @@ namespace Microsoft.Graph.Organization.Item.Branding.Favicon {
         public FaviconRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/favicon", rawUrl) {
         }
         /// <summary>
-        /// Get favicon for the navigation property branding from organization
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0" />
+        /// A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Organization.Item.Branding.Favicon {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update favicon for the navigation property branding in organization
+        /// A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Organization.Item.Branding.Favicon {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get favicon for the navigation property branding from organization
+        /// A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.Organization.Item.Branding.Favicon {
             return requestInfo;
         }
         /// <summary>
-        /// Update favicon for the navigation property branding in organization
+        /// A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

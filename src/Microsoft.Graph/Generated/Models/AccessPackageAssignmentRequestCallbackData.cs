@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentRequestCallbackData : CustomExtensionData, IParsable {
-        /// <summary>The customExtensionStageInstanceDetail property</summary>
+        /// <summary>Details for the callback.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomExtensionStageInstanceDetail {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("customExtensionStageInstanceDetail", value); }
         }
 #endif
-        /// <summary>The customExtensionStageInstanceId property</summary>
+        /// <summary>Unique identifier of the callout to the custom extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomExtensionStageInstanceId {
@@ -33,12 +33,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("customExtensionStageInstanceId", value); }
         }
 #endif
-        /// <summary>The stage property</summary>
+        /// <summary>Indicates the stage at which the custom callout extension will be executed. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.</summary>
         public AccessPackageCustomExtensionStage? Stage {
             get { return BackingStore?.Get<AccessPackageCustomExtensionStage?>("stage"); }
             set { BackingStore?.Set("stage", value); }
         }
-        /// <summary>The state property</summary>
+        /// <summary>Allow the extension to be able to deny or cancel the request submitted by the requestor. The supported values are Denied and Canceled. This property can only be set for an assignmentRequestCreated stage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State {

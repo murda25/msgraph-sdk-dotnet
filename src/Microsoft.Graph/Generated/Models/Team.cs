@@ -225,6 +225,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("operations", value); }
         }
 #endif
+        /// <summary>The permissionGrants property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ResourceSpecificPermissionGrant>? PermissionGrants {
+            get { return BackingStore?.Get<List<ResourceSpecificPermissionGrant>?>("permissionGrants"); }
+            set { BackingStore?.Set("permissionGrants", value); }
+        }
+#nullable restore
+#else
+        public List<ResourceSpecificPermissionGrant> PermissionGrants {
+            get { return BackingStore?.Get<List<ResourceSpecificPermissionGrant>>("permissionGrants"); }
+            set { BackingStore?.Set("permissionGrants", value); }
+        }
+#endif
         /// <summary>The profile photo for the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -377,6 +391,7 @@ namespace Microsoft.Graph.Models {
                 {"memberSettings", n => { MemberSettings = n.GetObjectValue<TeamMemberSettings>(TeamMemberSettings.CreateFromDiscriminatorValue); } },
                 {"messagingSettings", n => { MessagingSettings = n.GetObjectValue<TeamMessagingSettings>(TeamMessagingSettings.CreateFromDiscriminatorValue); } },
                 {"operations", n => { Operations = n.GetCollectionOfObjectValues<TeamsAsyncOperation>(TeamsAsyncOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"permissionGrants", n => { PermissionGrants = n.GetCollectionOfObjectValues<ResourceSpecificPermissionGrant>(ResourceSpecificPermissionGrant.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"photo", n => { Photo = n.GetObjectValue<ProfilePhoto>(ProfilePhoto.CreateFromDiscriminatorValue); } },
                 {"primaryChannel", n => { PrimaryChannel = n.GetObjectValue<Channel>(Channel.CreateFromDiscriminatorValue); } },
                 {"schedule", n => { Schedule = n.GetObjectValue<Microsoft.Graph.Models.Schedule>(Microsoft.Graph.Models.Schedule.CreateFromDiscriminatorValue); } },
@@ -413,6 +428,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<TeamMemberSettings>("memberSettings", MemberSettings);
             writer.WriteObjectValue<TeamMessagingSettings>("messagingSettings", MessagingSettings);
             writer.WriteCollectionOfObjectValues<TeamsAsyncOperation>("operations", Operations);
+            writer.WriteCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", PermissionGrants);
             writer.WriteObjectValue<ProfilePhoto>("photo", Photo);
             writer.WriteObjectValue<Channel>("primaryChannel", PrimaryChannel);
             writer.WriteObjectValue<Microsoft.Graph.Models.Schedule>("schedule", Schedule);

@@ -62,7 +62,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Resources.Ite
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get resources from identityGovernance
+        /// The resources associated with the catalogs.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Resources.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Get resources from identityGovernance
+        /// The resources associated with the catalogs.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Resources.Ite
             }
         }
         /// <summary>
-        /// Get resources from identityGovernance
+        /// The resources associated with the catalogs.
         /// </summary>
         public class AccessPackageResourceItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

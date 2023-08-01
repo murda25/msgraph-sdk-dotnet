@@ -8,6 +8,7 @@ using Microsoft.Graph.Groups.Item.Team.IncomingChannels;
 using Microsoft.Graph.Groups.Item.Team.InstalledApps;
 using Microsoft.Graph.Groups.Item.Team.Members;
 using Microsoft.Graph.Groups.Item.Team.Operations;
+using Microsoft.Graph.Groups.Item.Team.PermissionGrants;
 using Microsoft.Graph.Groups.Item.Team.Photo;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel;
 using Microsoft.Graph.Groups.Item.Team.Schedule;
@@ -69,6 +70,10 @@ namespace Microsoft.Graph.Groups.Item.Team {
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.team entity.</summary>
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.</summary>
+        public PermissionGrantsRequestBuilder PermissionGrants { get =>
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>

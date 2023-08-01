@@ -41,7 +41,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.Assignments {
         }
         /// <summary>
         /// List properties and relationships of the termsAndConditionsAssignment objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.Assignments {
         }
         /// <summary>
         /// Create a new termsAndConditionsAssignment object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-create?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

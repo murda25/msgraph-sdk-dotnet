@@ -8,6 +8,7 @@ using Microsoft.Graph.Me.JoinedTeams.Item.IncomingChannels;
 using Microsoft.Graph.Me.JoinedTeams.Item.InstalledApps;
 using Microsoft.Graph.Me.JoinedTeams.Item.Members;
 using Microsoft.Graph.Me.JoinedTeams.Item.Operations;
+using Microsoft.Graph.Me.JoinedTeams.Item.PermissionGrants;
 using Microsoft.Graph.Me.JoinedTeams.Item.Photo;
 using Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel;
 using Microsoft.Graph.Me.JoinedTeams.Item.Schedule;
@@ -69,6 +70,10 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item {
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.team entity.</summary>
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.</summary>
+        public PermissionGrantsRequestBuilder PermissionGrants { get =>
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>

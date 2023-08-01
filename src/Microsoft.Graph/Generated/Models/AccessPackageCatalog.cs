@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceRoles", value); }
         }
 #endif
-        /// <summary>The resources property</summary>
+        /// <summary>Access package resources in this catalog.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageResource>? Resources {

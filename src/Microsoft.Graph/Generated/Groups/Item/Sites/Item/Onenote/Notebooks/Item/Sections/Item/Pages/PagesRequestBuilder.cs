@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Onenote.Notebooks.Item.Sections
         }
         /// <summary>
         /// Retrieve a list of page objects from the specified section.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Onenote.Notebooks.Item.Sections
         }
         /// <summary>
         /// Create a new page in the specified section.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

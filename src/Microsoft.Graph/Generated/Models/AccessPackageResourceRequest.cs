@@ -19,12 +19,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("catalog", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The requestType property</summary>
+        /// <summary>The type of the request. Use adminAdd to add a resource, if the caller is an administrator or resource owner, adminUpdate to update a resource, or adminRemove to remove a resource.</summary>
         public AccessPackageRequestType? RequestType {
             get { return BackingStore?.Get<AccessPackageRequestType?>("requestType"); }
             set { BackingStore?.Set("requestType", value); }
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resource", value); }
         }
 #endif
-        /// <summary>The state property</summary>
+        /// <summary>The outcome of whether the service was able to add the resource to the catalog.  The value is delivered if the resource was added or removed. Read-only.</summary>
         public AccessPackageRequestState? State {
             get { return BackingStore?.Get<AccessPackageRequestState?>("state"); }
             set { BackingStore?.Set("state", value); }

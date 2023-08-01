@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentPolicy", value); }
         }
 #endif
-        /// <summary>The customExtensionCalloutInstances property</summary>
+        /// <summary>Information about all the custom extension calls that were made during the access package assignment workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CustomExtensionCalloutInstance>? CustomExtensionCalloutInstances {

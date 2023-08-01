@@ -28,8 +28,8 @@ namespace Microsoft.Graph.Education.Schools.Item.AdministrativeUnit {
         public AdministrativeUnitRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get a list of **administrativeUnits** associated with an educationSchool object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0" />
+        /// Get a list of administrativeUnits associated with an educationSchool object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Education.Schools.Item.AdministrativeUnit {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AdministrativeUnit>(requestInfo, Microsoft.Graph.Models.AdministrativeUnit.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get a list of **administrativeUnits** associated with an educationSchool object.
+        /// Get a list of administrativeUnits associated with an educationSchool object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Microsoft.Graph.Education.Schools.Item.AdministrativeUnit {
             return requestInfo;
         }
         /// <summary>
-        /// Get a list of **administrativeUnits** associated with an educationSchool object.
+        /// Get a list of administrativeUnits associated with an educationSchool object.
         /// </summary>
         public class AdministrativeUnitRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

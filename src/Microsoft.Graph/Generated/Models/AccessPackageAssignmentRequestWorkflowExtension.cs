@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AccessPackageAssignmentRequestWorkflowExtension : CustomCalloutExtension, IParsable {
-        /// <summary>The callbackConfiguration property</summary>
+        /// <summary>The callback configuration for a custom extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CustomExtensionCallbackConfiguration? CallbackConfiguration {
@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("callbackConfiguration", value); }
         }
 #endif
-        /// <summary>The createdBy property</summary>
+        /// <summary>The userPrincipalName of the user or identity of the subject that created this resource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreatedBy {
@@ -33,12 +33,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdBy", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>When the object was created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>The userPrincipalName of the identity that last modified the object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastModifiedBy {
@@ -52,7 +52,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>When the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
