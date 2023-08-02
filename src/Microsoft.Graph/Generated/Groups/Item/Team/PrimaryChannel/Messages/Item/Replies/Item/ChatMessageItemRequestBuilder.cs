@@ -1,6 +1,8 @@
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.HostedContents;
+using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.SetReaction;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.SoftDelete;
 using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.UndoSoftDelete;
+using Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.Item.UnsetReaction;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -20,6 +22,10 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.
         public HostedContentsRequestBuilder HostedContents { get =>
             new HostedContentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the setReaction method.</summary>
+        public SetReactionRequestBuilder SetReaction { get =>
+            new SetReactionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the softDelete method.</summary>
         public SoftDeleteRequestBuilder SoftDelete { get =>
             new SoftDeleteRequestBuilder(PathParameters, RequestAdapter);
@@ -27,6 +33,10 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.
         /// <summary>Provides operations to call the undoSoftDelete method.</summary>
         public UndoSoftDeleteRequestBuilder UndoSoftDelete { get =>
             new UndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unsetReaction method.</summary>
+        public UnsetReactionRequestBuilder UnsetReaction { get =>
+            new UnsetReactionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
@@ -63,7 +73,7 @@ namespace Microsoft.Graph.Groups.Item.Team.PrimaryChannel.Messages.Item.Replies.
         }
         /// <summary>
         /// Retrieve a single message or a message reply in a channel or a chat.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

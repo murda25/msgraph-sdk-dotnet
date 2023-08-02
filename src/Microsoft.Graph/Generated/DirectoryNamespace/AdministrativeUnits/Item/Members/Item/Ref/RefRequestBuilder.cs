@@ -28,7 +28,7 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits.Item.Members.It
         }
         /// <summary>
         /// Use this API to remove a member (user, group, or device) from an administrative unit.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/administrativeunit-delete-members?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/administrativeunit-delete-members?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

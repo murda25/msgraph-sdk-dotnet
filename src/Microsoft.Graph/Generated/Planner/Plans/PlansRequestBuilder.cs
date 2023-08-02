@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Planner.Plans {
         }
         /// <summary>
         /// Get a list of plannerPlan objects.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,8 +60,8 @@ namespace Microsoft.Graph.Planner.Plans {
             return await RequestAdapter.SendAsync<PlannerPlanCollectionResponse>(requestInfo, PlannerPlanCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Use this API to create a new **plannerPlan**.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0" />
+        /// Use this API to create a new plannerPlan.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -108,7 +108,7 @@ namespace Microsoft.Graph.Planner.Plans {
             return requestInfo;
         }
         /// <summary>
-        /// Use this API to create a new **plannerPlan**.
+        /// Use this API to create a new plannerPlan.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

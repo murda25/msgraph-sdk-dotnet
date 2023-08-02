@@ -5,6 +5,7 @@ using Microsoft.Graph.Chats.Item.MarkChatReadForUser;
 using Microsoft.Graph.Chats.Item.MarkChatUnreadForUser;
 using Microsoft.Graph.Chats.Item.Members;
 using Microsoft.Graph.Chats.Item.Messages;
+using Microsoft.Graph.Chats.Item.PermissionGrants;
 using Microsoft.Graph.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Chats.Item.Tabs;
@@ -51,6 +52,10 @@ namespace Microsoft.Graph.Chats.Item {
         /// <summary>Provides operations to manage the messages property of the microsoft.graph.chat entity.</summary>
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.</summary>
+        public PermissionGrantsRequestBuilder PermissionGrants { get =>
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.</summary>
         public PinnedMessagesRequestBuilder PinnedMessages { get =>
@@ -103,7 +108,7 @@ namespace Microsoft.Graph.Chats.Item {
         }
         /// <summary>
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +128,7 @@ namespace Microsoft.Graph.Chats.Item {
         }
         /// <summary>
         /// Update the properties of a chat object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

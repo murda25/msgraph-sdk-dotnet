@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item.Members {
         }
         /// <summary>
         /// List all conversation members in a chat or channel.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/conversationmember-list?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationmember-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item.Members {
         }
         /// <summary>
         /// Add a conversationMember to a chat.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-post-members?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-members?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

@@ -52,7 +52,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get resourceEnvironments from identityGovernance
+        /// A reference to the geolocation environments in which a resource is located.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
             return requestInfo;
         }
         /// <summary>
-        /// Get resourceEnvironments from identityGovernance
+        /// A reference to the geolocation environments in which a resource is located.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
             }
         }
         /// <summary>
-        /// Get resourceEnvironments from identityGovernance
+        /// A reference to the geolocation environments in which a resource is located.
         /// </summary>
         public class AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

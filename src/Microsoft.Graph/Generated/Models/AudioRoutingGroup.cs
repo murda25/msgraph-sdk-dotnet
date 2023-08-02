@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AudioRoutingGroup : Entity, IParsable {
-        /// <summary>The receivers property</summary>
+        /// <summary>List of receiving participant ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Receivers {
@@ -24,7 +24,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RoutingMode?>("routingMode"); }
             set { BackingStore?.Set("routingMode", value); }
         }
-        /// <summary>The sources property</summary>
+        /// <summary>List of source participant ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Sources {

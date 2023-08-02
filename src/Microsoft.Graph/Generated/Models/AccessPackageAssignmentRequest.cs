@@ -57,7 +57,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The customExtensionCalloutInstances property</summary>
+        /// <summary>Information about all the custom extension calls that were made during the access package assignment workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CustomExtensionCalloutInstance>? CustomExtensionCalloutInstances {

@@ -29,7 +29,7 @@ namespace Microsoft.Graph.DeviceManagement.AuditEvents.Item {
         }
         /// <summary>
         /// Deletes a auditEvent.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -49,7 +49,7 @@ namespace Microsoft.Graph.DeviceManagement.AuditEvents.Item {
         }
         /// <summary>
         /// Read properties and relationships of the auditEvent object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.DeviceManagement.AuditEvents.Item {
         }
         /// <summary>
         /// Update the properties of a auditEvent object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

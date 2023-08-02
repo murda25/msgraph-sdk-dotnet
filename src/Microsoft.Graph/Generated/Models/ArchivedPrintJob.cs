@@ -94,6 +94,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("printerId", value); }
         }
 #endif
+        /// <summary>The printer name that the job was queued for. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrinterName {
+            get { return BackingStore?.Get<string?>("printerName"); }
+            set { BackingStore?.Set("printerName", value); }
+        }
+#nullable restore
+#else
+        public string PrinterName {
+            get { return BackingStore?.Get<string>("printerName"); }
+            set { BackingStore?.Set("printerName", value); }
+        }
+#endif
         /// <summary>The processingState property</summary>
         public PrintJobProcessingState? ProcessingState {
             get { return BackingStore?.Get<PrintJobProcessingState?>("processingState"); }
@@ -128,6 +142,7 @@ namespace Microsoft.Graph.Models {
                 {"id", n => { Id = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
                 {"printerId", n => { PrinterId = n.GetStringValue(); } },
+                {"printerName", n => { PrinterName = n.GetStringValue(); } },
                 {"processingState", n => { ProcessingState = n.GetEnumValue<PrintJobProcessingState>(); } },
             };
         }
@@ -146,6 +161,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("printerId", PrinterId);
+            writer.WriteStringValue("printerName", PrinterName);
             writer.WriteEnumValue<PrintJobProcessingState>("processingState", ProcessingState);
             writer.WriteAdditionalData(AdditionalData);
         }

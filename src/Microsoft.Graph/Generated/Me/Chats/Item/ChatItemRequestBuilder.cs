@@ -5,6 +5,7 @@ using Microsoft.Graph.Me.Chats.Item.MarkChatReadForUser;
 using Microsoft.Graph.Me.Chats.Item.MarkChatUnreadForUser;
 using Microsoft.Graph.Me.Chats.Item.Members;
 using Microsoft.Graph.Me.Chats.Item.Messages;
+using Microsoft.Graph.Me.Chats.Item.PermissionGrants;
 using Microsoft.Graph.Me.Chats.Item.PinnedMessages;
 using Microsoft.Graph.Me.Chats.Item.SendActivityNotification;
 using Microsoft.Graph.Me.Chats.Item.Tabs;
@@ -51,6 +52,10 @@ namespace Microsoft.Graph.Me.Chats.Item {
         /// <summary>Provides operations to manage the messages property of the microsoft.graph.chat entity.</summary>
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.</summary>
+        public PermissionGrantsRequestBuilder PermissionGrants { get =>
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.</summary>
         public PinnedMessagesRequestBuilder PinnedMessages { get =>
@@ -103,7 +108,7 @@ namespace Microsoft.Graph.Me.Chats.Item {
         }
         /// <summary>
         /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

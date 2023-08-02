@@ -25,6 +25,11 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<MeetingChatMode?>("allowMeetingChat"); }
             set { BackingStore?.Set("allowMeetingChat", value); }
         }
+        /// <summary>The allowParticipantsToChangeName property</summary>
+        public bool? AllowParticipantsToChangeName {
+            get { return BackingStore?.Get<bool?>("allowParticipantsToChangeName"); }
+            set { BackingStore?.Set("allowParticipantsToChangeName", value); }
+        }
         /// <summary>Indicates whether Teams reactions are enabled for the meeting.</summary>
         public bool? AllowTeamworkReactions {
             get { return BackingStore?.Get<bool?>("allowTeamworkReactions"); }
@@ -273,6 +278,7 @@ namespace Microsoft.Graph.Models {
                 {"allowAttendeeToEnableMic", n => { AllowAttendeeToEnableMic = n.GetBoolValue(); } },
                 {"allowedPresenters", n => { AllowedPresenters = n.GetEnumValue<OnlineMeetingPresenters>(); } },
                 {"allowMeetingChat", n => { AllowMeetingChat = n.GetEnumValue<MeetingChatMode>(); } },
+                {"allowParticipantsToChangeName", n => { AllowParticipantsToChangeName = n.GetBoolValue(); } },
                 {"allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
                 {"attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"attendeeReport", n => { AttendeeReport = n.GetByteArrayValue(); } },
@@ -307,6 +313,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("allowAttendeeToEnableMic", AllowAttendeeToEnableMic);
             writer.WriteEnumValue<OnlineMeetingPresenters>("allowedPresenters", AllowedPresenters);
             writer.WriteEnumValue<MeetingChatMode>("allowMeetingChat", AllowMeetingChat);
+            writer.WriteBoolValue("allowParticipantsToChangeName", AllowParticipantsToChangeName);
             writer.WriteBoolValue("allowTeamworkReactions", AllowTeamworkReactions);
             writer.WriteCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", AttendanceReports);
             writer.WriteByteArrayValue("attendeeReport", AttendeeReport);

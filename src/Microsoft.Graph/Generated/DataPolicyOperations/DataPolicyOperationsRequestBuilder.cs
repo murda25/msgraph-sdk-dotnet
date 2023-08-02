@@ -40,7 +40,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
         public DataPolicyOperationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dataPolicyOperations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Retrieve the properties of a **dataPolicyOperation** object.
+        /// Retrieve the properties of a dataPolicyOperation object.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
             return await RequestAdapter.SendAsync<DataPolicyOperation>(requestInfo, DataPolicyOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Retrieve the properties of a **dataPolicyOperation** object.
+        /// Retrieve the properties of a dataPolicyOperation object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.DataPolicyOperations {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a **dataPolicyOperation** object.
+        /// Retrieve the properties of a dataPolicyOperation object.
         /// </summary>
         public class DataPolicyOperationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

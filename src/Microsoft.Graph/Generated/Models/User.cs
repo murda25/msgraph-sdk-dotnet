@@ -342,6 +342,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("creationType", value); }
         }
 #endif
+        /// <summary>The customSecurityAttributes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CustomSecurityAttributeValue? CustomSecurityAttributes {
+            get { return BackingStore?.Get<CustomSecurityAttributeValue?>("customSecurityAttributes"); }
+            set { BackingStore?.Set("customSecurityAttributes", value); }
+        }
+#nullable restore
+#else
+        public CustomSecurityAttributeValue CustomSecurityAttributes {
+            get { return BackingStore?.Get<CustomSecurityAttributeValue>("customSecurityAttributes"); }
+            set { BackingStore?.Set("customSecurityAttributes", value); }
+        }
+#endif
         /// <summary>The name for the department in which the user works. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1632,6 +1646,7 @@ namespace Microsoft.Graph.Models {
                 {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"createdObjects", n => { CreatedObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"creationType", n => { CreationType = n.GetStringValue(); } },
+                {"customSecurityAttributes", n => { CustomSecurityAttributes = n.GetObjectValue<CustomSecurityAttributeValue>(CustomSecurityAttributeValue.CreateFromDiscriminatorValue); } },
                 {"department", n => { Department = n.GetStringValue(); } },
                 {"deviceEnrollmentLimit", n => { DeviceEnrollmentLimit = n.GetIntValue(); } },
                 {"deviceManagementTroubleshootingEvents", n => { DeviceManagementTroubleshootingEvents = n.GetCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>(DeviceManagementTroubleshootingEvent.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1763,6 +1778,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("createdObjects", CreatedObjects);
             writer.WriteStringValue("creationType", CreationType);
+            writer.WriteObjectValue<CustomSecurityAttributeValue>("customSecurityAttributes", CustomSecurityAttributes);
             writer.WriteStringValue("department", Department);
             writer.WriteIntValue("deviceEnrollmentLimit", DeviceEnrollmentLimit);
             writer.WriteCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("deviceManagementTroubleshootingEvents", DeviceManagementTroubleshootingEvents);

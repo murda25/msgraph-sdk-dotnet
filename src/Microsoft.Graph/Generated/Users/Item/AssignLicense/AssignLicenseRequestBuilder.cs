@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Users.Item.AssignLicense {
         }
         /// <summary>
         /// Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/user-assignlicense?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-assignlicense?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

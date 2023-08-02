@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The customExtensionId property</summary>
+        /// <summary>Identification of the custom extension that was triggered at this instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomExtensionId {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("customExtensionId", value); }
         }
 #endif
-        /// <summary>The detail property</summary>
+        /// <summary>Details provided by the logic app during the callback of the request instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Detail {
@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("detail", value); }
         }
 #endif
-        /// <summary>The externalCorrelationId property</summary>
+        /// <summary>The unique run identifier for the logic app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalCorrelationId {
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("externalCorrelationId", value); }
         }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>Unique identifier for the callout instance. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id {
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue.</summary>
         public CustomExtensionCalloutInstanceStatus? Status {
             get { return BackingStore?.Get<CustomExtensionCalloutInstanceStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

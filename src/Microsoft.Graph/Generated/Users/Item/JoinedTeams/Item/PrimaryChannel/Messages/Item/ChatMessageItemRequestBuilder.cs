@@ -2,8 +2,10 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.HostedContents;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.Replies;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.SetReaction;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.SoftDelete;
 using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.UndoSoftDelete;
+using Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.Item.UnsetReaction;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.It
         public RepliesRequestBuilder Replies { get =>
             new RepliesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to call the setReaction method.</summary>
+        public SetReactionRequestBuilder SetReaction { get =>
+            new SetReactionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to call the softDelete method.</summary>
         public SoftDeleteRequestBuilder SoftDelete { get =>
             new SoftDeleteRequestBuilder(PathParameters, RequestAdapter);
@@ -32,6 +38,10 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.It
         /// <summary>Provides operations to call the undoSoftDelete method.</summary>
         public UndoSoftDeleteRequestBuilder UndoSoftDelete { get =>
             new UndoSoftDeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the unsetReaction method.</summary>
+        public UnsetReactionRequestBuilder UnsetReaction { get =>
+            new UnsetReactionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
@@ -68,7 +78,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.It
         }
         /// <summary>
         /// Retrieve a single message or a message reply in a channel or a chat.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,8 +97,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.It
             return await RequestAdapter.SendAsync<ChatMessage>(requestInfo, ChatMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update a chatMessage object. With the exception of the **policyViolation** property, all properties of a **chatMessage** can be updated in delegated permissions scenarios.Only the **policyViolation** property of a **chatMessage** can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/chatmessage-update?view=graph-rest-1.0" />
+        /// Update a chatMessage object. With the exception of the policyViolation property, all properties of a chatMessage can be updated in delegated permissions scenarios.Only the policyViolation property of a chatMessage can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -159,7 +169,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.PrimaryChannel.Messages.It
             return requestInfo;
         }
         /// <summary>
-        /// Update a chatMessage object. With the exception of the **policyViolation** property, all properties of a **chatMessage** can be updated in delegated permissions scenarios.Only the **policyViolation** property of a **chatMessage** can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
+        /// Update a chatMessage object. With the exception of the policyViolation property, all properties of a chatMessage can be updated in delegated permissions scenarios.Only the policyViolation property of a chatMessage can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
