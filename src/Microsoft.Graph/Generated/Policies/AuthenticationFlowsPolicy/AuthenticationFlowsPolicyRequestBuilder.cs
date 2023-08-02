@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Policies.AuthenticationFlowsPolicy {
         }
         /// <summary>
         /// Read the properties and relationships of an authenticationFlowsPolicy object.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -67,8 +67,8 @@ namespace Microsoft.Graph.Policies.AuthenticationFlowsPolicy {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthenticationFlowsPolicy>(requestInfo, Microsoft.Graph.Models.AuthenticationFlowsPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the **selfServiceSignUp** property of an authenticationFlowsPolicy object. The properties **id**, **type**, and **description** cannot be modified.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0" />
+        /// Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -139,7 +139,7 @@ namespace Microsoft.Graph.Policies.AuthenticationFlowsPolicy {
             return requestInfo;
         }
         /// <summary>
-        /// Update the **selfServiceSignUp** property of an authenticationFlowsPolicy object. The properties **id**, **type**, and **description** cannot be modified.
+        /// Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

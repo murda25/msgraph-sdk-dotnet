@@ -103,7 +103,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("connectedOrganizations", value); }
         }
 #endif
-        /// <summary>The resourceEnvironments property</summary>
+        /// <summary>A reference to the geolocation environments in which a resource is located.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageResourceEnvironment>? ResourceEnvironments {
@@ -117,7 +117,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceEnvironments", value); }
         }
 #endif
-        /// <summary>The resourceRequests property</summary>
+        /// <summary>Represents a request to add or remove a resource to or from a catalog respectively.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageResourceRequest>? ResourceRequests {
@@ -145,7 +145,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceRoleScopes", value); }
         }
 #endif
-        /// <summary>The resources property</summary>
+        /// <summary>The resources associated with the catalogs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageResource>? Resources {

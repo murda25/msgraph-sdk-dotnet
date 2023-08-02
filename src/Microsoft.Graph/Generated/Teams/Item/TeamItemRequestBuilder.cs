@@ -10,6 +10,7 @@ using Microsoft.Graph.Teams.Item.IncomingChannels;
 using Microsoft.Graph.Teams.Item.InstalledApps;
 using Microsoft.Graph.Teams.Item.Members;
 using Microsoft.Graph.Teams.Item.Operations;
+using Microsoft.Graph.Teams.Item.PermissionGrants;
 using Microsoft.Graph.Teams.Item.Photo;
 using Microsoft.Graph.Teams.Item.PrimaryChannel;
 using Microsoft.Graph.Teams.Item.Schedule;
@@ -69,6 +70,10 @@ namespace Microsoft.Graph.Teams.Item {
         /// <summary>Provides operations to manage the operations property of the microsoft.graph.team entity.</summary>
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.</summary>
+        public PermissionGrantsRequestBuilder PermissionGrants { get =>
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the photo property of the microsoft.graph.team entity.</summary>
         public PhotoRequestBuilder Photo { get =>
@@ -133,7 +138,7 @@ namespace Microsoft.Graph.Teams.Item {
         }
         /// <summary>
         /// Retrieve the properties and relationships of the specified team.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-get?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,7 +158,7 @@ namespace Microsoft.Graph.Teams.Item {
         }
         /// <summary>
         /// Update the properties of the specified team.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/team-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/team-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

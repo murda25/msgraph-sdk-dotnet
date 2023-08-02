@@ -57,7 +57,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Get resourceRequests from identityGovernance
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             return requestInfo;
         }
         /// <summary>
-        /// Get resourceRequests from identityGovernance
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -191,7 +191,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             }
         }
         /// <summary>
-        /// Get resourceRequests from identityGovernance
+        /// Represents a request to add or remove a resource to or from a catalog respectively.
         /// </summary>
         public class AccessPackageResourceRequestItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

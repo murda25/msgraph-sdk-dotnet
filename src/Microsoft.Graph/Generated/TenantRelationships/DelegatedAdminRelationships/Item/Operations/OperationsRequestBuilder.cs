@@ -41,7 +41,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminRelationships.Item.O
         }
         /// <summary>
         /// Get a list of the delegatedAdminRelationshipOperation objects and their properties.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

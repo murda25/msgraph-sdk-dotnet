@@ -19,7 +19,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("accessPackagesIncompatibleWith", value); }
         }
 #endif
-        /// <summary>The assignmentPolicies property</summary>
+        /// <summary>Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageAssignmentPolicy>? AssignmentPolicies {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentPolicies", value); }
         }
 #endif
-        /// <summary>The catalog property</summary>
+        /// <summary>Required when creating the access package. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public AccessPackageCatalog? Catalog {
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>The display name of the access package. Supports $filter (eq, contains).</summary>
+        /// <summary>Required. The display name of the access package. Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("modifiedDateTime"); }
             set { BackingStore?.Set("modifiedDateTime", value); }
         }
-        /// <summary>The resourceRoleScopes property</summary>
+        /// <summary>The resource roles and scopes in this access package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AccessPackageResourceRoleScope>? ResourceRoleScopes {

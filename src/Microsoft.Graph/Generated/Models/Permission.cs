@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("roles", value); }
         }
 #endif
-        /// <summary>A unique token that can be used to access this shared item via the **shares** API. Read-only.</summary>
+        /// <summary>A unique token that can be used to access this shared item via the shares API. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShareId {

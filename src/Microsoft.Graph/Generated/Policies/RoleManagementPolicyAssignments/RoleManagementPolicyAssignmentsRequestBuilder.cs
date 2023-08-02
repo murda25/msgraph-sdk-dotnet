@@ -41,7 +41,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments {
         }
         /// <summary>
         /// Get the details of all role management policy assignments including the policies and rules associated with the Azure AD roles.
-        /// Find more info here <see href="https://docs.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
