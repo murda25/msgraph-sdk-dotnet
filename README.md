@@ -137,6 +137,8 @@ If you are looking to build the library locally for the purposes of contributing
 
 > Due to long file names you may need to run `git config --system core.longpaths true` before cloning the repo to your system.
 
+> Additionally for Windows OS, set the value of the parameter `HKLM\SYSTEM\CurrentControlSet\Control\FileSystem` `LongPathsEnabled` to `1`, before opening the solution in VS
+
 ## License
 
 Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](LICENSE.txt). See [Third Party Notices](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/master/THIRD%20PARTY%20NOTICES) for information on the packages referenced via NuGet.
