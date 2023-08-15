@@ -22,6 +22,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentReq
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.</summary>
+        /// <param name="position">The unique identifier of accessPackageAssignmentRequest</param>
         public AccessPackageAssignmentRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackageAssignmentRequest%2Did", position);

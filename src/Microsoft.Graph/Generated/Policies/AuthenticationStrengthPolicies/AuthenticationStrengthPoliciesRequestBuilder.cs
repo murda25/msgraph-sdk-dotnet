@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Policies.AuthenticationStrengthPolicies {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.</summary>
+        /// <param name="position">The unique identifier of authenticationStrengthPolicy</param>
         public AuthenticationStrengthPolicyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("authenticationStrengthPolicy%2Did", position);

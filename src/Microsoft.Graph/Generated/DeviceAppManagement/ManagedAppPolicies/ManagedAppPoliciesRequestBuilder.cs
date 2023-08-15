@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppPolicies {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.</summary>
+        /// <param name="position">The unique identifier of managedAppPolicy</param>
         public ManagedAppPolicyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("managedAppPolicy%2Did", position);
@@ -41,8 +42,8 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppPolicies {
         public ManagedAppPoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List properties and relationships of the windowsInformationProtection objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-mam-windowsinformationprotection-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the targetedManagedAppProtection objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappprotection-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,7 +83,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppPolicies {
             return await RequestAdapter.SendAsync<ManagedAppPolicy>(requestInfo, ManagedAppPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// List properties and relationships of the windowsInformationProtection objects.
+        /// List properties and relationships of the targetedManagedAppProtection objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -136,7 +137,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// List properties and relationships of the windowsInformationProtection objects.
+        /// List properties and relationships of the targetedManagedAppProtection objects.
         /// </summary>
         public class ManagedAppPoliciesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

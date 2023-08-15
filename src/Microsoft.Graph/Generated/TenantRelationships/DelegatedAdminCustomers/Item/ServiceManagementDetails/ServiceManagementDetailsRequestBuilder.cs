@@ -21,6 +21,7 @@ namespace Microsoft.Graph.TenantRelationships.DelegatedAdminCustomers.Item.Servi
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.</summary>
+        /// <param name="position">The unique identifier of delegatedAdminServiceManagementDetail</param>
         public DelegatedAdminServiceManagementDetailItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("delegatedAdminServiceManagementDetail%2Did", position);

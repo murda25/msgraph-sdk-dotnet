@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.</summary>
+        /// <param name="position">The unique identifier of subjectRightsRequest</param>
         public SubjectRightsRequestItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("subjectRightsRequest%2Did", position);

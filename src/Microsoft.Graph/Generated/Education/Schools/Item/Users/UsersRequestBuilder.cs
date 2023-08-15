@@ -26,6 +26,7 @@ namespace Microsoft.Graph.Education.Schools.Item.Users {
             new RefRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Microsoft.Graph.education.schools.item.users.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
         public EducationUserItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("educationUser%2Did", position);

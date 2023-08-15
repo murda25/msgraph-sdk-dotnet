@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians.Item.Un
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.</summary>
+        /// <param name="position">The unique identifier of unifiedGroupSource</param>
         public UnifiedGroupSourceItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("unifiedGroupSource%2Did", position);

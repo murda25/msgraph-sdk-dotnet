@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.LifecycleWorkflows.DeletedItems.Wor
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.</summary>
+        /// <param name="position">The unique identifier of taskProcessingResult</param>
         public TaskProcessingResultItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("taskProcessingResult%2Did", position);

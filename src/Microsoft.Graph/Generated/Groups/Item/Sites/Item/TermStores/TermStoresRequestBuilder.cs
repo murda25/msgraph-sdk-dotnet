@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the termStores property of the microsoft.graph.site entity.</summary>
+        /// <param name="position">The unique identifier of store</param>
         public StoreItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("store%2Did", position);

@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Solutions.BookingCurrencies {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.</summary>
+        /// <param name="position">The unique identifier of bookingCurrency</param>
         public BookingCurrencyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("bookingCurrency%2Did", position);

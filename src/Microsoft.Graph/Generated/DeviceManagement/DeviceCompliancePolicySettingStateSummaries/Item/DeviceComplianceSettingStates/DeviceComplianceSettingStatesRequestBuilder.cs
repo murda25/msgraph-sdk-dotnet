@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicySettingStateSum
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.</summary>
+        /// <param name="position">The unique identifier of deviceComplianceSettingState</param>
         public DeviceComplianceSettingStateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("deviceComplianceSettingState%2Did", position);

@@ -27,6 +27,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.</summary>
+        /// <param name="position">The unique identifier of workbookTableColumn</param>
         public WorkbookTableColumnItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("workbookTableColumn%2Did", position);
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables.Item.Columns {
         }
         /// <summary>
         /// Retrieve a list of tablecolumn objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

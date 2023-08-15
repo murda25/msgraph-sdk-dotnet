@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.ParentGroup.Sets 
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.</summary>
+        /// <param name="position">The unique identifier of set</param>
         public Microsoft.Graph.Sites.Item.TermStores.Item.Sets.Item.ParentGroup.Sets.Item.SetItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("set%2Did1", position);

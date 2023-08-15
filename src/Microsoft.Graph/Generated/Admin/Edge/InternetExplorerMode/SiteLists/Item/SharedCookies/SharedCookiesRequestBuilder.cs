@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Admin.Edge.InternetExplorerMode.SiteLists.Item.SharedC
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.</summary>
+        /// <param name="position">The unique identifier of browserSharedCookie</param>
         public BrowserSharedCookieItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("browserSharedCookie%2Did", position);
