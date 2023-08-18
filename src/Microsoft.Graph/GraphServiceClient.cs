@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------------
+﻿// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
@@ -49,6 +49,22 @@ namespace Microsoft.Graph
             IEnumerable<string> scopes = null,
             string baseUrl = null
             ):this(new Microsoft.Graph.Authentication.AzureIdentityAuthenticationProvider(tokenCredential, null, null,scopes?.ToArray() ?? Array.Empty<string>()), baseUrl)
+        {
+        }
+
+        /// <summary>
+        /// Constructs a new <see cref="GraphServiceClient"/>.
+        /// </summary>
+        /// <param name="httpClient">The customized <see cref="HttpClient"/> to be used for making requests</param>
+        /// <param name="tokenCredential">The <see cref="TokenCredential"/> for authenticating request messages.</param>
+        /// <param name="scopes">List of scopes for the authentication context.</param>
+        /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
+        public GraphServiceClient(
+            HttpClient httpClient,
+            TokenCredential tokenCredential,
+            IEnumerable<string> scopes = null,
+            string baseUrl = null
+            ):this(httpClient, new Microsoft.Graph.Authentication.AzureIdentityAuthenticationProvider(tokenCredential, null, null, scopes?.ToArray() ?? Array.Empty<string>()), baseUrl)
         {
         }
 
