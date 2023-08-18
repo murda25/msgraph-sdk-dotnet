@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.Assignments {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.</summary>
+        /// <param name="position">The unique identifier of termsAndConditionsAssignment</param>
         public TermsAndConditionsAssignmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("termsAndConditionsAssignment%2Did", position);

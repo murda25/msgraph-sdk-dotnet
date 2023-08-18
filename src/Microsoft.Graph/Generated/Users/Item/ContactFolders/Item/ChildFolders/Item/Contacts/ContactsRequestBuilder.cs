@@ -26,6 +26,7 @@ namespace Microsoft.Graph.Users.Item.ContactFolders.Item.ChildFolders.Item.Conta
             new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.</summary>
+        /// <param name="position">The unique identifier of contact</param>
         public ContactItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("contact%2Did", position);

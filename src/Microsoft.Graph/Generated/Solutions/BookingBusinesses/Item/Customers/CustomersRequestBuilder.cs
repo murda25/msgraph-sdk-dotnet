@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Customers {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.</summary>
+        /// <param name="position">The unique identifier of bookingCustomerBase</param>
         public BookingCustomerBaseItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("bookingCustomerBase%2Did", position);

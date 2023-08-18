@@ -6,58 +6,109 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class DirectoryObject : Entity, IParsable {
-        /// <summary>Date and time when this object was deleted. Always null when the object hasn&apos;t been deleted.</summary>
-        public DateTimeOffset? DeletedDateTime {
-            get { return BackingStore?.Get<DateTimeOffset?>("deletedDateTime"); }
-            set { BackingStore?.Set("deletedDateTime", value); }
+        /// <summary>Conceptual container for user and group directory objects.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AdministrativeUnit>? AdministrativeUnits {
+            get { return BackingStore?.Get<List<AdministrativeUnit>?>("administrativeUnits"); }
+            set { BackingStore?.Set("administrativeUnits", value); }
         }
+#nullable restore
+#else
+        public List<AdministrativeUnit> AdministrativeUnits {
+            get { return BackingStore?.Get<List<AdministrativeUnit>>("administrativeUnits"); }
+            set { BackingStore?.Set("administrativeUnits", value); }
+        }
+#endif
+        /// <summary>Group of related custom security attribute definitions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<AttributeSet>? AttributeSets {
+            get { return BackingStore?.Get<List<AttributeSet>?>("attributeSets"); }
+            set { BackingStore?.Set("attributeSets", value); }
+        }
+#nullable restore
+#else
+        public List<AttributeSet> AttributeSets {
+            get { return BackingStore?.Get<List<AttributeSet>>("attributeSets"); }
+            set { BackingStore?.Set("attributeSets", value); }
+        }
+#endif
+        /// <summary>Schema of a custom security attributes (key-value pairs).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CustomSecurityAttributeDefinition>? CustomSecurityAttributeDefinitions {
+            get { return BackingStore?.Get<List<CustomSecurityAttributeDefinition>?>("customSecurityAttributeDefinitions"); }
+            set { BackingStore?.Set("customSecurityAttributeDefinitions", value); }
+        }
+#nullable restore
+#else
+        public List<CustomSecurityAttributeDefinition> CustomSecurityAttributeDefinitions {
+            get { return BackingStore?.Get<List<CustomSecurityAttributeDefinition>>("customSecurityAttributeDefinitions"); }
+            set { BackingStore?.Set("customSecurityAttributeDefinitions", value); }
+        }
+#endif
+        /// <summary>Recently deleted items. Read-only. Nullable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? DeletedItems {
+            get { return BackingStore?.Get<List<DirectoryObject>?>("deletedItems"); }
+            set { BackingStore?.Set("deletedItems", value); }
+        }
+#nullable restore
+#else
+        public List<DirectoryObject> DeletedItems {
+            get { return BackingStore?.Get<List<DirectoryObject>>("deletedItems"); }
+            set { BackingStore?.Set("deletedItems", value); }
+        }
+#endif
+        /// <summary>Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<IdentityProviderBase>? FederationConfigurations {
+            get { return BackingStore?.Get<List<IdentityProviderBase>?>("federationConfigurations"); }
+            set { BackingStore?.Set("federationConfigurations", value); }
+        }
+#nullable restore
+#else
+        public List<IdentityProviderBase> FederationConfigurations {
+            get { return BackingStore?.Get<List<IdentityProviderBase>>("federationConfigurations"); }
+            set { BackingStore?.Set("federationConfigurations", value); }
+        }
+#endif
+        /// <summary>A container for on-premises directory synchronization functionalities that are available for the organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<OnPremisesDirectorySynchronization>? OnPremisesSynchronization {
+            get { return BackingStore?.Get<List<OnPremisesDirectorySynchronization>?>("onPremisesSynchronization"); }
+            set { BackingStore?.Set("onPremisesSynchronization", value); }
+        }
+#nullable restore
+#else
+        public List<OnPremisesDirectorySynchronization> OnPremisesSynchronization {
+            get { return BackingStore?.Get<List<OnPremisesDirectorySynchronization>>("onPremisesSynchronization"); }
+            set { BackingStore?.Set("onPremisesSynchronization", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new DirectoryObject CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch {
-                "#microsoft.graph.activityBasedTimeoutPolicy" => new ActivityBasedTimeoutPolicy(),
-                "#microsoft.graph.administrativeUnit" => new AdministrativeUnit(),
-                "#microsoft.graph.application" => new Application(),
-                "#microsoft.graph.appManagementPolicy" => new AppManagementPolicy(),
-                "#microsoft.graph.appRoleAssignment" => new AppRoleAssignment(),
-                "#microsoft.graph.authorizationPolicy" => new AuthorizationPolicy(),
-                "#microsoft.graph.claimsMappingPolicy" => new ClaimsMappingPolicy(),
-                "#microsoft.graph.contract" => new Contract(),
-                "#microsoft.graph.crossTenantAccessPolicy" => new CrossTenantAccessPolicy(),
-                "#microsoft.graph.device" => new Device(),
-                "#microsoft.graph.directoryObjectPartnerReference" => new DirectoryObjectPartnerReference(),
-                "#microsoft.graph.directoryRole" => new DirectoryRole(),
-                "#microsoft.graph.directoryRoleTemplate" => new DirectoryRoleTemplate(),
-                "#microsoft.graph.endpoint" => new Endpoint(),
-                "#microsoft.graph.extensionProperty" => new ExtensionProperty(),
-                "#microsoft.graph.group" => new Group(),
-                "#microsoft.graph.groupSettingTemplate" => new GroupSettingTemplate(),
-                "#microsoft.graph.homeRealmDiscoveryPolicy" => new HomeRealmDiscoveryPolicy(),
-                "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy" => new IdentitySecurityDefaultsEnforcementPolicy(),
-                "#microsoft.graph.organization" => new Organization(),
-                "#microsoft.graph.orgContact" => new OrgContact(),
-                "#microsoft.graph.permissionGrantPolicy" => new PermissionGrantPolicy(),
-                "#microsoft.graph.policyBase" => new PolicyBase(),
-                "#microsoft.graph.resourceSpecificPermissionGrant" => new ResourceSpecificPermissionGrant(),
-                "#microsoft.graph.servicePrincipal" => new ServicePrincipal(),
-                "#microsoft.graph.stsPolicy" => new StsPolicy(),
-                "#microsoft.graph.tenantAppManagementPolicy" => new TenantAppManagementPolicy(),
-                "#microsoft.graph.tokenIssuancePolicy" => new TokenIssuancePolicy(),
-                "#microsoft.graph.tokenLifetimePolicy" => new TokenLifetimePolicy(),
-                "#microsoft.graph.user" => new User(),
-                _ => new DirectoryObject(),
-            };
+            return new DirectoryObject();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
+                {"administrativeUnits", n => { AdministrativeUnits = n.GetCollectionOfObjectValues<AdministrativeUnit>(AdministrativeUnit.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"attributeSets", n => { AttributeSets = n.GetCollectionOfObjectValues<AttributeSet>(AttributeSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"customSecurityAttributeDefinitions", n => { CustomSecurityAttributeDefinitions = n.GetCollectionOfObjectValues<CustomSecurityAttributeDefinition>(CustomSecurityAttributeDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"deletedItems", n => { DeletedItems = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"federationConfigurations", n => { FederationConfigurations = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"onPremisesSynchronization", n => { OnPremisesSynchronization = n.GetCollectionOfObjectValues<OnPremisesDirectorySynchronization>(OnPremisesDirectorySynchronization.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -67,7 +118,12 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);
+            writer.WriteCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", AdministrativeUnits);
+            writer.WriteCollectionOfObjectValues<AttributeSet>("attributeSets", AttributeSets);
+            writer.WriteCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", CustomSecurityAttributeDefinitions);
+            writer.WriteCollectionOfObjectValues<DirectoryObject>("deletedItems", DeletedItems);
+            writer.WriteCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", FederationConfigurations);
+            writer.WriteCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", OnPremisesSynchronization);
         }
     }
 }

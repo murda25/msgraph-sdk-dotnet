@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections.Item.Apps
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.</summary>
+        /// <param name="position">The unique identifier of managedMobileApp</param>
         public ManagedMobileAppItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("managedMobileApp%2Did", position);

@@ -16,6 +16,7 @@ namespace Microsoft.Graph.Shares.Item.List.Items {
     /// </summary>
     public class ItemsRequestBuilder : BaseRequestBuilder {
         /// <summary>Provides operations to manage the items property of the microsoft.graph.list entity.</summary>
+        /// <param name="position">The unique identifier of listItem</param>
         public ListItemItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("listItem%2Did", position);

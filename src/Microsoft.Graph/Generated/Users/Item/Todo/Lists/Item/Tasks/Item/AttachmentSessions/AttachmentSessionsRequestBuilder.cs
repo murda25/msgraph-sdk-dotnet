@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.AttachmentSessio
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.</summary>
+        /// <param name="position">The unique identifier of attachmentSession</param>
         public AttachmentSessionItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("attachmentSession%2Did", position);

@@ -26,6 +26,7 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits {
             new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.</summary>
+        /// <param name="position">The unique identifier of administrativeUnit</param>
         public AdministrativeUnitItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("administrativeUnit%2Did", position);

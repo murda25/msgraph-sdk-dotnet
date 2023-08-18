@@ -41,6 +41,7 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of groupSettingTemplate entities.</summary>
+        /// <param name="position">The unique identifier of groupSettingTemplate</param>
         public GroupSettingTemplateItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("groupSettingTemplate%2Did", position);

@@ -105,6 +105,20 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("incidentWebUrl", value); }
         }
 #endif
+        /// <summary>The lastModifiedBy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastModifiedBy {
+            get { return BackingStore?.Get<string?>("lastModifiedBy"); }
+            set { BackingStore?.Set("lastModifiedBy", value); }
+        }
+#nullable restore
+#else
+        public string LastModifiedBy {
+            get { return BackingStore?.Get<string>("lastModifiedBy"); }
+            set { BackingStore?.Set("lastModifiedBy", value); }
+        }
+#endif
         /// <summary>Time when the incident was last updated.</summary>
         public DateTimeOffset? LastUpdateDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastUpdateDateTime"); }
@@ -170,6 +184,7 @@ namespace Microsoft.Graph.Models.Security {
                 {"determination", n => { Determination = n.GetEnumValue<AlertDetermination>(); } },
                 {"displayName", n => { DisplayName = n.GetStringValue(); } },
                 {"incidentWebUrl", n => { IncidentWebUrl = n.GetStringValue(); } },
+                {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
                 {"lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 {"redirectIncidentId", n => { RedirectIncidentId = n.GetStringValue(); } },
                 {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
@@ -193,6 +208,7 @@ namespace Microsoft.Graph.Models.Security {
             writer.WriteEnumValue<AlertDetermination>("determination", Determination);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("incidentWebUrl", IncidentWebUrl);
+            writer.WriteStringValue("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastUpdateDateTime", LastUpdateDateTime);
             writer.WriteStringValue("redirectIncidentId", RedirectIncidentId);
             writer.WriteEnumValue<AlertSeverity>("severity", Severity);

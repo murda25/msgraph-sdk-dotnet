@@ -31,6 +31,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             new GraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.</summary>
+        /// <param name="position">The unique identifier of mobileApp</param>
         public MobileAppItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("mobileApp%2Did", position);
@@ -51,8 +52,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         public MobileAppsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List properties and relationships of the iosiPadOSWebClip objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-iosipadoswebclip-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the androidLobApp objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-androidlobapp-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -71,8 +72,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileAppCollectionResponse>(requestInfo, MobileAppCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new iosVppApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-iosvppapp-create?view=graph-rest-1.0" />
+        /// Create a new windowsUniversalAppX object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowsuniversalappx-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +94,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// List properties and relationships of the iosiPadOSWebClip objects.
+        /// List properties and relationships of the androidLobApp objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,7 +120,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new iosVppApp object.
+        /// Create a new windowsUniversalAppX object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +148,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return requestInfo;
         }
         /// <summary>
-        /// List properties and relationships of the iosiPadOSWebClip objects.
+        /// List properties and relationships of the androidLobApp objects.
         /// </summary>
         public class MobileAppsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

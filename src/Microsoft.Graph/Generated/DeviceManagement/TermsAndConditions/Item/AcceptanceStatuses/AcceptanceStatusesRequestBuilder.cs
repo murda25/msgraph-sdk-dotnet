@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.AcceptanceSta
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.</summary>
+        /// <param name="position">The unique identifier of termsAndConditionsAcceptanceStatus</param>
         public TermsAndConditionsAcceptanceStatusItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("termsAndConditionsAcceptanceStatus%2Did", position);

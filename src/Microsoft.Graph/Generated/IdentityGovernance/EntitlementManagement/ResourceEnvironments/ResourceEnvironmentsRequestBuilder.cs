@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.</summary>
+        /// <param name="position">The unique identifier of accessPackageResourceEnvironment</param>
         public AccessPackageResourceEnvironmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackageResourceEnvironment%2Did", position);

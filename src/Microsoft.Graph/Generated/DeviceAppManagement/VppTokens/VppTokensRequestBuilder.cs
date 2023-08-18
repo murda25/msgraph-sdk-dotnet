@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceAppManagement.VppTokens {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.</summary>
+        /// <param name="position">The unique identifier of vppToken</param>
         public VppTokenItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("vppToken%2Did", position);

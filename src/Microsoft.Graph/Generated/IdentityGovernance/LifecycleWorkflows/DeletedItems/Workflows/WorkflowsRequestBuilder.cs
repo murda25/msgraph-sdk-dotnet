@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.LifecycleWorkflows.DeletedItems.Wor
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.</summary>
+        /// <param name="position">The unique identifier of workflow</param>
         public WorkflowItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("workflow%2Did", position);

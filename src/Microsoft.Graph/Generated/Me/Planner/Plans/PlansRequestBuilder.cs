@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Me.Planner.Plans {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.</summary>
+        /// <param name="position">The unique identifier of plannerPlan</param>
         public PlannerPlanItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("plannerPlan%2Did", position);

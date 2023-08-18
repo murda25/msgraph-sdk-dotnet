@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians.Item.Si
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.</summary>
+        /// <param name="position">The unique identifier of siteSource</param>
         public SiteSourceItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("siteSource%2Did", position);

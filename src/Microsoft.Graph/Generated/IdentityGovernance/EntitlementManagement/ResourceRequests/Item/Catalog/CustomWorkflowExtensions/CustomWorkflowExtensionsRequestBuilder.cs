@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.</summary>
+        /// <param name="position">The unique identifier of customCalloutExtension</param>
         public CustomCalloutExtensionItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("customCalloutExtension%2Did", position);

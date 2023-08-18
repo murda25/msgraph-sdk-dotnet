@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.</summary>
+        /// <param name="position">The unique identifier of accessPackageResourceRole</param>
         public Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceRequests.Item.Catalog.ResourceRoles.Item.Resource.Roles.Item.AccessPackageResourceRoleItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackageResourceRole%2Did1", position);

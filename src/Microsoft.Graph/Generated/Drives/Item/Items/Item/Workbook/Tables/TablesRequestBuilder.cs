@@ -27,6 +27,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the tables property of the microsoft.graph.workbook entity.</summary>
+        /// <param name="position">The unique identifier of workbookTable</param>
         public WorkbookTableItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("workbookTable%2Did", position);
@@ -48,7 +49,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Tables {
         }
         /// <summary>
         /// Retrieve a list of table objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/table-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

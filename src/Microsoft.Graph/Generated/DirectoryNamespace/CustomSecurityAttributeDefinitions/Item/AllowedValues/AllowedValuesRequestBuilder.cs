@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DirectoryNamespace.CustomSecurityAttributeDefinitions.
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.</summary>
+        /// <param name="position">The unique identifier of allowedValue</param>
         public AllowedValueItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("allowedValue%2Did", position);
