@@ -107,14 +107,14 @@ namespace Microsoft.Graph.Models {
         /// <summary>File metadata, if the item is a file. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Microsoft.Graph.Models.FileObject? FileObject {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.FileObject?>("file"); }
+        public FileObject? File {
+            get { return BackingStore?.Get<FileObject?>("file"); }
             set { BackingStore?.Set("file", value); }
         }
 #nullable restore
 #else
-        public Microsoft.Graph.Models.FileObject FileObject {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.FileObject>("file"); }
+        public FileObject File {
+            get { return BackingStore?.Get<FileObject>("file"); }
             set { BackingStore?.Set("file", value); }
         }
 #endif
@@ -471,7 +471,7 @@ namespace Microsoft.Graph.Models {
                 {"content", n => { Content = n.GetByteArrayValue(); } },
                 {"cTag", n => { CTag = n.GetStringValue(); } },
                 {"deleted", n => { Deleted = n.GetObjectValue<Microsoft.Graph.Models.Deleted>(Microsoft.Graph.Models.Deleted.CreateFromDiscriminatorValue); } },
-                {"file", n => { FileObject = n.GetObjectValue<Microsoft.Graph.Models.FileObject>(Microsoft.Graph.Models.FileObject.CreateFromDiscriminatorValue); } },
+                {"file", n => { File = n.GetObjectValue<FileObject>(FileObject.CreateFromDiscriminatorValue); } },
                 {"fileSystemInfo", n => { FileSystemInfo = n.GetObjectValue<Microsoft.Graph.Models.FileSystemInfo>(Microsoft.Graph.Models.FileSystemInfo.CreateFromDiscriminatorValue); } },
                 {"folder", n => { Folder = n.GetObjectValue<Microsoft.Graph.Models.Folder>(Microsoft.Graph.Models.Folder.CreateFromDiscriminatorValue); } },
                 {"image", n => { Image = n.GetObjectValue<Microsoft.Graph.Models.Image>(Microsoft.Graph.Models.Image.CreateFromDiscriminatorValue); } },
@@ -512,7 +512,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteByteArrayValue("content", Content);
             writer.WriteStringValue("cTag", CTag);
             writer.WriteObjectValue<Microsoft.Graph.Models.Deleted>("deleted", Deleted);
-            writer.WriteObjectValue<Microsoft.Graph.Models.FileObject>("file", FileObject);
+            writer.WriteObjectValue<FileObject>("file", File);
             writer.WriteObjectValue<Microsoft.Graph.Models.FileSystemInfo>("fileSystemInfo", FileSystemInfo);
             writer.WriteObjectValue<Microsoft.Graph.Models.Folder>("folder", Folder);
             writer.WriteObjectValue<Microsoft.Graph.Models.Image>("image", Image);

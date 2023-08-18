@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.</summary>
+        /// <param name="position">The unique identifier of localizedNotificationMessage</param>
         public LocalizedNotificationMessageItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("localizedNotificationMessage%2Did", position);

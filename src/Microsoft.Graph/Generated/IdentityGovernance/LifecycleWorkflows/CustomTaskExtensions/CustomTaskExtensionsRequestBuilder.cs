@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.LifecycleWorkflows.CustomTaskExtens
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.</summary>
+        /// <param name="position">The unique identifier of customTaskExtension</param>
         public CustomTaskExtensionItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("customTaskExtension%2Did", position);

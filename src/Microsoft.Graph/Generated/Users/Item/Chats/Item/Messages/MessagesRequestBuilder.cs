@@ -26,6 +26,7 @@ namespace Microsoft.Graph.Users.Item.Chats.Item.Messages {
             new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the messages property of the microsoft.graph.chat entity.</summary>
+        /// <param name="position">The unique identifier of chatMessage</param>
         public ChatMessageItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("chatMessage%2Did", position);

@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsScoreHistory {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.</summary>
+        /// <param name="position">The unique identifier of userExperienceAnalyticsScoreHistory</param>
         public UserExperienceAnalyticsScoreHistoryItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("userExperienceAnalyticsScoreHistory%2Did", position);

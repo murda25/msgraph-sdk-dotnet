@@ -21,6 +21,7 @@ namespace Microsoft.Graph.GroupSettings {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of groupSetting entities.</summary>
+        /// <param name="position">The unique identifier of groupSetting</param>
         public GroupSettingItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("groupSetting%2Did", position);

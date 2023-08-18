@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsCategories.Ite
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.</summary>
+        /// <param name="position">The unique identifier of userExperienceAnalyticsMetric</param>
         public UserExperienceAnalyticsMetricItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("userExperienceAnalyticsMetric%2Did", position);

@@ -26,6 +26,7 @@ namespace Microsoft.Graph.Teams {
             new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the collection of team entities.</summary>
+        /// <param name="position">The unique identifier of team</param>
         public TeamItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("team%2Did", position);

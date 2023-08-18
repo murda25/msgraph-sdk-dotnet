@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsAppHealthAppli
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.</summary>
+        /// <param name="position">The unique identifier of userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails</param>
         public UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails%2Did", position);

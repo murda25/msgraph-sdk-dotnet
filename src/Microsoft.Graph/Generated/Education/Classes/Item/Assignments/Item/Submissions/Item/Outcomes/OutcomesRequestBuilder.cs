@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.It
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.</summary>
+        /// <param name="position">The unique identifier of educationOutcome</param>
         public EducationOutcomeItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("educationOutcome%2Did", position);

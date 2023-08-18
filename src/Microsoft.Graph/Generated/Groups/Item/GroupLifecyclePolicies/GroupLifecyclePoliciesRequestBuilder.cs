@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Groups.Item.GroupLifecyclePolicies {
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.</summary>
+        /// <param name="position">The unique identifier of groupLifecyclePolicy</param>
         public GroupLifecyclePolicyItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("groupLifecyclePolicy%2Did", position);
