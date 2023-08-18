@@ -21,6 +21,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.SharedWithTea
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.</summary>
+        /// <param name="position">The unique identifier of sharedWithChannelTeamInfo</param>
         public SharedWithChannelTeamInfoItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("sharedWithChannelTeamInfo%2Did", position);

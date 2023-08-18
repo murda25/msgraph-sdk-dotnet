@@ -36,6 +36,7 @@ namespace Microsoft.Graph.Groups.Item.Sites {
             new RemoveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the sites property of the microsoft.graph.group entity.</summary>
+        /// <param name="position">The unique identifier of site</param>
         public SiteItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("site%2Did", position);

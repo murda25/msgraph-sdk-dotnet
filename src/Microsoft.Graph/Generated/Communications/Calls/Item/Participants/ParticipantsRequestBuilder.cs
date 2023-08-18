@@ -26,6 +26,7 @@ namespace Microsoft.Graph.Communications.Calls.Item.Participants {
             new InviteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the participants property of the microsoft.graph.call entity.</summary>
+        /// <param name="position">The unique identifier of participant</param>
         public ParticipantItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("participant%2Did", position);

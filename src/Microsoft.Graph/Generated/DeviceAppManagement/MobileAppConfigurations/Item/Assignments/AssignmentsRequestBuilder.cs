@@ -21,6 +21,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations.Item.Assig
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.</summary>
+        /// <param name="position">The unique identifier of managedDeviceMobileAppConfigurationAssignment</param>
         public ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("managedDeviceMobileAppConfigurationAssignment%2Did", position);

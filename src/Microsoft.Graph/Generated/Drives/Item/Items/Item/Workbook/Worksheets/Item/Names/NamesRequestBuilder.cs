@@ -31,6 +31,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Worksheets.Item.Names 
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.</summary>
+        /// <param name="position">The unique identifier of workbookNamedItem</param>
         public WorkbookNamedItemItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("workbookNamedItem%2Did", position);

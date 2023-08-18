@@ -21,6 +21,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
             new CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the scopes property of the microsoft.graph.accessPackageResource entity.</summary>
+        /// <param name="position">The unique identifier of accessPackageResourceScope</param>
         public Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceRequests.Item.Catalog.ResourceScopes.Item.Resource.Roles.Item.Resource.Scopes.Item.AccessPackageResourceScopeItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("accessPackageResourceScope%2Did1", position);
