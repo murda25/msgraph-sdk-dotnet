@@ -7,7 +7,15 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-## [5.22.0] - 2023-08-16
+## [5.24.0] - 2023-08-23
+
+- Adds GraphServiceClient constructor for use with a `TokenCredential` and a `HttpClient`.
+- Fix for incorrect discriminator in DirectoryObject type (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/2084).
+- Fix for incorrect property names when the reserved names matched the type name (https://github.com/microsoft/kiota/pull/3107).
+- Fix for missing PlannerCheckListItem and PlannerExternalReference models (https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/2050).
+- Latest metadata updates from 22nd August 2023.
+
+## [5.23.0] - 2023-08-16
 
 - Fix for incorrect property names when the reserved names matched the type name (https://github.com/microsoft/kiota/pull/3107).
 - Latest metadata updates from 15th August 2023.
