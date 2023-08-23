@@ -259,7 +259,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.deviceManagementPartner" => new DeviceManagementPartner(),
                 "#microsoft.graph.deviceManagementReports" => new DeviceManagementReports(),
                 "#microsoft.graph.deviceManagementTroubleshootingEvent" => new DeviceManagementTroubleshootingEvent(),
-                "#microsoft.graph.directory" => new DirectoryObject(),
+                "#microsoft.graph.directory" => new DirectoryObject1(),
                 "#microsoft.graph.directoryAudit" => new DirectoryAudit(),
                 "#microsoft.graph.directoryDefinition" => new DirectoryDefinition(),
                 "#microsoft.graph.directoryObject" => new DirectoryObject(),
