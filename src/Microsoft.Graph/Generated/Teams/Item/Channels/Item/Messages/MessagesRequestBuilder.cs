@@ -143,6 +143,13 @@ namespace Microsoft.Graph.Teams.Item.Channels.Item.Messages {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public MessagesRequestBuilder WithUrl(string rawUrl) {
+            return new MessagesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Retrieve the list of messages (without the replies) in a channel of a team.  To get the replies for a message, call the list message replies or the get message reply API.  This method supports federation. To list channel messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).
         /// </summary>
         public class MessagesRequestBuilderGetQueryParameters {

@@ -44,8 +44,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
         public DeviceEnrollmentConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a deviceEnrollmentLimitConfiguration.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-delete?view=graph-rest-1.0" />
+        /// Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +106,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
             return await RequestAdapter.SendAsync<DeviceEnrollmentConfiguration>(requestInfo, DeviceEnrollmentConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Deletes a deviceEnrollmentLimitConfiguration.
+        /// Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -182,6 +182,13 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations.Item {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public DeviceEnrollmentConfigurationItemRequestBuilder WithUrl(string rawUrl) {
+            return new DeviceEnrollmentConfigurationItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

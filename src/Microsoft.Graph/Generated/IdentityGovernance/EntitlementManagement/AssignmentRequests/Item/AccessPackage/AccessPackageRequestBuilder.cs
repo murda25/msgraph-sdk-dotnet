@@ -74,6 +74,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentReq
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public AccessPackageRequestBuilder WithUrl(string rawUrl) {
+            return new AccessPackageRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
         /// </summary>
         public class AccessPackageRequestBuilderGetQueryParameters {

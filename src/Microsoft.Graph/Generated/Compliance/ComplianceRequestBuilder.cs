@@ -123,6 +123,13 @@ namespace Microsoft.Graph.Compliance {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ComplianceRequestBuilder WithUrl(string rawUrl) {
+            return new ComplianceRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get compliance
         /// </summary>
         public class ComplianceRequestBuilderGetQueryParameters {

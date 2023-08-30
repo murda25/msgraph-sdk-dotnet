@@ -138,6 +138,13 @@ namespace Microsoft.Graph.Me.Authentication.EmailMethods {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public EmailMethodsRequestBuilder WithUrl(string rawUrl) {
+            return new EmailMethodsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Retrieve a list of a user&apos;s emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
         /// </summary>
         public class EmailMethodsRequestBuilderGetQueryParameters {

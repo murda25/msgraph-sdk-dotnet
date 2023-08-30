@@ -146,6 +146,13 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleEligibilitySched
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RoleEligibilitySchedulesRequestBuilder WithUrl(string rawUrl) {
+            return new RoleEligibilitySchedulesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
         /// </summary>
         public class RoleEligibilitySchedulesRequestBuilderGetQueryParameters {

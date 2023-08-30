@@ -42,8 +42,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
         public DeviceEnrollmentConfigurationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the deviceEnrollmentConfiguration objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,8 +62,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return await RequestAdapter.SendAsync<DeviceEnrollmentConfigurationCollectionResponse>(requestInfo, DeviceEnrollmentConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new deviceEnrollmentLimitConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-create?view=graph-rest-1.0" />
+        /// Create a new deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -84,7 +84,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return await RequestAdapter.SendAsync<DeviceEnrollmentConfiguration>(requestInfo, DeviceEnrollmentConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+        /// List properties and relationships of the deviceEnrollmentConfiguration objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +110,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new deviceEnrollmentLimitConfiguration object.
+        /// Create a new deviceEnrollmentWindowsHelloForBusinessConfiguration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +138,14 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return requestInfo;
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public DeviceEnrollmentConfigurationsRequestBuilder WithUrl(string rawUrl) {
+            return new DeviceEnrollmentConfigurationsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// List properties and relationships of the deviceEnrollmentConfiguration objects.
         /// </summary>
         public class DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

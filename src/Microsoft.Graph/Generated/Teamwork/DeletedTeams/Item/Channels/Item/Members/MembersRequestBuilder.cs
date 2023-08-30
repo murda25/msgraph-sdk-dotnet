@@ -67,8 +67,8 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.Members {
             return await RequestAdapter.SendAsync<ConversationMemberCollectionResponse>(requestInfo, ConversationMemberCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0" />
+        /// Add a conversationMember to a channel.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+        /// Add a conversationMember to a channel.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -141,6 +141,13 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.Members {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public MembersRequestBuilder WithUrl(string rawUrl) {
+            return new MembersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve a list of conversationMembers from a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve the channel member list.

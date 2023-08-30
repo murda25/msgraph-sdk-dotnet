@@ -138,6 +138,13 @@ namespace Microsoft.Graph.DeviceManagement.MobileAppTroubleshootingEvents.Item.A
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public AppLogCollectionRequestsRequestBuilder WithUrl(string rawUrl) {
+            return new AppLogCollectionRequestsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List properties and relationships of the appLogCollectionRequest objects.
         /// </summary>
         public class AppLogCollectionRequestsRequestBuilderGetQueryParameters {

@@ -74,6 +74,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentPol
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public CustomExtensionRequestBuilder WithUrl(string rawUrl) {
+            return new CustomExtensionRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.
         /// </summary>
         public class CustomExtensionRequestBuilderGetQueryParameters {

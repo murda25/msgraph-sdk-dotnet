@@ -75,6 +75,13 @@ namespace Microsoft.Graph.Me.Authentication.PasswordMethods.Item {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public PasswordAuthenticationMethodItemRequestBuilder WithUrl(string rawUrl) {
+            return new PasswordAuthenticationMethodItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Retrieve a password that&apos;s registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the password property is always null.
         /// </summary>
         public class PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters {

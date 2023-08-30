@@ -136,6 +136,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public QuestionsRequestBuilder WithUrl(string rawUrl) {
+            return new QuestionsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Questions that are posed to the  requestor.
         /// </summary>
         public class QuestionsRequestBuilderGetQueryParameters {

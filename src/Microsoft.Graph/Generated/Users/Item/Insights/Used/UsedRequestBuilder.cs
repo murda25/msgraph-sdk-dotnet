@@ -137,6 +137,13 @@ namespace Microsoft.Graph.Users.Item.Insights.Used {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public UsedRequestBuilder WithUrl(string rawUrl) {
+            return new UsedRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Calculate and list the documents that a user has viewed or modified.  For the signed-in user:- This method includes documents that the user has modified; see example 1. - Using an $orderby query parameter on the lastAccessedDateTime property returns the most recently viewed documents that the user might or might not not have modified; see example 2. For other users, this method includes only documents that the user has modified.
         /// </summary>
         public class UsedRequestBuilderGetQueryParameters {

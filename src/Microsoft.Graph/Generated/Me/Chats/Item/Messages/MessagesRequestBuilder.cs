@@ -67,8 +67,8 @@ namespace Microsoft.Graph.Me.Chats.Item.Messages {
             return await RequestAdapter.SendAsync<ChatMessageCollectionResponse>(requestInfo, ChatMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0" />
+        /// Send a new chatMessage in the specified chat. This API can&apos;t create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-post-messages?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Me.Chats.Item.Messages {
             return requestInfo;
         }
         /// <summary>
-        /// Send a new chatMessage in the specified channel or a chat.
+        /// Send a new chatMessage in the specified chat. This API can&apos;t create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -141,6 +141,13 @@ namespace Microsoft.Graph.Me.Chats.Item.Messages {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public MessagesRequestBuilder WithUrl(string rawUrl) {
+            return new MessagesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the tenantId property on the channel).

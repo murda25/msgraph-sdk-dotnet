@@ -74,6 +74,13 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleAssignments.Item
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RoleDefinitionRequestBuilder WithUrl(string rawUrl) {
+            return new RoleDefinitionRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
         /// </summary>
         public class RoleDefinitionRequestBuilderGetQueryParameters {

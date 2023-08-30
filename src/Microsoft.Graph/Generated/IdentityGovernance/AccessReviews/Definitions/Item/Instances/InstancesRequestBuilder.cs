@@ -146,6 +146,13 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public InstancesRequestBuilder WithUrl(string rawUrl) {
+            return new InstancesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get a list of the accessReviewInstance objects and their properties.
         /// </summary>
         public class InstancesRequestBuilderGetQueryParameters {

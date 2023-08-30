@@ -74,6 +74,13 @@ namespace Microsoft.Graph.ServicePrincipals.Item.TokenLifetimePolicies.Item {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public TokenLifetimePolicyItemRequestBuilder WithUrl(string rawUrl) {
+            return new TokenLifetimePolicyItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The tokenLifetimePolicies assigned to this service principal.
         /// </summary>
         public class TokenLifetimePolicyItemRequestBuilderGetQueryParameters {

@@ -74,6 +74,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Assignments.I
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public AssignmentPolicyRequestBuilder WithUrl(string rawUrl) {
+            return new AssignmentPolicyRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Read-only. Supports $filter (eq) on the id property and $expand query parameters.
         /// </summary>
         public class AssignmentPolicyRequestBuilderGetQueryParameters {

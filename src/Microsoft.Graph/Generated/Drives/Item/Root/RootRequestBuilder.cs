@@ -80,6 +80,13 @@ namespace Microsoft.Graph.Drives.Item.Root {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RootRequestBuilder WithUrl(string rawUrl) {
+            return new RootRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Retrieve the metadata for a driveItem in a drive by file system path or ID.item-id is the ID of a driveItem. It may also be the unique ID of a SharePoint list item.
         /// </summary>
         public class RootRequestBuilderGetQueryParameters {

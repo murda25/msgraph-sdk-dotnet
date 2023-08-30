@@ -98,6 +98,13 @@ namespace Microsoft.Graph.Users.Item.Outlook {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public OutlookRequestBuilder WithUrl(string rawUrl) {
+            return new OutlookRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get outlook from users
         /// </summary>
         public class OutlookRequestBuilderGetQueryParameters {

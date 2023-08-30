@@ -137,6 +137,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public StagesRequestBuilder WithUrl(string rawUrl) {
+            return new StagesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// In Azure AD entitlement management, list the approvalStage objects associated with an approval object. This call can be made by an approver, providing the identifier of the access package assignment request.
         /// </summary>
         public class StagesRequestBuilderGetQueryParameters {

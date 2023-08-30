@@ -143,6 +143,13 @@ namespace Microsoft.Graph.Users.Item.ContactFolders {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ContactFoldersRequestBuilder WithUrl(string rawUrl) {
+            return new ContactFoldersRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get the contact folder collection in the default Contacts folder of the signed-in user.
         /// </summary>
         public class ContactFoldersRequestBuilderGetQueryParameters {
