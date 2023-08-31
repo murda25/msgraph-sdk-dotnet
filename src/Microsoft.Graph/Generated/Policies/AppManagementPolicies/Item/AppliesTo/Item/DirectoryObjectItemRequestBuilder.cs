@@ -74,6 +74,13 @@ namespace Microsoft.Graph.Policies.AppManagementPolicies.Item.AppliesTo.Item {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public DirectoryObjectItemRequestBuilder WithUrl(string rawUrl) {
+            return new DirectoryObjectItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Collection of applications and service principals to which the policy is applied.
         /// </summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {

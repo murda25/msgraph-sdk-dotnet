@@ -137,6 +137,13 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicies.Item.Rules {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RulesRequestBuilder WithUrl(string rawUrl) {
+            return new RulesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
         /// </summary>
         public class RulesRequestBuilderGetQueryParameters {

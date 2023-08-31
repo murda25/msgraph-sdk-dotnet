@@ -74,6 +74,13 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsBaselines.Item
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public BestPracticesMetricsRequestBuilder WithUrl(string rawUrl) {
+            return new BestPracticesMetricsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The scores and insights for the best practices metrics.
         /// </summary>
         public class BestPracticesMetricsRequestBuilderGetQueryParameters {

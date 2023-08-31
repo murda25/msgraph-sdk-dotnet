@@ -147,6 +147,13 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleEligibilitySched
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RoleEligibilityScheduleRequestsRequestBuilder WithUrl(string rawUrl) {
+            return new RoleEligibilityScheduleRequestsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
         /// </summary>
         public class RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters {

@@ -138,6 +138,13 @@ namespace Microsoft.Graph.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ChecklistItemsRequestBuilder WithUrl(string rawUrl) {
+            return new ChecklistItemsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
         /// </summary>
         public class ChecklistItemsRequestBuilderGetQueryParameters {

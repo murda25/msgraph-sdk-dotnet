@@ -73,6 +73,13 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Ite
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public DeltaRequestBuilder WithUrl(string rawUrl) {
+            return new DeltaRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Invoke function delta
         /// </summary>
         public class DeltaRequestBuilderGetQueryParameters {

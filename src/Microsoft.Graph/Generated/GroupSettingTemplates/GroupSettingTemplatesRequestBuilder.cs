@@ -157,6 +157,13 @@ namespace Microsoft.Graph.GroupSettingTemplates {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public GroupSettingTemplatesRequestBuilder WithUrl(string rawUrl) {
+            return new GroupSettingTemplatesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
         /// </summary>
         public class GroupSettingTemplatesRequestBuilderGetQueryParameters {

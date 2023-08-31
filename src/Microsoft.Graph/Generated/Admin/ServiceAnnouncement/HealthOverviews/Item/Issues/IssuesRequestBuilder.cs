@@ -136,6 +136,13 @@ namespace Microsoft.Graph.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues 
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public IssuesRequestBuilder WithUrl(string rawUrl) {
+            return new IssuesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// A collection of issues that happened on the service, with detailed information for each issue.
         /// </summary>
         public class IssuesRequestBuilderGetQueryParameters {

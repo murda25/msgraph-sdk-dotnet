@@ -136,6 +136,13 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.Resources {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ResourcesRequestBuilder WithUrl(string rawUrl) {
+            return new ResourcesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The resources associated with the catalogs.
         /// </summary>
         public class ResourcesRequestBuilderGetQueryParameters {

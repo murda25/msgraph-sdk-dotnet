@@ -143,6 +143,13 @@ namespace Microsoft.Graph.Education.Users {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public UsersRequestBuilder WithUrl(string rawUrl) {
+            return new UsersRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get a list of the educationUser objects and their properties.
         /// </summary>
         public class UsersRequestBuilderGetQueryParameters {

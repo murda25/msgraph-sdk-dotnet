@@ -136,6 +136,13 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.TermStores {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public TermStoresRequestBuilder WithUrl(string rawUrl) {
+            return new TermStoresRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// The collection of termStores under this site.
         /// </summary>
         public class TermStoresRequestBuilderGetQueryParameters {
