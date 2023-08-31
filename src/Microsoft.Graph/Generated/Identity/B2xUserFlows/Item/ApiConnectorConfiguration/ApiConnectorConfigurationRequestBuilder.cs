@@ -84,6 +84,13 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.ApiConnectorConfiguration {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ApiConnectorConfigurationRequestBuilder WithUrl(string rawUrl) {
+            return new ApiConnectorConfigurationRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
         /// </summary>
         public class ApiConnectorConfigurationRequestBuilderGetQueryParameters {

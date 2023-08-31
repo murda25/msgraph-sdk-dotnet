@@ -138,6 +138,13 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.UserStatuse
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public UserStatusesRequestBuilder WithUrl(string rawUrl) {
+            return new UserStatusesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List properties and relationships of the deviceConfigurationUserStatus objects.
         /// </summary>
         public class UserStatusesRequestBuilderGetQueryParameters {

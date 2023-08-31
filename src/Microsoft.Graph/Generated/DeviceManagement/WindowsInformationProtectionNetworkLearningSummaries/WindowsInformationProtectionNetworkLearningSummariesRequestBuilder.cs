@@ -138,6 +138,13 @@ namespace Microsoft.Graph.DeviceManagement.WindowsInformationProtectionNetworkLe
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public WindowsInformationProtectionNetworkLearningSummariesRequestBuilder WithUrl(string rawUrl) {
+            return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
         /// </summary>
         public class WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters {

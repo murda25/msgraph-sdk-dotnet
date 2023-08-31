@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.25.0] - 2023-08-30
+
+- Add `WithUrl` request builders to allow for easier making of requests with arbitrary Urls(https://github.com/microsoft/kiota/pull/3212) 
+- Latest metadata updates from 29th August 2023.
+
 ## [5.24.0] - 2023-08-23
 
 - Adds GraphServiceClient constructor for use with a `TokenCredential` and a `HttpClient`.

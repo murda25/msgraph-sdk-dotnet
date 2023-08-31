@@ -148,6 +148,13 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.UserAttributeAssignments {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public UserAttributeAssignmentsRequestBuilder WithUrl(string rawUrl) {
+            return new UserAttributeAssignmentsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
         /// </summary>
         public class UserAttributeAssignmentsRequestBuilderGetQueryParameters {

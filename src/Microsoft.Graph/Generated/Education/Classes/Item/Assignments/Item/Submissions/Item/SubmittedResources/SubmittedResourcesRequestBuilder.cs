@@ -137,6 +137,13 @@ namespace Microsoft.Graph.Education.Classes.Item.Assignments.Item.Submissions.It
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public SubmittedResourcesRequestBuilder WithUrl(string rawUrl) {
+            return new SubmittedResourcesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
         /// </summary>
         public class SubmittedResourcesRequestBuilderGetQueryParameters {

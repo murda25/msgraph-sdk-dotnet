@@ -137,6 +137,13 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments.Item.Submissions {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public SubmissionsRequestBuilder WithUrl(string rawUrl) {
+            return new SubmissionsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions while a student can only get submissions that they are associated with.
         /// </summary>
         public class SubmissionsRequestBuilderGetQueryParameters {

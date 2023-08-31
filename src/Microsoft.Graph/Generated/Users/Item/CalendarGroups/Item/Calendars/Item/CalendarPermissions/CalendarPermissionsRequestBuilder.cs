@@ -138,6 +138,13 @@ namespace Microsoft.Graph.Users.Item.CalendarGroups.Item.Calendars.Item.Calendar
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public CalendarPermissionsRequestBuilder WithUrl(string rawUrl) {
+            return new CalendarPermissionsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get a collection of calendarPermission resources that describe the identity and roles of users with whom the specified calendar has been shared or delegated. Here, the calendar can be a user calendar or group calendar.
         /// </summary>
         public class CalendarPermissionsRequestBuilderGetQueryParameters {

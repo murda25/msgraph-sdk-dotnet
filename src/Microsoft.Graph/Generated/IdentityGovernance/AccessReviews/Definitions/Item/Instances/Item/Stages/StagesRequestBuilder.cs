@@ -146,6 +146,13 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions.Item.Inst
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public StagesRequestBuilder WithUrl(string rawUrl) {
+            return new StagesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Retrieve the stages in a multi-stage access review instance.
         /// </summary>
         public class StagesRequestBuilderGetQueryParameters {

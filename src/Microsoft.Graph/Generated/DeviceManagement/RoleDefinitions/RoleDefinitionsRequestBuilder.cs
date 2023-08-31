@@ -62,8 +62,8 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions {
             return await RequestAdapter.SendAsync<RoleDefinitionCollectionResponse>(requestInfo, RoleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Create a new roleDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0" />
+        /// Create a new deviceAndAppManagementRoleDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -110,7 +110,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new roleDefinition object.
+        /// Create a new deviceAndAppManagementRoleDefinition object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,6 +136,13 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions {
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
             return requestInfo;
+        }
+        /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public RoleDefinitionsRequestBuilder WithUrl(string rawUrl) {
+            return new RoleDefinitionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List properties and relationships of the deviceAndAppManagementRoleDefinition objects.

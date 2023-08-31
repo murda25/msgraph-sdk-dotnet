@@ -138,6 +138,13 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public ManagedEBooksRequestBuilder WithUrl(string rawUrl) {
+            return new ManagedEBooksRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List properties and relationships of the iosVppEBook objects.
         /// </summary>
         public class ManagedEBooksRequestBuilderGetQueryParameters {

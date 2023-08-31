@@ -143,6 +143,13 @@ namespace Microsoft.Graph.Me.Chats.Item.Members {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public MembersRequestBuilder WithUrl(string rawUrl) {
+            return new MembersRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// List all conversation members in a chat or channel.
         /// </summary>
         public class MembersRequestBuilderGetQueryParameters {

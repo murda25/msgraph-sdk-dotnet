@@ -75,6 +75,13 @@ namespace Microsoft.Graph.Sites.Item.Analytics.AllTime {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public AllTimeRequestBuilder WithUrl(string rawUrl) {
+            return new AllTimeRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Get [itemAnalytics][] about the views that took place under this resource.The itemAnalytics resource is a convenient way to get activity stats for allTime and the lastSevenDays.For a custom time range or interval, use the [getActivitiesByInterval][] API.
         /// </summary>
         public class AllTimeRequestBuilderGetQueryParameters {
