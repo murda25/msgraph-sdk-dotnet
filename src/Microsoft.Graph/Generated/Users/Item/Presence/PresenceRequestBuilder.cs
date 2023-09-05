@@ -4,6 +4,7 @@ using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.Presence.ClearPresence;
 using Microsoft.Graph.Users.Item.Presence.ClearUserPreferredPresence;
 using Microsoft.Graph.Users.Item.Presence.SetPresence;
+using Microsoft.Graph.Users.Item.Presence.SetStatusMessage;
 using Microsoft.Graph.Users.Item.Presence.SetUserPreferredPresence;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -29,6 +30,10 @@ namespace Microsoft.Graph.Users.Item.Presence {
         /// <summary>Provides operations to call the setPresence method.</summary>
         public SetPresenceRequestBuilder SetPresence { get =>
             new SetPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setStatusMessage method.</summary>
+        public SetStatusMessageRequestBuilder SetStatusMessage { get =>
+            new SetStatusMessageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
         public SetUserPreferredPresenceRequestBuilder SetUserPreferredPresence { get =>

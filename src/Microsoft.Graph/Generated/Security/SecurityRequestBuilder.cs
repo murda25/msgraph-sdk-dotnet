@@ -9,6 +9,7 @@ using Microsoft.Graph.Security.Incidents;
 using Microsoft.Graph.Security.MicrosoftGraphSecurityRunHuntingQuery;
 using Microsoft.Graph.Security.SecureScoreControlProfiles;
 using Microsoft.Graph.Security.SecureScores;
+using Microsoft.Graph.Security.SubjectRightsRequests;
 using Microsoft.Graph.Security.ThreatIntelligence;
 using Microsoft.Graph.Security.TriggerTypes;
 using Microsoft.Graph.Security.Triggers;
@@ -56,6 +57,10 @@ namespace Microsoft.Graph.Security {
         /// <summary>Provides operations to manage the secureScores property of the microsoft.graph.security entity.</summary>
         public SecureScoresRequestBuilder SecureScores { get =>
             new SecureScoresRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.</summary>
+        public SubjectRightsRequestsRequestBuilder SubjectRightsRequests { get =>
+            new SubjectRightsRequestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.</summary>
         public ThreatIntelligenceRequestBuilder ThreatIntelligence { get =>

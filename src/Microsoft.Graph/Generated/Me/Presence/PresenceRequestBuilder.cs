@@ -2,6 +2,7 @@
 using Microsoft.Graph.Me.Presence.ClearPresence;
 using Microsoft.Graph.Me.Presence.ClearUserPreferredPresence;
 using Microsoft.Graph.Me.Presence.SetPresence;
+using Microsoft.Graph.Me.Presence.SetStatusMessage;
 using Microsoft.Graph.Me.Presence.SetUserPreferredPresence;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -29,6 +30,10 @@ namespace Microsoft.Graph.Me.Presence {
         /// <summary>Provides operations to call the setPresence method.</summary>
         public SetPresenceRequestBuilder SetPresence { get =>
             new SetPresenceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the setStatusMessage method.</summary>
+        public SetStatusMessageRequestBuilder SetStatusMessage { get =>
+            new SetStatusMessageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the setUserPreferredPresence method.</summary>
         public SetUserPreferredPresenceRequestBuilder SetUserPreferredPresence { get =>
