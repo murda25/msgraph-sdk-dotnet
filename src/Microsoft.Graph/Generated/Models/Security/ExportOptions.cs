@@ -2,16 +2,17 @@
 using System.Runtime.Serialization;
 using System;
 namespace Microsoft.Graph.Models.Security {
+    [Flags]
     public enum ExportOptions {
         [EnumMember(Value = "originalFiles")]
-        OriginalFiles,
+        OriginalFiles = 1,
         [EnumMember(Value = "text")]
-        Text,
+        Text = 2,
         [EnumMember(Value = "pdfReplacement")]
-        PdfReplacement,
+        PdfReplacement = 4,
         [EnumMember(Value = "tags")]
-        Tags,
+        Tags = 8,
         [EnumMember(Value = "unknownFutureValue")]
-        UnknownFutureValue,
+        UnknownFutureValue = 16,
     }
 }

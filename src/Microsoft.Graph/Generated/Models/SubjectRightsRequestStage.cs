@@ -17,5 +17,7 @@ namespace Microsoft.Graph.Models {
         ContentEstimate,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
+        [EnumMember(Value = "approval")]
+        Approval,
     }
 }

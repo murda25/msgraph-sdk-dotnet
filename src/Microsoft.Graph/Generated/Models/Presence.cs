@@ -34,6 +34,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("availability", value); }
         }
 #endif
+        /// <summary>The statusMessage property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PresenceStatusMessage? StatusMessage {
+            get { return BackingStore?.Get<PresenceStatusMessage?>("statusMessage"); }
+            set { BackingStore?.Set("statusMessage", value); }
+        }
+#nullable restore
+#else
+        public PresenceStatusMessage StatusMessage {
+            get { return BackingStore?.Get<PresenceStatusMessage>("statusMessage"); }
+            set { BackingStore?.Set("statusMessage", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -49,6 +63,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"activity", n => { Activity = n.GetStringValue(); } },
                 {"availability", n => { Availability = n.GetStringValue(); } },
+                {"statusMessage", n => { StatusMessage = n.GetObjectValue<PresenceStatusMessage>(PresenceStatusMessage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,6 +75,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteStringValue("activity", Activity);
             writer.WriteStringValue("availability", Availability);
+            writer.WriteObjectValue<PresenceStatusMessage>("statusMessage", StatusMessage);
         }
     }
 }

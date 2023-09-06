@@ -3,12 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Microsoft.Graph.Models {
     /// <summary>Type of accounts that are allowed to share the PC.</summary>
+    [Flags]
     public enum SharedPCAllowedAccountType {
         /// <summary>Only guest accounts.</summary>
         [EnumMember(Value = "guest")]
-        Guest,
+        Guest = 1,
         /// <summary>Only domain-joined accounts.</summary>
         [EnumMember(Value = "domain")]
-        Domain,
+        Domain = 2,
     }
 }

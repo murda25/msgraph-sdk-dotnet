@@ -104,6 +104,20 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("secureScores", value); }
         }
 #endif
+        /// <summary>The subjectRightsRequests property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Microsoft.Graph.Models.SubjectRightsRequest>? SubjectRightsRequests {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.SubjectRightsRequest>?>("subjectRightsRequests"); }
+            set { BackingStore?.Set("subjectRightsRequests", value); }
+        }
+#nullable restore
+#else
+        public List<Microsoft.Graph.Models.SubjectRightsRequest> SubjectRightsRequests {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.SubjectRightsRequest>>("subjectRightsRequests"); }
+            set { BackingStore?.Set("subjectRightsRequests", value); }
+        }
+#endif
         /// <summary>The threatIntelligence property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,6 +180,7 @@ namespace Microsoft.Graph.Models.Security {
                 {"incidents", n => { Incidents = n.GetCollectionOfObjectValues<Incident>(Incident.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"secureScoreControlProfiles", n => { SecureScoreControlProfiles = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.SecureScoreControlProfile>(Microsoft.Graph.Models.SecureScoreControlProfile.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"secureScores", n => { SecureScores = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.SecureScore>(Microsoft.Graph.Models.SecureScore.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"subjectRightsRequests", n => { SubjectRightsRequests = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.SubjectRightsRequest>(Microsoft.Graph.Models.SubjectRightsRequest.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"threatIntelligence", n => { ThreatIntelligence = n.GetObjectValue<Microsoft.Graph.Models.Security.ThreatIntelligence>(Microsoft.Graph.Models.Security.ThreatIntelligence.CreateFromDiscriminatorValue); } },
                 {"triggers", n => { Triggers = n.GetObjectValue<TriggersRoot>(TriggersRoot.CreateFromDiscriminatorValue); } },
                 {"triggerTypes", n => { TriggerTypes = n.GetObjectValue<TriggerTypesRoot>(TriggerTypesRoot.CreateFromDiscriminatorValue); } },
@@ -185,6 +200,7 @@ namespace Microsoft.Graph.Models.Security {
             writer.WriteCollectionOfObjectValues<Incident>("incidents", Incidents);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.SecureScoreControlProfile>("secureScoreControlProfiles", SecureScoreControlProfiles);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.SecureScore>("secureScores", SecureScores);
+            writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.SubjectRightsRequest>("subjectRightsRequests", SubjectRightsRequests);
             writer.WriteObjectValue<Microsoft.Graph.Models.Security.ThreatIntelligence>("threatIntelligence", ThreatIntelligence);
             writer.WriteObjectValue<TriggersRoot>("triggers", Triggers);
             writer.WriteObjectValue<TriggerTypesRoot>("triggerTypes", TriggerTypes);
