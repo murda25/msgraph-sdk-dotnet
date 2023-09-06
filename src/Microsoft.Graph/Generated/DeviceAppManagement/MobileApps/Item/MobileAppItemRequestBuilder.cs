@@ -54,8 +54,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
         public MobileAppItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a managedIOSLobApp.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0" />
+        /// Deletes a webApp.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-webapp-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -74,8 +74,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Read properties and relationships of the win32LobApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the iosLobApp object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-ioslobapp-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,8 +94,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Update the properties of a webApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-webapp-update?view=graph-rest-1.0" />
+        /// Update the properties of a windowsAppX object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowsappx-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
         }
         /// <summary>
-        /// Deletes a managedIOSLobApp.
+        /// Deletes a webApp.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,7 +140,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the win32LobApp object.
+        /// Read properties and relationships of the iosLobApp object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a webApp object.
+        /// Update the properties of a windowsAppX object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -217,7 +217,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the win32LobApp object.
+        /// Read properties and relationships of the iosLobApp object.
         /// </summary>
         public class MobileAppItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
