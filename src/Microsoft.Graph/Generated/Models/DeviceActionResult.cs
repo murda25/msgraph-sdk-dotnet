@@ -79,6 +79,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.locateDeviceActionResult" => new LocateDeviceActionResult(),
                 "#microsoft.graph.remoteLockActionResult" => new RemoteLockActionResult(),
                 "#microsoft.graph.resetPasscodeActionResult" => new ResetPasscodeActionResult(),
+                "#microsoft.graph.rotateBitLockerKeysDeviceActionResult" => new RotateBitLockerKeysDeviceActionResult(),
                 "#microsoft.graph.windowsDefenderScanActionResult" => new WindowsDefenderScanActionResult(),
                 _ => new DeviceActionResult(),
             };

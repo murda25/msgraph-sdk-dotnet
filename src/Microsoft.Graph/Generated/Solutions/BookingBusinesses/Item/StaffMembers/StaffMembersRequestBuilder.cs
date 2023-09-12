@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<BookingStaffMemberBaseCollectionResponse>(requestInfo, BookingStaffMemberBaseCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<BookingStaffMemberBaseCollectionResponse>(requestInfo, BookingStaffMemberBaseCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new bookingStaffMember in the specified bookingBusiness.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.StaffMembers {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<BookingStaffMemberBase>(requestInfo, BookingStaffMemberBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<BookingStaffMemberBase>(requestInfo, BookingStaffMemberBase.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of bookingStaffMember objects in the specified bookingBusiness.

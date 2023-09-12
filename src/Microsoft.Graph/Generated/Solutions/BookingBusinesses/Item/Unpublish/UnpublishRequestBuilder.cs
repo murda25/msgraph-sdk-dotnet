@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Solutions.BookingBusinesses.Item.Unpublish {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Make the scheduling page of this business not available to external customers. Set the isPublished property to false, and the publicUrl property to null.

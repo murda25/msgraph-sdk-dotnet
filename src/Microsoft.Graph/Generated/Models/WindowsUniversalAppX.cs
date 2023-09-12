@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     /// <summary>
-    /// Contains properties and inherited properties for Windows Universal AppX Line Of Business apps.
+    /// Contains properties and inherited properties for Windows Universal AppX Line Of Business apps. Inherits from `mobileLobApp`.
     /// </summary>
     public class WindowsUniversalAppX : MobileLobApp, IParsable {
         /// <summary>Contains properties for Windows architecture.</summary>
@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<WindowsArchitecture?>("applicableArchitectures"); }
             set { BackingStore?.Set("applicableArchitectures", value); }
         }
-        /// <summary>Contains properties for Windows device type.</summary>
+        /// <summary>Contains properties for Windows device type. Multiple values can be selected. Default value is `none`.</summary>
         public WindowsDeviceType? ApplicableDeviceTypes {
             get { return BackingStore?.Get<WindowsDeviceType?>("applicableDeviceTypes"); }
             set { BackingStore?.Set("applicableDeviceTypes", value); }

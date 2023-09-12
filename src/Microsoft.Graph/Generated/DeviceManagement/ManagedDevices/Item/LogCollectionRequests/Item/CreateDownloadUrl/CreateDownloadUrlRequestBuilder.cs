@@ -44,7 +44,7 @@ namespace Microsoft.Graph.DeviceManagement.ManagedDevices.Item.LogCollectionRequ
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<CreateDownloadUrlResponse>(requestInfo, CreateDownloadUrlResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<CreateDownloadUrlResponse>(requestInfo, CreateDownloadUrlResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Invoke action createDownloadUrl

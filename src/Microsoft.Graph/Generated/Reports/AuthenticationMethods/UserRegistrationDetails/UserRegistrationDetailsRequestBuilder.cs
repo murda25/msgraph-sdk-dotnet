@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Reports.AuthenticationMethods.UserRegistrationDetails 
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserRegistrationDetailsCollectionResponse>(requestInfo, UserRegistrationDetailsCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserRegistrationDetailsCollectionResponse>(requestInfo, UserRegistrationDetailsCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to userRegistrationDetails for reports
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Reports.AuthenticationMethods.UserRegistrationDetails 
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserRegistrationDetails>(requestInfo, Microsoft.Graph.Models.UserRegistrationDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserRegistrationDetails>(requestInfo, Microsoft.Graph.Models.UserRegistrationDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.

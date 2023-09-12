@@ -50,7 +50,7 @@ namespace Microsoft.Graph.External {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.External>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.External.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.External>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.External.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update external
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.External {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.External>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.External.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.External>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.External.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get external

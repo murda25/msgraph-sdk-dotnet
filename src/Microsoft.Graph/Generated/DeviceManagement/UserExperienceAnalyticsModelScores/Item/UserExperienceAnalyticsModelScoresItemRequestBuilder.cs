@@ -45,7 +45,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsModelScores.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// User experience analytics model scores
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsModelScores.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsModelScores.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsModelScores.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property userExperienceAnalyticsModelScores in deviceManagement
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsModelScores.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsModelScores.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsModelScores.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsModelScores for deviceManagement
