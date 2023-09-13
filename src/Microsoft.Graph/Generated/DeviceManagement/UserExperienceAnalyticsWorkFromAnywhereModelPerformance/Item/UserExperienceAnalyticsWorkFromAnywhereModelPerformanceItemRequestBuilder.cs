@@ -45,7 +45,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsWorkFromAnywhe
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The user experience analytics work from anywhere model performance
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsWorkFromAnywhe
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property userExperienceAnalyticsWorkFromAnywhereModelPerformance in deviceManagement
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsWorkFromAnywhe
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsWorkFromAnywhereModelPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsWorkFromAnywhereModelPerformance for deviceManagement

@@ -46,7 +46,7 @@ namespace Microsoft.Graph.External.Connections.Item.Groups.Item.Members.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.External.Connections.Item.Groups.Item.Members.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.Identity>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.Identity.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.Identity>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.Identity.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property members in external
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.External.Connections.Item.Groups.Item.Members.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.Identity>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.Identity.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.ExternalConnectors.Identity>(requestInfo, Microsoft.Graph.Models.ExternalConnectors.Identity.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an identity resource to remove the corresponding member from an externalGroup.

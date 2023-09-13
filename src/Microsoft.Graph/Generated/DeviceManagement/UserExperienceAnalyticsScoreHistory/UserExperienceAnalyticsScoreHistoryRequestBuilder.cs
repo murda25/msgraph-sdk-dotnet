@@ -58,7 +58,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsScoreHistory {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserExperienceAnalyticsScoreHistoryCollectionResponse>(requestInfo, UserExperienceAnalyticsScoreHistoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserExperienceAnalyticsScoreHistoryCollectionResponse>(requestInfo, UserExperienceAnalyticsScoreHistoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to userExperienceAnalyticsScoreHistory for deviceManagement
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsScoreHistory {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsScoreHistory>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsScoreHistory.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsScoreHistory>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsScoreHistory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// User experience analytics device Startup Score History

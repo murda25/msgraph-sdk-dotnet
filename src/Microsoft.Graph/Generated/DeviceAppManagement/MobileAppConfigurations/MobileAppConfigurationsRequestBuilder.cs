@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationCollectionResponse>(requestInfo, ManagedDeviceMobileAppConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationCollectionResponse>(requestInfo, ManagedDeviceMobileAppConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new iosMobileAppConfiguration object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppConfigurations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, ManagedDeviceMobileAppConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, ManagedDeviceMobileAppConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the iosMobileAppConfiguration objects.

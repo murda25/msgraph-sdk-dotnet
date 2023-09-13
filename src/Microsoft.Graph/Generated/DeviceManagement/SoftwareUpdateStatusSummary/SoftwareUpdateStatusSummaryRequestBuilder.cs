@@ -46,7 +46,7 @@ namespace Microsoft.Graph.DeviceManagement.SoftwareUpdateStatusSummary {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.SoftwareUpdateStatusSummary>(requestInfo, Microsoft.Graph.Models.SoftwareUpdateStatusSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.SoftwareUpdateStatusSummary>(requestInfo, Microsoft.Graph.Models.SoftwareUpdateStatusSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read properties and relationships of the softwareUpdateStatusSummary object.

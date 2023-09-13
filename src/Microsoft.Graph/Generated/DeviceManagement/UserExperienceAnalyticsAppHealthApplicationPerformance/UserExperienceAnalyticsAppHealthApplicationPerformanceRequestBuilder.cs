@@ -58,7 +58,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsAppHealthAppli
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponse>(requestInfo, UserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponse>(requestInfo, UserExperienceAnalyticsAppHealthApplicationPerformanceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to userExperienceAnalyticsAppHealthApplicationPerformance for deviceManagement
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsAppHealthAppli
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsAppHealthApplicationPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsAppHealthApplicationPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsAppHealthApplicationPerformance>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsAppHealthApplicationPerformance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// User experience analytics appHealth Application Performance

@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.AttackSimulation {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get attackSimulation from security
@@ -74,7 +74,7 @@ namespace Microsoft.Graph.Security.AttackSimulation {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AttackSimulationRoot>(requestInfo, AttackSimulationRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AttackSimulationRoot>(requestInfo, AttackSimulationRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property attackSimulation in security
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Security.AttackSimulation {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AttackSimulationRoot>(requestInfo, AttackSimulationRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AttackSimulationRoot>(requestInfo, AttackSimulationRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property attackSimulation for security

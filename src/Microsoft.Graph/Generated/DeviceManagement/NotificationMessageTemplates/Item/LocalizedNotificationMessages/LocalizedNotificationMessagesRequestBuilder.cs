@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<LocalizedNotificationMessageCollectionResponse>(requestInfo, LocalizedNotificationMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<LocalizedNotificationMessageCollectionResponse>(requestInfo, LocalizedNotificationMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new localizedNotificationMessage object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.NotificationMessageTemplates.Item.Loc
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, LocalizedNotificationMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, LocalizedNotificationMessage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the localizedNotificationMessage objects.

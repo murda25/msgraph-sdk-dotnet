@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Collaborators.Item.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.MailboxSettings>(requestInfo, Microsoft.Graph.Models.MailboxSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.MailboxSettings>(requestInfo, Microsoft.Graph.Models.MailboxSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update property mailboxSettings value.
@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Collaborators.Item.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.MailboxSettings>(requestInfo, Microsoft.Graph.Models.MailboxSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.MailboxSettings>(requestInfo, Microsoft.Graph.Models.MailboxSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.

@@ -58,7 +58,7 @@ namespace Microsoft.Graph.CertificateBasedAuthConfiguration {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<CertificateBasedAuthConfigurationCollectionResponse>(requestInfo, CertificateBasedAuthConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<CertificateBasedAuthConfigurationCollectionResponse>(requestInfo, CertificateBasedAuthConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add new entity to certificateBasedAuthConfiguration
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.CertificateBasedAuthConfiguration {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>(requestInfo, Microsoft.Graph.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.CertificateBasedAuthConfiguration>(requestInfo, Microsoft.Graph.Models.CertificateBasedAuthConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get entities from certificateBasedAuthConfiguration

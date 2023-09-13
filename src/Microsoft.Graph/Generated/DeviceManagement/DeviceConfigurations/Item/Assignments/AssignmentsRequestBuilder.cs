@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assignments
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceConfigurationAssignmentCollectionResponse>(requestInfo, DeviceConfigurationAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceConfigurationAssignmentCollectionResponse>(requestInfo, DeviceConfigurationAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceConfigurationAssignment object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item.Assignments
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceConfigurationAssignment>(requestInfo, DeviceConfigurationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceConfigurationAssignment>(requestInfo, DeviceConfigurationAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceConfigurationAssignment objects.

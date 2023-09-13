@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Security.ThreatIntelligence.Hosts.Item.Cookies.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<HostCookie>(requestInfo, HostCookie.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<HostCookie>(requestInfo, HostCookie.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The hostCookies that are associated with this host.

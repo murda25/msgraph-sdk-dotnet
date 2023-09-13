@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Delta {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeltaResponse>(requestInfo, DeltaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeltaResponse>(requestInfo, DeltaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a set of event resources that have been added, deleted, or updated in a calendarView (a range of events defined by start and end dates) of the user&apos;s primary calendar. Typically, synchronizing events in a calendarView in a local store entails a round of multiple delta function calls. The initial call is a full synchronization, and every subsequent delta call in the same round gets the incremental changes (additions, deletions, or updates). This allows you to maintain and synchronize a local store of events in the specified calendarView, without having to fetch all the events of that calendar from the server every time.
@@ -90,9 +90,11 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Delta {
             /// <summary>The end date and time of the time range in the function, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            [QueryParameter("endDateTime")]
             public string? EndDateTime { get; set; }
 #nullable restore
 #else
+            [QueryParameter("endDateTime")]
             public string EndDateTime { get; set; }
 #endif
             /// <summary>Filter items by property values</summary>
@@ -141,9 +143,11 @@ namespace Microsoft.Graph.Groups.Item.Events.Item.Instances.Delta {
             /// <summary>The start date and time of the time range in the function, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            [QueryParameter("startDateTime")]
             public string? StartDateTime { get; set; }
 #nullable restore
 #else
+            [QueryParameter("startDateTime")]
             public string StartDateTime { get; set; }
 #endif
             /// <summary>Show only the first n items</summary>

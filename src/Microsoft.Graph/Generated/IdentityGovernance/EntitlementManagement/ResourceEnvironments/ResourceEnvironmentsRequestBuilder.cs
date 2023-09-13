@@ -59,7 +59,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResourceEnvironmentCollectionResponse>(requestInfo, AccessPackageResourceEnvironmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResourceEnvironmentCollectionResponse>(requestInfo, AccessPackageResourceEnvironmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to resourceEnvironments for identityGovernance
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceEnvir
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResourceEnvironment>(requestInfo, AccessPackageResourceEnvironment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResourceEnvironment>(requestInfo, AccessPackageResourceEnvironment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of accessPackageResourceEnvironment objects and their properties.

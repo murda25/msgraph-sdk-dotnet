@@ -46,7 +46,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.GroupSettings.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, GroupSetting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a tenant-level or group-specific groupSetting object.

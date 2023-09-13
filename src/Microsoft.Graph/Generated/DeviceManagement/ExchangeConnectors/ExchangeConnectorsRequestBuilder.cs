@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.ExchangeConnectors {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnectorCollectionResponse>(requestInfo, DeviceManagementExchangeConnectorCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnectorCollectionResponse>(requestInfo, DeviceManagementExchangeConnectorCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceManagementExchangeConnector object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.ExchangeConnectors {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnector>(requestInfo, DeviceManagementExchangeConnector.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnector>(requestInfo, DeviceManagementExchangeConnector.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceManagementExchangeConnector objects.

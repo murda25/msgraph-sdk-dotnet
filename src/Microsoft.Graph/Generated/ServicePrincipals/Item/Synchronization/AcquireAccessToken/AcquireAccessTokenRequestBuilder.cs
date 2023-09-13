@@ -47,7 +47,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Synchronization.AcquireAccessTo
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Acquire an OAuth access token to authorize the Azure AD provisioning service to provision users into an application.

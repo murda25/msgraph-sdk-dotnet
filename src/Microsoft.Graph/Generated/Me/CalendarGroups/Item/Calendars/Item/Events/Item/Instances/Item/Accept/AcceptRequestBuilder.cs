@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Inst
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Accept the specified event in a user calendar.

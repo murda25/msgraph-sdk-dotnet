@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppCategories {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppCategoryCollectionResponse>(requestInfo, MobileAppCategoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppCategoryCollectionResponse>(requestInfo, MobileAppCategoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new mobileAppCategory object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileAppCategories {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppCategory>(requestInfo, MobileAppCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppCategory>(requestInfo, MobileAppCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the mobileAppCategory objects.

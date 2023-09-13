@@ -45,7 +45,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppStatuses.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read properties and relationships of the managedAppStatus object.
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppStatuses.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, ManagedAppStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, ManagedAppStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property managedAppStatuses in deviceAppManagement
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppStatuses.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, ManagedAppStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, ManagedAppStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property managedAppStatuses for deviceAppManagement

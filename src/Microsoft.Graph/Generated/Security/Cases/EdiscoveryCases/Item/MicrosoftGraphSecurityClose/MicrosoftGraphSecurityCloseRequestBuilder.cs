@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.MicrosoftGraphSecu
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Close an eDiscovery case. For details, see Close a case.

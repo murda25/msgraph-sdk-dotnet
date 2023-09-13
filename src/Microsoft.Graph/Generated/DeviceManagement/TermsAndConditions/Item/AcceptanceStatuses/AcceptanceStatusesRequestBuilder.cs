@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.AcceptanceSta
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TermsAndConditionsAcceptanceStatusCollectionResponse>(requestInfo, TermsAndConditionsAcceptanceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TermsAndConditionsAcceptanceStatusCollectionResponse>(requestInfo, TermsAndConditionsAcceptanceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new termsAndConditionsAcceptanceStatus object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.TermsAndConditions.Item.AcceptanceSta
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, TermsAndConditionsAcceptanceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, TermsAndConditionsAcceptanceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the termsAndConditionsAcceptanceStatus objects.

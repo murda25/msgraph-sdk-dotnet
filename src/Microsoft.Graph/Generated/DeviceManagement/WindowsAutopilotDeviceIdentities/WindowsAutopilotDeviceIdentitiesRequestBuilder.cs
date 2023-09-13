@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsAutopilotDeviceIdentityCollectionResponse>(requestInfo, WindowsAutopilotDeviceIdentityCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsAutopilotDeviceIdentityCollectionResponse>(requestInfo, WindowsAutopilotDeviceIdentityCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new windowsAutopilotDeviceIdentity object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.WindowsAutopilotDeviceIdentities {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the windowsAutopilotDeviceIdentity objects.

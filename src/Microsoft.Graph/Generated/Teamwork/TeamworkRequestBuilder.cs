@@ -65,7 +65,7 @@ namespace Microsoft.Graph.Teamwork {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Teamwork>(requestInfo, Microsoft.Graph.Models.Teamwork.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Teamwork>(requestInfo, Microsoft.Graph.Models.Teamwork.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update teamwork
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Teamwork {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Teamwork>(requestInfo, Microsoft.Graph.Models.Teamwork.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Teamwork>(requestInfo, Microsoft.Graph.Models.Teamwork.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get teamwork

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolici
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicyCollectionResponse>(requestInfo, WindowsInformationProtectionPolicyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicyCollectionResponse>(requestInfo, WindowsInformationProtectionPolicyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new windowsInformationProtectionPolicy object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolici
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the windowsInformationProtectionPolicy objects.

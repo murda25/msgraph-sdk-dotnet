@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// the entry point for the Conditional Access (CA) object model.
@@ -89,7 +89,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property conditionalAccess in identity
@@ -110,7 +110,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property conditionalAccess for identity

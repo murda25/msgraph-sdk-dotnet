@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.ContentTypes.Item.AssociateWithH
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Associate a published [content type][contentType] present in a content type hub with a list of hub sites.

@@ -45,7 +45,7 @@ namespace Microsoft.Graph.DirectoryNamespace.AdministrativeUnits.Item.Members.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Use this API to remove a member (user, group, or device) from an administrative unit.

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Groups.Item.GroupLifecyclePolicies {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupLifecyclePolicyCollectionResponse>(requestInfo, GroupLifecyclePolicyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupLifecyclePolicyCollectionResponse>(requestInfo, GroupLifecyclePolicyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to groupLifecyclePolicies for groups
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Groups.Item.GroupLifecyclePolicies {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GroupLifecyclePolicy>(requestInfo, GroupLifecyclePolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupLifecyclePolicy>(requestInfo, GroupLifecyclePolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a list of groupLifecyclePolicy objects to which a group belongs.

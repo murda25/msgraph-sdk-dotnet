@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Communications.OnlineMeetings.Item.AttendanceReports {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MeetingAttendanceReportCollectionResponse>(requestInfo, MeetingAttendanceReportCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MeetingAttendanceReportCollectionResponse>(requestInfo, MeetingAttendanceReportCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to attendanceReports for communications
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Communications.OnlineMeetings.Item.AttendanceReports {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MeetingAttendanceReport>(requestInfo, MeetingAttendanceReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MeetingAttendanceReport>(requestInfo, MeetingAttendanceReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session.

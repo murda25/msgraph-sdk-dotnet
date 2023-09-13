@@ -48,7 +48,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.Synchronization.Jobs.Item.Provi
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<StringKeyStringValuePair>(requestInfo, StringKeyStringValuePair.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<StringKeyStringValuePair>(requestInfo, StringKeyStringValuePair.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 

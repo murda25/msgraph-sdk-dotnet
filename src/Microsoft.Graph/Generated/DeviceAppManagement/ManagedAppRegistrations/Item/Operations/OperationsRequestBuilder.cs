@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item.Opera
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedAppOperationCollectionResponse>(requestInfo, ManagedAppOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppOperationCollectionResponse>(requestInfo, ManagedAppOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new managedAppOperation object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedAppRegistrations.Item.Opera
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedAppOperation>(requestInfo, ManagedAppOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppOperation>(requestInfo, ManagedAppOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the managedAppOperation objects.

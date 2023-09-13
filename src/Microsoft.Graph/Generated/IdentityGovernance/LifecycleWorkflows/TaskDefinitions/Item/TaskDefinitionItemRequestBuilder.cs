@@ -46,7 +46,7 @@ namespace Microsoft.Graph.IdentityGovernance.LifecycleWorkflows.TaskDefinitions.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.TaskDefinition>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.TaskDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.TaskDefinition>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.TaskDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read the details of a built-in workflow task.

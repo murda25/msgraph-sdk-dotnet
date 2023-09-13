@@ -58,7 +58,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsDeviceStartupH
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse>(requestInfo, UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse>(requestInfo, UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to userExperienceAnalyticsDeviceStartupHistory for deviceManagement
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.DeviceManagement.UserExperienceAnalyticsDeviceStartupH
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory>(requestInfo, Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// User experience analytics device Startup History

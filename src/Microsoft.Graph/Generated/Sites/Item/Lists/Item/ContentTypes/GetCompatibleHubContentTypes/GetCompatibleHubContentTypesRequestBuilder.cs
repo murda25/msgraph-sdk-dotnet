@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Sites.Item.Lists.Item.ContentTypes.GetCompatibleHubCon
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GetCompatibleHubContentTypesResponse>(requestInfo, GetCompatibleHubContentTypesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GetCompatibleHubContentTypesResponse>(requestInfo, GetCompatibleHubContentTypesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Invoke function getCompatibleHubContentTypes

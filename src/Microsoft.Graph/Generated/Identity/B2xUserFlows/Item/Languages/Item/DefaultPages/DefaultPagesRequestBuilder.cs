@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserFlowLanguagePageCollectionResponse>(requestInfo, UserFlowLanguagePageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserFlowLanguagePageCollectionResponse>(requestInfo, UserFlowLanguagePageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to defaultPages for identity
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.Languages.Item.DefaultPages
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserFlowLanguagePage>(requestInfo, UserFlowLanguagePage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserFlowLanguagePage>(requestInfo, UserFlowLanguagePage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
