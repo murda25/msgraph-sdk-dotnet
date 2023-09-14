@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Users.Item.OnlineMeetings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<OnlineMeetingCollectionResponse>(requestInfo, OnlineMeetingCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<OnlineMeetingCollectionResponse>(requestInfo, OnlineMeetingCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an online meeting on behalf of a user.
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Users.Item.OnlineMeetings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, OnlineMeeting.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, OnlineMeeting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.

@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the properties and relationships of nameditem object.
@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WorkbookNamedItem>(requestInfo, WorkbookNamedItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookNamedItem>(requestInfo, WorkbookNamedItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of nameditem object.
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Workbook.Names.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WorkbookNamedItem>(requestInfo, WorkbookNamedItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookNamedItem>(requestInfo, WorkbookNamedItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property names for drives

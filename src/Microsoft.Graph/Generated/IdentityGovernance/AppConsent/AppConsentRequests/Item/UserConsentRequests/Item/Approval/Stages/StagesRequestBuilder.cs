@@ -59,7 +59,7 @@ namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ApprovalStageCollectionResponse>(requestInfo, ApprovalStageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ApprovalStageCollectionResponse>(requestInfo, ApprovalStageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to stages for identityGovernance
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.IdentityGovernance.AppConsent.AppConsentRequests.Item.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ApprovalStage>(requestInfo, ApprovalStage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ApprovalStage>(requestInfo, ApprovalStage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// In Azure AD entitlement management, list the approvalStage objects associated with an approval object. This call can be made by an approver, providing the identifier of the access package assignment request.

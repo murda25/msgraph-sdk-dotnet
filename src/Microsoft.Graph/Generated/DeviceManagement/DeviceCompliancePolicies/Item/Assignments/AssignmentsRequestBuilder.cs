@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignmentCollectionResponse>(requestInfo, DeviceCompliancePolicyAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignmentCollectionResponse>(requestInfo, DeviceCompliancePolicyAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceCompliancePolicyAssignment object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Assignm
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignment>(requestInfo, DeviceCompliancePolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceCompliancePolicyAssignment>(requestInfo, DeviceCompliancePolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceCompliancePolicyAssignment objects.

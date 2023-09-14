@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AndroidManagedAppProtectionCollectionResponse>(requestInfo, AndroidManagedAppProtectionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AndroidManagedAppProtectionCollectionResponse>(requestInfo, AndroidManagedAppProtectionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new androidManagedAppProtection object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.AndroidManagedAppProtections {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AndroidManagedAppProtection>(requestInfo, AndroidManagedAppProtection.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AndroidManagedAppProtection>(requestInfo, AndroidManagedAppProtection.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the androidManagedAppProtection objects.

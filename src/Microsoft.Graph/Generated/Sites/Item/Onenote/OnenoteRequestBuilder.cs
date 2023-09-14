@@ -75,7 +75,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Calls the OneNote service for notebook related operations.
@@ -94,7 +94,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Onenote>(requestInfo, Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Onenote>(requestInfo, Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property onenote in sites
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Sites.Item.Onenote {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Onenote>(requestInfo, Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Onenote>(requestInfo, Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property onenote for sites

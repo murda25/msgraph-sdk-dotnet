@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Me.Onenote.Notebooks.Item.SectionGroups.Item.Sections.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<OnenotePagePreview>(requestInfo, OnenotePagePreview.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<OnenotePagePreview>(requestInfo, OnenotePagePreview.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Invoke function preview

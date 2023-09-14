@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileAppTroubleshootingEvents.Item.A
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AppLogCollectionRequestCollectionResponse>(requestInfo, AppLogCollectionRequestCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AppLogCollectionRequestCollectionResponse>(requestInfo, AppLogCollectionRequestCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new appLogCollectionRequest object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileAppTroubleshootingEvents.Item.A
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AppLogCollectionRequest>(requestInfo, AppLogCollectionRequest.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AppLogCollectionRequest>(requestInfo, AppLogCollectionRequest.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the appLogCollectionRequest objects.

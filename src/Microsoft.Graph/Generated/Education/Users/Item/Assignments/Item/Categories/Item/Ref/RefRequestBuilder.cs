@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Education.Users.Item.Assignments.Item.Categories.Item.
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.

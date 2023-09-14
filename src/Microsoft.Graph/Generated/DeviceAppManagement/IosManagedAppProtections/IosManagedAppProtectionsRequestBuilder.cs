@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<IosManagedAppProtectionCollectionResponse>(requestInfo, IosManagedAppProtectionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<IosManagedAppProtectionCollectionResponse>(requestInfo, IosManagedAppProtectionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new iosManagedAppProtection object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.IosManagedAppProtections {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<IosManagedAppProtection>(requestInfo, IosManagedAppProtection.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<IosManagedAppProtection>(requestInfo, IosManagedAppProtection.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the iosManagedAppProtection objects.

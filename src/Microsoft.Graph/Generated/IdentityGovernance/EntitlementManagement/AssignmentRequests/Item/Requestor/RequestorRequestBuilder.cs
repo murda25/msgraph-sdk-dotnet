@@ -45,7 +45,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AssignmentReq
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, AccessPackageSubject.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, AccessPackageSubject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.

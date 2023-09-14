@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Analytics about the view activities that took place on this item.
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ItemAnalytics>(requestInfo, ItemAnalytics.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ItemAnalytics>(requestInfo, ItemAnalytics.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property analytics in drives
@@ -100,7 +100,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Analytics {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ItemAnalytics>(requestInfo, ItemAnalytics.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ItemAnalytics>(requestInfo, ItemAnalytics.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property analytics for drives

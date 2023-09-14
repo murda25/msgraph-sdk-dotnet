@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Versions.Item.Content {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The content stream for this version of the item.
@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Drives.Item.Items.Item.Versions.Item.Content {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DriveItemVersion>(requestInfo, DriveItemVersion.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DriveItemVersion>(requestInfo, DriveItemVersion.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The content stream for this version of the item.

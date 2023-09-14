@@ -100,7 +100,7 @@ namespace Microsoft.Graph.Users.Item.CalendarView.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Event>(requestInfo, Event.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, Event.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The calendar view for the calendar. Read-only. Nullable.
@@ -142,9 +142,11 @@ namespace Microsoft.Graph.Users.Item.CalendarView.Item {
             /// <summary>The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            [QueryParameter("endDateTime")]
             public string? EndDateTime { get; set; }
 #nullable restore
 #else
+            [QueryParameter("endDateTime")]
             public string EndDateTime { get; set; }
 #endif
             /// <summary>Expand related entities</summary>
@@ -170,9 +172,11 @@ namespace Microsoft.Graph.Users.Item.CalendarView.Item {
             /// <summary>The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            [QueryParameter("startDateTime")]
             public string? StartDateTime { get; set; }
 #nullable restore
 #else
+            [QueryParameter("startDateTime")]
             public string StartDateTime { get; set; }
 #endif
         }

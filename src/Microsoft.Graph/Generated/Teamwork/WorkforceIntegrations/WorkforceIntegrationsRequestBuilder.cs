@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Teamwork.WorkforceIntegrations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WorkforceIntegrationCollectionResponse>(requestInfo, WorkforceIntegrationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkforceIntegrationCollectionResponse>(requestInfo, WorkforceIntegrationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new workforceIntegration object.You can set up which entities you want to receive Shifts synchronous change notifications on and set entities to configure filtering by WFM rules eligibility for, including swap requests.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Teamwork.WorkforceIntegrations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WorkforceIntegration>(requestInfo, WorkforceIntegration.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkforceIntegration>(requestInfo, WorkforceIntegration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of workforceIntegration objects.

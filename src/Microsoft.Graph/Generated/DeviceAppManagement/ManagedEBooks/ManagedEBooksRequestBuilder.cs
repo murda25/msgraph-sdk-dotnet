@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedEBookCollectionResponse>(requestInfo, ManagedEBookCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedEBookCollectionResponse>(requestInfo, ManagedEBookCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new iosVppEBook object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the managedEBook objects.

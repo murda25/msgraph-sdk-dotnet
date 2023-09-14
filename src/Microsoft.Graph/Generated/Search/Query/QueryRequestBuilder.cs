@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Search.Query {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<QueryResponse>(requestInfo, QueryResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<QueryResponse>(requestInfo, QueryResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Runs the query specified in the request body. Search results are provided in the response.

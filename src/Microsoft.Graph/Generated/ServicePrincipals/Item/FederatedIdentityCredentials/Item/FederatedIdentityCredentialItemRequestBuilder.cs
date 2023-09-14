@@ -45,7 +45,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property federatedIdentityCredentials in servicePrincipals
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials.It
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<FederatedIdentityCredential>(requestInfo, FederatedIdentityCredential.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property federatedIdentityCredentials for servicePrincipals

@@ -50,7 +50,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get resource from identityGovernance
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResource>(requestInfo, AccessPackageResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResource>(requestInfo, AccessPackageResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property resource in identityGovernance
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceReque
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResource>(requestInfo, AccessPackageResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResource>(requestInfo, AccessPackageResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property resource for identityGovernance

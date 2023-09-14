@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileThreatDefenseConnectors {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileThreatDefenseConnectorCollectionResponse>(requestInfo, MobileThreatDefenseConnectorCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileThreatDefenseConnectorCollectionResponse>(requestInfo, MobileThreatDefenseConnectorCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new mobileThreatDefenseConnector object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileThreatDefenseConnectors {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileThreatDefenseConnector>(requestInfo, MobileThreatDefenseConnector.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileThreatDefenseConnector>(requestInfo, MobileThreatDefenseConnector.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the mobileThreatDefenseConnector objects.

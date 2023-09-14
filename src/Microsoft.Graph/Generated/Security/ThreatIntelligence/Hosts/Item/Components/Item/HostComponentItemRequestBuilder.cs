@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Security.ThreatIntelligence.Hosts.Item.Components.Item
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<HostComponent>(requestInfo, HostComponent.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<HostComponent>(requestInfo, HostComponent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The hostComponents that are associated with this host.

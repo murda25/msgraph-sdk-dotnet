@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Connections.Item.Items {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ExternalItemCollectionResponse>(requestInfo, ExternalItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ExternalItemCollectionResponse>(requestInfo, ExternalItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to items for connections
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Connections.Item.Items {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ExternalItem>(requestInfo, ExternalItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ExternalItem>(requestInfo, ExternalItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read the properties and relationships of an externalItem object.

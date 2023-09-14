@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item.Versions 
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ListItemVersionCollectionResponse>(requestInfo, ListItemVersionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ListItemVersionCollectionResponse>(requestInfo, ListItemVersionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to versions for groups
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Lists.Item.Items.Item.Versions 
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ListItemVersion>(requestInfo, ListItemVersion.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ListItemVersion>(requestInfo, ListItemVersion.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.

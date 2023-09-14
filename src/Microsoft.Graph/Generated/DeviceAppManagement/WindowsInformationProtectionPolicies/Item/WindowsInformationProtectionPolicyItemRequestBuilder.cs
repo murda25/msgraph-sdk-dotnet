@@ -61,7 +61,7 @@ namespace Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolici
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read properties and relationships of the windowsInformationProtectionPolicy object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolici
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of a windowsInformationProtectionPolicy object.
@@ -103,7 +103,7 @@ namespace Microsoft.Graph.DeviceAppManagement.WindowsInformationProtectionPolici
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, WindowsInformationProtectionPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a windowsInformationProtectionPolicy.

@@ -68,7 +68,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, AccessReviewScheduleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, AccessReviewScheduleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new accessReviewScheduleDefinition object.
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.IdentityGovernance.AccessReviews.Definitions {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessReviewScheduleDefinition>(requestInfo, AccessReviewScheduleDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessReviewScheduleDefinition>(requestInfo, AccessReviewScheduleDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of the accessReviewScheduleDefinition objects and their properties.

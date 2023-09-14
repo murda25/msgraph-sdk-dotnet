@@ -46,7 +46,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassificati
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get delegatedPermissionClassifications from servicePrincipals
@@ -65,7 +65,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassificati
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, DelegatedPermissionClassification.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, DelegatedPermissionClassification.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property delegatedPermissionClassifications in servicePrincipals
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassificati
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, DelegatedPermissionClassification.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, DelegatedPermissionClassification.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummar
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserInstallStateSummaryCollectionResponse>(requestInfo, UserInstallStateSummaryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserInstallStateSummaryCollectionResponse>(requestInfo, UserInstallStateSummaryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new userInstallStateSummary object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.UserStateSummar
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UserInstallStateSummary>(requestInfo, UserInstallStateSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UserInstallStateSummary>(requestInfo, UserInstallStateSummary.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the userInstallStateSummary objects.

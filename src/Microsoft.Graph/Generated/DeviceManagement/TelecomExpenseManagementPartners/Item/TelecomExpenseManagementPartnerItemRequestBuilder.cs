@@ -46,7 +46,7 @@ namespace Microsoft.Graph.DeviceManagement.TelecomExpenseManagementPartners.Item
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read properties and relationships of the telecomExpenseManagementPartner object.
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.DeviceManagement.TelecomExpenseManagementPartners.Item
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of a telecomExpenseManagementPartner object.
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.DeviceManagement.TelecomExpenseManagementPartners.Item
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a telecomExpenseManagementPartner.

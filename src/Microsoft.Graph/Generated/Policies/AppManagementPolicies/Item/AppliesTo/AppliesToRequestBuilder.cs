@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Policies.AppManagementPolicies.Item.AppliesTo {
         }
         /// <summary>
         /// List application and service principal objects that are assigned an appManagementPolicy policy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appManagementPolicy-list-appliesTo?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Policies.AppManagementPolicies.Item.AppliesTo {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List application and service principal objects that are assigned an appManagementPolicy policy object.

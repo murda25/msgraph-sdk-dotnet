@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Connections.Item.Operations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConnectionOperationCollectionResponse>(requestInfo, ConnectionOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConnectionOperationCollectionResponse>(requestInfo, ConnectionOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to operations for connections
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Connections.Item.Operations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ConnectionOperation>(requestInfo, ConnectionOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ConnectionOperation>(requestInfo, ConnectionOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read the properties and relationships of a connectionOperation object.

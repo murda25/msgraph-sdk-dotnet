@@ -46,7 +46,7 @@ namespace Microsoft.Graph.DeviceManagement.GetEffectivePermissionsWithScope {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<GetEffectivePermissionsWithScopeResponse>(requestInfo, GetEffectivePermissionsWithScopeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<GetEffectivePermissionsWithScopeResponse>(requestInfo, GetEffectivePermissionsWithScopeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the effective permissions of the currently authenticated user

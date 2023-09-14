@@ -68,7 +68,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSo
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, EdiscoveryNoncustodialDataSourceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, EdiscoveryNoncustodialDataSourceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new ediscoveryNoncustodialDataSource object.
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSo
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, EdiscoveryNoncustodialDataSource.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, EdiscoveryNoncustodialDataSource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of case ediscoveryNoncustodialDataSource objects for this case.

@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationContextClassR
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the properties and relationships of a authenticationContextClassReference object.
@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationContextClassR
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AuthenticationContextClassReference>(requestInfo, AuthenticationContextClassReference.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AuthenticationContextClassReference>(requestInfo, AuthenticationContextClassReference.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
@@ -88,7 +88,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.AuthenticationContextClassR
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AuthenticationContextClassReference>(requestInfo, AuthenticationContextClassReference.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AuthenticationContextClassReference>(requestInfo, AuthenticationContextClassReference.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an authenticationContextClassReference object that&apos;s not published or used by a conditional access policy.

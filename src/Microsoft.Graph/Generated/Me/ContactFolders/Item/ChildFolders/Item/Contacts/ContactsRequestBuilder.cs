@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ContactCollectionResponse>(requestInfo, ContactCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactCollectionResponse>(requestInfo, ContactCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Me.ContactFolders.Item.ChildFolders.Item.Contacts {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Contact>(requestInfo, Contact.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Contact>(requestInfo, Contact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a contact collection from the default Contacts folder of the signed-in user (.../me/contacts), or from the specified contact folder.

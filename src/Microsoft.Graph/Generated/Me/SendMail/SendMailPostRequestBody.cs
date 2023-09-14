@@ -19,20 +19,20 @@ namespace Microsoft.Graph.Me.SendMail {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Message? Message {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.Message?>("Message"); }
-            set { BackingStore?.Set("Message", value); }
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Message?>("message"); }
+            set { BackingStore?.Set("message", value); }
         }
 #nullable restore
 #else
         public Microsoft.Graph.Models.Message Message {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.Message>("Message"); }
-            set { BackingStore?.Set("Message", value); }
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Message>("message"); }
+            set { BackingStore?.Set("message", value); }
         }
 #endif
         /// <summary>The SaveToSentItems property</summary>
         public bool? SaveToSentItems {
-            get { return BackingStore?.Get<bool?>("SaveToSentItems"); }
-            set { BackingStore?.Set("SaveToSentItems", value); }
+            get { return BackingStore?.Get<bool?>("saveToSentItems"); }
+            set { BackingStore?.Set("saveToSentItems", value); }
         }
         /// <summary>
         /// Instantiates a new sendMailPostRequestBody and sets the default values.
@@ -54,8 +54,8 @@ namespace Microsoft.Graph.Me.SendMail {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"Message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
-                {"SaveToSentItems", n => { SaveToSentItems = n.GetBoolValue(); } },
+                {"message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
+                {"saveToSentItems", n => { SaveToSentItems = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -64,8 +64,8 @@ namespace Microsoft.Graph.Me.SendMail {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("Message", Message);
-            writer.WriteBoolValue("SaveToSentItems", SaveToSentItems);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("message", Message);
+            writer.WriteBoolValue("saveToSentItems", SaveToSentItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

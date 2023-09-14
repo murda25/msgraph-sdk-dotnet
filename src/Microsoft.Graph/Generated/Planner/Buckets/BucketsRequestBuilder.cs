@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Planner.Buckets {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PlannerBucketCollectionResponse>(requestInfo, PlannerBucketCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerBucketCollectionResponse>(requestInfo, PlannerBucketCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new plannerBucket object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Planner.Buckets {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PlannerBucket>(requestInfo, PlannerBucket.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerBucket>(requestInfo, PlannerBucket.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of plannerbucket objects.

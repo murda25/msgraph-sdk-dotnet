@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, IosUpdateDeviceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, IosUpdateDeviceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new iosUpdateDeviceStatus object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.IosUpdateStatuses {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<IosUpdateDeviceStatus>(requestInfo, IosUpdateDeviceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<IosUpdateDeviceStatus>(requestInfo, IosUpdateDeviceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the iosUpdateDeviceStatus objects.

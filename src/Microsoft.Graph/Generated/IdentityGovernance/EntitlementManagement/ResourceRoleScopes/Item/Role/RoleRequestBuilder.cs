@@ -50,7 +50,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceRoleS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get role from identityGovernance
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceRoleS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResourceRole>(requestInfo, AccessPackageResourceRole.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResourceRole>(requestInfo, AccessPackageResourceRole.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property role in identityGovernance
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.ResourceRoleS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<AccessPackageResourceRole>(requestInfo, AccessPackageResourceRole.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageResourceRole>(requestInfo, AccessPackageResourceRole.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property role for identityGovernance

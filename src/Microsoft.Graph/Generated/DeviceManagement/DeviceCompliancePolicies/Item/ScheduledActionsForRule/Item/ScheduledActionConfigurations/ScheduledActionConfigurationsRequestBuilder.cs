@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Schedul
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceComplianceActionItemCollectionResponse>(requestInfo, DeviceComplianceActionItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceActionItemCollectionResponse>(requestInfo, DeviceComplianceActionItemCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceComplianceActionItem object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.Schedul
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceComplianceActionItem>(requestInfo, DeviceComplianceActionItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceActionItem>(requestInfo, DeviceComplianceActionItem.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceComplianceActionItem objects.

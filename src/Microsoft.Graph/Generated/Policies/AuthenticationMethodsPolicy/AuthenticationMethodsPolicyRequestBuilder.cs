@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Policies.AuthenticationMethodsPolicy {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read the properties and relationships of an authenticationMethodsPolicy object.
@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Policies.AuthenticationMethodsPolicy {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(requestInfo, Microsoft.Graph.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(requestInfo, Microsoft.Graph.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of an authenticationMethodsPolicy object.
@@ -92,7 +92,7 @@ namespace Microsoft.Graph.Policies.AuthenticationMethodsPolicy {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(requestInfo, Microsoft.Graph.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AuthenticationMethodsPolicy>(requestInfo, Microsoft.Graph.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property authenticationMethodsPolicy for policies

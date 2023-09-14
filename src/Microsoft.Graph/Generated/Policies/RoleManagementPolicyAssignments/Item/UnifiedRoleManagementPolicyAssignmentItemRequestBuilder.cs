@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property roleManagementPolicyAssignments in policies
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Policies.RoleManagementPolicyAssignments.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property roleManagementPolicyAssignments for policies

@@ -70,7 +70,7 @@ namespace Microsoft.Graph.IdentityGovernance {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update identityGovernance
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.IdentityGovernance {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance>(requestInfo, Microsoft.Graph.Models.IdentityGovernance.IdentityGovernance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get identityGovernance

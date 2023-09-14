@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceCompliancePolicyS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceCompliancePolicyStateCollectionResponse>(requestInfo, DeviceCompliancePolicyStateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceCompliancePolicyStateCollectionResponse>(requestInfo, DeviceCompliancePolicyStateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to deviceCompliancePolicyStates for users
@@ -79,7 +79,7 @@ namespace Microsoft.Graph.Users.Item.ManagedDevices.Item.DeviceCompliancePolicyS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceCompliancePolicyState>(requestInfo, DeviceCompliancePolicyState.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceCompliancePolicyState>(requestInfo, DeviceCompliancePolicyState.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Device compliance policy states for this device.

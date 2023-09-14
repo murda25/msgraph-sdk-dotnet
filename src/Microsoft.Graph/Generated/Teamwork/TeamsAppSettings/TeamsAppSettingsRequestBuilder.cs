@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Teamwork.TeamsAppSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get teamsAppSettings from teamwork
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Teamwork.TeamsAppSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TeamsAppSettings>(requestInfo, Microsoft.Graph.Models.TeamsAppSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TeamsAppSettings>(requestInfo, Microsoft.Graph.Models.TeamsAppSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the navigation property teamsAppSettings in teamwork
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Teamwork.TeamsAppSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TeamsAppSettings>(requestInfo, Microsoft.Graph.Models.TeamsAppSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.TeamsAppSettings>(requestInfo, Microsoft.Graph.Models.TeamsAppSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property teamsAppSettings for teamwork

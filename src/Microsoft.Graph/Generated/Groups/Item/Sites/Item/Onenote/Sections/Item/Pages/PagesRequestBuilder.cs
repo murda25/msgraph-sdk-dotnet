@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Onenote.Sections.Item.Pages {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<OnenotePageCollectionResponse>(requestInfo, OnenotePageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<OnenotePageCollectionResponse>(requestInfo, OnenotePageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new page in the specified section.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Onenote.Sections.Item.Pages {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<OnenotePage>(requestInfo, OnenotePage.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<OnenotePage>(requestInfo, OnenotePage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of page objects from the specified section.

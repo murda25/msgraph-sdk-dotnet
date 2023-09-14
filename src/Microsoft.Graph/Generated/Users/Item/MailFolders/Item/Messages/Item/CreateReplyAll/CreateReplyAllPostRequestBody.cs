@@ -19,28 +19,28 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.CreateReplyA
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment {
-            get { return BackingStore?.Get<string?>("Comment"); }
-            set { BackingStore?.Set("Comment", value); }
+            get { return BackingStore?.Get<string?>("comment"); }
+            set { BackingStore?.Set("comment", value); }
         }
 #nullable restore
 #else
         public string Comment {
-            get { return BackingStore?.Get<string>("Comment"); }
-            set { BackingStore?.Set("Comment", value); }
+            get { return BackingStore?.Get<string>("comment"); }
+            set { BackingStore?.Set("comment", value); }
         }
 #endif
         /// <summary>The Message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Message? Message {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.Message?>("Message"); }
-            set { BackingStore?.Set("Message", value); }
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Message?>("message"); }
+            set { BackingStore?.Set("message", value); }
         }
 #nullable restore
 #else
         public Microsoft.Graph.Models.Message Message {
-            get { return BackingStore?.Get<Microsoft.Graph.Models.Message>("Message"); }
-            set { BackingStore?.Set("Message", value); }
+            get { return BackingStore?.Get<Microsoft.Graph.Models.Message>("message"); }
+            set { BackingStore?.Set("message", value); }
         }
 #endif
         /// <summary>
@@ -63,8 +63,8 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.CreateReplyA
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"Comment", n => { Comment = n.GetStringValue(); } },
-                {"Message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
+                {"comment", n => { Comment = n.GetStringValue(); } },
+                {"message", n => { Message = n.GetObjectValue<Microsoft.Graph.Models.Message>(Microsoft.Graph.Models.Message.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,8 +73,8 @@ namespace Microsoft.Graph.Users.Item.MailFolders.Item.Messages.Item.CreateReplyA
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("Comment", Comment);
-            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("Message", Message);
+            writer.WriteStringValue("comment", Comment);
+            writer.WriteObjectValue<Microsoft.Graph.Models.Message>("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

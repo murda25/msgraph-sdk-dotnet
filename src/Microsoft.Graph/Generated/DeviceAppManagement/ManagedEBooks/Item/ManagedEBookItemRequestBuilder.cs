@@ -71,11 +71,11 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the managedEBook object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-books-managedebook-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the iosVppEBook object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-books-iosvppebook-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of a iosVppEBook object.
@@ -113,7 +113,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedEBook>(requestInfo, ManagedEBook.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a iosVppEBook.
@@ -140,7 +140,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the managedEBook object.
+        /// Read properties and relationships of the iosVppEBook object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -217,7 +217,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the managedEBook object.
+        /// Read properties and relationships of the iosVppEBook object.
         /// </summary>
         public class ManagedEBookItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

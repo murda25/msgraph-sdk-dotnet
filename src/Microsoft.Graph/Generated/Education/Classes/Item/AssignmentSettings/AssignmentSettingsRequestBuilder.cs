@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Specifies class-level assignments settings.
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<EducationAssignmentSettings>(requestInfo, EducationAssignmentSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationAssignmentSettings>(requestInfo, EducationAssignmentSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<EducationAssignmentSettings>(requestInfo, EducationAssignmentSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationAssignmentSettings>(requestInfo, EducationAssignmentSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete navigation property assignmentSettings for education

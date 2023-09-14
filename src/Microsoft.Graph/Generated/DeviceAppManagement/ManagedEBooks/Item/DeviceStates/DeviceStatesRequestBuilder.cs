@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.DeviceStates {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceInstallStateCollectionResponse>(requestInfo, DeviceInstallStateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceInstallStateCollectionResponse>(requestInfo, DeviceInstallStateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceInstallState object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.ManagedEBooks.Item.DeviceStates {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, DeviceInstallState.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, DeviceInstallState.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceInstallState objects.

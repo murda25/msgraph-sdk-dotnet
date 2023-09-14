@@ -51,7 +51,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceManagementPartners.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read properties and relationships of the deviceManagementPartner object.
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceManagementPartners.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceManagementPartner>(requestInfo, DeviceManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementPartner>(requestInfo, DeviceManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the properties of a deviceManagementPartner object.
@@ -93,7 +93,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceManagementPartners.Item {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceManagementPartner>(requestInfo, DeviceManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementPartner>(requestInfo, DeviceManagementPartner.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a deviceManagementPartner.

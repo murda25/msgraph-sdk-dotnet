@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Sites.Item.Operations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<RichLongRunningOperationCollectionResponse>(requestInfo, RichLongRunningOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<RichLongRunningOperationCollectionResponse>(requestInfo, RichLongRunningOperationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new navigation property to operations for sites
@@ -80,7 +80,7 @@ namespace Microsoft.Graph.Sites.Item.Operations {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<RichLongRunningOperation>(requestInfo, RichLongRunningOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<RichLongRunningOperation>(requestInfo, RichLongRunningOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of rich long-running operations associated with a site.

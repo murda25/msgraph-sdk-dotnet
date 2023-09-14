@@ -45,7 +45,7 @@ namespace Microsoft.Graph.Security.ThreatIntelligence.Hosts.Item.PassiveDnsRever
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PassiveDnsRecord>(requestInfo, PassiveDnsRecord.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PassiveDnsRecord>(requestInfo, PassiveDnsRecord.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Reverse passive DNS retrieval about this host.

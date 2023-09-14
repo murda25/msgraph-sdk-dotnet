@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Users.Item.ContactFolders {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ContactFolderCollectionResponse>(requestInfo, ContactFolderCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFolderCollectionResponse>(requestInfo, ContactFolderCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new contactFolder under the user&apos;s default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
@@ -86,7 +86,7 @@ namespace Microsoft.Graph.Users.Item.ContactFolders {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, ContactFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, ContactFolder.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the contact folder collection in the default Contacts folder of the signed-in user.

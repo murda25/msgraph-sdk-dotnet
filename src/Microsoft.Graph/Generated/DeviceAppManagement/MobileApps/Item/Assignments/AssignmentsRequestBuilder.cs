@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppAssignmentCollectionResponse>(requestInfo, MobileAppAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppAssignmentCollectionResponse>(requestInfo, MobileAppAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new mobileAppAssignment object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppAssignment>(requestInfo, MobileAppAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppAssignment>(requestInfo, MobileAppAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the mobileAppAssignment objects.

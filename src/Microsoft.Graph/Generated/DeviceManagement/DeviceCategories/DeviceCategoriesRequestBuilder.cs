@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCategories {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceCategoryCollectionResponse>(requestInfo, DeviceCategoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceCategoryCollectionResponse>(requestInfo, DeviceCategoryCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceCategory object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCategories {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DeviceCategory>(requestInfo, Microsoft.Graph.Models.DeviceCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.DeviceCategory>(requestInfo, Microsoft.Graph.Models.DeviceCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceCategory objects.

@@ -59,7 +59,7 @@ namespace Microsoft.Graph.Planner.Tasks {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PlannerTaskCollectionResponse>(requestInfo, PlannerTaskCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerTaskCollectionResponse>(requestInfo, PlannerTaskCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new plannerTask.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Planner.Tasks {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, PlannerTask.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, PlannerTask.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a list of plannertask objects.

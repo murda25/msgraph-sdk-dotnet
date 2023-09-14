@@ -119,6 +119,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("externalColumns", value); }
         }
 #endif
+        /// <summary>The isPersonalSite property</summary>
+        public bool? IsPersonalSite {
+            get { return BackingStore?.Get<bool?>("isPersonalSite"); }
+            set { BackingStore?.Set("isPersonalSite", value); }
+        }
         /// <summary>Used to address any item contained in this site. This collection can&apos;t be enumerated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -300,6 +305,7 @@ namespace Microsoft.Graph.Models {
                 {"drives", n => { Drives = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Drive>(Microsoft.Graph.Models.Drive.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
                 {"externalColumns", n => { ExternalColumns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"isPersonalSite", n => { IsPersonalSite = n.GetBoolValue(); } },
                 {"items", n => { Items = n.GetCollectionOfObjectValues<BaseItem>(BaseItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"lists", n => { Lists = n.GetCollectionOfObjectValues<List>(List.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"onenote", n => { Onenote = n.GetObjectValue<Microsoft.Graph.Models.Onenote>(Microsoft.Graph.Models.Onenote.CreateFromDiscriminatorValue); } },
@@ -328,6 +334,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.Drive>("drives", Drives);
             writer.WriteObjectValue<PublicError>("error", Error);
             writer.WriteCollectionOfObjectValues<ColumnDefinition>("externalColumns", ExternalColumns);
+            writer.WriteBoolValue("isPersonalSite", IsPersonalSite);
             writer.WriteCollectionOfObjectValues<BaseItem>("items", Items);
             writer.WriteCollectionOfObjectValues<List>("lists", Lists);
             writer.WriteObjectValue<Microsoft.Graph.Models.Onenote>("onenote", Onenote);

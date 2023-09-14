@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileAppTroubleshootingEvents {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppTroubleshootingEventCollectionResponse>(requestInfo, MobileAppTroubleshootingEventCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppTroubleshootingEventCollectionResponse>(requestInfo, MobileAppTroubleshootingEventCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new mobileAppTroubleshootingEvent object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.MobileAppTroubleshootingEvents {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<MobileAppTroubleshootingEvent>(requestInfo, MobileAppTroubleshootingEvent.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppTroubleshootingEvent>(requestInfo, MobileAppTroubleshootingEvent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the mobileAppTroubleshootingEvent objects.

@@ -45,7 +45,7 @@ namespace Microsoft.Graph.RoleManagement.DirectoryNamespace.RoleAssignmentSchedu
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AppScope>(requestInfo, Microsoft.Graph.Models.AppScope.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<Microsoft.Graph.Models.AppScope>(requestInfo, Microsoft.Graph.Models.AppScope.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable.

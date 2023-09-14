@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleAssignments {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceAndAppManagementRoleAssignmentCollectionResponse>(requestInfo, DeviceAndAppManagementRoleAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceAndAppManagementRoleAssignmentCollectionResponse>(requestInfo, DeviceAndAppManagementRoleAssignmentCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceAndAppManagementRoleAssignment object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleAssignments {
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, DeviceAndAppManagementRoleAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, DeviceAndAppManagementRoleAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceAndAppManagementRoleAssignment objects.

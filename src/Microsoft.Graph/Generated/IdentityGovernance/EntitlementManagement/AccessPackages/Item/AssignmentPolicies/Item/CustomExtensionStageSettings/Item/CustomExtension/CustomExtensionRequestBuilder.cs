@@ -45,7 +45,7 @@ namespace Microsoft.Graph.IdentityGovernance.EntitlementManagement.AccessPackage
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<CustomCalloutExtension>(requestInfo, CustomCalloutExtension.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<CustomCalloutExtension>(requestInfo, CustomCalloutExtension.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.

@@ -691,6 +691,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userExperienceAnalyticsDeviceStartupProcesses", value); }
         }
 #endif
+        /// <summary>User experience analytics device Startup Process Performance</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance>? UserExperienceAnalyticsDeviceStartupProcessPerformance {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance>?>("userExperienceAnalyticsDeviceStartupProcessPerformance"); }
+            set { BackingStore?.Set("userExperienceAnalyticsDeviceStartupProcessPerformance", value); }
+        }
+#nullable restore
+#else
+        public List<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance> UserExperienceAnalyticsDeviceStartupProcessPerformance {
+            get { return BackingStore?.Get<List<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance>>("userExperienceAnalyticsDeviceStartupProcessPerformance"); }
+            set { BackingStore?.Set("userExperienceAnalyticsDeviceStartupProcessPerformance", value); }
+        }
+#endif
         /// <summary>User experience analytics metric history</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -936,6 +950,7 @@ namespace Microsoft.Graph.Models {
                 {"userExperienceAnalyticsDeviceScores", n => { UserExperienceAnalyticsDeviceScores = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceScores>(Microsoft.Graph.Models.UserExperienceAnalyticsDeviceScores.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userExperienceAnalyticsDeviceStartupHistory", n => { UserExperienceAnalyticsDeviceStartupHistory = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory>(Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userExperienceAnalyticsDeviceStartupProcesses", n => { UserExperienceAnalyticsDeviceStartupProcesses = n.GetCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupProcess>(UserExperienceAnalyticsDeviceStartupProcess.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"userExperienceAnalyticsDeviceStartupProcessPerformance", n => { UserExperienceAnalyticsDeviceStartupProcessPerformance = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance>(Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userExperienceAnalyticsMetricHistory", n => { UserExperienceAnalyticsMetricHistory = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsMetricHistory>(Microsoft.Graph.Models.UserExperienceAnalyticsMetricHistory.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userExperienceAnalyticsModelScores", n => { UserExperienceAnalyticsModelScores = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>(Microsoft.Graph.Models.UserExperienceAnalyticsModelScores.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"userExperienceAnalyticsOverview", n => { UserExperienceAnalyticsOverview = n.GetObjectValue<Microsoft.Graph.Models.UserExperienceAnalyticsOverview>(Microsoft.Graph.Models.UserExperienceAnalyticsOverview.CreateFromDiscriminatorValue); } },
@@ -1008,6 +1023,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceScores>("userExperienceAnalyticsDeviceScores", UserExperienceAnalyticsDeviceScores);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupHistory>("userExperienceAnalyticsDeviceStartupHistory", UserExperienceAnalyticsDeviceStartupHistory);
             writer.WriteCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupProcess>("userExperienceAnalyticsDeviceStartupProcesses", UserExperienceAnalyticsDeviceStartupProcesses);
+            writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsDeviceStartupProcessPerformance>("userExperienceAnalyticsDeviceStartupProcessPerformance", UserExperienceAnalyticsDeviceStartupProcessPerformance);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsMetricHistory>("userExperienceAnalyticsMetricHistory", UserExperienceAnalyticsMetricHistory);
             writer.WriteCollectionOfObjectValues<Microsoft.Graph.Models.UserExperienceAnalyticsModelScores>("userExperienceAnalyticsModelScores", UserExperienceAnalyticsModelScores);
             writer.WriteObjectValue<Microsoft.Graph.Models.UserExperienceAnalyticsOverview>("userExperienceAnalyticsOverview", UserExperienceAnalyticsOverview);

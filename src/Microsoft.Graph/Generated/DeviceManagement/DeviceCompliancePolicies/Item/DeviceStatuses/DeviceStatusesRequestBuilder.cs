@@ -59,7 +59,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.DeviceS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatusCollectionResponse>(requestInfo, DeviceComplianceDeviceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatusCollectionResponse>(requestInfo, DeviceComplianceDeviceStatusCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new deviceComplianceDeviceStatus object.
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item.DeviceS
                 {"4XX", ODataError.CreateFromDiscriminatorValue},
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
-            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatus>(requestInfo, DeviceComplianceDeviceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatus>(requestInfo, DeviceComplianceDeviceStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List properties and relationships of the deviceComplianceDeviceStatus objects.
