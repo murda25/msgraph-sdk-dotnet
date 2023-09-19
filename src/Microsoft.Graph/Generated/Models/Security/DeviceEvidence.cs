@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<DateTimeOffset?>("firstSeenDateTime"); }
             set { BackingStore?.Set("firstSeenDateTime", value); }
         }
-        /// <summary>The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.</summary>
+        /// <summary>The health state of the device. The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.</summary>
         public DeviceHealthStatus? HealthStatus {
             get { return BackingStore?.Get<DeviceHealthStatus?>("healthStatus"); }
             set { BackingStore?.Set("healthStatus", value); }
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("mdeDeviceId", value); }
         }
 #endif
-        /// <summary>The status of the machine onboarding to Microsoft Defender for Endpoint.The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.</summary>
+        /// <summary>The status of the machine onboarding to Microsoft Defender for Endpoint. The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.Security.OnboardingStatus? OnboardingStatus {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.OnboardingStatus?>("onboardingStatus"); }
             set { BackingStore?.Set("onboardingStatus", value); }

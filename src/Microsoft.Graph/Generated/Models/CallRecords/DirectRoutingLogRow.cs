@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models.CallRecords {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>Number of the user or bot who received the call. E.164 format, but may include additional data.</summary>
+        /// <summary>Number of the user or bot who received the call. E.164 format, but may include other data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CalleeNumber {
@@ -33,7 +33,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<int?>("callEndSubReason"); }
             set { BackingStore?.Set("callEndSubReason", value); }
         }
-        /// <summary>Number of the user or bot who made the call. E.164 format, but may include additional data.</summary>
+        /// <summary>Number of the user or bot who made the call. E.164 format, but may include other data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CallerNumber {
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<DateTimeOffset?>("failureDateTime"); }
             set { BackingStore?.Set("failureDateTime", value); }
         }
-        /// <summary>The code with which the call ended, RFC 3261.</summary>
+        /// <summary>The code with which the call ended, see RFC 3261.</summary>
         public int? FinalSipCode {
             get { return BackingStore?.Get<int?>("finalSipCode"); }
             set { BackingStore?.Set("finalSipCode", value); }
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             get { return BackingStore?.Get<bool?>("mediaBypassEnabled"); }
             set { BackingStore?.Set("mediaBypassEnabled", value); }
         }
-        /// <summary>The datacenter used for media path in non-bypass call.</summary>
+        /// <summary>The datacenter used for media path in nonbypass call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MediaPathLocation {
@@ -161,7 +161,7 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The datacenter used for signaling for both bypass and non-bypass calls.</summary>
+        /// <summary>The datacenter used for signaling for both bypass and nonbypass calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SignalingLocation {

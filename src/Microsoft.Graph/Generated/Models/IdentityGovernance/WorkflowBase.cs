@@ -85,12 +85,12 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
             get { return BackingStore?.Get<bool?>("isEnabled"); }
             set { BackingStore?.Set("isEnabled", value); }
         }
-        /// <summary>If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).</summary>
+        /// <summary>If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Can&apos;t be true for a disabled workflow (where isEnabled is false).</summary>
         public bool? IsSchedulingEnabled {
             get { return BackingStore?.Get<bool?>("isSchedulingEnabled"); }
             set { BackingStore?.Set("isSchedulingEnabled", value); }
         }
-        /// <summary>The unique identifier of the AAD identity that last modified the workflow.</summary>
+        /// <summary>The unique identifier of the Azure Active Directory identity that last modified the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.User? LastModifiedBy {

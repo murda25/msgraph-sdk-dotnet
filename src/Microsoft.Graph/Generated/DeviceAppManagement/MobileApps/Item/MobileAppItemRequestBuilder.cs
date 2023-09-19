@@ -2,8 +2,22 @@
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assign;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Assignments;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.Categories;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphAndroidLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphAndroidStoreApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphIosLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphIosStoreApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphIosVppApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphMacOSDmgApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphMacOSLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphManagedAndroidLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphManagedIOSLobApp;
 using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphManagedMobileLobApp;
-using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphMobileLobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphMicrosoftStoreForBusinessApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphWin32LobApp;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphWindowsAppX;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphWindowsMobileMSI;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphWindowsUniversalAppX;
+using Microsoft.Graph.DeviceAppManagement.MobileApps.Item.GraphWindowsWebApp;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -31,13 +45,69 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
         public CategoriesRequestBuilder Categories { get =>
             new CategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Casts the previous resource to androidLobApp.</summary>
+        public GraphAndroidLobAppRequestBuilder GraphAndroidLobApp { get =>
+            new GraphAndroidLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to androidStoreApp.</summary>
+        public GraphAndroidStoreAppRequestBuilder GraphAndroidStoreApp { get =>
+            new GraphAndroidStoreAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to iosLobApp.</summary>
+        public GraphIosLobAppRequestBuilder GraphIosLobApp { get =>
+            new GraphIosLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to iosStoreApp.</summary>
+        public GraphIosStoreAppRequestBuilder GraphIosStoreApp { get =>
+            new GraphIosStoreAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to iosVppApp.</summary>
+        public GraphIosVppAppRequestBuilder GraphIosVppApp { get =>
+            new GraphIosVppAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to macOSDmgApp.</summary>
+        public GraphMacOSDmgAppRequestBuilder GraphMacOSDmgApp { get =>
+            new GraphMacOSDmgAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to macOSLobApp.</summary>
+        public GraphMacOSLobAppRequestBuilder GraphMacOSLobApp { get =>
+            new GraphMacOSLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to managedAndroidLobApp.</summary>
+        public GraphManagedAndroidLobAppRequestBuilder GraphManagedAndroidLobApp { get =>
+            new GraphManagedAndroidLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to managedIOSLobApp.</summary>
+        public GraphManagedIOSLobAppRequestBuilder GraphManagedIOSLobApp { get =>
+            new GraphManagedIOSLobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Casts the previous resource to managedMobileLobApp.</summary>
         public GraphManagedMobileLobAppRequestBuilder GraphManagedMobileLobApp { get =>
             new GraphManagedMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Casts the previous resource to mobileLobApp.</summary>
-        public GraphMobileLobAppRequestBuilder GraphMobileLobApp { get =>
-            new GraphMobileLobAppRequestBuilder(PathParameters, RequestAdapter);
+        /// <summary>Casts the previous resource to microsoftStoreForBusinessApp.</summary>
+        public GraphMicrosoftStoreForBusinessAppRequestBuilder GraphMicrosoftStoreForBusinessApp { get =>
+            new GraphMicrosoftStoreForBusinessAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to win32LobApp.</summary>
+        public GraphWin32LobAppRequestBuilder GraphWin32LobApp { get =>
+            new GraphWin32LobAppRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to windowsAppX.</summary>
+        public GraphWindowsAppXRequestBuilder GraphWindowsAppX { get =>
+            new GraphWindowsAppXRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to windowsMobileMSI.</summary>
+        public GraphWindowsMobileMSIRequestBuilder GraphWindowsMobileMSI { get =>
+            new GraphWindowsMobileMSIRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to windowsUniversalAppX.</summary>
+        public GraphWindowsUniversalAppXRequestBuilder GraphWindowsUniversalAppX { get =>
+            new GraphWindowsUniversalAppXRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Casts the previous resource to windowsWebApp.</summary>
+        public GraphWindowsWebAppRequestBuilder GraphWindowsWebApp { get =>
+            new GraphWindowsWebAppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new MobileAppItemRequestBuilder and sets the default values.
@@ -74,8 +144,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the windowsMicrosoftEdgeApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the webApp object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-webapp-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,8 +164,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the properties of a win32LobApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-update?view=graph-rest-1.0" />
+        /// Update the properties of a windowsMicrosoftEdgeApp object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -140,7 +210,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the windowsMicrosoftEdgeApp object.
+        /// Read properties and relationships of the webApp object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +236,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a win32LobApp object.
+        /// Update the properties of a windowsMicrosoftEdgeApp object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -217,7 +287,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the windowsMicrosoftEdgeApp object.
+        /// Read properties and relationships of the webApp object.
         /// </summary>
         public class MobileAppItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

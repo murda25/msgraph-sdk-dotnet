@@ -223,7 +223,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mailboxlocations", value); }
         }
 #endif
-        /// <summary>List of notes associcated with the request.</summary>
+        /// <summary>List of notes associated with the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthoredNote>? Notes {
@@ -242,7 +242,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("pauseAfterEstimate"); }
             set { BackingStore?.Set("pauseAfterEstimate", value); }
         }
-        /// <summary>List of regulations that this request will fulfill.</summary>
+        /// <summary>List of regulations that this request fulfills.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Regulations {
@@ -284,7 +284,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("stages", value); }
         }
 #endif
-        /// <summary>The status of the request.. Possible values are: active, closed, unknownFutureValue.</summary>
+        /// <summary>The status of the request. Possible values are: active, closed, unknownFutureValue.</summary>
         public SubjectRightsRequestStatus? Status {
             get { return BackingStore?.Get<SubjectRightsRequestStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.Security {
     public class EdiscoveryNoncustodialDataSource : DataSourceContainer, IParsable {
-        /// <summary>User source or SharePoint site data source as non-custodial data source.</summary>
+        /// <summary>User source or SharePoint site data source as noncustodial data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Security.DataSource? DataSource {
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("dataSource", value); }
         }
 #endif
-        /// <summary>Operation entity that represents the latest indexing for the non-custodial data source.</summary>
+        /// <summary>Operation entity that represents the latest indexing for the noncustodial data source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EdiscoveryIndexOperation? LastIndexOperation {

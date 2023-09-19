@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Notes.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List of notes associcated with the request.
+        /// List of notes associated with the request.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Notes.Item {
             return requestInfo;
         }
         /// <summary>
-        /// List of notes associcated with the request.
+        /// List of notes associated with the request.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -189,7 +189,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Notes.Item {
             }
         }
         /// <summary>
-        /// List of notes associcated with the request.
+        /// List of notes associated with the request.
         /// </summary>
         public class AuthoredNoteItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
