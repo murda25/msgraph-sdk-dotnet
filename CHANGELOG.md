@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.28.0] - 2023-09-20
+
+- Fixes odata cast paths for `deviceAppManagement/mobileApps` path
+- Latest metadata updates from 19th September 2023.
+
 ## [5.27.0] - 2023-09-13
 
 - Improves message of `OdataError`(https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/2094,https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/1954)
