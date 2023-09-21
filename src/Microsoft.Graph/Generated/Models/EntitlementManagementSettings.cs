@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class EntitlementManagementSettings : Entity, IParsable {
-        /// <summary>If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.</summary>
+        /// <summary>If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically many days, after an external user is blocked from sign in before their account is deleted.</summary>
         public TimeSpan? DurationUntilExternalUserDeletedAfterBlocked {
             get { return BackingStore?.Get<TimeSpan?>("durationUntilExternalUserDeletedAfterBlocked"); }
             set { BackingStore?.Set("durationUntilExternalUserDeletedAfterBlocked", value); }

@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSo
         public LastIndexOperationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/lastIndexOperation{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Operation entity that represents the latest indexing for the non-custodial data source.
+        /// Operation entity that represents the latest indexing for the noncustodial data source.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSo
             return await RequestAdapter.SendAsync<EdiscoveryIndexOperation>(requestInfo, EdiscoveryIndexOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Operation entity that represents the latest indexing for the non-custodial data source.
+        /// Operation entity that represents the latest indexing for the noncustodial data source.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.NoncustodialDataSo
             return new LastIndexOperationRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Operation entity that represents the latest indexing for the non-custodial data source.
+        /// Operation entity that represents the latest indexing for the noncustodial data source.
         /// </summary>
         public class LastIndexOperationRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

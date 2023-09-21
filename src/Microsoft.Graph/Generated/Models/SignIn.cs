@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class SignIn : Entity, IParsable {
-        /// <summary>App name displayed in the Azure Portal.  Supports $filter (eq, startsWith).</summary>
+        /// <summary>App name displayed in the Azure portal.  Supports $filter (eq, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppDisplayName {
@@ -194,12 +194,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("riskEventTypes_v2", value); }
         }
 #endif
-        /// <summary>Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.</summary>
+        /// <summary>Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn&apos;t enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.</summary>
         public RiskLevel? RiskLevelAggregated {
             get { return BackingStore?.Get<RiskLevel?>("riskLevelAggregated"); }
             set { BackingStore?.Set("riskLevelAggregated", value); }
         }
-        /// <summary>Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.</summary>
+        /// <summary>Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn&apos;t enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.</summary>
         public RiskLevel? RiskLevelDuringSignIn {
             get { return BackingStore?.Get<RiskLevel?>("riskLevelDuringSignIn"); }
             set { BackingStore?.Set("riskLevelDuringSignIn", value); }
@@ -209,7 +209,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<Microsoft.Graph.Models.RiskState?>("riskState"); }
             set { BackingStore?.Set("riskState", value); }
         }
-        /// <summary>Sign-in status. Includes the error code and description of the error (in case of a sign-in failure).  Supports $filter (eq) on errorCode property.</summary>
+        /// <summary>Sign-in status. Includes the error code and description of the error (if there&apos;s a sign-in failure).  Supports $filter (eq) on errorCode property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public SignInStatus? Status {

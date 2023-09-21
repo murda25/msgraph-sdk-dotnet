@@ -5,18 +5,18 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
-    public class MobileLobAppCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
+    public class WindowsAppXCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileLobApp>? Value {
-            get { return BackingStore?.Get<List<MobileLobApp>?>("value"); }
+        public List<WindowsAppX>? Value {
+            get { return BackingStore?.Get<List<WindowsAppX>?>("value"); }
             set { BackingStore?.Set("value", value); }
         }
 #nullable restore
 #else
-        public List<MobileLobApp> Value {
-            get { return BackingStore?.Get<List<MobileLobApp>>("value"); }
+        public List<WindowsAppX> Value {
+            get { return BackingStore?.Get<List<WindowsAppX>>("value"); }
             set { BackingStore?.Set("value", value); }
         }
 #endif
@@ -24,16 +24,16 @@ namespace Microsoft.Graph.Models {
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileLobAppCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
+        public static new WindowsAppXCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode) {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileLobAppCollectionResponse();
+            return new WindowsAppXCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<MobileLobApp>(MobileLobApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"value", n => { Value = n.GetCollectionOfObjectValues<WindowsAppX>(WindowsAppX.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<MobileLobApp>("value", Value);
+            writer.WriteCollectionOfObjectValues<WindowsAppX>("value", Value);
         }
     }
 }

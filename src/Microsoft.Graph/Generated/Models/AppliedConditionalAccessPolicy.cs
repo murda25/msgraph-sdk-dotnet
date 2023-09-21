@@ -84,7 +84,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn&apos;t applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.</summary>
+        /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn&apos;t applied because policy conditions weren&apos;t met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.</summary>
         public AppliedConditionalAccessPolicyResult? Result {
             get { return BackingStore?.Get<AppliedConditionalAccessPolicyResult?>("result"); }
             set { BackingStore?.Set("result", value); }
