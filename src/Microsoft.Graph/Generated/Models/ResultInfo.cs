@@ -47,7 +47,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The result sub-code.</summary>
+        /// <summary>The result subcode.</summary>
         public int? Subcode {
             get { return BackingStore?.Get<int?>("subcode"); }
             set { BackingStore?.Set("subcode", value); }

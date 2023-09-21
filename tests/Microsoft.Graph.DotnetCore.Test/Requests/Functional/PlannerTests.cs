@@ -198,7 +198,7 @@
             Assert.Equal(2, updatedTaskDetails.Checklist.AdditionalData.Count());
             Assert.Equal("Do something", ((PlannerCheckListItem)updatedTaskDetails.Checklist.AdditionalData[checklistItemId1])?.Title);
             Assert.Equal("Do something else", ((PlannerCheckListItem)updatedTaskDetails.Checklist.AdditionalData[checklistItemId2])?.Title);
-            Assert.Equal(1, updatedTaskDetails.References.AdditionalData.Count());
+            Assert.Single(updatedTaskDetails.References.AdditionalData);
             Assert.Equal("Developer resources", ((PlannerExternalReference)updatedTaskDetails.References.AdditionalData["http://developer.microsoft.com"])?.Alias);
         }
 

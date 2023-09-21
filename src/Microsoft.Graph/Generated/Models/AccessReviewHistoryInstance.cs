@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AccessReviewHistoryInstance : Entity, IParsable {
-        /// <summary>Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.</summary>
+        /// <summary>Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DownloadUri {
@@ -25,17 +25,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("expirationDateTime"); }
             set { BackingStore?.Set("expirationDateTime", value); }
         }
-        /// <summary>Timestamp when all of the available data for this instance was collected. This will be set after this instance&apos;s status is set to done. Required.</summary>
+        /// <summary>Timestamp when all of the available data for this instance was collected and is set after this instance&apos;s status is set to done. Required.</summary>
         public DateTimeOffset? FulfilledDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("fulfilledDateTime"); }
             set { BackingStore?.Set("fulfilledDateTime", value); }
         }
-        /// <summary>Timestamp, reviews ending on or before this date will be included in the fetched history data.</summary>
+        /// <summary>Timestamp reviews ending on or before this date will be included in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodEndDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("reviewHistoryPeriodEndDateTime"); }
             set { BackingStore?.Set("reviewHistoryPeriodEndDateTime", value); }
         }
-        /// <summary>Timestamp, reviews starting on or after this date will be included in the fetched history data.</summary>
+        /// <summary>Timestamp reviews starting on or after this date will be included in the fetched history data.</summary>
         public DateTimeOffset? ReviewHistoryPeriodStartDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("reviewHistoryPeriodStartDateTime"); }
             set { BackingStore?.Set("reviewHistoryPeriodStartDateTime", value); }
