@@ -7,7 +7,7 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-## [5.28.0] - 2023-09-20
+## [5.29.0] - 2023-10-05
 
 - Drops invalid function/actions bound to `directoryObject` type. These are the `permissionGrants`,`externalSponsors`, `internalSponsors` and `appliesTo` navigation properties. (https://github.com/microsoftgraph/msgraph-metadata/pull/451)
 - Fixes missing nested paths under `deviceAppManagement/mobileApps` path
