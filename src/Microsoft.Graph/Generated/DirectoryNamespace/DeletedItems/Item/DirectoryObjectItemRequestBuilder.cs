@@ -84,7 +84,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
         public DirectoryObjectItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
+        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored. This API is supported in the following national cloud deployments.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-deleteditems-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -104,7 +104,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. This API is supported in the following national cloud deployments.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-deleteditems-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -124,28 +124,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the navigation property deletedItems in directory
-        /// </summary>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<DirectoryObject?> PatchAsync(DirectoryObject body, Action<DirectoryObjectItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
-#nullable restore
-#else
-        public async Task<DirectoryObject> PatchAsync(DirectoryObject body, Action<DirectoryObjectItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"4XX", ODataError.CreateFromDiscriminatorValue},
-                {"5XX", ODataError.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
+        /// Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored. This API is supported in the following national cloud deployments.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -169,7 +148,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. This API is supported in the following national cloud deployments.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -189,34 +168,6 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
                 var requestConfig = new DirectoryObjectItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
-            return requestInfo;
-        }
-        /// <summary>
-        /// Update the navigation property deletedItems in directory
-        /// </summary>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPatchRequestInformation(DirectoryObject body, Action<DirectoryObjectItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
-#nullable restore
-#else
-        public RequestInformation ToPatchRequestInformation(DirectoryObject body, Action<DirectoryObjectItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.Headers.Add("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            if (requestConfiguration != null) {
-                var requestConfig = new DirectoryObjectItemRequestBuilderPatchRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
@@ -246,7 +197,7 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             }
         }
         /// <summary>
-        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+        /// Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. This API is supported in the following national cloud deployments.
         /// </summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
@@ -284,22 +235,6 @@ namespace Microsoft.Graph.DirectoryNamespace.DeletedItems.Item {
             /// Instantiates a new DirectoryObjectItemRequestBuilderGetRequestConfiguration and sets the default values.
             /// </summary>
             public DirectoryObjectItemRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        public class DirectoryObjectItemRequestBuilderPatchRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new DirectoryObjectItemRequestBuilderPatchRequestConfiguration and sets the default values.
-            /// </summary>
-            public DirectoryObjectItemRequestBuilderPatchRequestConfiguration() {
                 Options = new List<IRequestOption>();
                 Headers = new RequestHeaders();
             }
