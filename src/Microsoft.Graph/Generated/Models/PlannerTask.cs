@@ -67,7 +67,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignments", value); }
         }
 #endif
-        /// <summary>Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.</summary>
+        /// <summary>Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It&apos;s 28 characters long and case-sensitive. Format validation is done on the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BucketId {
@@ -152,7 +152,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>Read-only. Nullable. Additional details about the task.</summary>
+        /// <summary>Read-only. Nullable. More details about the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PlannerTaskDetails? Details {
@@ -171,7 +171,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("dueDateTime"); }
             set { BackingStore?.Set("dueDateTime", value); }
         }
-        /// <summary>Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.</summary>
+        /// <summary>Read-only. Value is true if the details object of the task has a nonempty description and false otherwise.</summary>
         public bool? HasDescription {
             get { return BackingStore?.Get<bool?>("hasDescription"); }
             set { BackingStore?.Set("hasDescription", value); }
