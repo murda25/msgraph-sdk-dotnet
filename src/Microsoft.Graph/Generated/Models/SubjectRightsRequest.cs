@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class SubjectRightsRequest : Entity, IParsable {
-        /// <summary>The approvers property</summary>
+        /// <summary>Collection of users who can approve the request. Currently only supported for requests of type delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<User>? Approvers {
@@ -34,12 +34,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignedTo", value); }
         }
 #endif
-        /// <summary>The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the request was closed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ClosedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("closedDateTime"); }
             set { BackingStore?.Set("closedDateTime", value); }
         }
-        /// <summary>The collaborators property</summary>
+        /// <summary>Collection of users who can collaborate on the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<User>? Collaborators {
@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("collaborators", value); }
         }
 #endif
-        /// <summary>The contentQuery property</summary>
+        /// <summary>KQL based content query that should be used for search. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentQuery {
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdBy", value); }
         }
 #endif
-        /// <summary>The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the request was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The externalId property</summary>
+        /// <summary>The external ID for the request that is immutable after creation and is used for tracking the request for the external system. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalId {
@@ -161,12 +161,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("history", value); }
         }
 #endif
-        /// <summary>The includeAllVersions property</summary>
+        /// <summary>Include all versions of the documents. By default, the current copies of the documents are returned. If SharePoint sites have versioning enabled, including all versions includes the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
         public bool? IncludeAllVersions {
             get { return BackingStore?.Get<bool?>("includeAllVersions"); }
             set { BackingStore?.Set("includeAllVersions", value); }
         }
-        /// <summary>The includeAuthoredContent property</summary>
+        /// <summary>Include content authored by the data subject. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
         public bool? IncludeAuthoredContent {
             get { return BackingStore?.Get<bool?>("includeAuthoredContent"); }
             set { BackingStore?.Set("includeAuthoredContent", value); }
@@ -185,7 +185,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("insight", value); }
         }
 #endif
-        /// <summary>The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the request is internally due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? InternalDueDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("internalDueDateTime"); }
             set { BackingStore?.Set("internalDueDateTime", value); }
@@ -204,12 +204,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The date and time when the request was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The mailboxLocations property</summary>
+        /// <summary>The mailbox locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public SubjectRightsRequestMailboxLocation? MailboxLocations {
@@ -237,12 +237,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("notes", value); }
         }
 #endif
-        /// <summary>The pauseAfterEstimate property</summary>
+        /// <summary>Pause the request after estimate has finished. By default, the data estimate runs and then pauses, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
         public bool? PauseAfterEstimate {
             get { return BackingStore?.Get<bool?>("pauseAfterEstimate"); }
             set { BackingStore?.Set("pauseAfterEstimate", value); }
         }
-        /// <summary>List of regulations that this request fulfills.</summary>
+        /// <summary>List of regulations that this request fulfill.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Regulations {
@@ -256,7 +256,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("regulations", value); }
         }
 #endif
-        /// <summary>The siteLocations property</summary>
+        /// <summary>The SharePoint and OneDrive site locations that should be searched. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public SubjectRightsRequestSiteLocation? SiteLocations {
@@ -303,7 +303,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("team", value); }
         }
 #endif
-        /// <summary>The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.</summary>
+        /// <summary>The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.</summary>
         public SubjectRightsRequestType? Type {
             get { return BackingStore?.Get<SubjectRightsRequestType?>("type"); }
             set { BackingStore?.Set("type", value); }

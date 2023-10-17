@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AccessPackageTextInputQuestion : AccessPackageQuestion, IParsable {
-        /// <summary>Indicates whether the answer will be in single or multiple line format.</summary>
+        /// <summary>Indicates whether the answer is in single or multiple line format.</summary>
         public bool? IsSingleLineQuestion {
             get { return BackingStore?.Get<bool?>("isSingleLineQuestion"); }
             set { BackingStore?.Set("isSingleLineQuestion", value); }

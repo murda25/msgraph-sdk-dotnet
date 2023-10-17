@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentApprovals", value); }
         }
 #endif
-        /// <summary>The assignmentScheduleInstances property</summary>
+        /// <summary>The instances of assignment schedules to activate a just-in-time access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupAssignmentScheduleInstance>? AssignmentScheduleInstances {
@@ -34,7 +34,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentScheduleInstances", value); }
         }
 #endif
-        /// <summary>The assignmentScheduleRequests property</summary>
+        /// <summary>The schedule requests for operations to create, update, delete, extend, and renew an assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupAssignmentScheduleRequest>? AssignmentScheduleRequests {
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentScheduleRequests", value); }
         }
 #endif
-        /// <summary>The assignmentSchedules property</summary>
+        /// <summary>The assignment schedules to activate a just-in-time access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupAssignmentSchedule>? AssignmentSchedules {
@@ -62,7 +62,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentSchedules", value); }
         }
 #endif
-        /// <summary>The eligibilityScheduleInstances property</summary>
+        /// <summary>The instances of eligibility schedules to activate a just-in-time access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupEligibilityScheduleInstance>? EligibilityScheduleInstances {
@@ -76,7 +76,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("eligibilityScheduleInstances", value); }
         }
 #endif
-        /// <summary>The eligibilityScheduleRequests property</summary>
+        /// <summary>The schedule requests for operations to create, update, delete, extend, and renew an eligibility.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupEligibilityScheduleRequest>? EligibilityScheduleRequests {
@@ -90,7 +90,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("eligibilityScheduleRequests", value); }
         }
 #endif
-        /// <summary>The eligibilitySchedules property</summary>
+        /// <summary>The eligibility schedules to activate a just-in-time access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<PrivilegedAccessGroupEligibilitySchedule>? EligibilitySchedules {

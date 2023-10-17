@@ -6,17 +6,17 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class PrivilegedAccessScheduleRequest : Request, IParsable {
-        /// <summary>The action property</summary>
+        /// <summary>Represents the type of operation on the group membership or ownership assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew. adminAssign: For administrators to assign group membership or ownership to principals.adminRemove: For administrators to remove principals from group membership or ownership. adminUpdate: For administrators to change existing group membership or ownership assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.</summary>
         public ScheduleRequestActions? Action {
             get { return BackingStore?.Get<ScheduleRequestActions?>("action"); }
             set { BackingStore?.Set("action", value); }
         }
-        /// <summary>The isValidationOnly property</summary>
+        /// <summary>Determines whether the call is a validation or an actual call. Only set this property if you want to check whether an activation is subject to additional rules like MFA before actually submitting the request.</summary>
         public bool? IsValidationOnly {
             get { return BackingStore?.Get<bool?>("isValidationOnly"); }
             set { BackingStore?.Set("isValidationOnly", value); }
         }
-        /// <summary>The justification property</summary>
+        /// <summary>A message provided by users and administrators when create they create the privilegedAccessGroupAssignmentScheduleRequest object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Justification {
@@ -30,7 +30,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("justification", value); }
         }
 #endif
-        /// <summary>The scheduleInfo property</summary>
+        /// <summary>The period of the group membership or ownership assignment. Recurring schedules are currently unsupported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestSchedule? ScheduleInfo {
@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("scheduleInfo", value); }
         }
 #endif
-        /// <summary>The ticketInfo property</summary>
+        /// <summary>Ticket details linked to the group membership or ownership assignment request including details of the ticket number and ticket system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.TicketInfo? TicketInfo {
