@@ -35,6 +35,7 @@ https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/CHANGELOG.md
     <Deterministic>true</Deterministic>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NoWarn>NU5048</NoWarn>
+    <IsTrimmable>true</IsTrimmable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Release\Microsoft.Graph.xml</DocumentationFile>
