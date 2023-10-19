@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Collaborators {
         public CollaboratorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/collaborators{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get collaborators from privacy
+        /// Collection of users who can collaborate on the request.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Collaborators {
             return await RequestAdapter.SendAsync<UserCollectionResponse>(requestInfo, UserCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get collaborators from privacy
+        /// Collection of users who can collaborate on the request.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20")]
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Collaborators {
             return new CollaboratorsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get collaborators from privacy
+        /// Collection of users who can collaborate on the request.
         /// </summary>
         public class CollaboratorsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

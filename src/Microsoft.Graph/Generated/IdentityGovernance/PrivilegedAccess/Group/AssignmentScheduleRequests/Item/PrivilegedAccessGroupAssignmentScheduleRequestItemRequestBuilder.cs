@@ -73,7 +73,8 @@ namespace Microsoft.Graph.IdentityGovernance.PrivilegedAccess.Group.AssignmentSc
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get assignmentScheduleRequests from identityGovernance
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -137,7 +138,7 @@ namespace Microsoft.Graph.IdentityGovernance.PrivilegedAccess.Group.AssignmentSc
             return requestInfo;
         }
         /// <summary>
-        /// Get assignmentScheduleRequests from identityGovernance
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -214,7 +215,7 @@ namespace Microsoft.Graph.IdentityGovernance.PrivilegedAccess.Group.AssignmentSc
             }
         }
         /// <summary>
-        /// Get assignmentScheduleRequests from identityGovernance
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
         /// </summary>
         public class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

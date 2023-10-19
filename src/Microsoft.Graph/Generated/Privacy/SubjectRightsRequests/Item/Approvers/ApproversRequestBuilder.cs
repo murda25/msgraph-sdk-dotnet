@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Approvers {
         public ApproversRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/approvers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get approvers from privacy
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Approvers {
             return await RequestAdapter.SendAsync<UserCollectionResponse>(requestInfo, UserCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get approvers from privacy
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20")]
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Privacy.SubjectRightsRequests.Item.Approvers {
             return new ApproversRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get approvers from privacy
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         public class ApproversRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
