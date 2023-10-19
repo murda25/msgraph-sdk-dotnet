@@ -42,7 +42,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Approvers {
         public ApproversRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/subjectRightsRequests/{subjectRightsRequest%2Did}/approvers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get approvers from security
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -61,7 +61,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Approvers {
             return await RequestAdapter.SendAsync<UserCollectionResponse>(requestInfo, UserCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get approvers from security
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,7 +94,7 @@ namespace Microsoft.Graph.Security.SubjectRightsRequests.Item.Approvers {
             return new ApproversRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get approvers from security
+        /// Collection of users who can approve the request. Currently only supported for requests of type delete.
         /// </summary>
         public class ApproversRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>

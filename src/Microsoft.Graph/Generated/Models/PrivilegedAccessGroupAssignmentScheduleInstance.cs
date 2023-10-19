@@ -6,12 +6,12 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class PrivilegedAccessGroupAssignmentScheduleInstance : PrivilegedAccessScheduleInstance, IParsable {
-        /// <summary>The accessId property</summary>
+        /// <summary>The identifier of the membership or ownership assignment relationship to the group. Required. The possible values are: owner, member,  unknownFutureValue. Supports $filter (eq).</summary>
         public PrivilegedAccessGroupRelationships? AccessId {
             get { return BackingStore?.Get<PrivilegedAccessGroupRelationships?>("accessId"); }
             set { BackingStore?.Set("accessId", value); }
         }
-        /// <summary>The activatedUsing property</summary>
+        /// <summary>When the request activates a membership or ownership in PIM for groups, this object represents the eligibility request for the group. Otherwise, it is null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PrivilegedAccessGroupEligibilityScheduleInstance? ActivatedUsing {
@@ -25,7 +25,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("activatedUsing", value); }
         }
 #endif
-        /// <summary>The assignmentScheduleId property</summary>
+        /// <summary>The identifier of the privilegedAccessGroupAssignmentSchedule from which this instance was created. Required. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssignmentScheduleId {
@@ -39,12 +39,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignmentScheduleId", value); }
         }
 #endif
-        /// <summary>The assignmentType property</summary>
+        /// <summary>Indicates whether the membership or ownership assignment is granted through activation of an eligibility or through direct assignment. Required. The possible values are: assigned, activated, unknownFutureValue. Supports $filter (eq).</summary>
         public PrivilegedAccessGroupAssignmentType? AssignmentType {
             get { return BackingStore?.Get<PrivilegedAccessGroupAssignmentType?>("assignmentType"); }
             set { BackingStore?.Set("assignmentType", value); }
         }
-        /// <summary>The group property</summary>
+        /// <summary>References the group that is the scope of the membership or ownership assignment through PIM for groups. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Group? Group {
@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("group", value); }
         }
 #endif
-        /// <summary>The groupId property</summary>
+        /// <summary>The identifier of the group representing the scope of the membership or ownership assignment through PIM for groups. Optional. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupId {
@@ -72,12 +72,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("groupId", value); }
         }
 #endif
-        /// <summary>The memberType property</summary>
+        /// <summary>Indicates whether the assignment is derived from a group assignment. It can further imply whether the caller can manage the assignment schedule. Required. The possible values are: direct, group, unknownFutureValue. Supports $filter (eq).</summary>
         public PrivilegedAccessGroupMemberType? MemberType {
             get { return BackingStore?.Get<PrivilegedAccessGroupMemberType?>("memberType"); }
             set { BackingStore?.Set("memberType", value); }
         }
-        /// <summary>The principal property</summary>
+        /// <summary>References the principal that&apos;s in the scope of the membership or ownership assignment request through the group that&apos;s governed by PIM. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public DirectoryObject? Principal {
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("principal", value); }
         }
 #endif
-        /// <summary>The principalId property</summary>
+        /// <summary>The identifier of the principal whose membership or ownership assignment to the group is managed through PIM for groups. Required. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrincipalId {

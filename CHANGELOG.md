@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.31.0] - 2023-10-19
+
+- Latest metadata updates from 17th October 2023.
+
 ## [5.30.0] - 2023-10-12
 
 - Fixes incorrect casing of model properties during serialization/deserialization (https://github.com/microsoft/kiota/pull/343)

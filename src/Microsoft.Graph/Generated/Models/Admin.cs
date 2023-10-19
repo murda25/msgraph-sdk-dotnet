@@ -42,6 +42,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The people property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public PeopleAdminSettings? People {
+            get { return BackingStore?.Get<PeopleAdminSettings?>("people"); }
+            set { BackingStore?.Set("people", value); }
+        }
+#nullable restore
+#else
+        public PeopleAdminSettings People {
+            get { return BackingStore?.Get<PeopleAdminSettings>("people"); }
+            set { BackingStore?.Set("people", value); }
+        }
+#endif
         /// <summary>A container for service communications resources. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +106,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>> {
                 {"edge", n => { Edge = n.GetObjectValue<Microsoft.Graph.Models.Edge>(Microsoft.Graph.Models.Edge.CreateFromDiscriminatorValue); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"people", n => { People = n.GetObjectValue<PeopleAdminSettings>(PeopleAdminSettings.CreateFromDiscriminatorValue); } },
                 {"serviceAnnouncement", n => { ServiceAnnouncement = n.GetObjectValue<Microsoft.Graph.Models.ServiceAnnouncement>(Microsoft.Graph.Models.ServiceAnnouncement.CreateFromDiscriminatorValue); } },
                 {"sharepoint", n => { Sharepoint = n.GetObjectValue<Microsoft.Graph.Models.Sharepoint>(Microsoft.Graph.Models.Sharepoint.CreateFromDiscriminatorValue); } },
             };
@@ -104,6 +119,7 @@ namespace Microsoft.Graph.Models {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<Microsoft.Graph.Models.Edge>("edge", Edge);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteObjectValue<PeopleAdminSettings>("people", People);
             writer.WriteObjectValue<Microsoft.Graph.Models.ServiceAnnouncement>("serviceAnnouncement", ServiceAnnouncement);
             writer.WriteObjectValue<Microsoft.Graph.Models.Sharepoint>("sharepoint", Sharepoint);
             writer.WriteAdditionalData(AdditionalData);
