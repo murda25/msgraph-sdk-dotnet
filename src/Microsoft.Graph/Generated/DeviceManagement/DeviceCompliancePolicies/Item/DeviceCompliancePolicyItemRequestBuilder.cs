@@ -74,8 +74,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
         public DeviceCompliancePolicyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a iosCompliancePolicy.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscompliancepolicy-delete?view=graph-rest-1.0" />
+        /// Deletes a androidWorkProfileCompliancePolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,8 +94,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the macOSCompliancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the androidWorkProfileCompliancePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,8 +114,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
             return await RequestAdapter.SendAsync<DeviceCompliancePolicy>(requestInfo, DeviceCompliancePolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the properties of a windows10CompliancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10compliancepolicy-update?view=graph-rest-1.0" />
+        /// Update the properties of a androidWorkProfileCompliancePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -136,7 +136,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
             return await RequestAdapter.SendAsync<DeviceCompliancePolicy>(requestInfo, DeviceCompliancePolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a iosCompliancePolicy.
+        /// Deletes a androidWorkProfileCompliancePolicy.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,10 +157,11 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the macOSCompliancePolicy object.
+        /// Read properties and relationships of the androidWorkProfileCompliancePolicy object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -175,7 +176,6 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            requestInfo.Headers.Add("Accept", "application/json");
             if (requestConfiguration != null) {
                 var requestConfig = new DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
@@ -183,10 +183,11 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
+            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a windows10CompliancePolicy object.
+        /// Update the properties of a androidWorkProfileCompliancePolicy object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -203,14 +204,14 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
-            requestInfo.Headers.Add("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             if (requestConfiguration != null) {
                 var requestConfig = new DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration();
                 requestConfiguration.Invoke(requestConfig);
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
+            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -237,7 +238,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies.Item {
             }
         }
         /// <summary>
-        /// Read properties and relationships of the macOSCompliancePolicy object.
+        /// Read properties and relationships of the androidWorkProfileCompliancePolicy object.
         /// </summary>
         public class DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
