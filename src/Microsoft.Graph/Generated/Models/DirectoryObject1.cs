@@ -62,6 +62,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("deletedItems", value); }
         }
 #endif
+        /// <summary>The credentials of the device&apos;s local administrator account backed up to Microsoft Entra ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeviceLocalCredentialInfo>? DeviceLocalCredentials {
+            get { return BackingStore?.Get<List<DeviceLocalCredentialInfo>?>("deviceLocalCredentials"); }
+            set { BackingStore?.Set("deviceLocalCredentials", value); }
+        }
+#nullable restore
+#else
+        public List<DeviceLocalCredentialInfo> DeviceLocalCredentials {
+            get { return BackingStore?.Get<List<DeviceLocalCredentialInfo>>("deviceLocalCredentials"); }
+            set { BackingStore?.Set("deviceLocalCredentials", value); }
+        }
+#endif
         /// <summary>Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +121,7 @@ namespace Microsoft.Graph.Models {
                 {"attributeSets", n => { AttributeSets = n.GetCollectionOfObjectValues<AttributeSet>(AttributeSet.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"customSecurityAttributeDefinitions", n => { CustomSecurityAttributeDefinitions = n.GetCollectionOfObjectValues<CustomSecurityAttributeDefinition>(CustomSecurityAttributeDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deletedItems", n => { DeletedItems = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"deviceLocalCredentials", n => { DeviceLocalCredentials = n.GetCollectionOfObjectValues<DeviceLocalCredentialInfo>(DeviceLocalCredentialInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"federationConfigurations", n => { FederationConfigurations = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"onPremisesSynchronization", n => { OnPremisesSynchronization = n.GetCollectionOfObjectValues<OnPremisesDirectorySynchronization>(OnPremisesDirectorySynchronization.CreateFromDiscriminatorValue)?.ToList(); } },
             };
@@ -122,6 +137,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<AttributeSet>("attributeSets", AttributeSets);
             writer.WriteCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", CustomSecurityAttributeDefinitions);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("deletedItems", DeletedItems);
+            writer.WriteCollectionOfObjectValues<DeviceLocalCredentialInfo>("deviceLocalCredentials", DeviceLocalCredentials);
             writer.WriteCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", FederationConfigurations);
             writer.WriteCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", OnPremisesSynchronization);
         }

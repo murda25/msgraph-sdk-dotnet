@@ -3,6 +3,7 @@ using Microsoft.Graph.DirectoryNamespace.AdministrativeUnits;
 using Microsoft.Graph.DirectoryNamespace.AttributeSets;
 using Microsoft.Graph.DirectoryNamespace.CustomSecurityAttributeDefinitions;
 using Microsoft.Graph.DirectoryNamespace.DeletedItems;
+using Microsoft.Graph.DirectoryNamespace.DeviceLocalCredentials;
 using Microsoft.Graph.DirectoryNamespace.FederationConfigurations;
 using Microsoft.Graph.DirectoryNamespace.OnPremisesSynchronization;
 using Microsoft.Graph.Models.ODataErrors;
@@ -35,6 +36,10 @@ namespace Microsoft.Graph.DirectoryNamespace {
         /// <summary>Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.</summary>
         public DeletedItemsRequestBuilder DeletedItems { get =>
             new DeletedItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.</summary>
+        public DeviceLocalCredentialsRequestBuilder DeviceLocalCredentials { get =>
+            new DeviceLocalCredentialsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.</summary>
         public FederationConfigurationsRequestBuilder FederationConfigurations { get =>

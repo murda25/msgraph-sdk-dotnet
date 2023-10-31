@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class Simulation : Entity, IParsable {
-        /// <summary>The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.</summary>
+        /// <summary>The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.</summary>
         public SimulationAttackTechnique? AttackTechnique {
             get { return BackingStore?.Get<SimulationAttackTechnique?>("attackTechnique"); }
             set { BackingStore?.Set("attackTechnique", value); }
@@ -82,12 +82,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The durationInDays property</summary>
+        /// <summary>Simulation duration in days.</summary>
         public int? DurationInDays {
             get { return BackingStore?.Get<int?>("durationInDays"); }
             set { BackingStore?.Set("durationInDays", value); }
         }
-        /// <summary>The endUserNotificationSetting property</summary>
+        /// <summary>Details about the end user notification setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.EndUserNotificationSetting? EndUserNotificationSetting {
@@ -101,7 +101,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("endUserNotificationSetting", value); }
         }
 #endif
-        /// <summary>The excludedAccountTarget property</summary>
+        /// <summary>Users excluded from the simulation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public AccountTargetContent? ExcludedAccountTarget {
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("excludedAccountTarget", value); }
         }
 #endif
-        /// <summary>The includedAccountTarget property</summary>
+        /// <summary>Users targeted in the simulation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public AccountTargetContent? IncludedAccountTarget {
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isAutomated"); }
             set { BackingStore?.Set("isAutomated", value); }
         }
-        /// <summary>The landingPage property</summary>
+        /// <summary>The landing page associated with a simulation during its creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.LandingPage? LandingPage {
@@ -172,7 +172,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("launchDateTime"); }
             set { BackingStore?.Set("launchDateTime", value); }
         }
-        /// <summary>The loginPage property</summary>
+        /// <summary>The login page associated with a simulation during its creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.LoginPage? LoginPage {
@@ -186,7 +186,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("loginPage", value); }
         }
 #endif
-        /// <summary>The oAuthConsentAppDetail property</summary>
+        /// <summary>OAuth app details for the OAuth technique.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.OAuthConsentAppDetail? OAuthConsentAppDetail {
@@ -200,7 +200,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("oAuthConsentAppDetail", value); }
         }
 #endif
-        /// <summary>The payload property</summary>
+        /// <summary>The payload associated with a simulation during its creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Payload? Payload {
@@ -238,7 +238,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SimulationStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
-        /// <summary>The trainingSetting property</summary>
+        /// <summary>Details about the training settings for a simulation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.TrainingSetting? TrainingSetting {

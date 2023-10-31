@@ -6,17 +6,17 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class Payload : Entity, IParsable {
-        /// <summary>The brand property</summary>
+        /// <summary>The branch of a payload. Possible values are: unknown, other, americanExpress, capitalOne, dhl, docuSign, dropbox, facebook, firstAmerican, microsoft, netflix, scotiabank, sendGrid, stewartTitle, tesco, wellsFargo, syrinxCloud, adobe, teams, zoom, unknownFutureValue.</summary>
         public PayloadBrand? Brand {
             get { return BackingStore?.Get<PayloadBrand?>("brand"); }
             set { BackingStore?.Set("brand", value); }
         }
-        /// <summary>The complexity property</summary>
+        /// <summary>The complexity of a payload. Possible values are: unknown, low, medium, high, unknownFutureValue.</summary>
         public PayloadComplexity? Complexity {
             get { return BackingStore?.Get<PayloadComplexity?>("complexity"); }
             set { BackingStore?.Set("complexity", value); }
         }
-        /// <summary>The createdBy property</summary>
+        /// <summary>Identity of the user who created the attack simulation and training campaign payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? CreatedBy {
@@ -30,12 +30,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdBy", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Date and time when the attack simulation and training campaign payload. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The description property</summary>
+        /// <summary>Description of the attack simulation and training campaign payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -49,7 +49,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>The detail property</summary>
+        /// <summary>Additional details about the payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PayloadDetail? Detail {
@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("detail", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>Display name of the attack simulation and training campaign payload. Supports $filter and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -77,27 +77,27 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The industry property</summary>
+        /// <summary>Industry of a payload. Possible values are: unknown, other, banking, businessServices, consumerServices, education, energy, construction, consulting, financialServices, government, hospitality, insurance, legal, courierServices, IT, healthcare, manufacturing, retail, telecom, realEstate, unknownFutureValue.</summary>
         public PayloadIndustry? Industry {
             get { return BackingStore?.Get<PayloadIndustry?>("industry"); }
             set { BackingStore?.Set("industry", value); }
         }
-        /// <summary>The isAutomated property</summary>
+        /// <summary>Indicates whether the attack simulation and training campaign payload was created from an automation flow. Supports $filter and $orderby.</summary>
         public bool? IsAutomated {
             get { return BackingStore?.Get<bool?>("isAutomated"); }
             set { BackingStore?.Set("isAutomated", value); }
         }
-        /// <summary>The isControversial property</summary>
+        /// <summary>Indicates whether the payload is controversial.</summary>
         public bool? IsControversial {
             get { return BackingStore?.Get<bool?>("isControversial"); }
             set { BackingStore?.Set("isControversial", value); }
         }
-        /// <summary>The isCurrentEvent property</summary>
+        /// <summary>Indicates whether the payload is from any recent event.</summary>
         public bool? IsCurrentEvent {
             get { return BackingStore?.Get<bool?>("isCurrentEvent"); }
             set { BackingStore?.Set("isCurrentEvent", value); }
         }
-        /// <summary>The language property</summary>
+        /// <summary>Payload language.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language {
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("language", value); }
         }
 #endif
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>Identity of the user who most recently modified the attack simulation and training campaign payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EmailIdentity? LastModifiedBy {
@@ -125,12 +125,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>Date and time when the attack simulation and training campaign payload was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The payloadTags property</summary>
+        /// <summary>Free text tags for a payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? PayloadTags {
@@ -144,17 +144,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("payloadTags", value); }
         }
 #endif
-        /// <summary>The platform property</summary>
+        /// <summary>The payload delivery platform for a simulation. Possible values are: unknown, sms, email, teams, unknownFutureValue.</summary>
         public PayloadDeliveryPlatform? Platform {
             get { return BackingStore?.Get<PayloadDeliveryPlatform?>("platform"); }
             set { BackingStore?.Set("platform", value); }
         }
-        /// <summary>The predictedCompromiseRate property</summary>
+        /// <summary>Predicted probability for a payload to phish a targeted user.</summary>
         public double? PredictedCompromiseRate {
             get { return BackingStore?.Get<double?>("predictedCompromiseRate"); }
             set { BackingStore?.Set("predictedCompromiseRate", value); }
         }
-        /// <summary>The simulationAttackType property</summary>
+        /// <summary>Attack type of the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, social, cloud, endpoint, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.SimulationAttackType? SimulationAttackType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.SimulationAttackType?>("simulationAttackType"); }
             set { BackingStore?.Set("simulationAttackType", value); }
@@ -164,17 +164,17 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<SimulationContentSource?>("source"); }
             set { BackingStore?.Set("source", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>Simulation content status. Supports $filter and $orderby. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.</summary>
         public SimulationContentStatus? Status {
             get { return BackingStore?.Get<SimulationContentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
-        /// <summary>The technique property</summary>
+        /// <summary>The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.</summary>
         public SimulationAttackTechnique? Technique {
             get { return BackingStore?.Get<SimulationAttackTechnique?>("technique"); }
             set { BackingStore?.Set("technique", value); }
         }
-        /// <summary>The theme property</summary>
+        /// <summary>The theme of a payload. Possible values are: unknown, other, accountActivation, accountVerification, billing, cleanUpMail, controversial, documentReceived, expense, fax, financeReport, incomingMessages, invoice, itemReceived, loginAlert, mailReceived, password, payment, payroll, personalizedOffer, quarantine, remoteWork, reviewMessage, securityUpdate, serviceSuspended, signatureRequired, upgradeMailboxStorage, verifyMailbox, voicemail, advertisement, employeeEngagement, unknownFutureValue.</summary>
         public PayloadTheme? Theme {
             get { return BackingStore?.Get<PayloadTheme?>("theme"); }
             set { BackingStore?.Set("theme", value); }
