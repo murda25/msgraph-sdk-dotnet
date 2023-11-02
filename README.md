@@ -58,7 +58,11 @@ var drive = await graphClient.Me.Drive.GetAsync();
 To get the current user's root folder of their default drive:
 
 ```csharp
-var rootItem = await graphClient.Me.Drive.Root.GetAsync();
+// Get the user's driveId
+var drive = await graphClient.Me.Drive.GetAsync();
+var userDriveId = driveItem.Id;
+// use the driveId to get the root drive
+var rootItem = await graphClient.Drives[userDriveId].Root.GetAsync();
 ```
 
 `GetAsync` will return a `DriveItem` object on success and throw a

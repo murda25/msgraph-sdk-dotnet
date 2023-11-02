@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class SimulationNotification : BaseEndUserNotification, IParsable {
-        /// <summary>The targettedUserType property</summary>
+        /// <summary>Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.TargettedUserType? TargettedUserType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.TargettedUserType?>("targettedUserType"); }
             set { BackingStore?.Set("targettedUserType", value); }

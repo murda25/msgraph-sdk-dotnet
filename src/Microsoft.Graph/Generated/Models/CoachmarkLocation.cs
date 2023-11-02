@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The length property</summary>
+        /// <summary>Length of coachmark.</summary>
         public int? Length {
             get { return BackingStore?.Get<int?>("length"); }
             set { BackingStore?.Set("length", value); }
@@ -33,12 +33,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The offset property</summary>
+        /// <summary>Offset of coachmark.</summary>
         public int? Offset {
             get { return BackingStore?.Get<int?>("offset"); }
             set { BackingStore?.Set("offset", value); }
         }
-        /// <summary>The type property</summary>
+        /// <summary>Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue.</summary>
         public CoachmarkLocationType? Type {
             get { return BackingStore?.Get<CoachmarkLocationType?>("type"); }
             set { BackingStore?.Set("type", value); }

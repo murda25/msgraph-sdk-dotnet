@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class EmailPayloadDetail : PayloadDetail, IParsable {
-        /// <summary>The fromEmail property</summary>
+        /// <summary>Email address of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FromEmail {
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("fromEmail", value); }
         }
 #endif
-        /// <summary>The fromName property</summary>
+        /// <summary>Display name of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FromName {
@@ -34,12 +34,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("fromName", value); }
         }
 #endif
-        /// <summary>The isExternalSender property</summary>
+        /// <summary>Indicates whether the sender isn&apos;t from the user&apos;s organization.</summary>
         public bool? IsExternalSender {
             get { return BackingStore?.Get<bool?>("isExternalSender"); }
             set { BackingStore?.Set("isExternalSender", value); }
         }
-        /// <summary>The subject property</summary>
+        /// <summary>The subject of the email address sent to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Subject {

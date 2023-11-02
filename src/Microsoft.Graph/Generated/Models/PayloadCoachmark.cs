@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The coachmarkLocation property</summary>
+        /// <summary>The coachmark location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.CoachmarkLocation? CoachmarkLocation {
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("coachmarkLocation", value); }
         }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>The description about the coachmark.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -42,7 +42,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>The indicator property</summary>
+        /// <summary>The coachmark indicator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Indicator {
@@ -56,12 +56,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("indicator", value); }
         }
 #endif
-        /// <summary>The isValid property</summary>
+        /// <summary>Indicates whether the coachmark is valid or not.</summary>
         public bool? IsValid {
             get { return BackingStore?.Get<bool?>("isValid"); }
             set { BackingStore?.Set("isValid", value); }
         }
-        /// <summary>The language property</summary>
+        /// <summary>The coachmark language.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language {
@@ -89,7 +89,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The order property</summary>
+        /// <summary>The coachmark order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Order {

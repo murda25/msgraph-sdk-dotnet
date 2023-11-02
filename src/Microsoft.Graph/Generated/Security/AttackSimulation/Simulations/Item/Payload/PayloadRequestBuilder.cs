@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Simulations.Item.Payload {
         public PayloadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get payload from security
+        /// The payload associated with a simulation during its creation.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Simulations.Item.Payload {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Payload>(requestInfo, Microsoft.Graph.Models.Payload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get payload from security
+        /// The payload associated with a simulation during its creation.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Simulations.Item.Payload {
             return new PayloadRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get payload from security
+        /// The payload associated with a simulation during its creation.
         /// </summary>
         public class PayloadRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

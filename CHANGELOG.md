@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.33.0] - 2023-11-02
+
+- Latest metadata updates from 31st October 2023.
+
 ## [5.32.0] - 2023-10-24
 
 - SDK is compatible with trimming(https://github.com/microsoftgraph/msgraph-sdk-dotnet/pull/2174) 

@@ -119,6 +119,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("sharedWithTeams", value); }
         }
 #endif
+        /// <summary>Contains summary information about the channel, including number of owners, members, guests, and an indicator for members from other tenants. The summary property will only be returned if it is specified in the $select clause of the Get channel method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ChannelSummary? Summary {
+            get { return BackingStore?.Get<ChannelSummary?>("summary"); }
+            set { BackingStore?.Set("summary", value); }
+        }
+#nullable restore
+#else
+        public ChannelSummary Summary {
+            get { return BackingStore?.Get<ChannelSummary>("summary"); }
+            set { BackingStore?.Set("summary", value); }
+        }
+#endif
         /// <summary>A collection of all the tabs in the channel. A navigation property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,6 +198,7 @@ namespace Microsoft.Graph.Models {
                 {"membershipType", n => { MembershipType = n.GetEnumValue<ChannelMembershipType>(); } },
                 {"messages", n => { Messages = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<SharedWithChannelTeamInfo>(SharedWithChannelTeamInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"summary", n => { Summary = n.GetObjectValue<ChannelSummary>(ChannelSummary.CreateFromDiscriminatorValue); } },
                 {"tabs", n => { Tabs = n.GetCollectionOfObjectValues<TeamsTab>(TeamsTab.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"webUrl", n => { WebUrl = n.GetStringValue(); } },
@@ -206,6 +221,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteEnumValue<ChannelMembershipType>("membershipType", MembershipType);
             writer.WriteCollectionOfObjectValues<ChatMessage>("messages", Messages);
             writer.WriteCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", SharedWithTeams);
+            writer.WriteObjectValue<ChannelSummary>("summary", Summary);
             writer.WriteCollectionOfObjectValues<TeamsTab>("tabs", Tabs);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("webUrl", WebUrl);

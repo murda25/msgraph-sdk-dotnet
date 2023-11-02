@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Trainings.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get trainings from security
+        /// Represents details about attack simulation trainings.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +118,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Trainings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get trainings from security
+        /// Represents details about attack simulation trainings.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -195,7 +195,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.Trainings.Item {
             }
         }
         /// <summary>
-        /// Get trainings from security
+        /// Represents details about attack simulation trainings.
         /// </summary>
         public class TrainingItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
