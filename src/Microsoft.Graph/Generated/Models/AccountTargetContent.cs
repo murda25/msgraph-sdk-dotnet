@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.</summary>
         public AccountTargetContentType? Type {
             get { return BackingStore?.Get<AccountTargetContentType?>("type"); }
             set { BackingStore?.Set("type", value); }

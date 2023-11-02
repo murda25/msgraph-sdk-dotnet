@@ -34,6 +34,11 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("dataType", value); }
         }
 #endif
+        /// <summary>The isMultiValued property</summary>
+        public bool? IsMultiValued {
+            get { return BackingStore?.Get<bool?>("isMultiValued"); }
+            set { BackingStore?.Set("isMultiValued", value); }
+        }
         /// <summary>Indicates if this extension property was synced from on-premises active directory using Microsoft Entra Connect. Read-only.</summary>
         public bool? IsSyncedFromOnPremises {
             get { return BackingStore?.Get<bool?>("isSyncedFromOnPremises"); }
@@ -88,6 +93,7 @@ namespace Microsoft.Graph.Models {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
                 {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 {"dataType", n => { DataType = n.GetStringValue(); } },
+                {"isMultiValued", n => { IsMultiValued = n.GetBoolValue(); } },
                 {"isSyncedFromOnPremises", n => { IsSyncedFromOnPremises = n.GetBoolValue(); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"targetObjects", n => { TargetObjects = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -102,6 +108,7 @@ namespace Microsoft.Graph.Models {
             base.Serialize(writer);
             writer.WriteStringValue("appDisplayName", AppDisplayName);
             writer.WriteStringValue("dataType", DataType);
+            writer.WriteBoolValue("isMultiValued", IsMultiValued);
             writer.WriteBoolValue("isSyncedFromOnPremises", IsSyncedFromOnPremises);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("targetObjects", TargetObjects);

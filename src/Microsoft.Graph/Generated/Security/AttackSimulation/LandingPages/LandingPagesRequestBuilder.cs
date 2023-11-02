@@ -42,7 +42,8 @@ namespace Microsoft.Graph.Security.AttackSimulation.LandingPages {
         public LandingPagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/security/attackSimulation/landingPages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get landingPages from security
+        /// Get a list of the landingPage objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/attacksimulationroot-list-landingpage?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,7 +83,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.LandingPages {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.LandingPage>(requestInfo, Microsoft.Graph.Models.LandingPage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get landingPages from security
+        /// Get a list of the landingPage objects and their properties.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,7 +144,7 @@ namespace Microsoft.Graph.Security.AttackSimulation.LandingPages {
             return new LandingPagesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get landingPages from security
+        /// Get a list of the landingPage objects and their properties.
         /// </summary>
         public class LandingPagesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
