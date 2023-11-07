@@ -29,16 +29,17 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
         public ProfileCardPropertyItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/people/profileCardProperties/{profileCardProperty%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property profileCardProperties for admin
+        /// Delete the profileCardProperty object specified by its directoryPropertyName from the organization&apos;s profile card, and remove any localized customizations for that property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -48,16 +49,17 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<ProfileCardProperty?> GetAsync(Action<ProfileCardPropertyItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ProfileCardProperty?> GetAsync(Action<RequestConfiguration<ProfileCardPropertyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<ProfileCardProperty> GetAsync(Action<ProfileCardPropertyItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ProfileCardProperty> GetAsync(Action<RequestConfiguration<ProfileCardPropertyItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -67,17 +69,18 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
             return await RequestAdapter.SendAsync<ProfileCardProperty>(requestInfo, ProfileCardProperty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the navigation property profileCardProperties in admin
+        /// Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/profilecardproperty-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<ProfileCardProperty?> PatchAsync(ProfileCardProperty body, Action<ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ProfileCardProperty?> PatchAsync(ProfileCardProperty body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<ProfileCardProperty> PatchAsync(ProfileCardProperty body, Action<ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ProfileCardProperty> PatchAsync(ProfileCardProperty body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
@@ -88,80 +91,52 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
             return await RequestAdapter.SendAsync<ProfileCardProperty>(requestInfo, ProfileCardProperty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete navigation property profileCardProperties for admin
+        /// Delete the profileCardProperty object specified by its directoryPropertyName from the organization&apos;s profile card, and remove any localized customizations for that property.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.DELETE,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<ProfileCardPropertyItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProfileCardPropertyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<ProfileCardPropertyItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProfileCardPropertyItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new ProfileCardPropertyItemRequestBuilderGetRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property profileCardProperties in admin
+        /// Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ProfileCardProperty body, Action<ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ProfileCardProperty body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ProfileCardProperty body, Action<ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(ProfileCardProperty body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
@@ -176,21 +151,11 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration and sets the default values.
-            /// </summary>
-            public ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
         /// </summary>
         public class ProfileCardPropertyItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
@@ -217,36 +182,14 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ProfileCardPropertyItemRequestBuilderGetRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>Request query parameters</summary>
-            public ProfileCardPropertyItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ProfileCardPropertyItemRequestBuilderGetQueryParameters();
-            /// <summary>
-            /// Instantiates a new ProfileCardPropertyItemRequestBuilderGetRequestConfiguration and sets the default values.
-            /// </summary>
-            public ProfileCardPropertyItemRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ProfileCardPropertyItemRequestBuilderGetRequestConfiguration : RequestConfiguration<ProfileCardPropertyItemRequestBuilderGetQueryParameters> {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration and sets the default values.
-            /// </summary>
-            public ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
     }
 }

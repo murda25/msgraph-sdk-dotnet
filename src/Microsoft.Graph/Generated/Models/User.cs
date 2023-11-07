@@ -1214,7 +1214,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("photo", value); }
         }
 #endif
-        /// <summary>The photos property</summary>
+        /// <summary>The collection of the user&apos;s profile photos in different sizes. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ProfilePhoto>? Photos {

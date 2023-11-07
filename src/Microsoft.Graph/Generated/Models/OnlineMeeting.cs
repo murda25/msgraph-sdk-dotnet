@@ -215,6 +215,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("recordAutomatically"); }
             set { BackingStore?.Set("recordAutomatically", value); }
         }
+        /// <summary>The recordings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<CallRecording>? Recordings {
+            get { return BackingStore?.Get<List<CallRecording>?>("recordings"); }
+            set { BackingStore?.Set("recordings", value); }
+        }
+#nullable restore
+#else
+        public List<CallRecording> Recordings {
+            get { return BackingStore?.Get<List<CallRecording>>("recordings"); }
+            set { BackingStore?.Set("recordings", value); }
+        }
+#endif
         /// <summary>Specifies whether meeting chat history is shared with participants. Possible values are: all, none, unknownFutureValue.</summary>
         public MeetingChatHistoryDefaultMode? ShareMeetingChatHistoryDefault {
             get { return BackingStore?.Get<MeetingChatHistoryDefaultMode?>("shareMeetingChatHistoryDefault"); }
@@ -316,6 +330,7 @@ namespace Microsoft.Graph.Models {
                 {"lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<Microsoft.Graph.Models.LobbyBypassSettings>(Microsoft.Graph.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
                 {"participants", n => { Participants = n.GetObjectValue<MeetingParticipants>(MeetingParticipants.CreateFromDiscriminatorValue); } },
                 {"recordAutomatically", n => { RecordAutomatically = n.GetBoolValue(); } },
+                {"recordings", n => { Recordings = n.GetCollectionOfObjectValues<CallRecording>(CallRecording.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"shareMeetingChatHistoryDefault", n => { ShareMeetingChatHistoryDefault = n.GetEnumValue<MeetingChatHistoryDefaultMode>(); } },
                 {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 {"subject", n => { Subject = n.GetStringValue(); } },
@@ -353,6 +368,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.LobbyBypassSettings>("lobbyBypassSettings", LobbyBypassSettings);
             writer.WriteObjectValue<MeetingParticipants>("participants", Participants);
             writer.WriteBoolValue("recordAutomatically", RecordAutomatically);
+            writer.WriteCollectionOfObjectValues<CallRecording>("recordings", Recordings);
             writer.WriteEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", ShareMeetingChatHistoryDefault);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("subject", Subject);

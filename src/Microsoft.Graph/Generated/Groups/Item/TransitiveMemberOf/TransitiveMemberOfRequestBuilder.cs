@@ -52,17 +52,17 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMemberOf {
         public TransitiveMemberOfRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{group%2Did}/transitiveMemberOf{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// The groups that a group is a member of, either directly and through nested membership. Nullable.
+        /// The groups that a group is a member of, either directly or through nested membership. Nullable.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-transitivememberof?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<DirectoryObjectCollectionResponse?> GetAsync(Action<TransitiveMemberOfRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DirectoryObjectCollectionResponse?> GetAsync(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<DirectoryObjectCollectionResponse> GetAsync(Action<TransitiveMemberOfRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DirectoryObjectCollectionResponse> GetAsync(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -72,28 +72,18 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMemberOf {
             return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The groups that a group is a member of, either directly and through nested membership. Nullable.
+        /// The groups that a group is a member of, either directly or through nested membership. Nullable.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<TransitiveMemberOfRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<TransitiveMemberOfRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new TransitiveMemberOfRequestBuilderGetRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             return requestInfo;
         }
@@ -105,7 +95,7 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMemberOf {
             return new TransitiveMemberOfRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The groups that a group is a member of, either directly and through nested membership. Nullable.
+        /// The groups that a group is a member of, either directly or through nested membership. Nullable.
         /// </summary>
         public class TransitiveMemberOfRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
@@ -171,20 +161,8 @@ namespace Microsoft.Graph.Groups.Item.TransitiveMemberOf {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class TransitiveMemberOfRequestBuilderGetRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>Request query parameters</summary>
-            public TransitiveMemberOfRequestBuilderGetQueryParameters QueryParameters { get; set; } = new TransitiveMemberOfRequestBuilderGetQueryParameters();
-            /// <summary>
-            /// Instantiates a new transitiveMemberOfRequestBuilderGetRequestConfiguration and sets the default values.
-            /// </summary>
-            public TransitiveMemberOfRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class TransitiveMemberOfRequestBuilderGetRequestConfiguration : RequestConfiguration<TransitiveMemberOfRequestBuilderGetQueryParameters> {
         }
     }
 }

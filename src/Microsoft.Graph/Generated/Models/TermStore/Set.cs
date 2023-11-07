@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.TermStore {
-    public class Set : Entity, IParsable {
+    public class Set : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>Children terms of set in term [store].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

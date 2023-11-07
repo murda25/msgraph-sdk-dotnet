@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class CommunicationsIdentitySet : IdentitySet, IParsable {
-        /// <summary>The applicationInstance property</summary>
+        /// <summary>The application instance associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? ApplicationInstance {
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationInstance", value); }
         }
 #endif
-        /// <summary>The assertedIdentity property</summary>
+        /// <summary>An identity the participant would like to present itself as to the other participants in the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? AssertedIdentity {
@@ -34,7 +34,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assertedIdentity", value); }
         }
 #endif
-        /// <summary>The azureCommunicationServicesUser property</summary>
+        /// <summary>The Azure Communication Services user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? AzureCommunicationServicesUser {
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("azureCommunicationServicesUser", value); }
         }
 #endif
-        /// <summary>The encrypted property</summary>
+        /// <summary>The encrypted user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? Encrypted {
@@ -62,12 +62,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("encrypted", value); }
         }
 #endif
-        /// <summary>The endpointType property</summary>
+        /// <summary>Type of endpoint that the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.EndpointType? EndpointType {
             get { return BackingStore?.Get<Microsoft.Graph.Models.EndpointType?>("endpointType"); }
             set { BackingStore?.Set("endpointType", value); }
         }
-        /// <summary>The guest property</summary>
+        /// <summary>The guest user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? Guest {
@@ -81,7 +81,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("guest", value); }
         }
 #endif
-        /// <summary>The onPremises property</summary>
+        /// <summary>The Skype for Business on-premises user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? OnPremises {
@@ -95,7 +95,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("onPremises", value); }
         }
 #endif
-        /// <summary>The phone property</summary>
+        /// <summary>The phone user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Identity? Phone {

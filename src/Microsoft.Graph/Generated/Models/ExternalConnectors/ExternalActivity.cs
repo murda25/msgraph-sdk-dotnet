@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.ExternalConnectors {
-    public class ExternalActivity : Entity, IParsable {
+    public class ExternalActivity : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>Represents an identity used to identify who is responsible for the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -14,7 +14,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The displayName property</summary>
+        /// <summary>If present, the value of this field is used by the profile card as the default property label in the experience (for example, &apos;Cost Center&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -28,7 +28,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The localizations property</summary>
+        /// <summary>Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a nb-NO client gets &apos;Kostnadssenter&apos; as the attribute label, rather than &apos;Cost Center.&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DisplayNameLocalization>? Localizations {

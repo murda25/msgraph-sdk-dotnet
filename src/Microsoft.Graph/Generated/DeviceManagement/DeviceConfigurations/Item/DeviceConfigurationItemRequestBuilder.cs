@@ -65,17 +65,17 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a windows10EnterpriseModernAppManagementConfiguration.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10enterprisemodernappmanagementconfiguration-delete?view=graph-rest-1.0" />
+        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -85,17 +85,17 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81GeneralConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81generalconfiguration-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the iosCertificateProfile object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscertificateprofile-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<DeviceConfiguration?> GetAsync(Action<DeviceConfigurationItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceConfiguration?> GetAsync(Action<RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<DeviceConfiguration> GetAsync(Action<DeviceConfigurationItemRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceConfiguration> GetAsync(Action<RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -113,18 +113,18 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(PathParameters, RequestAdapter, secretReferenceValueId);
         }
         /// <summary>
-        /// Update the properties of a androidWorkProfileGeneralDeviceConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-update?view=graph-rest-1.0" />
+        /// Update the properties of a windows10TeamGeneralConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<DeviceConfiguration?> PatchAsync(DeviceConfiguration body, Action<DeviceConfigurationItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceConfiguration?> PatchAsync(DeviceConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<DeviceConfiguration> PatchAsync(DeviceConfiguration body, Action<DeviceConfigurationItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceConfiguration> PatchAsync(DeviceConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
@@ -135,80 +135,52 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, DeviceConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a windows10EnterpriseModernAppManagementConfiguration.
+        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.DELETE,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81GeneralConfiguration object.
+        /// Read properties and relationships of the iosCertificateProfile object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<DeviceConfigurationItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<DeviceConfigurationItemRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new DeviceConfigurationItemRequestBuilderGetRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a androidWorkProfileGeneralDeviceConfiguration object.
+        /// Update the properties of a windows10TeamGeneralConfiguration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceConfiguration body, Action<DeviceConfigurationItemRequestBuilderPatchRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(DeviceConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceConfiguration body, Action<DeviceConfigurationItemRequestBuilderPatchRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPatchRequestInformation(DeviceConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new DeviceConfigurationItemRequestBuilderPatchRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
@@ -223,21 +195,11 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration and sets the default values.
-            /// </summary>
-            public DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81GeneralConfiguration object.
+        /// Read properties and relationships of the iosCertificateProfile object.
         /// </summary>
         public class DeviceConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
@@ -264,36 +226,14 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class DeviceConfigurationItemRequestBuilderGetRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>Request query parameters</summary>
-            public DeviceConfigurationItemRequestBuilderGetQueryParameters QueryParameters { get; set; } = new DeviceConfigurationItemRequestBuilderGetQueryParameters();
-            /// <summary>
-            /// Instantiates a new DeviceConfigurationItemRequestBuilderGetRequestConfiguration and sets the default values.
-            /// </summary>
-            public DeviceConfigurationItemRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class DeviceConfigurationItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class DeviceConfigurationItemRequestBuilderPatchRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new DeviceConfigurationItemRequestBuilderPatchRequestConfiguration and sets the default values.
-            /// </summary>
-            public DeviceConfigurationItemRequestBuilderPatchRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class DeviceConfigurationItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
     }
 }

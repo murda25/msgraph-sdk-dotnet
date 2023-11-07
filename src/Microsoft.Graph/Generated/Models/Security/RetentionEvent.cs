@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.Security {
-    public class RetentionEvent : Entity, IParsable {
+    public class RetentionEvent : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>The user who created the retentionEvent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -42,17 +42,17 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
         public DeviceEnrollmentConfigurationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<DeviceEnrollmentConfigurationCollectionResponse?> GetAsync(Action<DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceEnrollmentConfigurationCollectionResponse?> GetAsync(Action<RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<DeviceEnrollmentConfigurationCollectionResponse> GetAsync(Action<DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceEnrollmentConfigurationCollectionResponse> GetAsync(Action<RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -62,18 +62,18 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return await RequestAdapter.SendAsync<DeviceEnrollmentConfigurationCollectionResponse>(requestInfo, DeviceEnrollmentConfigurationCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new deviceEnrollmentWindowsHelloForBusinessConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-create?view=graph-rest-1.0" />
+        /// Create a new deviceEnrollmentLimitConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<DeviceEnrollmentConfiguration?> PostAsync(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceEnrollmentConfiguration?> PostAsync(DeviceEnrollmentConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<DeviceEnrollmentConfiguration> PostAsync(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<DeviceEnrollmentConfiguration> PostAsync(DeviceEnrollmentConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
@@ -84,55 +84,36 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return await RequestAdapter.SendAsync<DeviceEnrollmentConfiguration>(requestInfo, DeviceEnrollmentConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+        /// List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             return requestInfo;
         }
         /// <summary>
-        /// Create a new deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+        /// Create a new deviceEnrollmentLimitConfiguration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(DeviceEnrollmentConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(DeviceEnrollmentConfiguration body, Action<DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(DeviceEnrollmentConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
@@ -145,7 +126,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
             return new DeviceEnrollmentConfigurationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+        /// List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
         /// </summary>
         public class DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
@@ -211,36 +192,14 @@ namespace Microsoft.Graph.DeviceManagement.DeviceEnrollmentConfigurations {
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>Request query parameters</summary>
-            public DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters QueryParameters { get; set; } = new DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters();
-            /// <summary>
-            /// Instantiates a new deviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
-            /// </summary>
-            public DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration : RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters> {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new deviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration and sets the default values.
-            /// </summary>
-            public DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
     }
 }

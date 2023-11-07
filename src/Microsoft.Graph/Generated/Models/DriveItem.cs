@@ -76,7 +76,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("content", value); }
         }
 #endif
-        /// <summary>An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.</summary>
+        /// <summary>An eTag for the content of the item. This eTag isn&apos;t changed if only the metadata is changed. Note This property isn&apos;t returned if the item is a folder. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CTag {
@@ -258,7 +258,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("photo", value); }
         }
 #endif
-        /// <summary>Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.</summary>
+        /// <summary>Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn&apos;t returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PublicationFacet? Publication {
@@ -314,7 +314,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("searchResult", value); }
         }
 #endif
-        /// <summary>Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.</summary>
+        /// <summary>Indicates that the item was shared with others and provides information about the shared state of the item. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Shared? Shared {
@@ -375,7 +375,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("subscriptions", value); }
         }
 #endif
-        /// <summary>Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.</summary>
+        /// <summary>Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ThumbnailSet>? Thumbnails {
@@ -431,7 +431,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("webDavUrl", value); }
         }
 #endif
-        /// <summary>For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet&apos;s contents. Nullable.</summary>
+        /// <summary>For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet&apos;s contents. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Workbook? Workbook {
