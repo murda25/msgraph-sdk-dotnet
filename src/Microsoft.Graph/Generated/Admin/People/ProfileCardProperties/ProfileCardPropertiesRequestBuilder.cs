@@ -42,7 +42,8 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties {
         public ProfileCardPropertiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/people/profileCardProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -61,7 +62,8 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties {
             return await RequestAdapter.SendAsync<ProfileCardPropertyCollectionResponse>(requestInfo, ProfileCardPropertyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new navigation property to profileCardProperties for admin
+        /// Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +84,7 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties {
             return await RequestAdapter.SendAsync<ProfileCardProperty>(requestInfo, ProfileCardProperty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +110,7 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to profileCardProperties for admin
+        /// Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +145,7 @@ namespace Microsoft.Graph.Admin.People.ProfileCardProperties {
             return new ProfileCardPropertiesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get profileCardProperties from admin
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
         /// </summary>
         public class ProfileCardPropertiesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
