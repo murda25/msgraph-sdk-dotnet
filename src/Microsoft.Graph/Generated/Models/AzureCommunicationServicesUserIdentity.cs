@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class AzureCommunicationServicesUserIdentity : Identity, IParsable {
-        /// <summary>The azureCommunicationServicesResourceId property</summary>
+        /// <summary>The Azure Communication Services resource ID associated with the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AzureCommunicationServicesResourceId {

@@ -176,6 +176,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.calendarPermission" => new CalendarPermission(),
                 "#microsoft.graph.calendarSharingMessage" => new CalendarSharingMessage(),
                 "#microsoft.graph.call" => new Call(),
+                "#microsoft.graph.callRecording" => new CallRecording(),
                 "#microsoft.graph.callRecords.callRecord" => new CallRecord(),
                 "#microsoft.graph.callRecords.segment" => new Segment(),
                 "#microsoft.graph.callRecords.session" => new Session(),
