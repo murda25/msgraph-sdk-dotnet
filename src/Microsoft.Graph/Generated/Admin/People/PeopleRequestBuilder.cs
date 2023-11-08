@@ -34,7 +34,8 @@ namespace Microsoft.Graph.Admin.People {
         public PeopleRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/admin/people{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get people from admin
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -74,7 +75,7 @@ namespace Microsoft.Graph.Admin.People {
             return await RequestAdapter.SendAsync<PeopleAdminSettings>(requestInfo, PeopleAdminSettings.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get people from admin
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +136,7 @@ namespace Microsoft.Graph.Admin.People {
             return new PeopleRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get people from admin
+        /// Retrieve the properties and relationships of a peopleAdminSettings object.
         /// </summary>
         public class PeopleRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

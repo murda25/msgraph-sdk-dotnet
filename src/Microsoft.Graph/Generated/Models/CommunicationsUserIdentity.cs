@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class CommunicationsUserIdentity : Identity, IParsable {
-        /// <summary>The tenantId property</summary>
+        /// <summary>The user&apos;s tenant ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantId {

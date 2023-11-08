@@ -2,6 +2,7 @@
 using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendanceReports;
 using Microsoft.Graph.Communications.OnlineMeetings.Item.AttendeeReport;
 using Microsoft.Graph.Communications.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl;
+using Microsoft.Graph.Communications.OnlineMeetings.Item.Recordings;
 using Microsoft.Graph.Communications.OnlineMeetings.Item.Transcripts;
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
@@ -29,6 +30,10 @@ namespace Microsoft.Graph.Communications.OnlineMeetings.Item {
         /// <summary>Provides operations to call the getVirtualAppointmentJoinWebUrl method.</summary>
         public GetVirtualAppointmentJoinWebUrlRequestBuilder GetVirtualAppointmentJoinWebUrl { get =>
             new GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.</summary>
+        public RecordingsRequestBuilder Recordings { get =>
+            new RecordingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.</summary>
         public TranscriptsRequestBuilder Transcripts { get =>
