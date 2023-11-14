@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class CallRecording : Entity, IParsable {
-        /// <summary>The content property</summary>
+        /// <summary>The content of the recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Content {
@@ -20,12 +20,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("content", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Date and time at which the recording was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The meetingId property</summary>
+        /// <summary>The unique identifier of the onlineMeeting related to this recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MeetingId {
@@ -39,7 +39,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("meetingId", value); }
         }
 #endif
-        /// <summary>The meetingOrganizer property</summary>
+        /// <summary>The identity information of the organizer of the onlineMeeting related to this recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public IdentitySet? MeetingOrganizer {
@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("meetingOrganizer", value); }
         }
 #endif
-        /// <summary>The recordingContentUrl property</summary>
+        /// <summary>The URL that can be used to access the content of the recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecordingContentUrl {

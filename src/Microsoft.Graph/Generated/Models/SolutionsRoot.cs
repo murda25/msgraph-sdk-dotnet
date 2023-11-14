@@ -56,6 +56,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The virtualEvents property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public VirtualEventsRoot? VirtualEvents {
+            get { return BackingStore?.Get<VirtualEventsRoot?>("virtualEvents"); }
+            set { BackingStore?.Set("virtualEvents", value); }
+        }
+#nullable restore
+#else
+        public VirtualEventsRoot VirtualEvents {
+            get { return BackingStore?.Get<VirtualEventsRoot>("virtualEvents"); }
+            set { BackingStore?.Set("virtualEvents", value); }
+        }
+#endif
         /// <summary>
         /// Instantiates a new solutionsRoot and sets the default values.
         /// </summary>
@@ -79,6 +93,7 @@ namespace Microsoft.Graph.Models {
                 {"bookingBusinesses", n => { BookingBusinesses = n.GetCollectionOfObjectValues<BookingBusiness>(BookingBusiness.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"bookingCurrencies", n => { BookingCurrencies = n.GetCollectionOfObjectValues<BookingCurrency>(BookingCurrency.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                {"virtualEvents", n => { VirtualEvents = n.GetObjectValue<VirtualEventsRoot>(VirtualEventsRoot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -90,6 +105,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", BookingBusinesses);
             writer.WriteCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", BookingCurrencies);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteObjectValue<VirtualEventsRoot>("virtualEvents", VirtualEvents);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
