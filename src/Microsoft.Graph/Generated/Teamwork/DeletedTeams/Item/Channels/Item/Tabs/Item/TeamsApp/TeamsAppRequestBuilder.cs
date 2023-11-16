@@ -70,7 +70,7 @@ namespace Microsoft.Graph.Teamwork.DeletedTeams.Item.Channels.Item.Tabs.Item.Tea
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

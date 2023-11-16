@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item.Recordings.Item.Content {
         public ContentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/me/onlineMeetings/{onlineMeeting%2Did}/recordings/{callRecording%2Did}/content", rawUrl) {
         }
         /// <summary>
-        /// Get content for the navigation property recordings from me
+        /// The content of the recording. Read-only.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,7 +48,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item.Recordings.Item.Content {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update content for the navigation property recordings in me
+        /// The content of the recording. Read-only.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item.Recordings.Item.Content {
             return await RequestAdapter.SendAsync<CallRecording>(requestInfo, CallRecording.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get content for the navigation property recordings from me
+        /// The content of the recording. Read-only.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,11 +90,11 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item.Recordings.Item.Content {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/octet-stream, application/json, application/json");
+            requestInfo.Headers.TryAdd("Accept", "application/octet-stream, application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Update content for the navigation property recordings in me
+        /// The content of the recording. Read-only.
         /// </summary>
         /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,7 +117,7 @@ namespace Microsoft.Graph.Me.OnlineMeetings.Item.Recordings.Item.Content {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");
             return requestInfo;
         }

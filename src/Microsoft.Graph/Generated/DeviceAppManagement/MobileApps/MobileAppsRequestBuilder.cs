@@ -122,8 +122,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         public MobileAppsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// List properties and relationships of the windowsUniversalAppX objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowsuniversalappx-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the windowsWebApp objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-list?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,8 +142,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileAppCollectionResponse>(requestInfo, MobileAppCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new androidStoreApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-androidstoreapp-create?view=graph-rest-1.0" />
+        /// Create a new macOSLobApp object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-macoslobapp-create?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -164,7 +164,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List properties and relationships of the windowsUniversalAppX objects.
+        /// List properties and relationships of the windowsWebApp objects.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,11 +186,11 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Create a new androidStoreApp object.
+        /// Create a new macOSLobApp object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -213,7 +213,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
@@ -225,7 +225,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return new MobileAppsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List properties and relationships of the windowsUniversalAppX objects.
+        /// List properties and relationships of the windowsWebApp objects.
         /// </summary>
         public class MobileAppsRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
