@@ -3,6 +3,7 @@ using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Solutions.BookingBusinesses;
 using Microsoft.Graph.Solutions.BookingCurrencies;
+using Microsoft.Graph.Solutions.VirtualEvents;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace Microsoft.Graph.Solutions {
         /// <summary>Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.</summary>
         public BookingCurrenciesRequestBuilder BookingCurrencies { get =>
             new BookingCurrenciesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the virtualEvents property of the microsoft.graph.solutionsRoot entity.</summary>
+        public VirtualEventsRequestBuilder VirtualEvents { get =>
+            new VirtualEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new SolutionsRequestBuilder and sets the default values.
@@ -101,7 +106,7 @@ namespace Microsoft.Graph.Solutions {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -128,7 +133,7 @@ namespace Microsoft.Graph.Solutions {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

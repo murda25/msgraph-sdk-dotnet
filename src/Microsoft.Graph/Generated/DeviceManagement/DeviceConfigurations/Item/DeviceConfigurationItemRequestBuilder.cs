@@ -65,8 +65,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-delete?view=graph-rest-1.0" />
+        /// Deletes a windows10EnterpriseModernAppManagementConfiguration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10enterprisemodernappmanagementconfiguration-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -113,8 +113,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(PathParameters, RequestAdapter, secretReferenceValueId);
         }
         /// <summary>
-        /// Update the properties of a windows10TeamGeneralConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-update?view=graph-rest-1.0" />
+        /// Update the properties of a macOSGeneralDeviceConfiguration object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-macosgeneraldeviceconfiguration-update?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, DeviceConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a androidWorkProfileGeneralDeviceConfiguration.
+        /// Deletes a windows10EnterpriseModernAppManagementConfiguration.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +156,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json, application/json");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -182,11 +182,11 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a windows10TeamGeneralConfiguration object.
+        /// Update the properties of a macOSGeneralDeviceConfiguration object.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -209,7 +209,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json;q=1");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

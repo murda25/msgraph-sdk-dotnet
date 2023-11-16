@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.Channels.Item.Messages.Item.SoftDe
                 requestInfo.AddRequestOptions(requestConfig.Options);
                 requestInfo.AddHeaders(requestConfig.Headers);
             }
-            requestInfo.Headers.TryAdd("Accept", "application/json, application/json");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
