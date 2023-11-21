@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.IdentityGovernance {
-    public class RunCollectionResponse : BaseCollectionPaginationCountResponse, IParsable {
+    public class RunCollectionResponse : Microsoft.Graph.Models.BaseCollectionPaginationCountResponse, IParsable {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

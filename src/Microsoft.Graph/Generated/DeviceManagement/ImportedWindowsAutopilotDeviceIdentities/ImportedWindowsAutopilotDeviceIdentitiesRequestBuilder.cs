@@ -54,10 +54,10 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<ImportedWindowsAutopilotDeviceIdentityCollectionResponse?> GetAsync(Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ImportedWindowsAutopilotDeviceIdentityCollectionResponse?> GetAsync(Action<RequestConfiguration<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<ImportedWindowsAutopilotDeviceIdentityCollectionResponse> GetAsync(Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ImportedWindowsAutopilotDeviceIdentityCollectionResponse> GetAsync(Action<RequestConfiguration<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
@@ -75,10 +75,10 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<ImportedWindowsAutopilotDeviceIdentity?> PostAsync(ImportedWindowsAutopilotDeviceIdentity body, Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ImportedWindowsAutopilotDeviceIdentity?> PostAsync(ImportedWindowsAutopilotDeviceIdentity body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<ImportedWindowsAutopilotDeviceIdentity> PostAsync(ImportedWindowsAutopilotDeviceIdentity body, Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<ImportedWindowsAutopilotDeviceIdentity> PostAsync(ImportedWindowsAutopilotDeviceIdentity body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
@@ -94,23 +94,13 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters>> requestConfiguration = default) {
 #endif
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.GET,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddQueryParameters(requestConfig.QueryParameters);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
@@ -121,23 +111,14 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ImportedWindowsAutopilotDeviceIdentity body, Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration>? requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ImportedWindowsAutopilotDeviceIdentity body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default) {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ImportedWindowsAutopilotDeviceIdentity body, Action<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration> requestConfiguration = default) {
+        public RequestInformation ToPostRequestInformation(ImportedWindowsAutopilotDeviceIdentity body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default) {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            if (requestConfiguration != null) {
-                var requestConfig = new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration();
-                requestConfiguration.Invoke(requestConfig);
-                requestInfo.AddRequestOptions(requestConfig.Options);
-                requestInfo.AddHeaders(requestConfig.Headers);
-            }
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
@@ -216,36 +197,14 @@ namespace Microsoft.Graph.DeviceManagement.ImportedWindowsAutopilotDeviceIdentit
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>Request query parameters</summary>
-            public ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters QueryParameters { get; set; } = new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters();
-            /// <summary>
-            /// Instantiates a new importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration and sets the default values.
-            /// </summary>
-            public ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration : RequestConfiguration<ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters> {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
-        public class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration {
-            /// <summary>Request headers</summary>
-            public RequestHeaders Headers { get; set; }
-            /// <summary>Request options</summary>
-            public IList<IRequestOption> Options { get; set; }
-            /// <summary>
-            /// Instantiates a new importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration and sets the default values.
-            /// </summary>
-            public ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration() {
-                Options = new List<IRequestOption>();
-                Headers = new RequestHeaders();
-            }
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
     }
 }

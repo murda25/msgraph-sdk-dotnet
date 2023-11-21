@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.IdentityGovernance {
-    public class LifecycleManagementSettings : Entity, IParsable {
+    public class LifecycleManagementSettings : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>The emailSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
