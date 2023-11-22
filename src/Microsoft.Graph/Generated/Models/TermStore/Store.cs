@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.TermStore {
-    public class Store : Entity, IParsable {
+    public class Store : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>Default language of the term store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

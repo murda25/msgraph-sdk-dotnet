@@ -224,6 +224,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.delegatedPermissionClassification" => new DelegatedPermissionClassification(),
                 "#microsoft.graph.deletedItemContainer" => new DeletedItemContainer(),
                 "#microsoft.graph.deletedTeam" => new DeletedTeam(),
+                "#microsoft.graph.deltaParticipants" => new DeltaParticipants(),
                 "#microsoft.graph.detectedApp" => new DetectedApp(),
                 "#microsoft.graph.device" => new Device(),
                 "#microsoft.graph.deviceAndAppManagementRoleAssignment" => new DeviceAndAppManagementRoleAssignment(),

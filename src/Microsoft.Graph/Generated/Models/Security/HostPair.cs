@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Models.Security {
-    public class HostPair : Entity, IParsable {
+    public class HostPair : Microsoft.Graph.Models.Entity, IParsable {
         /// <summary>The childHost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
