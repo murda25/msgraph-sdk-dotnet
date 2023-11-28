@@ -233,7 +233,7 @@ if (pageIterator.State == PagingState.Delta)
     // call delta again with the deltaLink to get the next page of results
     Console.WriteLine("Calling delta again with deltaLink");
     Console.WriteLine("DeltaLink url is: " + pageIterator.Deltalink);
-    await pageIterator.IterateAsync();
+    await pageIterator.ResumeAsync();
 }
 ```
 
