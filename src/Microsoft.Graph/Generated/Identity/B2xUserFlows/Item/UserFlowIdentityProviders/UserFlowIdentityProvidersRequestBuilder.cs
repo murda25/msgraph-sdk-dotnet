@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Identity.B2xUserFlows.Item.UserFlowIdentityProviders {
             new RefRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Microsoft.Graph.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of identityProviderBase</param>
         public IdentityProviderBaseItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("identityProviderBase%2Did", position);

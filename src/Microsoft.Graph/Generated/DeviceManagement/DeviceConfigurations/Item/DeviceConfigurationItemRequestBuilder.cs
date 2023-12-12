@@ -65,8 +65,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public DeviceConfigurationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Deletes a windowsPhone81GeneralConfiguration.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81generalconfiguration-delete?view=graph-rest-1.0" />
+        /// Deletes a iosGeneralDeviceConfiguration.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-iosgeneraldeviceconfiguration-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,8 +85,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81CustomConfiguration object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81customconfiguration-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the appleDeviceFeaturesConfigurationBase object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-appledevicefeaturesconfigurationbase-get?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, DeviceConfiguration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a windowsPhone81GeneralConfiguration.
+        /// Deletes a iosGeneralDeviceConfiguration.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,7 +151,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81CustomConfiguration object.
+        /// Read properties and relationships of the appleDeviceFeaturesConfigurationBase object.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -199,7 +199,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceConfigurations.Item {
         public class DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Read properties and relationships of the windowsPhone81CustomConfiguration object.
+        /// Read properties and relationships of the appleDeviceFeaturesConfigurationBase object.
         /// </summary>
         public class DeviceConfigurationItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>
