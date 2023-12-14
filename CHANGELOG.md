@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.37.0] - 2023-12-13
+
+- Latest metadata updates from 12th December 2023.
+
 ## [5.36.0] - 2023-11-22
 
 - Reduces the size of the generated code (https://github.com/microsoft/kiota/issues/3651)

@@ -3,8 +3,7 @@
 [![Validate Pull Request](https://github.com/microsoftgraph/msgraph-sdk-dotnet/actions/workflows/validatePullRequest.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-sdk-dotnet/actions/workflows/validatePullRequest.yml)
 [![NuGet Version](https://buildstats.info/nuget/Microsoft.Graph)](https://www.nuget.org/packages/Microsoft.Graph/)
 
-Integrate the [Microsoft Graph API](https://graph.microsoft.io) into your .NET
-project!
+Integrate the [Microsoft Graph API](https://graph.microsoft.com) into your .NET project!
 
 The Microsoft Graph .NET Client Library targets .NetStandard 2.0.
 
@@ -25,7 +24,7 @@ Register your application to use Microsoft Graph API using the [Microsoft Applic
 
 The Microsoft Graph .NET Client Library supports the use of TokenCredential classes in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
 
-You can read more about available Credential classes [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#key-concepts) and examples on how to quickly setup TokenCredential instances can be found [here](docs/tokencredentials.md).
+You can read more about available Credential classes [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#key-concepts) and examples on how to quickly setup TokenCredential instances can be found [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/tokencredentials.md).
 
 The recommended library for authenticating against Microsoft Identity (Azure AD) is [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
@@ -38,7 +37,7 @@ sending them to Microsoft Graph API, and processing the responses. To create a
 new instance of this class, you need to provide an instance of
 `IAuthenticationProvider` which can authenticate requests to Microsoft Graph.
 
-For more information on initializing a client instance, see the [library overview](docs/overview.md)
+For more information on initializing a client instance, see the [library overview](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/overview.md)
 
 ### 4. Make requests to the graph
 
@@ -68,7 +67,7 @@ var rootItem = await graphClient.Drives[userDriveId].Root.GetAsync();
 `GetAsync` will return a `DriveItem` object on success and throw a
 `ApiException` on error.
 
-For a general overview of how the SDK is designed, see [overview](docs/overview.md).
+For a general overview of how the SDK is designed, see [overview](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/overview.md).
 
 The following sample applications are also available:
 * [Microsoft Graph UWP Connect Sample](https://github.com/microsoftgraph/uwp-csharp-connect-sample)
@@ -83,11 +82,11 @@ The following sample applications are also available:
 
 ## Documentation and resources
 
-* [Overview](docs/overview.md)
-* [Collections](docs/collections.md)
-* [Errors](docs/errors.md)
-* [Headers](docs/headers.md)
-* [Microsoft Graph API](https://graph.microsoft.io)
+* [Overview](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/overview.md)
+* [Collections](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/collections.md)
+* [Errors](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/errors.md)
+* [Headers](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/headers.md)
+* [Microsoft Graph API](https://graph.microsoft.com)
 * [Release notes](https://github.com/microsoftgraph/msgraph-sdk-dotnet/releases)
 * [Blog - Microsoft Graph .NET SDK updates 3/16/20](https://developer.microsoft.com/en-us/graph/blogs/microsoft-graph-net-sdk-updates/)
 
@@ -112,14 +111,14 @@ Between 3.x and 4.x there were some major breaking changes:
  * Replacing Newtosoft.Json with System.Text.Json
  * Upgrading Microsoft.Graph.Core dependency to version 2.0.0
 
-View the upgrade guide [here](docs/upgrade-to-v4.md).
+View the upgrade guide [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/upgrade-to-v4.md).
 
 
 ### Upgrading to v5
 
 Between 4.x and 5.x there were several major breaking changes as the SDK now uses Kiota for code generation.
 
-View the upgrade guide [here](docs/upgrade-to-v5.md).
+View the upgrade guide [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/docs/upgrade-to-v5.md).
 
 ## Issues
 
