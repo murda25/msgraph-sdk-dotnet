@@ -119,5 +119,27 @@ namespace Microsoft.Graph.DotnetCore.Test.Requests.Extensions
             Assert.NotNull(itemRequestInformation);
             Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
         }
+
+        [Fact]
+        public void ItemByPath_BuildRequestWithNestedPathSlashAndOneParameter()
+        {
+            var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
+            var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/root:/item/with/path:/search(q='doc.docx')");
+            var itemRequestInformation = graphServiceClient.Drives["driveId"].Root.ItemWithPath("/item/with/path").SearchWithQ("doc.docx").ToGetRequestInformation();
+
+            Assert.NotNull(itemRequestInformation);
+            Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
+        }
+
+        [Fact]
+        public void ItemByPath_BuildRequestWithNestedPathSlashAndMoreThanOneParameter()
+        {
+            var graphServiceClient = new GraphServiceClient(new MockAuthenticationProvider().Object);
+            var expectedRequestUri = new Uri(string.Format(Constants.Url.GraphBaseUrlFormatString, "v1.0") + "/drives/driveId/root:/item/with/path:/getActivitiesByInterval(startDateTime='2023-12-11',endDateTime='2023-12-13',interval='week')");
+            var itemRequestInformation = graphServiceClient.Drives["driveId"].Root.ItemWithPath("/item/with/path").GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval("2023-12-13", "week", "2023-12-11").ToGetRequestInformation();
+
+            Assert.NotNull(itemRequestInformation);
+            Assert.Equal(expectedRequestUri, itemRequestInformation.URI);
+        }
     }
 }
