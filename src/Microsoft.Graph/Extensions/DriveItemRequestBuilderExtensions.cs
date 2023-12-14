@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Graph.Drives.Item.Items.Item.Analytics;
+using Microsoft.Graph.Drives.Item.Items.Item.AssignSensitivityLabel;
 using Microsoft.Graph.Drives.Item.Items.Item.Children;
 using Microsoft.Graph.Drives.Item.Items.Item.Content;
-using Microsoft.Graph.Drives.Item.Items.Item.ListItem;
 using Microsoft.Graph.Drives.Item.Items.Item.Checkin;
 using Microsoft.Graph.Drives.Item.Items.Item.Checkout;
 using Microsoft.Graph.Drives.Item.Items.Item.Copy;
+using Microsoft.Graph.Drives.Item.Items.Item.CreatedByUser;
 using Microsoft.Graph.Drives.Item.Items.Item.CreateLink;
 using Microsoft.Graph.Drives.Item.Items.Item.CreateUploadSession;
+using Microsoft.Graph.Drives.Item.Items.Item.Delta;
+using Microsoft.Graph.Drives.Item.Items.Item.DeltaWithToken;
 using Microsoft.Graph.Drives.Item.Items.Item.Follow;
+using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByInterval;
+using Microsoft.Graph.Drives.Item.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
 using Microsoft.Graph.Drives.Item.Items.Item.Invite;
+using Microsoft.Graph.Drives.Item.Items.Item.LastModifiedByUser;
+using Microsoft.Graph.Drives.Item.Items.Item.ListItem;
+using Microsoft.Graph.Drives.Item.Items.Item.PermanentDelete;
 using Microsoft.Graph.Drives.Item.Items.Item.Preview;
 using Microsoft.Graph.Drives.Item.Items.Item.Restore;
-using Microsoft.Graph.Drives.Item.Items.Item.Unfollow;
-using Microsoft.Graph.Drives.Item.Items.Item.ValidatePermission;
+using Microsoft.Graph.Drives.Item.Items.Item.RetentionLabel;
 using Microsoft.Graph.Drives.Item.Items.Item.Permissions;
+using Microsoft.Graph.Drives.Item.Items.Item.SearchWithQ;
 using Microsoft.Graph.Drives.Item.Items.Item.Subscriptions;
 using Microsoft.Graph.Drives.Item.Items.Item.Thumbnails;
+using Microsoft.Graph.Drives.Item.Items.Item.Unfollow;
+using Microsoft.Graph.Drives.Item.Items.Item.ValidatePermission;
 using Microsoft.Graph.Drives.Item.Items.Item.Workbook;
 using Microsoft.Graph.Drives.Item.List.Items.Item.Versions;
 using Microsoft.Kiota.Abstractions;
@@ -131,6 +141,11 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     {
         get => new AnalyticsRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
+    /// <summary>Provides operations to call the assignSensitivityLabel method.</summary>
+    public new AssignSensitivityLabelRequestBuilder AssignSensitivityLabel
+    {
+        get => new AssignSensitivityLabelRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
     /// <summary>Provides operations to call the checkin method.</summary>
     public new CheckinRequestBuilder Checkin
     { 
@@ -158,6 +173,11 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     { 
         get => new CopyRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
+    /// <summary>Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.</summary>
+    public new CreatedByUserRequestBuilder CreatedByUser
+    {
+        get => new CreatedByUserRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
     /// <summary>Provides operations to call the createLink method.</summary>
     public new CreateLinkRequestBuilder CreateLink
     { 
@@ -168,19 +188,40 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     {
         get => new CreateUploadSessionRequestBuilder(PathParameters , RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
+    /// <summary>Provides operations to call the delta method.</summary>
+    public new DeltaRequestBuilder Delta
+    {
+        get =>  new DeltaRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
     /// <summary>Provides operations to call the follow method.</summary>
     public new FollowRequestBuilder Follow
     { 
         get => new FollowRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>Provides operations to call the getActivitiesByInterval method.</summary>
+    public new GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval
+    {
+        get =>
+        new GetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
     /// <summary>Provides operations to call the invite method.</summary>
     public new InviteRequestBuilder Invite
     { 
         get => new InviteRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
+    /// <summary>Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.</summary>
+    public new LastModifiedByUserRequestBuilder LastModifiedByUser
+    {
+        get => new LastModifiedByUserRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
     /// <summary>Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.</summary>
     public new ListItemRequestBuilder ListItem { 
         get => new ListItemRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>Provides operations to call the permanentDelete method.</summary>
+    public new PermanentDeleteRequestBuilder PermanentDelete
+    {
+        get => new PermanentDeleteRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
     /// <summary>Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.</summary>
     public new PermissionsRequestBuilder Permissions { 
@@ -195,6 +236,11 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     public new RestoreRequestBuilder Restore
     { 
         get => new RestoreRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.</summary>
+    public new RetentionLabelRequestBuilder RetentionLabel
+    {
+        get => new RetentionLabelRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
     }
     /// <summary>Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.</summary>
     public new SubscriptionsRequestBuilder Subscriptions 
@@ -225,5 +271,31 @@ public class CustomDriveItemItemRequestBuilder : Microsoft.Graph.Drives.Item.Ite
     public new WorkbookRequestBuilder Workbook 
     { 
         get => new WorkbookRequestBuilder(PathParameters, RequestAdapter).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>
+    /// Provides operations to call the delta method.
+    /// </summary>
+    /// <param name="token">Usage: token=&apos;{token}&apos;</param>
+    public new DeltaWithTokenRequestBuilder DeltaWithToken(string token)
+    {
+        return new DeltaWithTokenRequestBuilder(PathParameters, RequestAdapter, token).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>
+    /// Provides operations to call the getActivitiesByInterval method.
+    /// </summary>
+    /// <param name="endDateTime">Usage: endDateTime=&apos;{endDateTime}&apos;</param>
+    /// <param name="interval">Usage: interval=&apos;{interval}&apos;</param>
+    /// <param name="startDateTime">Usage: startDateTime=&apos;{startDateTime}&apos;</param>
+    public new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string endDateTime, string interval, string startDateTime)
+    {
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, endDateTime, interval, startDateTime).UpdateUrlTemplate(this.UrlTemplate);
+    }
+    /// <summary>
+    /// Provides operations to call the search method.
+    /// </summary>
+    /// <param name="q">Usage: q=&apos;{q}&apos;</param>
+    public new SearchWithQRequestBuilder SearchWithQ(string q)
+    {
+        return new SearchWithQRequestBuilder(PathParameters, RequestAdapter, q).UpdateUrlTemplate(this.UrlTemplate);
     }
 }
