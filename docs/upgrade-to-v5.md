@@ -130,6 +130,49 @@ var groups = await graphServiceClient
     });
 ```
 
+### Query Parameter Values
+
+Standard Query parameters such as `Select`, `Search` or `Filter` now uses the OData standard with the `$` prefix.
+
+This can break your requests if you do not adapt your parameter values to take this into account.
+
+Example for SharePoint searches:
+
+```cs
+//Valid
+var sites = await graphServiceClient
+                .Sites
+                .GetAsync(requestConfiguration =>
+                {
+                  requestConfiguration.QueryParameters.Search = "\"a1\""; //Quotes are escaped
+                });
+
+//Invalid
+var sites = await graphServiceClient
+                .Sites
+                .GetAsync(requestConfiguration =>
+                {
+                  requestConfiguration.QueryParameters.Search = "a1"; // Numbers not accepted without quotes in $search. Returns an OData exception.
+                });
+
+//Valid
+var allSites = await graphServiceClient
+                .Sites
+                .GetAsync(requestConfiguration =>
+                {
+                  requestConfiguration.QueryParameters.Search = "\"id=*\""; // Select all on the id property
+                });
+
+//Invalid
+var allSites = await graphServiceClient
+                .Sites
+                .GetAsync(requestConfiguration =>
+                {
+                  requestConfiguration.QueryParameters.Search = "\"*\""; // $search="*" returns an empty array
+                });
+```
+To make sure that your conversion is correct verify your query parameters in the [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) before running your code. Also make sure that special characters are either **escaped** or **URL encoded**.
+
 ### Per-Request Options
 To pass per-request options to the default http middleware to configure actions like redirects and retries, this can be done using the `requestConfiguration` by adding an `IRequestOption` instance to the `Options` collection. For example, adding a `RetryHandlerOption` instance to configure the retry handler option as below.
 
