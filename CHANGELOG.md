@@ -7,6 +7,11 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.39.0] - 2024-01-16
+
+- Latest metadata updates from 16th January 2024.
+- Fixes missing interfaces for changenotification models(https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/2237).
+
 ## [5.38.0] - 2024-01-03
 
 - Latest metadata updates from 2nd January 2024.

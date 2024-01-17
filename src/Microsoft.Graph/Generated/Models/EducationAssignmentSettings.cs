@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class EducationAssignmentSettings : Entity, IParsable {
-        /// <summary>The gradingCategories property</summary>
+        /// <summary>When set, enables users to weight assignments differently when computing a class average grade.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationGradingCategory>? GradingCategories {
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("gradingCategories", value); }
         }
 #endif
-        /// <summary>Indicates whether turn-in celebration animation is shown. A value of true indicates that the animation isn&apos;t shown. Default value is false.</summary>
+        /// <summary>Indicates whether to show the turn-in celebration animation. If true, indicates to skip the animation. The default value is false.</summary>
         public bool? SubmissionAnimationDisabled {
             get { return BackingStore?.Get<bool?>("submissionAnimationDisabled"); }
             set { BackingStore?.Set("submissionAnimationDisabled", value); }

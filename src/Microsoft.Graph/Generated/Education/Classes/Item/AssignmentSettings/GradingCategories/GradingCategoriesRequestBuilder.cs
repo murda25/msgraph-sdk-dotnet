@@ -42,7 +42,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings.GradingCateg
         public GradingCategoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingCategories{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}", rawUrl) {
         }
         /// <summary>
-        /// Get gradingCategories from education
+        /// When set, enables users to weight assignments differently when computing a class average grade.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,7 +82,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings.GradingCateg
             return await RequestAdapter.SendAsync<EducationGradingCategory>(requestInfo, EducationGradingCategory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get gradingCategories from education
+        /// When set, enables users to weight assignments differently when computing a class average grade.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,7 +124,7 @@ namespace Microsoft.Graph.Education.Classes.Item.AssignmentSettings.GradingCateg
             return new GradingCategoriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get gradingCategories from education
+        /// When set, enables users to weight assignments differently when computing a class average grade.
         /// </summary>
         public class GradingCategoriesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
