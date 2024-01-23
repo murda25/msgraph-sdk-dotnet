@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class TimeOff : ChangeTrackedEntity, IParsable {
-        /// <summary>The draft version of this timeOff that is viewable by managers. Required.</summary>
+        /// <summary>The draft version of this timeOff item that is viewable by managers. It must be shared before it is visible to team members. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TimeOffItem? DraftTimeOff {
@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("draftTimeOff", value); }
         }
 #endif
-        /// <summary>The shared version of this timeOff that is viewable by both employees and managers. Required.</summary>
+        /// <summary>The shared version of this timeOff that is viewable by both employees and managers. Updates to the sharedTimeOff property send notifications to users in the Teams client. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public TimeOffItem? SharedTimeOff {
