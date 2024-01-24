@@ -2,6 +2,7 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.EmployeeExperience.LearningCourseActivities;
+using Microsoft.Graph.Users.Item.EmployeeExperience.LearningCourseActivitiesWithExternalcourseActivityId;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -70,6 +71,14 @@ namespace Microsoft.Graph.Users.Item.EmployeeExperience {
                 {"5XX", ODataError.CreateFromDiscriminatorValue},
             };
             return await RequestAdapter.SendAsync<EmployeeExperienceUser>(requestInfo, EmployeeExperienceUser.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
+        /// </summary>
+        /// <param name="externalcourseActivityId">Alternate key of learningCourseActivity</param>
+        public LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder LearningCourseActivitiesWithExternalcourseActivityId(string externalcourseActivityId) {
+            if(string.IsNullOrEmpty(externalcourseActivityId)) throw new ArgumentNullException(nameof(externalcourseActivityId));
+            return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder(PathParameters, RequestAdapter, externalcourseActivityId);
         }
         /// <summary>
         /// Update the navigation property employeeExperience in users
