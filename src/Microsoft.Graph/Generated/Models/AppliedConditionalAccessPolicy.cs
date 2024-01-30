@@ -56,7 +56,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("enforcedSessionControls", value); }
         }
 #endif
-        /// <summary>An identifier of the conditional access policy.</summary>
+        /// <summary>An identifier of the conditional access policy. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id {
@@ -84,7 +84,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn&apos;t applied because policy conditions weren&apos;t met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.</summary>
+        /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (policy isn&apos;t applied because policy conditions weren&apos;t met), notEnabled (This is due to the policy in a disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.  You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.</summary>
         public AppliedConditionalAccessPolicyResult? Result {
             get { return BackingStore?.Get<AppliedConditionalAccessPolicyResult?>("result"); }
             set { BackingStore?.Set("result", value); }

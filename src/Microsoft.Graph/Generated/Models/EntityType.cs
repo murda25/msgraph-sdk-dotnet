@@ -21,13 +21,13 @@ namespace Microsoft.Graph.Models {
         Drive,
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
-        [EnumMember(Value = "acronym")]
-        Acronym,
-        [EnumMember(Value = "bookmark")]
-        Bookmark,
         [EnumMember(Value = "chatMessage")]
         ChatMessage,
         [EnumMember(Value = "person")]
         Person,
+        [EnumMember(Value = "acronym")]
+        Acronym,
+        [EnumMember(Value = "bookmark")]
+        Bookmark,
     }
 }
