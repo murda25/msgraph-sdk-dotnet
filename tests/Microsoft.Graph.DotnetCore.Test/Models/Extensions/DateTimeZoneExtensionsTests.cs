@@ -51,7 +51,7 @@ namespace Microsoft.Graph.DotnetCore.Test.Extensions
                 DateTime = localDateTimeString
             };
 
-            var actualDateTime = dateTimeTimeZone.ToDateTime();
+            var actualDateTime = dateTimeTimeZone.ToDateTime().ToLocalTime();
             var expectedDateTime = localDateTime;
             System.Diagnostics.Debug.WriteLine($"actualDateTime:{actualDateTime}\nexpectedDateTime:{expectedDateTime}");
 
@@ -67,8 +67,8 @@ namespace Microsoft.Graph.DotnetCore.Test.Extensions
                 TimeZone = "Africa/Nairobi",
                 DateTime = "2024-01-16T08:30:00.0000000"
             };
-            var actualDateTime = dateTimeTimeZone.ToDateTime();
-            var expectedDateTime = DateTime.ParseExact("2024-01-16T08:30:00.0000000+03:00", DateTimeFormat, CultureInfo.InvariantCulture);
+            var actualDateTime = dateTimeTimeZone.ToDateTime().ToLocalTime();
+            var expectedDateTime = DateTime.ParseExact("2024-01-16T08:30:00.0000000+03:00", DateTimeFormat, CultureInfo.InvariantCulture).ToLocalTime();
             Assert.Equal(expectedDateTime, actualDateTime);
             Assert.Equal(expectedDateTime.Kind, actualDateTime.Kind);
         }
