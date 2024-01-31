@@ -3,8 +3,6 @@ using System;
 using Xunit;
 using System.Globalization;
 using System.Collections.Generic;
-using Moq;
-using Microsoft.Kiota.Abstractions.Serialization;
 
 namespace Microsoft.Graph.DotnetCore.Test.Extensions
 {
@@ -55,17 +53,22 @@ namespace Microsoft.Graph.DotnetCore.Test.Extensions
 
             var actualDateTime = dateTimeTimeZone.ToDateTime();
             var expectedDateTime = localDateTime;
+            System.Diagnostics.Debug.WriteLine($"actualDateTime:{actualDateTime}\nexpectedDateTime:{expectedDateTime}");
+
             Assert.Equal(expectedDateTime, actualDateTime);
             Assert.Equal(expectedDateTime.Kind, actualDateTime.Kind);
+        }
 
-            //scenario where the dateTime has no timezone offset
-            dateTimeTimeZone = new DateTimeTimeZone
+        [Fact]
+        public void ToDateTime_Should_Correctly_Convert_DateTimeString_To_Local_No_timezone_offset_provided()
+        {
+            var dateTimeTimeZone = new DateTimeTimeZone
             {
                 TimeZone = "Africa/Nairobi",
                 DateTime = "2024-01-16T08:30:00.0000000"
             };
-            actualDateTime = dateTimeTimeZone.ToDateTime();
-            expectedDateTime = DateTime.ParseExact("2024-01-16T08:30:00.0000000+03:00", DateTimeFormat, CultureInfo.InvariantCulture);
+            var actualDateTime = dateTimeTimeZone.ToDateTime();
+            var expectedDateTime = DateTime.ParseExact("2024-01-16T08:30:00.0000000+03:00", DateTimeFormat, CultureInfo.InvariantCulture);
             Assert.Equal(expectedDateTime, actualDateTime);
             Assert.Equal(expectedDateTime.Kind, actualDateTime.Kind);
         }
