@@ -7,8 +7,9 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
-## [5.40.1] - 2024-02-01
+## [5.41.0] - 2024-01-31
 
+- Latest metadata updates from 30th January 2024.
 - Fixes DateTimeTimeZone.ToDateTime returning incorrect parsed date(https://github.com/microsoftgraph/msgraph-sdk-dotnet/issues/2286)
 
 ## [5.40.0] - 2024-01-24
