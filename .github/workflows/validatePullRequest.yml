@@ -6,7 +6,12 @@ on:
     branches: [ 'feature/*', 'dev' ,'master' ]
   pull_request:
     branches: [ 'feature/*', 'dev' ,'master' ]
-
+    
+permissions:
+  contents: read #those permissions are required to run the codeql analysis
+  actions: read
+  security-events: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
