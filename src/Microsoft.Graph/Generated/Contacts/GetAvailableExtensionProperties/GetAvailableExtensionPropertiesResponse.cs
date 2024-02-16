@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System;
 namespace Microsoft.Graph.Contacts.GetAvailableExtensionProperties {
-    [Obsolete("This class is obsolete. Use {TypeName} instead.")]
+    [Obsolete("This class is obsolete. Use GetAvailableExtensionPropertiesPostResponse instead.")]
     public class GetAvailableExtensionPropertiesResponse : GetAvailableExtensionPropertiesPostResponse, IParsable {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
