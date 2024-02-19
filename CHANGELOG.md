@@ -7,6 +7,8 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+- Fixes missing type information in deprecation information
+  
 ## [5.42.0] - 2024-02-14
 
 - Latest metadata updates from 13th February 2024.
