@@ -43,7 +43,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources {
         public ResourcesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/modules/{educationModule%2Did}/resources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl) {
         }
         /// <summary>
-        /// Get resources from education
+        /// Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-list-resources?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="EducationModuleResourceCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +64,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources {
             return await RequestAdapter.SendAsync<EducationModuleResourceCollectionResponse>(requestInfo, EducationModuleResourceCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new navigation property to resources for education
+        /// Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-post-resources?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="EducationModuleResource"/></returns>
         /// <param name="body">The request body</param>
@@ -85,7 +87,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources {
             return await RequestAdapter.SendAsync<EducationModuleResource>(requestInfo, EducationModuleResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get resources from education
+        /// Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +104,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to resources for education
+        /// Create a resource in a module. Only teachers can perform this operation. You can create the following types of module resources: Every resource has an @odata.type property to indicate which type of resource is being created.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +132,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources {
             return new ResourcesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get resources from education
+        /// Get all the educationModuleResource objects associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
         /// </summary>
         public class ResourcesRequestBuilderGetQueryParameters {
             /// <summary>Include count of items</summary>
