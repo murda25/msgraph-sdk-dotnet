@@ -11,7 +11,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationAddedStudentAction?>("addedStudentAction"); }
             set { BackingStore?.Set("addedStudentAction", value); }
         }
-        /// <summary>Optional field to control the assignment behavior  for adding assignments to students&apos; and teachers&apos; calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.</summary>
+        /// <summary>Optional field to control the assignment behavior  for adding assignments to students&apos; and teachers&apos; calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: studentsOnly. The default value is none.</summary>
         public EducationAddToCalendarOptions? AddToCalendarAction {
             get { return BackingStore?.Get<EducationAddToCalendarOptions?>("addToCalendarAction"); }
             set { BackingStore?.Set("addToCalendarAction", value); }
@@ -26,12 +26,12 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("allowStudentsToAddResourcesToSubmission"); }
             set { BackingStore?.Set("allowStudentsToAddResourcesToSubmission", value); }
         }
-        /// <summary>The date when the assignment should become active.  If in the future, the assignment isn&apos;t shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The date when the assignment should become active. If in the future, the assignment isn&apos;t shown to the student until this date. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? AssignDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("assignDateTime"); }
             set { BackingStore?.Set("assignDateTime", value); }
         }
-        /// <summary>The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The moment that the assignment was published to students and the assignment shows up on the students timeline. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? AssignedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("assignedDateTime"); }
             set { BackingStore?.Set("assignedDateTime", value); }
@@ -50,7 +50,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("assignTo", value); }
         }
 #endif
-        /// <summary>When set, enables users to easily find assignments of a given type.  Read-only. Nullable.</summary>
+        /// <summary>When set, enables users to easily find assignments of a given type. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationCategory>? Categories {
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("classId", value); }
         }
 #endif
-        /// <summary>Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment doesn&apos;t allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Date when the assignment is closed for submissions. This is an optional field that can be null if the assignment doesn&apos;t allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CloseDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("closeDateTime"); }
             set { BackingStore?.Set("closeDateTime", value); }
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdBy", value); }
         }
 #endif
-        /// <summary>Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Moment when the assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
@@ -116,7 +116,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Date when the students assignment is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? DueDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("dueDateTime"); }
             set { BackingStore?.Set("dueDateTime", value); }
@@ -163,7 +163,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("gradingCategory", value); }
         }
 #endif
-        /// <summary>Instructions for the assignment.  The instructsions and the display name tell the student what to do.</summary>
+        /// <summary>Instructions for the assignment. The instructions and the display name tell the student what to do.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public EducationItemBody? Instructions {
@@ -191,12 +191,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>Moment when the assignment was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The moduleUrl property</summary>
+        /// <summary>The URL of the module from which to access the assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ModuleUrl {
@@ -210,7 +210,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("moduleUrl", value); }
         }
 #endif
-        /// <summary>Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn&apos;t allowed after the assignment has been published.</summary>
+        /// <summary>Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn&apos;t allowed after the assignment is published.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NotificationChannelUrl {
@@ -224,7 +224,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("notificationChannelUrl", value); }
         }
 #endif
-        /// <summary>Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.</summary>
+        /// <summary>Learning objects that are associated with this assignment. Only teachers can modify this list. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationAssignmentResource>? Resources {
@@ -266,12 +266,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("rubric", value); }
         }
 #endif
-        /// <summary>Status of the Assignment.  You can&apos;t PATCH this value.  Possible values are: draft, scheduled, published, assigned.</summary>
+        /// <summary>Status of the Assignment. You can&apos;t PATCH this value. Possible values are: draft, scheduled, published, assigned.</summary>
         public EducationAssignmentStatus? Status {
             get { return BackingStore?.Get<EducationAssignmentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
-        /// <summary>Once published, there&apos;s a submission object for each student representing their work and grade.  Read-only. Nullable.</summary>
+        /// <summary>Once published, there&apos;s a submission object for each student representing their work and grade. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationSubmission>? Submissions {

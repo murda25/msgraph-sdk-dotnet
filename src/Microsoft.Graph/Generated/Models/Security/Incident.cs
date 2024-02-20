@@ -72,7 +72,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("customTags", value); }
         }
 #endif
-        /// <summary>The description property</summary>
+        /// <summary>A rich text string describing the incident</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -162,7 +162,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<IncidentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
-        /// <summary>The systemTags property</summary>
+        /// <summary>The system tags associated with the incident</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SystemTags {
