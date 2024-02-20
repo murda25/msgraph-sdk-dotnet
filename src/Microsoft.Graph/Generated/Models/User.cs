@@ -606,7 +606,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("hireDate"); }
             set { BackingStore?.Set("hireDate", value); }
         }
-        /// <summary>Represents the identities that can be used to sign in to this user account. Microsoft (also known as a local account), organizations, or social identity providers such as Facebook, Google, and Microsoft can provide identity and tie it to a user account. It may contain multiple items with the same signInType value. Returned only on $select. Supports $filter (eq) including on null values, only where the signInType is not userPrincipalName.</summary>
+        /// <summary>Represents the identities that can be used to sign in to this user account. Microsoft (also known as a local account), organizations, or social identity providers such as Facebook, Google, and Microsoft can provide identity and tie it to a user account. It may contain multiple items with the same signInType value. Returned only on $select.  Supports $filter (eq) with limitations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ObjectIdentity>? Identities {
@@ -756,7 +756,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("licenseDetails", value); }
         }
 #endif
-        /// <summary>The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Changes to this property update the user&apos;s proxyAddresses collection to include the value as an SMTP address. This property can&apos;t contain accent characters.  NOTE: We don&apos;t recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).</summary>
+        /// <summary>The SMTP address for the user, for example, jeff@contoso.com. Changes to this property update the user&apos;s proxyAddresses collection to include the value as an SMTP address. This property can&apos;t contain accent characters.  NOTE: We don&apos;t recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mail {

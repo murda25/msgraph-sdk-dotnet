@@ -165,7 +165,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<EducationExternalSource?>("externalSource"); }
             set { BackingStore?.Set("externalSource", value); }
         }
-        /// <summary>The name of the external source this resources was generated from.</summary>
+        /// <summary>The name of the external source this resource was generated from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalSourceDetail {
@@ -235,7 +235,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("members", value); }
         }
 #endif
-        /// <summary>The modules property</summary>
+        /// <summary>All modules in the class. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<EducationModule>? Modules {

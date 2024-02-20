@@ -53,7 +53,7 @@ namespace Microsoft.Graph.Security.Alerts_v2.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the properties and relationships of an alert in an organization based on the specified alert id property.
+        /// Get the properties and relationships of an alert object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-alert-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Alert"/></returns>
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Security.Alerts_v2.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get the properties and relationships of an alert in an organization based on the specified alert id property.
+        /// Get the properties and relationships of an alert object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,7 +165,7 @@ namespace Microsoft.Graph.Security.Alerts_v2.Item {
         public class AlertItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Get the properties and relationships of an alert in an organization based on the specified alert id property.
+        /// Get the properties and relationships of an alert object.
         /// </summary>
         public class AlertItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

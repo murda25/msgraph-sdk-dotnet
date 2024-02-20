@@ -29,7 +29,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
         public EducationModuleResourceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/modules/{educationModule%2Did}/resources/{educationModuleResource%2Did}{?%24expand,%24select}", rawUrl) {
         }
         /// <summary>
-        /// Delete navigation property resources for education
+        /// Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmoduleresource-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,7 +49,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get resources from education
+        /// Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmoduleresource-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="EducationModuleResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -68,7 +70,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
             return await RequestAdapter.SendAsync<EducationModuleResource>(requestInfo, EducationModuleResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the navigation property resources in education
+        /// Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmoduleresource-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="EducationModuleResource"/></returns>
         /// <param name="body">The request body</param>
@@ -90,7 +93,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
             return await RequestAdapter.SendAsync<EducationModuleResource>(requestInfo, EducationModuleResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete navigation property resources for education
+        /// Delete a specific educationModuleResource attached to a module. Only teachers in the class can remove a resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +110,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get resources from education
+        /// Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +127,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property resources in education
+        /// Update a resource in a module. Only teachers can perform this operation. The only one property that can be updated is displayName, for all resource types.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -158,7 +161,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Resources.Item {
         public class EducationModuleResourceItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Get resources from education
+        /// Get the properties of a resource associated with a module. Only teachers, students, and applications with application permissions can perform this operation.
         /// </summary>
         public class EducationModuleResourceItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

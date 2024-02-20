@@ -29,7 +29,8 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Unpin {
         public UnpinRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/modules/{educationModule%2Did}/unpin", rawUrl) {
         }
         /// <summary>
-        /// Invoke action unpin
+        /// Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-unpin?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="EducationModule"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -49,7 +50,7 @@ namespace Microsoft.Graph.Education.Classes.Item.Modules.Item.Unpin {
             return await RequestAdapter.SendAsync<EducationModule>(requestInfo, EducationModule.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Invoke action unpin
+        /// Unpin an educationModule in the classwork list. This action sets the isPinned property to false for an educationModule. Only teachers in the class can perform this operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
