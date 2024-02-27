@@ -266,7 +266,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("rubric", value); }
         }
 #endif
-        /// <summary>Status of the Assignment. You can&apos;t PATCH this value. Possible values are: draft, scheduled, published, assigned.</summary>
+        /// <summary>Status of the assignment.  You can&apos;t PATCH this value. Possible values are: draft, scheduled, published, assigned, unknownFutureValue, inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.</summary>
         public EducationAssignmentStatus? Status {
             get { return BackingStore?.Get<EducationAssignmentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

@@ -160,6 +160,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("defaultAppManagementPolicy", value); }
         }
 #endif
+        /// <summary>The deviceRegistrationPolicy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.DeviceRegistrationPolicy? DeviceRegistrationPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceRegistrationPolicy?>("deviceRegistrationPolicy"); }
+            set { BackingStore?.Set("deviceRegistrationPolicy", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.DeviceRegistrationPolicy DeviceRegistrationPolicy {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DeviceRegistrationPolicy>("deviceRegistrationPolicy"); }
+            set { BackingStore?.Set("deviceRegistrationPolicy", value); }
+        }
+#endif
         /// <summary>The feature rollout policy associated with a directory object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -298,6 +312,7 @@ namespace Microsoft.Graph.Models {
                 {"conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"crossTenantAccessPolicy", n => { CrossTenantAccessPolicy = n.GetObjectValue<Microsoft.Graph.Models.CrossTenantAccessPolicy>(Microsoft.Graph.Models.CrossTenantAccessPolicy.CreateFromDiscriminatorValue); } },
                 {"defaultAppManagementPolicy", n => { DefaultAppManagementPolicy = n.GetObjectValue<TenantAppManagementPolicy>(TenantAppManagementPolicy.CreateFromDiscriminatorValue); } },
+                {"deviceRegistrationPolicy", n => { DeviceRegistrationPolicy = n.GetObjectValue<Microsoft.Graph.Models.DeviceRegistrationPolicy>(Microsoft.Graph.Models.DeviceRegistrationPolicy.CreateFromDiscriminatorValue); } },
                 {"featureRolloutPolicies", n => { FeatureRolloutPolicies = n.GetCollectionOfObjectValues<FeatureRolloutPolicy>(FeatureRolloutPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"identitySecurityDefaultsEnforcementPolicy", n => { IdentitySecurityDefaultsEnforcementPolicy = n.GetObjectValue<Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy>(Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy.CreateFromDiscriminatorValue); } },
@@ -326,6 +341,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);
             writer.WriteObjectValue<Microsoft.Graph.Models.CrossTenantAccessPolicy>("crossTenantAccessPolicy", CrossTenantAccessPolicy);
             writer.WriteObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", DefaultAppManagementPolicy);
+            writer.WriteObjectValue<Microsoft.Graph.Models.DeviceRegistrationPolicy>("deviceRegistrationPolicy", DeviceRegistrationPolicy);
             writer.WriteCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", FeatureRolloutPolicies);
             writer.WriteCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
             writer.WriteObjectValue<Microsoft.Graph.Models.IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", IdentitySecurityDefaultsEnforcementPolicy);

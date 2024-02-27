@@ -148,6 +148,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<bool?>("isManaged"); }
             set { BackingStore?.Set("isManaged", value); }
         }
+        /// <summary>Manufacturer of the device. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Manufacturer {
+            get { return BackingStore?.Get<string?>("manufacturer"); }
+            set { BackingStore?.Set("manufacturer", value); }
+        }
+#nullable restore
+#else
+        public string Manufacturer {
+            get { return BackingStore?.Get<string>("manufacturer"); }
+            set { BackingStore?.Set("manufacturer", value); }
+        }
+#endif
         /// <summary>Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +188,20 @@ namespace Microsoft.Graph.Models {
         public List<DirectoryObject> MemberOf {
             get { return BackingStore?.Get<List<DirectoryObject>>("memberOf"); }
             set { BackingStore?.Set("memberOf", value); }
+        }
+#endif
+        /// <summary>Model of the device. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Model {
+            get { return BackingStore?.Get<string?>("model"); }
+            set { BackingStore?.Set("model", value); }
+        }
+#nullable restore
+#else
+        public string Model {
+            get { return BackingStore?.Get<string>("model"); }
+            set { BackingStore?.Set("model", value); }
         }
 #endif
         /// <summary>The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, not, ge, le, in).</summary>
@@ -366,8 +394,10 @@ namespace Microsoft.Graph.Models {
                 {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
                 {"isManaged", n => { IsManaged = n.GetBoolValue(); } },
+                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 {"mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
                 {"memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                {"model", n => { Model = n.GetStringValue(); } },
                 {"onPremisesLastSyncDateTime", n => { OnPremisesLastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 {"onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
                 {"onPremisesSyncEnabled", n => { OnPremisesSyncEnabled = n.GetBoolValue(); } },
@@ -404,8 +434,10 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Extension>("extensions", Extensions);
             writer.WriteBoolValue("isCompliant", IsCompliant);
             writer.WriteBoolValue("isManaged", IsManaged);
+            writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("mdmAppId", MdmAppId);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("memberOf", MemberOf);
+            writer.WriteStringValue("model", Model);
             writer.WriteDateTimeOffsetValue("onPremisesLastSyncDateTime", OnPremisesLastSyncDateTime);
             writer.WriteStringValue("onPremisesSecurityIdentifier", OnPremisesSecurityIdentifier);
             writer.WriteBoolValue("onPremisesSyncEnabled", OnPremisesSyncEnabled);

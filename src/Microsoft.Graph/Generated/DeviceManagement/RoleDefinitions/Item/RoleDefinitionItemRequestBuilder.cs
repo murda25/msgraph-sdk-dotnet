@@ -54,8 +54,8 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the roleDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.RoleDefinition"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,8 +75,8 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.RoleDefinition>(requestInfo, Microsoft.Graph.Models.RoleDefinition.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the properties of a deviceAndAppManagementRoleDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0" />
+        /// Update the properties of a roleDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.RoleDefinition"/></returns>
         /// <param name="body">The request body</param>
@@ -115,7 +115,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
+        /// Read properties and relationships of the roleDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -132,7 +132,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of a deviceAndAppManagementRoleDefinition object.
+        /// Update the properties of a roleDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -166,7 +166,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions.Item {
         public class RoleDefinitionItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> {
         }
         /// <summary>
-        /// Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
+        /// Read properties and relationships of the roleDefinition object.
         /// </summary>
         public class RoleDefinitionItemRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

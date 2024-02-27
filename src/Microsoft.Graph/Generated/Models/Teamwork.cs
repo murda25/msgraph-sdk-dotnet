@@ -6,6 +6,20 @@ using System.Linq;
 using System;
 namespace Microsoft.Graph.Models {
     public class Teamwork : Entity, IParsable {
+        /// <summary>The deletedChats property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DeletedChat>? DeletedChats {
+            get { return BackingStore?.Get<List<DeletedChat>?>("deletedChats"); }
+            set { BackingStore?.Set("deletedChats", value); }
+        }
+#nullable restore
+#else
+        public List<DeletedChat> DeletedChats {
+            get { return BackingStore?.Get<List<DeletedChat>>("deletedChats"); }
+            set { BackingStore?.Set("deletedChats", value); }
+        }
+#endif
         /// <summary>The deleted team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +77,7 @@ namespace Microsoft.Graph.Models {
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers()) {
+                {"deletedChats", n => { DeletedChats = n.GetCollectionOfObjectValues<DeletedChat>(DeletedChat.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"deletedTeams", n => { DeletedTeams = n.GetCollectionOfObjectValues<DeletedTeam>(DeletedTeam.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"teamsAppSettings", n => { TeamsAppSettings = n.GetObjectValue<Microsoft.Graph.Models.TeamsAppSettings>(Microsoft.Graph.Models.TeamsAppSettings.CreateFromDiscriminatorValue); } },
                 {"workforceIntegrations", n => { WorkforceIntegrations = n.GetCollectionOfObjectValues<WorkforceIntegration>(WorkforceIntegration.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -75,6 +90,7 @@ namespace Microsoft.Graph.Models {
         public override void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<DeletedChat>("deletedChats", DeletedChats);
             writer.WriteCollectionOfObjectValues<DeletedTeam>("deletedTeams", DeletedTeams);
             writer.WriteObjectValue<Microsoft.Graph.Models.TeamsAppSettings>("teamsAppSettings", TeamsAppSettings);
             writer.WriteCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", WorkforceIntegrations);

@@ -28,7 +28,21 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.</summary>
+        /// <summary>Information about the drive item source. Read-write. Only on OneDrive for Business and SharePoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.DriveItemSource? DriveItemSource {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DriveItemSource?>("driveItemSource"); }
+            set { BackingStore?.Set("driveItemSource", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.DriveItemSource DriveItemSource {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.DriveItemSource>("driveItemSource"); }
+            set { BackingStore?.Set("driveItemSource", value); }
+        }
+#endif
+        /// <summary>Provides an expected file size to perform a quota check before uploading. Only on OneDrive Personal.</summary>
         public long? FileSize {
             get { return BackingStore?.Get<long?>("fileSize"); }
             set { BackingStore?.Set("fileSize", value); }
@@ -45,6 +59,20 @@ namespace Microsoft.Graph.Models {
         public Microsoft.Graph.Models.FileSystemInfo FileSystemInfo {
             get { return BackingStore?.Get<Microsoft.Graph.Models.FileSystemInfo>("fileSystemInfo"); }
             set { BackingStore?.Set("fileSystemInfo", value); }
+        }
+#endif
+        /// <summary>Media source information. Read-write. Only on OneDrive for Business and SharePoint.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public Microsoft.Graph.Models.MediaSource? MediaSource {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.MediaSource?>("mediaSource"); }
+            set { BackingStore?.Set("mediaSource", value); }
+        }
+#nullable restore
+#else
+        public Microsoft.Graph.Models.MediaSource MediaSource {
+            get { return BackingStore?.Get<Microsoft.Graph.Models.MediaSource>("mediaSource"); }
+            set { BackingStore?.Set("mediaSource", value); }
         }
 #endif
         /// <summary>The name of the item (filename and extension). Read-write.</summary>
@@ -98,8 +126,10 @@ namespace Microsoft.Graph.Models {
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"description", n => { Description = n.GetStringValue(); } },
+                {"driveItemSource", n => { DriveItemSource = n.GetObjectValue<Microsoft.Graph.Models.DriveItemSource>(Microsoft.Graph.Models.DriveItemSource.CreateFromDiscriminatorValue); } },
                 {"fileSize", n => { FileSize = n.GetLongValue(); } },
                 {"fileSystemInfo", n => { FileSystemInfo = n.GetObjectValue<Microsoft.Graph.Models.FileSystemInfo>(Microsoft.Graph.Models.FileSystemInfo.CreateFromDiscriminatorValue); } },
+                {"mediaSource", n => { MediaSource = n.GetObjectValue<Microsoft.Graph.Models.MediaSource>(Microsoft.Graph.Models.MediaSource.CreateFromDiscriminatorValue); } },
                 {"name", n => { Name = n.GetStringValue(); } },
                 {"@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -111,8 +141,10 @@ namespace Microsoft.Graph.Models {
         public virtual void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<Microsoft.Graph.Models.DriveItemSource>("driveItemSource", DriveItemSource);
             writer.WriteLongValue("fileSize", FileSize);
             writer.WriteObjectValue<Microsoft.Graph.Models.FileSystemInfo>("fileSystemInfo", FileSystemInfo);
+            writer.WriteObjectValue<Microsoft.Graph.Models.MediaSource>("mediaSource", MediaSource);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
