@@ -20,7 +20,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("actorDisplayName", value); }
         }
 #endif
-        /// <summary>The alertPolicyId property</summary>
+        /// <summary>The ID of the policy that generated the alert, and populated when there is a specific policy that generated the alert, whether configured by a customer or a built-in policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AlertPolicyId {
@@ -34,7 +34,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("alertPolicyId", value); }
         }
 #endif
-        /// <summary>URL for the alert page in the Microsoft 365 Defender portal.</summary>
+        /// <summary>The alertWebUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AlertWebUrl {
@@ -114,7 +114,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("description", value); }
         }
 #endif
-        /// <summary>Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement.</summary>
+        /// <summary>Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl.</summary>
         public Microsoft.Graph.Models.Security.DetectionSource? DetectionSource {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.DetectionSource?>("detectionSource"); }
             set { BackingStore?.Set("detectionSource", value); }
@@ -271,6 +271,20 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<AlertStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
+        /// <summary>The system tags associated with the alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SystemTags {
+            get { return BackingStore?.Get<List<string>?>("systemTags"); }
+            set { BackingStore?.Set("systemTags", value); }
+        }
+#nullable restore
+#else
+        public List<string> SystemTags {
+            get { return BackingStore?.Get<List<string>>("systemTags"); }
+            set { BackingStore?.Set("systemTags", value); }
+        }
+#endif
         /// <summary>The Microsoft Entra tenant the alert was created in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -368,6 +382,7 @@ namespace Microsoft.Graph.Models.Security {
                 {"serviceSource", n => { ServiceSource = n.GetEnumValue<ServiceSource>(); } },
                 {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
                 {"status", n => { Status = n.GetEnumValue<AlertStatus>(); } },
+                {"systemTags", n => { SystemTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 {"tenantId", n => { TenantId = n.GetStringValue(); } },
                 {"threatDisplayName", n => { ThreatDisplayName = n.GetStringValue(); } },
                 {"threatFamilyName", n => { ThreatFamilyName = n.GetStringValue(); } },
@@ -407,6 +422,7 @@ namespace Microsoft.Graph.Models.Security {
             writer.WriteEnumValue<ServiceSource>("serviceSource", ServiceSource);
             writer.WriteEnumValue<AlertSeverity>("severity", Severity);
             writer.WriteEnumValue<AlertStatus>("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("systemTags", SystemTags);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("threatDisplayName", ThreatDisplayName);
             writer.WriteStringValue("threatFamilyName", ThreatFamilyName);

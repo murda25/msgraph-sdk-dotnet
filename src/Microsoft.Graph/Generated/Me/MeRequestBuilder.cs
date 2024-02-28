@@ -12,6 +12,7 @@ using Microsoft.Graph.Me.ChangePassword;
 using Microsoft.Graph.Me.Chats;
 using Microsoft.Graph.Me.CheckMemberGroups;
 using Microsoft.Graph.Me.CheckMemberObjects;
+using Microsoft.Graph.Me.CloudClipboard;
 using Microsoft.Graph.Me.ContactFolders;
 using Microsoft.Graph.Me.Contacts;
 using Microsoft.Graph.Me.CreatedObjects;
@@ -138,6 +139,10 @@ namespace Microsoft.Graph.Me {
         /// <summary>Provides operations to call the checkMemberObjects method.</summary>
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
             new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the cloudClipboard property of the microsoft.graph.user entity.</summary>
+        public CloudClipboardRequestBuilder CloudClipboard { get =>
+            new CloudClipboardRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the contactFolders property of the microsoft.graph.user entity.</summary>
         public ContactFoldersRequestBuilder ContactFolders { get =>
@@ -397,8 +402,8 @@ namespace Microsoft.Graph.Me {
             return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(PathParameters, RequestAdapter, skip, top);
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0" />
+        /// Retrieve the properties and relationships of user object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.User"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -452,7 +457,7 @@ namespace Microsoft.Graph.Me {
             return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, startDateTime);
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -497,7 +502,7 @@ namespace Microsoft.Graph.Me {
             return new MeRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the user or organizational contact assigned as the user&apos;s manager. Optionally, you can expand the manager&apos;s chain up to the root node.
+        /// Retrieve the properties and relationships of user object.
         /// </summary>
         public class MeRequestBuilderGetQueryParameters {
             /// <summary>Expand related entities</summary>

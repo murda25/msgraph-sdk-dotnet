@@ -30,6 +30,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("shiftPreferences", value); }
         }
 #endif
+        /// <summary>The windows property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<WindowsSetting>? Windows {
+            get { return BackingStore?.Get<List<WindowsSetting>?>("windows"); }
+            set { BackingStore?.Set("windows", value); }
+        }
+#nullable restore
+#else
+        public List<WindowsSetting> Windows {
+            get { return BackingStore?.Get<List<WindowsSetting>>("windows"); }
+            set { BackingStore?.Set("windows", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +62,7 @@ namespace Microsoft.Graph.Models {
                 {"contributionToContentDiscoveryAsOrganizationDisabled", n => { ContributionToContentDiscoveryAsOrganizationDisabled = n.GetBoolValue(); } },
                 {"contributionToContentDiscoveryDisabled", n => { ContributionToContentDiscoveryDisabled = n.GetBoolValue(); } },
                 {"shiftPreferences", n => { ShiftPreferences = n.GetObjectValue<Microsoft.Graph.Models.ShiftPreferences>(Microsoft.Graph.Models.ShiftPreferences.CreateFromDiscriminatorValue); } },
+                {"windows", n => { Windows = n.GetCollectionOfObjectValues<WindowsSetting>(WindowsSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -60,6 +75,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteBoolValue("contributionToContentDiscoveryAsOrganizationDisabled", ContributionToContentDiscoveryAsOrganizationDisabled);
             writer.WriteBoolValue("contributionToContentDiscoveryDisabled", ContributionToContentDiscoveryDisabled);
             writer.WriteObjectValue<Microsoft.Graph.Models.ShiftPreferences>("shiftPreferences", ShiftPreferences);
+            writer.WriteCollectionOfObjectValues<WindowsSetting>("windows", Windows);
         }
     }
 }

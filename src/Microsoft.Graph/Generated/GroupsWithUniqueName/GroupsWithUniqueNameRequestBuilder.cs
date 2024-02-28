@@ -72,8 +72,8 @@ namespace Microsoft.Graph.GroupsWithUniqueName {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Group>(requestInfo, Microsoft.Graph.Models.Group.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0" />
+        /// Update the properties of a group object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Group"/></returns>
         /// <param name="body">The request body</param>
@@ -129,7 +129,7 @@ namespace Microsoft.Graph.GroupsWithUniqueName {
             return requestInfo;
         }
         /// <summary>
-        /// Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+        /// Update the properties of a group object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

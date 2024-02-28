@@ -64,8 +64,8 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions {
             return await RequestAdapter.SendAsync<RoleDefinitionCollectionResponse>(requestInfo, RoleDefinitionCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new deviceAndAppManagementRoleDefinition object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0" />
+        /// Create a new roleDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.RoleDefinition"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Microsoft.Graph.DeviceManagement.RoleDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new deviceAndAppManagementRoleDefinition object.
+        /// Create a new roleDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

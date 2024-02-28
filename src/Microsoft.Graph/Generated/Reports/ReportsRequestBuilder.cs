@@ -47,6 +47,7 @@ using Microsoft.Graph.Reports.GetOneDriveUsageAccountDetailWithPeriod;
 using Microsoft.Graph.Reports.GetOneDriveUsageFileCountsWithPeriod;
 using Microsoft.Graph.Reports.GetOneDriveUsageStorageWithPeriod;
 using Microsoft.Graph.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime;
+using Microsoft.Graph.Reports.GetRelyingPartyDetailedSummaryWithPeriod;
 using Microsoft.Graph.Reports.GetSharePointActivityFileCountsWithPeriod;
 using Microsoft.Graph.Reports.GetSharePointActivityPagesWithPeriod;
 using Microsoft.Graph.Reports.GetSharePointActivityUserCountsWithPeriod;
@@ -562,6 +563,15 @@ namespace Microsoft.Graph.Reports {
             if(string.IsNullOrEmpty(printerId)) throw new ArgumentNullException(nameof(printerId));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
             return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, endDateTime, printerId, startDateTime);
+        }
+        /// <summary>
+        /// Provides operations to call the getRelyingPartyDetailedSummary method.
+        /// </summary>
+        /// <returns>A <see cref="GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder"/></returns>
+        /// <param name="period">Usage: period=&apos;{period}&apos;</param>
+        public GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder GetRelyingPartyDetailedSummaryWithPeriod(string period) {
+            if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
+            return new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Provides operations to call the getSharePointActivityFileCounts method.

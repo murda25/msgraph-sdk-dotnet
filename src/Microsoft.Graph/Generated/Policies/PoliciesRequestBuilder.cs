@@ -12,6 +12,7 @@ using Microsoft.Graph.Policies.ClaimsMappingPolicies;
 using Microsoft.Graph.Policies.ConditionalAccessPolicies;
 using Microsoft.Graph.Policies.CrossTenantAccessPolicy;
 using Microsoft.Graph.Policies.DefaultAppManagementPolicy;
+using Microsoft.Graph.Policies.DeviceRegistrationPolicy;
 using Microsoft.Graph.Policies.FeatureRolloutPolicies;
 using Microsoft.Graph.Policies.HomeRealmDiscoveryPolicies;
 using Microsoft.Graph.Policies.IdentitySecurityDefaultsEnforcementPolicy;
@@ -76,6 +77,10 @@ namespace Microsoft.Graph.Policies {
         /// <summary>Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.</summary>
         public DefaultAppManagementPolicyRequestBuilder DefaultAppManagementPolicy { get =>
             new DefaultAppManagementPolicyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the deviceRegistrationPolicy property of the microsoft.graph.policyRoot entity.</summary>
+        public DeviceRegistrationPolicyRequestBuilder DeviceRegistrationPolicy { get =>
+            new DeviceRegistrationPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.</summary>
         public FeatureRolloutPoliciesRequestBuilder FeatureRolloutPolicies { get =>

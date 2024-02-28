@@ -72,7 +72,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("customTags", value); }
         }
 #endif
-        /// <summary>A rich text string describing the incident</summary>
+        /// <summary>Description of the incident.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description {
@@ -119,7 +119,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("incidentWebUrl", value); }
         }
 #endif
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>The identity that last modified the incident.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastModifiedBy {
@@ -138,7 +138,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<DateTimeOffset?>("lastUpdateDateTime"); }
             set { BackingStore?.Set("lastUpdateDateTime", value); }
         }
-        /// <summary>Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.</summary>
+        /// <summary>Only populated in case an incident is grouped with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RedirectIncidentId {
@@ -162,7 +162,7 @@ namespace Microsoft.Graph.Models.Security {
             get { return BackingStore?.Get<IncidentStatus?>("status"); }
             set { BackingStore?.Set("status", value); }
         }
-        /// <summary>The system tags associated with the incident</summary>
+        /// <summary>The system tags associated with the incident.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SystemTags {
