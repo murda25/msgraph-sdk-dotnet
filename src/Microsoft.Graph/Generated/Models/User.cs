@@ -240,6 +240,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("city", value); }
         }
 #endif
+        /// <summary>The cloudClipboard property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public CloudClipboardRoot? CloudClipboard {
+            get { return BackingStore?.Get<CloudClipboardRoot?>("cloudClipboard"); }
+            set { BackingStore?.Set("cloudClipboard", value); }
+        }
+#nullable restore
+#else
+        public CloudClipboardRoot CloudClipboard {
+            get { return BackingStore?.Get<CloudClipboardRoot>("cloudClipboard"); }
+            set { BackingStore?.Set("cloudClipboard", value); }
+        }
+#endif
         /// <summary>The name of the company that the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1669,6 +1683,7 @@ namespace Microsoft.Graph.Models {
                 {"calendars", n => { Calendars = n.GetCollectionOfObjectValues<Microsoft.Graph.Models.Calendar>(Microsoft.Graph.Models.Calendar.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"chats", n => { Chats = n.GetCollectionOfObjectValues<Chat>(Chat.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"city", n => { City = n.GetStringValue(); } },
+                {"cloudClipboard", n => { CloudClipboard = n.GetObjectValue<CloudClipboardRoot>(CloudClipboardRoot.CreateFromDiscriminatorValue); } },
                 {"companyName", n => { CompanyName = n.GetStringValue(); } },
                 {"consentProvidedForMinor", n => { ConsentProvidedForMinor = n.GetStringValue(); } },
                 {"contactFolders", n => { ContactFolders = n.GetCollectionOfObjectValues<ContactFolder>(ContactFolder.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1803,6 +1818,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteCollectionOfObjectValues<Event>("calendarView", CalendarView);
             writer.WriteCollectionOfObjectValues<Chat>("chats", Chats);
             writer.WriteStringValue("city", City);
+            writer.WriteObjectValue<CloudClipboardRoot>("cloudClipboard", CloudClipboard);
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("consentProvidedForMinor", ConsentProvidedForMinor);
             writer.WriteCollectionOfObjectValues<ContactFolder>("contactFolders", ContactFolders);
