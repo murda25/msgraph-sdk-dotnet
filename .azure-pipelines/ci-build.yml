@@ -90,7 +90,7 @@ extends:
         - task: DotNetCoreCLI@2
           displayName: 'Build test project'
           inputs:
-            projects: '$(Build.SourcesDirectory)\tests\Microsoft.Graph.DotnetCore.Test.csproj'
+            projects: '$(Build.SourcesDirectory)\tests\Microsoft.Graph.DotnetCore.Test\Microsoft.Graph.DotnetCore.Test.csproj'
             arguments: '-c $(BuildConfiguration) --no-incremental --no-restore'
         - task: DotNetCoreCLI@2
           displayName: 'run tests'
