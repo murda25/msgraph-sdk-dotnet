@@ -28,7 +28,12 @@ $nugetPackageName = (Get-ChildItem (Join-Path $packageDirPath *.nupkg) -Exclude 
 Write-Host "Found NuGet package: $nugetPackageName" -ForegroundColor Magenta
 
 ## Extracts the package version from nupkg file name.
-$packageVersion = $nugetPackageName -replace "^(.*?)\.((?:\.?[0-9]+){3,}(?:[-a-z]+)?)\.nupkg$", '$2'
+$packageVersion = $nugetPackageName.Replace("Microsoft.Graph.", "").Replace(".nupkg", "")
 
 Write-Host "##vso[task.setvariable variable=VERSION_STRING]$($packageVersion)";
 Write-Host "Updated the VERSION_STRING environment variable with the package version value '$packageVersion'." -ForegroundColor Green
+
+$isPrerelease = $packageVersion.Contains("preview")
+
+Write-Host "##vso[task.setvariable variable=IS_PRE_RELEASE]$($isPrerelease)";
+Write-Host "Updated the IS_PRE_RELEASE environment variable with the pre-release value '$isPrerelease'." -ForegroundColor Green
