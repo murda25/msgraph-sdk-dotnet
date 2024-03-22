@@ -1,0 +1,57 @@
+{
+  "hydrated": false,
+  "properties": {
+    "helpUri": "https://eng.ms/docs/microsoft-security/security/azure-security/cloudai-security-fundamentals-engineering/security-integration/guardian-wiki/microsoft-guardian/general/suppressions",
+    "hydrationStatus": "This file does not contain identifying data. It is safe to check into your repo. To hydrate this file with identifying data, run `guardian hydrate --help` and follow the guidance."
+  },
+  "version": "1.0.0",
+  "suppressionSets": {
+    "default": {
+      "name": "default",
+      "createdDate": "2024-03-07 11:56:47Z",
+      "lastUpdatedDate": "2024-03-07 11:56:47Z"
+    }
+  },
+  "results": {
+    "d02d560dfa2b990239a116442fa49696a9f86107683300985856426fb4afa2a6": {
+      "signature": "d02d560dfa2b990239a116442fa49696a9f86107683300985856426fb4afa2a6",
+      "alternativeSignatures": [],
+      "memberOf": [
+        "default"
+      ],
+      "createdDate": "2024-03-07 11:56:47Z"
+    },
+    "ac3bfa7c3028669618563f9295b4746774a51880defa826dd9c5b51bdb8af319": {
+      "signature": "ac3bfa7c3028669618563f9295b4746774a51880defa826dd9c5b51bdb8af319",
+      "alternativeSignatures": [],
+      "memberOf": [
+        "default"
+      ],
+      "createdDate": "2024-03-07 11:56:47Z"
+    },
+    "ce5fb869bd8e8a1e75f5f4a54b7309cd16f76ce9af950bb2358da70269857142": {
+      "signature": "ce5fb869bd8e8a1e75f5f4a54b7309cd16f76ce9af950bb2358da70269857142",
+      "alternativeSignatures": [],
+      "memberOf": [
+        "default"
+      ],
+      "createdDate": "2024-03-07 11:56:47Z"
+    },
+    "d9e6949d68f096882005442a0619fd2aaa61192ae6ed3f6cc2b7572f4f9b6dc0": {
+      "signature": "d9e6949d68f096882005442a0619fd2aaa61192ae6ed3f6cc2b7572f4f9b6dc0",
+      "alternativeSignatures": [],
+      "memberOf": [
+        "default"
+      ],
+      "createdDate": "2024-03-07 11:56:47Z"
+    },
+    "390d21d9ca1233762b9b807625a7748863063253e1e7cf529266e5d328bd0f4c": {
+      "signature": "390d21d9ca1233762b9b807625a7748863063253e1e7cf529266e5d328bd0f4c",
+      "alternativeSignatures": [],
+      "memberOf": [
+        "default"
+      ],
+      "createdDate": "2024-03-07 11:56:47Z"
+    }
+  }
+}
