@@ -818,7 +818,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userExperienceAnalyticsWorkFromAnywhereModelPerformance", value); }
         }
 #endif
-        /// <summary>The virtualEndpoint property</summary>
+        /// <summary>Virtual endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.VirtualEndpoint? VirtualEndpoint {

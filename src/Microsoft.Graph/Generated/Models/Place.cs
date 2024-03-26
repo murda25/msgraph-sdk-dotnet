@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>Specifies the place location in latitude, longitude and (optionally) altitude coordinates.</summary>
+        /// <summary>Specifies the place location in latitude, longitude, and (optionally) altitude coordinates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public OutlookGeoCoordinates? GeoCoordinates {

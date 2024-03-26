@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class VirtualEndpoint : Entity, IParsable 
     {
-        /// <summary>The auditEvents property</summary>
+        /// <summary>A collection of Cloud PC audit events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcAuditEvent>? AuditEvents {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("auditEvents", value); }
         }
 #endif
-        /// <summary>The cloudPCs property</summary>
+        /// <summary>A collection of cloud-managed virtual desktops.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPC>? CloudPCs {
@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("cloudPCs", value); }
         }
 #endif
-        /// <summary>The deviceImages property</summary>
+        /// <summary>A collection of device image resources on Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcDeviceImage>? DeviceImages {
@@ -49,7 +49,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("deviceImages", value); }
         }
 #endif
-        /// <summary>The galleryImages property</summary>
+        /// <summary>A collection of gallery image resources on Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcGalleryImage>? GalleryImages {
@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("galleryImages", value); }
         }
 #endif
-        /// <summary>The onPremisesConnections property</summary>
+        /// <summary>A defined collection of Azure resource information that can be used to establish Azure network connections for Cloud PCs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcOnPremisesConnection>? OnPremisesConnections {
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("onPremisesConnections", value); }
         }
 #endif
-        /// <summary>The provisioningPolicies property</summary>
+        /// <summary>A collection of Cloud PC provisioning policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcProvisioningPolicy>? ProvisioningPolicies {
@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("provisioningPolicies", value); }
         }
 #endif
-        /// <summary>The userSettings property</summary>
+        /// <summary>A collection of Cloud PC user settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcUserSetting>? UserSettings {

@@ -1519,6 +1519,20 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("skills", value); }
         }
 #endif
+        /// <summary>The sponsors property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<DirectoryObject>? Sponsors {
+            get { return BackingStore?.Get<List<DirectoryObject>?>("sponsors"); }
+            set { BackingStore?.Set("sponsors", value); }
+        }
+#nullable restore
+#else
+        public List<DirectoryObject> Sponsors {
+            get { return BackingStore?.Get<List<DirectoryObject>>("sponsors"); }
+            set { BackingStore?.Set("sponsors", value); }
+        }
+#endif
         /// <summary>The state or province in the user&apos;s address. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1787,6 +1801,7 @@ namespace Microsoft.Graph.Models {
                 {"signInActivity", n => { SignInActivity = n.GetObjectValue<Microsoft.Graph.Models.SignInActivity>(Microsoft.Graph.Models.SignInActivity.CreateFromDiscriminatorValue); } },
                 {"signInSessionsValidFromDateTime", n => { SignInSessionsValidFromDateTime = n.GetDateTimeOffsetValue(); } },
                 {"skills", n => { Skills = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                {"sponsors", n => { Sponsors = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"state", n => { State = n.GetStringValue(); } },
                 {"streetAddress", n => { StreetAddress = n.GetStringValue(); } },
                 {"surname", n => { Surname = n.GetStringValue(); } },
@@ -1923,6 +1938,7 @@ namespace Microsoft.Graph.Models {
             writer.WriteObjectValue<Microsoft.Graph.Models.SignInActivity>("signInActivity", SignInActivity);
             writer.WriteDateTimeOffsetValue("signInSessionsValidFromDateTime", SignInSessionsValidFromDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("skills", Skills);
+            writer.WriteCollectionOfObjectValues<DirectoryObject>("sponsors", Sponsors);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("streetAddress", StreetAddress);
             writer.WriteStringValue("surname", Surname);

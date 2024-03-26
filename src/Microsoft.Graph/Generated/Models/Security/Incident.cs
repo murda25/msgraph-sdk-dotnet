@@ -153,6 +153,20 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("redirectIncidentId", value); }
         }
 #endif
+        /// <summary>The resolvingComment property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResolvingComment {
+            get { return BackingStore?.Get<string?>("resolvingComment"); }
+            set { BackingStore?.Set("resolvingComment", value); }
+        }
+#nullable restore
+#else
+        public string ResolvingComment {
+            get { return BackingStore?.Get<string>("resolvingComment"); }
+            set { BackingStore?.Set("resolvingComment", value); }
+        }
+#endif
         /// <summary>The severity property</summary>
         public AlertSeverity? Severity {
             get { return BackingStore?.Get<AlertSeverity?>("severity"); }
@@ -222,6 +236,7 @@ namespace Microsoft.Graph.Models.Security {
                 {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
                 {"lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 {"redirectIncidentId", n => { RedirectIncidentId = n.GetStringValue(); } },
+                {"resolvingComment", n => { ResolvingComment = n.GetStringValue(); } },
                 {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
                 {"status", n => { Status = n.GetEnumValue<IncidentStatus>(); } },
                 {"systemTags", n => { SystemTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -249,6 +264,7 @@ namespace Microsoft.Graph.Models.Security {
             writer.WriteStringValue("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastUpdateDateTime", LastUpdateDateTime);
             writer.WriteStringValue("redirectIncidentId", RedirectIncidentId);
+            writer.WriteStringValue("resolvingComment", ResolvingComment);
             writer.WriteEnumValue<AlertSeverity>("severity", Severity);
             writer.WriteEnumValue<IncidentStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("systemTags", SystemTags);

@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class CloudPcOnPremisesConnection : Entity, IParsable 
     {
-        /// <summary>The adDomainName property</summary>
+        /// <summary>The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Maximum length is 255. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdDomainName {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("adDomainName", value); }
         }
 #endif
-        /// <summary>The adDomainPassword property</summary>
+        /// <summary>The password associated with the username of an Active Directory account (adDomainUsername).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdDomainPassword {
@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("adDomainPassword", value); }
         }
 #endif
-        /// <summary>The adDomainUsername property</summary>
+        /// <summary>The username of an Active Directory account (user or service account) that has permission to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdDomainUsername {
@@ -49,7 +49,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("adDomainUsername", value); }
         }
 #endif
-        /// <summary>The alternateResourceUrl property</summary>
+        /// <summary>The interface URL of the partner service&apos;s resource that links to this Azure network connection. Returned only on $select.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AlternateResourceUrl {
@@ -63,12 +63,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("alternateResourceUrl", value); }
         }
 #endif
-        /// <summary>The connectionType property</summary>
+        /// <summary>Specifies how the provisioned Cloud PC joins to Microsoft Entra. It includes different types, one is Microsoft Entra ID join, which means there&apos;s no on-premises Active Directory (AD) in the current tenant, and the Cloud PC device is joined by Microsoft Entra. Another one is hybridAzureADJoin, which means there&apos;s also an on-premises Active Directory (AD) in the current tenant and the Cloud PC device joins to on-premises Active Directory (AD) and Microsoft Entra. The type also determines which types of users can be assigned and can sign into a Cloud PC. The azureADJoin type indicates that cloud-only and hybrid users can be assigned and signed into the Cloud PC. hybridAzureADJoin indicates only hybrid users can be assigned and signed into the Cloud PC. The default value is hybridAzureADJoin.</summary>
         public CloudPcOnPremisesConnectionType? ConnectionType {
             get { return BackingStore?.Get<CloudPcOnPremisesConnectionType?>("connectionType"); }
             set { BackingStore?.Set("connectionType", value); }
         }
-        /// <summary>The displayName property</summary>
+        /// <summary>The display name for the Azure network connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -87,7 +87,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CloudPcOnPremisesConnectionStatus?>("healthCheckStatus"); }
             set { BackingStore?.Set("healthCheckStatus", value); }
         }
-        /// <summary>The healthCheckStatusDetail property</summary>
+        /// <summary>Indicates the results of health checks performed on the on-premises connection. Read-only. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetail. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public CloudPcOnPremisesConnectionStatusDetail? HealthCheckStatusDetail {
@@ -101,12 +101,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("healthCheckStatusDetail", value); }
         }
 #endif
-        /// <summary>The inUse property</summary>
+        /// <summary>When true, the Azure network connection is in use. When false, the connection isn&apos;t in use. You can&apos;t delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetail. Read-only.</summary>
         public bool? InUse {
             get { return BackingStore?.Get<bool?>("inUse"); }
             set { BackingStore?.Set("inUse", value); }
         }
-        /// <summary>The organizationalUnit property</summary>
+        /// <summary>The organizational unit (OU) in which the computer account is created. If left null, the OU configured as the default (a well-known computer object container) in the tenant&apos;s Active Directory domain (OU) is used. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrganizationalUnit {
@@ -120,7 +120,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("organizationalUnit", value); }
         }
 #endif
-        /// <summary>The resourceGroupId property</summary>
+        /// <summary>The unique identifier of the target resource group used associated with the on-premises network connectivity for Cloud PCs. Required format: &apos;/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceGroupId {
@@ -134,7 +134,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceGroupId", value); }
         }
 #endif
-        /// <summary>The subnetId property</summary>
+        /// <summary>The unique identifier of the target subnet used associated with the on-premises network connectivity for Cloud PCs. Required format: &apos;/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubnetId {
@@ -148,7 +148,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("subnetId", value); }
         }
 #endif
-        /// <summary>The subscriptionId property</summary>
+        /// <summary>The unique identifier of the Azure subscription associated with the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscriptionId {
@@ -162,7 +162,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("subscriptionId", value); }
         }
 #endif
-        /// <summary>The subscriptionName property</summary>
+        /// <summary>The name of the Azure subscription is used to create an Azure network connection. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscriptionName {
@@ -176,7 +176,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("subscriptionName", value); }
         }
 #endif
-        /// <summary>The virtualNetworkId property</summary>
+        /// <summary>The unique identifier of the target virtual network used associated with the on-premises network connectivity for Cloud PCs. Required format: &apos;/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VirtualNetworkId {
@@ -190,7 +190,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("virtualNetworkId", value); }
         }
 #endif
-        /// <summary>The virtualNetworkLocation property</summary>
+        /// <summary>Indicates the resource location of the target virtual network. For example, the location can be eastus2, westeurope, etc. Read-only (computed value).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VirtualNetworkLocation {

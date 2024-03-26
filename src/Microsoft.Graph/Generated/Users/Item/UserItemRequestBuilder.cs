@@ -70,6 +70,7 @@ using Microsoft.Graph.Users.Item.ScopedRoleMemberOf;
 using Microsoft.Graph.Users.Item.SendMail;
 using Microsoft.Graph.Users.Item.ServiceProvisioningErrors;
 using Microsoft.Graph.Users.Item.Settings;
+using Microsoft.Graph.Users.Item.Sponsors;
 using Microsoft.Graph.Users.Item.Teamwork;
 using Microsoft.Graph.Users.Item.Todo;
 using Microsoft.Graph.Users.Item.TransitiveMemberOf;
@@ -424,6 +425,11 @@ namespace Microsoft.Graph.Users.Item {
         {
             get => new SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the sponsors property of the microsoft.graph.user entity.</summary>
+        public SponsorsRequestBuilder Sponsors
+        {
+            get => new SponsorsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the teamwork property of the microsoft.graph.user entity.</summary>
         public TeamworkRequestBuilder Teamwork
         {
@@ -501,8 +507,8 @@ namespace Microsoft.Graph.Users.Item {
             return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(PathParameters, RequestAdapter, skip, top);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0" />
+        /// Read properties and relationships of the user object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.User"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -582,7 +588,7 @@ namespace Microsoft.Graph.Users.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
+        /// Read properties and relationships of the user object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -639,7 +645,7 @@ namespace Microsoft.Graph.Users.Item {
         {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation for the user and specify the properties in a $select OData query option. Because the user resource supports extensions, you can also use the GET operation to get custom properties and extension data in a user instance. Customers through Microsoft Entra ID for customers can also use this API operation to retrieve their details.
+        /// Read properties and relationships of the user object.
         /// </summary>
         public class UserItemRequestBuilderGetQueryParameters 
         {

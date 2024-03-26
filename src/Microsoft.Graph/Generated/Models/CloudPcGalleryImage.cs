@@ -8,7 +8,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class CloudPcGalleryImage : Entity, IParsable 
     {
-        /// <summary>The displayName property</summary>
+        /// <summary>The display name of this gallery image. For example, Windows 11 Enterprise + Microsoft 365 Apps 22H2. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -22,17 +22,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The endDate property</summary>
+        /// <summary>The date when the status of the image becomes supportedWithWarning. Users can still provision new Cloud PCs if the current time is later than endDate and earlier than expirationDate. For example, assume the endDate of a gallery image is 2023-9-14 and expirationDate is 2024-3-14, users are able to provision new Cloud PCs if today is 2023-10-01. Read-only.</summary>
         public Date? EndDate {
             get { return BackingStore?.Get<Date?>("endDate"); }
             set { BackingStore?.Set("endDate", value); }
         }
-        /// <summary>The expirationDate property</summary>
+        /// <summary>The date when the image is no longer available. Users are unable to provision new Cloud PCs if the current time is later than expirationDate. The value is usually endDate plus six months. For example, if the startDate is 2025-10-14, the expirationDate is usually 2026-04-14. Read-only.</summary>
         public Date? ExpirationDate {
             get { return BackingStore?.Get<Date?>("expirationDate"); }
             set { BackingStore?.Set("expirationDate", value); }
         }
-        /// <summary>The offerName property</summary>
+        /// <summary>The offer name of this gallery image that is passed to Azure Resource Manager (ARM) to retrieve the image resource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OfferName {
@@ -46,7 +46,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("offerName", value); }
         }
 #endif
-        /// <summary>The publisherName property</summary>
+        /// <summary>The publisher name of this gallery image that is passed to Azure Resource Manager (ARM) to retrieve the image resource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PublisherName {
@@ -60,12 +60,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publisherName", value); }
         }
 #endif
-        /// <summary>The sizeInGB property</summary>
+        /// <summary>Indicates the size of this image in gigabytes. For example, 64. Read-only.</summary>
         public int? SizeInGB {
             get { return BackingStore?.Get<int?>("sizeInGB"); }
             set { BackingStore?.Set("sizeInGB", value); }
         }
-        /// <summary>The skuName property</summary>
+        /// <summary>The SKU name of this image that is passed to Azure Resource Manager (ARM) to retrieve the image resource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SkuName {
@@ -79,12 +79,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("skuName", value); }
         }
 #endif
-        /// <summary>The startDate property</summary>
+        /// <summary>The date when the Cloud PC image is available for provisioning new Cloud PCs. For example, 2022-09-20. Read-only.</summary>
         public Date? StartDate {
             get { return BackingStore?.Get<Date?>("startDate"); }
             set { BackingStore?.Set("startDate", value); }
         }
-        /// <summary>The status property</summary>
+        /// <summary>The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. The default value is supported. Read-only.</summary>
         public CloudPcGalleryImageStatus? Status {
             get { return BackingStore?.Get<CloudPcGalleryImageStatus?>("status"); }
             set { BackingStore?.Set("status", value); }

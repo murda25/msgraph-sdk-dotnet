@@ -51,7 +51,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
         {
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         /// <returns>A <see cref="CloudPcUserSettingAssignmentCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
             return await RequestAdapter.SendAsync<CloudPcUserSettingAssignment>(requestInfo, CloudPcUserSettingAssignment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
             return new AssignmentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         public class AssignmentsRequestBuilderGetQueryParameters 
         {
