@@ -32,8 +32,8 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.NamedLocations.Item {
         {
         }
         /// <summary>
-        /// Delete an ipNamedLocation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0" />
+        /// Delete a countryNamedLocation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/countrynamedlocation-delete?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -55,8 +55,8 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.NamedLocations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an ipNamedLocation object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0" />
+        /// Retrieve the properties and relationships of a namedLocation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="NamedLocation"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -105,7 +105,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.NamedLocations.Item {
             return await RequestAdapter.SendAsync<NamedLocation>(requestInfo, NamedLocation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an ipNamedLocation object.
+        /// Delete a countryNamedLocation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.NamedLocations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an ipNamedLocation object.
+        /// Retrieve the properties and relationships of a namedLocation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Identity.ConditionalAccess.NamedLocations.Item {
         {
         }
         /// <summary>
-        /// Retrieve the properties and relationships of an ipNamedLocation object.
+        /// Retrieve the properties and relationships of a namedLocation object.
         /// </summary>
         public class NamedLocationItemRequestBuilderGetQueryParameters 
         {

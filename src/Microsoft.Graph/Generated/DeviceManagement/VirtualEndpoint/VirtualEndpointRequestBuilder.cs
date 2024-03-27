@@ -96,7 +96,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get virtualEndpoint from deviceManagement
+        /// Virtual endpoint
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.VirtualEndpoint"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -163,7 +163,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint {
             return requestInfo;
         }
         /// <summary>
-        /// Get virtualEndpoint from deviceManagement
+        /// Virtual endpoint
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +220,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint {
         {
         }
         /// <summary>
-        /// Get virtualEndpoint from deviceManagement
+        /// Virtual endpoint
         /// </summary>
         public class VirtualEndpointRequestBuilderGetQueryParameters 
         {

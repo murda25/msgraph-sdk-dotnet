@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class CloudPcAuditEvent : Entity, IParsable 
     {
-        /// <summary>The activity property</summary>
+        /// <summary>The friendly name of the audit activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Activity {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("activity", value); }
         }
 #endif
-        /// <summary>The activityDateTime property</summary>
+        /// <summary>The date time in UTC when the activity was performed. Read-only.</summary>
         public DateTimeOffset? ActivityDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("activityDateTime"); }
             set { BackingStore?.Set("activityDateTime", value); }
@@ -36,7 +36,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CloudPcAuditActivityResult?>("activityResult"); }
             set { BackingStore?.Set("activityResult", value); }
         }
-        /// <summary>The activityType property</summary>
+        /// <summary>The type of activity that was performed. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActivityType {
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<CloudPcAuditCategory?>("category"); }
             set { BackingStore?.Set("category", value); }
         }
-        /// <summary>The componentName property</summary>
+        /// <summary>The component name for the audit event. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ComponentName {
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("componentName", value); }
         }
 #endif
-        /// <summary>The correlationId property</summary>
+        /// <summary>The client request ID that is used to correlate activity within the system. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CorrelationId {
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("correlationId", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The display name for the audit event. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -111,7 +111,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The resources property</summary>
+        /// <summary>The list of cloudPcAuditResource objects. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcAuditResource>? Resources {

@@ -8,7 +8,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class Site : BaseItem, IParsable 
     {
-        /// <summary>Analytics about the view activities that took place in this site.</summary>
+        /// <summary>Analytics about the view activities that took place on this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ItemAnalytics? Analytics {
@@ -209,7 +209,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("permissions", value); }
         }
 #endif
-        /// <summary>If present, indicates that this is the root site in the site collection. Read-only.</summary>
+        /// <summary>If present, provides the root site in the site collection. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Root? Root {

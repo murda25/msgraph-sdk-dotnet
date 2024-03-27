@@ -31,7 +31,8 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.
         {
         }
         /// <summary>
-        /// Invoke action assign
+        /// Assign a cloudPcProvisioningPolicy to user groups.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-assign?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +56,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Invoke action assign
+        /// Assign a cloudPcProvisioningPolicy to user groups.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

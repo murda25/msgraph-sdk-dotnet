@@ -54,7 +54,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         /// <returns>A <see cref="CloudPcUserSettingAssignment"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -121,7 +121,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
             return requestInfo;
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -178,7 +178,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.UserSettings.Item.Ass
         {
         }
         /// <summary>
-        /// Get assignments from deviceManagement
+        /// Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSetting.
         /// </summary>
         public class CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParameters 
         {
