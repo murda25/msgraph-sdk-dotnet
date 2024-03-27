@@ -38,7 +38,7 @@ $patchVersion = $currentProjectVersion.Build.ToString()
 # Get the current version of the latest public NuGet package.
 $url = "https://api.nuget.org/v3/registration5-gz-semver2/microsoft.graph/index.json"
 $nugetIndex = Invoke-RestMethod -Uri $url -Method Get
-$currentPublishedVersion = $nugetIndex.items[0].upper
+$currentPublishedVersion = $nugetIndex.items[$nugetIndex.items.Count-1].upper
 $publishedMajorVersion = $currentPublishedVersion.Split(".")[0]
 $publishedMinorVersion = $currentPublishedVersion.Split(".")[1]
 $publishedPatchVersion = $currentPublishedVersion.Split(".")[2]
