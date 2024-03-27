@@ -31,7 +31,8 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Restore
         {
         }
         /// <summary>
-        /// Invoke action restore
+        /// Restore a specific cloudPC object to a previous state from a snapshot. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-restore?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +56,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Restore
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Invoke action restore
+        /// Restore a specific cloudPC object to a previous state from a snapshot. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

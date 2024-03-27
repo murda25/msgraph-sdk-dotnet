@@ -31,7 +31,8 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Rename 
         {
         }
         /// <summary>
-        /// Invoke action rename
+        /// Rename a specific cloudPC object. Use this API to update the displayName of a Cloud PC entity.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-rename?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +56,7 @@ namespace Microsoft.Graph.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Rename 
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Invoke action rename
+        /// Rename a specific cloudPC object. Use this API to update the displayName of a Cloud PC entity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

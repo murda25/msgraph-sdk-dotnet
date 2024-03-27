@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The frequencyType property</summary>
+        /// <summary>The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are: default, fourHours, sixHours, twelveHours, sixteenHours, twentyFourHours, unknownFutureValue. The default value is default that indicates that the time interval for automatic capturing of restore point snapshots is set to 12 hours.</summary>
         public CloudPcRestorePointFrequencyType? FrequencyType {
             get { return BackingStore?.Get<CloudPcRestorePointFrequencyType?>("frequencyType"); }
             set { BackingStore?.Set("frequencyType", value); }
@@ -34,7 +34,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The userRestoreEnabled property</summary>
+        /// <summary>If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users can&apos;t use snapshots to restore the Cloud PC.</summary>
         public bool? UserRestoreEnabled {
             get { return BackingStore?.Get<bool?>("userRestoreEnabled"); }
             set { BackingStore?.Set("userRestoreEnabled", value); }

@@ -13,7 +13,7 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<IDictionary<string, object>>("AdditionalData"); }
             set { BackingStore?.Set("AdditionalData", value); }
         }
-        /// <summary>The applicationDisplayName property</summary>
+        /// <summary>Name of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApplicationDisplayName {
@@ -27,7 +27,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("applicationDisplayName", value); }
         }
 #endif
-        /// <summary>The applicationId property</summary>
+        /// <summary>Microsoft Entra application ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApplicationId {
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
 #endif
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The ipAddress property</summary>
+        /// <summary>IP address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IpAddress {
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The remoteTenantId property</summary>
+        /// <summary>The delegated partner tenant ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RemoteTenantId {
@@ -85,7 +85,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("remoteTenantId", value); }
         }
 #endif
-        /// <summary>The remoteUserId property</summary>
+        /// <summary>The delegated partner user ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RemoteUserId {
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("remoteUserId", value); }
         }
 #endif
-        /// <summary>The servicePrincipalName property</summary>
+        /// <summary>Service Principal Name (SPN).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServicePrincipalName {
@@ -113,7 +113,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("servicePrincipalName", value); }
         }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>Microsoft Entra user ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId {
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userId", value); }
         }
 #endif
-        /// <summary>The userPermissions property</summary>
+        /// <summary>List of user permissions and application permissions when the audit event was performed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? UserPermissions {
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userPermissions", value); }
         }
 #endif
-        /// <summary>The userPrincipalName property</summary>
+        /// <summary>User Principal Name (UPN).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserPrincipalName {
@@ -155,7 +155,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userPrincipalName", value); }
         }
 #endif
-        /// <summary>The userRoleScopeTags property</summary>
+        /// <summary>List of role scope tags.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CloudPcUserRoleScopeTagInfo>? UserRoleScopeTags {
