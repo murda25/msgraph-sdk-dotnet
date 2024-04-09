@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models.Security {
     public class RetentionDurationInDays : RetentionDuration, IParsable 
     {
-        /// <summary>The days property</summary>
+        /// <summary>Specifies the time period in days for which an item with the applied retention label will be retained for.</summary>
         public int? Days {
             get { return BackingStore?.Get<int?>("days"); }
             set { BackingStore?.Set("days", value); }

@@ -653,6 +653,7 @@ namespace Microsoft.Graph.Models {
                 "#microsoft.graph.security.dataSource" => new Microsoft.Graph.Models.Security.DataSource(),
                 "#microsoft.graph.security.dataSourceContainer" => new DataSourceContainer(),
                 "#microsoft.graph.security.departmentTemplate" => new Microsoft.Graph.Models.Security.DepartmentTemplate(),
+                "#microsoft.graph.security.dispositionReviewStage" => new DispositionReviewStage(),
                 "#microsoft.graph.security.ediscoveryAddToReviewSetOperation" => new EdiscoveryAddToReviewSetOperation(),
                 "#microsoft.graph.security.ediscoveryCase" => new EdiscoveryCase(),
                 "#microsoft.graph.security.ediscoveryCaseSettings" => new EdiscoveryCaseSettings(),

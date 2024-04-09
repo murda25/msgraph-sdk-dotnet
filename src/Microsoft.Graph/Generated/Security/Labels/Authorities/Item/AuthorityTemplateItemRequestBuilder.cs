@@ -32,7 +32,8 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property authorities for security
+        /// Delete a authorityTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-delete-authorities?view=graph-rest-1.0" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -54,7 +55,8 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get authorities from security
+        /// Read the properties and relationships of a authorityTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-authoritytemplate-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.AuthorityTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +104,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.AuthorityTemplate>(requestInfo, Microsoft.Graph.Models.Security.AuthorityTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete navigation property authorities for security
+        /// Delete a authorityTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -115,13 +117,13 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/labels/authorities/{authorityTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get authorities from security
+        /// Read the properties and relationships of a authorityTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +157,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/labels/authorities/{authorityTemplate%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -178,7 +180,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities.Item {
         {
         }
         /// <summary>
-        /// Get authorities from security
+        /// Read the properties and relationships of a authorityTemplate object.
         /// </summary>
         public class AuthorityTemplateItemRequestBuilderGetQueryParameters 
         {

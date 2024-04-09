@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Me.Calendar.CalendarView.Item.Instances.Item.Attachmen
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/me/calendar/calendarView/{event%2Did}/instances/{event%2Did1}/attachments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

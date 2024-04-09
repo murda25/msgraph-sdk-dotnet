@@ -147,8 +147,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         {
         }
         /// <summary>
-        /// List properties and relationships of the managedAndroidLobApp objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-managedandroidlobapp-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the managedMobileLobApp objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-managedmobilelobapp-list?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="MobileAppCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -171,8 +171,8 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileAppCollectionResponse>(requestInfo, MobileAppCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new managedAndroidLobApp object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-managedandroidlobapp-create?view=graph-rest-1.0" />
+        /// Create a new iosiPadOSWebClip object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-apps-iosipadoswebclip-create?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="MobileApp"/></returns>
         /// <param name="body">The request body</param>
@@ -197,7 +197,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return await RequestAdapter.SendAsync<MobileApp>(requestInfo, MobileApp.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List properties and relationships of the managedAndroidLobApp objects.
+        /// List properties and relationships of the managedMobileLobApp objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -216,7 +216,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new managedAndroidLobApp object.
+        /// Create a new iosiPadOSWebClip object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -231,7 +231,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceAppManagement/mobileApps", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -247,7 +247,7 @@ namespace Microsoft.Graph.DeviceAppManagement.MobileApps {
             return new MobileAppsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List properties and relationships of the managedAndroidLobApp objects.
+        /// List properties and relationships of the managedMobileLobApp objects.
         /// </summary>
         public class MobileAppsRequestBuilderGetQueryParameters 
         {

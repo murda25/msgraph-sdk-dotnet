@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Autho
         {
         }
         /// <summary>
-        /// Get authorityTemplate from security
+        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.AuthorityTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Autho
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.AuthorityTemplate>(requestInfo, Microsoft.Graph.Models.Security.AuthorityTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get authorityTemplate from security
+        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Autho
             return new AuthorityTemplateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get authorityTemplate from security
+        /// Specifies the underlying authority that describes the type of content to be retained and its retention schedule.
         /// </summary>
         public class AuthorityTemplateRequestBuilderGetQueryParameters 
         {

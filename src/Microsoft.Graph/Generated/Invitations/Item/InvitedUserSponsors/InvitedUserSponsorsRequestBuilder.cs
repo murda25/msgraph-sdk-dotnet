@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Invitations.Item.InvitedUserSponsors {
         {
         }
         /// <summary>
-        /// Get invitedUserSponsors from invitations
+        /// The users or groups who are sponsors of the invited user. Sponsors are users and groups that are responsible for guest users&apos; privileges in the tenant and for keeping the guest users&apos; information and access up to date.
         /// </summary>
         /// <returns>A <see cref="DirectoryObjectCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Microsoft.Graph.Invitations.Item.InvitedUserSponsors {
             return await RequestAdapter.SendAsync<DirectoryObjectCollectionResponse>(requestInfo, DirectoryObjectCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get invitedUserSponsors from invitations
+        /// The users or groups who are sponsors of the invited user. Sponsors are users and groups that are responsible for guest users&apos; privileges in the tenant and for keeping the guest users&apos; information and access up to date.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +102,7 @@ namespace Microsoft.Graph.Invitations.Item.InvitedUserSponsors {
             return new InvitedUserSponsorsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get invitedUserSponsors from invitations
+        /// The users or groups who are sponsors of the invited user. Sponsors are users and groups that are responsible for guest users&apos; privileges in the tenant and for keeping the guest users&apos; information and access up to date.
         /// </summary>
         public class InvitedUserSponsorsRequestBuilderGetQueryParameters 
         {

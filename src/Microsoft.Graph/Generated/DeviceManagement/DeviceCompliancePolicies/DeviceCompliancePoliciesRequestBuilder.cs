@@ -51,8 +51,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
         {
         }
         /// <summary>
-        /// List properties and relationships of the windows81CompliancePolicy objects.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-list?view=graph-rest-1.0" />
+        /// List properties and relationships of the deviceCompliancePolicy objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-list?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="DeviceCompliancePolicyCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,8 +75,8 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
             return await RequestAdapter.SendAsync<DeviceCompliancePolicyCollectionResponse>(requestInfo, DeviceCompliancePolicyCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new iosCompliancePolicy object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscompliancepolicy-create?view=graph-rest-1.0" />
+        /// Create a new androidCompliancePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-create?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="DeviceCompliancePolicy"/></returns>
         /// <param name="body">The request body</param>
@@ -101,7 +101,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
             return await RequestAdapter.SendAsync<DeviceCompliancePolicy>(requestInfo, DeviceCompliancePolicy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List properties and relationships of the windows81CompliancePolicy objects.
+        /// List properties and relationships of the deviceCompliancePolicy objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,7 +120,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create a new iosCompliancePolicy object.
+        /// Create a new androidCompliancePolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/deviceManagement/deviceCompliancePolicies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -151,7 +151,7 @@ namespace Microsoft.Graph.DeviceManagement.DeviceCompliancePolicies {
             return new DeviceCompliancePoliciesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List properties and relationships of the windows81CompliancePolicy objects.
+        /// List properties and relationships of the deviceCompliancePolicy objects.
         /// </summary>
         public class DeviceCompliancePoliciesRequestBuilderGetQueryParameters 
         {
