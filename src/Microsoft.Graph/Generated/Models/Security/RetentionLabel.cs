@@ -7,17 +7,17 @@ using System;
 namespace Microsoft.Graph.Models.Security {
     public class RetentionLabel : Microsoft.Graph.Models.Entity, IParsable 
     {
-        /// <summary>The actionAfterRetentionPeriod property</summary>
+        /// <summary>Specifies the action to take on the labeled document after the period specified by the retentionDuration property expires. The possible values are: none, delete, startDispositionReview, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.Security.ActionAfterRetentionPeriod? ActionAfterRetentionPeriod {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.ActionAfterRetentionPeriod?>("actionAfterRetentionPeriod"); }
             set { BackingStore?.Set("actionAfterRetentionPeriod", value); }
         }
-        /// <summary>The behaviorDuringRetentionPeriod property</summary>
+        /// <summary>Specifies how the behavior of a document with this label should be during the retention period. The possible values are: doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.Security.BehaviorDuringRetentionPeriod? BehaviorDuringRetentionPeriod {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.BehaviorDuringRetentionPeriod?>("behaviorDuringRetentionPeriod"); }
             set { BackingStore?.Set("behaviorDuringRetentionPeriod", value); }
         }
-        /// <summary>The createdBy property</summary>
+        /// <summary>Represents the user who created the retentionLabel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.IdentitySet? CreatedBy {
@@ -31,17 +31,17 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("createdBy", value); }
         }
 #endif
-        /// <summary>The createdDateTime property</summary>
+        /// <summary>Represents the date and time in which the retentionLabel is created.</summary>
         public DateTimeOffset? CreatedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
             set { BackingStore?.Set("createdDateTime", value); }
         }
-        /// <summary>The defaultRecordBehavior property</summary>
+        /// <summary>Specifies the locked or unlocked state of a record label when it is created.The possible values are: startLocked, startUnlocked, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.Security.DefaultRecordBehavior? DefaultRecordBehavior {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.DefaultRecordBehavior?>("defaultRecordBehavior"); }
             set { BackingStore?.Set("defaultRecordBehavior", value); }
         }
-        /// <summary>The descriptionForAdmins property</summary>
+        /// <summary>Provides label information for the admin. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DescriptionForAdmins {
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("descriptionForAdmins", value); }
         }
 #endif
-        /// <summary>The descriptionForUsers property</summary>
+        /// <summary>Provides the label information for the user. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DescriptionForUsers {
@@ -69,7 +69,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("descriptionForUsers", value); }
         }
 #endif
-        /// <summary>The descriptors property</summary>
+        /// <summary>Represents out-of-the-box values that provide more options to improve the manageability and organization of the content you need to label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public FilePlanDescriptor? Descriptors {
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("descriptors", value); }
         }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>Unique string that defines a label name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName {
@@ -97,7 +97,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The dispositionReviewStages property</summary>
+        /// <summary>When action at the end of retention is chosen as &apos;dispositionReview&apos;, dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DispositionReviewStage>? DispositionReviewStages {
@@ -111,12 +111,12 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("dispositionReviewStages", value); }
         }
 #endif
-        /// <summary>The isInUse property</summary>
+        /// <summary>Specifies whether the label is currently being used.</summary>
         public bool? IsInUse {
             get { return BackingStore?.Get<bool?>("isInUse"); }
             set { BackingStore?.Set("isInUse", value); }
         }
-        /// <summary>The labelToBeApplied property</summary>
+        /// <summary>Specifies the replacement label to be applied automatically after the retention period of the current label ends.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LabelToBeApplied {
@@ -130,7 +130,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("labelToBeApplied", value); }
         }
 #endif
-        /// <summary>The lastModifiedBy property</summary>
+        /// <summary>The user who last modified the retentionLabel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.IdentitySet? LastModifiedBy {
@@ -144,12 +144,12 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("lastModifiedBy", value); }
         }
 #endif
-        /// <summary>The lastModifiedDateTime property</summary>
+        /// <summary>The latest date time when the retentionLabel was modified.</summary>
         public DateTimeOffset? LastModifiedDateTime {
             get { return BackingStore?.Get<DateTimeOffset?>("lastModifiedDateTime"); }
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
-        /// <summary>The retentionDuration property</summary>
+        /// <summary>Specifies the number of days to retain the content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Security.RetentionDuration? RetentionDuration {
@@ -163,7 +163,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("retentionDuration", value); }
         }
 #endif
-        /// <summary>The retentionEventType property</summary>
+        /// <summary>Represents the type associated with a retention event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.Security.RetentionEventType? RetentionEventType {
@@ -177,7 +177,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("retentionEventType", value); }
         }
 #endif
-        /// <summary>The retentionTrigger property</summary>
+        /// <summary>Specifies whether the retention duration is calculated from the content creation date, labeled date, or last modification date. The possible values are: dateLabeled, dateCreated, dateModified, dateOfEvent, unknownFutureValue.</summary>
         public Microsoft.Graph.Models.Security.RetentionTrigger? RetentionTrigger {
             get { return BackingStore?.Get<Microsoft.Graph.Models.Security.RetentionTrigger?>("retentionTrigger"); }
             set { BackingStore?.Set("retentionTrigger", value); }

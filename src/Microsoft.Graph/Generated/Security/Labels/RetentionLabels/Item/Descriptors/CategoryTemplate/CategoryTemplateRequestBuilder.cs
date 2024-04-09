@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Categ
         {
         }
         /// <summary>
-        /// Get categoryTemplate from security
+        /// Specifies a group of similar types of content in a particular department.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.CategoryTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Categ
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.CategoryTemplate>(requestInfo, Microsoft.Graph.Models.Security.CategoryTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get categoryTemplate from security
+        /// Specifies a group of similar types of content in a particular department.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Categ
             return new CategoryTemplateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get categoryTemplate from security
+        /// Specifies a group of similar types of content in a particular department.
         /// </summary>
         public class CategoryTemplateRequestBuilderGetQueryParameters 
         {

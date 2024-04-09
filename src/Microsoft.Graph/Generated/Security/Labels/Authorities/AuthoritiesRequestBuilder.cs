@@ -51,7 +51,8 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
         {
         }
         /// <summary>
-        /// Get authorities from security
+        /// Get a list of the authorityTemplate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-list-authorities?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="AuthorityTemplateCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +75,8 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
             return await RequestAdapter.SendAsync<AuthorityTemplateCollectionResponse>(requestInfo, AuthorityTemplateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new navigation property to authorities for security
+        /// Create a new authorityTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-post-authorities?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.AuthorityTemplate"/></returns>
         /// <param name="body">The request body</param>
@@ -99,7 +101,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.AuthorityTemplate>(requestInfo, Microsoft.Graph.Models.Security.AuthorityTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get authorities from security
+        /// Get a list of the authorityTemplate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +120,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to authorities for security
+        /// Create a new authorityTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -133,7 +135,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/labels/authorities", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -149,7 +151,7 @@ namespace Microsoft.Graph.Security.Labels.Authorities {
             return new AuthoritiesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get authorities from security
+        /// Get a list of the authorityTemplate objects and their properties.
         /// </summary>
         public class AuthoritiesRequestBuilderGetQueryParameters 
         {

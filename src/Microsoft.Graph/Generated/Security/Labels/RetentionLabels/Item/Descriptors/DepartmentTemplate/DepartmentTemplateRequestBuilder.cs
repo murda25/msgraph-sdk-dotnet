@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Depar
         {
         }
         /// <summary>
-        /// Get departmentTemplate from security
+        /// Specifies the  department or business unit of an organization to which a label belongs.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.DepartmentTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Depar
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.DepartmentTemplate>(requestInfo, Microsoft.Graph.Models.Security.DepartmentTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get departmentTemplate from security
+        /// Specifies the  department or business unit of an organization to which a label belongs.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Depar
             return new DepartmentTemplateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get departmentTemplate from security
+        /// Specifies the  department or business unit of an organization to which a label belongs.
         /// </summary>
         public class DepartmentTemplateRequestBuilderGetQueryParameters 
         {

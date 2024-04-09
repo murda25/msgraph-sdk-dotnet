@@ -7,6 +7,10 @@ and this project does adheres to [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unreleased]
 
+## [5.48.0] - 2024-04-09
+
+- Latest metadata updates from 9th April 2024.
+  
 ## [5.47.0] - 2024-04-04
 
 - Latest metadata updates from 4th April 2024.

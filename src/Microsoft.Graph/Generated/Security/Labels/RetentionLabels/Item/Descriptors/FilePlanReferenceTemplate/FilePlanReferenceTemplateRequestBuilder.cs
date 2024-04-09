@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.FileP
         {
         }
         /// <summary>
-        /// Get filePlanReferenceTemplate from security
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.FilePlanReferenceTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.FileP
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.FilePlanReferenceTemplate>(requestInfo, Microsoft.Graph.Models.Security.FilePlanReferenceTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get filePlanReferenceTemplate from security
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.FileP
             return new FilePlanReferenceTemplateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get filePlanReferenceTemplate from security
+        /// Specifies a unique alpha-numeric identifier for an organization’s retention schedule.
         /// </summary>
         public class FilePlanReferenceTemplateRequestBuilderGetQueryParameters 
         {

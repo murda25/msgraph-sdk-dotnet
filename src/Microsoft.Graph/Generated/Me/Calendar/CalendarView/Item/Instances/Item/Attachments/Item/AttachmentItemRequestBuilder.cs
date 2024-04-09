@@ -91,7 +91,7 @@ namespace Microsoft.Graph.Me.Calendar.CalendarView.Item.Instances.Item.Attachmen
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/me/calendar/calendarView/{event%2Did}/instances/{event%2Did1}/attachments/{attachment%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

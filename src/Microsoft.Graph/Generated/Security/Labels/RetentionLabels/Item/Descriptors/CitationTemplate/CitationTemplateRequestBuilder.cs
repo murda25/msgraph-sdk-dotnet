@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Citat
         {
         }
         /// <summary>
-        /// Get citationTemplate from security
+        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.CitationTemplate"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Citat
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.CitationTemplate>(requestInfo, Microsoft.Graph.Models.Security.CitationTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get citationTemplate from security
+        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.Descriptors.Citat
             return new CitationTemplateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get citationTemplate from security
+        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
         /// </summary>
         public class CitationTemplateRequestBuilderGetQueryParameters 
         {
