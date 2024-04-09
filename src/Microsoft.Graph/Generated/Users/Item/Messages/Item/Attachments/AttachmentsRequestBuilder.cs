@@ -57,8 +57,8 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
         {
         }
         /// <summary>
-        /// Retrieve a list of attachment objects attached to a message.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0" />
+        /// Retrieve a list of attachment objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="AttachmentCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -107,7 +107,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             return await RequestAdapter.SendAsync<Attachment>(requestInfo, Attachment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a list of attachment objects attached to a message.
+        /// Retrieve a list of attachment objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/attachments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -157,7 +157,7 @@ namespace Microsoft.Graph.Users.Item.Messages.Item.Attachments {
             return new AttachmentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a list of attachment objects attached to a message.
+        /// Retrieve a list of attachment objects.
         /// </summary>
         public class AttachmentsRequestBuilderGetQueryParameters 
         {

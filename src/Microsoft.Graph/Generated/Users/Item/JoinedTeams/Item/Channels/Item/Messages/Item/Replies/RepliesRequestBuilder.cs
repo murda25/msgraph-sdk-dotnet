@@ -81,8 +81,8 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Ite
             return await RequestAdapter.SendAsync<ChatMessageCollectionResponse>(requestInfo, ChatMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new reply to a chatMessage in a specified channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0" />
+        /// Send a new reply to a chatMessage in a specified channel.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="ChatMessage"/></returns>
         /// <param name="body">The request body</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Create a new reply to a chatMessage in a specified channel.
+        /// Send a new reply to a chatMessage in a specified channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Users.Item.JoinedTeams.Item.Channels.Item.Messages.Ite
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

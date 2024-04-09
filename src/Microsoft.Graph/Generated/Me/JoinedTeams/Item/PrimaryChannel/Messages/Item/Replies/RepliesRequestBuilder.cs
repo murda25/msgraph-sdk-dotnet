@@ -81,8 +81,8 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Repli
             return await RequestAdapter.SendAsync<ChatMessageCollectionResponse>(requestInfo, ChatMessageCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new reply to a chatMessage in a specified channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0" />
+        /// Send a new reply to a chatMessage in a specified channel.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="ChatMessage"/></returns>
         /// <param name="body">The request body</param>
@@ -126,7 +126,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Repli
             return requestInfo;
         }
         /// <summary>
-        /// Create a new reply to a chatMessage in a specified channel.
+        /// Send a new reply to a chatMessage in a specified channel.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Me.JoinedTeams.Item.PrimaryChannel.Messages.Item.Repli
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/me/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/replies", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

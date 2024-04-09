@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models.Security {
     public class LabelsRoot : Microsoft.Graph.Models.Entity, IParsable 
     {
-        /// <summary>The authorities property</summary>
+        /// <summary>Specifies the underlying authority that describes the type of content to be retained and its retention schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<AuthorityTemplate>? Authorities {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("authorities", value); }
         }
 #endif
-        /// <summary>The categories property</summary>
+        /// <summary>Specifies a group of similar types of content in a particular department.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CategoryTemplate>? Categories {
@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("categories", value); }
         }
 #endif
-        /// <summary>The citations property</summary>
+        /// <summary>The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<CitationTemplate>? Citations {
@@ -49,7 +49,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("citations", value); }
         }
 #endif
-        /// <summary>The departments property</summary>
+        /// <summary>Specifies the department or business unit of an organization to which a label belongs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<DepartmentTemplate>? Departments {
@@ -63,7 +63,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("departments", value); }
         }
 #endif
-        /// <summary>The filePlanReferences property</summary>
+        /// <summary>Specifies a unique alpha-numeric identifier for an organization’s retention schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<FilePlanReferenceTemplate>? FilePlanReferences {
@@ -77,7 +77,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("filePlanReferences", value); }
         }
 #endif
-        /// <summary>The retentionLabels property</summary>
+        /// <summary>Represents how customers can manage their data, whether and for how long to retain or delete it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<RetentionLabel>? RetentionLabels {

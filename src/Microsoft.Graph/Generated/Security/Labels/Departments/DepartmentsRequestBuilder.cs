@@ -51,7 +51,8 @@ namespace Microsoft.Graph.Security.Labels.Departments {
         {
         }
         /// <summary>
-        /// Get departments from security
+        /// Get a list of the departmentTemplate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-list-departments?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="DepartmentTemplateCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +75,8 @@ namespace Microsoft.Graph.Security.Labels.Departments {
             return await RequestAdapter.SendAsync<DepartmentTemplateCollectionResponse>(requestInfo, DepartmentTemplateCollectionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new navigation property to departments for security
+        /// Create a new departmentTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-post-departments?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.DepartmentTemplate"/></returns>
         /// <param name="body">The request body</param>
@@ -99,7 +101,7 @@ namespace Microsoft.Graph.Security.Labels.Departments {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.DepartmentTemplate>(requestInfo, Microsoft.Graph.Models.Security.DepartmentTemplate.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get departments from security
+        /// Get a list of the departmentTemplate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -118,7 +120,7 @@ namespace Microsoft.Graph.Security.Labels.Departments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to departments for security
+        /// Create a new departmentTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -133,7 +135,7 @@ namespace Microsoft.Graph.Security.Labels.Departments {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/security/labels/departments", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -149,7 +151,7 @@ namespace Microsoft.Graph.Security.Labels.Departments {
             return new DepartmentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get departments from security
+        /// Get a list of the departmentTemplate objects and their properties.
         /// </summary>
         public class DepartmentsRequestBuilderGetQueryParameters 
         {

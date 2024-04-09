@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.RetentionEventTyp
         {
         }
         /// <summary>
-        /// Get retentionEventType from security
+        /// Represents the type associated with a retention event.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Security.RetentionEventType"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.RetentionEventTyp
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Security.RetentionEventType>(requestInfo, Microsoft.Graph.Models.Security.RetentionEventType.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get retentionEventType from security
+        /// Represents the type associated with a retention event.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.RetentionEventTyp
             return new RetentionEventTypeRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get retentionEventType from security
+        /// Represents the type associated with a retention event.
         /// </summary>
         public class RetentionEventTypeRequestBuilderGetQueryParameters 
         {

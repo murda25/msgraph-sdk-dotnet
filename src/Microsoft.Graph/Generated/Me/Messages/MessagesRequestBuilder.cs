@@ -58,7 +58,7 @@ namespace Microsoft.Graph.Me.Messages {
         }
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="MessageCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -141,7 +141,7 @@ namespace Microsoft.Graph.Me.Messages {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/me/messages", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

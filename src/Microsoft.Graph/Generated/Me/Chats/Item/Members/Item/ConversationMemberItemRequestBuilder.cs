@@ -55,8 +55,8 @@ namespace Microsoft.Graph.Me.Chats.Item.Members.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conversationmember-get?view=graph-rest-1.0" />
+        /// Retrieve a conversationMember from a chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get-members?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="ConversationMember"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -117,13 +117,13 @@ namespace Microsoft.Graph.Me.Chats.Item.Members.Item {
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/me/chats/{chat%2Did}/members/{conversationMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
+        /// Retrieve a conversationMember from a chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -157,7 +157,7 @@ namespace Microsoft.Graph.Me.Chats.Item.Members.Item {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/me/chats/{chat%2Did}/members/{conversationMember%2Did}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -180,7 +180,7 @@ namespace Microsoft.Graph.Me.Chats.Item.Members.Item {
         {
         }
         /// <summary>
-        /// Retrieve a conversationMember from a chat or channel.
+        /// Retrieve a conversationMember from a chat.
         /// </summary>
         public class ConversationMemberItemRequestBuilderGetQueryParameters 
         {

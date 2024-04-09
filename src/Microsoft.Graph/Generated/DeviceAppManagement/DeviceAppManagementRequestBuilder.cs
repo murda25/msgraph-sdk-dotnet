@@ -147,7 +147,7 @@ namespace Microsoft.Graph.DeviceAppManagement {
         }
         /// <summary>
         /// Update the properties of a deviceAppManagement object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-books-deviceappmanagement-update?view=graph-rest-1.0" />
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/intune-onboarding-deviceappmanagement-update?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.DeviceAppManagement"/></returns>
         /// <param name="body">The request body</param>
@@ -206,7 +206,7 @@ namespace Microsoft.Graph.DeviceAppManagement {
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/deviceAppManagement", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

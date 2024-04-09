@@ -54,7 +54,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.DispositionReview
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get dispositionReviewStages from security
+        /// When action at the end of retention is chosen as &apos;dispositionReview&apos;, dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
         /// </summary>
         /// <returns>A <see cref="DispositionReviewStage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -115,13 +115,13 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.DispositionReview
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get dispositionReviewStages from security
+        /// When action at the end of retention is chosen as &apos;dispositionReview&apos;, dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +155,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.DispositionReview
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -178,7 +178,7 @@ namespace Microsoft.Graph.Security.Labels.RetentionLabels.Item.DispositionReview
         {
         }
         /// <summary>
-        /// Get dispositionReviewStages from security
+        /// When action at the end of retention is chosen as &apos;dispositionReview&apos;, dispositionReviewStages specifies a sequential set of stages with at least one reviewer in each stage.
         /// </summary>
         public class DispositionReviewStageStageNumberItemRequestBuilderGetQueryParameters 
         {

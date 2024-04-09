@@ -32,7 +32,7 @@ namespace Microsoft.Graph.Me.Sponsors.Item {
         {
         }
         /// <summary>
-        /// Get sponsors from me
+        /// The users and groups responsible for this guest user&apos;s privileges in the tenant and keep the guest user&apos;s information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
         /// </summary>
         /// <returns>A <see cref="DirectoryObject"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -55,7 +55,7 @@ namespace Microsoft.Graph.Me.Sponsors.Item {
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, DirectoryObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get sponsors from me
+        /// The users and groups responsible for this guest user&apos;s privileges in the tenant and keep the guest user&apos;s information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -83,7 +83,7 @@ namespace Microsoft.Graph.Me.Sponsors.Item {
             return new DirectoryObjectItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get sponsors from me
+        /// The users and groups responsible for this guest user&apos;s privileges in the tenant and keep the guest user&apos;s information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
         /// </summary>
         public class DirectoryObjectItemRequestBuilderGetQueryParameters 
         {

@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models.Security {
     public class CitationTemplate : FilePlanDescriptorTemplate, IParsable 
     {
-        /// <summary>The citationJurisdiction property</summary>
+        /// <summary>Represents the jurisdiction or agency that published the citation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CitationJurisdiction {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("citationJurisdiction", value); }
         }
 #endif
-        /// <summary>The citationUrl property</summary>
+        /// <summary>Represents the URL to the published citation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CitationUrl {
