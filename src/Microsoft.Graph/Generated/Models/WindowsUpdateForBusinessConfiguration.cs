@@ -201,13 +201,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userWindowsUpdateScanAccess", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUpdateForBusinessConfiguration"/> and sets the default values.
-        /// </summary>
-        public WindowsUpdateForBusinessConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windowsUpdateForBusinessConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsUpdateForBusinessConfiguration"/></returns>

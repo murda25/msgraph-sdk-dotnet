@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TenantAppManagementPolicy"/> and sets the default values.
-        /// </summary>
-        public TenantAppManagementPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.tenantAppManagementPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TenantAppManagementPolicy"/></returns>

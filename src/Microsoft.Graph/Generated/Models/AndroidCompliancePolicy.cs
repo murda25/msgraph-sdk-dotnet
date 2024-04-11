@@ -143,13 +143,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("storageRequireEncryption", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidCompliancePolicy"/> and sets the default values.
-        /// </summary>
-        public AndroidCompliancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.androidCompliancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AndroidCompliancePolicy"/></returns>

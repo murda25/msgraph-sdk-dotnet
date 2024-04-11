@@ -46,13 +46,6 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("productFamily", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="ClientUserAgent"/> and sets the default values.
-        /// </summary>
-        public ClientUserAgent() : base()
-        {
-            OdataType = "#microsoft.graph.callRecords.clientUserAgent";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ClientUserAgent"/></returns>

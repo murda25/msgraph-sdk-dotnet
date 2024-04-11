@@ -53,13 +53,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ManagedAndroidStoreApp"/> and sets the default values.
-        /// </summary>
-        public ManagedAndroidStoreApp() : base()
-        {
-            OdataType = "#microsoft.graph.managedAndroidStoreApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ManagedAndroidStoreApp"/></returns>

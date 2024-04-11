@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("managerLevel", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="RequestorManager"/> and sets the default values.
-        /// </summary>
-        public RequestorManager() : base()
-        {
-            OdataType = "#microsoft.graph.requestorManager";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="RequestorManager"/></returns>

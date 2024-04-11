@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class IncomingCallOptions : CallOptions, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="IncomingCallOptions"/> and sets the default values.
-        /// </summary>
-        public IncomingCallOptions() : base()
-        {
-            OdataType = "#microsoft.graph.incomingCallOptions";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IncomingCallOptions"/></returns>

@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.Security {
     public class WhoisHistoryRecord : WhoisBaseRecord, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="WhoisHistoryRecord"/> and sets the default values.
-        /// </summary>
-        public WhoisHistoryRecord() : base()
-        {
-            OdataType = "#microsoft.graph.security.whoisHistoryRecord";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WhoisHistoryRecord"/></returns>

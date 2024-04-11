@@ -39,13 +39,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IPv4Range"/> and sets the default values.
-        /// </summary>
-        public IPv4Range() : base()
-        {
-            OdataType = "#microsoft.graph.iPv4Range";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IPv4Range"/></returns>

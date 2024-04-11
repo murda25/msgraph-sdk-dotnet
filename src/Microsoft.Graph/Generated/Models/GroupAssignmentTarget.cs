@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GroupAssignmentTarget"/> and sets the default values.
-        /// </summary>
-        public GroupAssignmentTarget() : base()
-        {
-            OdataType = "#microsoft.graph.groupAssignmentTarget";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="GroupAssignmentTarget"/></returns>

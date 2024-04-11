@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models.ExternalConnectors {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ItemIdResolver"/> and sets the default values.
-        /// </summary>
-        public ItemIdResolver() : base()
-        {
-            OdataType = "#microsoft.graph.externalConnectors.itemIdResolver";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ItemIdResolver"/></returns>

@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomTimeZone"/> and sets the default values.
-        /// </summary>
-        public CustomTimeZone() : base()
-        {
-            OdataType = "#microsoft.graph.customTimeZone";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CustomTimeZone"/></returns>

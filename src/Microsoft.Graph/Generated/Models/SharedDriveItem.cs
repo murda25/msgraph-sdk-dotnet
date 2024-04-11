@@ -120,13 +120,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SharedDriveItem"/> and sets the default values.
-        /// </summary>
-        public SharedDriveItem() : base()
-        {
-            OdataType = "#microsoft.graph.sharedDriveItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SharedDriveItem"/></returns>

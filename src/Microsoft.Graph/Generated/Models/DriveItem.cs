@@ -461,13 +461,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DriveItem"/> and sets the default values.
-        /// </summary>
-        public DriveItem() : base()
-        {
-            OdataType = "#microsoft.graph.driveItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DriveItem"/></returns>

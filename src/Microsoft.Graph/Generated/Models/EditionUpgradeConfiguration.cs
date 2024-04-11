@@ -49,13 +49,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("targetEdition", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EditionUpgradeConfiguration"/> and sets the default values.
-        /// </summary>
-        public EditionUpgradeConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.editionUpgradeConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EditionUpgradeConfiguration"/></returns>

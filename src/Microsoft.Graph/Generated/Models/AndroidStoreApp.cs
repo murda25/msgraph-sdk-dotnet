@@ -53,13 +53,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidStoreApp"/> and sets the default values.
-        /// </summary>
-        public AndroidStoreApp() : base()
-        {
-            OdataType = "#microsoft.graph.androidStoreApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AndroidStoreApp"/></returns>

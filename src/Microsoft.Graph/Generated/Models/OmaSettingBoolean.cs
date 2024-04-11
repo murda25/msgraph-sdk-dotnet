@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("value", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="OmaSettingBoolean"/> and sets the default values.
-        /// </summary>
-        public OmaSettingBoolean() : base()
-        {
-            OdataType = "#microsoft.graph.omaSettingBoolean";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OmaSettingBoolean"/></returns>

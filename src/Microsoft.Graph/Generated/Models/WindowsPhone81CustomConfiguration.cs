@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81CustomConfiguration"/> and sets the default values.
-        /// </summary>
-        public WindowsPhone81CustomConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windowsPhone81CustomConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsPhone81CustomConfiguration"/></returns>

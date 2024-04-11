@@ -341,13 +341,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Organization"/> and sets the default values.
-        /// </summary>
-        public Organization() : base()
-        {
-            OdataType = "#microsoft.graph.organization";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Organization"/></returns>

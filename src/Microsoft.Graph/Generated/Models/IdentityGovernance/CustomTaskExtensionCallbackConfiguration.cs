@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomTaskExtensionCallbackConfiguration"/> and sets the default values.
-        /// </summary>
-        public CustomTaskExtensionCallbackConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.customTaskExtensionCallbackConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CustomTaskExtensionCallbackConfiguration"/></returns>

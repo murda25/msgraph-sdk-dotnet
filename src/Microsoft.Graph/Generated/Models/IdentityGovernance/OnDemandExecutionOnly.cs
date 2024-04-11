@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
     public class OnDemandExecutionOnly : WorkflowExecutionConditions, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="OnDemandExecutionOnly"/> and sets the default values.
-        /// </summary>
-        public OnDemandExecutionOnly() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.onDemandExecutionOnly";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OnDemandExecutionOnly"/></returns>

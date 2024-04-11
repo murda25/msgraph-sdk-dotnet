@@ -191,13 +191,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("simplePinBlocked", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedAppProtection"/> and sets the default values.
-        /// </summary>
-        public ManagedAppProtection() : base()
-        {
-            OdataType = "#microsoft.graph.managedAppProtection";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ManagedAppProtection"/></returns>

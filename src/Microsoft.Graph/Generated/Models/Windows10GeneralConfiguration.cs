@@ -1197,13 +1197,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("wirelessDisplayRequirePinForPairing", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10GeneralConfiguration"/> and sets the default values.
-        /// </summary>
-        public Windows10GeneralConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windows10GeneralConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Windows10GeneralConfiguration"/></returns>

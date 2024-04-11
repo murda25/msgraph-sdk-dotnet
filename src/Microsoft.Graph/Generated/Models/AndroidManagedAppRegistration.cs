@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class AndroidManagedAppRegistration : ManagedAppRegistration, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedAppRegistration"/> and sets the default values.
-        /// </summary>
-        public AndroidManagedAppRegistration() : base()
-        {
-            OdataType = "#microsoft.graph.androidManagedAppRegistration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AndroidManagedAppRegistration"/></returns>

@@ -148,13 +148,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Win32LobApp"/> and sets the default values.
-        /// </summary>
-        public Win32LobApp() : base()
-        {
-            OdataType = "#microsoft.graph.win32LobApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Win32LobApp"/></returns>

@@ -204,13 +204,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSchool"/> and sets the default values.
-        /// </summary>
-        public EducationSchool() : base()
-        {
-            OdataType = "#microsoft.graph.educationSchool";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationSchool"/></returns>

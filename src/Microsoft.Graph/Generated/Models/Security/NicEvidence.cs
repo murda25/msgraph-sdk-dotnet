@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="NicEvidence"/> and sets the default values.
-        /// </summary>
-        public NicEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.nicEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="NicEvidence"/></returns>

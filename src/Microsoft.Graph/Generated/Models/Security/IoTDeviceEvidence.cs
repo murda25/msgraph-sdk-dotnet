@@ -336,13 +336,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IoTDeviceEvidence"/> and sets the default values.
-        /// </summary>
-        public IoTDeviceEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.ioTDeviceEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IoTDeviceEvidence"/></returns>

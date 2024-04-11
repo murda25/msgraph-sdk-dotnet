@@ -64,13 +64,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IpAddress"/> and sets the default values.
-        /// </summary>
-        public IpAddress() : base()
-        {
-            OdataType = "#microsoft.graph.security.ipAddress";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IpAddress"/></returns>

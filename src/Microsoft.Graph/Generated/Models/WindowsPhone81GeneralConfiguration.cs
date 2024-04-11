@@ -165,13 +165,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("windowsStoreBlocked", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81GeneralConfiguration"/> and sets the default values.
-        /// </summary>
-        public WindowsPhone81GeneralConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windowsPhone81GeneralConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsPhone81GeneralConfiguration"/></returns>

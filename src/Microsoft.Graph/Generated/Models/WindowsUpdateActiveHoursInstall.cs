@@ -19,13 +19,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("activeHoursStart", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUpdateActiveHoursInstall"/> and sets the default values.
-        /// </summary>
-        public WindowsUpdateActiveHoursInstall() : base()
-        {
-            OdataType = "#microsoft.graph.windowsUpdateActiveHoursInstall";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsUpdateActiveHoursInstall"/></returns>

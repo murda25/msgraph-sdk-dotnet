@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MembersJoinedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public MembersJoinedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.membersJoinedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MembersJoinedEventMessageDetail"/></returns>

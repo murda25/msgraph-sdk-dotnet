@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("deliveryPreference", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="PositiveReinforcementNotification"/> and sets the default values.
-        /// </summary>
-        public PositiveReinforcementNotification() : base()
-        {
-            OdataType = "#microsoft.graph.positiveReinforcementNotification";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PositiveReinforcementNotification"/></returns>

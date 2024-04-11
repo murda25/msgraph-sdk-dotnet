@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class DisableAndDeleteUserApplyAction : AccessReviewApplyAction, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="DisableAndDeleteUserApplyAction"/> and sets the default values.
-        /// </summary>
-        public DisableAndDeleteUserApplyAction() : base()
-        {
-            OdataType = "#microsoft.graph.disableAndDeleteUserApplyAction";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DisableAndDeleteUserApplyAction"/></returns>

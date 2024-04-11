@@ -18,13 +18,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("trainingCompletionDuration", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftManagedTrainingSetting"/> and sets the default values.
-        /// </summary>
-        public MicrosoftManagedTrainingSetting() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftManagedTrainingSetting";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftManagedTrainingSetting"/></returns>

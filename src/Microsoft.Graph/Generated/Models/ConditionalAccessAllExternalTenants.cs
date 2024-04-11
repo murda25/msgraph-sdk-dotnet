@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ConditionalAccessAllExternalTenants : ConditionalAccessExternalTenants, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessAllExternalTenants"/> and sets the default values.
-        /// </summary>
-        public ConditionalAccessAllExternalTenants() : base()
-        {
-            OdataType = "#microsoft.graph.conditionalAccessAllExternalTenants";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ConditionalAccessAllExternalTenants"/></returns>

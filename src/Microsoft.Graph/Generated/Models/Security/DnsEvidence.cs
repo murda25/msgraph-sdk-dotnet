@@ -64,13 +64,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DnsEvidence"/> and sets the default values.
-        /// </summary>
-        public DnsEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.dnsEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DnsEvidence"/></returns>

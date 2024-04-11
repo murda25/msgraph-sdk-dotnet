@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("useDeviceContext", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftStoreForBusinessAppAssignmentSettings"/> and sets the default values.
-        /// </summary>
-        public MicrosoftStoreForBusinessAppAssignmentSettings() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftStoreForBusinessAppAssignmentSettings";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftStoreForBusinessAppAssignmentSettings"/></returns>

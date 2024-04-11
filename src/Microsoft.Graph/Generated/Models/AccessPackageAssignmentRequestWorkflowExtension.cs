@@ -60,13 +60,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageAssignmentRequestWorkflowExtension"/> and sets the default values.
-        /// </summary>
-        public AccessPackageAssignmentRequestWorkflowExtension() : base()
-        {
-            OdataType = "#microsoft.graph.accessPackageAssignmentRequestWorkflowExtension";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AccessPackageAssignmentRequestWorkflowExtension"/></returns>

@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SingleUser"/> and sets the default values.
-        /// </summary>
-        public SingleUser() : base()
-        {
-            OdataType = "#microsoft.graph.singleUser";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SingleUser"/></returns>

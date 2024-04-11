@@ -71,13 +71,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("unlockWithBiometricsEnabled", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceEnrollmentWindowsHelloForBusinessConfiguration"/> and sets the default values.
-        /// </summary>
-        public DeviceEnrollmentWindowsHelloForBusinessConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DeviceEnrollmentWindowsHelloForBusinessConfiguration"/></returns>

@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ClaimsMappingPolicy : StsPolicy, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ClaimsMappingPolicy"/> and sets the default values.
-        /// </summary>
-        public ClaimsMappingPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.claimsMappingPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ClaimsMappingPolicy"/></returns>

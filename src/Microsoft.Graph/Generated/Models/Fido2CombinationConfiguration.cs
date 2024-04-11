@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Fido2CombinationConfiguration"/> and sets the default values.
-        /// </summary>
-        public Fido2CombinationConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.fido2CombinationConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Fido2CombinationConfiguration"/></returns>

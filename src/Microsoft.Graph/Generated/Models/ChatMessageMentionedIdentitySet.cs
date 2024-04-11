@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ChatMessageMentionedIdentitySet"/> and sets the default values.
-        /// </summary>
-        public ChatMessageMentionedIdentitySet() : base()
-        {
-            OdataType = "#microsoft.graph.chatMessageMentionedIdentitySet";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ChatMessageMentionedIdentitySet"/></returns>

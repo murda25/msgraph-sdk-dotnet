@@ -111,13 +111,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("serviceType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="KubernetesServiceEvidence"/> and sets the default values.
-        /// </summary>
-        public KubernetesServiceEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.kubernetesServiceEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="KubernetesServiceEvidence"/></returns>

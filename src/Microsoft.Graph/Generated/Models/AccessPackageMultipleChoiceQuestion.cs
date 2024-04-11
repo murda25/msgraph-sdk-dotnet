@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isMultipleSelectionAllowed", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageMultipleChoiceQuestion"/> and sets the default values.
-        /// </summary>
-        public AccessPackageMultipleChoiceQuestion() : base()
-        {
-            OdataType = "#microsoft.graph.accessPackageMultipleChoiceQuestion";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AccessPackageMultipleChoiceQuestion"/></returns>

@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserSource"/> and sets the default values.
-        /// </summary>
-        public UserSource() : base()
-        {
-            OdataType = "#microsoft.graph.security.userSource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UserSource"/></returns>

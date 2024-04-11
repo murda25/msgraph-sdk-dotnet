@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class AllLicensedUsersAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="AllLicensedUsersAssignmentTarget"/> and sets the default values.
-        /// </summary>
-        public AllLicensedUsersAssignmentTarget() : base()
-        {
-            OdataType = "#microsoft.graph.allLicensedUsersAssignmentTarget";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AllLicensedUsersAssignmentTarget"/></returns>

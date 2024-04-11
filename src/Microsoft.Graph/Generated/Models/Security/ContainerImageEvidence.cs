@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContainerImageEvidence"/> and sets the default values.
-        /// </summary>
-        public ContainerImageEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.containerImageEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ContainerImageEvidence"/></returns>

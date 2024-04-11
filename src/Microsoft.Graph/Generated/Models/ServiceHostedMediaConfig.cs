@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ServiceHostedMediaConfig"/> and sets the default values.
-        /// </summary>
-        public ServiceHostedMediaConfig() : base()
-        {
-            OdataType = "#microsoft.graph.serviceHostedMediaConfig";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ServiceHostedMediaConfig"/></returns>

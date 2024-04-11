@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("utcTimeOffsetInMinutes", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosUpdateConfiguration"/> and sets the default values.
-        /// </summary>
-        public IosUpdateConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.iosUpdateConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosUpdateConfiguration"/></returns>

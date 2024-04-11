@@ -18,13 +18,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("maximumDuration", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedRoleManagementPolicyExpirationRule"/> and sets the default values.
-        /// </summary>
-        public UnifiedRoleManagementPolicyExpirationRule() : base()
-        {
-            OdataType = "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UnifiedRoleManagementPolicyExpirationRule"/></returns>

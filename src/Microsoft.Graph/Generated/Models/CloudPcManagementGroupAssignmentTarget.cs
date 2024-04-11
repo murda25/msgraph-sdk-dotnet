@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcManagementGroupAssignmentTarget"/> and sets the default values.
-        /// </summary>
-        public CloudPcManagementGroupAssignmentTarget() : base()
-        {
-            OdataType = "#microsoft.graph.cloudPcManagementGroupAssignmentTarget";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CloudPcManagementGroupAssignmentTarget"/></returns>

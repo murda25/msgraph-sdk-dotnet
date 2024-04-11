@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSubmissionIndividualRecipient"/> and sets the default values.
-        /// </summary>
-        public EducationSubmissionIndividualRecipient() : base()
-        {
-            OdataType = "#microsoft.graph.educationSubmissionIndividualRecipient";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationSubmissionIndividualRecipient"/></returns>

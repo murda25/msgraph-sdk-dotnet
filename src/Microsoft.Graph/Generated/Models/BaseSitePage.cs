@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BaseSitePage"/> and sets the default values.
-        /// </summary>
-        public BaseSitePage() : base()
-        {
-            OdataType = "#microsoft.graph.baseSitePage";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="BaseSitePage"/></returns>

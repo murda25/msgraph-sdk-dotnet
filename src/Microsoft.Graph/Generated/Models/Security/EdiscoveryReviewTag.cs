@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EdiscoveryReviewTag"/> and sets the default values.
-        /// </summary>
-        public EdiscoveryReviewTag() : base()
-        {
-            OdataType = "#microsoft.graph.security.ediscoveryReviewTag";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EdiscoveryReviewTag"/></returns>

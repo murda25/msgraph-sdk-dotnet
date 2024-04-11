@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resolveAvailability", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="LocationConstraintItem"/> and sets the default values.
-        /// </summary>
-        public LocationConstraintItem() : base()
-        {
-            OdataType = "#microsoft.graph.locationConstraintItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="LocationConstraintItem"/></returns>

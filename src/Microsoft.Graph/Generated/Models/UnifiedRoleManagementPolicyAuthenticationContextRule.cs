@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isEnabled", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedRoleManagementPolicyAuthenticationContextRule"/> and sets the default values.
-        /// </summary>
-        public UnifiedRoleManagementPolicyAuthenticationContextRule() : base()
-        {
-            OdataType = "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UnifiedRoleManagementPolicyAuthenticationContextRule"/></returns>

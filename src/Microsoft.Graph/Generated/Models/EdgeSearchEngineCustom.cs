@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EdgeSearchEngineCustom"/> and sets the default values.
-        /// </summary>
-        public EdgeSearchEngineCustom() : base()
-        {
-            OdataType = "#microsoft.graph.edgeSearchEngineCustom";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EdgeSearchEngineCustom"/></returns>

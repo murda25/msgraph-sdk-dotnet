@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
             set { BackingStore?.Set("operationStatus", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomTaskExtensionCallbackData"/> and sets the default values.
-        /// </summary>
-        public CustomTaskExtensionCallbackData() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.customTaskExtensionCallbackData";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CustomTaskExtensionCallbackData"/></returns>

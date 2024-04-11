@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class WindowsInformationProtectionStoreApp : WindowsInformationProtectionApp, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="WindowsInformationProtectionStoreApp"/> and sets the default values.
-        /// </summary>
-        public WindowsInformationProtectionStoreApp() : base()
-        {
-            OdataType = "#microsoft.graph.windowsInformationProtectionStoreApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsInformationProtectionStoreApp"/></returns>

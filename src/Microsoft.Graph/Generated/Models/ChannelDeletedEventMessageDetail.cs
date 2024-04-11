@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ChannelDeletedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public ChannelDeletedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.channelDeletedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ChannelDeletedEventMessageDetail"/></returns>

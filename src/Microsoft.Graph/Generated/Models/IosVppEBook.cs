@@ -96,13 +96,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("vppTokenId", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosVppEBook"/> and sets the default values.
-        /// </summary>
-        public IosVppEBook() : base()
-        {
-            OdataType = "#microsoft.graph.iosVppEBook";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosVppEBook"/></returns>

@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MediaPrompt"/> and sets the default values.
-        /// </summary>
-        public MediaPrompt() : base()
-        {
-            OdataType = "#microsoft.graph.mediaPrompt";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MediaPrompt"/></returns>

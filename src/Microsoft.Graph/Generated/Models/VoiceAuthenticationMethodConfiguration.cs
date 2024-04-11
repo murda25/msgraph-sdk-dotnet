@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isOfficePhoneAllowed", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="VoiceAuthenticationMethodConfiguration"/> and sets the default values.
-        /// </summary>
-        public VoiceAuthenticationMethodConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.voiceAuthenticationMethodConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="VoiceAuthenticationMethodConfiguration"/></returns>

@@ -60,13 +60,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("shouldCaptureMinorVersion", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="DocumentSetVersion"/> and sets the default values.
-        /// </summary>
-        public DocumentSetVersion() : base()
-        {
-            OdataType = "#microsoft.graph.documentSetVersion";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DocumentSetVersion"/></returns>

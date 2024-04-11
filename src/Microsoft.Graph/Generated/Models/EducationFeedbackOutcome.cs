@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationFeedbackOutcome"/> and sets the default values.
-        /// </summary>
-        public EducationFeedbackOutcome() : base()
-        {
-            OdataType = "#microsoft.graph.educationFeedbackOutcome";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationFeedbackOutcome"/></returns>

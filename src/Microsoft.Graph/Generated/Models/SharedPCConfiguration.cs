@@ -99,13 +99,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("maintenanceStartTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="SharedPCConfiguration"/> and sets the default values.
-        /// </summary>
-        public SharedPCConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.sharedPCConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SharedPCConfiguration"/></returns>

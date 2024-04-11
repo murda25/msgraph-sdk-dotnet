@@ -55,13 +55,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageAssignmentRequestCallbackData"/> and sets the default values.
-        /// </summary>
-        public AccessPackageAssignmentRequestCallbackData() : base()
-        {
-            OdataType = "#microsoft.graph.accessPackageAssignmentRequestCallbackData";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AccessPackageAssignmentRequestCallbackData"/></returns>

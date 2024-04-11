@@ -110,13 +110,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUniversalAppX"/> and sets the default values.
-        /// </summary>
-        public WindowsUniversalAppX() : base()
-        {
-            OdataType = "#microsoft.graph.windowsUniversalAppX";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsUniversalAppX"/></returns>

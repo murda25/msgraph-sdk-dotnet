@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OpenTypeExtension"/> and sets the default values.
-        /// </summary>
-        public OpenTypeExtension() : base()
-        {
-            OdataType = "#microsoft.graph.openTypeExtension";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OpenTypeExtension"/></returns>

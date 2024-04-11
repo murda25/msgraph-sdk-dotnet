@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GroupMembers"/> and sets the default values.
-        /// </summary>
-        public GroupMembers() : base()
-        {
-            OdataType = "#microsoft.graph.groupMembers";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="GroupMembers"/></returns>

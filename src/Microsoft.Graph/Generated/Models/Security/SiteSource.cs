@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SiteSource"/> and sets the default values.
-        /// </summary>
-        public SiteSource() : base()
-        {
-            OdataType = "#microsoft.graph.security.siteSource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SiteSource"/></returns>

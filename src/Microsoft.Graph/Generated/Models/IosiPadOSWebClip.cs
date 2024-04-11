@@ -30,13 +30,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("useManagedBrowser", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosiPadOSWebClip"/> and sets the default values.
-        /// </summary>
-        public IosiPadOSWebClip() : base()
-        {
-            OdataType = "#microsoft.graph.iosiPadOSWebClip";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosiPadOSWebClip"/></returns>

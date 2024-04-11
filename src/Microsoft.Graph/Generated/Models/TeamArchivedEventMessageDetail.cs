@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamArchivedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public TeamArchivedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.teamArchivedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TeamArchivedEventMessageDetail"/></returns>

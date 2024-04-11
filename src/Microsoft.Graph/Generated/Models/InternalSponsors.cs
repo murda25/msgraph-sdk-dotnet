@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class InternalSponsors : SubjectSet, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="InternalSponsors"/> and sets the default values.
-        /// </summary>
-        public InternalSponsors() : base()
-        {
-            OdataType = "#microsoft.graph.internalSponsors";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="InternalSponsors"/></returns>

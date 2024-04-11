@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnenoteResource"/> and sets the default values.
-        /// </summary>
-        public OnenoteResource() : base()
-        {
-            OdataType = "#microsoft.graph.onenoteResource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OnenoteResource"/></returns>

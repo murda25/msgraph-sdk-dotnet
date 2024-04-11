@@ -74,13 +74,6 @@ namespace Microsoft.Graph.Models.CallRecords {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ParticipantEndpoint"/> and sets the default values.
-        /// </summary>
-        public ParticipantEndpoint() : base()
-        {
-            OdataType = "#microsoft.graph.callRecords.participantEndpoint";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ParticipantEndpoint"/></returns>

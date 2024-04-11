@@ -60,13 +60,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomTaskExtension"/> and sets the default values.
-        /// </summary>
-        public CustomTaskExtension() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.customTaskExtension";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CustomTaskExtension"/></returns>

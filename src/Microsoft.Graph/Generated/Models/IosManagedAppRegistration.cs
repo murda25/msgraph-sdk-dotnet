@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class IosManagedAppRegistration : ManagedAppRegistration, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="IosManagedAppRegistration"/> and sets the default values.
-        /// </summary>
-        public IosManagedAppRegistration() : base()
-        {
-            OdataType = "#microsoft.graph.iosManagedAppRegistration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosManagedAppRegistration"/></returns>

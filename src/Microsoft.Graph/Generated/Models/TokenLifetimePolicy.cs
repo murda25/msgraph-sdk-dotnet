@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TokenLifetimePolicy : StsPolicy, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TokenLifetimePolicy"/> and sets the default values.
-        /// </summary>
-        public TokenLifetimePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.tokenLifetimePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TokenLifetimePolicy"/></returns>

@@ -87,13 +87,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BookingStaffMember"/> and sets the default values.
-        /// </summary>
-        public BookingStaffMember() : base()
-        {
-            OdataType = "#microsoft.graph.bookingStaffMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="BookingStaffMember"/></returns>

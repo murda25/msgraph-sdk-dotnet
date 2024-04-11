@@ -65,13 +65,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudApplicationEvidence"/> and sets the default values.
-        /// </summary>
-        public CloudApplicationEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.cloudApplicationEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CloudApplicationEvidence"/></returns>

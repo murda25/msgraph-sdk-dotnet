@@ -60,13 +60,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HostTracker"/> and sets the default values.
-        /// </summary>
-        public HostTracker() : base()
-        {
-            OdataType = "#microsoft.graph.security.hostTracker";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="HostTracker"/></returns>

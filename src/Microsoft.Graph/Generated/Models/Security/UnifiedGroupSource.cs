@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("includedSources", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedGroupSource"/> and sets the default values.
-        /// </summary>
-        public UnifiedGroupSource() : base()
-        {
-            OdataType = "#microsoft.graph.security.unifiedGroupSource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UnifiedGroupSource"/></returns>

@@ -78,13 +78,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Win32LobAppPowerShellScriptRule"/> and sets the default values.
-        /// </summary>
-        public Win32LobAppPowerShellScriptRule() : base()
-        {
-            OdataType = "#microsoft.graph.win32LobAppPowerShellScriptRule";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Win32LobAppPowerShellScriptRule"/></returns>

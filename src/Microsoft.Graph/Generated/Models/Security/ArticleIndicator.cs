@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.Security {
     public class ArticleIndicator : Indicator, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ArticleIndicator"/> and sets the default values.
-        /// </summary>
-        public ArticleIndicator() : base()
-        {
-            OdataType = "#microsoft.graph.security.articleIndicator";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ArticleIndicator"/></returns>

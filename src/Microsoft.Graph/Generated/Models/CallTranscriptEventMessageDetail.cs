@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CallTranscriptEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public CallTranscriptEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.callTranscriptEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CallTranscriptEventMessageDetail"/></returns>

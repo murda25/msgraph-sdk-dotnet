@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceStatus", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EducationFeedbackResourceOutcome"/> and sets the default values.
-        /// </summary>
-        public EducationFeedbackResourceOutcome() : base()
-        {
-            OdataType = "#microsoft.graph.educationFeedbackResourceOutcome";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationFeedbackResourceOutcome"/></returns>

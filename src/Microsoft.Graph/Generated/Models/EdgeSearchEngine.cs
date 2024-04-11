@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("edgeSearchEngineType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EdgeSearchEngine"/> and sets the default values.
-        /// </summary>
-        public EdgeSearchEngine() : base()
-        {
-            OdataType = "#microsoft.graph.edgeSearchEngine";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EdgeSearchEngine"/></returns>

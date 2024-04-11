@@ -30,13 +30,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isAssigned", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TargetedManagedAppProtection"/> and sets the default values.
-        /// </summary>
-        public TargetedManagedAppProtection() : base()
-        {
-            OdataType = "#microsoft.graph.targetedManagedAppProtection";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TargetedManagedAppProtection"/></returns>

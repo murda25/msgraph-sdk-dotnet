@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("days", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetentionDurationInDays"/> and sets the default values.
-        /// </summary>
-        public RetentionDurationInDays() : base()
-        {
-            OdataType = "#microsoft.graph.security.retentionDurationInDays";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="RetentionDurationInDays"/></returns>

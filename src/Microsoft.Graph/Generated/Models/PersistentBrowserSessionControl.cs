@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("mode", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="PersistentBrowserSessionControl"/> and sets the default values.
-        /// </summary>
-        public PersistentBrowserSessionControl() : base()
-        {
-            OdataType = "#microsoft.graph.persistentBrowserSessionControl";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PersistentBrowserSessionControl"/></returns>

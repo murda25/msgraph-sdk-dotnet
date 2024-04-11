@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
             set { BackingStore?.Set("versionNumber", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WorkflowVersion"/> and sets the default values.
-        /// </summary>
-        public WorkflowVersion() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.workflowVersion";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WorkflowVersion"/></returns>

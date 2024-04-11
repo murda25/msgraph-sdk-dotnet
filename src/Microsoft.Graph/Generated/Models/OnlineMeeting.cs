@@ -112,13 +112,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnlineMeeting"/> and sets the default values.
-        /// </summary>
-        public OnlineMeeting() : base()
-        {
-            OdataType = "#microsoft.graph.onlineMeeting";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OnlineMeeting"/></returns>

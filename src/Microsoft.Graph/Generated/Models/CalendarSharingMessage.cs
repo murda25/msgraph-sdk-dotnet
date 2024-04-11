@@ -55,13 +55,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CalendarSharingMessage"/> and sets the default values.
-        /// </summary>
-        public CalendarSharingMessage() : base()
-        {
-            OdataType = "#microsoft.graph.calendarSharingMessage";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CalendarSharingMessage"/></returns>

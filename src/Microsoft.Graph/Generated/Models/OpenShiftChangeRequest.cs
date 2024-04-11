@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OpenShiftChangeRequest"/> and sets the default values.
-        /// </summary>
-        public OpenShiftChangeRequest() : base()
-        {
-            OdataType = "#microsoft.graph.openShiftChangeRequest";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OpenShiftChangeRequest"/></returns>

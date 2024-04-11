@@ -18,13 +18,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
             set { BackingStore?.Set("timeBasedAttribute", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TimeBasedAttributeTrigger"/> and sets the default values.
-        /// </summary>
-        public TimeBasedAttributeTrigger() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TimeBasedAttributeTrigger"/></returns>

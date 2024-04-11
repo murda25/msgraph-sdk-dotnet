@@ -46,13 +46,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("keyStrength", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsHelloForBusinessAuthenticationMethod"/> and sets the default values.
-        /// </summary>
-        public WindowsHelloForBusinessAuthenticationMethod() : base()
-        {
-            OdataType = "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsHelloForBusinessAuthenticationMethod"/></returns>

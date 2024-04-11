@@ -169,13 +169,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceEvidence"/> and sets the default values.
-        /// </summary>
-        public DeviceEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.deviceEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DeviceEvidence"/></returns>

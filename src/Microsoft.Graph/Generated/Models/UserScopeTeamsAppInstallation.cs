@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserScopeTeamsAppInstallation"/> and sets the default values.
-        /// </summary>
-        public UserScopeTeamsAppInstallation() : base()
-        {
-            OdataType = "#microsoft.graph.userScopeTeamsAppInstallation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UserScopeTeamsAppInstallation"/></returns>

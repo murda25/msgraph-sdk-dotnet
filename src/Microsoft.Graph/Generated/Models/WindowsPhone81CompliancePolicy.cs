@@ -84,13 +84,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("storageRequireEncryption", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81CompliancePolicy"/> and sets the default values.
-        /// </summary>
-        public WindowsPhone81CompliancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.windowsPhone81CompliancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsPhone81CompliancePolicy"/></returns>

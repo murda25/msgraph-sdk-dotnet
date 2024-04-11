@@ -53,13 +53,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSCustomConfiguration"/> and sets the default values.
-        /// </summary>
-        public MacOSCustomConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.macOSCustomConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSCustomConfiguration"/></returns>

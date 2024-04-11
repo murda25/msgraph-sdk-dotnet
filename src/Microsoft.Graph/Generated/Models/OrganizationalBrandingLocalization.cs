@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class OrganizationalBrandingLocalization : OrganizationalBrandingProperties, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="OrganizationalBrandingLocalization"/> and sets the default values.
-        /// </summary>
-        public OrganizationalBrandingLocalization() : base()
-        {
-            OdataType = "#microsoft.graph.organizationalBrandingLocalization";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OrganizationalBrandingLocalization"/></returns>

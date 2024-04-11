@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DomainIdentitySource"/> and sets the default values.
-        /// </summary>
-        public DomainIdentitySource() : base()
-        {
-            OdataType = "#microsoft.graph.domainIdentitySource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DomainIdentitySource"/></returns>

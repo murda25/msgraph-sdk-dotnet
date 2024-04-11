@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("inactiveDuration", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewInactiveUsersQueryScope"/> and sets the default values.
-        /// </summary>
-        public AccessReviewInactiveUsersQueryScope() : base()
-        {
-            OdataType = "#microsoft.graph.accessReviewInactiveUsersQueryScope";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AccessReviewInactiveUsersQueryScope"/></returns>

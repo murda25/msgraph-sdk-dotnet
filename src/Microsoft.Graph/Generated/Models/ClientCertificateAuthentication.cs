@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClientCertificateAuthentication"/> and sets the default values.
-        /// </summary>
-        public ClientCertificateAuthentication() : base()
-        {
-            OdataType = "#microsoft.graph.clientCertificateAuthentication";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ClientCertificateAuthentication"/></returns>

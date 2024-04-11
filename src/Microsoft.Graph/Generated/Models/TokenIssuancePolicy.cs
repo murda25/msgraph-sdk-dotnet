@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TokenIssuancePolicy : StsPolicy, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TokenIssuancePolicy"/> and sets the default values.
-        /// </summary>
-        public TokenIssuancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.tokenIssuancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TokenIssuancePolicy"/></returns>

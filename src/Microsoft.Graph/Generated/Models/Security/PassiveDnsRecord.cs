@@ -65,13 +65,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PassiveDnsRecord"/> and sets the default values.
-        /// </summary>
-        public PassiveDnsRecord() : base()
-        {
-            OdataType = "#microsoft.graph.security.passiveDnsRecord";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PassiveDnsRecord"/></returns>

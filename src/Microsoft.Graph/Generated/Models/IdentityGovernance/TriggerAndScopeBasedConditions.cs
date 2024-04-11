@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TriggerAndScopeBasedConditions"/> and sets the default values.
-        /// </summary>
-        public TriggerAndScopeBasedConditions() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TriggerAndScopeBasedConditions"/></returns>

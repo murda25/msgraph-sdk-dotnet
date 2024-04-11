@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MeetingPolicyUpdatedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public MeetingPolicyUpdatedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.meetingPolicyUpdatedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MeetingPolicyUpdatedEventMessageDetail"/></returns>

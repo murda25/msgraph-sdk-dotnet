@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TargetApplicationOwners : SubjectSet, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TargetApplicationOwners"/> and sets the default values.
-        /// </summary>
-        public TargetApplicationOwners() : base()
-        {
-            OdataType = "#microsoft.graph.targetApplicationOwners";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TargetApplicationOwners"/></returns>

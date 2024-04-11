@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ExternalSponsors : SubjectSet, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ExternalSponsors"/> and sets the default values.
-        /// </summary>
-        public ExternalSponsors() : base()
-        {
-            OdataType = "#microsoft.graph.externalSponsors";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ExternalSponsors"/></returns>

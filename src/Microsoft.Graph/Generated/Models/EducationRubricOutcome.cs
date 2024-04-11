@@ -64,13 +64,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationRubricOutcome"/> and sets the default values.
-        /// </summary>
-        public EducationRubricOutcome() : base()
-        {
-            OdataType = "#microsoft.graph.educationRubricOutcome";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationRubricOutcome"/></returns>

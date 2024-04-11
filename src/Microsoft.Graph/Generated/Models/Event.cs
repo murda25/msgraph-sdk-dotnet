@@ -443,13 +443,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Event"/> and sets the default values.
-        /// </summary>
-        public Event() : base()
-        {
-            OdataType = "#microsoft.graph.event";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Event"/></returns>

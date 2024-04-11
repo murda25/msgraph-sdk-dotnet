@@ -93,13 +93,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userRole", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Notebook"/> and sets the default values.
-        /// </summary>
-        public Notebook() : base()
-        {
-            OdataType = "#microsoft.graph.notebook";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Notebook"/></returns>

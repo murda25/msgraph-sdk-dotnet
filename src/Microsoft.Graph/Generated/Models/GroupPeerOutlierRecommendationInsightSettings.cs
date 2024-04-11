@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class GroupPeerOutlierRecommendationInsightSettings : AccessReviewRecommendationInsightSetting, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="GroupPeerOutlierRecommendationInsightSettings"/> and sets the default values.
-        /// </summary>
-        public GroupPeerOutlierRecommendationInsightSettings() : base()
-        {
-            OdataType = "#microsoft.graph.groupPeerOutlierRecommendationInsightSettings";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="GroupPeerOutlierRecommendationInsightSettings"/></returns>

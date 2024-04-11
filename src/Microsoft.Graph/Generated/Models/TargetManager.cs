@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("managerLevel", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TargetManager"/> and sets the default values.
-        /// </summary>
-        public TargetManager() : base()
-        {
-            OdataType = "#microsoft.graph.targetManager";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TargetManager"/></returns>

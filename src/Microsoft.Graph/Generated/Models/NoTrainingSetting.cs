@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class NoTrainingSetting : TrainingSetting, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="NoTrainingSetting"/> and sets the default values.
-        /// </summary>
-        public NoTrainingSetting() : base()
-        {
-            OdataType = "#microsoft.graph.noTrainingSetting";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="NoTrainingSetting"/></returns>

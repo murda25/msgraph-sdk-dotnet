@@ -60,13 +60,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HostSslCertificate"/> and sets the default values.
-        /// </summary>
-        public HostSslCertificate() : base()
-        {
-            OdataType = "#microsoft.graph.security.hostSslCertificate";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="HostSslCertificate"/></returns>

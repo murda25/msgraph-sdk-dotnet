@@ -112,13 +112,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SslCertificate"/> and sets the default values.
-        /// </summary>
-        public SslCertificate() : base()
-        {
-            OdataType = "#microsoft.graph.security.sslCertificate";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SslCertificate"/></returns>

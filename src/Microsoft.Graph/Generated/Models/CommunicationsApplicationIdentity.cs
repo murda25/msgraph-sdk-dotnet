@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("hidden", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="CommunicationsApplicationIdentity"/> and sets the default values.
-        /// </summary>
-        public CommunicationsApplicationIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.communicationsApplicationIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CommunicationsApplicationIdentity"/></returns>

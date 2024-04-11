@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ReferenceAttachment : Attachment, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ReferenceAttachment"/> and sets the default values.
-        /// </summary>
-        public ReferenceAttachment() : base()
-        {
-            OdataType = "#microsoft.graph.referenceAttachment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ReferenceAttachment"/></returns>

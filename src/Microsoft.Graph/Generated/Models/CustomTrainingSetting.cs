@@ -69,13 +69,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomTrainingSetting"/> and sets the default values.
-        /// </summary>
-        public CustomTrainingSetting() : base()
-        {
-            OdataType = "#microsoft.graph.customTrainingSetting";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CustomTrainingSetting"/></returns>

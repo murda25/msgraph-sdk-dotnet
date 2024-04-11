@@ -58,13 +58,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("size", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MobileLobApp"/> and sets the default values.
-        /// </summary>
-        public MobileLobApp() : base()
-        {
-            OdataType = "#microsoft.graph.mobileLobApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MobileLobApp"/></returns>

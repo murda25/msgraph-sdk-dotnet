@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MailboxEvidence"/> and sets the default values.
-        /// </summary>
-        public MailboxEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.mailboxEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MailboxEvidence"/></returns>

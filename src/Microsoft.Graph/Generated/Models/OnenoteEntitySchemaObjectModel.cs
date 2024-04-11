@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("createdDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnenoteEntitySchemaObjectModel"/> and sets the default values.
-        /// </summary>
-        public OnenoteEntitySchemaObjectModel() : base()
-        {
-            OdataType = "#microsoft.graph.onenoteEntitySchemaObjectModel";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OnenoteEntitySchemaObjectModel"/></returns>

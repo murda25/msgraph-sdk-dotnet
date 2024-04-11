@@ -125,13 +125,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("screenCaptureBlocked", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="DefaultManagedAppProtection"/> and sets the default values.
-        /// </summary>
-        public DefaultManagedAppProtection() : base()
-        {
-            OdataType = "#microsoft.graph.defaultManagedAppProtection";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DefaultManagedAppProtection"/></returns>

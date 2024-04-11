@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class MacOSDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="MacOSDeviceFeaturesConfiguration"/> and sets the default values.
-        /// </summary>
-        public MacOSDeviceFeaturesConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.macOSDeviceFeaturesConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSDeviceFeaturesConfiguration"/></returns>

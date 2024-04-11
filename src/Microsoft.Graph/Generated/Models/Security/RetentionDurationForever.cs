@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.Security {
     public class RetentionDurationForever : RetentionDuration, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="RetentionDurationForever"/> and sets the default values.
-        /// </summary>
-        public RetentionDurationForever() : base()
-        {
-            OdataType = "#microsoft.graph.security.retentionDurationForever";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="RetentionDurationForever"/></returns>

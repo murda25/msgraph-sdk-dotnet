@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationChannelResource"/> and sets the default values.
-        /// </summary>
-        public EducationChannelResource() : base()
-        {
-            OdataType = "#microsoft.graph.educationChannelResource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationChannelResource"/></returns>

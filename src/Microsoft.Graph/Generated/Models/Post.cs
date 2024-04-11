@@ -172,13 +172,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Post"/> and sets the default values.
-        /// </summary>
-        public Post() : base()
-        {
-            OdataType = "#microsoft.graph.post";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Post"/></returns>

@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="FileHashEvidence"/> and sets the default values.
-        /// </summary>
-        public FileHashEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.fileHashEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="FileHashEvidence"/></returns>

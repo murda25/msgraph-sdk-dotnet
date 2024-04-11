@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("userIdentityType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkUserIdentity"/> and sets the default values.
-        /// </summary>
-        public TeamworkUserIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.teamworkUserIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TeamworkUserIdentity"/></returns>

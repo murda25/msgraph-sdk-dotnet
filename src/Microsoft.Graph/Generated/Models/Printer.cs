@@ -70,13 +70,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Printer"/> and sets the default values.
-        /// </summary>
-        public Printer() : base()
-        {
-            OdataType = "#microsoft.graph.printer";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Printer"/></returns>

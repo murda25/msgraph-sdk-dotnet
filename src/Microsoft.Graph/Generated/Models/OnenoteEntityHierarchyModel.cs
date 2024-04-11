@@ -55,13 +55,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastModifiedDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnenoteEntityHierarchyModel"/> and sets the default values.
-        /// </summary>
-        public OnenoteEntityHierarchyModel() : base()
-        {
-            OdataType = "#microsoft.graph.onenoteEntityHierarchyModel";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OnenoteEntityHierarchyModel"/></returns>

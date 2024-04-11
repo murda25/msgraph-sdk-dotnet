@@ -106,13 +106,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ListItem"/> and sets the default values.
-        /// </summary>
-        public ListItem() : base()
-        {
-            OdataType = "#microsoft.graph.listItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ListItem"/></returns>

@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ChatRenamedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public ChatRenamedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.chatRenamedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ChatRenamedEventMessageDetail"/></returns>

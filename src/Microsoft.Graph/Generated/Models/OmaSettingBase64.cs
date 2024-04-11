@@ -39,13 +39,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OmaSettingBase64"/> and sets the default values.
-        /// </summary>
-        public OmaSettingBase64() : base()
-        {
-            OdataType = "#microsoft.graph.omaSettingBase64";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OmaSettingBase64"/></returns>

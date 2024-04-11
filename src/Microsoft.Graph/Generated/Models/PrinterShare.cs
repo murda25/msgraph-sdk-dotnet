@@ -74,13 +74,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrinterShare"/> and sets the default values.
-        /// </summary>
-        public PrinterShare() : base()
-        {
-            OdataType = "#microsoft.graph.printerShare";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PrinterShare"/></returns>

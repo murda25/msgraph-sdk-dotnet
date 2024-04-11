@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ApplicationEnforcedRestrictionsSessionControl : ConditionalAccessSessionControl, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ApplicationEnforcedRestrictionsSessionControl"/> and sets the default values.
-        /// </summary>
-        public ApplicationEnforcedRestrictionsSessionControl() : base()
-        {
-            OdataType = "#microsoft.graph.applicationEnforcedRestrictionsSessionControl";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ApplicationEnforcedRestrictionsSessionControl"/></returns>

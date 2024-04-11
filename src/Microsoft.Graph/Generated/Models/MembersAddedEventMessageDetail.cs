@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("visibleHistoryStartDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MembersAddedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public MembersAddedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.membersAddedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MembersAddedEventMessageDetail"/></returns>

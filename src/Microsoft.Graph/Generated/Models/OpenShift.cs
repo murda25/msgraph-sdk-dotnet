@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OpenShift"/> and sets the default values.
-        /// </summary>
-        public OpenShift() : base()
-        {
-            OdataType = "#microsoft.graph.openShift";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OpenShift"/></returns>

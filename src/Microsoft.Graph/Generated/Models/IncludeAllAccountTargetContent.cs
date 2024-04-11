@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class IncludeAllAccountTargetContent : AccountTargetContent, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="IncludeAllAccountTargetContent"/> and sets the default values.
-        /// </summary>
-        public IncludeAllAccountTargetContent() : base()
-        {
-            OdataType = "#microsoft.graph.includeAllAccountTargetContent";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IncludeAllAccountTargetContent"/></returns>

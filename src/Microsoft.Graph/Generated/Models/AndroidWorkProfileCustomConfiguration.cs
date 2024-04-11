@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidWorkProfileCustomConfiguration"/> and sets the default values.
-        /// </summary>
-        public AndroidWorkProfileCustomConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.androidWorkProfileCustomConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AndroidWorkProfileCustomConfiguration"/></returns>

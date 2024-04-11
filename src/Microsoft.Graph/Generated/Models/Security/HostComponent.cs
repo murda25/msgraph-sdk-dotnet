@@ -74,13 +74,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HostComponent"/> and sets the default values.
-        /// </summary>
-        public HostComponent() : base()
-        {
-            OdataType = "#microsoft.graph.security.hostComponent";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="HostComponent"/></returns>

@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("uninstallBuiltInApps", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10EnterpriseModernAppManagementConfiguration"/> and sets the default values.
-        /// </summary>
-        public Windows10EnterpriseModernAppManagementConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Windows10EnterpriseModernAppManagementConfiguration"/></returns>

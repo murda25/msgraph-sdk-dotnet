@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class MacOSOfficeSuiteApp : MobileApp, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="MacOSOfficeSuiteApp"/> and sets the default values.
-        /// </summary>
-        public MacOSOfficeSuiteApp() : base()
-        {
-            OdataType = "#microsoft.graph.macOSOfficeSuiteApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSOfficeSuiteApp"/></returns>

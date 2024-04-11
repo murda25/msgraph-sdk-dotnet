@@ -203,13 +203,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows81GeneralConfiguration"/> and sets the default values.
-        /// </summary>
-        public Windows81GeneralConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windows81GeneralConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Windows81GeneralConfiguration"/></returns>

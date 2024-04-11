@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class CommunicationsPhoneIdentity : Identity, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="CommunicationsPhoneIdentity"/> and sets the default values.
-        /// </summary>
-        public CommunicationsPhoneIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.communicationsPhoneIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CommunicationsPhoneIdentity"/></returns>

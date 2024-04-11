@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class DeviceAndAppManagementRoleDefinition : RoleDefinition, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceAndAppManagementRoleDefinition"/> and sets the default values.
-        /// </summary>
-        public DeviceAndAppManagementRoleDefinition() : base()
-        {
-            OdataType = "#microsoft.graph.deviceAndAppManagementRoleDefinition";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DeviceAndAppManagementRoleDefinition"/></returns>

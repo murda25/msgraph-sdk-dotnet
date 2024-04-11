@@ -47,13 +47,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("minimumLifetimeInMinutes", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TemporaryAccessPassAuthenticationMethodConfiguration"/> and sets the default values.
-        /// </summary>
-        public TemporaryAccessPassAuthenticationMethodConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TemporaryAccessPassAuthenticationMethodConfiguration"/></returns>

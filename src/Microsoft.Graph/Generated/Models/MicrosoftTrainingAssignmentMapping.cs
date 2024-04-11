@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftTrainingAssignmentMapping"/> and sets the default values.
-        /// </summary>
-        public MicrosoftTrainingAssignmentMapping() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftTrainingAssignmentMapping";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftTrainingAssignmentMapping"/></returns>

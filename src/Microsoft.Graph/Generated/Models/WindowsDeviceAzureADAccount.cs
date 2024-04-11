@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDeviceAzureADAccount"/> and sets the default values.
-        /// </summary>
-        public WindowsDeviceAzureADAccount() : base()
-        {
-            OdataType = "#microsoft.graph.windowsDeviceAzureADAccount";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsDeviceAzureADAccount"/></returns>

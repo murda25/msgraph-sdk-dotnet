@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class IosCertificateProfile : DeviceConfiguration, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="IosCertificateProfile"/> and sets the default values.
-        /// </summary>
-        public IosCertificateProfile() : base()
-        {
-            OdataType = "#microsoft.graph.iosCertificateProfile";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosCertificateProfile"/></returns>

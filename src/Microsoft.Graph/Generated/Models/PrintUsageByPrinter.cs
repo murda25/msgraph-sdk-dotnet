@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrintUsageByPrinter"/> and sets the default values.
-        /// </summary>
-        public PrintUsageByPrinter() : base()
-        {
-            OdataType = "#microsoft.graph.printUsageByPrinter";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PrintUsageByPrinter"/></returns>

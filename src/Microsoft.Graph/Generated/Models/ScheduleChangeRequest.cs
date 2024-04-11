@@ -84,13 +84,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("state", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="ScheduleChangeRequest"/> and sets the default values.
-        /// </summary>
-        public ScheduleChangeRequest() : base()
-        {
-            OdataType = "#microsoft.graph.scheduleChangeRequest";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ScheduleChangeRequest"/></returns>

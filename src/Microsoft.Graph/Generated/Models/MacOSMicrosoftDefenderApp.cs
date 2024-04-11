@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class MacOSMicrosoftDefenderApp : MobileApp, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="MacOSMicrosoftDefenderApp"/> and sets the default values.
-        /// </summary>
-        public MacOSMicrosoftDefenderApp() : base()
-        {
-            OdataType = "#microsoft.graph.macOSMicrosoftDefenderApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSMicrosoftDefenderApp"/></returns>

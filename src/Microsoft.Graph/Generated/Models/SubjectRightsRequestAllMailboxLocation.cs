@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class SubjectRightsRequestAllMailboxLocation : SubjectRightsRequestMailboxLocation, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="SubjectRightsRequestAllMailboxLocation"/> and sets the default values.
-        /// </summary>
-        public SubjectRightsRequestAllMailboxLocation() : base()
-        {
-            OdataType = "#microsoft.graph.subjectRightsRequestAllMailboxLocation";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SubjectRightsRequestAllMailboxLocation"/></returns>

@@ -347,13 +347,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Message"/> and sets the default values.
-        /// </summary>
-        public Message() : base()
-        {
-            OdataType = "#microsoft.graph.message";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Message"/></returns>

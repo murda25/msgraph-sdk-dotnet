@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("responseType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EventMessageResponse"/> and sets the default values.
-        /// </summary>
-        public EventMessageResponse() : base()
-        {
-            OdataType = "#microsoft.graph.eventMessageResponse";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EventMessageResponse"/></returns>

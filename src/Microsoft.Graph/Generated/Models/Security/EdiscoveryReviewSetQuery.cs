@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.Security {
     public class EdiscoveryReviewSetQuery : Search, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="EdiscoveryReviewSetQuery"/> and sets the default values.
-        /// </summary>
-        public EdiscoveryReviewSetQuery() : base()
-        {
-            OdataType = "#microsoft.graph.security.ediscoveryReviewSetQuery";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EdiscoveryReviewSetQuery"/></returns>

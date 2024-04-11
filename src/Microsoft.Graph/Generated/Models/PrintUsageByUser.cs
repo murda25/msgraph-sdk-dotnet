@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrintUsageByUser"/> and sets the default values.
-        /// </summary>
-        public PrintUsageByUser() : base()
-        {
-            OdataType = "#microsoft.graph.printUsageByUser";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PrintUsageByUser"/></returns>

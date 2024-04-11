@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BasicAuthentication"/> and sets the default values.
-        /// </summary>
-        public BasicAuthentication() : base()
-        {
-            OdataType = "#microsoft.graph.basicAuthentication";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="BasicAuthentication"/></returns>

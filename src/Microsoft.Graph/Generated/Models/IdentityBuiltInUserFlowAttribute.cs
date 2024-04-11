@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class IdentityBuiltInUserFlowAttribute : IdentityUserFlowAttribute, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="IdentityBuiltInUserFlowAttribute"/> and sets the default values.
-        /// </summary>
-        public IdentityBuiltInUserFlowAttribute() : base()
-        {
-            OdataType = "#microsoft.graph.identityBuiltInUserFlowAttribute";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IdentityBuiltInUserFlowAttribute"/></returns>

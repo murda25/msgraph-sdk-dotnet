@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftAccountUserConversationMember"/> and sets the default values.
-        /// </summary>
-        public MicrosoftAccountUserConversationMember() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftAccountUserConversationMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftAccountUserConversationMember"/></returns>

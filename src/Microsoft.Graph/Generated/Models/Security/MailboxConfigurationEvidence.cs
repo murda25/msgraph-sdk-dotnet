@@ -74,13 +74,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MailboxConfigurationEvidence"/> and sets the default values.
-        /// </summary>
-        public MailboxConfigurationEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.mailboxConfigurationEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MailboxConfigurationEvidence"/></returns>

@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class AccessPackageUserDirectoryAttributeStore : AccessPackageResourceAttributeDestination, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageUserDirectoryAttributeStore"/> and sets the default values.
-        /// </summary>
-        public AccessPackageUserDirectoryAttributeStore() : base()
-        {
-            OdataType = "#microsoft.graph.accessPackageUserDirectoryAttributeStore";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AccessPackageUserDirectoryAttributeStore"/></returns>

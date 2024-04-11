@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedRoleManagementPolicyApprovalRule"/> and sets the default values.
-        /// </summary>
-        public UnifiedRoleManagementPolicyApprovalRule() : base()
-        {
-            OdataType = "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UnifiedRoleManagementPolicyApprovalRule"/></returns>

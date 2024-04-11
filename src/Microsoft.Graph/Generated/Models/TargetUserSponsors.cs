@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TargetUserSponsors : SubjectSet, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TargetUserSponsors"/> and sets the default values.
-        /// </summary>
-        public TargetUserSponsors() : base()
-        {
-            OdataType = "#microsoft.graph.targetUserSponsors";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TargetUserSponsors"/></returns>

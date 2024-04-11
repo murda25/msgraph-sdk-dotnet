@@ -54,13 +54,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("usedLicenseCount", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftStoreForBusinessApp"/> and sets the default values.
-        /// </summary>
-        public MicrosoftStoreForBusinessApp() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftStoreForBusinessApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftStoreForBusinessApp"/></returns>

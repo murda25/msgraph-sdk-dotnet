@@ -19,13 +19,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("scheduledInstallTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUpdateScheduledInstall"/> and sets the default values.
-        /// </summary>
-        public WindowsUpdateScheduledInstall() : base()
-        {
-            OdataType = "#microsoft.graph.windowsUpdateScheduledInstall";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsUpdateScheduledInstall"/></returns>

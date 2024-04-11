@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosHomeScreenFolder"/> and sets the default values.
-        /// </summary>
-        public IosHomeScreenFolder() : base()
-        {
-            OdataType = "#microsoft.graph.iosHomeScreenFolder";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosHomeScreenFolder"/></returns>

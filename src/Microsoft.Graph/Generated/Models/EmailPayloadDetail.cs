@@ -55,13 +55,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EmailPayloadDetail"/> and sets the default values.
-        /// </summary>
-        public EmailPayloadDetail() : base()
-        {
-            OdataType = "#microsoft.graph.emailPayloadDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EmailPayloadDetail"/></returns>

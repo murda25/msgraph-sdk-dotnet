@@ -109,13 +109,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("storageRequireEncryption", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10MobileCompliancePolicy"/> and sets the default values.
-        /// </summary>
-        public Windows10MobileCompliancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.windows10MobileCompliancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Windows10MobileCompliancePolicy"/></returns>

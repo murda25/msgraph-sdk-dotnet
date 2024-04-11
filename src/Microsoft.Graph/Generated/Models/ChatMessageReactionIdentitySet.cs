@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ChatMessageReactionIdentitySet : IdentitySet, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ChatMessageReactionIdentitySet"/> and sets the default values.
-        /// </summary>
-        public ChatMessageReactionIdentitySet() : base()
-        {
-            OdataType = "#microsoft.graph.chatMessageReactionIdentitySet";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ChatMessageReactionIdentitySet"/></returns>

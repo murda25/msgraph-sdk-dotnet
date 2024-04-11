@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models.CallRecords {
     public class ServiceEndpoint : Endpoint, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ServiceEndpoint"/> and sets the default values.
-        /// </summary>
-        public ServiceEndpoint() : base()
-        {
-            OdataType = "#microsoft.graph.callRecords.serviceEndpoint";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ServiceEndpoint"/></returns>

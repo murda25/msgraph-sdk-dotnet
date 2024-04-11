@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("limit", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceEnrollmentLimitConfiguration"/> and sets the default values.
-        /// </summary>
-        public DeviceEnrollmentLimitConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.deviceEnrollmentLimitConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DeviceEnrollmentLimitConfiguration"/></returns>

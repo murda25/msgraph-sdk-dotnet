@@ -30,13 +30,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosVppAppAssignmentSettings"/> and sets the default values.
-        /// </summary>
-        public IosVppAppAssignmentSettings() : base()
-        {
-            OdataType = "#microsoft.graph.iosVppAppAssignmentSettings";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosVppAppAssignmentSettings"/></returns>

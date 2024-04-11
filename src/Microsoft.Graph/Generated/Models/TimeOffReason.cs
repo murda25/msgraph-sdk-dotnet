@@ -32,13 +32,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isActive", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TimeOffReason"/> and sets the default values.
-        /// </summary>
-        public TimeOffReason() : base()
-        {
-            OdataType = "#microsoft.graph.timeOffReason";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TimeOffReason"/></returns>

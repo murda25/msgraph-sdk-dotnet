@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Pkcs12Certificate"/> and sets the default values.
-        /// </summary>
-        public Pkcs12Certificate() : base()
-        {
-            OdataType = "#microsoft.graph.pkcs12Certificate";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Pkcs12Certificate"/></returns>

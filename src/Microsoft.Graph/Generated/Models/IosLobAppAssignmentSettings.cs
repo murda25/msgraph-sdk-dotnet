@@ -35,13 +35,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosLobAppAssignmentSettings"/> and sets the default values.
-        /// </summary>
-        public IosLobAppAssignmentSettings() : base()
-        {
-            OdataType = "#microsoft.graph.iosLobAppAssignmentSettings";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosLobAppAssignmentSettings"/></returns>

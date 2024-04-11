@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AnonymousGuestConversationMember"/> and sets the default values.
-        /// </summary>
-        public AnonymousGuestConversationMember() : base()
-        {
-            OdataType = "#microsoft.graph.anonymousGuestConversationMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AnonymousGuestConversationMember"/></returns>

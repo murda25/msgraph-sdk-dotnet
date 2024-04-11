@@ -51,13 +51,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("sourcePort", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="NetworkConnectionEvidence"/> and sets the default values.
-        /// </summary>
-        public NetworkConnectionEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.networkConnectionEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="NetworkConnectionEvidence"/></returns>

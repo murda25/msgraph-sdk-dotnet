@@ -111,13 +111,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedAccessGroupAssignmentScheduleRequest"/> and sets the default values.
-        /// </summary>
-        public PrivilegedAccessGroupAssignmentScheduleRequest() : base()
-        {
-            OdataType = "#microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PrivilegedAccessGroupAssignmentScheduleRequest"/></returns>

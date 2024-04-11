@@ -32,13 +32,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("smsSignInState", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="PhoneAuthenticationMethod"/> and sets the default values.
-        /// </summary>
-        public PhoneAuthenticationMethod() : base()
-        {
-            OdataType = "#microsoft.graph.phoneAuthenticationMethod";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="PhoneAuthenticationMethod"/></returns>

@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CommunicationsApplicationInstanceIdentity"/> and sets the default values.
-        /// </summary>
-        public CommunicationsApplicationInstanceIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.communicationsApplicationInstanceIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CommunicationsApplicationInstanceIdentity"/></returns>

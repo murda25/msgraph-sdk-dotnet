@@ -18,13 +18,6 @@ namespace Microsoft.Graph.Models.Security {
             set { BackingStore?.Set("lastSeenDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="IntelligenceProfileIndicator"/> and sets the default values.
-        /// </summary>
-        public IntelligenceProfileIndicator() : base()
-        {
-            OdataType = "#microsoft.graph.security.intelligenceProfileIndicator";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IntelligenceProfileIndicator"/></returns>

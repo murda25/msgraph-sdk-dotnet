@@ -296,13 +296,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("wiFiBlocked", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidGeneralDeviceConfiguration"/> and sets the default values.
-        /// </summary>
-        public AndroidGeneralDeviceConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.androidGeneralDeviceConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AndroidGeneralDeviceConfiguration"/></returns>

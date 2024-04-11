@@ -114,13 +114,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("systemIntegrityProtectionEnabled", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSCompliancePolicy"/> and sets the default values.
-        /// </summary>
-        public MacOSCompliancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.macOSCompliancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSCompliancePolicy"/></returns>

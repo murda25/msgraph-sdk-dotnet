@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class EducationAssignmentGroupRecipient : EducationAssignmentRecipient, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="EducationAssignmentGroupRecipient"/> and sets the default values.
-        /// </summary>
-        public EducationAssignmentGroupRecipient() : base()
-        {
-            OdataType = "#microsoft.graph.educationAssignmentGroupRecipient";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationAssignmentGroupRecipient"/></returns>

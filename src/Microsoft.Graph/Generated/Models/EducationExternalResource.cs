@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationExternalResource"/> and sets the default values.
-        /// </summary>
-        public EducationExternalResource() : base()
-        {
-            OdataType = "#microsoft.graph.educationExternalResource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationExternalResource"/></returns>

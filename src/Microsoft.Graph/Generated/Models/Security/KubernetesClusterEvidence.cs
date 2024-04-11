@@ -69,13 +69,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="KubernetesClusterEvidence"/> and sets the default values.
-        /// </summary>
-        public KubernetesClusterEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.kubernetesClusterEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="KubernetesClusterEvidence"/></returns>

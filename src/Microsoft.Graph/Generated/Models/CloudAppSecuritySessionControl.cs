@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("cloudAppSecurityType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="CloudAppSecuritySessionControl"/> and sets the default values.
-        /// </summary>
-        public CloudAppSecuritySessionControl() : base()
-        {
-            OdataType = "#microsoft.graph.cloudAppSecuritySessionControl";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CloudAppSecuritySessionControl"/></returns>

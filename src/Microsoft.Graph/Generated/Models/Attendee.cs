@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Attendee"/> and sets the default values.
-        /// </summary>
-        public Attendee() : base()
-        {
-            OdataType = "#microsoft.graph.attendee";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Attendee"/></returns>

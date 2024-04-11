@@ -28,13 +28,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("value", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="SignInFrequencySessionControl"/> and sets the default values.
-        /// </summary>
-        public SignInFrequencySessionControl() : base()
-        {
-            OdataType = "#microsoft.graph.signInFrequencySessionControl";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SignInFrequencySessionControl"/></returns>

@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class RemoveAccessApplyAction : AccessReviewApplyAction, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="RemoveAccessApplyAction"/> and sets the default values.
-        /// </summary>
-        public RemoveAccessApplyAction() : base()
-        {
-            OdataType = "#microsoft.graph.removeAccessApplyAction";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="RemoveAccessApplyAction"/></returns>

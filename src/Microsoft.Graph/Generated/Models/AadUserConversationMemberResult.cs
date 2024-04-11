@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AadUserConversationMemberResult"/> and sets the default values.
-        /// </summary>
-        public AadUserConversationMemberResult() : base()
-        {
-            OdataType = "#microsoft.graph.aadUserConversationMemberResult";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AadUserConversationMemberResult"/></returns>

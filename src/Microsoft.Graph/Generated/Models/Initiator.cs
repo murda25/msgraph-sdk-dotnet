@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("initiatorType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Initiator"/> and sets the default values.
-        /// </summary>
-        public Initiator() : base()
-        {
-            OdataType = "#microsoft.graph.initiator";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Initiator"/></returns>

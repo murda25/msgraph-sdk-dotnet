@@ -25,13 +25,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosMobileAppIdentifier"/> and sets the default values.
-        /// </summary>
-        public IosMobileAppIdentifier() : base()
-        {
-            OdataType = "#microsoft.graph.iosMobileAppIdentifier";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosMobileAppIdentifier"/></returns>

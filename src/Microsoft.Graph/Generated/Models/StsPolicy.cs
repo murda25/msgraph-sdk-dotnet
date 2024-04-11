@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isOrganizationDefault", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="StsPolicy"/> and sets the default values.
-        /// </summary>
-        public StsPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.stsPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="StsPolicy"/></returns>

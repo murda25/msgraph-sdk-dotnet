@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("daylightBias", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="DaylightTimeZoneOffset"/> and sets the default values.
-        /// </summary>
-        public DaylightTimeZoneOffset() : base()
-        {
-            OdataType = "#microsoft.graph.daylightTimeZoneOffset";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="DaylightTimeZoneOffset"/></returns>

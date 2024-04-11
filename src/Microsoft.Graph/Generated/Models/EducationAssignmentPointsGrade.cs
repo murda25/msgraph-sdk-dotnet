@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("points", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EducationAssignmentPointsGrade"/> and sets the default values.
-        /// </summary>
-        public EducationAssignmentPointsGrade() : base()
-        {
-            OdataType = "#microsoft.graph.educationAssignmentPointsGrade";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EducationAssignmentPointsGrade"/></returns>

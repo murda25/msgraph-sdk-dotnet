@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AzureActiveDirectoryTenant"/> and sets the default values.
-        /// </summary>
-        public AzureActiveDirectoryTenant() : base()
-        {
-            OdataType = "#microsoft.graph.azureActiveDirectoryTenant";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AzureActiveDirectoryTenant"/></returns>

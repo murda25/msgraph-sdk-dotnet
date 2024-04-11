@@ -78,13 +78,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Endpoint"/> and sets the default values.
-        /// </summary>
-        public Endpoint() : base()
-        {
-            OdataType = "#microsoft.graph.endpoint";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Endpoint"/></returns>

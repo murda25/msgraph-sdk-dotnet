@@ -44,13 +44,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("productVersionOperator", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Win32LobAppProductCodeRule"/> and sets the default values.
-        /// </summary>
-        public Win32LobAppProductCodeRule() : base()
-        {
-            OdataType = "#microsoft.graph.win32LobAppProductCodeRule";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Win32LobAppProductCodeRule"/></returns>

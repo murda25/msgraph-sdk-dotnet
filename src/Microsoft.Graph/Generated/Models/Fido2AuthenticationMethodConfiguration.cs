@@ -46,13 +46,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Fido2AuthenticationMethodConfiguration"/> and sets the default values.
-        /// </summary>
-        public Fido2AuthenticationMethodConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.fido2AuthenticationMethodConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Fido2AuthenticationMethodConfiguration"/></returns>

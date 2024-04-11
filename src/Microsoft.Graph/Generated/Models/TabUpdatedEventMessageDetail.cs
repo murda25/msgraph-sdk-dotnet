@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TabUpdatedEventMessageDetail"/> and sets the default values.
-        /// </summary>
-        public TabUpdatedEventMessageDetail() : base()
-        {
-            OdataType = "#microsoft.graph.tabUpdatedEventMessageDetail";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TabUpdatedEventMessageDetail"/></returns>

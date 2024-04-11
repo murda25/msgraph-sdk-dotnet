@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TeleconferenceDeviceAudioQuality : TeleconferenceDeviceMediaQuality, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TeleconferenceDeviceAudioQuality"/> and sets the default values.
-        /// </summary>
-        public TeleconferenceDeviceAudioQuality() : base()
-        {
-            OdataType = "#microsoft.graph.teleconferenceDeviceAudioQuality";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TeleconferenceDeviceAudioQuality"/></returns>

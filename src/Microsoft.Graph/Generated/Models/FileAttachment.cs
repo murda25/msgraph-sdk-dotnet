@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="FileAttachment"/> and sets the default values.
-        /// </summary>
-        public FileAttachment() : base()
-        {
-            OdataType = "#microsoft.graph.fileAttachment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="FileAttachment"/></returns>

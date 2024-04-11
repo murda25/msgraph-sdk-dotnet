@@ -69,13 +69,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SamlOrWsFedProvider"/> and sets the default values.
-        /// </summary>
-        public SamlOrWsFedProvider() : base()
-        {
-            OdataType = "#microsoft.graph.samlOrWsFedProvider";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SamlOrWsFedProvider"/></returns>

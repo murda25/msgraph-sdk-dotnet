@@ -70,13 +70,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("resourceId", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="AppRoleAssignment"/> and sets the default values.
-        /// </summary>
-        public AppRoleAssignment() : base()
-        {
-            OdataType = "#microsoft.graph.appRoleAssignment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AppRoleAssignment"/></returns>

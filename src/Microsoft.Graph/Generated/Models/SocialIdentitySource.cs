@@ -27,13 +27,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("socialIdentitySourceType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="SocialIdentitySource"/> and sets the default values.
-        /// </summary>
-        public SocialIdentitySource() : base()
-        {
-            OdataType = "#microsoft.graph.socialIdentitySource";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SocialIdentitySource"/></returns>

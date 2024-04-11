@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("openSlotCount", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="OpenShiftItem"/> and sets the default values.
-        /// </summary>
-        public OpenShiftItem() : base()
-        {
-            OdataType = "#microsoft.graph.openShiftItem";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OpenShiftItem"/></returns>

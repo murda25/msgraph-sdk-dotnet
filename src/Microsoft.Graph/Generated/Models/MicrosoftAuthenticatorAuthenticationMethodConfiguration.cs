@@ -41,13 +41,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isSoftwareOathEnabled", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftAuthenticatorAuthenticationMethodConfiguration"/> and sets the default values.
-        /// </summary>
-        public MicrosoftAuthenticatorAuthenticationMethodConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MicrosoftAuthenticatorAuthenticationMethodConfiguration"/></returns>

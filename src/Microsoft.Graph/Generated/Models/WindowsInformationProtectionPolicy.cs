@@ -80,13 +80,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("windowsHelloForBusinessBlocked", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsInformationProtectionPolicy"/> and sets the default values.
-        /// </summary>
-        public WindowsInformationProtectionPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.windowsInformationProtectionPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="WindowsInformationProtectionPolicy"/></returns>

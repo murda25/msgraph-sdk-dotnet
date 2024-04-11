@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("channel", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSMicrosoftEdgeApp"/> and sets the default values.
-        /// </summary>
-        public MacOSMicrosoftEdgeApp() : base()
-        {
-            OdataType = "#microsoft.graph.macOSMicrosoftEdgeApp";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MacOSMicrosoftEdgeApp"/></returns>

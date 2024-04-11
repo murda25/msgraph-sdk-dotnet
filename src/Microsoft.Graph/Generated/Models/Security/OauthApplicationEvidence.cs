@@ -64,13 +64,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OauthApplicationEvidence"/> and sets the default values.
-        /// </summary>
-        public OauthApplicationEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.oauthApplicationEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OauthApplicationEvidence"/></returns>

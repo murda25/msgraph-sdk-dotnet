@@ -11,13 +11,6 @@ namespace Microsoft.Graph.Models {
     public class MdmWindowsInformationProtectionPolicy : WindowsInformationProtection, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="MdmWindowsInformationProtectionPolicy"/> and sets the default values.
-        /// </summary>
-        public MdmWindowsInformationProtectionPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.mdmWindowsInformationProtectionPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MdmWindowsInformationProtectionPolicy"/></returns>

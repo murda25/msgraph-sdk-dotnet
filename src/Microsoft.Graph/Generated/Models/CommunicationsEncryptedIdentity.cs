@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class CommunicationsEncryptedIdentity : Identity, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="CommunicationsEncryptedIdentity"/> and sets the default values.
-        /// </summary>
-        public CommunicationsEncryptedIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.communicationsEncryptedIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="CommunicationsEncryptedIdentity"/></returns>

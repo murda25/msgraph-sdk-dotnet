@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class TeamworkTagIdentity : Identity, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkTagIdentity"/> and sets the default values.
-        /// </summary>
-        public TeamworkTagIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.teamworkTagIdentity";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TeamworkTagIdentity"/></returns>

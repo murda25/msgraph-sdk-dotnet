@@ -63,13 +63,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("isAssigned", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TargetedManagedAppConfiguration"/> and sets the default values.
-        /// </summary>
-        public TargetedManagedAppConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.targetedManagedAppConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TargetedManagedAppConfiguration"/></returns>

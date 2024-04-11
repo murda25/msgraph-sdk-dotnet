@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models.CallRecords {
             set { BackingStore?.Set("role", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceUserAgent"/> and sets the default values.
-        /// </summary>
-        public ServiceUserAgent() : base()
-        {
-            OdataType = "#microsoft.graph.callRecords.serviceUserAgent";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ServiceUserAgent"/></returns>

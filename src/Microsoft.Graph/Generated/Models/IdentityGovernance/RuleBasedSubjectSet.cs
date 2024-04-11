@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RuleBasedSubjectSet"/> and sets the default values.
-        /// </summary>
-        public RuleBasedSubjectSet() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.ruleBasedSubjectSet";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="RuleBasedSubjectSet"/></returns>

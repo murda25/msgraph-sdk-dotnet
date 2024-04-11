@@ -65,13 +65,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("responseRequested", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="EventMessageRequest"/> and sets the default values.
-        /// </summary>
-        public EventMessageRequest() : base()
-        {
-            OdataType = "#microsoft.graph.eventMessageRequest";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EventMessageRequest"/></returns>

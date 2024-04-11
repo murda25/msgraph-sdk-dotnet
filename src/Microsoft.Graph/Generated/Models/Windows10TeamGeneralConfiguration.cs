@@ -139,13 +139,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("welcomeScreenMeetingInformation", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10TeamGeneralConfiguration"/> and sets the default values.
-        /// </summary>
-        public Windows10TeamGeneralConfiguration() : base()
-        {
-            OdataType = "#microsoft.graph.windows10TeamGeneralConfiguration";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Windows10TeamGeneralConfiguration"/></returns>

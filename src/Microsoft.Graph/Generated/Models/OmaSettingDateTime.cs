@@ -16,13 +16,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("value", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="OmaSettingDateTime"/> and sets the default values.
-        /// </summary>
-        public OmaSettingDateTime() : base()
-        {
-            OdataType = "#microsoft.graph.omaSettingDateTime";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="OmaSettingDateTime"/></returns>

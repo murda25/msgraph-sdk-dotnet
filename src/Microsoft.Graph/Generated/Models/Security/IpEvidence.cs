@@ -50,13 +50,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IpEvidence"/> and sets the default values.
-        /// </summary>
-        public IpEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.ipEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IpEvidence"/></returns>

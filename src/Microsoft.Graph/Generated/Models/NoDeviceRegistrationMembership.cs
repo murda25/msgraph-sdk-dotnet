@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class NoDeviceRegistrationMembership : DeviceRegistrationMembership, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="NoDeviceRegistrationMembership"/> and sets the default values.
-        /// </summary>
-        public NoDeviceRegistrationMembership() : base()
-        {
-            OdataType = "#microsoft.graph.noDeviceRegistrationMembership";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="NoDeviceRegistrationMembership"/></returns>

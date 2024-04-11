@@ -18,13 +18,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("signInScope", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserLastSignInRecommendationInsightSetting"/> and sets the default values.
-        /// </summary>
-        public UserLastSignInRecommendationInsightSetting() : base()
-        {
-            OdataType = "#microsoft.graph.userLastSignInRecommendationInsightSetting";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UserLastSignInRecommendationInsightSetting"/></returns>

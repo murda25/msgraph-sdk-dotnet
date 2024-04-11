@@ -13,13 +13,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("lastSignInDateTime", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserSignInInsight"/> and sets the default values.
-        /// </summary>
-        public UserSignInInsight() : base()
-        {
-            OdataType = "#microsoft.graph.userSignInInsight";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="UserSignInInsight"/></returns>

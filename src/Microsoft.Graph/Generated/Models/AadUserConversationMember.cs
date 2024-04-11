@@ -64,13 +64,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AadUserConversationMember"/> and sets the default values.
-        /// </summary>
-        public AadUserConversationMember() : base()
-        {
-            OdataType = "#microsoft.graph.aadUserConversationMember";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="AadUserConversationMember"/></returns>

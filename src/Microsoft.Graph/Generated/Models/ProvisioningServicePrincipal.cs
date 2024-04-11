@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ProvisioningServicePrincipal : Identity, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ProvisioningServicePrincipal"/> and sets the default values.
-        /// </summary>
-        public ProvisioningServicePrincipal() : base()
-        {
-            OdataType = "#microsoft.graph.provisioningServicePrincipal";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ProvisioningServicePrincipal"/></returns>

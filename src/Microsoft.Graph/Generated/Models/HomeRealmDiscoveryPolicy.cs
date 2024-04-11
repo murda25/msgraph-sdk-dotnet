@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class HomeRealmDiscoveryPolicy : StsPolicy, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="HomeRealmDiscoveryPolicy"/> and sets the default values.
-        /// </summary>
-        public HomeRealmDiscoveryPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.homeRealmDiscoveryPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="HomeRealmDiscoveryPolicy"/></returns>

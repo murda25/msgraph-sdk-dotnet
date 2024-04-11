@@ -200,13 +200,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Host"/> and sets the default values.
-        /// </summary>
-        public Host() : base()
-        {
-            OdataType = "#microsoft.graph.security.host";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Host"/></returns>

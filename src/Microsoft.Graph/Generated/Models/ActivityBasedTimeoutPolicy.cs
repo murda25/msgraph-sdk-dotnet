@@ -8,13 +8,6 @@ namespace Microsoft.Graph.Models {
     public class ActivityBasedTimeoutPolicy : StsPolicy, IParsable 
     {
         /// <summary>
-        /// Instantiates a new <see cref="ActivityBasedTimeoutPolicy"/> and sets the default values.
-        /// </summary>
-        public ActivityBasedTimeoutPolicy() : base()
-        {
-            OdataType = "#microsoft.graph.activityBasedTimeoutPolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="ActivityBasedTimeoutPolicy"/></returns>

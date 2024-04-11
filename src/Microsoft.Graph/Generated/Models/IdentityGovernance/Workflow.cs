@@ -107,13 +107,6 @@ namespace Microsoft.Graph.Models.IdentityGovernance {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Workflow"/> and sets the default values.
-        /// </summary>
-        public Workflow() : base()
-        {
-            OdataType = "#microsoft.graph.identityGovernance.workflow";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="Workflow"/></returns>

@@ -88,13 +88,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("outlierMemberType", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="MembershipOutlierInsight"/> and sets the default values.
-        /// </summary>
-        public MembershipOutlierInsight() : base()
-        {
-            OdataType = "#microsoft.graph.membershipOutlierInsight";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="MembershipOutlierInsight"/></returns>

@@ -83,13 +83,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EdiscoveryCustodian"/> and sets the default values.
-        /// </summary>
-        public EdiscoveryCustodian() : base()
-        {
-            OdataType = "#microsoft.graph.security.ediscoveryCustodian";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="EdiscoveryCustodian"/></returns>

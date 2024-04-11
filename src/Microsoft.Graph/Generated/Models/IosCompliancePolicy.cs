@@ -99,13 +99,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("securityBlockJailbrokenDevices", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosCompliancePolicy"/> and sets the default values.
-        /// </summary>
-        public IosCompliancePolicy() : base()
-        {
-            OdataType = "#microsoft.graph.iosCompliancePolicy";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="IosCompliancePolicy"/></returns>

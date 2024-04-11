@@ -92,13 +92,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GitHubOrganizationEvidence"/> and sets the default values.
-        /// </summary>
-        public GitHubOrganizationEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.gitHubOrganizationEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="GitHubOrganizationEvidence"/></returns>

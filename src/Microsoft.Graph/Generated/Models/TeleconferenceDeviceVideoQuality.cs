@@ -28,13 +28,6 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("averageOutboundFrameRate", value); }
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeleconferenceDeviceVideoQuality"/> and sets the default values.
-        /// </summary>
-        public TeleconferenceDeviceVideoQuality() : base()
-        {
-            OdataType = "#microsoft.graph.teleconferenceDeviceVideoQuality";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TeleconferenceDeviceVideoQuality"/></returns>

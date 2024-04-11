@@ -36,13 +36,6 @@ namespace Microsoft.Graph.Models.Security {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityGroupEvidence"/> and sets the default values.
-        /// </summary>
-        public SecurityGroupEvidence() : base()
-        {
-            OdataType = "#microsoft.graph.security.securityGroupEvidence";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="SecurityGroupEvidence"/></returns>

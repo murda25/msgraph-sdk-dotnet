@@ -22,13 +22,6 @@ namespace Microsoft.Graph.Models {
         }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TaskFileAttachment"/> and sets the default values.
-        /// </summary>
-        public TaskFileAttachment() : base()
-        {
-            OdataType = "#microsoft.graph.taskFileAttachment";
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="TaskFileAttachment"/></returns>
