@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get webparts from sites
+        /// The set of web parts in this section.
         /// </summary>
         /// <returns>A <see cref="WebPart"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
             return requestInfo;
         }
         /// <summary>
-        /// Get webparts from sites
+        /// The set of web parts in this section.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
         {
         }
         /// <summary>
-        /// Get webparts from sites
+        /// The set of web parts in this section.
         /// </summary>
         public class WebPartItemRequestBuilderGetQueryParameters 
         {

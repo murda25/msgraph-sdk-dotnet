@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get webparts from groups
+        /// The collection of WebParts in this column.
         /// </summary>
         /// <returns>A <see cref="WebPart"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
             return requestInfo;
         }
         /// <summary>
-        /// Get webparts from groups
+        /// The collection of WebParts in this column.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
         {
         }
         /// <summary>
-        /// Get webparts from groups
+        /// The collection of WebParts in this column.
         /// </summary>
         public class WebPartItemRequestBuilderGetQueryParameters 
         {

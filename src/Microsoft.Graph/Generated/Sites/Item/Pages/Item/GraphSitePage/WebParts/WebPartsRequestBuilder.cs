@@ -51,7 +51,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.WebParts {
         {
         }
         /// <summary>
-        /// Get webParts from sites
+        /// Collection of webparts on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="WebPartCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.WebParts {
             return await RequestAdapter.SendAsync<WebPart>(requestInfo, WebPart.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get webParts from sites
+        /// Collection of webparts on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.WebParts {
             return new WebPartsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get webParts from sites
+        /// Collection of webparts on the SharePoint page.
         /// </summary>
         public class WebPartsRequestBuilderGetQueryParameters 
         {

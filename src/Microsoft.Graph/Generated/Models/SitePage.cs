@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class SitePage : BaseSitePage, IParsable 
     {
-        /// <summary>The canvasLayout property</summary>
+        /// <summary>Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.CanvasLayout? CanvasLayout {
@@ -21,12 +21,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("canvasLayout", value); }
         }
 #endif
-        /// <summary>The promotionKind property</summary>
+        /// <summary>Indicates the promotion kind of the sitePage. The possible values are: microsoftReserved, page, newsPost, unknownFutureValue.</summary>
         public PagePromotionType? PromotionKind {
             get { return BackingStore?.Get<PagePromotionType?>("promotionKind"); }
             set { BackingStore?.Set("promotionKind", value); }
         }
-        /// <summary>The reactions property</summary>
+        /// <summary>Reactions information for the page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ReactionsFacet? Reactions {
@@ -40,17 +40,17 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("reactions", value); }
         }
 #endif
-        /// <summary>The showComments property</summary>
+        /// <summary>Determines whether or not to show comments at the bottom of the page.</summary>
         public bool? ShowComments {
             get { return BackingStore?.Get<bool?>("showComments"); }
             set { BackingStore?.Set("showComments", value); }
         }
-        /// <summary>The showRecommendedPages property</summary>
+        /// <summary>Determines whether or not to show recommended pages at the bottom of the page.</summary>
         public bool? ShowRecommendedPages {
             get { return BackingStore?.Get<bool?>("showRecommendedPages"); }
             set { BackingStore?.Set("showRecommendedPages", value); }
         }
-        /// <summary>The thumbnailWebUrl property</summary>
+        /// <summary>Url of the sitePage&apos;s thumbnail image</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ThumbnailWebUrl {
@@ -64,7 +64,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("thumbnailWebUrl", value); }
         }
 #endif
-        /// <summary>The titleArea property</summary>
+        /// <summary>Title area on the SharePoint page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.TitleArea? TitleArea {
@@ -78,7 +78,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("titleArea", value); }
         }
 #endif
-        /// <summary>The webParts property</summary>
+        /// <summary>Collection of webparts on the SharePoint page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<WebPart>? WebParts {

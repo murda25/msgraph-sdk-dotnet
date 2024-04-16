@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class HorizontalSection : Entity, IParsable 
     {
-        /// <summary>The columns property</summary>
+        /// <summary>The set of vertical columns in this section.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<HorizontalSectionColumn>? Columns {
@@ -21,12 +21,12 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("columns", value); }
         }
 #endif
-        /// <summary>The emphasis property</summary>
+        /// <summary>Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.</summary>
         public SectionEmphasisType? Emphasis {
             get { return BackingStore?.Get<SectionEmphasisType?>("emphasis"); }
             set { BackingStore?.Set("emphasis", value); }
         }
-        /// <summary>The layout property</summary>
+        /// <summary>Layout type of the section. The possible values are: none, oneColumn, twoColumns, threeColumns, oneThirdLeftColumn, oneThirdRightColumn, fullWidth, unknownFutureValue.</summary>
         public HorizontalSectionLayoutType? Layout {
             get { return BackingStore?.Get<HorizontalSectionLayoutType?>("layout"); }
             set { BackingStore?.Set("layout", value); }

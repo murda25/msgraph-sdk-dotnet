@@ -66,7 +66,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get canvasLayout from sites
+        /// Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.CanvasLayout"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -133,7 +133,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout {
             return requestInfo;
         }
         /// <summary>
-        /// Get canvasLayout from sites
+        /// Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -190,7 +190,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout {
         {
         }
         /// <summary>
-        /// Get canvasLayout from sites
+        /// Indicates the layout of the content in a given SharePoint page, including horizontal sections and vertical sections.
         /// </summary>
         public class CanvasLayoutRequestBuilderGetQueryParameters 
         {

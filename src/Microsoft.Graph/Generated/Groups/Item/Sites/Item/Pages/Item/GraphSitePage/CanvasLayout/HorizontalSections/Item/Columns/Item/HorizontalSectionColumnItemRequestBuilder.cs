@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get columns from groups
+        /// The set of vertical columns in this section.
         /// </summary>
         /// <returns>A <see cref="HorizontalSectionColumn"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
             return requestInfo;
         }
         /// <summary>
-        /// Get columns from groups
+        /// The set of vertical columns in this section.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Groups.Item.Sites.Item.Pages.Item.GraphSitePage.Canvas
         {
         }
         /// <summary>
-        /// Get columns from groups
+        /// The set of vertical columns in this section.
         /// </summary>
         public class HorizontalSectionColumnItemRequestBuilderGetQueryParameters 
         {

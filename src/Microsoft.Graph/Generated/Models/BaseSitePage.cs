@@ -7,12 +7,12 @@ using System;
 namespace Microsoft.Graph.Models {
     public class BaseSitePage : BaseItem, IParsable 
     {
-        /// <summary>The pageLayout property</summary>
+        /// <summary>The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.</summary>
         public PageLayoutType? PageLayout {
             get { return BackingStore?.Get<PageLayoutType?>("pageLayout"); }
             set { BackingStore?.Set("pageLayout", value); }
         }
-        /// <summary>The publishingState property</summary>
+        /// <summary>The publishing status and the MM.mm version of the page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public PublicationFacet? PublishingState {
@@ -26,7 +26,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("publishingState", value); }
         }
 #endif
-        /// <summary>The title property</summary>
+        /// <summary>Title of the sitePage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title {

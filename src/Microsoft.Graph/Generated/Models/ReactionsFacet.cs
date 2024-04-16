@@ -15,12 +15,12 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The commentCount property</summary>
+        /// <summary>Count of comments.</summary>
         public int? CommentCount {
             get { return BackingStore?.Get<int?>("commentCount"); }
             set { BackingStore?.Set("commentCount", value); }
         }
-        /// <summary>The likeCount property</summary>
+        /// <summary>Count of likes.</summary>
         public int? LikeCount {
             get { return BackingStore?.Get<int?>("likeCount"); }
             set { BackingStore?.Set("likeCount", value); }
@@ -39,7 +39,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The shareCount property</summary>
+        /// <summary>Count of shares.</summary>
         public int? ShareCount {
             get { return BackingStore?.Get<int?>("shareCount"); }
             set { BackingStore?.Set("shareCount", value); }
