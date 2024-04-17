@@ -232,6 +232,20 @@ namespace Microsoft.Graph.Models {
             get { return BackingStore?.Get<DateTimeOffset?>("enrolledDateTime"); }
             set { BackingStore?.Set("enrolledDateTime", value); }
         }
+        /// <summary>Name of the enrollment profile assigned to the device. Default value is empty string, indicating no enrollment profile was assgined. This property is read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EnrollmentProfileName {
+            get { return BackingStore?.Get<string?>("enrollmentProfileName"); }
+            set { BackingStore?.Set("enrollmentProfileName", value); }
+        }
+#nullable restore
+#else
+        public string EnrollmentProfileName {
+            get { return BackingStore?.Get<string>("enrollmentProfileName"); }
+            set { BackingStore?.Set("enrollmentProfileName", value); }
+        }
+#endif
         /// <summary>Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -677,6 +691,7 @@ namespace Microsoft.Graph.Models {
                 {"easDeviceId", n => { EasDeviceId = n.GetStringValue(); } },
                 {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
                 {"enrolledDateTime", n => { EnrolledDateTime = n.GetDateTimeOffsetValue(); } },
+                {"enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
                 {"ethernetMacAddress", n => { EthernetMacAddress = n.GetStringValue(); } },
                 {"exchangeAccessState", n => { ExchangeAccessState = n.GetEnumValue<DeviceManagementExchangeAccessState>(); } },
                 {"exchangeAccessStateReason", n => { ExchangeAccessStateReason = n.GetEnumValue<DeviceManagementExchangeAccessStateReason>(); } },

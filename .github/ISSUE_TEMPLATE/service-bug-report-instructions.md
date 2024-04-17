@@ -1,5 +1,5 @@
 ---
-name: Service bug report instructions
+name: MS Graph API bug report instructions
 about: Learn how you can open an issue against the Microsoft Graph REST API.
 title: ''
 labels: service bug

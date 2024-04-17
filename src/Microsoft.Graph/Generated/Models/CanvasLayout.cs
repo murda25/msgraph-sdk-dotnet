@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class CanvasLayout : Entity, IParsable 
     {
-        /// <summary>The horizontalSections property</summary>
+        /// <summary>Collection of horizontal sections on the SharePoint page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<HorizontalSection>? HorizontalSections {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("horizontalSections", value); }
         }
 #endif
-        /// <summary>The verticalSection property</summary>
+        /// <summary>Vertical section on the SharePoint page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public Microsoft.Graph.Models.VerticalSection? VerticalSection {

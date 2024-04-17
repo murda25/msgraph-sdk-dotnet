@@ -7,7 +7,7 @@ using System;
 namespace Microsoft.Graph.Models {
     public class StandardWebPart : WebPart, IParsable 
     {
-        /// <summary>The containerTextWebPartId property</summary>
+        /// <summary>The instance identifier of the container text webPart. It only works for inline standard webPart in rich text webParts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContainerTextWebPartId {
@@ -21,7 +21,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("containerTextWebPartId", value); }
         }
 #endif
-        /// <summary>The data property</summary>
+        /// <summary>Data of the webPart.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public WebPartData? Data {
@@ -35,7 +35,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("data", value); }
         }
 #endif
-        /// <summary>The webPartType property</summary>
+        /// <summary>A Guid that indicates the webPart type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebPartType {

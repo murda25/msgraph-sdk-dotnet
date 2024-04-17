@@ -768,7 +768,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("transitiveMembers", value); }
         }
 #endif
-        /// <summary>The uniqueName property</summary>
+        /// <summary>The unique identifier that can be assigned to a group and used as an alternate key. Immutable. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UniqueName {

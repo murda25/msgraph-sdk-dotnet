@@ -81,8 +81,8 @@ namespace Microsoft.Graph.ApplicationsWithAppId {
             return await RequestAdapter.SendAsync<Microsoft.Graph.Models.Application>(requestInfo, Microsoft.Graph.Models.Application.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the properties of an application object.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-update?view=graph-rest-1.0" />
+        /// Create a new application object if it doesn&apos;t exist, or update the properties of an existing application object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-upsert?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.Application"/></returns>
         /// <param name="body">The request body</param>
@@ -145,7 +145,7 @@ namespace Microsoft.Graph.ApplicationsWithAppId {
             return requestInfo;
         }
         /// <summary>
-        /// Update the properties of an application object.
+        /// Create a new application object if it doesn&apos;t exist, or update the properties of an existing application object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

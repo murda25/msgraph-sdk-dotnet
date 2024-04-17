@@ -14,6 +14,7 @@ using Microsoft.Graph.ServicePrincipals.Item.CreatedObjects;
 using Microsoft.Graph.ServicePrincipals.Item.DelegatedPermissionClassifications;
 using Microsoft.Graph.ServicePrincipals.Item.Endpoints;
 using Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentials;
+using Microsoft.Graph.ServicePrincipals.Item.FederatedIdentityCredentialsWithName;
 using Microsoft.Graph.ServicePrincipals.Item.GetMemberGroups;
 using Microsoft.Graph.ServicePrincipals.Item.GetMemberObjects;
 using Microsoft.Graph.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
@@ -223,6 +224,16 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
+        /// </summary>
+        /// <returns>A <see cref="FederatedIdentityCredentialsWithNameRequestBuilder"/></returns>
+        /// <param name="name">Alternate key of federatedIdentityCredential</param>
+        public FederatedIdentityCredentialsWithNameRequestBuilder FederatedIdentityCredentialsWithName(string name)
+        {
+            if(string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
+            return new FederatedIdentityCredentialsWithNameRequestBuilder(PathParameters, RequestAdapter, name);
+        }
+        /// <summary>
         /// Retrieve the properties and relationships of a servicePrincipal object.
         /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0" />
         /// </summary>
@@ -247,7 +258,8 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return await RequestAdapter.SendAsync<ServicePrincipal>(requestInfo, ServicePrincipal.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update entity in servicePrincipals
+        /// Create a new servicePrincipal object if it doesn&apos;t exist, or update the properties of an existing servicePrincipal object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="ServicePrincipal"/></returns>
         /// <param name="body">The request body</param>
@@ -310,7 +322,7 @@ namespace Microsoft.Graph.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update entity in servicePrincipals
+        /// Create a new servicePrincipal object if it doesn&apos;t exist, or update the properties of an existing servicePrincipal object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

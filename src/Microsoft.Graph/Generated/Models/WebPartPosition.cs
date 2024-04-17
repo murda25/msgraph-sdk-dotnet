@@ -15,17 +15,17 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The columnId property</summary>
+        /// <summary>Indicates the identifier of the column where the web part is located.</summary>
         public double? ColumnId {
             get { return BackingStore?.Get<double?>("columnId"); }
             set { BackingStore?.Set("columnId", value); }
         }
-        /// <summary>The horizontalSectionId property</summary>
+        /// <summary>Indicates the horizontal section where the web part is located.</summary>
         public double? HorizontalSectionId {
             get { return BackingStore?.Get<double?>("horizontalSectionId"); }
             set { BackingStore?.Set("horizontalSectionId", value); }
         }
-        /// <summary>The isInVerticalSection property</summary>
+        /// <summary>Indicates whether the web part is located in the vertical section.</summary>
         public bool? IsInVerticalSection {
             get { return BackingStore?.Get<bool?>("isInVerticalSection"); }
             set { BackingStore?.Set("isInVerticalSection", value); }
@@ -44,7 +44,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The webPartIndex property</summary>
+        /// <summary>Index of the current web part. Represents the order of the web part in this column or section.</summary>
         public double? WebPartIndex {
             get { return BackingStore?.Get<double?>("webPartIndex"); }
             set { BackingStore?.Set("webPartIndex", value); }

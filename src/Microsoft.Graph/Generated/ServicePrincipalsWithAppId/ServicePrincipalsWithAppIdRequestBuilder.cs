@@ -81,7 +81,8 @@ namespace Microsoft.Graph.ServicePrincipalsWithAppId {
             return await RequestAdapter.SendAsync<ServicePrincipal>(requestInfo, ServicePrincipal.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update entity in servicePrincipals by appId
+        /// Create a new servicePrincipal object if it doesn&apos;t exist, or update the properties of an existing servicePrincipal object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-upsert?view=graph-rest-1.0" />
         /// </summary>
         /// <returns>A <see cref="ServicePrincipal"/></returns>
         /// <param name="body">The request body</param>
@@ -144,7 +145,7 @@ namespace Microsoft.Graph.ServicePrincipalsWithAppId {
             return requestInfo;
         }
         /// <summary>
-        /// Update entity in servicePrincipals by appId
+        /// Create a new servicePrincipal object if it doesn&apos;t exist, or update the properties of an existing servicePrincipal object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
