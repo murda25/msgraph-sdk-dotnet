@@ -2,6 +2,7 @@
 using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.LicenseDetails.Count;
+using Microsoft.Graph.Users.Item.LicenseDetails.GetTeamsLicensingDetails;
 using Microsoft.Graph.Users.Item.LicenseDetails.Item;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -21,6 +22,11 @@ namespace Microsoft.Graph.Users.Item.LicenseDetails {
         public CountRequestBuilder Count
         {
             get => new CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the getTeamsLicensingDetails method.</summary>
+        public GetTeamsLicensingDetailsRequestBuilder GetTeamsLicensingDetails
+        {
+            get => new GetTeamsLicensingDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.</summary>
         /// <param name="position">The unique identifier of licenseDetails</param>

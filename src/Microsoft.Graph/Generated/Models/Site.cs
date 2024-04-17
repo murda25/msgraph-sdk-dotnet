@@ -181,7 +181,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("operations", value); }
         }
 #endif
-        /// <summary>The pages property</summary>
+        /// <summary>The collection of pages in the baseSitePages list in this site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<BaseSitePage>? Pages {

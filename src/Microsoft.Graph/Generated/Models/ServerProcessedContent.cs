@@ -15,7 +15,7 @@ namespace Microsoft.Graph.Models {
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The htmlStrings property</summary>
+        /// <summary>A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MetaDataKeyStringPair>? HtmlStrings {
@@ -29,7 +29,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("htmlStrings", value); }
         }
 #endif
-        /// <summary>The imageSources property</summary>
+        /// <summary>A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MetaDataKeyStringPair>? ImageSources {
@@ -43,7 +43,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("imageSources", value); }
         }
 #endif
-        /// <summary>The links property</summary>
+        /// <summary>A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MetaDataKeyStringPair>? Links {
@@ -71,7 +71,7 @@ namespace Microsoft.Graph.Models {
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The searchablePlainTexts property</summary>
+        /// <summary>A key-value map where keys are string identifiers and values are strings that should be search indexed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<MetaDataKeyStringPair>? SearchablePlainTexts {

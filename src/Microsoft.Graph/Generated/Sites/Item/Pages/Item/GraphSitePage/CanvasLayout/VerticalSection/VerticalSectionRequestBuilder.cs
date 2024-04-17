@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get verticalSection from sites
+        /// Vertical section on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="Microsoft.Graph.Models.VerticalSection"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
             return requestInfo;
         }
         /// <summary>
-        /// Get verticalSection from sites
+        /// Vertical section on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Verti
         {
         }
         /// <summary>
-        /// Get verticalSection from sites
+        /// Vertical section on the SharePoint page.
         /// </summary>
         public class VerticalSectionRequestBuilderGetQueryParameters 
         {

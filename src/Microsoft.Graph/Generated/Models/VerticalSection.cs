@@ -7,12 +7,12 @@ using System;
 namespace Microsoft.Graph.Models {
     public class VerticalSection : Entity, IParsable 
     {
-        /// <summary>The emphasis property</summary>
+        /// <summary>Enumeration value that indicates the emphasis of the section background. The possible values are: none, netural, soft, strong, unknownFutureValue.</summary>
         public SectionEmphasisType? Emphasis {
             get { return BackingStore?.Get<SectionEmphasisType?>("emphasis"); }
             set { BackingStore?.Set("emphasis", value); }
         }
-        /// <summary>The webparts property</summary>
+        /// <summary>The set of web parts in this section.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<WebPart>? Webparts {

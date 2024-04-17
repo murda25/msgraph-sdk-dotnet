@@ -60,7 +60,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Horiz
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get horizontalSections from sites
+        /// Collection of horizontal sections on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="HorizontalSection"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Horiz
             return requestInfo;
         }
         /// <summary>
-        /// Get horizontalSections from sites
+        /// Collection of horizontal sections on the SharePoint page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +184,7 @@ namespace Microsoft.Graph.Sites.Item.Pages.Item.GraphSitePage.CanvasLayout.Horiz
         {
         }
         /// <summary>
-        /// Get horizontalSections from sites
+        /// Collection of horizontal sections on the SharePoint page.
         /// </summary>
         public class HorizontalSectionItemRequestBuilderGetQueryParameters 
         {
